@@ -1,0 +1,174 @@
+---
+permalink: admin/configuring-client-connections.html 
+sidebar: sidebar 
+keywords: s3 connection, connect to storagegrid, s3 setup wizard 
+summary: 作为网格管理员、您可以管理一些配置选项、这些配置选项用于控制S3客户端应用程序如何连接到StorageGRID系统以存储和检索数据。 
+---
+= 配置S3客户端连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+作为网格管理员、您可以管理一些配置选项、这些配置选项用于控制S3客户端应用程序如何连接到StorageGRID系统以存储和检索数据。
+
+
+TIP: Swift详细信息已从此版本的文档站点中删除。请参阅。 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["StorageGRID 11.8:配置S3和Swift客户端连接"^]
+
+
+
+== 配置任务
+
+. 根据客户端应用程序连接到StorageGRID 的方式、在StorageGRID 中执行必备任务。
+
+
+[role="tabbed-block"]
+====
+.所需任务
+--
+您必须获得：
+
+* IP 地址
+* 域名
+* SSL 证书
+
+
+--
+.可选任务
+--
+(可选)配置：
+
+* 身份联合
+* SSO
+
+
+--
+====
+. 使用StorageGRID 获取应用程序连接到网格所需的值。您可以使用S3设置向导、也可以手动配置每个StorageGRID 实体。+
+
+
+[role="tabbed-block"]
+====
+.使用S3设置向导
+--
+按照S3设置向导中的步骤进行操作。
+
+--
+.手动配置
+--
+. 创建高可用性组
+. 创建负载平衡器端点
+. 创建租户帐户
+. 创建存储分段和访问密钥
+. 配置ILM规则和策略
+
+
+--
+====
+. 使用S3应用程序完成与StorageGRID 的连接。创建DNS条目以将IP地址与计划使用的任何域名关联起来。
++
+根据需要执行其他应用程序设置。
+
+. 在应用程序和StorageGRID 中执行持续任务、以管理和监控一段时间内的对象存储。
+
+
+
+
+== 将StorageGRID 连接到客户端应用程序所需的信息
+
+在将StorageGRID连接到S3客户端应用程序之前、您必须在StorageGRID中执行配置步骤并获取特定值。
+
+
+
+=== 我需要什么值？
+
+下表显示了您必须在StorageGRID中配置的值、以及S3应用程序和DNS服务器使用这些值的位置。
+
+[cols="1a,1a,1a"]
+|===
+| 价值 | 其中、值已配置 | 使用值的位置 
+
+
+ a| 
+虚拟IP (VIP)地址
+ a| 
+StorageGRID > HA组
+ a| 
+DNS条目
+
+
+
+ a| 
+端口
+ a| 
+StorageGRID >负载平衡器端点
+ a| 
+客户端应用程序
+
+
+
+ a| 
+SSL 证书
+ a| 
+StorageGRID >负载平衡器端点
+ a| 
+客户端应用程序
+
+
+
+ a| 
+服务器名称(FQDN)
+ a| 
+StorageGRID >负载平衡器端点
+ a| 
+* 客户端应用程序
+* DNS条目
+
+
+
+
+ a| 
+S3访问密钥ID和机密访问密钥
+ a| 
+StorageGRID >租户和存储分段
+ a| 
+客户端应用程序
+
+
+
+ a| 
+存储分段/容器名称
+ a| 
+StorageGRID >租户和存储分段
+ a| 
+客户端应用程序
+
+|===
+
+
+=== 如何获取这些值？
+
+根据您的要求、您可以执行以下任一操作来获取所需信息：
+
+* *使用*link:use-s3-setup-wizard.html["S3设置向导"]。S3设置向导可帮助您在StorageGRID 中快速配置所需的值、并输出一个或两个文件、您可以在配置S3应用程序时使用这些文件。此向导将指导您完成所需的步骤、并帮助您确保设置符合StorageGRID 最佳实践。
++
+
+NOTE: 如果要配置S3应用程序、建议使用S3设置向导、除非您知道自己有特殊要求、否则实施需要大量自定义。
+
+* *使用*link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool 设置向导"]。与S3设置向导类似、FabricPool 设置向导可帮助您快速配置所需值并输出一个文件、您可以在ONTAP 中配置FabricPool 云层时使用该文件。
++
+
+NOTE: 如果您计划使用StorageGRID 作为FabricPool 云层的对象存储系统、建议使用FabricPool 设置向导、除非您知道自己有特殊要求或实施需要大量自定义。
+
+* *手动配置项目*。如果您要连接到S3应用程序而不想使用S3设置向导、则可以通过手动执行配置来获取所需的值。请按照以下步骤操作：
++
+.. 配置要用于S3应用程序的高可用性(HA)组。请参阅。 link:configure-high-availability-group.html["配置高可用性组"]
+.. 创建S3应用程序要使用的负载平衡器端点。请参阅。 link:configuring-load-balancer-endpoints.html["配置负载平衡器端点"]
+.. 创建S3应用程序要使用的租户帐户。请参阅。 link:creating-tenant-account.html["创建租户帐户"]
+.. 对于S3租户、请登录到租户帐户、并为要访问该应用程序的每个用户生成访问密钥ID和机密访问密钥。请参阅。 link:../tenant/creating-your-own-s3-access-keys.html["创建您自己的访问密钥"]
+.. 在租户帐户中创建一个或多个S3存储分段。对于S3，请参见link:../tenant/creating-s3-bucket.html["创建 S3 存储分段"]。
+.. 要为属于新租户或存储分段/容器的对象添加特定放置说明、请创建新的ILM规则并激活新的ILM策略以使用该规则。请参阅link:../ilm/access-create-ilm-rule-wizard.html["创建 ILM 规则"]和link:../ilm/creating-ilm-policy.html["创建 ILM 策略"]。
+
+
+

@@ -1,0 +1,46 @@
+---
+permalink: audit/ilm-audit-messages.html 
+sidebar: sidebar 
+keywords: audit messages, ILM, IDEL, LKCU, ORLM 
+summary: 属于ILM审核类别的审核消息用于与信息生命周期操作相关的事件。 
+---
+= ILM审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+属于ILM审核类别的审核消息用于与信息生命周期管理(ILM)操作相关的事件。
+
+[cols="1a,3a,1a"]
+|===
+| 代码 | 消息标题和问题描述 | 请参见 
+
+
+ a| 
+标识
+ a| 
+ILM Initiated Delete ：当 ILM 开始删除对象的过程时，会生成此审核消息。
+ a| 
+link:idel-ilm-initiated-delete.html["idel ： ILM 已启动删除"]
+
+
+
+ a| 
+LKCU
+ a| 
+已覆盖对象清理。自动删除已覆盖的对象以释放存储空间时会生成此审核消息。
+ a| 
+link:lkcu-overwritten-object-cleanup.html["LKCU ：覆盖对象清理"]
+
+
+
+ a| 
+ORLM
+ a| 
+满足对象规则：在按照ILM规则指定的方式存储对象数据时、将生成此审核消息。
+ a| 
+link:orlm-object-rules-met.html["ORLM ：符合对象规则"]
+
+|===

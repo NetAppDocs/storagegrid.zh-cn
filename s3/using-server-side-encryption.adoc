@@ -1,0 +1,113 @@
+---
+permalink: s3/using-server-side-encryption.html 
+sidebar: sidebar 
+keywords: server side encryption, encryption, operations on objects, objects 
+summary: 服务器端加密可用于保护空闲对象数据。StorageGRID 会在写入对象时对数据进行加密，并在您访问对象时对数据进行解密。 
+---
+= 使用服务器端加密
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+服务器端加密可用于保护空闲对象数据。StorageGRID 会在写入对象时对数据进行加密，并在您访问对象时对数据进行解密。
+
+如果要使用服务器端加密，可以根据加密密钥的管理方式从两个互斥选项中选择任一选项：
+
+* *SSE （使用 StorageGRID 管理的密钥进行服务器端加密） * ：在问题描述 S3 请求以存储对象时， StorageGRID 会使用唯一密钥对对象进行加密。在问题描述 S3 请求以检索对象时， StorageGRID 会使用存储的密钥对对象进行解密。
+* * SSI-C （使用客户提供的密钥进行服务器端加密） * ：在问题描述 S3 请求以存储对象时，您可以提供自己的加密密钥。检索对象时，您可以在请求中提供相同的加密密钥。如果这两个加密密钥匹配，则会对对象进行解密，并返回您的对象数据。
++
+虽然 StorageGRID 负责管理所有对象加密和解密操作，但您必须管理提供的加密密钥。
+
++
+
+CAUTION: 您提供的加密密钥永远不会存储。如果丢失加密密钥，则会丢失相应的对象。
+
++
+
+NOTE: 如果使用 SSE 或 SSI-C 对对象进行加密，则会忽略任何分段级别或网格级别的加密设置。
+
+
+
+
+
+== 使用 SS
+
+要使用 StorageGRID 管理的唯一密钥对对象进行加密，请使用以下请求标头：
+
+`x-amz-server-side-encryption`
+
+以下对象操作支持此命令头：
+
+* link:put-object.html["PutObject"]
+* link:put-object-copy.html["CopyObject"]
+* link:initiate-multipart-upload.html["CreateMultipartUpload"]
+
+
+
+
+== 使用 SSI-C
+
+要使用您管理的唯一密钥对对象进行加密，请使用三个请求标头：
+
+[cols="1a,2a"]
+|===
+| 请求标题 | 说明 
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-algorithm`
+ a| 
+指定加密算法。标题值必须为 `AES256`。
+
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-key`
+ a| 
+指定用于对对象进行加密或解密的加密密钥。密钥的值必须为 256 位 base64 编码。
+
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-key-MD5`
+ a| 
+根据 RFC 1321 指定加密密钥的 MD5 摘要，用于确保加密密钥的传输没有错误。MD5 摘要的值必须为 base64 编码的 128 位。
+
+|===
+以下对象操作支持 SSI-C 请求标头：
+
+* link:get-object.html["GetObject"]
+* link:head-object.html["HeadObject"]
+* link:put-object.html["PutObject"]
+* link:put-object-copy.html["CopyObject"]
+* link:initiate-multipart-upload.html["CreateMultipartUpload"]
+* link:upload-part.html["上传部件"]
+* link:upload-part-copy.html["上传PartCopy"]
+
+
+
+
+== 将服务器端加密与客户提供的密钥（ SSI-C ）结合使用的注意事项
+
+在使用 SSI-C 之前，请注意以下注意事项：
+
+* 必须使用 https 。
++
+
+CAUTION: 使用SSE-C时、StorageGRID会拒绝通过http发出的任何请求。出于安全考虑、您应考虑损坏使用http意外发送的任何密钥。丢弃该密钥，并根据需要旋转。
+
+* 响应中的 ETag 不是对象数据的 MD5 。
+* 您必须管理加密密钥到对象的映射。StorageGRID 不存储加密密钥。您负责跟踪为每个对象提供的加密密钥。
+* 如果您的存储分段已启用版本控制，则每个对象版本都应具有自己的加密密钥。您负责跟踪每个对象版本使用的加密密钥。
+* 由于您在客户端上管理加密密钥，因此您还必须在客户端上管理任何其他保护措施，例如密钥轮换。
++
+
+CAUTION: 您提供的加密密钥永远不会存储。如果丢失加密密钥，则会丢失相应的对象。
+
+* 如果为存储分段配置了跨网格复制或CloudMirror复制、则无法加载SSE-C对象。载入操作将失败。
+
+
+.相关信息
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html["Amazon S3用户指南：使用客户提供的密钥进行服务器端加密(SSE-C)"^]

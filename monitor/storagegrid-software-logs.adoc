@@ -1,0 +1,416 @@
+---
+permalink: monitor/storagegrid-software-logs.html 
+sidebar: sidebar 
+keywords: logs 
+summary: 您可以使用 StorageGRID 日志对问题进行故障排除。 
+---
+= StorageGRID 软件日志
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 StorageGRID 日志对问题进行故障排除。
+
+
+NOTE: 如果要将日志发送到外部系统日志服务器或更改审核信息的目标(如 `bycast.log`和) `nms.log`，请参见link:../monitor/configure-audit-messages.html#["配置审核消息和日志目标"]。
+
+
+
+== 常规 StorageGRID 日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/bycast.log  a| 
+主 StorageGRID 故障排除文件。选择 * 支持 * > * 工具 * > * 网格拓扑 * 。然后选择 * 站点 _* > * 节点 _* > * SSM* > * 事件 * 。
+ a| 
+所有节点
+
+
+
+| /var/local/log/bycast-err.log  a| 
+包含的子集 `bycast.log`(严重性为错误和严重的消息)。系统中也会显示严重消息。选择 * 支持 * > * 工具 * > * 网格拓扑 * 。然后选择 * 站点 _* > * 节点 _* > * SSM* > * 事件 * 。
+ a| 
+所有节点
+
+
+
+| /var/local/core/  a| 
+包含在程序异常终止时创建的任何核心转储文件。可能的原因包括断言失败，违规或线程超时。
+
+*注意*：文件 ``/var/local/core/kexec_cmd`通常位于设备节点上，并不表示出现错误。
+ a| 
+所有节点
+
+|===
+
+
+== 与密码相关的日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/ssh-config-generation.log  a| 
+包含与生成SSH配置和重新加载SSH服务相关的日志。
+ a| 
+所有节点
+
+
+
+| /var/local/log/ginx/config-generation.log  a| 
+包含与生成Nginx配置和重新加载Nginx服务相关的日志。
+ a| 
+所有节点
+
+
+
+| /var/local/log/Ngins-gw/ config-generation.log  a| 
+包含与生成Ngins-GW配置(以及重新加载Ngins-GW服务)相关的日志。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/update-cipher-configurations.log  a| 
+包含与配置TLS和SSH策略相关的日志。
+ a| 
+所有节点
+
+|===
+
+
+== 网格联合日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/update_grid_federation_config.log  a| 
+包含与为网格联盟连接生成Nginx和Ngins-GW配置相关的日志。
+ a| 
+所有节点
+
+|===
+
+
+== NMS 日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/nms.log  a| 
+* 从网格管理器和租户管理器捕获通知。
+* 捕获与NMS服务操作相关的事件。例如、电子邮件通知和配置更改。
+* 包含因系统中的配置更改而导致的 XML 包更新。
+* 包含与每天执行一次的属性缩减采样相关的错误消息。
+* 包含 Java Web 服务器错误消息，例如页面生成错误和 HTTP 状态 500 错误。
+
+ a| 
+管理节点
+
+
+
+| /var/local/log/nms.errlog  a| 
+包含与 MySQL 数据库升级相关的错误消息。
+
+包含相应服务的标准错误（ stderr ）流。每个服务有一个日志文件。除非服务出现问题，否则这些文件通常为空。
+ a| 
+管理节点
+
+
+
+| /var/local/log/nms.requestlog  a| 
+包含有关从管理 API 到内部 StorageGRID 服务的传出连接的信息。
+ a| 
+管理节点
+
+|===
+
+
+== Server Manager 日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/servermanager.log  a| 
+服务器上运行的 Server Manager 应用程序的日志文件。
+ a| 
+所有节点
+
+
+
+| /var/local/log/GridstatBackend.errlog  a| 
+Server Manager GUI 后端应用程序的日志文件。
+ a| 
+所有节点
+
+
+
+| /var/local/log/gridstat.errlog  a| 
+Server Manager 图形用户界面的日志文件。
+ a| 
+所有节点
+
+|===
+
+
+== StorageGRID 服务日志
+
+[cols="3a,3a,2a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/acct.errlog  a| 
+ a| 
+运行此 ADC 服务的存储节点
+
+
+
+| /var/local/log/adc.errlog  a| 
+包含相应服务的标准错误（ stderr ）流。每个服务有一个日志文件。除非服务出现问题，否则这些文件通常为空。
+ a| 
+运行此 ADC 服务的存储节点
+
+
+
+| /var/local/log/ams.errlog  a| 
+ a| 
+管理节点
+
+
+
+| /var/local/log/Cassanda/system.log  a| 
+元数据存储（ Cassandra 数据库）的信息，如果添加新存储节点时出现问题或节点池修复任务停止，则可以使用这些信息。
+ a| 
+存储节点
+
+
+
+| /var/local/log/cassandra-reaper.log  a| 
+Cassandra Reaper 服务的信息，用于修复 Cassandra 数据库中的数据。
+ a| 
+存储节点
+
+
+
+| /var/local/log/cassandra-reaper.errlog  a| 
+Cassandra Reaper 服务的错误信息。
+ a| 
+存储节点
+
+
+
+| /var/local/log/chunk．errlog  a| 
+ a| 
+存储节点
+
+
+
+| /var/local/log/CMN.errlog  a| 
+ a| 
+管理节点
+
+
+
+| /var/local/log/cms．errlog  a| 
+此日志文件可能存在于已从旧版 StorageGRID 升级的系统上。它包含旧信息。
+ a| 
+存储节点
+
+
+
+| /var/local/log/ds.errlog  a| 
+ a| 
+存储节点
+
+
+
+| /var/local/log/dmv.errlog  a| 
+ a| 
+存储节点
+
+
+
+| /var/local/log/dynip*  a| 
+包含与 dynip 服务相关的日志，该日志可监控网格中的动态 IP 更改并更新本地配置。
+ a| 
+所有节点
+
+
+
+| /var/local/log/grafana.log  a| 
+与 Grafana 服务关联的日志，用于在网格管理器中显示指标。
+ a| 
+管理节点
+
+
+
+| /var/local/log/hagroups.log  a| 
+与高可用性组关联的日志。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/hagroups_events.log  a| 
+跟踪状态更改，例如从备份过渡到主节点或故障。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/idnt.errlog  a| 
+ a| 
+运行此 ADC 服务的存储节点
+
+
+
+| /var/local/log/jaeger.log  a| 
+与 jaeger 服务关联的日志，用于收集跟踪。
+ a| 
+所有节点
+
+
+
+| /var/local/log/kstn.errlog  a| 
+ a| 
+运行此 ADC 服务的存储节点
+
+
+
+| /var/local/log/兰 百德*  a| 
+包含 S3 Select 服务的日志。
+ a| 
+管理节点和网关节点
+
+只有某些管理节点和网关节点才包含此日志。请参见link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Select 管理节点和网关节点的要求和限制"]。
+
+
+
+| /var/local/log/ldr.errlog  a| 
+ a| 
+存储节点
+
+
+
+| /var/local/log/m3cd /*。log  a| 
+包含 MISCd 服务（信息服务控制守护进程）的日志，此服务提供一个界面，用于查询和管理其他节点上的服务以及管理节点上的环境配置，例如查询其他节点上运行的服务的状态。
+ a| 
+所有节点
+
+
+
+| /var/local/log/ginx/*.log  a| 
+包含 nginx 服务的日志，此服务可充当各种网格服务（例如 Prometheus 和动态 IP ）的身份验证和安全通信机制，以便能够通过 HTTPS API 与其他节点上的服务进行通信。
+ a| 
+所有节点
+
+
+
+| /var/local/log/Ngins-gw/*.log  a| 
+包含与Ngins-GW服务相关的常规日志、包括错误日志以及管理节点上受限管理端口的日志。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/Ngins-gw/ cgr-access.log.gz  a| 
+包含与跨网格复制流量相关的访问日志。
+ a| 
+管理节点、网关节点或两者、具体取决于网格联合配置。仅在用于跨网格复制的目标网格上找到。
+
+
+
+| /var/local/log/Ngins-gw/ endpoint-access.log.gz  a| 
+包含负载平衡器服务的访问日志、该服务可为从客户端到存储节点的S3流量提供负载平衡。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/perency*  a| 
+包含永久性服务的日志，该服务用于管理根磁盘上需要在重新启动后持续存在的文件。
+ a| 
+所有节点
+
+
+
+| /var/local/log/prometheus.log  a| 
+对于所有节点，包含节点导出程序服务日志和 ade-exporter指标 服务日志。
+
+对于管理节点，还包含 Prometheus 和警报管理器服务的日志。
+ a| 
+所有节点
+
+
+
+| /var/local/log/raft.log  a| 
+包含用于 raft 协议的 RSM 服务所使用的库的输出。
+ a| 
+具有 RSM 服务的存储节点
+
+
+
+| /var/local/log/rms.errlog  a| 
+包含用于 S3 平台服务的复制状态机服务（ RSM ）服务的日志。
+ a| 
+具有 RSM 服务的存储节点
+
+
+
+| /var/local/log/ssm.errlog  a| 
+ a| 
+所有节点
+
+
+
+| /var/local/log/update-s3vs-domains.log  a| 
+包含与处理 S3 虚拟托管域名配置的更新相关的日志。请参见实施 S3 客户端应用程序的说明。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/update-SNMP-Firewall.*  a| 
+包含与为 SNMP 管理的防火墙端口相关的日志。
+ a| 
+所有节点
+
+
+
+| /var/local/log/update-sysl.log  a| 
+包含与对系统系统系统日志配置所做更改相关的日志。
+ a| 
+所有节点
+
+
+
+| /var/local/log/update-traffic-classes.log  a| 
+包含与流量分类器配置更改相关的日志。
+ a| 
+管理节点和网关节点
+
+
+
+| /var/local/log/update-utcn.log  a| 
+包含与此节点上的不可信客户端网络模式相关的日志。
+ a| 
+所有节点
+
+|===
+.相关信息
+* link:about-bycast-log.html["关于 bycast.log"]
+* link:../s3/index.html["使用S3 REST API"]
+

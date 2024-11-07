@@ -1,0 +1,176 @@
+---
+permalink: s3/create-s3-lifecycle-configuration.html 
+sidebar: sidebar 
+keywords: s3 lifecycle, object deletion, bucket 
+summary: 您可以创建 S3 生命周期配置，以控制何时从 StorageGRID 系统中删除特定对象。 
+---
+= 创建 S3 生命周期配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以创建 S3 生命周期配置，以控制何时从 StorageGRID 系统中删除特定对象。
+
+本节中的简单示例说明了 S3 生命周期配置如何控制从特定 S3 存储分段中删除（过期）某些对象的时间。本节中的示例仅供说明。有关创建S3生命周期配置的完整详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["《Amazon Simple Storage Service用户指南：对象生命周期管理》"^]。请注意， StorageGRID 仅支持到期操作，不支持过渡操作。
+
+
+
+== 什么是生命周期配置
+
+生命周期配置是一组应用于特定 S3 分段中的对象的规则。每个规则都指定受影响的对象以及这些对象的到期时间（在特定日期或一定天数后）。
+
+StorageGRID 在一个生命周期配置中最多支持 1 ， 000 条生命周期规则。每个规则可以包含以下 XML 元素：
+
+* 到期日期：从对象载入开始，在达到指定日期或达到指定天数时删除对象。
+* NoncurrentVersionExpiration ：从对象变为非最新状态开始，在达到指定天数时删除对象。
+* 筛选器（前缀，标记）
+* 状态
+* ID
+
+
+每个对象都遵循S3存储分段生命周期或ILM策略的保留设置。配置S3存储分段生命周期后、对于与存储分段生命周期筛选器匹配的对象、生命周期到期操作将覆盖ILM策略。与存储分段生命周期筛选器不匹配的对象将使用ILM策略的保留设置。如果某个对象与存储分段生命周期筛选器匹配、并且未明确指定到期操作、则不会使用ILM策略的保留设置、这意味着对象版本将永久保留。请参阅。 link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html["S3存储分段生命周期和ILM策略的优先级示例"]
+
+因此，即使 ILM 规则中的放置说明仍适用于某个对象，该对象也可能会从网格中删除。或者，即使对象的任何 ILM 放置指令已失效，该对象也可能会保留在网格中。有关详细信息，请参见 link:../ilm/how-ilm-operates-throughout-objects-life.html["ILM 如何在对象的整个生命周期内运行"]。
+
+
+NOTE: 存储分段生命周期配置可用于启用了 S3 对象锁定的存储分段，但旧版合规存储分段不支持存储分段生命周期配置。
+
+StorageGRID 支持使用以下存储分段操作来管理生命周期配置：
+
+* DeleteBucketLifecycle
+* GetBucketLifecycleConfiguration
+* PutBucketLifecycleConfiguration
+
+
+
+
+== 创建生命周期配置
+
+作为创建生命周期配置的第一步，您需要创建一个包含一个或多个规则的 JSON 文件。例如，此 JSON 文件包含三个规则，如下所示：
+
+. 规则1仅适用于与前缀/匹配且 `key2`值为 `tag2`的对象 `category1`。 `Expiration`参数用于指定与筛选器匹配的对象将在2020年8月22日午夜过期。
+. 规则2仅适用于与前缀/匹配的对象 `category2`。 `Expiration`参数用于指定与筛选器匹配的对象将在其被加热100天后过期。
++
+
+CAUTION: 指定天数的规则与对象的载入时间相关。如果当前日期超过载入日期加上天数，则在应用生命周期配置后，可能会立即从存储分段中删除某些对象。
+
+. 规则3仅适用于与前缀/匹配的对象 `category3`。 `Expiration`参数用于指定任何非最新版本的匹配对象将在变为非最新状态50天后过期。
+
+
+[listing]
+----
+{
+	"Rules": [
+        {
+		    "ID": "rule1",
+			"Filter": {
+                "And": {
+                    "Prefix": "category1/",
+                    "Tags": [
+                        {
+                            "Key": "key2",
+							"Value": "tag2"
+                        }
+                    ]
+                }
+            },
+			"Expiration": {
+                "Date": "2020-08-22T00:00:00Z"
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule2",
+			"Filter": {
+                "Prefix": "category2/"
+            },
+			"Expiration": {
+                "Days": 100
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule3",
+			"Filter": {
+                "Prefix": "category3/"
+            },
+			"NoncurrentVersionExpiration": {
+                "NoncurrentDays": 50
+            },
+            "Status": "Enabled"
+        }
+    ]
+}
+----
+
+
+== 将生命周期配置应用于存储分段
+
+创建生命周期配置文件后、您可以通过发出PutBucketLifecycleConfiguration请求将其应用于存储分段。
+
+此请求将示例文件中的生命周期配置应用于名为的分段中的对象 `testbucket`。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> put-bucket-lifecycle-configuration
+--bucket testbucket --lifecycle-configuration file://bktjson.json
+----
+要验证生命周期配置是否已成功应用于存储分段、请发送问题描述a GetBucketLifecycleConfiguration请求。例如：
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configuration
+ --bucket testbucket
+----
+成功的响应将列出您刚刚应用的生命周期配置。
+
+
+
+== 验证存储分段生命周期到期适用场景 对象
+
+在发出PutObject、HeadObject或GetObject请求时、您可以确定生命周期配置适用场景中的到期规则是否为特定对象。如果规则适用、则响应会包含一个 `Expiration`参数、用于指示对象何时到期以及匹配了哪个到期规则。
+
+
+NOTE: 由于存储分段生命周期会覆盖ILM、因此 `expiry-date`显示的是要删除对象的实际日期。有关详细信息，请参见 link:../ilm/how-object-retention-is-determined.html["如何确定对象保留"]。
+
+例如、此PutObject请求是在2020年6月22日发出的、并将对象放置在存储分段中 `testbucket`。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> put-object
+--bucket testbucket --key obj2test2 --body bktjson.json
+----
+成功响应表示此对象将在 100 天后（ 2020 年 10 月 1 日）过期，并且与生命周期配置的规则 2 匹配。
+
+[listing, subs="specialcharacters,quotes"]
+----
+{
+      *"Expiration": "expiry-date=\"Thu, 01 Oct 2020 09:07:49 GMT\", rule-id=\"rule2\"",
+      "ETag": "\"9762f8a803bc34f5340579d4446076f7\""
+}
+----
+例如、此HeadObject请求用于获取testb分 段中同一对象的元数据。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> head-object
+--bucket testbucket --key obj2test2
+----
+成功响应包括对象的元数据，并指示对象将在 100 天后过期，并且与规则 2 匹配。
+
+[listing, subs="specialcharacters,quotes"]
+----
+{
+      "AcceptRanges": "bytes",
+      *"Expiration": "expiry-date=\"Thu, 01 Oct 2020 09:07:48 GMT\", rule-id=\"rule2\"",
+      "LastModified": "2020-06-23T09:07:48+00:00",
+      "ContentLength": 921,
+      "ETag": "\"9762f8a803bc34f5340579d4446076f7\""
+      "ContentType": "binary/octet-stream",
+      "Metadata": {}
+}
+----
+
+NOTE: 对于启用了版本控制的分段、 `x-amz-expiration`响应标头仅适用于当前版本的对象。

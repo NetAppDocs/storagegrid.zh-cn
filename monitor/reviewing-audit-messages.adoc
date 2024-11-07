@@ -1,0 +1,36 @@
+---
+permalink: monitor/reviewing-audit-messages.html 
+sidebar: sidebar 
+keywords: how to review audit messages, how to view audit messages 
+summary: 审核消息可帮助您更好地了解 StorageGRID 系统的详细操作。您可以使用审核日志对问题进行故障排除并评估性能。 
+---
+= 查看审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+审核消息可帮助您更好地了解 StorageGRID 系统的详细操作。您可以使用审核日志对问题进行故障排除并评估性能。
+
+在系统正常运行期间，所有 StorageGRID 服务都会生成审核消息，如下所示：
+
+* 系统审核消息与审核系统本身，网格节点状态，系统范围的任务活动和服务备份操作相关。
+* 对象存储审核消息与 StorageGRID 中对象的存储和管理相关，包括对象存储和检索，网格节点到网格节点的传输以及验证。
+* 当S3客户端应用程序请求创建、修改或检索对象时、系统会记录客户端读写审核消息。
+* 管理审核消息会将用户请求记录到管理 API 。
+
+
+每个管理节点都会将审核消息存储在文本文件中。审核共享包含活动文件（ audit.log ）以及前几天压缩的审核日志。网格中的每个节点还会存储在该节点上生成的审核信息的副本。
+
+您可以直接从管理节点的命令行访问审核日志文件。
+
+默认情况下、StorageGRID可以发送审核信息、也可以更改目标：
+
+* StorageGRID默认为本地节点审核目标。
+* 可能会将网格管理器和租户管理器审核日志条目发送到存储节点。
+* 您也可以更改审核日志的目标并将审核信息发送到外部系统日志服务器。配置外部系统日志服务器后，仍会生成并存储审核记录的本地日志。
+* link:../monitor/configure-audit-messages.html["了解如何配置审核消息和日志目标"](英文)
+
+
+有关审核日志文件、审核消息格式、审核消息类型以及可用于分析审核消息的工具的详细信息，请参见link:../audit/index.html["查看审核日志"]。

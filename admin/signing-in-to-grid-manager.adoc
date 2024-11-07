@@ -1,0 +1,140 @@
+---
+permalink: admin/signing-in-to-grid-manager.html 
+sidebar: sidebar 
+keywords: grid manager, sign in, log in 
+summary: 您可以通过在支持的 Web 浏览器的地址栏中输入管理节点的完全限定域名 \ （ FQDN\ ）或 IP 地址来访问网格管理器登录页面。 
+---
+= 登录到网格管理器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过在支持的 Web 浏览器的地址栏中输入管理节点的完全限定域名（ FQDN ）或 IP 地址来访问网格管理器登录页面。
+
+每个 StorageGRID 系统都包括一个主管理节点和任意数量的非主管理节点。您可以登录到任何管理节点上的网格管理器来管理 StorageGRID 系统。但是、某些维护过程只能从主管理节点执行。
+
+
+
+=== 连接到HA组
+
+如果管理节点包含在高可用性（ HA ）组中，则可以使用 HA 组的虚拟 IP 地址或映射到虚拟 IP 地址的完全限定域名进行连接。应选择主管理节点作为组的主接口，以便在访问网格管理器时，您可以在主管理节点上访问它，除非主管理节点不可用。请参阅。 link:managing-high-availability-groups.html["管理高可用性组"]
+
+
+
+=== 使用SSO
+
+如果使用link:configuring-sso.html["已配置单点登录(SSO)"]，则登录步骤略有不同。
+
+
+
+== 在第一个管理节点上登录到网格管理器
+
+.开始之前
+* 您已拥有登录凭据。
+* 您正在使用link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 已在 Web 浏览器中启用 Cookie 。
+* 您所属的用户组至少具有一个权限。
+* 您有网格管理器的URL：
++
+`https://_FQDN_or_Admin_Node_IP_/`
+
++
+您可以使用完全限定域名、管理节点的IP地址或管理节点HA组的虚拟IP地址。
+
++
+要通过非HTTPS默认端口(443)访问网格管理器、请在URL中包含端口号：
+
++
+`https://_FQDN_or_Admin_Node_IP:port_/`
+
++
+
+NOTE: SSO在受限的Grid Manager端口上不可用。必须使用端口 443 。
+
+
+
+.步骤
+. 启动受支持的 Web 浏览器。
+. 在浏览器的地址栏中、输入网格管理器的URL。
+. 如果系统提示您显示安全警报，请使用浏览器的安装向导安装证书。请参阅。 link:using-storagegrid-security-certificates.html["管理安全证书"]
+. 登录到网格管理器。
++
+显示的登录屏幕取决于是否已为StorageGRID 配置单点登录(Single Sign On、SSO)。
+
++
+[role="tabbed-block"]
+====
+.未使用SSO
+--
+.. 输入网格管理器的用户名和密码。
+.. 选择 * 登录 * 。
++
+image::../media/sign_in_grid_manager_no_sso.png[登录页面]
+
+
+
+--
+.使用SSO
+--
+** 如果StorageGRID 正在使用SSO、而这是您首次在此浏览器上访问此URL：
++
+... 选择 * 登录 * 。您可以在帐户字段中保留0。
++
+image::../media/sso_sign_in_first_time.png[如果启用了 SSO 且没有 cookie ，请登录屏幕]
+
+... 在组织的 SSO 登录页面上输入标准 SSO 凭据。例如：
++
+image::../media/sso_organization_page.gif[SSO 的示例组织登录页面]
+
+
+
+** 如果StorageGRID 正在使用SSO、并且您之前已访问网格管理器或租户帐户：
++
+... 输入*0*(网格管理器的帐户ID)或选择*Grid Manager*(如果它出现在最近帐户列表中)。
++
+image::../media/sign_in_grid_manager_sso.png[如果启用了 SSO ，请从近期帐户列表中选择 Grid Manager]
+
+... 选择 * 登录 * 。
+... 在您组织的 SSO 登录页面上使用您的标准 SSO 凭据登录。
+
+
+
+
+--
+====
+
+
+登录后、将显示网格管理器的主页、其中包括信息板。要了解所提供的信息，请参见link:../monitor/viewing-dashboard.html["查看和管理信息板"]。
+
+image::../media/grid_manager_dashboard.png[信息板]
+
+
+
+== 登录到其他管理节点
+
+按照以下步骤登录到其他管理节点。
+
+[role="tabbed-block"]
+====
+.未使用SSO
+--
+.步骤
+. 在浏览器的地址栏中，输入另一个管理节点的完全限定域名或 IP 地址。根据需要包括端口号。
+. 输入网格管理器的用户名和密码。
+. 选择 * 登录 * 。
+
+
+--
+.使用SSO
+--
+如果StorageGRID 正在使用SSO、并且您已登录到一个管理节点、则可以访问其他管理节点、而无需重新登录。
+
+.步骤
+. 在浏览器的地址栏中输入另一个管理节点的完全限定域名或IP地址。
+. 如果您的SSO会话已过期、请重新输入您的凭据。
+
+
+--
+====

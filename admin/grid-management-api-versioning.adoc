@@ -1,0 +1,101 @@
+---
+permalink: admin/grid-management-api-versioning.html 
+sidebar: sidebar 
+keywords: grid management api, api versioning 
+summary: 网格管理 API 使用版本控制来支持无中断升级。 
+---
+= 网格管理 API 版本控制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+网格管理 API 使用版本控制来支持无中断升级。
+
+例如、此请求URL指定API版本4。
+
+`https://_hostname_or_ip_address_/api/v4/authorize`
+
+如果所做的更改与旧版本不兼容、则API的主要版本会发生碰撞。如果对_are compender_与旧版本进行了更改、则API的次要版本会发生碰撞。兼容的更改包括添加新端点或新属性。
+
+以下示例说明了如何根据所做更改的类型对 API 版本进行递增。
+
+[cols="1a,1a,1a"]
+|===
+| API 的更改类型 | 旧版本 | 新版本 
+
+
+ a| 
+与旧版本兼容
+ a| 
+2.1
+ a| 
+2.2
+
+
+
+ a| 
+与旧版本不兼容
+ a| 
+2.1
+ a| 
+3.0
+
+
+
+ a| 
+3.0
+ a| 
+4.0
+
+|===
+首次安装StorageGRID软件时、仅会启用最新版本的API。但是，在升级到 StorageGRID 的新功能版本时，您仍可以访问至少一个 StorageGRID 功能版本的旧版 API 。
+
+
+NOTE: 您可以配置受支持的版本。有关详细信息，请参见Swagger API文档的*config*部分link:../admin/using-grid-management-api.html["网格管理 API"]。在更新所有API客户端以使用较新版本后、您应停用对较旧版本的支持。
+
+已过时的请求将通过以下方式标记为已弃用：
+
+* 响应标头为 "depression: true"
+* JSON 响应正文包含 "depressioned" ： true
+* NMS.log 中会添加一个已弃用的警告。例如：
++
+[listing]
+----
+Received call to deprecated v2 API at POST "/api/v2/authorize"
+----
+
+
+
+
+== 确定当前版本支持哪些 API 版本
+
+使用 `GET /versions`API请求返回受支持的API主要版本的列表。此请求位于Swagger API文档的*config*部分。
+
+[listing]
+----
+GET https://{{IP-Address}}/api/versions
+{
+  "responseTime": "2023-06-27T22:13:50.750Z",
+  "status": "success",
+  "apiVersion": "4.0",
+  "data": [
+    2,
+    3,
+    4
+  ]
+}
+----
+
+
+== 指定请求的 API 版本
+
+您可以使用路径参数(`/api/v4`()或标题(`Api-Version: 4`()指定API版本。如果同时提供这两个值，则标头值将覆盖路径值。
+
+[listing]
+----
+curl https://[IP-Address]/api/v4/grid/accounts
+
+curl -H "Api-Version: 4" https://[IP-Address]/api/grid/accounts
+----

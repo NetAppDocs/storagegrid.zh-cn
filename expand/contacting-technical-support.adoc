@@ -1,0 +1,60 @@
+---
+permalink: expand/contacting-technical-support.html 
+sidebar: sidebar 
+keywords: troubleshoot expansion, contact technical support 
+summary: 如果在网格扩展过程中遇到无法解决的错误、或者网格任务失败、请收集日志文件并联系技术支持。 
+---
+= 排除扩展故障
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在网格扩展过程中遇到无法解决的错误、或者网格任务失败、请收集日志文件并联系技术支持。
+
+在联系技术支持之前、请收集所需的日志文件以帮助进行故障排除。
+
+.步骤
+. 连接到发生故障的扩展节点：
++
+.. 输入以下命令：``ssh -p 8022 admin@_grid_node_IP_``
++
+
+NOTE: 端口 8022 是基础操作系统的 SSH 端口，而端口 22 是运行 StorageGRID 的容器引擎的 SSH 端口。
+
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+以root用户身份登录后，提示符将从更 `$`改为 `#`。
+
+. 根据安装达到的阶段，检索网格节点上提供的以下任何日志：
++
+[cols="1a,2a"]
+|===
+| 平台 | 日志 
+
+
+ a| 
+VMware
+ a| 
+** `/var/log/daemon.log`
+** `/var/log/storagegrid/daemon.log`
+** `/var/log/storagegrid/nodes/<node-name>.log`
+
+
+
+
+ a| 
+Linux
+ a| 
+** `/var/log/storagegrid/daemon.log`
+** `/etc/storagegrid/nodes/<node-name>.conf`(对于每个故障节点)
+** `/var/log/storagegrid/nodes/<node-name>.log`(对于每个故障节点；可能不存在)
+
+
+|===
+

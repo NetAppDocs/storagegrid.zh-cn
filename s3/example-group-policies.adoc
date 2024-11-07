@@ -1,0 +1,108 @@
+---
+permalink: s3/example-group-policies.html 
+sidebar: sidebar 
+keywords: group policy examples 
+summary: 使用本节中的示例为组构建StorageGRID 访问策略。 
+---
+= 组策略示例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用本节中的示例为组构建StorageGRID 访问策略。
+
+组策略用于指定附加此策略的组的访问权限。此策略中没有任何 `Principal`元素、因为它是隐式的。组策略可使用租户管理器或 API 进行配置。
+
+
+
+== 示例：使用租户管理器设置组策略
+
+在租户管理器中添加或编辑组时、您可以选择组策略来确定此组的成员将具有哪些S3访问权限。请参阅。 link:../tenant/creating-groups-for-s3-tenant.html["为 S3 租户创建组"]
+
+* * 无 S3 访问 * ：默认选项。此组中的用户无权访问S3资源、除非使用存储分段策略授予访问权限。如果选择此选项，则默认情况下，只有 root 用户才能访问 S3 资源。
+* * 只读访问 * ：此组中的用户对 S3 资源具有只读访问权限。例如，此组中的用户可以列出对象并读取对象数据，元数据和标记。选择此选项后，只读组策略的 JSON 字符串将显示在文本框中。您无法编辑此字符串。
+* * 完全访问 * ：此组中的用户对 S3 资源（包括分段）具有完全访问权限。选择此选项后，完全访问组策略的 JSON 字符串将显示在文本框中。您无法编辑此字符串。
+* *Ransmans要 缓解*：此示例策略适用场景 all b分 段for this租户。此组中的用户可以执行常见操作、但无法从启用了对象版本控制的分段中永久删除对象。
++
+具有"管理所有存储分段"权限的租户管理器用户可以覆盖此组策略。将"管理所有分段"权限限制为受信任用户、并在可用时使用多因素身份验证(Multi-FactorAuthentication、MFA)。
+
+* * 自定义 * ：组中的用户将获得您在文本框中指定的权限。
+
+
+
+
+== 示例：允许组完全访问所有存储分段
+
+在此示例中，除非 bucket 策略明确拒绝，否则允许组中的所有成员对租户帐户拥有的所有分段进行完全访问。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::*"
+    }
+  ]
+}
+----
+
+
+== 示例：允许组对所有分段进行只读访问
+
+在此示例中，组的所有成员都对 S3 资源具有只读访问权限，除非 bucket 策略明确拒绝。例如，此组中的用户可以列出对象并读取对象数据，元数据和标记。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Sid": "AllowGroupReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:ListBucketVersions",
+        "s3:GetObject",
+        "s3:GetObjectTagging",
+        "s3:GetObjectVersion",
+        "s3:GetObjectVersionTagging"
+      ],
+      "Resource": "arn:aws:s3:::*"
+    }
+  ]
+}
+----
+
+
+== 示例：仅允许组成员对存储分段中的"文件夹"具有完全访问权限
+
+在此示例中，组成员只能列出并访问指定存储分段中的特定文件夹（密钥前缀）。请注意，在确定其他组策略和存储分段策略的隐私时，应考虑这些文件夹的访问权限。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Sid": "AllowListBucketOfASpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::department-bucket",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "${aws:username}/*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowUserSpecificActionsOnlyInTheSpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:*Object",
+      "Resource": "arn:aws:s3:::department-bucket/${aws:username}/*"
+    }
+  ]
+}
+----

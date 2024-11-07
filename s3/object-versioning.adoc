@@ -1,0 +1,39 @@
+---
+permalink: s3/object-versioning.html 
+sidebar: sidebar 
+keywords: object version, object versioning 
+summary: 如果要保留对象的多个版本、可以设置分段的版本控制状态。为分段启用版本控制有助于防止意外删除对象、并可用于检索和还原对象的早期版本。 
+---
+= 对象版本控制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要保留每个对象的多个版本、可以设置分段的版本控制状态。为分段启用版本控制有助于防止意外删除对象、并可用于检索和还原对象的早期版本。
+
+StorageGRID 系统实施版本控制，并支持大多数功能，但存在一些限制。StorageGRID最多支持每个对象10、000个版本。
+
+对象版本控制可以与 StorageGRID 信息生命周期管理（ ILM ）或 S3 存储分段生命周期配置结合使用。您必须明确为每个存储分段启用版本控制。为分段启用版本控制后、添加到分段的每个对象都会分配一个版本ID、该ID由StorageGRID系统生成。
+
+不支持使用 MFA （多因素身份验证） Delete 。
+
+
+NOTE: 只能在使用 StorageGRID 10.3 或更高版本创建的存储分段上启用版本控制。
+
+
+
+== ILM 和版本控制
+
+ILM 策略将应用于对象的每个版本。ILM 扫描过程会持续扫描所有对象，并根据当前 ILM 策略重新评估这些对象。对 ILM 策略所做的任何更改都会应用于先前载入的所有对象。如果启用了版本控制，则包括先前载入的版本。ILM 扫描会将新的 ILM 更改应用于先前输入的对象。
+
+对于启用了版本控制的分段中的S3对象，版本控制支持允许您创建使用"非当前时间"作为参考时间的ILM规则(在中为问题“仅将此规则应用于旧对象版本？”选择*是*link:../ilm/create-ilm-rule-enter-details.html["创建ILM规则向导的第1步"])。对象更新后，其先前版本将变为非最新版本。通过使用"非当前时间"筛选器、您可以创建可减少先前版本对象对存储的影响的策略。
+
+
+NOTE: 使用多部分上传操作上传新版本的对象时，原始版本对象的非当前时间反映为新版本创建多部分上传的时间，而不是多部分上传完成的时间。在有限情况下，原始版本的非当前时间可能比当前版本的时间早数小时或数天。
+
+.相关信息
+* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]
+* link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 版本对象的 ILM 规则和策略（示例 4 ）"](英文)
+

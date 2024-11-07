@@ -1,0 +1,122 @@
+---
+permalink: fabricpool/use-fabricpool-setup-wizard.html 
+sidebar: sidebar 
+keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+summary: 您可以使用FabricPool 设置向导将StorageGRID 配置为FabricPool 云层的对象存储系统。完成设置向导后、您可以在ONTAP 系统管理器中输入所需的详细信息。 
+---
+= 使用FabricPool 设置向导：注意事项和要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用FabricPool 设置向导将StorageGRID 配置为FabricPool 云层的对象存储系统。完成设置向导后、您可以在ONTAP 系统管理器中输入所需的详细信息。
+
+
+
+== 何时使用FabricPool 设置向导
+
+FabricPool 设置向导将指导您完成配置StorageGRID 以用于FabricPool 的每个步骤、并自动为您配置某些实体、例如ILM和流量分类策略。完成此向导期间、您可以下载一个文件、用于在ONTAP 系统管理器中输入值。使用向导可以更快地配置系统、并确保您的设置符合StorageGRID 和FabricPool 最佳实践。
+
+如果您拥有root访问权限、则可以在开始使用StorageGRID 网格管理器时完成FabricPool 设置向导、也可以稍后访问并完成该向导。根据您的要求、您还可以手动配置部分或全部所需项、然后使用向导将ONTAP 所需的值汇编到一个文件中。
+
+
+TIP: 除非您知道自己有特殊要求、或者您的实施需要大量自定义、否则请使用FabricPool 设置向导。
+
+
+
+== 在使用向导之前
+
+确认您已完成这些前提条件步骤。
+
+
+
+=== 查看最佳实践
+
+* 您大致了解了link:information-needed-to-attach-storagegrid-as-cloud-tier.html["将StorageGRID 附加为云层所需的信息"]。
+* 您已经查看了以下方面的FabricPool 最佳实践：
++
+** link:best-practices-for-high-availability-groups.html["高可用性(HA)组"]
+** link:best-practices-for-load-balancing.html["负载平衡"]
+** link:best-practices-ilm.html["ILM规则和策略"]
+
+
+
+
+
+
+=== 获取IP地址并设置VLAN接口
+
+如果要配置HA组、您就会知道ONTAP 要连接到哪些节点以及要使用哪些StorageGRID 网络。您还知道要为子网CIDR、网关IP地址和虚拟IP (VIP)地址输入哪些值。
+
+如果您计划使用虚拟LAN隔离FabricPool 流量、则已配置VLAN接口。请参阅。 link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
+
+
+
+=== 配置身份联合和SSO
+
+如果您计划对StorageGRID 系统使用身份联合或单点登录(SSO)、则已启用这些功能。此外、您还了解哪个联盟组应该对ONTAP 要使用的租户帐户具有root访问权限。请参阅link:../admin/using-identity-federation.html["使用身份联合"]和link:../admin/configuring-sso.html["配置单点登录"]。
+
+
+
+=== 获取并配置域名
+
+* 您知道要用于StorageGRID 的完全限定域名(FQDN)。域名服务器(DNS)条目会将此FQDN映射到您使用向导创建的HA组的虚拟IP (VIP)地址。请参阅。 link:../fabricpool/configure-dns-server.html["配置 DNS 服务器"]
+* 如果您计划使用S3虚拟托管模式请求，则需要link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]。默认情况下、ONTAP 使用路径样式的URL、但建议使用虚拟托管样式的请求。
+
+
+
+
+=== 查看负载平衡器和安全证书要求
+
+如果您计划使用StorageGRID负载平衡器，则已查看常规link:../admin/managing-load-balancing.html["负载平衡注意事项"]。您拥有要上传的证书或生成证书所需的值。
+
+如果您计划使用外部(第三方)负载平衡器端点、则具有该负载平衡器的完全限定域名(FQDN)、端口和证书。
+
+
+
+=== 确认ILM存储池配置
+
+如果您最初安装的是StorageGRID 11.5或更早版本、则已配置要使用的存储池。通常、您应为要用于存储ONTAP 数据的每个StorageGRID 站点创建一个存储池。
+
+
+NOTE: 如果您最初安装的是StorageGRID 11.7或11.8.首次安装上述任一版本时、系统会自动为每个站点创建存储池。
+
+
+
+== ONTAP 与StorageGRID 云层之间的关系
+
+FabricPool 向导将指导您完成创建一个StorageGRID 云层的过程、此云层包含一个StorageGRID 租户、一组访问密钥和一个StorageGRID 存储分段。您可以将此StorageGRID 云层附加到一个或多个ONTAP 本地层。
+
+通常、最佳做法是将一个云层附加到集群中的多个本地层。但是、根据您的要求、您可能希望对单个集群中的本地层使用多个分段甚至多个StorageGRID 租户。通过使用不同的分段和租户、您可以在ONTAP 本地层之间隔离数据和数据访问、但配置和管理有点复杂。
+
+NetApp建议不要将一个云层附加到多个集群中的本地层。
+
+
+NOTE: 有关将StorageGRID与NetApp MetroCluster™和FabricPool镜像结合使用的最佳实践，请参见 https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598：《ONTAP 中的FabricPool 最佳实践》"^]。
+
+
+
+=== 可选：为每个本地层使用不同的分段
+
+要对ONTAP 集群中的本地层使用多个分段、请在ONTAP 中添加多个StorageGRID 云层。每个云层共享同一个HA组、负载平衡器端点、租户和访问密钥、但使用不同的容器(StorageGRID 存储分段)。请遵循以下常规步骤：
+
+. 在StorageGRID 网格管理器中、完成第一个云层的FabricPool 设置向导。
+. 在ONTAP 系统管理器中、添加云层并使用从StorageGRID 下载的文件来提供所需的值。
+. 从StorageGRID 租户管理器中、登录到由向导创建的租户、然后创建第二个分段。
+. 再次完成FabricPool 向导。选择现有HA组、负载平衡器端点和租户。然后、选择您手动创建的新存储分段。为新存储分段创建新的ILM规则、并激活ILM策略以包含该规则。
+. 在ONTAP 中、添加第二个云层、但提供新存储分段名称。
+
+
+
+
+=== 可选：为每个本地层使用不同的租户和存储分段
+
+要对ONTAP 集群中的本地层使用多个租户和不同的访问密钥集、请在ONTAP 中添加多个StorageGRID 云层。每个云层共享同一个HA组、负载平衡器端点、但使用不同的租户、访问密钥和容器(StorageGRID 存储分段)。请遵循以下常规步骤：
+
+. 在StorageGRID 网格管理器中、完成第一个云层的FabricPool 设置向导。
+. 在ONTAP 系统管理器中、添加云层并使用从StorageGRID 下载的文件来提供所需的值。
+. 再次完成FabricPool 向导。选择现有HA组和负载平衡器端点。创建新租户和存储分段。为新存储分段创建新的ILM规则、并激活ILM策略以包含该规则。
+. 在ONTAP 中、添加第二个云层、但提供新的访问密钥、机密密钥和存储分段名称。
+

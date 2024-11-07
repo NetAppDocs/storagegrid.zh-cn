@@ -1,0 +1,94 @@
+---
+permalink: tenant/grid-federation-clone-keys-with-api.html 
+sidebar: sidebar 
+keywords: s3 access key, secret key id, account clone, tenant manager api 
+summary: 如果租户帐户具有使用网格联合连接权限、则可以使用租户管理API手动将S3访问密钥从源网格上的租户克隆到目标网格上的租户。 
+---
+= 使用API克隆S3访问密钥
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的租户帐户具有*使用网格联合连接*权限、则可以使用租户管理API将S3访问密钥从源网格上的租户手动克隆到目标网格上的租户。
+
+.开始之前
+* 租户帐户具有*使用网格联合连接*权限。
+* 网格联合连接的*连接状态*为*已连接*。
+* 您已使用登录到租户源网格上的租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有的用户组link:tenant-management-permissions.html["管理您自己的S3凭据或root访问权限"]。
+* 如果要克隆本地用户的访问密钥、则该用户已位于两个网格上。
++
+
+NOTE: 克隆联盟用户的S3访问密钥时、用户和S3访问密钥都会添加到目标租户。
+
+
+
+
+
+== 克隆您自己的访问密钥
+
+如果需要访问两个网格上的相同分段、可以克隆自己的访问密钥。
+
+.步骤
+. 使用源网格上的租户管理器、link:creating-your-own-s3-access-keys.html["创建您自己的访问密钥"]然后下载 `.csv`文件。
+. 从租户管理器的顶部、选择帮助图标并选择* API文档*。
+. 在*S3*部分中，选择以下端点：
++
+`POST /org/users/current-user/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-current-user-replicate.png[发布端点以复制自己的访问密钥]
+
+. 选择 * 试用 * 。
+. 在*body文本框中，将*accessKey*和*sretAccessKey*的示例条目替换为您下载的*.csv文件中的值。
++
+请务必在每个字符串周围保留双引号。
+
++
+image::../media/grid-federation-clone-access-key.png[租户管理器API、输入用于克隆访问密钥的值]
+
+. 如果密钥将过期，请将*expires*的示例条目替换为ISO 8601数据时间格式的字符串(例如 `2024-02-28T22:46:33-08:00`)。如果密钥不会过期，请输入*null*作为*expires*条目的值(或删除*expires*行和前面的逗号)。
+. 选择 * 执行 * 。
+. 确认服务器响应代码为*204*，表示密钥已成功克隆到目标网格。
+
+
+
+
+== 克隆其他用户的访问密钥
+
+如果其他用户需要访问两个网格上的相同分段、则可以克隆其访问密钥。
+
+.步骤
+. 使用源网格上的租户管理器、link:creating-another-users-s3-access-keys.html["创建其他用户的S3访问密钥"]然后下载 `.csv`文件。
+. 从租户管理器的顶部、选择帮助图标并选择* API文档*。
+. 获取用户ID。您需要此值来克隆其他用户的访问密钥。
++
+.. 从*USERS*部分中，选择以下端点：
++
+`GET /org/users`
+
+.. 选择 * 试用 * 。
+.. 指定查找用户时要使用的任何参数。
+.. 选择 * 执行 * 。
+.. 找到要克隆其密钥的用户，然后在*id*字段中复制该数字。
+
+
+. 在*S3*部分中，选择以下端点：
++
+`POST /org/users/{userId}/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-other-user.png[发布用于复制其他用户访问密钥的端点]
+
+. 选择 * 试用 * 。
+. 在*userId*文本框中，粘贴您复制的用户ID。
+. 在*body文本框中，将*示例访问密钥*和*机密访问密钥*的示例条目替换为该用户的*.csv文件中的值。
++
+请务必在字符串周围保留双引号。
+
+. 如果密钥将过期，请将*expires*的示例条目替换为ISO 8601数据时间格式的字符串(例如 `2023-02-28T22:46:33-08:00`)。如果密钥不会过期，请输入*null*作为*expires*条目的值(或删除*expires*行和前面的逗号)。
+. 选择 * 执行 * 。
+. 确认服务器响应代码为*204*，表示密钥已成功克隆到目标网格。
+

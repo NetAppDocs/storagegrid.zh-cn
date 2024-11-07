@@ -1,0 +1,47 @@
+---
+permalink: maintain/replacing-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace storage node, replacing storage node 
+summary: 如果系统驱动器发生故障，您必须先更换存储节点。 
+---
+= 更换存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果系统驱动器发生故障，您必须先更换存储节点。
+
+您必须为您的平台选择节点替代操作步骤 。对于所有类型的网格节点，更换节点的步骤都相同。
+
+
+NOTE: 仅限此基于 操作步骤 适用场景 软件的存储节点。您必须按照与不同的过程进行link:recovering-storagegrid-appliance-storage-node.html["恢复设备存储节点"]操作。
+
+*Linux:*如果不确定系统驱动器是否出现故障，请按照说明更换节点以确定需要执行哪些恢复步骤。
+
+[cols="1a,2a"]
+|===
+| 平台 | 操作步骤 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["更换 VMware 节点"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["更换 Linux 节点"]
+
+
+
+ a| 
+OpenStack
+ a| 
+恢复操作不再支持 NetApp 为 OpenStack 提供的虚拟机磁盘文件和脚本。如果您需要恢复在 OpenStack 部署中运行的节点，请下载适用于 Linux 操作系统的文件。然后，按照的过程进行操作link:all-node-types-replacing-linux-node.html["更换Linux节点"]。
+
+|===

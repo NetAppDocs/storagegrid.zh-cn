@@ -1,0 +1,92 @@
+---
+permalink: s3/operations-for-multipart-uploads.html 
+sidebar: sidebar 
+keywords: operations, multipart uploads, uploads, rest API 
+summary: 本节介绍 StorageGRID 如何支持多部件上传操作。 
+---
+= 多部分上传操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本节介绍 StorageGRID 如何支持多部件上传操作。
+
+以下条件和注释适用于所有多部件上传操作：
+
+* 一个分段的并发多部分上传不应超过1、000次、因为ListMultipartUploADS查询结果可能返回不完整的结果。
+* StorageGRID 对多部件部件强制实施 AWS 大小限制。S3 客户端必须遵循以下准则：
++
+** 多部分上传中的每个部分必须介于 5 MiB （ 5 ， 242 ， 880 字节）和 5 GiB （ 5 ， 368 ， 709 ， 120 字节）之间。
+** 最后一部分可以小于 5 MiB （ 5 ， 242 ， 880 字节）。
+** 通常，部件大小应尽可能大。例如，对于 100 GiB 对象，请使用部件大小 5 GiB 。由于每个部件都被视为唯一的对象、因此使用较大的部件可降低StorageGRID 元数据开销。
+** 对于小于 5 GiB 的对象，请考虑使用非多部分上传。
+
+
+* 如果ILM规则使用link:../ilm/data-protection-options-for-ingest.html[""INGest"选项"]“平衡”或“严格”，则载入多部分对象时会针对该对象的每个部分以及多部分上传完成后对该对象作为一个整体进行ILM评估。您应了解这会对对象和部件放置产生何种影响：
++
+** 如果在进行S3多部分上传时ILM发生更改、则在多部分上传完成后、对象的某些部分可能无法满足当前ILM要求。未正确放置的任何部件将排队等待ILM重新评估、并在稍后移至正确位置。
+** 在评估某个部件的 ILM 时， StorageGRID 会筛选该部件的大小，而不是对象的大小。这意味着、对象的某些部分可以存储在不满足对象整体ILM要求的位置。例如、如果规则指定所有10 GB或更大的对象存储在DC1、而所有较小的对象存储在DC2、则载入时、10部分多部分上传的每个1 GB部分都存储在DC2。但是、在为对象整体评估ILM时、对象的所有部分都会移至DC1。
+
+
+* 所有多部分上传操作都支持StorageGRIDlink:consistency-controls.html["一致性值"]。
+* 使用多部分上传载入对象时、不会应用。link:../admin/what-object-segmentation-is.html["对象分段阈值(1 GiB)"]
+* 根据需要、您可以使用link:using-server-side-encryption.html["服务器端加密"]多部分上传。要使用SSE (带有StorageGRID管理的密钥的服务器端加密)、请仅在CreateMultipartUpload请求中包含 `x-amz-server-side-encryption`请求标头。要使用SSE-C (使用客户提供的密钥进行服务器端加密)、您可以在CreateMultipartUpload请求和后续每个UploadPart请求中指定相同的三个加密密钥请求标头。
+
+
+[cols="2a,3a"]
+|===
+| 操作 | 实施 
+
+
+ a| 
+AbortMultipartUpload
+ a| 
+在所有 Amazon S3 REST API 行为下实施。如有更改、恕不另行通知。
+
+
+
+ a| 
+CompleteMultipartUpload
+ a| 
+请参见 link:complete-multipart-upload.html["CompleteMultipartUpload"]
+
+
+
+ a| 
+CreateMultipartUpload
+
+(以前称为"启动多部分上传")
+ a| 
+请参见 link:initiate-multipart-upload.html["CreateMultipartUpload"]
+
+
+
+ a| 
+ListMultipartUploads
+ a| 
+请参见 link:list-multipart-uploads.html["ListMultipartUploads"]
+
+
+
+ a| 
+ListParts
+ a| 
+在所有 Amazon S3 REST API 行为下实施。如有更改、恕不另行通知。
+
+
+
+ a| 
+上传部件
+ a| 
+请参见 link:upload-part.html["上传部件"]
+
+
+
+ a| 
+上传PartCopy
+ a| 
+请参见 link:upload-part-copy.html["上传PartCopy"]
+
+|===

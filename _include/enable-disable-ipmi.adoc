@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: 您可以为包含BMC的所有设备启用或禁用远程IPMI访问。远程IPMI接口允许任何具有BMC帐户和密码的人对StorageGRID设备进行低级硬件访问。如果不需要对BMC进行远程IPMI访问，请使用以下方法之一禁用此选项：+在网格管理器中，转到*configuration*>*Security*>*Security settings *>*iAppliance *，然后清除*Enable remote IPMI access*复选框。+在网格管理API中，使用专用端点： `PUT /private/bmc`。

@@ -1,0 +1,24 @@
+---
+permalink: network/admin-network-topology.html 
+sidebar: sidebar 
+keywords: admin network topology, using admin network 
+summary: 可以选择使用管理网络。使用管理网络和网格网络的一种方法是，为每个节点配置可路由的网格网络和有限制的管理网络。 
+---
+= 管理网络拓扑
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+可以选择使用管理网络。使用管理网络和网格网络的一种方法是，为每个节点配置可路由的网格网络和有限制的管理网络。
+
+配置管理网络时，您需要为每个网格节点的 eth1 接口建立主机 IP 地址，子网掩码和网关 IP 地址。
+
+管理网络对于每个节点都是唯一的，并且可以包含多个子网。可以为每个节点配置一个管理外部子网列表（ Admin External Subnet List ， AESL ）。AESL 列出了每个节点可通过管理网络访问的子网。AESL 还必须包括网格通过管理网络访问的任何服务的子网，例如 NTP ， DNS ， KMS 和 LDAP 。AESL 中的每个子网都应用静态路由。
+
+在此示例中、网格网络用于与S3客户端请求和对象管理相关的流量。而管理网络用于管理功能。
+
+image::../media/grid_admin_networks.png[网格管理网络]
+
+image::../media/grid_admin_networks_ips.png[网格管理网络 IP]

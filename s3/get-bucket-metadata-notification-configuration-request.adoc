@@ -1,0 +1,182 @@
+---
+permalink: s3/get-bucket-metadata-notification-configuration-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET bucket metadata notification configuration 
+summary: 使用获取分段元数据通知配置请求，您可以检索用于为各个分段配置搜索集成的配置 XML 。 
+---
+= 获取存储分段元数据通知配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用获取分段元数据通知配置请求，您可以检索用于为各个分段配置搜索集成的配置 XML 。
+
+要完成此操作、您必须具有S3：GetBucketMetadataNotification权限或帐户root。
+
+
+
+== 请求示例
+
+此请求检索名为的存储分段的元数据通知配置 `bucket`。
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 响应
+
+响应正文包括存储分段的元数据通知配置。通过元数据通知配置，您可以确定如何配置存储分段以进行搜索集成。也就是说，您可以通过它确定哪些对象已编制索引，以及将其对象元数据发送到哪些端点。
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>rule-status</Status>
+        <Prefix>key-prefix</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:_region:account-ID_:domain/_mydomain/myindex/mytype_</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Rule-2</ID>
+         ...
+    </Rule>
+     ...
+</MetadataNotificationConfiguration>
+----
+每个元数据通知配置都包含一个或多个规则。每个规则都指定其适用场景 的对象以及 StorageGRID 应将对象元数据发送到的目标。必须使用 StorageGRID 端点的 URN 指定目标。
+
+[cols="1a,2a,1a"]
+|===
+| 名称 | 说明 | 必填 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+用于指定元数据通知的对象和目标的规则的容器标记。
+
+包含一个或多个规则元素。
+ a| 
+是
+
+
+
+ a| 
+规则
+ a| 
+用于标识应将其元数据添加到指定索引中的对象的规则的容器标记。
+
+拒绝前缀重叠的规则。
+
+包含在 MetadataNotificationConfiguration 元素中。
+ a| 
+是
+
+
+
+ a| 
+ID
+ a| 
+规则的唯一标识符。
+
+包含在 Rule 元素中。
+ a| 
+否
+
+
+
+ a| 
+状态
+ a| 
+状态可以是 " 已启用 " 或 " 已禁用 " 。不会对已禁用的规则执行任何操作。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+前缀
+ a| 
+与前缀匹配的对象受此规则的影响，其元数据将发送到指定目标。
+
+要匹配所有对象，请指定一个空前缀。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+目标
+ a| 
+规则目标的容器标记。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+URN
+ a| 
+发送对象元数据的目标的 urn 。必须是具有以下属性的 StorageGRID 端点的 URN ：
+
+* `es`必须是第三个元素。
+* URN必须以索引结尾，并以形式键入元数据的存储位置 `domain-name/myindex/mytype`。
+
+
+端点使用租户管理器或租户管理 API 进行配置。它们的形式如下：
+
+* `arn:aws:es:_region:account-ID_:domain/mydomain/myindex/mytype`
+* `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+必须在提交配置 XML 之前配置端点，否则配置将失败并显示 404 错误。
+
+urn 包含在目标元素中。
+ a| 
+是
+
+|===
+
+
+== 响应示例
+
+标记之间包含的XML `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>`显示了如何为存储分段配置与搜索集成端点的集成。在此示例中、对象元数据将发送到名为的Elan才 搜索索引并键入名为的 `2017`索引、该索引 `current`托管在名为的AWS域中 `records`。
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Thu, 20 Jul 2017 18:24:05 GMT
+Connection: KEEP-ALIVE
+Server: StorageGRID/11.0.0
+x-amz-request-id: 3832973499
+Content-Length: 264
+Content-Type: application/xml
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix>2017</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/records/current/2017</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+.相关信息
+link:../tenant/index.html["使用租户帐户"]

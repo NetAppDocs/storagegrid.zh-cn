@@ -1,0 +1,152 @@
+---
+permalink: s3/use-s3-select.html 
+sidebar: sidebar 
+keywords: use S3 Select, S3 Select 
+summary: StorageGRID支持SelectObjectContent命令的以下Amazon S3 Select子句、数据类型、运算符和保留关键字。 
+---
+= 使用 S3 Select
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID支持的以下Amazon S3 Select子句、数据类型和运算符link:select-object-content.html["SelectObjectContent 命令"]。
+
+
+NOTE: 不支持未列出的任何项目。
+
+有关语法，请参见link:select-object-content.html["SelectObjectContent"]。有关S3 Select的详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html["适用于 S3 Select 的 AWS 文档"^]。
+
+只有启用了 S3 Select 的租户帐户才能进行问题描述 SelectObjectContent 查询。请参见link:../admin/manage-s3-select-for-tenant-accounts.html["使用 S3 Select 的注意事项和要求"]。
+
+
+
+== 条款
+
+* 选择列表
+* from 子句
+* Where 子句
+* Limit 子句
+
+
+
+
+== 数据类型
+
+* 池
+* 整型
+* string
+* 浮动
+* 小数点，数字
+* timestamp
+
+
+
+
+== 运算符
+
+
+
+=== 逻辑运算符
+
+* 和
+* 不是
+* 或
+
+
+
+
+=== 比较运算符
+
+* <
+* >
+* &lt ； =
+* &gt ； =
+* =
+* =
+* <>
+* ！ =
+* 介于之间
+* 在中
+
+
+
+
+=== 模式匹配运算符
+
+* 例如
+* _
+* %
+
+
+
+
+=== 统一运算符
+
+* 为空
+* 不为空
+
+
+
+
+=== 数学运算符
+
+* +
+* -
+* *
+* /
+* %
+
+
+StorageGRID 遵循Amazon S3 Select操作员优先级。
+
+
+
+== 聚合函数
+
+* 平均（）
+* 计数（ * ）
+* 最大值（）
+* 最小值（）
+* sum（ ）
+
+
+
+
+== 条件函数
+
+* 案例
+* 合并
+* NULLIF
+
+
+
+
+== 转换函数
+
+* cast （用于受支持的数据类型）
+
+
+
+
+== date 函数
+
+* 日期添加
+* 日期差异
+* 提取
+* to_string
+* to_timestamp
+* UTCNOW
+
+
+
+
+== 字符串函数
+
+* char_length ， character_length
+* 更低
+* 子字符串
+* 剪切
+* 上限
+

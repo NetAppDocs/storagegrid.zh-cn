@@ -1,0 +1,69 @@
+---
+permalink: expand/copying-prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, copy metrics, Admin Node expansion 
+summary: 添加新的管理节点后，您可以选择将 Prometheus 维护的历史指标从主管理节点复制到新的管理节点。复制指标可确保管理节点之间的历史指标一致。 
+---
+= 复制 Prometheus 指标
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+添加新的管理节点后，您可以选择将 Prometheus 维护的历史指标从主管理节点复制到新的管理节点。复制指标可确保管理节点之间的历史指标一致。
+
+.开始之前
+* 新管理节点已安装并正在运行。
+* 您已获得 `Passwords.txt`文件。
+* 您具有配置密码短语。
+
+
+.关于此任务
+添加管理节点时，软件安装过程会创建一个新的 Prometheus 数据库。您可以通过将 Prometheus 数据库从主管理节点（ _source 管理节点 _ ）复制到新管理节点来保持节点之间的历史指标一致。
+
+
+NOTE: 复制 Prometheus 数据库可能需要一个小时或更长时间。在源管理节点上停止服务时，某些 Grid Manager 功能将不可用。
+
+.步骤
+. 登录到源管理节点：
++
+.. 输入以下命令： `ssh admin@_grid_node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
+. 从源管理节点中、停止Prometheus服务： `service prometheus stop`
+. 在新管理节点上完成以下步骤：
++
+.. 登录到新的管理节点：
++
+... 输入以下命令： `ssh admin@_grid_node_IP_`
+... 输入文件中列出的密码 `Passwords.txt`。
+... 输入以下命令切换到root： `su -`
+... 输入文件中列出的密码 `Passwords.txt`。
+
+
+.. 停止Prometheus服务： `service prometheus stop`
+.. 将 SSH 专用密钥添加到 SSH 代理。输入：``ssh-add``
+.. 输入文件中列出的SSH访问密码 `Passwords.txt`。
+.. 将Prometheus数据库从源管理节点复制到新管理节点： `/usr/local/prometheus/bin/prometheus-clone-db.sh _Source_Admin_Node_IP_`
+.. 出现提示时，按 * 输入 * 确认要销毁新管理节点上的新 Prometheus 数据库。
++
+原始 Prometheus 数据库及其历史数据将复制到新的管理节点。完成复制操作后，此脚本将启动新的管理节点。此时将显示以下状态：
+
++
+`Database cloned, starting services`
+
+.. 如果不再需要对其他服务器进行无密码访问，请从 SSH 代理中删除私钥。输入 ...
++
+`ssh-add -D`
+
+
+
+. 在源管理节点上重新启动 Prometheus 服务。
++
+`service prometheus start`
+
+

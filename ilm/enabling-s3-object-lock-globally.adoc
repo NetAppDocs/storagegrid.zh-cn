@@ -1,0 +1,50 @@
+---
+permalink: ilm/enabling-s3-object-lock-globally.html 
+sidebar: sidebar 
+keywords: enable s3 object lock, object lock 
+summary: 如果 S3 租户帐户在保存对象数据时需要遵守法规要求，则必须为整个 StorageGRID 系统启用 S3 对象锁定。启用全局 S3 对象锁定设置后，任何 S3 租户用户都可以使用 S3 对象锁定创建和管理存储分段和对象。 
+---
+= 全局启用 S3 对象锁定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 S3 租户帐户在保存对象数据时需要遵守法规要求，则必须为整个 StorageGRID 系统启用 S3 对象锁定。启用全局 S3 对象锁定设置后，任何 S3 租户用户都可以使用 S3 对象锁定创建和管理存储分段和对象。
+
+.开始之前
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您已查看S3对象锁定工作流、并了解注意事项。
+* 您已确认活动ILM策略中的默认规则合规。有关详细信息、请参见。 link:creating-default-ilm-rule.html["创建默认 ILM 规则"]
+
+
+.关于此任务
+网格管理员必须启用全局 S3 对象锁定设置，以允许租户用户创建启用了 S3 对象锁定的新分段。启用此设置后、将无法禁用它。
+
+启用全局S3对象锁定设置后、请查看现有租户的合规性设置。启用此设置时、每个租户的S3对象锁定设置取决于创建租户时的StorageGRID版本。
+
+
+NOTE: 已弃用全局合规性设置。如果使用早期版本的StorageGRID 启用此设置、则会自动启用S3对象锁定设置。您可以继续使用StorageGRID 管理现有合规存储分段的设置、但不能创建新的合规存储分段。有关详细信息，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 知识库：如何在 StorageGRID 11.5 中管理原有的合规存储分段"^]。
+
+.步骤
+. 选择 * 配置 * > * 系统 * > * S3 对象锁定 * 。
++
+此时将显示 "S3 Object Lock Settings" 页面。
+
+. 选择 * 启用 S3 对象锁定 * 。
+. 选择 * 应用 * 。
++
+此时将显示一个确认对话框、提醒您在启用S3对象锁定后无法禁用它。
+
+. 如果确实要为整个系统永久启用 S3 对象锁定，请选择 * 确定 * 。
++
+选择 * 确定 * 时：
+
++
+** 如果活动ILM策略中的默认规则合规、则会为整个网格启用S3对象锁定、并且无法禁用。
+** 如果默认规则不合规、则会显示错误。您必须创建并激活一个新的ILM策略、其中包括一个合规规则作为其默认规则。选择 * 确定 * 。然后、创建一个新策略、对其进行模拟并将其激活。有关说明、请参见。 link:creating-ilm-policy.html["创建 ILM 策略"]
+
+
+

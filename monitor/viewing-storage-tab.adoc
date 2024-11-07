@@ -1,0 +1,38 @@
+---
+permalink: monitor/viewing-storage-tab.html 
+sidebar: sidebar 
+keywords: storage tab 
+summary: 存储选项卡汇总了存储可用性和其他存储指标。 
+---
+= 查看存储选项卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+存储选项卡汇总了存储可用性和其他存储指标。
+
+此时将显示所有节点，每个站点和整个网格的存储选项卡。
+
+
+
+== 已用存储图
+
+对于存储节点，每个站点和整个网格， " 存储 " 选项卡包含一些图形，用于显示对象数据和对象元数据在一段时间内使用了多少存储。
+
+
+NOTE: 如果节点未连接到网格、例如在升级期间或处于断开状态时、某些指标可能不可用或不在站点和网格总数中。节点重新连接到网格后、请等待几分钟、使值稳定下来。
+
+image::../media/nodes_storage_node_storage_tab.png[节点 > 存储节点 > 存储选项卡]
+
+
+
+== 磁盘设备，卷和对象存储表
+
+对于所有节点，存储选项卡包含节点上磁盘设备和卷的详细信息。对于存储节点，对象存储表提供了有关每个存储卷的信息。
+
+image::../media/nodes_page_storage_tables.png[节点页面存储表]
+
+.相关信息
+link:monitoring-storage-capacity.html["监控存储容量"]

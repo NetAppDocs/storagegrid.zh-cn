@@ -1,0 +1,28 @@
+---
+permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
+sidebar: sidebar 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+summary: 如果 ILM 策略包含创建纠删编码副本的规则，则必须计划在何处添加新存储以及何时添加新存储。您添加的存储量和添加的时间可能会影响网格的可用存储容量。 
+---
+= 为经过纠删编码的对象添加存储容量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 ILM 策略包含创建纠删编码副本的规则，则必须计划在何处添加新存储以及何时添加新存储。您添加的存储量和添加的时间可能会影响网格的可用存储容量。
+
+规划存储扩展的第一步是，检查 ILM 策略中用于创建纠删编码对象的规则。由于 StorageGRID 会为每个纠删编码对象创建 _k+m_fragments ，并将每个片段存储在不同的存储节点上，因此您必须确保在扩展后至少 _k+m_ 存储节点具有用于存储新纠删编码数据的空间。如果纠删编码配置文件提供站点丢失保护，则必须向每个站点添加存储。有关纠删编码配置文件的信息、请参见link:../ilm/what-erasure-coding-schemes-are.html["什么是纠删编码方案"]。
+
+您需要添加的节点数还取决于执行扩展时现有节点的容量。
+
+
+
+== 有关为经过纠删编码的对象添加存储容量的一般建议
+
+如果要避免详细计算，可以在现有存储节点容量达到 70% 时为每个站点添加两个存储节点。
+
+对于单站点网格和纠删编码可提供站点丢失保护的网格，此一般建议可在多种纠删编码方案中提供合理的结果。
+
+要更好地了解导致此建议的因素或为您的站点制定更精确的计划，请参见link:considerations-for-rebalancing-erasure-coded-data.html["重新平衡经过纠删编码的数据的注意事项"]。有关针对您的情况进行优化的自定义建议、请联系您的NetApp专业服务顾问。

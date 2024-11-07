@@ -1,0 +1,122 @@
+---
+permalink: monitor/using-snmp-monitoring.html 
+sidebar: sidebar 
+keywords: snmp, monitoring 
+summary: 如果要使用简单网络管理协议（ SNMP\ ）监控 StorageGRID ，则必须配置 StorageGRID 附带的 SNMP 代理。 
+---
+= 使用 SNMP 监控
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使用简单网络管理协议（ Simple Network Management Protocol ， SNMP ）监控 StorageGRID ，则必须配置 StorageGRID 附带的 SNMP 代理。
+
+* link:configuring-snmp-agent.html["配置 SNMP 代理"]
+* link:updating-snmp-agent.html["更新 SNMP 代理"]
+
+
+
+
+== 功能
+
+每个StorageGRID 节点都运行一个SNMP代理或守护进程、用于提供MIB。StorageGRID MIB包含警报的表和通知定义。MIB 还包含系统问题描述 信息，例如每个节点的平台和型号。每个 StorageGRID 节点还支持一组 MIB-II 对象。
+
+
+NOTE: 查看link:access-snmp-mib.html["访问MIB文件"]是否要在网格节点上下载MIB文件。
+
+最初，所有节点上都会禁用 SNMP 。配置 SNMP 代理时，所有 StorageGRID 节点都会收到相同的配置。
+
+StorageGRID SNMP 代理支持所有三个版本的 SNMP 协议。它为查询提供只读 MIB 访问权限，并可向管理系统发送两种类型的事件驱动型通知：
+
+陷阱:: 陷阱是由SNMP代理发送的通知、不需要管理系统进行确认。陷阱用于通知管理系统 StorageGRID 中发生了某种情况，例如触发警报。
++
+--
+所有三个版本的 SNMP 均支持陷阱。
+
+--
+通知:: 通知与陷阱类似，但需要管理系统确认。如果SNMP代理未在一定时间内收到确认、则会重新发送通知、直到收到确认或已达到最大重试值为止。
++
+--
+SNMPv2c 和 SNMPv3 支持 INFORM 。
+
+--
+
+
+在以下情况下会发送陷阱和通知通知通知：
+
+* 默认或自定义警报将在任何严重性级别触发。要禁止警报的SNMP通知、您必须禁止link:silencing-alert-notifications.html["配置静音"]警报。警报通知由发送link:../primer/what-admin-node-is.html["首选发件人管理节点"]。
++
+每个警报都会根据警报的严重性级别映射到以下三种陷阱类型之一： activeMinorAlert ， activeMajorAlert 和 activeCriticalAlert 。有关可触发这些陷阱的警报列表，请参见link:alerts-reference.html["警报参考"]。
+
+
+
+
+
+== SNMP 版本支持
+
+下表简要总结了每个 SNMP 版本支持的功能。
+
+[cols="1a,2a,2a,2a"]
+|===
+|  | SNMPv1 | SNMPv2c | SNMPv3 
+
+
+ a| 
+查询
+
+(GET和GETNEXT)
+ a| 
+只读 MIB 查询
+ a| 
+只读 MIB 查询
+ a| 
+只读 MIB 查询
+
+
+
+ a| 
+查询身份验证
+ a| 
+社区字符串
+ a| 
+社区字符串
+ a| 
+基于用户的安全模型（ USM ）用户
+
+
+
+ a| 
+通知
+
+(陷阱和通知)
+ a| 
+仅陷阱
+ a| 
+陷阱和通知
+ a| 
+陷阱和通知
+
+
+
+ a| 
+通知身份验证
+ a| 
+每个陷阱目标的默认陷阱社区或自定义社区字符串
+ a| 
+每个陷阱目标的默认陷阱社区或自定义社区字符串
+ a| 
+每个陷阱目标的 USM 用户
+
+|===
+
+
+== 限制
+
+* StorageGRID 支持只读 MIB 访问。不支持读写访问。
+* 网格中的所有节点都接收相同的配置。
+* SNMPv3 ： StorageGRID 不支持传输支持模式（ TSM ）。
+* SNMPv3 ：支持的唯一身份验证协议是 SHA （ HMAC-SHA-96 ）。
+* SNMPv3 ：支持的唯一隐私协议是 AES 。
+

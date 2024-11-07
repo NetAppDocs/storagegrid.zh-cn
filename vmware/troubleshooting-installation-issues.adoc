@@ -1,0 +1,81 @@
+---
+permalink: vmware/troubleshooting-installation-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot installation issues 
+summary: 如果在安装 StorageGRID 系统时出现任何问题，您可以访问安装日志文件。 
+---
+= 对安装问题进行故障排除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在安装 StorageGRID 系统时出现任何问题，您可以访问安装日志文件。
+
+以下是主要安装日志文件，技术支持可能需要这些文件来解决问题。
+
+* `/var/local/log/install.log`(在所有网格节点上均可找到)
+* `/var/local/log/gdu-server.log`(位于主管理节点上)
+
+
+.相关信息
+要了解如何访问日志文件，请参见link:../monitor/logs-files-reference.html["日志文件参考"]。
+
+如果您需要其他帮助，请联系 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]。
+
+
+
+== 虚拟机资源预留需要调整
+
+OVF 文件包含一个资源预留，用于确保每个网格节点都有足够的 RAM 和 CPU 来高效运行。如果通过在VMware上部署这些OVF文件来创建虚拟机、但预定义数量的资源不可用、则虚拟机将无法启动。
+
+.关于此任务
+如果您确定 VM 主机具有足够的资源来支持每个网格节点，请手动调整为每个虚拟机分配的资源，然后尝试启动虚拟机。
+
+.步骤
+. 在 VMware vSphere 虚拟机管理程序客户端树中，选择未启动的虚拟机。
+. 右键‐单击虚拟机，然后选择 * 编辑设置 * 。
+. 从虚拟机属性窗口中，选择 * 资源 * 选项卡。
+. 调整分配给虚拟机的资源：
++
+.. 选择 * CPU * ，然后使用预留滑块调整为此虚拟机预留的 MHz 。
+.. 选择 * 内存 * ，然后使用预留滑块调整为此虚拟机预留的 MB 。
+
+
+. 单击 * 确定 * 。
+. 根据需要对同一 VM 主机上托管的其他虚拟机重复上述步骤。
+
+
+
+
+== 已禁用临时安装密码
+
+在部署VMware节点时、您可以选择指定临时安装密码。要访问VM控制台或使用SSH、新节点必须具有此密码才能加入网格。
+
+如果选择禁用临时安装密码、则必须执行其他步骤来调试安装问题。
+
+您可以执行以下任一操作：
+
+* 重新部署虚拟机、但指定一个临时安装密码、以便您可以访问控制台或使用SSH调试安装问题。
+* 使用vCenter设置密码：
++
+.. 关闭虚拟机。
+.. 转到*VM*，选择*Config*选项卡，然后选择*vapp选项*。
+.. 指定要设置的临时安装密码类型：
++
+*** 选择*custom_temporal_password*以设置自定义临时密码。
+*** 选择*temporal_password_type*以使用节点名称作为临时密码。
+
+
+.. 选择 * 设置值 * 。
+.. 设置临时密码：
++
+*** 将*custom_temporal_password*更改为自定义密码值。
+*** 将*temporal_password_type*更新为*use node name*值。
+
+
+.. 重新启动虚拟机以应用新密码。
+
+
+

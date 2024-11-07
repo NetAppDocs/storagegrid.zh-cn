@@ -1,0 +1,55 @@
+---
+permalink: audit/ebkr-empty-bucket-request.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
+summary: '此消息指示用户发送了打开或关闭空存储分段的请求(即删除存储分段对象或停止删除对象)。' 
+---
+= EBKR：空分段请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此消息指示用户发送了打开或关闭空存储分段的请求(即删除存储分段对象或停止删除对象)。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+BUID
+ a| 
+存储分段UUID
+ a| 
+分段标识。
+
+
+
+ a| 
+EBJS
+ a| 
+空存储分段JSON配置
+ a| 
+包含表示当前空分段配置的JSON。
+
+
+
+ a| 
+S3AI
+ a| 
+S3租户帐户ID
+ a| 
+发送请求的用户的租户帐户 ID 。空值表示匿名访问。
+
+
+
+ a| 
+S3BK
+ a| 
+S3 存储分段
+ a| 
+S3 存储分段名称。
+
+|===

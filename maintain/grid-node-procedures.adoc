@@ -1,0 +1,30 @@
+---
+permalink: maintain/grid-node-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, grid node procedure 
+summary: 您可能需要执行与特定网格节点或节点服务相关的维护过程。 
+---
+= 节点维护过程
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要执行与特定网格节点或节点服务相关的维护过程。
+
+服务器管理器过程:: 服务器管理器在每个网格节点上运行，用于监控服务的启动和停止，并确保服务正常加入和退出 StorageGRID 系统。Server Manager 还会监控每个网格节点上的服务，并自动尝试重新启动报告故障的任何服务。
++
+--
+要执行服务器管理器过程、通常需要访问节点的命令行。
+
+
+NOTE: 只有在技术支持指示您访问 Server Manager 时，才应访问此服务器管理器。
+
+
+NOTE: 使用完 Server Manager 后，您必须关闭当前命令 Shell 会话并注销。输入： `exit`
+
+--
+节点重新启动、关闭和电源过程:: 您可以使用以下过程重新启动一个或多个节点、关闭并重新启动节点、或者关闭节点并重新启动它们。
+端口重新映射过程:: 您可以使用端口重新映射过程从节点中删除端口重新映射、例如、如果要使用先前重新映射的端口配置负载平衡器端点、则可以使用此过程。
+

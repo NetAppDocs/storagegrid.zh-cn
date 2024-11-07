@@ -1,0 +1,33 @@
+---
+permalink: ubuntu/specifying-domain-name-system-server-information.html 
+sidebar: sidebar 
+keywords: how to specify domain name system server information 
+summary: 您必须为StorageGRID 系统指定DNS信息、以便可以使用主机名而不是IP地址访问外部服务器。 
+---
+= 指定DNS服务器信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为StorageGRID 系统指定DNS信息、以便可以使用主机名而不是IP地址访问外部服务器。
+
+.关于此任务
+通过指定 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/checking-dns-server-configuration.html["DNS服务器信息"^]、您可以在电子邮件通知和AutoSupport中使用完全限定域名(FQDN)主机名、而不是IP地址。
+
+要确保正常运行、请指定两个或三个DNS服务器。如果指定的值超过三个、则可能仅使用三个、因为某些平台上存在已知的操作系统限制。如果您的环境存在路由限制、则各个节点(通常是站点上的所有节点)可以link:../maintain/modifying-dns-configuration-for-single-grid-node.html["自定义DNS服务器列表"]使用一组不同的DNS服务器、最多可使用三个。
+
+如果可能、请使用每个站点可以在本地访问的DNS服务器、以确保受支持的站点可以解析外部目标的FQDN。
+
+.步骤
+. 在 * 服务器 1* 文本框中至少指定一个 DNS 服务器的 IPv4 地址。
+. 如有必要，请选择最后一个条目旁边的加号以添加其他服务器条目。
++
+image::../media/9_gmi_installer_dns_page.gif[此图通过周围文字进行了说明。]
+
++
+最佳实践是至少指定两个 DNS 服务器。最多可以指定六个 DNS 服务器。
+
+. 选择 * 下一步 * 。
+

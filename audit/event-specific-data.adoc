@@ -1,0 +1,23 @@
+---
+permalink: audit/event-specific-data.html 
+sidebar: sidebar 
+keywords: audit message, event, shea, s3 head 
+summary: 审核日志中的每个审核消息都会记录特定于系统事件的数据。 
+---
+= 事件专用数据
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+审核日志中的每个审核消息都会记录特定于系统事件的数据。
+
+在标识消息本身的打开容器之后 `[AUDT:`、下一组属性将提供有关审核消息所述事件或操作的信息。以下示例突出显示了这些属性：
+
+[]
+====
+2018-12-05T08 ： 24 ： 45.921845 [AUTT ： *\[RSLT\ （ FC32\ ）： SUC\]* \[ 时间 \ （ UI64\ ）： 11454\]\[SAIP\ （ IPAD\ ）： "10.224.0.100"\]\"S3AI\ （ C3CSST\" ）： " ： "KST" （ S36599" ）：
+
+====
+ `ATYP`元素(在示例中带下划线)用于标识生成消息的事件。此示例消息包括link:shea-s3-head.html["Shea"]消息代码([ATYP (FC32)：Shea])、表示它是由成功的S3机头请求生成的。

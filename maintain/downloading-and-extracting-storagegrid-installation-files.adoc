@@ -1,0 +1,340 @@
+---
+permalink: maintain/downloading-and-extracting-storagegrid-installation-files.html 
+sidebar: sidebar 
+keywords: storagegrid, installation files, download 
+summary: 在恢复StorageGRID节点之前、您必须下载软件并解压缩文件。 
+---
+= 下载并提取 StorageGRID 安装文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在恢复StorageGRID节点之前、您必须下载软件并解压缩文件。
+
+您必须使用网格上当前运行的 StorageGRID 版本。
+
+.步骤
+. 确定当前安装的软件版本。从网格管理器顶部，选择帮助图标并选择 * 关于 * 。
+. 转到 StorageGRID 的 "NetApp 下载 " 页面。
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp 下载： StorageGRID"^]
+
+. 选择网格上当前运行的 StorageGRID 版本。
++
+StorageGRID 软件版本采用以下格式： 11.x.y 。
+
+. 使用您的 NetApp 帐户的用户名和密码登录。
+. 阅读最终用户许可协议，选中复选框，然后选择*接受并继续*。
+. 在下载页面的*安装StorageGRID *列中，选择 `.tgz`适用于您的平台的或 `.zip`文件。
++
+安装归档文件中显示的版本必须与当前安装的软件版本匹配。
+
++
+如果运行的是Windows、请使用 `.zip`文件。
+
++
+[cols="1a,2a"]
+|===
+| 平台 | 安装归档 
+
+
+ a| 
+Red Hat Enterprise Linux
+| `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
+
+
+ a| 
+Ubuntu ， Debian 或设备
+| `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz` 
+
+
+ a| 
+VMware
+| `StorageGRID-Webscale-_version_-VMware-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz` 
+|===
+. 下载并提取归档文件。
+. 根据您的平台以及需要恢复的网格节点，按照适用于您的平台的步骤选择所需的文件。
++
+步骤中为每个平台列出的路径与归档文件安装的顶级目录相对。
+
+. 如果要恢复link:../rhel/index.html["Red Hat Enterprise Linux系统"]，请选择相应的文件。
+
+
+[cols="1a,1a"]
+|===
+| 路径和文件名 | 说明 
+
+
+| ./rpms/README  a| 
+一个文本文件，用于描述 StorageGRID 下载文件中包含的所有文件。
+
+
+
+| ./rpms/NLF000000.txt  a| 
+一种免费许可证，不提供产品的任何支持授权。
+
+
+
+| ./rpms/StorageGRID-Webscale-Images-_version_-SHA.rpm  a| 
+RPM软件包、用于在RHEL主机上安装StorageGRID节点映像。
+
+
+
+| ./rpms/StorageGRID-Webscale-Service-_version_-SHA.rpm  a| 
+RPM软件包、用于在RHEL主机上安装StorageGRID主机服务。
+
+
+
+| 部署脚本工具 | 说明 
+
+
+| ./rpms/configure-storagegrid.py  a| 
+一种用于自动配置 StorageGRID 系统的 Python 脚本。
+
+
+
+| ./rpms/configure-sga.py  a| 
+一种用于自动配置 StorageGRID 设备的 Python 脚本。
+
+
+
+| ./rpms/configure-storagegrid.sample.json  a| 
+用于脚本的示例配置文件 `configure-storagegrid.py`。
+
+
+
+| ./rpms/storagegrid-ssoauth.py  a| 
+一个示例 Python 脚本，启用单点登录后，您可以使用该脚本登录到网格管理 API 。您也可以使用此脚本进行Ping联盟集成。
+
+
+
+| ./rpms/configure-storagegrid.blank.json  a| 
+用于脚本的空配置文件 `configure-storagegrid.py`。
+
+
+
+| ./rpms/Extras 或 Ansible  a| 
+用于为StorageGRID容器部署配置RHEL主机的AndsableRole和操作手册示例。您可以根据需要自定义角色或攻略手册。
+
+
+
+| ./rpms/storagegrid-ssoauth-azure.py  a| 
+一个Python脚本示例、在使用Active Directory或Ping联合启用单点登录(Single Sign On、SSO)时、您可以使用该脚本登录到网格管理API。
+
+
+
+| ./rpms/storagegrid－ssoauth-azure.js  a| 
+由配套Python脚本调用的帮助程序 `storagegrid-ssoauth-azure.py`脚本、用于与Azure执行SSO交互。
+
+
+
+| ./rpms/Extras 或 API 架构  a| 
+StorageGRID 的 API 架构。
+
+*注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
+
+|===
+. 如果要恢复link:../ubuntu/index.html["Ubuntu 或 Debian 系统"]，请选择相应的文件。
+
+
+[cols="1a,1a"]
+|===
+| 路径和文件名 | 说明 
+
+
+| /debs/README  a| 
+一个文本文件，用于描述 StorageGRID 下载文件中包含的所有文件。
+
+
+
+| ./debs/NLF000000.txt  a| 
+非生产 NetApp 许可证文件，可用于测试和概念验证部署。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+用于在 Ubuntu 或 Debian 主机上安装 StorageGRID 节点映像的 Deb 软件包。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+文件的MD5校验和 `/debs/storagegrid-webscale-images-version-SHA.deb`。
+
+
+
+| ./debs/storagegrid-webscale-service-version-SHA.deb  a| 
+用于在 Ubuntu 或 Debian 主机上安装 StorageGRID 主机服务的 Deb 软件包。
+
+
+
+| 部署脚本工具 | 说明 
+
+
+| ./debs/configure-storagegrid.py  a| 
+一种用于自动配置 StorageGRID 系统的 Python 脚本。
+
+
+
+| ./debs/configure-sga.py  a| 
+一种用于自动配置 StorageGRID 设备的 Python 脚本。
+
+
+
+| ./debs/storagegrid-ssoauth.py  a| 
+一个示例 Python 脚本，启用单点登录后，您可以使用该脚本登录到网格管理 API 。您也可以使用此脚本进行Ping联盟集成。
+
+
+
+| ./debs/configure-storaggrid.sample.json  a| 
+用于脚本的示例配置文件 `configure-storagegrid.py`。
+
+
+
+| ./debs/configure-storaggrid.blank.json  a| 
+用于脚本的空配置文件 `configure-storagegrid.py`。
+
+
+
+| ./debs/Extras / Ansible  a| 
+用于为 StorageGRID 容器部署配置 Ubuntu 或 Debian 主机的 Ansible 角色示例和攻略手册。您可以根据需要自定义角色或攻略手册。
+
+
+
+| storagegrid-ssoauth-azure.py  a| 
+一个Python脚本示例、在使用Active Directory或Ping联合启用单点登录(Single Sign On、SSO)时、您可以使用该脚本登录到网格管理API。
+
+
+
+| ./debs/storagegrid—ssoauth-azure.js  a| 
+由配套Python脚本调用的帮助程序 `storagegrid-ssoauth-azure.py`脚本、用于与Azure执行SSO交互。
+
+
+
+| ./debs/ExtrS/API 架构  a| 
+StorageGRID 的 API 架构。
+
+*注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
+
+|===
+. 如果要恢复link:../vmware/index.html["VMware 系统"]，请选择相应的文件。
+
+
+[cols="1a,1a"]
+|===
+| 路径和文件名 | 说明 
+
+
+| ./vSphere/README  a| 
+一个文本文件，用于描述 StorageGRID 下载文件中包含的所有文件。
+
+
+
+| ./vSphere/NLF000000.txt  a| 
+一种免费许可证，不提供产品的任何支持授权。
+
+
+
+| ./vsphere/netapp-sg-version-sha.vmdk  a| 
+用作创建网格节点虚拟机的模板的虚拟机磁盘文件。
+
+
+
+| ./vSphere/vsphere-primary-admin.OVF ./vsphere/vsphere-primary-admin.mf  a| 
+(`.mf`用于部署主管理节点(`.ovf`的开放式虚拟化格式模板文件()和清单文件()。
+
+
+
+| ./vSphere/vsphere-non-primary-admin.OVF ./vsphere/vsphere-non-primary-admin.mf  a| 
+(`.mf`用于部署非主管理节点(`.ovf`的模板文件()和清单文件()。
+
+
+
+| ./vSphere/vsphere-gateway.OVF ./vsphere/vsphere-gateway.mf  a| 
+(`.mf`用于部署网关节点(`.ovf`的模板文件()和清单文件()。
+
+
+
+| ./vSphere/vsphere-storage.OVF ./vsphere/vsphere-storage.mf  a| 
+(`.mf`用于部署基于虚拟机的存储节点的模板(`.ovf`文件()和清单文件()。
+
+
+
+| 部署脚本工具 | 说明 
+
+
+| ./vSphere/deploy-vsphere-ovftool.sh  a| 
+Bash shell 脚本，用于自动部署虚拟网格节点。
+
+
+
+| ./vSphere/deploy-vsphere-ovftool-sample.ini  a| 
+用于脚本的示例配置文件 `deploy-vsphere-ovftool.sh`。
+
+
+
+| ./vSphere/configure-storagegrid.py  a| 
+一种用于自动配置 StorageGRID 系统的 Python 脚本。
+
+
+
+| ./vSphere/configure-sga.py  a| 
+一种用于自动配置 StorageGRID 设备的 Python 脚本。
+
+
+
+| ./vSphere/storagegrid-ssoauth.py  a| 
+一个Python脚本示例、在启用单点登录(Single Sign On、SSO)后、您可以使用该脚本登录到网格管理API。您也可以使用此脚本进行Ping联盟集成。
+
+
+
+| ./vsphere/configure-storaggrid.sample.json  a| 
+用于脚本的示例配置文件 `configure-storagegrid.py`。
+
+
+
+| ./vsphere/configure-storaggrid.blank.json  a| 
+用于脚本的空配置文件 `configure-storagegrid.py`。
+
+
+
+| ./vSphere。storagegrid-ssoauth-azure.py  a| 
+一个Python脚本示例、在使用Active Directory或Ping联合启用单点登录(Single Sign On、SSO)时、您可以使用该脚本登录到网格管理API。
+
+
+
+| ./vsphere或storagegrid—ssoauth-azure.js  a| 
+由配套Python脚本调用的帮助程序 `storagegrid-ssoauth-azure.py`脚本、用于与Azure执行SSO交互。
+
+
+
+| ./vsphere/ExtrS/API 架构  a| 
+StorageGRID 的 API 架构。
+
+*注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
+
+|===
+. 如果要恢复基于 StorageGRID 设备的系统，请选择相应的文件。
+
+
+[cols="1a,1a"]
+|===
+| 路径和文件名 | 说明 
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+用于在设备上安装 StorageGRID 节点映像的 Deb 软件包。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+文件的MD5校验和 `/debs/storagegridwebscale-
+images-version-SHA.deb`。
+
+|===
+
+NOTE: 对于设备安装，只有在需要避免网络流量时，才需要这些文件。设备可以从主管理节点下载所需文件。

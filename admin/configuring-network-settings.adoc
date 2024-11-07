@@ -1,0 +1,26 @@
+---
+permalink: admin/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, vlan interface, traffic classification 
+summary: 您可以从网格管理器配置各种网络设置，以微调 StorageGRID 系统的运行。 
+---
+= 配置网络设置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从网格管理器配置各种网络设置，以微调 StorageGRID 系统的运行。
+
+
+
+== 配置 VLAN 接口
+
+您可以link:configure-vlan-interfaces.html["创建虚拟LAN (VLAN)接口"]隔离流量并对其进行分区、以提高安全性、灵活性和性能。每个 VLAN 接口都与管理节点和网关节点上的一个或多个父接口相关联。您可以在 HA 组和负载平衡器端点中使用 VLAN 接口，按应用程序或租户隔离客户端或管理流量。
+
+
+
+== 流量分类策略
+
+您可以使用来link:managing-traffic-classification-policies.html["流量分类策略"]标识和处理不同类型的网络流量、包括与特定分段、租户、客户端子网或负载平衡器端点相关的流量。这些策略有助于限制和监控流量。

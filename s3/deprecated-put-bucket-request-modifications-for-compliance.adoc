@@ -1,0 +1,31 @@
+---
+permalink: s3/deprecated-put-bucket-request-modifications-for-compliance.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
+summary: SGCompliance XML 元素已弃用。以前、您可以将此StorageGRID自定义元素包含在CreateBuckets请求的可选XML请求正文中、以创建兼容分段。 
+---
+= 已弃用：为合规性修改CreateBucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SGCompliance XML 元素已弃用。以前、您可以将此StorageGRID自定义元素包含在CreateBuckets请求的可选XML请求正文中、以创建兼容分段。
+
+[NOTE]
+====
+先前 StorageGRID 版本中提供的 StorageGRID 合规性功能已弃用，并已被 S3 对象锁定取代。有关详细信息、请参见以下内容：
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 知识库：如何在 StorageGRID 11.5 中管理原有的合规存储分段"^]
+
+
+====
+您不能再在已启用合规性的情况下创建新存储分段。如果尝试使用CreateBucket"请求修改以实现合规性"来创建新的合规分段、则会返回以下错误消息：
+
+[listing]
+----
+The Compliance feature is deprecated.
+Contact your StorageGRID administrator if you need to create new Compliant buckets.
+----

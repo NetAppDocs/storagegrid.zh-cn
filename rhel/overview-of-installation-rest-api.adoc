@@ -1,0 +1,41 @@
+---
+permalink: rhel/overview-of-installation-rest-api.html 
+sidebar: sidebar 
+keywords: installation overview red hat linux 
+summary: StorageGRID 提供了用于执行安装任务的 StorageGRID 安装 API 。 
+---
+= 安装REST API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 提供了用于执行安装任务的 StorageGRID 安装 API 。
+
+API 使用 Swagger 开源 API 平台提供 API 文档。Swagger 允许开发人员和非开发人员在用户界面中与 API 进行交互，以说明 API 如何响应参数和选项。本文档假定您熟悉标准Web技术和JSON数据格式。
+
+
+CAUTION: 使用API文档网页执行的任何API操作均为实时操作。请注意，不要错误地创建，更新或删除配置数据或其他数据。
+
+每个 REST API 命令都包括 API 的 URL ， HTTP 操作，任何必需或可选的 URL 参数以及预期的 API 响应。
+
+
+
+== StorageGRID 安装 API
+
+StorageGRID 安装API仅在最初配置StorageGRID 系统时以及需要执行主管理节点恢复时可用。可以从网格管理器通过 HTTPS 访问安装 API 。
+
+要访问API文档，请转到主管理节点上的安装网页，然后从菜单栏中选择*HELP*>*API documents*。
+
+StorageGRID 安装 API 包括以下部分：
+
+* *config* —与 API 的产品版本相关的操作。您可以列出该版本支持的产品版本和主要 API 版本。
+* * 网格 * - 网格级配置操作。您可以获取和更新网格设置，包括网格详细信息，网格网络子网，网格密码以及 NTP 和 DNS 服务器 IP 地址。
+* "*Nodes* - 节点级别的配置操作 " 。您可以检索网格节点列表，删除网格节点，配置网格节点，查看网格节点以及重置网格节点的配置。
+* * 配置 * —配置操作。您可以启动配置操作并查看配置操作的状态。
+* * 恢复 * —主管理节点恢复操作。您可以重置信息，上传恢复软件包，启动恢复以及查看恢复操作的状态。
+* *recovery-package* —下载恢复软件包的操作。
+* * 站点 * —站点级配置操作。您可以创建，查看，删除和修改站点。
+* *tempor临时 密码*--对临时密码执行操作，以确保安装期间mgmt-api的安全。
+

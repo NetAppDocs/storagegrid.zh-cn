@@ -1,0 +1,102 @@
+---
+permalink: admin/configuring-s3-api-endpoint-domain-names.html 
+sidebar: sidebar 
+keywords: s3 endpoint domain names, virtual-hosted-style requests 
+summary: 要支持S3虚拟托管模式请求、必须使用网格管理器配置S3客户端连接到的S3端点域名列表。 
+---
+= 配置S3端点域名
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要支持S3虚拟托管模式请求、必须使用网格管理器配置S3客户端连接到的S3端点域名列表。
+
+
+CAUTION: 不支持使用IP地址作为端点域名。未来版本将禁止此配置。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+* 您已确认网格升级未在进行中。
++
+
+CAUTION: 在进行网格升级时、请勿对域名配置进行任何更改。
+
+
+
+.关于此任务
+要使客户端能够使用 S3 端点域名，您必须执行以下所有操作：
+
+* 使用网格管理器将 S3 端点域名添加到 StorageGRID 系统。
+* 确保已为客户端所需的link:../admin/configuring-administrator-client-certificates.html["客户端用于与StorageGRID 进行HTTPS连接的证书"]所有域名签名。
++
+例如，如果端点为 `s3.company.com`，则必须确保用于HTTPS连接的证书包括 `s3.company.com`端点和端点的通配符主题替代名称(Subject备用名称，SAN): `*.s3.company.com`。
+
+* 配置客户端使用的 DNS 服务器。包括客户端用于建立连接的IP地址的DNS记录、并确保这些记录引用所有必需的S3端点域名、包括任何通配符名称。
++
+
+NOTE: 客户端可以使用网关节点，管理节点或存储节点的 IP 地址或连接到高可用性组的虚拟 IP 地址连接到 StorageGRID 。您应了解客户端应用程序如何连接到网格，以便在 DNS 记录中包含正确的 IP 地址。
+
+
+
+使用 HTTPS 连接（建议）连接到网格的客户端可以使用以下任一证书：
+
+* 连接到负载平衡器端点的客户端可以对该端点使用自定义证书。可以对每个负载平衡器端点进行配置、使其能够识别不同的S3端点域名。
+* 连接到负载平衡器端点或直接连接到存储节点的客户端可以自定义全局S3 API证书、以包含所有必需的S3端点域名。
+
+
+
+NOTE: 如果不添加S3端点域名且此列表为空、则会禁用对S3虚拟托管模式请求的支持。
+
+
+
+== 添加S3端点域名
+
+.步骤
+. 选择*配置*>*网络*>* S3端点域名*。
+. 在*域名1*字段中输入域名。选择*添加其他域名*以添加更多域名。
+. 选择 * 保存 * 。
+. 确保客户端使用的服务器证书与所需的S3端点域名匹配。
++
+** 如果客户端连接到使用自己的证书的负载平衡器端点，则link:../admin/configuring-load-balancer-endpoints.html["更新与此端点关联的证书"]。
+** 如果客户端连接到使用全局S3 API证书的负载平衡器端点或直接连接到存储节点，link:../admin/use-s3-setup-wizard-steps.html["更新全局S3 API证书"]。
+
+
+. 添加所需的 DNS 记录，以确保可以解决端点域名请求。
+
+
+.结果
+现在，当客户端使用端点时 `_bucket.s3.company.com_`，DNS服务器解析到正确的端点，证书按预期对端点进行身份验证。
+
+
+
+== 重命名S3端点域名
+
+如果更改S3应用程序使用的名称、虚拟托管模式请求将失败。
+
+.步骤
+. 选择*配置*>*网络*>* S3端点域名*。
+. 选择要编辑的域名字段并进行必要的更改。
+. 选择 * 保存 * 。
+. 选择*是*确认更改。
+
+
+
+
+== 删除S3端点域名
+
+如果删除S3应用程序使用的名称、虚拟托管模式请求将失败。
+
+.步骤
+. 选择*配置*>*网络*>* S3端点域名*。
+. 选择域名旁边的删除图标image:../media/icon-x-to-remove.png["删除图标"]。
+. 选择*是*确认删除。
+
+
+.相关信息
+* link:../s3/index.html["使用S3 REST API"]
+* link:viewing-ip-addresses.html["查看 IP 地址"]
+* link:configure-high-availability-group.html["配置高可用性组"]
+

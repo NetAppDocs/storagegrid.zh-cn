@@ -1,0 +1,35 @@
+---
+permalink: monitor/monitoring-object-ingest-and-retrieval-rates.html 
+sidebar: sidebar 
+keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
+summary: 您可以监控对象载入和检索速率，以及对象计数，查询和验证的指标。您可以查看客户端应用程序在 StorageGRID 系统中成功尝试读取，写入和修改对象的次数和失败的尝试次数。 
+---
+= 监控S3客户端操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以监控对象载入和检索速率，以及对象计数，查询和验证的指标。您可以查看客户端应用程序在 StorageGRID 系统中成功尝试读取，写入和修改对象的次数和失败的尝试次数。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+
+
+.步骤
+. 从信息板中，选择*Performance*选项卡。
+. 请参见S3图表、其中汇总了存储节点在选定时间范围内执行的客户端操作数以及存储节点收到的API请求数。
+. 选择*N节点*以访问节点页面。
+. 从节点主页(网格级)中，选择*Objects*选项卡。
++
+此图表显示整个StorageGRID系统的S3加载和检索速率(以字节/秒为单位)以及所加载或检索的数据量。您可以选择时间间隔或应用自定义间隔。
+
+. 要查看特定存储节点的信息，请从左侧列表中选择节点，然后选择*Objects*选项卡。
++
+此图表将显示节点的加热和检索速率。该选项卡还包括对象计数、元数据查询和验证操作的指标。
+
++
+image::../media/nodes_storage_node_objects_help.png[节点 >_Storage Nodge_ > 对象 > 属性帮助的屏幕截图]
+
+

@@ -1,0 +1,60 @@
+---
+permalink: s3/upload-part.html 
+sidebar: sidebar 
+keywords: s3 UploadPart operation 
+summary: UploadPart操作在对象的多部分上传中上传部件。 
+---
+= 上传部件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UploadPart操作在对象的多部分上传中上传部件。
+
+
+
+== 支持的请求标头
+
+支持以下请求标头：
+
+* `x-amz-checksum-sha256`
+* `Content-Length`
+* `Content-MD5`
+
+
+
+
+== 服务器端加密的请求标头
+
+如果为CreateMultipartUpload请求指定了SSE-C加密、则还必须在每个UploadPart请求中包含以下请求标头：
+
+* `x-amz-server-side-encryption-customer-algorithm`：指定 `AES256`。
+* `x-amz-server-side-encryption-customer-key`：指定与CreateMultipartUpload请求中提供的加密密钥相同的加密密钥。
+* `x-amz-server-side-encryption-customer-key-MD5`：指定与CreateMultipartUpload请求中提供的MD5摘要相同的MD5摘要。
+
+
+
+CAUTION: 您提供的加密密钥永远不会存储。如果丢失加密密钥，则会丢失相应的对象。在使用客户提供的密钥保护对象数据之前，请查看中的注意事项link:using-server-side-encryption.html["使用服务器端加密"]。
+
+如果在CreateMultipartUpload请求期间指定了SHA-256校验和、则还必须在每个UploadPart请求中包含以下请求标头：
+
+* `x-amz-checksum-sha256`：为此部分指定SHA-256校验和。
+
+
+
+
+== 请求标头不受支持
+
+不支持以下请求标头：
+
+* `x-amz-sdk-checksum-algorithm`
+* `x-amz-trailer`
+
+
+
+
+== 版本控制
+
+多部分上传包括启动上传，发布上传，上传部件，组装上传的部件以及完成上传的操作。执行CompleteMultipartUpload操作时、系统会创建对象(如果适用、还会对其进行版本管理)。

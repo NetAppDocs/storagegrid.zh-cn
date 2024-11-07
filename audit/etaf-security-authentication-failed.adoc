@@ -1,0 +1,71 @@
+---
+permalink: audit/etaf-security-authentication-failed.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
+summary: 如果尝试使用传输层安全 \ （ tls\ ）进行连接失败，则会生成此消息。 
+---
+= ETAF ：安全身份验证失败
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果尝试使用传输层安全（ Transport Layer Security ， TLS ）进行连接失败，则会生成此消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CNID
+ a| 
+连接标识符
+ a| 
+身份验证失败的 TCP/IP 连接的唯一系统标识符。
+
+
+
+ a| 
+RID
+ a| 
+用户身份
+ a| 
+表示远程用户身份的服务相关标识符。
+
+
+
+ a| 
+RSLT
+ a| 
+原因代码
+ a| 
+失败的原因：
+
+SCNI ：安全连接建立失败。
+
+CERM ：证书缺失。
+
+证书：证书无效。
+
+cere ：证书已过期。
+
+CERR ：证书已撤销。
+
+CSGN ：证书签名无效。
+
+CSGU ：证书签名者未知。
+
+UCRM ：缺少用户凭据。
+
+UCRI ：用户凭据无效。
+
+UCRU ：不允许使用用户凭据。
+
+tout ：身份验证超时。
+
+|===
+在与使用 TLS 的安全服务建立连接后，系统会使用 TLS 配置文件和服务中内置的其他逻辑来验证远程实体的凭据。如果此身份验证因证书或凭据无效，意外或不允许而失败，则会记录审核消息。这样可以查询未经授权的访问尝试以及其他与安全相关的连接问题。
+
+此消息可能是由于远程实体的配置不正确或尝试向系统提供无效或不允许的凭据而导致的。应监控此审核消息，以检测未经授权访问系统的尝试。

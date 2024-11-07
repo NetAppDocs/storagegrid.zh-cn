@@ -1,0 +1,132 @@
+---
+permalink: audit/object-ingest-transactions.html 
+sidebar: sidebar 
+keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
+summary: 您可以通过查找S3 API专用的审核消息来在审核日志中确定客户端加载事务。 
+---
+= 对象载入事务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过查找S3 API专用的审核消息来在审核日志中确定客户端加载事务。
+
+下表列出了在载入事务期间生成的并非所有审核消息。仅包含跟踪载入事务所需的消息。
+
+
+
+== S3 载入审核消息
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 代码 | 名称 | 说明 | 跟踪 | 请参见 
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT 事务
+ a| 
+S3 PUT 载入事务已成功完成。
+ a| 
+CBID ， S3BK ， S3KY
+ a| 
+link:sput-s3-put.html["SPUT ： S3 PUT"]
+
+
+
+ a| 
+ORLM
+ a| 
+符合对象规则
+ a| 
+已对此对象满足 ILM 策略要求。
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM ：符合对象规则"]
+
+|===
+
+
+== Swift 载入审核消息
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| 代码 | 名称 | 说明 | 跟踪 | 请参见 
+
+
+ a| 
+WWPUT
+ a| 
+Swift PUT 事务
+ a| 
+Swift PUT 载入事务已成功完成。
+ a| 
+CBID ， WCON ， WOBJ
+ a| 
+link:wput-swift-put.html["WWPUT ： Swift PUT"]
+
+
+
+ a| 
+ORLM
+ a| 
+符合对象规则
+ a| 
+已对此对象满足 ILM 策略要求。
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM ：符合对象规则"]
+
+|===
+
+
+== 示例： S3 对象载入
+
+下面的一系列审核消息是在 S3 客户端将对象载入存储节点（ LDR 服务）时生成并保存到审核日志中的审核消息的示例。
+
+在此示例中、活动ILM策略包括"创建2个副本"ILM规则。
+
+
+NOTE: 在以下示例中并未列出事务期间生成的所有审核消息。仅列出与 S3 载入事务（ SPUT ）相关的那些。
+
+此示例假设先前已创建 S3 存储分段。
+
+
+
+=== SPUT ： S3 PUT
+
+此时将生成 SPUT 消息，以指示已发出 S3 PUT 事务，以便在特定存储分段中创建对象。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):25771][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"][S3BK(CSTR):"example"][S3KY(CSTR):"testobject-0-3"][CBID\(UI64\):0x8EF52DF8025E63A8][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SPUT][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):14399932238768197038]]
+----
+
+
+=== ORLM ：符合对象规则
+
+ORLM 消息指示已对此对象满足 ILM 策略要求。此消息包含对象的 CBID 以及应用的 ILM 规则的名称。
+
+对于复制的对象， " LOC" 字段包含对象位置的 LDR 节点 ID 和卷 ID 。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-07-17T21:18:31.230669[AUDT:[CBID\(UI64\):0x50C4F7AC2BC8EDF7][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):0][UUID(CSTR):"0B344E18-98ED-4F22-A6C8-A93ED68F8D3F"][LOCS(CSTR):"CLDI 12828634 2148730112, CLDI 12745543 2147552014"][RSLT(FC32):SUCS][AVER(UI32):10][ATYP\(FC32\):ORLM][ATIM(UI64):1563398230669][ATID(UI64):15494889725796157557][ANID(UI32):13100453][AMID(FC32):BCMS]]
+----
+对于纠删编码对象、LOCS字段包括纠删编码配置文件ID和纠删编码组ID
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
+----
+路径字段包括 S3 存储分段和密钥信息或 Swift 容器和对象信息，具体取决于所使用的 API 。
+
+[listing]
+----
+2019-09-15.txt:2018-01-24T13:52:54.131559 [AUDT:[CBID(UI64):0x82704DFA4C9674F4][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):3145729][UUID(CSTR):"8C1C9CAC-22BB-4880-9115-CE604F8CE687"][PATH(CSTR):"frisbee_Bucket1/GridDataTests151683676324774_1_1vf9d"][LOCS(CSTR):"CLDI 12525468, CLDI 12222978"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1568555574559][ATYP(FC32):ORLM][ANID(UI32):12525468][AMID(FC32):OBDI][ATID(UI64):344833886538369336]]
+----

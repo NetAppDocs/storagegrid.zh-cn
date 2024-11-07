@@ -1,0 +1,73 @@
+---
+permalink: tenant/troubleshooting-platform-services-endpoint-errors.html 
+sidebar: sidebar 
+keywords: how to troubleshoot platform services endpoint 
+summary: 如果在StorageGRID 尝试与平台服务端点通信时发生错误、则信息板上会显示一条消息。在平台服务端点页面上，最后一个错误列指示错误发生多长时间前。如果与端点凭据关联的权限不正确，则不会显示任何错误。 
+---
+= 解决平台服务端点错误
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在StorageGRID 尝试与平台服务端点通信时发生错误、则信息板上会显示一条消息。在平台服务端点页面上，最后一个错误列指示错误发生多长时间前。如果与端点凭据关联的权限不正确，则不会显示任何错误。
+
+
+
+== 确定是否发生错误
+
+如果在过去7天内发生任何平台服务端点错误、租户管理器信息板将显示警报消息。您可以转到平台服务端点页面以查看有关此错误的更多详细信息。
+
+image::../media/tenant_dashboard_endpoint_error.png[信息板上的端点错误消息]
+
+信息板上显示的同一错误也会显示在平台服务端点页面的顶部。要查看更详细的错误消息，请执行以下操作：
+
+.步骤
+. 从端点列表中，选择出现错误的端点。
+. 在端点详细信息页面上，选择 * 连接 * 。此选项卡仅显示端点的最新错误，并指示错误发生的时间。过去7天内发生了包含红色X图标的错误image:../media/icon_alert_red_critical.png["红色 X 图标"]。
+
+
+
+
+== 检查错误是否仍然是最新的
+
+即使解决了某些错误， * 最后一个错误 * 列也可能会继续显示这些错误。要查看错误是否为当前错误或强制从表中删除已解决的错误，请执行以下操作：
+
+.步骤
+. 选择端点。
++
+此时将显示端点详细信息页面。
+
+. 选择 * 连接 * > * 测试连接 * 。
+
+
+选择 * 测试连接 * 将使 StorageGRID 验证平台服务端点是否存在以及是否可以使用当前凭据访问它。系统会从每个站点的一个节点验证与端点的连接。
+
+
+
+== 解决端点错误
+
+您可以使用端点详细信息页面上的 * 最后一个错误 * 消息来帮助确定导致错误的原因。某些错误可能需要编辑端点才能解决问题描述 。例如，如果 StorageGRID 由于没有正确的访问权限或访问密钥已过期而无法访问目标 S3 存储分段，则可能会发生 CloudMirrorbuc2 错误。消息为"端点凭据或目标访问需要更新"、详细信息为"AccessDenied"或"InvvalidAccessKeyId"。
+
+如果您需要编辑端点以解决错误，则选择 * 测试并保存更改 * 会使 StorageGRID 验证更新后的端点，并确认可以使用当前凭据访问它。系统会从每个站点的一个节点验证与端点的连接。
+
+.步骤
+. 选择端点。
+. 在端点详细信息页面上，选择 * 配置 * 。
+. 根据需要编辑端点配置。
+. 选择 * 连接 * > * 测试连接 * 。
+
+
+
+
+== 权限不足的端点凭据
+
+当 StorageGRID 验证平台服务端点时，它会确认端点的凭据可用于联系目标资源，并执行基本权限检查。但是， StorageGRID 不会验证某些平台服务操作所需的所有权限。因此、如果在尝试使用平台服务时收到错误(例如"403禁止")、请检查与端点凭据关联的权限。
+
+.相关信息
+* link:../admin/troubleshooting-platform-services.html["管理StorageGRID ()；对平台服务进行故障排除"]
+* link:creating-platform-services-endpoint.html["创建平台服务端点"]
+* link:testing-connection-for-platform-services-endpoint.html["测试平台服务端点的连接"]
+* link:editing-platform-services-endpoint.html["编辑平台服务端点"]
+

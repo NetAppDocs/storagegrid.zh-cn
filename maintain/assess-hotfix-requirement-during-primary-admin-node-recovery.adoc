@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, hotfix 
+summary: 恢复主管理节点后、确定是否需要应用修补程序。 
+---
+= 确定主管理节点的修补程序要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+恢复主管理节点后、确定是否需要应用修补程序。
+
+.开始之前
+主管理节点恢复已完成。
+
+.步骤
+. 使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+. 选择 * 节点 * 。
+. 从左侧列表中，选择主管理节点。
+. 在概述选项卡上，记下 * 软件版本 * 字段中显示的版本。
+. 选择任何其他网格节点。
+. 在概述选项卡上，记下 * 软件版本 * 字段中显示的版本。
++
+** 如果“*软件版本*”字段中显示的版本相同，则不需要应用修补程序。
+** 如果“*软件版本*”字段中显示的版本不同，则必须link:storagegrid-hotfix-procedure.html["应用修补程序"]将已恢复的主管理节点更新为相同的版本。
+
+
+

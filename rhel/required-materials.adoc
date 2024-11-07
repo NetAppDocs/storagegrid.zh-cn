@@ -1,0 +1,68 @@
+---
+permalink: rhel/required-materials.html 
+sidebar: sidebar 
+keywords: installation materials red hat linux 
+summary: 安装StorageGRID之前、请收集并准备所需材料。 
+---
+= 所需信息和材料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安装StorageGRID之前、请收集并准备所需的信息和材料。
+
+
+
+== 所需信息
+
+网络计划:: 要连接到每个StorageGRID节点的网络。StorageGRID支持多个网络、以实现流量隔离、安全性和管理便利性。
++
+--
+请参见StorageGRIDlink:../network/index.html["网络连接准则"]。
+
+--
+网络信息:: 要分配给每个网格节点的IP地址以及DNS和NTP服务器的IP地址。
+网格节点的服务器:: 确定一组服务器（物理服务器，虚拟服务器或两者），这些服务器可在聚合中提供足够的资源来支持您计划部署的 StorageGRID 节点的数量和类型。
++
+--
+
+NOTE: 如果您的StorageGRID 安装不会使用StorageGRID 设备(硬件)存储节点、则必须使用具有备用电池的写入缓存(BBWC)的硬件RAID存储。StorageGRID 不支持使用虚拟存储区域网络(VSAN)、软件RAID或不支持RAID保护。
+
+--
+节点迁移(如果需要):: link:node-container-migration-requirements.html["节点迁移的要求"]如果要在不中断服务的情况下对物理主机执行计划内维护，请了解。
+相关信息:: https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具"^]
+
+
+
+
+== 所需材料
+
+NetApp StorageGRID 许可证:: 您必须具有有效的数字签名 NetApp 许可证。
+
+
+
+NOTE: StorageGRID安装归档文件中包含一个非生产许可证、可用于测试和概念验证网格。
+
+StorageGRID 安装归档:: link:downloading-and-extracting-storagegrid-installation-files.html["下载StorageGRID安装归档文件并解压缩文件"](英文)
+服务笔记本电脑:: StorageGRID 系统通过服务笔记本电脑进行安装。
++
+--
+服务笔记本电脑必须具有：
+
+* 网络端口
+* SSH 客户端（例如 PuTTY ）
+* link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]
+
+
+--
+StorageGRID 文档::
++
+--
+* link:../release-notes/index.html["发行说明"]
+* link:../admin/index.html["有关管理 StorageGRID 的说明"]
+
+
+--
+

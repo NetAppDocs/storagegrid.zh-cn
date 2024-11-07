@@ -1,0 +1,39 @@
+---
+permalink: audit/svru-object-store-verify-unknown.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
+summary: LDR 服务的存储组件会持续扫描对象存储中复制的对象数据的所有副本。如果在对象存储中检测到复制的对象数据的未知或意外副本并将其移动到隔离目录，则会发出此消息。 
+---
+= SVRU ：对象存储验证未知
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDR 服务的存储组件会持续扫描对象存储中复制的对象数据的所有副本。如果在对象存储中检测到复制的对象数据的未知或意外副本并将其移动到隔离目录，则会发出此消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+FPTH
+ a| 
+文件路径
+ a| 
+意外对象副本的文件路径。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+此字段的值为 " 无 " 。RSLT- 是一个必填消息字段，但与此消息无关。使用 " 无 " 而不是 "CSU" ，因此不会筛选此消息。
+
+|===
+
+NOTE: 应密切监控SVRU：对象存储验证未知审核消息。这意味着在对象存储中检测到意外的对象数据副本。应立即调查这种情况、以确定这些副本是如何创建的、因为它可能表示即将发生硬件故障。

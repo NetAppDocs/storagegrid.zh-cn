@@ -1,0 +1,49 @@
+= 
+:allow-uri-read: 
+
+
+[cols="2a,2a"]
+|===
+| Web 浏览器 | 支持的最低版本 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+您应将浏览器窗口设置为建议的宽度。
+
+[cols="3a,1a"]
+|===
+| 浏览器宽度 | 像素 
+
+
+ a| 
+最小值
+ a| 
+1024
+
+
+
+ a| 
+最佳
+ a| 
+1280
+
+|===

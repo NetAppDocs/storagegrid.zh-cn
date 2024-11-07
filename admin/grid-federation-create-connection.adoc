@@ -1,0 +1,157 @@
+---
+permalink: admin/grid-federation-create-connection.html 
+sidebar: sidebar 
+keywords: grid federation, create connection, configure connection 
+summary: 如果要克隆租户详细信息和复制对象数据、可以在两个StorageGRID 系统之间创建网格联合连接。 
+---
+= 创建网格联合连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要克隆租户详细信息和复制对象数据、可以在两个StorageGRID 系统之间创建网格联合连接。
+
+如图所示、创建网格联合连接包括两个网格上的步骤。您可以在一个网格上添加连接、并在另一个网格上完成连接。您可以从任一网格开始。
+
+image::../media/grid-federation-create-connection.png[在两个网格上创建连接的步骤的图形概述]
+
+.开始之前
+* 您已查看link:grid-federation-overview.html["注意事项和要求"]配置网格联合连接的。
+* 如果您计划对每个网格使用完全限定域名(FQDN)、而不是IP或VIP地址、则您知道要使用哪些名称、并且已确认每个网格的DNS服务器具有相应的条目。
+* 您正在使用link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您具有两个网格的root访问权限和配置密码短语。
+
+
+
+
+== 添加连接
+
+在两个StorageGRID 系统中的任一系统上执行以下步骤。
+
+.步骤
+. 从任一网格上的主管理节点登录到网格管理器。
+. 选择*configuration*>*System*>*Grid Federation。
+. 选择*添加连接*。
+. 输入连接的详细信息。
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+连接名称
+ a| 
+帮助您识别此连接的唯一名称、例如"网格1-Grid 2"。
+
+
+
+ a| 
+此网格的FQDN或IP
+ a| 
+以下选项之一：
+
+** 当前已登录到的网格的FQDN
+** 此网格上HA组的VIP地址
+** 此网格上管理节点或网关节点的IP地址。IP可以位于目标网格可以访问的任何网络上。
+
+
+
+
+ a| 
+端口
+ a| 
+要用于此连接的端口。您可以输入介于23000到23999之间的任何未使用端口号。
+
+此连接中的两个网格将使用同一端口。您必须确保任一网格中的任何节点都不会将此端口用于其他连接。
+
+
+
+ a| 
+此网格的证书有效天数
+ a| 
+希望此网格在连接中的安全证书有效的天数。默认值为730天(2年)、但您可以输入1到762天之间的任何值。
+
+保存连接时、StorageGRID 会自动为每个网格生成客户端和服务器证书。
+
+
+
+ a| 
+为此网格配置密码短语
+ a| 
+要登录到的网格的配置密码短语。
+
+
+
+ a| 
+其他网格的FQDN或IP
+ a| 
+以下选项之一：
+
+** 要连接到的网格的FQDN
+** 另一个网格上HA组的VIP地址
+** 另一网格上的管理节点或网关节点的IP地址。IP可以位于源网格可以访问的任何网络上。
+
+
+|===
+. 选择*保存并继续*。
+. 对于“下载验证文件”步骤，请选择*下载验证文件*。
++
+在另一个网格上完成连接后、您将无法再从任一网格下载验证文件。
+
+. 找到下载的文件(`_connection-name_.grid-federation`，并将其保存到安全的位置。
++
+
+CAUTION: 此文件包含机密(屏蔽为 `***`)和其他敏感详细信息，必须安全地存储和传输。
+
+. 选择*Close*(关闭*)返回到Grid Federation (网格联合)页面。
+. 确认新连接已显示且其*Connection statues*为*waits to connect *。
+. 将文件提供 `_connection-name_.grid-federation`给另一个网格的网格管理员。
+
+
+
+
+== 完成连接
+
+在要连接的StorageGRID 系统(另一个网格)上执行这些步骤。
+
+.步骤
+. 从主管理节点登录到网格管理器。
+. 选择*configuration*>*System*>*Grid Federation。
+. 选择*上传验证文件*以访问上传页面。
+. 选择*上传验证文件*。然后，浏览并选择从第一个网格下载的文件(`_connection-name_.grid-federation`)。
++
+此时将显示此连接的详细信息。
+
+. (可选)为此网格输入不同的安全证书有效天数。“证书有效天数”条目默认为您在第一个网格中输入的值，但每个网格可以使用不同的到期日期。
++
+通常、对连接两端的证书使用相同天数。
+
++
+
+CAUTION: 如果连接任一端的证书过期、则连接将停止工作、复制将处于待定状态、直到证书更新为止。
+
+. 输入当前已登录的网格的配置密码短语。
+. 选择*保存并测试*。
++
+此时将生成证书并测试连接。如果连接有效、则会显示一条成功消息、新连接将列在Grid Federation页面上。*连接状态*将为*已连接*。
+
++
+如果出现错误消息、请解决所有问题。请参阅。 link:grid-federation-troubleshoot.html["对网格联合错误进行故障排除"]
+
+. 转到第一个网格上的"网格联合"页面并刷新浏览器。确认*连接状态*现在为*已连接*。
+. 建立连接后、安全地删除验证文件的所有副本。
++
+如果编辑此连接、则会创建一个新的验证文件。无法重复使用原始文件。
+
+
+
+.完成后
+* 查看的注意事项link:grid-federation-manage-tenants.html["管理允许的租户"]。
+* link:creating-tenant-account.html["创建一个或多个新租户帐户"]，分配*使用网格联合连接*权限，然后选择新连接。
+* link:grid-federation-manage-connection.html["管理连接"]根据需要。您可以编辑连接值、测试连接、轮换连接证书或删除连接。
+* link:../monitor/grid-federation-monitor-connections.html["监控连接"]作为常规StorageGRID监控活动的一部分。
+* link:grid-federation-troubleshoot.html["排除连接故障"]，包括解决与帐户克隆和跨网格复制相关的任何警报和错误。
+

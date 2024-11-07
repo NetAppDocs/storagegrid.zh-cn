@@ -1,0 +1,71 @@
+---
+permalink: ilm/removing-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords: remove cloud storage pool 
+summary: 如果云存储池未在ILM规则中使用并且不包含对象数据、则可以将其删除。 
+---
+= 删除云存储池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果云存储池未在ILM规则中使用并且不包含对象数据、则可以将其删除。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["所需的访问权限"]。
+
+
+
+
+== 如果需要、请使用ILM移动对象数据
+
+如果要删除的云存储池包含对象数据、则必须使用ILM将数据移动到其他位置。例如、您可以将数据移动到网格上的存储节点或其他云存储池。
+
+.步骤
+. 选择* ILM *>*存储池*>*云存储池*。
+. 查看表中的ILM使用情况列、确定是否可以删除云存储池。
++
+如果云存储池正在ILM规则或纠删编码配置文件中使用、则不能将其删除。
+
+. 如果正在使用云存储池、请选择*云存储池名称_*>* ILM usage*。
+. link:working-with-ilm-rules-and-ilm-policies.html["克隆每个ILM规则"]此操作当前会将对象放置在要删除的云存储池中。
+. 确定要将由您克隆的每个规则管理的现有对象移动到的位置。
++
+您可以使用一个或多个存储池、也可以使用其他云存储池。
+
+. 编辑已克隆的每个规则。
++
+对于创建ILM规则向导的步骤2、请从*副本位置*字段中选择新位置。
+
+. link:creating-ilm-policy.html["创建新的ILM策略"]并将每个旧规则替换为克隆的规则。
+. 激活新策略。
+. 等待ILM从云存储池中删除对象并将其放置在新位置。
+
+
+
+
+== 删除云存储池
+
+如果云存储池为空且未在任何ILM规则中使用、则可以将其删除。
+
+.开始之前
+* 您已删除可能已使用该池的任何ILM规则。
+* 您已确认 S3 存储分段或 Azure 容器不包含任何对象。
++
+如果您尝试删除包含对象的云存储池，则会发生错误。请参阅。 link:troubleshooting-cloud-storage-pools.html["对云存储池进行故障排除"]
+
++
+
+NOTE: 创建云存储池时， StorageGRID 会将标记文件写入存储分段或容器，以将其标识为云存储池。不要删除名为的文件 `x-ntap-sgws-cloud-pool-uuid`。
+
+
+
+.步骤
+. 选择* ILM *>*存储池*>*云存储池*。
+. 如果ILM使用情况列指示未使用云存储池、请选中此复选框。
+. 选择 * 操作 * > * 删除 * 。
+. 选择 * 确定 * 。
+

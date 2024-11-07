@@ -1,0 +1,62 @@
+---
+section: expand
+title: 扩展网格
+url: "/landing-expand/index.html"
+entries:
+- title: 扩展类型
+  pdf-filename: 扩展StorageGRID 系统
+  url: "/expand/index.html"
+- title: 规划 StorageGRID 扩展
+  entries:
+  - title: 添加存储容量
+    entries:
+    - title: 准则：添加对象容量
+      url: "/expand/guidelines-for-adding-object-capacity.html"
+    - title: 为复制的对象添加存储容量
+      url: "/expand/adding-storage-capacity-for-replicated-objects.html"
+    - title: 为经过纠删编码的对象添加存储容量
+      url: "/expand/adding-storage-capacity-for-erasure-coded-objects.html"
+    - title: 重新平衡经过纠删编码的数据的注意事项
+      url: "/expand/considerations-for-rebalancing-erasure-coded-data.html"
+  - title: 添加元数据容量
+    url: "/expand/adding-metadata-capacity.html"
+  - title: 添加冗余或新功能
+    url: "/expand/adding-grid-nodes-to-add-capabilities.html"
+  - title: 添加新站点
+    url: "/expand/adding-new-site.html"
+- title: 收集所需材料
+  url: "/expand/gather-required-materials.html"
+- title: 添加存储卷
+  entries:
+  - title: 将存储卷添加到存储节点
+    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  - title: VMware ：将存储卷添加到存储节点
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: Linux ：将直连卷或 SAN 卷添加到存储节点
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+- title: 添加网格节点或站点
+  entries:
+  - title: 向现有站点添加网格节点或添加新站点
+    url: "/expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+  - title: 更新网格网络的子网
+    url: "/expand/updating-subnets-for-grid-network.html"
+  - title: 部署新的网格节点
+    url: "/expand/deploying-new-grid-nodes.html"
+  - title: 执行扩展
+    url: "/expand/performing-expansion.html"
+- title: 配置扩展系统
+  entries:
+  - title: 配置步骤
+    url: "/expand/configuring-expanded-storagegrid-system.html"
+  - title: 验证存储节点是否处于活动状态
+    url: "/expand/verifying-storage-node-is-active.html"
+  - title: 复制管理节点数据库
+    url: "/expand/copying-admin-node-database.html"
+  - title: 复制 Prometheus 指标
+    url: "/expand/copying-prometheus-metrics.html"
+  - title: 复制审核日志
+    url: "/expand/copying-audit-logs.html"
+  - title: 添加存储节点后重新平衡经过纠删编码的数据
+    url: "/expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+- title: 排除扩展故障
+  url: "/expand/contacting-technical-support.html"

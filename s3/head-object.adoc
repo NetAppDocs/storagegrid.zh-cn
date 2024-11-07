@@ -1,0 +1,189 @@
+---
+permalink: s3/head-object.html 
+sidebar: sidebar 
+keywords: HeadObject 
+summary: 您可以使用S3 HeadObject请求从对象中检索元数据、而无需返回对象本身。 
+---
+= HeadObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用S3 HeadObject请求从对象中检索元数据、而无需返回对象本身。如果对象存储在云存储池中、则可以使用HeadObject确定对象的过渡状态。
+
+
+
+== HeadObject和多部分对象
+
+您可以使用 `partNumber`request参数检索多部分或分段对象特定部分的元数据。 `x-amz-mp-parts-count`响应元素指示对象有多少个零件。
+
+分段/多部分对象和非分段/非多部分对象均可设置 `partNumber`为1；但是、 `x-amz-mp-parts-count`仅为分段或多部分对象返回响应元素。
+
+
+
+== 用户元数据中的 UTF-8 字符
+
+StorageGRID 不会解析或解释用户定义的元数据中的转义 UTF-8 字符。如果密钥名称或值包含不可打印的字符、则对用户定义的元数据中具有转义UTF-8字符的对象发出的HEAD请求不会返回 `x-amz-missing-meta`标题。
+
+
+
+== 支持的请求标头
+
+支持以下请求标头：
+
+* `x-amz-checksum-mode`
++
+ `partNumber`对于HeadObject、不支持参数和 `Range`标头 `x-amz-checksum-mode`。如果在启用的情况下将其包含在请求中 `x-amz-checksum-mode`、则StorageGRID不会在响应中返回校验和值。
+
+
+
+
+
+== 请求标头不受支持
+
+以下请求标头不受支持并返回 `XNotImplemented`：
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== 版本控制
+
+如果 `versionId`未指定子资源、则此操作将提取受版本控制的分段中对象的最新版本。如果对象的当前版本是删除标记，则返回“未找到”状态，并 `x-amz-delete-marker`将响应标头设置为 `true`。
+
+
+
+== 使用客户提供的加密密钥（ SSI-C ）进行服务器端加密的请求标头
+
+如果对象使用您提供的唯一密钥进行加密，请使用所有这三个标头。
+
+* `x-amz-server-side-encryption-customer-algorithm`：指定 `AES256`。
+* `x-amz-server-side-encryption-customer-key`：指定对象的加密密钥。
+* `x-amz-server-side-encryption-customer-key-MD5`：指定对象加密密钥的MD5摘要。
+
+
+
+CAUTION: 您提供的加密密钥永远不会存储。如果丢失加密密钥，则会丢失相应的对象。在使用客户提供的密钥保护对象数据之前，请查看中的注意事项link:using-server-side-encryption.html["使用服务器端加密"]。
+
+
+
+== 云存储池对象的HeadObject响应
+
+如果对象存储在中link:../ilm/what-cloud-storage-pool-is.html["云存储池"]，则返回以下响应标头：
+
+* `x-amz-storage-class: GLACIER`
+* `x-amz-restore`
+
+
+响应标头提供了有关对象移动到云存储池，可选择过渡到不可检索状态并已还原时的状态的信息。
+
+[cols="1a,1a"]
+|===
+| 对象的状态 | 对HeadObject的响应 
+
+
+ a| 
+对象已载入 StorageGRID 但尚未通过 ILM 进行评估，或者存储在传统存储池中的对象或使用纠删编码
+ a| 
+`200 OK`(不会返回特殊的响应标头。)
+
+
+
+ a| 
+云存储池中的对象，但尚未过渡到无法检索的状态
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2030 00:00:00 GMT"`
+
+在将对象转换为不可检索状态之前、的值 `expiry-date`将设置为未来某个较远的时间。确切的过渡时间不受 StorageGRID 系统控制。
+
+
+
+ a| 
+对象已过渡到不可检索状态，但网格上至少也存在一个副本
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2030 00:00:00 GMT"`
+
+的值设置为未来的 `expiry-date`某个遥远时间。
+
+*注意*：如果网格上的副本不可用(例如、存储节点已关闭)、您必须先发出link:post-object-restore.html["RestorEObject"]请求、从云存储池中还原副本、然后才能成功检索对象。
+
+
+
+ a| 
+对象已过渡到无法检索的状态，网格上不存在任何副本
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+
+
+ a| 
+正在从不可检索状态还原的对象
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="true"`
+
+
+
+ a| 
+对象已完全还原到云存储池
+ a| 
+`200 OK`
+
+`x-amz-storage-class: GLACIER`
+
+`x-amz-restore: ongoing-request="false", expiry-date="Sat, 23 July 20 2018 00:00:00 GMT"`
+
+ `expiry-date`指示云存储池中的对象何时将返回到不可检索状态。
+
+|===
+
+
+=== 云存储池中的多部分或分段对象
+
+如果您上传的是多部分对象或 StorageGRID 将一个大型对象拆分为多个区块，则 StorageGRID 会通过取样该对象的部分或区块来确定该对象是否在云存储池中可用。在某些情况下、当某个对象的某些部分已转换为不可检索状态或该对象的某些部分尚未还原时、HeadObject请求可能会错误地返回 `x-amz-restore: ongoing-request="false"`。
+
+
+
+== HeadObject和跨网格复制
+
+如果您正在使用link:../admin/grid-federation-overview.html["网格联盟"]、并且link:../tenant/grid-federation-manage-cross-grid-replication.html["跨网格复制"]已为存储分段启用、则S3客户端可以通过发出HeadObject请求来验证对象的复制状态。此响应包括StorageGRID专用的 `x-ntap-sg-cgr-replication-status`响应标头、该标头将具有以下值之一：
+
+[cols="1a,2a"]
+|===
+| 网格 | 复制状态 
+
+
+ a| 
+源
+ a| 
+* *已完成*：复制成功。
+* *pending *：对象尚未复制。
+* *失败*：复制失败并出现永久故障。用户必须解决此错误。
+
+
+
+
+ a| 
+目标
+ a| 
+*REPRAM*：对象已从源网格复制。
+
+|===
+
+NOTE: StorageGRID不支持此 `x-amz-replication-status`标题。

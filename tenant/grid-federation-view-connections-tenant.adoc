@@ -1,0 +1,91 @@
+---
+permalink: tenant/grid-federation-view-connections-tenant.html 
+sidebar: sidebar 
+keywords: grid federation connection, view, clear error, last error 
+summary: 如果租户帐户具有使用网格联盟连接权限、则可以查看允许的连接。 
+---
+= 查看网格联合连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的租户帐户具有*使用网格联合连接*权限、则可以查看允许的连接。
+
+.开始之前
+* 租户帐户具有*使用网格联合连接*权限。
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有的用户组link:tenant-management-permissions.html["root访问权限"]。
+
+
+.步骤
+. 选择*存储(S3)*>*网格联合连接*。
++
+此时将显示"网格联合连接"页面、其中包含一个表、其中汇总了以下信息：
+
++
+[cols="1a,2a"]
+|===
+| 列 | 说明 
+
+
+ a| 
+连接名称
+ a| 
+此租户有权使用的网格联盟连接。
+
+
+
+ a| 
+具有跨网格复制的存储分段
+ a| 
+对于每个网格联合连接、是指启用了跨网格复制的租户分段。添加到这些分段的对象将复制到连接中的其他网格。
+
+
+
+ a| 
+上次错误
+ a| 
+对于每个网格联合连接、在将数据复制到另一个网格时发生的最新错误(如果有)。请参阅。 <<clear-last-error,清除上一个错误>>
+
+|===
+. (可选)为选择存储分段名称link:viewing-s3-bucket-details.html["查看存储分段详细信息"]。
+
+
+
+
+== [[Clear-Last-error]]清除上一个错误
+
+由于以下原因之一，“*上次错误*”列中可能会出现错误：
+
+* 未找到源对象版本。
+* 未找到源存储分段。
+* 已删除此目标存储分段。
+* 目标存储分段已由其他帐户重新创建。
+* 目标存储分段已暂停版本控制。
+* 目标存储分段已由同一帐户重新创建、但现在已取消版本控制。
+
+
+
+NOTE: 此列仅显示上次发生的跨网格复制错误；不会显示先前可能发生的错误。
+
+.步骤
+. 如果*last error*列中显示消息，请查看消息文本。
++
+例如、此错误表示跨网格复制的目标分段处于无效状态、可能是因为版本控制已暂停或启用了S3对象锁定。
+
++
+image::../media/grid-federation-cgr-object-example-last-error.png[GRI-Federation—CGR-object-expleme-last—error]
+
+. 执行任何建议的操作。例如、如果在目标存储分段上暂停版本控制以进行跨网格复制、请为此存储分段重新启用版本控制。
+. 从表中选择连接。
+. 选择*清除错误*。
+. 选择*是*以清除消息并更新系统状态。
+. 等待5-6分钟、然后将新对象插入存储分段。确认错误信息不会再次出现。
++
+
+NOTE: 要确保清除错误消息、请在消息中的时间戳后至少等待5分钟、然后再输入新对象。
+
+. 要确定是否有任何对象因存储分段错误而无法复制，请参见link:../admin/grid-federation-retry-failed-replication.html["确定并重试失败的复制操作"]。
+

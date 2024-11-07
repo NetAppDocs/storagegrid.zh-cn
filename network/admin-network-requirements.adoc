@@ -1,0 +1,22 @@
+---
+permalink: network/admin-network-requirements.html 
+sidebar: sidebar 
+keywords: admin network requirements, guidelines for admin network, aesl 
+summary: 管理网络是可选的。如果您计划配置管理网络，请遵循以下要求和准则。 
+---
+= 管理网络要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+管理网络是可选的。如果您计划配置管理网络，请遵循以下要求和准则。
+
+管理网络的典型用途包括管理连接、AutoSupport 、KMS以及与关键服务器(如NTP、DNS和LDAP)的连接(如果这些连接不是通过网格网络或客户端网络提供的)。
+
+
+NOTE: 只要所需的网络服务和客户端可访问，管理网络和 AESL 就可以对每个节点唯一。
+
+
+NOTE: 要从外部子网启用入站连接，必须在管理网络上至少定义一个子网。AESL 中的每个子网都会在每个节点上自动生成静态路由。

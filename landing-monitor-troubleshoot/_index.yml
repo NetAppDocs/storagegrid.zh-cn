@@ -1,0 +1,45 @@
+---
+indexpage:
+  title: 监控StorageGRID系统并对其进行故障排除
+  summary: 系统启动并运行后、您应定期监控其活动、并对任何警报进行故障排除和解决。您可能还需要配置外部系统日志服务器、使用SNMP监控或收集其他数据。
+  keywords: monitor, troubleshoot
+  lead: 系统启动并运行后、您应定期监控其活动、并对任何警报进行故障排除和解决。您可能还需要配置外部系统日志服务器、使用SNMP监控或收集其他数据。
+  tiles:
+  - title: 监控您的系统
+    links:
+    - title: 管理信息板
+      url: "../monitor/viewing-dashboard.html"
+    - title: 查看节点页面
+      url: "../monitor/viewing-nodes-page.html"
+    - title: 监控系统运行状况
+      url: "../monitor/monitoring-system-health.html"
+    - title: 监控存储容量
+      url: "../monitor/monitoring-storage-capacity.html"
+  - title: 管理警报和通知
+    links:
+    - title: 管理警报
+      url: "../monitor/managing-alerts.html"
+    - title: 创建自定义警报
+      url: "../monitor/creating-custom-alert-rules.html"
+    - title: 管理警报电子邮件
+      url: "../monitor/email-alert-notifications.html"
+    - title: 使用 SNMP 监控
+      url: "../monitor/using-snmp-monitoring.html"
+  - title: 使用审核消息和其他日志
+    links:
+    - title: 配置审核消息
+      url: "../monitor/configure-audit-messages.html"
+    - title: 使用外部系统日志服务器
+      url: "../monitor/considerations-for-external-syslog-server.html"
+    - title: 查看审核日志
+      url: "../audit/index.html"
+    - title: 日志文件参考
+      url: "../monitor/logs-files-reference.html"
+  - title: 诊断和故障排除
+    links:
+    - title: 查看支持指标
+      url: "../monitor/reviewing-support-metrics.html"
+    - title: Run diagnostics
+      url: "../monitor/running-diagnostics.html"
+    - title: 对常见问题进行故障排除
+      url: "../troubleshoot/index.html"

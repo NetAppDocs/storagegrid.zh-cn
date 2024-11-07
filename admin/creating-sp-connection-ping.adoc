@@ -1,0 +1,224 @@
+---
+permalink: admin/creating-sp-connection-ping.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: 您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。 
+---
+= 在 PingFederate 中创建服务提供商（ SP ）连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。
+
+.开始之前
+* 您已为 StorageGRID 配置单点登录，并选择了 * Ping 联邦 * 作为 SSO 类型。
+* 在网格管理器的单点登录页面上选择了 * 沙盒模式 * 。请参阅。 link:../admin/using-sandbox-mode.html["使用沙盒模式"]
+* 您拥有系统中每个管理节点的 * SP 连接 ID* 。您可以在 StorageGRID 单点登录页面上的管理节点详细信息表中找到这些值。
+* 您已为系统中的每个管理节点下载 * SAML 元数据 * 。
+* 您在 PingFederate 服务器中创建 SP 连接的经验。
+* 您有https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["《管理员参考指南》"^]用于PingFedate服务器的。PingFederate 文档提供了详细的分步说明和说明。
+* 您有link:admin-group-permissions.html["管理员权限"]用于PingFedate服务器的。
+
+
+.关于此任务
+以下说明总结了如何将 PingFederate 服务器 10.3 版配置为 StorageGRID 的 SSO 提供程序。如果您使用的是其他版本的 PingFederate ，则可能需要调整这些说明。有关您的版本的详细说明，请参见 PingFederate 服务器文档。
+
+
+
+== 完成 PingFederate 中的前提条件
+
+在创建要用于 StorageGRID 的 SP 连接之前，必须先在 PingFederate 中完成前提条件任务。配置 SP 连接时，您将使用这些前提条件中的信息。
+
+
+
+=== 创建数据存储库[Data -store]]
+
+如果尚未创建数据存储库，请将 PingFederate 连接到 AD FS LDAP 服务器。使用您在StorageGRID中使用的值link:../admin/using-identity-federation.html["配置身份联合"]。
+
+* * 类型 * ：目录（ LDAP ）
+* * LDAP 类型 * ： Active Directory
+* * 二进制属性名称 * ：在 "LDAP 二进制属性 " 选项卡上输入 * 对象 GUID* ，具体如图所示。
+
+
+
+
+=== 创建密码凭据验证器[password-validator]]
+
+如果尚未创建密码凭据验证程序，请创建一个。
+
+* * 类型 * ： LDAP 用户名密码凭据验证器
+* * 数据存储 * ：选择您创建的数据存储。
+* * 搜索基础 * ：输入 LDAP 中的信息（例如， DC=SAML ， DC=sgws ）。
+* * 搜索筛选器 * ： sAMAccountName=$ ｛ username ｝
+* * 范围 * ：子树
+
+
+
+
+=== 创建IdP适配器实例[adapter-instance]]
+
+如果尚未创建 IdP 适配器实例，请创建此实例。
+
+.步骤
+. 转至 * 身份验证 * > * 集成 * > * IdP 适配器 * 。
+. 选择 * 创建新实例 * 。
+. 在类型选项卡上，选择 * HTML 表单 IdP 适配器 * 。
+. 在 IdP 适配器选项卡上，选择 * 向 " 凭据验证器 "* 添加新行。
+. 选择您创建的。<<password-validator,密码凭据验证程序>>
+. 在适配器属性选项卡上，为 * 伪名称 * 选择 * 用户名 * 属性。
+. 选择 * 保存 * 。
+
+
+
+
+=== 创建或导入签名证书[[signing-certificate]]
+
+如果尚未创建，请创建或导入签名证书。
+
+.步骤
+. 转至 * 安全性 * > * 签名和解密密钥和证书 * 。
+. 创建或导入签名证书。
+
+
+
+
+== 在 PingFederate 中创建 SP 连接
+
+在 PingFederate 中创建 SP 连接时，您可以导入从 StorageGRID 为管理节点下载的 SAML 元数据。元数据文件包含您需要的许多特定值。
+
+
+TIP: 您必须为 StorageGRID 系统中的每个管理节点创建一个 SP 连接，以便用户可以安全地登录和注销任何节点。按照以下说明创建第一个 SP 连接。然后、转到<<创建其他 SP 连接>>创建所需的任何其他连接。
+
+
+
+=== 选择 SP 连接类型
+
+.步骤
+. 转至 * 应用程序 * > * 集成 * > * SP 连接 * 。
+. 选择 * 创建连接 * 。
+. 选择 * 不对此连接使用模板 * 。
+. 选择 * 浏览器 SSO 配置文件 * 和 * SAML 2.0* 作为协议。
+
+
+
+
+=== 导入 SP 元数据
+
+.步骤
+. 在导入元数据选项卡上，选择 * 文件 * 。
+. 选择从管理节点的 StorageGRID 单点登录页面下载的 SAML 元数据文件。
+. 查看"元数据摘要"以及"常规信息"选项卡上提供的信息。
++
+合作伙伴的实体 ID 和连接名称设置为 StorageGRID SP 连接 ID 。（例如 10.96.105.200-DC1-ADM1-105-200 ）。基本 URL 是 StorageGRID 管理节点的 IP 。
+
+. 选择 * 下一步 * 。
+
+
+
+
+=== 配置 IdP 浏览器 SSO
+
+.步骤
+. 从浏览器 SSO 选项卡中，选择 * 配置浏览器 SSO* 。
+. 在 SAML 配置文件选项卡上，选择 * SP 启动的 SSO* ， * SP 初始 SLO* ， * IdP-Initiated SSO* 和 * IdP-Initiated SLO* 选项。
+. 选择 * 下一步 * 。
+. 在 Assertion Lifetime 选项卡上，不进行任何更改。
+. 在断言创建选项卡上，选择 * 配置断言创建 * 。
++
+.. 在身份映射选项卡上，选择 * 标准 * 。
+.. 在属性合同选项卡上，使用 * SAML 主题 * 作为属性合同以及导入的未指定名称格式。
+
+
+. 要延长合同，请选择*Delete*以删除未使用的 `urn:oid`。
+
+
+
+
+=== 映射适配器实例
+
+.步骤
+. 在身份验证源映射选项卡上，选择 * 映射新适配器实例 * 。
+. 在适配器实例选项卡上、选择您创建的<<adapter-instance,适配器实例>>。
+. 在映射方法选项卡上，选择 * 从数据存储中检索其他属性 * 。
+. 在属性源和用户查找选项卡上，选择 * 添加属性源 * 。
+. 在数据存储选项卡上、提供说明并选择您添加的<<data-store,数据存储>>。
+. 在 LDAP 目录搜索选项卡上：
++
+** 输入 * 基本 DN* ，该 DN 应与您在 StorageGRID 中为 LDAP 服务器输入的值完全匹配。
+** 对于搜索范围，请选择 * 子树 * 。
+** 对于根对象类，搜索并添加以下属性之一：*objectGUUD*或*userPrincipalName*。
+
+
+. 在 LDAP 二进制属性编码类型选项卡上，为 * 对象 GUID* 属性选择 * Base64* 。
+. 在 LDAP 筛选器选项卡上，输入 * 。 sAMAccountName=$ ｛ username ｝ * 。
+. 在属性合同履行选项卡上，从来源下拉列表中选择*LDAP (属性)*，然后从值下拉列表中选择*objectGUID*或*userPrincipalName*。
+. 查看并保存属性源。
+. 在故障保存属性源选项卡上，选择 * 中止 SSO 事务 * 。
+. 查看摘要并选择 * 完成 * 。
+. 选择 * 完成 * 。
+
+
+
+
+=== 配置协议设置
+
+.步骤
+. 在 * SP Connection* > * 浏览器 SSO* > * 协议设置 * 选项卡上，选择 * 配置协议设置 * 。
+. 在断言使用方服务URL选项卡上、接受从StorageGRID SAML元数据导入的默认值(绑定和端点URL的*post* `/api/saml-response`)。
+. 在SLO服务URL选项卡上、接受从StorageGRID SAML元数据导入的默认值(*重定向*用于绑定和端点URL) `/api/saml-logout`。
+. 在允许的SAML绑定选项卡上、清除*项目*和* SOAP *。仅需要 * 发布 * 和 * 重定向 * 。
+. 在“签名策略”选项卡上，保持选中“要求对authn请求进行签名”和“始终签名断言”复选框。
+. 在加密策略选项卡上，选择 * 无 * 。
+. 查看摘要并选择 * 完成 * 以保存协议设置。
+. 查看摘要并选择 * 完成 * 以保存浏览器 SSO 设置。
+
+
+
+
+=== 配置凭据
+
+.步骤
+. 从 SP 连接选项卡中，选择 * 凭据 * 。
+. 从凭据选项卡中，选择 * 配置凭据 * 。
+. 选择<<signing-certificate,正在签名证书>>您创建或导入的。
+. 选择 * 下一步 * 转到 * 管理签名验证设置 * 。
++
+.. 在信任模式选项卡上，选择 * 已取消锁定 * 。
+.. 在签名验证证书选项卡上，查看从 StorageGRID SAML 元数据导入的签名证书信息。
+
+
+. 查看摘要屏幕并选择 * 保存 * 以保存 SP 连接。
+
+
+
+
+=== 创建其他 SP 连接
+
+您可以复制第一个 SP 连接，以便为网格中的每个管理节点创建所需的 SP 连接。您可以为每个副本上传新元数据。
+
+
+NOTE: 不同管理节点的 SP 连接使用相同的设置，但合作伙伴的实体 ID ，基本 URL ，连接 ID ，连接名称，签名验证除外。 和 SLO 响应 URL 。
+
+.步骤
+. 选择 * 操作 * > * 复制 * 为每个附加管理节点创建初始 SP 连接的副本。
+. 输入副本的连接 ID 和连接名称，然后选择 * 保存 * 。
+. 选择与管理节点对应的元数据文件：
++
+.. 选择 * 操作 * > * 使用元数据更新 * 。
+.. 选择 * 选择文件 * 并上传元数据。
+.. 选择 * 下一步 * 。
+.. 选择 * 保存 * 。
+
+
+. 解决由于属性未使用而导致的错误：
++
+.. 选择新连接。
+.. 选择 * 配置浏览器 SSO > 配置断言创建 > 属性合同 * 。
+.. 删除 * urn ： oid* 的条目。
+.. 选择 * 保存 * 。
+
+
+

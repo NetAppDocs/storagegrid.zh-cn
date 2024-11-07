@@ -1,0 +1,78 @@
+---
+permalink: admin/how-ha-groups-are-used.html 
+sidebar: sidebar 
+keywords: ha groups, high availability group 
+summary: 您可以使用高可用性（ High Availability ， HA ）组提供与 StorageGRID 的高可用性连接，以用于对象数据和管理目的。 
+---
+= 如何使用 HA 组？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用高可用性（ High Availability ， HA ）组提供与 StorageGRID 的高可用性连接，以用于对象数据和管理目的。
+
+* HA 组可以为网格管理器或租户管理器提供高度可用的管理连接。
+* HA组可以为S3客户端提供高可用性数据连接。
+* 如果 HA 组仅包含一个接口，则可以提供多个 VIP 地址并明确设置 IPv6 地址。
+
+
+只有当 HA 组中包含的所有节点都提供相同的服务时， HA 组才能提供高可用性。创建 HA 组时，请从提供所需服务的节点类型中添加接口。
+
+* * 管理节点 * ：包括负载平衡器服务，并允许访问网格管理器或租户管理器。
+* *网关节点*：包括负载平衡器服务。
+
+
+[cols="1a,2a"]
+|===
+| HA 组的用途 | 将此类型的节点添加到 HA 组 
+
+
+ a| 
+访问 Grid Manager
+ a| 
+* 主管理节点（ * 主 * ）
+* 非主管理节点
+
+
+* 注： * 主管理节点必须为主接口。某些维护过程只能从主管理节点执行。
+
+
+
+ a| 
+仅访问租户管理器
+ a| 
+* 主管理节点或非主管理节点
+
+
+
+
+ a| 
+S3客户端访问--负载平衡器服务
+ a| 
+* 管理节点
+* 网关节点
+
+
+
+
+ a| 
+的S3客户端访问link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Select"]
+ a| 
+* 服务设备
+* 基于 VMware 的软件节点
+
+
+* 注 * ：使用 S3 Select 时建议使用 HA 组，但不要求使用 HA 组。
+
+|===
+
+
+== 将 HA 组与 Grid Manager 或租户管理器结合使用的限制
+
+如果 Grid Manager 或租户管理器服务失败，则不会触发 HA 组故障转移。
+
+如果在发生故障转移时登录到网格管理器或租户管理器，则您将注销并必须重新登录才能恢复任务。
+
+当主管理节点不可用时、无法执行某些维护过程。在故障转移期间，您可以使用网格管理器监控 StorageGRID 系统。

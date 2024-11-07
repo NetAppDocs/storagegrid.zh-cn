@@ -1,0 +1,96 @@
+---
+permalink: maintain/monitor-repairs.html 
+sidebar: sidebar 
+keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
+summary: '您可以从命令行使用脚本监控修复作业的状态 `repair-data`。' 
+---
+= 监控修复数据作业
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从命令行使用脚本监控修复作业的状态 `repair-data`。
+
+这些作业包括您手动启动的作业、或者StorageGRID 在停用操作步骤 过程中自动启动的作业。
+
+
+NOTE: 如果您正在运行卷还原作业、则link:../maintain/restoring-volume.html["在网格管理器中监控这些作业的进度并查看其历史记录"]改为。
+
+根据您是使用*复制的数据*、*纠删编码(EC)数据*还是同时使用这两者来监控作业状态 `repair-data`。
+
+[role="tabbed-block"]
+====
+.复制的数据
+--
+* 要获取复制的修复的估计完成百分比、请将选项添加到re修复 `show-replicated-repair-status` 数据命令中。
++
+`repair-data show-replicated-repair-status`
+
+* 要确定修复是否已完成，请执行以下操作：
++
+.. 选择 * 节点 * > * 正在修复的存储节点 _* > * ILM * 。
+.. 查看 " 评估 " 部分中的属性。修复完成后， * 正在等待 - 全部 * 属性指示 0 个对象。
+
+
+* 要更详细地监控修复，请执行以下操作：
++
+.. 选择 * 支持 * > * 工具 * > * 网格拓扑 * 。
+.. 选择 *_grid_* > * 正在修复的存储节点 _* > * LDR* > * 数据存储 * 。
+.. 结合使用以下属性，尽可能确定复制的修复是否已完成。
++
+
+NOTE: 可能存在Cassand拉 不一致、无法跟踪失败的修复。
+
++
+*** * 尝试修复（ XRPA ） * ：使用此属性跟踪复制修复的进度。每当存储节点尝试修复高风险对象时，此属性都会增加。如果此属性的增加时间不超过当前扫描期间（由 * 扫描期间 - 估计 * 属性提供），则表示 ILM 扫描未在任何节点上发现任何需要修复的高风险对象。
++
+
+NOTE: 高风险对象是指可能完全丢失的对象。这不包括不满足其ILM配置的对象。
+
+*** * 扫描期间 - 估计值（ XSCM ） * ：使用此属性可估计何时对先前载入的对象应用策略更改。如果 * 已尝试修复 * 属性的增加时间未超过当前扫描期间，则复制的修复很可能已完成。请注意，扫描期限可能会更改。* 扫描期限 - 估计（ XSCM ） * 属性适用场景 整个网格，是所有节点扫描期限的最大值。您可以查询网格的 * 扫描时间段 - 估计 * 属性历史记录以确定适当的时间范围。
+
+
+
+
+
+
+--
+.纠删编码(EC)数据
+--
+要监控纠删编码数据的修复情况，并重试任何可能失败的请求：
+
+. 确定经过纠删编码的数据修复的状态：
++
+** 选择 * 支持 * > * 工具 * > * 指标 * 以查看当前作业的估计完成时间和完成百分比。然后，在 Grafana 部分中选择 * EC Overview* 。查看 * 网格 EC 作业预计完成时间 * 和 * 网格 EC 作业已完成百分比 * 信息板。
+** 使用此命令可查看特定操作的状态 `repair-data`：
++
+`repair-data show-ec-repair-status --repair-id repair ID`
+
+** 使用此命令可列出所有修复：
++
+`repair-data show-ec-repair-status`
+
++
+输出将列出所有先前和当前正在运行的修复的信息，包括 `repair ID`。
+
+
+
+. 如果输出显示修复操作失败、请使用 `--repair-id`选项重试修复。
++
+此命令使用修复ID 6949309319275667690重试失败的节点修复：
+
++
+`repair-data start-ec-node-repair --repair-id 6949309319275667690`
+
++
+此命令使用修复ID 6949309319275667690重试失败的卷修复：
+
++
+`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
+
+
+
+--
+====

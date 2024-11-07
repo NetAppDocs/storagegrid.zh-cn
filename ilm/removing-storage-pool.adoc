@@ -1,0 +1,30 @@
+---
+permalink: ilm/removing-storage-pool.html 
+sidebar: sidebar 
+keywords: remove storage pool 
+summary: 您可以删除未使用的存储池。 
+---
+= 删除存储池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以删除未使用的存储池。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["所需的访问权限"]。
+
+
+.步骤
+. 选择 * ILM * > * 存储池 * 。
+. 查看表中的ILM使用情况列、确定是否可以删除存储池。
++
+如果存储池正在ILM规则或纠删编码配置文件中使用、则不能将其删除。根据需要选择*_storage pool name_*>*ILM usage*以确定存储池的使用位置。
+
+. 如果未使用要删除的存储池、请选中此复选框。
+. 选择 * 删除 * 。
+. 选择 * 确定 * 。
+

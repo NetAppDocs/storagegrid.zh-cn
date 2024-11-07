@@ -1,0 +1,105 @@
+---
+permalink: ubuntu/configuring-host-storage.html 
+sidebar: sidebar 
+keywords: how to configure host storage 
+summary: 您必须为每个主机分配块存储卷。 
+---
+= 配置主机存储
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为每个主机分配块存储卷。
+
+.开始之前
+您已阅读以下主题，其中提供了完成此任务所需的信息：
+
+* link:storage-and-performance-requirements.html["存储和性能要求"]
+* link:node-container-migration-requirements.html["节点容器迁移要求"]
+
+
+.关于此任务
+将块存储卷(LUN)分配给主机时、请使用"存储要求"中的表确定以下内容：
+
+* 每个主机所需的卷数（根据要在该主机上部署的节点的数量和类型）
+* 每个卷的存储类别（即系统数据或对象数据）
+* 每个卷的大小
+
+
+在主机上部署 StorageGRID 节点时，您将使用此信息以及 Linux 为每个物理卷分配的永久性名称。
+
+
+NOTE: 您无需对这些卷中的任何卷进行分区、格式化或挂载；只需确保它们对主机可见即可。
+
+
+NOTE: 对于纯元数据存储节点、只需要一个对象数据LUN。
+
+(`/dev/sdb`例如，在编写卷名称列表时，请避免使用“原始”特殊设备文件。这些文件可能会在主机重新启动后发生更改，从而影响系统的正常运行。如果使用的是iSCSI LUN和设备映射程序多路径、请考虑在目录中使用多路径别名 `/dev/mapper`、尤其是在SAN拓扑包含指向共享存储的冗余网络路径时。或者、您也可以在下使用系统创建的软链接 `/dev/disk/by-path/`作为永久性设备名称。
+
+例如：
+
+[listing]
+----
+ls -l
+$ ls -l /dev/disk/by-path/
+total 0
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:00:07.1-ata-2 -> ../../sr0
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0 -> ../../sda
+lrwxrwxrwx 1 root root 10 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0-part1 -> ../../sda1
+lrwxrwxrwx 1 root root 10 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0-part2 -> ../../sda2
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:1:0 -> ../../sdb
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:2:0 -> ../../sdc
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:3:0 -> ../../sdd
+----
+每个安装的结果会有所不同。
+
+为每个块存储卷分配友好名称，以简化初始 StorageGRID 安装和未来维护过程。如果使用设备映射程序多路径驱动程序冗余访问共享存储卷、则可以使用文件中的 `alias`字段 `/etc/multipath.conf`。
+
+例如：
+
+[listing]
+----
+multipaths {
+     multipath {
+          wwid 3600a09800059d6df00005df2573c2c30
+          alias docker-storage-volume-hostA
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df3573c2c30
+          alias sgws-adm1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df4573c2c30
+          alias sgws-adm1-audit-logs
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df5573c2c30
+          alias sgws-adm1-tables
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df6573c2c30
+          alias sgws-gw1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df7573c2c30
+          alias sgws-sn1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df7573c2c30
+          alias sgws-sn1-rangedb-0
+     }
+     …
+----
+以这种方式使用别名字段会使别名在主机上的目录中显示为块设备 `/dev/mapper`、这样、每当配置或维护操作需要指定块存储卷时、您就可以指定一个便于识别且易于验证的名称。
+
+如果要设置共享存储以支持StorageGRID节点迁移并使用设备映射程序多路径、则可以在所有主机上创建并安装公用。 `/etc/multipath.conf`只需确保在每个主机上使用不同的 Docker 存储卷即可。使用别名并将目标主机名包含在每个 Docker 存储卷 LUN 的别名中，这一点便于记住，建议这样做。
+
+
+NOTE: 不再支持将Docker用作纯软件部署的容器引擎。在未来版本中、Docker将被另一个容器引擎取代。
+
+.相关信息
+* link:storage-and-performance-requirements.html["存储和性能要求"]
+* link:node-container-migration-requirements.html["节点容器迁移要求"]
+

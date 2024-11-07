@@ -1,0 +1,55 @@
+---
+permalink: audit/ecoc-corrupt-erasure-coded-data-fragment.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
+summary: 此审核消息指示系统检测到经过纠删编码的数据片段已损坏。 
+---
+= EECO：经过Erasure编码的数据片段已损坏
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此审核消息指示系统检测到经过纠删编码的数据片段已损坏。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+VCCO
+ a| 
+VCS ID
+ a| 
+包含损坏区块的 VCS 的名称。
+
+
+
+ a| 
+VLID
+ a| 
+Volume ID
+ a| 
+包含损坏的纠删编码片段的 RangeDB 卷。
+
+
+
+ a| 
+CCID
+ a| 
+区块 ID
+ a| 
+已损坏的纠删编码片段的标识符。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+此字段的值为 " 无 " 。RSLT- 是一个必填消息字段，但与此特定消息无关。使用 " 无 " 而不是 "CSU" ，因此不会筛选此消息。
+
+|===

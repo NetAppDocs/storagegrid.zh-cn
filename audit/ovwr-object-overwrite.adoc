@@ -1,0 +1,93 @@
+---
+permalink: audit/ovwr-object-overwrite.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, OVWR, Object Overwrite 
+summary: 如果外部 \ （客户端请求的 \ ）操作导致一个对象被另一个对象覆盖，则会生成此消息。 
+---
+= OVWR ：对象覆盖
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果外部（客户端请求的）操作导致一个对象被另一个对象覆盖，则会生成此消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CBID
+ a| 
+内容块标识符（新增）
+ a| 
+新对象的 CBID 。
+
+
+
+ a| 
+CSIZ
+ a| 
+先前对象大小
+ a| 
+要覆盖的对象的大小（以字节为单位）。
+
+
+
+ a| 
+OCBD
+ a| 
+内容块标识符（上一个）
+ a| 
+上一个对象的 CBID 。
+
+
+
+ a| 
+UUID
+ a| 
+通用唯一 ID （新）
+ a| 
+StorageGRID 系统中新对象的标识符。
+
+
+
+ a| 
+OUID
+ a| 
+通用唯一 ID （以前的）
+ a| 
+StorageGRID 系统中上一个对象的标识符。
+
+
+
+ a| 
+路径
+ a| 
+S3对象路径
+ a| 
+用于上一个对象和新对象的S3对象路径
+
+
+
+ a| 
+RSLT
+ a| 
+结果代码
+ a| 
+对象覆盖事务的结果。结果始终为：
+
+SUC ：成功
+
+
+
+ a| 
+SGRP
+ a| 
+站点（组）
+ a| 
+如果存在此参数，则会在指定的站点上删除此覆盖对象，而不是在其中载入此覆盖对象的站点。
+
+|===

@@ -1,0 +1,53 @@
+---
+permalink: s3/s3-operations-tracked-in-audit-logs.html 
+sidebar: sidebar 
+keywords: audit log, auditing bucket and object operations, S3 audit messages 
+summary: 审核消息由 StorageGRID 服务生成并存储在文本日志文件中。您可以在审核日志中查看特定于S3的审核消息、以获取有关分段和对象操作的详细信息。 
+---
+= 审核日志中跟踪的 S3 操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+审核消息由 StorageGRID 服务生成并存储在文本日志文件中。您可以在审核日志中查看特定于S3的审核消息、以获取有关分段和对象操作的详细信息。
+
+
+
+== 审核日志中跟踪的存储分段操作
+
+* CreateBucket
+* DeleteBucket
+* DeleteBucketTbaging
+* DeleteObjects
+* GetBucketTaging
+* HeadBucket
+* ListObjects
+* ListObjectVersies
+* PUT 存储分段合规性
+* PutBucketTaging
+* PutBucketVersioning
+
+
+
+
+== 审核日志中跟踪的对象操作
+
+* CompleteMultipartUpload
+* CopyObject
+* DeleteObject
+* GetObject
+* HeadObject
+* PutObject
+* RestorEObject
+* 选择对象
+* UploadPart (当ILM规则使用平衡或严格的加载时)
+* UploadPartCopy (当ILM规则使用平衡或严格的加载时)
+
+
+.相关信息
+* link:../audit/accessing-audit-log-file.html["访问审核日志文件"]
+* link:../audit/client-write-audit-messages.html["客户端写入审核消息"]
+* link:../audit/client-read-audit-messages.html["客户端读取审核消息"]
+

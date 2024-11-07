@@ -1,0 +1,100 @@
+---
+permalink: audit/client-write-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
+summary: 当S3客户端应用程序请求创建或修改对象时、系统会记录客户端写入审核消息。 
+---
+= 客户端写入审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当S3客户端应用程序请求创建或修改对象时、系统会记录客户端写入审核消息。
+
+[cols="1a,3a,1a,1a"]
+|===
+| 代码 | 说明 | 使用人 | 请参见 
+
+
+ a| 
+OVWR
+ a| 
+对象覆盖：记录一个事务，以便使用另一个对象覆盖一个对象。
+ a| 
+S3和Swift客户端
+ a| 
+link:ovwr-object-overwrite.html["OVWR ：对象覆盖"]
+
+
+
+ a| 
+SDEL
+ a| 
+S3 delete ：记录成功的事务以删除对象或存储分段。
+
+* 注： * 如果事务对子资源执行操作，则审核消息将包含字段 S3SR 。
+ a| 
+S3 客户端
+ a| 
+link:sdel-s3-delete.html["SDEL ： S3 delete"]
+
+
+
+ a| 
+SPOS
+ a| 
+S3 POST ：记录将对象从 AWS Glacier 存储还原到云存储池的成功事务。
+ a| 
+S3 客户端
+ a| 
+link:spos-s3-post.html["SPOS ： S3 POST"]
+
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT ：记录成功的事务以创建新对象或存储分段。
+
+* 注： * 如果事务对子资源执行操作，则审核消息将包含字段 S3SR 。
+ a| 
+S3 客户端
+ a| 
+link:sput-s3-put.html["SPUT ： S3 PUT"]
+
+
+
+ a| 
+SUPD
+ a| 
+S3 元数据已更新：记录成功的事务以更新现有对象或存储分段的元数据。
+ a| 
+S3 客户端
+ a| 
+link:supd-s3-metadata-updated.html["SUPD ：已更新 S3 元数据"]
+
+
+
+ a| 
+WDEL
+ a| 
+Swift delete ：记录成功的事务以删除对象或容器。
+ a| 
+Swift 客户端
+ a| 
+link:wdel-swift-delete.html["WDEL ： Swift delete"]
+
+
+
+ a| 
+WWPUT
+ a| 
+Swift PUT ：记录成功的事务以创建新对象或容器。
+ a| 
+Swift 客户端
+ a| 
+link:wput-swift-put.html["WWPUT ： Swift PUT"]
+
+|===

@@ -1,0 +1,84 @@
+---
+permalink: tenant/manage-bucket-consistency.html 
+sidebar: sidebar 
+keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: 一致性值可用于指定存储分段设置更改的可用性、并在存储分段中对象的可用性与这些对象在不同存储节点和站点之间的一致性之间实现平衡。您可以将一致性值更改为与默认值不同的值、以便客户端应用程序可以满足其运行需求。 
+---
+= 管理存储分段一致性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+一致性值可用于指定存储分段设置更改的可用性、并在存储分段中对象的可用性与这些对象在不同存储节点和站点之间的一致性之间实现平衡。您可以将一致性值更改为与默认值不同的值、以便客户端应用程序可以满足其运行需求。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有的用户组link:tenant-management-permissions.html["管理所有分段或root访问权限"]。这些权限将覆盖组或存储分段策略中的权限设置。
+
+
+
+
+== 存储分段一致性准则
+
+分段一致性用于确定影响该S3分段中对象的客户端应用程序的一致性。通常，存储分段应使用*read-after-new-write*一致性。
+
+
+
+== [[change-bket-sistic]]更改存储分段一致性
+
+如果*read-after-new-write*一致性不符合客户端应用程序的要求，您可以通过设置分段一致性或使用标头来更改一致性 `Consistency-Control`。 `Consistency-Control`标题将覆盖存储分段一致性。
+
+
+NOTE: 如果更改存储分段的一致性、则只有在更改后被加载的对象才能保证满足修订后的设置。
+
+.步骤
+. 从信息板中选择*查看存储分段*，或选择*存储(S3)*>*存储分段*。
+. 从表中选择分段名称。
++
+此时将显示存储分段详细信息页面。
+
+. 从*存储分段选项*选项卡中，选择**可选框。
+. 为此存储分段中的对象执行的操作选择一致性。
++
+** *全部*：提供最高级别的一致性。所有节点都会立即接收数据，否则请求将失败。
+** *强-全局*：保证所有站点中所有客户端请求的写入后读一致性。
+** *强站点*：保证站点内所有客户端请求的写入后读一致性。
+** *读后新写入*(默认)：为新对象提供读后写入一致性、并最终为对象更新提供一致性。提供高可用性和数据保护保证。建议用于大多数情况。
+** *可用*：为新对象和对象更新提供最终一致性。对于S3存储分段、请仅在需要时使用(例如、对于包含很少读取的日志值的存储分段、或者对于不存在的密钥执行HEAD或GET操作)。S3 FabricPool 存储分段不支持。
+
+
+. 选择 * 保存更改 * 。
+
+
+
+
+== 更改存储分段设置时会发生什么情况
+
+分段具有多个设置、这些设置会影响分段的行为以及这些分段中的对象。
+
+默认情况下，以下存储分段设置使用*强*一致性。如果任何站点中没有两个或更多存储节点、或者某个站点不可用、则对这些设置所做的任何更改可能不可用。
+
+* link:deleting-s3-bucket-objects.html["后台空分段删除"]
+* link:enabling-or-disabling-last-access-time-updates.html["上次访问时间"]
+* link:../s3/create-s3-lifecycle-configuration.html["分段生命周期"]
+* link:../s3/bucket-and-group-access-policies.html["存储分段策略"]
+* link:../s3/operations-on-buckets.html["存储分段标记"]
+* link:changing-bucket-versioning.html["存储分段版本控制"]
+* link:using-s3-object-lock.html["S3 对象锁定"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html#bucket-encryption-table["存储分段加密"]
+
+
+
+NOTE: 分段版本控制、S3对象锁定和分段加密的一致性值不能设置为高度一致的值。
+
+以下存储分段设置不会使用较强的一致性、因此更改可用性较高。对这些设置所做的更改可能需要一段时间才能生效。
+
+* link:considerations-for-platform-services.html["平台服务配置：通知、复制或搜索集成"]
+* link:configuring-cross-origin-resource-sharing-cors.html["CORS配置"]
+* <<change-bucket-consistency,更改存储分段一致性>>
+
+
+
+TIP: 如果更改存储分段设置时使用的默认一致性不符合客户端应用程序的要求，则可以使用的标题link:../s3/put-bucket-consistency-request.html["S3 REST API"]或 `force`中的或 `reducedConsistency`选项来更改一致性 `Consistency-Control`link:understanding-tenant-management-api.html["租户管理 API"]。

@@ -1,0 +1,63 @@
+---
+permalink: maintain/configuring-dns-servers.html 
+sidebar: sidebar 
+keywords: storagegrid, dns, configuring dns, configure dns, domain name system 
+summary: '您可以添加、删除和更新DNS服务器、以便使用完全限定域名\(FQDN\)主机名、而不是IP地址。' 
+---
+= 配置 DNS 服务器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以添加、更新和删除DNS服务器、以便可以使用完全限定域名(FQDN)主机名、而不是IP地址。
+
+要在为外部目标指定主机名时使用完全限定域名(FQDN)而不是IP地址、请指定要使用的每个DNS服务器的IP地址。这些条目用于AutoSupport 、警报电子邮件、SNMP通知、平台服务端点、云存储池、 等等。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["维护或root访问权限"]。
+* 您有要配置的DNS服务器的IP地址。
+
+
+.关于此任务
+要确保正常运行、请指定两个或三个DNS服务器。如果指定的值超过三个、则可能仅使用三个、因为某些平台上存在已知的操作系统限制。如果您的环境存在路由限制、则各个节点(通常是站点上的所有节点)可以link:../maintain/modifying-dns-configuration-for-single-grid-node.html["自定义DNS服务器列表"]使用一组不同的DNS服务器、最多可使用三个。
+
+如果可能、请使用每个站点可以在本地访问的DNS服务器、以确保受支持的站点可以解析外部目标的FQDN。
+
+
+
+== 添加DNS服务器
+
+按照以下步骤添加DNS服务器。
+
+.步骤
+. 选择 * 维护 * > * 网络 * > * DNS 服务器 * 。
+. 选择*添加另一台服务器*以添加DNS服务器。
+. 选择 * 保存 * 。
+
+
+
+
+== 修改DNS服务器
+
+按照以下步骤修改DNS服务器。
+
+.步骤
+. 选择 * 维护 * > * 网络 * > * DNS 服务器 * 。
+. 选择要编辑的服务器名称的IP地址并进行必要的更改。
+. 选择 * 保存 * 。
+
+
+
+
+== 删除DNS服务器
+
+按照以下步骤删除DNS服务器的IP地址。
+
+.步骤
+. 选择 * 维护 * > * 网络 * > * DNS 服务器 * 。
+. 选择IP地址旁边的删除图标image:../media/icon-x-to-remove.png["删除图标"]。
+. 选择 * 保存 * 。
+

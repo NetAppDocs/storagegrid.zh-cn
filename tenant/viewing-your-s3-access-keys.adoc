@@ -1,0 +1,34 @@
+---
+permalink: tenant/viewing-your-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to view your s3 access key 
+summary: 如果您使用的是 S3 租户，并且您拥有相应的权限，则可以查看 S3 访问密钥列表。您可以按到期时间对列表进行排序，以便确定哪些密钥不久将过期。您可以根据需要创建新密钥或删除不再使用的密钥。 
+---
+= 查看 S3 访问密钥
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用的是S3租户，并且拥有link:tenant-management-permissions.html["适当的权限"]，则可以查看S3访问密钥列表。您可以按到期时间对列表进行排序，以便确定哪些密钥不久将过期。根据需要、您可以link:creating-your-own-s3-access-keys.html["创建新密钥"]或link:deleting-your-own-s3-access-keys.html["删除密钥"]不再使用。
+
+
+CAUTION: 您可以使用租户管理器中为您的帐户显示的访问密钥 ID 和机密访问密钥来访问属于您帐户的 S3 存储分段和对象。因此，请像使用密码一样保护访问密钥。定期轮换访问密钥，从您的帐户中删除任何未使用的密钥，并且切勿与其他用户共享这些密钥。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您所属的用户组具有管理您自己的S3凭据link:tenant-management-permissions.html["权限"]。
+
+
+.步骤
+. 选择 * 存储（ S3 ） * > * 我的访问密钥 * 。
+. 在“我的访问密钥”页面中，按*Expiration time*或*Access key ID*对任何现有访问密钥进行排序。
+. 根据需要创建新密钥或删除不再使用的任何密钥。
++
+如果在现有密钥到期之前创建新密钥，则可以开始使用新密钥，而不会暂时丢失对帐户中对象的访问权限。
+
++
+过期密钥将自动删除。
+
+

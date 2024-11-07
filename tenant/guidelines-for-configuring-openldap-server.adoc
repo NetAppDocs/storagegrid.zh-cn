@@ -1,0 +1,37 @@
+---
+permalink: tenant/guidelines-for-configuring-openldap-server.html 
+sidebar: sidebar 
+keywords: how to configure open ldap 
+summary: 如果要使用 OpenLDAP 服务器进行身份联合，则必须在 OpenLDAP 服务器上配置特定设置。 
+---
+= 配置 OpenLDAP 服务器的准则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使用 OpenLDAP 服务器进行身份联合，则必须在 OpenLDAP 服务器上配置特定设置。
+
+
+
+== memberOf 和 fint 覆盖
+
+应启用成员和精简覆盖。有关详细信息，请参见 _OpenLDAP 软件管理员指南 _ 中有关反向组成员资格维护的说明。
+
+
+
+== 索引编制
+
+您必须使用指定的索引关键字配置以下 OpenLDAP 属性：
+
+[listing]
+----
+olcDbIndex: objectClass eq
+olcDbIndex: uid eq,pres,sub
+olcDbIndex: cn eq,pres,sub
+olcDbIndex: entryUUID eq
+----
+此外，请确保已为用户名帮助中提及的字段编制索引，以获得最佳性能。
+
+请参见 _OpenLDAP 软件管理员指南 _ 中有关反向组成员资格维护的信息。

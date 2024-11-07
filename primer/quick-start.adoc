@@ -1,0 +1,125 @@
+---
+permalink: primer/quick-start.html 
+sidebar: sidebar 
+keywords: storagegrid quick start, tasks 
+summary: 请按照以下简要步骤配置和使用任何StorageGRID 系统。 
+---
+= StorageGRID 快速入门
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+请按照以下简要步骤配置和使用任何StorageGRID 系统。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]了解、规划和收集数据
+[role="quick-margin-para"]
+请与您的NetApp客户代表联系、了解相关选项并规划您的新StorageGRID 系统。请考虑以下类型的问题：
+
+[role="quick-margin-list"]
+* 您希望在初始阶段和一段时间内存储多少对象数据？
+* 您需要多少站点？
+* 每个站点需要多少个节点以及哪些类型的节点？
+* 您将使用哪些StorageGRID 网络？
+* 谁将使用您的网格存储对象？他们将使用哪些应用程序？
+* 您是否有任何特殊的安全性或存储要求？
+* 您是否需要遵守任何法律或法规要求？
+
+
+[role="quick-margin-para"]
+(可选)与NetApp专业服务顾问一起访问NetApp ConfigBuilder工具、以完成配置工作簿、以便在安装和部署新系统时使用。您还可以使用此工具帮助自动配置任何StorageGRID 设备。请参阅。 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["自动安装和配置设备"^]
+
+[role="quick-margin-para"]
+查看link:index.html["了解StorageGRID"]和link:../network/index.html["网络连接准则"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]安装节点
+[role="quick-margin-para"]
+StorageGRID 系统由单个基于硬件和基于软件的节点组成。首先、请为每个设备节点安装硬件并配置每个Linux或VMware主机。
+
+[role="quick-margin-para"]
+要完成安装、您需要在每个设备或软件主机上安装StorageGRID 软件、并将节点连接到网格中。在此步骤中、您需要提供NTP和DNS服务器的站点和节点名称、子网详细信息以及IP地址。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["安装设备硬件"^]
+* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+* link:../vmware/index.html["在VMware上安装StorageGRID"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]登录并检查系统运行状况
+[role="quick-margin-para"]
+安装主管理节点后、即可登录到网格管理器。在此页面中、您可以查看新系统的常规运行状况、启用AutoSupport 和警报电子邮件以及设置S3端点域名。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* link:../admin/signing-in-to-grid-manager.html["登录到网格管理器"]
+* link:../monitor/monitoring-system-health.html["监控系统运行状况"]
+* link:../admin/configure-autosupport-grid-manager.html["配置 AutoSupport"]
+* link:../monitor/email-alert-notifications.html["为警报设置电子邮件通知"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]配置和管理
+[role="quick-margin-para"]
+您需要对新StorageGRID 系统执行的配置任务取决于您使用网格的方式。您至少需要设置系统访问、使用FabricPool 和S3向导以及管理各种存储和安全设置。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* link:../admin/controlling-storagegrid-access.html["控制 StorageGRID 访问"]
+* link:../admin/use-s3-setup-wizard.html["使用S3设置向导"]
+* link:../fabricpool/use-fabricpool-setup-wizard.html["使用FabricPool 设置向导"]
+* link:../admin/manage-security.html["管理安全性"]
+* link:../harden/index.html["系统强化"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]设置ILM
+[role="quick-margin-para"]
+您可以通过配置由一个或多个ILM规则组成的信息生命周期管理(ILM)策略来控制StorageGRID 系统中每个对象的放置位置和持续时间。ILM规则指示StorageGRID 如何创建和分发对象数据的副本、以及如何随着时间的推移管理这些副本。
+
+[role="quick-margin-para"]
+了解如何：link:../ilm/index.html["使用 ILM 管理对象"]
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 使用StorageGRID
+[role="quick-margin-para"]
+完成初始配置后、StorageGRID租户帐户可以使用S3客户端应用程序来加载、检索和删除对象。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* link:../tenant/index.html["使用租户帐户"]
+* link:../s3/index.html["使用S3 REST API"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]监控和故障排除
+[role="quick-margin-para"]
+系统启动并运行后、您应定期监控其活动、并对任何警报进行故障排除和解决。您可能还需要配置外部系统日志服务器、使用SNMP监控或收集其他数据。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* link:../monitor/index.html["监控StorageGRID"]
+* link:../troubleshoot/index.html["对StorageGRID 进行故障排除"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"]扩展、维护和恢复
+[role="quick-margin-para"]
+您可以添加节点或站点来扩展系统的容量或功能。您还可以执行各种维护过程、以便从故障中恢复、或者使StorageGRID 系统保持最新并高效运行。
+
+[role="quick-margin-para"]
+了解如何：
+
+[role="quick-margin-list"]
+* link:../landing-expand/index.html["扩展网格"]
+* link:../landing-maintain/index.html["维护您的网格"]
+* link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["恢复节点"]
+

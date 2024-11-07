@@ -1,0 +1,63 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage node 
+summary: 更换存储节点后，您必须在网格管理器中选择启动恢复，以将新节点配置为故障节点的替代节点。 
+---
+= 选择启动恢复以配置存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+更换存储节点后，您必须在网格管理器中选择启动恢复，以将新节点配置为故障节点的替代节点。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["维护或root访问权限"]。
+* 您具有配置密码短语。
+* 您已部署并配置替代节点。
+* 您知道已进行过数据检索的任何修复作业的开始日期。
+* 您已确认存储节点在过去15天内未重建。
+
+
+.关于此任务
+如果存储节点作为容器安装在 Linux 主机上，则只有在满足以下条件之一时，才必须执行此步骤：
+
+* 您必须使用 `--force`标志导入节点、否则会发出此命令 `storagegrid node force-recovery _node-name_`
+* 您必须执行完整节点重新安装，或者需要还原 /var/local 。
+
+
+.步骤
+. 在网格管理器中，选择 * 维护 * > * 任务 * > * 恢复 * 。
+. 在 Pending Nodes 列表中选择要恢复的网格节点。
++
+节点发生故障后会显示在列表中、但您无法选择某个节点、直到它重新安装并准备好进行恢复为止。
+
+. 输入 * 配置密码短语 * 。
+. 单击 * 启动恢复 * 。
++
+image::../media/4b_select_recovery_node.png[显示维护 > 恢复页面的屏幕截图]
+
+. 在恢复网格节点表中监控恢复进度。
++
+
+NOTE: 在恢复操作步骤 运行期间，您可以单击 * 重置 * 以启动新的恢复。此时将显示一个对话框、指示如果重置操作步骤 、节点将处于不明确状态。
+
++
+image::../media/recovery_reset_warning.gif[显示重置恢复警告对话框的屏幕截图]
+
++
+如果要在重置操作步骤 后重试恢复，必须将节点还原到预安装状态，如下所示：
+
++
+** * VMware * ：删除已部署的虚拟网格节点。然后，当您准备好重新启动恢复时，重新部署节点。
+** *Linux*：通过在Linux主机上运行以下命令来重新启动节点： `storagegrid node force-recovery _node-name_`
+
+
+. 当存储节点达到“正在等待手动步骤”阶段时，请转至link:remounting-and-reformatting-storage-volumes-manual-steps.html["重新挂载和重新格式化存储卷(手动步骤)"]。
++
+image::../media/recovery_reset_button.gif[显示 " 正在等待手动步骤 " 阶段的屏幕截图]
+
+

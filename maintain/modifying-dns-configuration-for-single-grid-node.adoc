@@ -1,0 +1,80 @@
+---
+permalink: maintain/modifying-dns-configuration-for-single-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, dns, modify dns 
+summary: 您可以运行一个脚本来为每个网格节点配置不同的DNS、而不是为整个部署全局配置DNS。 
+---
+= 修改单网格节点的 DNS 配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以运行一个脚本来为每个网格节点配置不同的DNS、而不是为整个部署全局配置DNS。
+
+通常，您应使用网格管理器上的 * 维护 * > * 网络 * > * DNS 服务器 * 选项来配置 DNS 服务器。只有在需要为不同网格节点使用不同 DNS 服务器时，才可使用以下脚本。
+
+.步骤
+. 登录到主管理节点：
++
+.. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+.. 将 SSH 专用密钥添加到 SSH 代理。输入： `ssh-add`
+.. 输入文件中列出的SSH访问密码 `Passwords.txt`。
+
+
+. [[log_in-TO_NODE]]登录到要使用自定义DNS配置更新的节点： `ssh _node_IP_address_`
+. 运行DNS设置脚本： `setup_resolv.rb.`
++
+此脚本将以支持的命令列表进行响应。
+
++
+[listing]
+----
+Tool to modify external name servers
+
+available commands:
+  add search <domain>
+               add a specified domain to search list
+               e.g.> add search netapp.com
+  remove search <domain>
+               remove a specified domain from list
+               e.g.> remove search netapp.com
+  add nameserver <ip>
+               add a specified IP address to the name server list
+               e.g.> add nameserver 192.0.2.65
+  remove nameserver <ip>
+               remove a specified IP address from list
+               e.g.> remove nameserver 192.0.2.65
+  remove nameserver all
+               remove all nameservers from list
+  save         write configuration to disk and quit
+  abort        quit without saving changes
+  help         display this help message
+
+
+Current list of name servers:
+    192.0.2.64
+Name servers inherited from global DNS configuration:
+    192.0.2.126
+    192.0.2.127
+Current list of search entries:
+    netapp.com
+
+Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
+              [`remove nameserver <ip>|remove nameserver all|save|abort|help`]
+----
+. 添加为您的网络提供域名服务的服务器的IPv4地址： `add <nameserver IP_address>`
+. 重复此 `add nameserver`命令以添加名称服务器。
+. 按照提示输入其他命令时的说明进行操作。
+. 保存更改并退出应用程序： `save`
+. [[Close_cmd_shell]]关闭服务器上的命令shell： `exit`
+. 对于每个网格节点，重复执行到中的步骤<<log_in_to_node,登录到节点>><<close_cmd_shell,关闭命令 Shell>>。
+. 如果不再需要对其他服务器进行无密码访问，请从 SSH 代理中删除私钥。输入： `ssh-add -D`
+

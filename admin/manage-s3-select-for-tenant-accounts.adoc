@@ -1,0 +1,76 @@
+---
+permalink: admin/manage-s3-select-for-tenant-accounts.html 
+sidebar: sidebar 
+keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
+summary: 您可以允许某些 S3 租户对单个对象使用 S3 Select 到问题描述 SelectObjectContent 请求。 
+---
+= 管理租户帐户的 S3 Select
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以允许某些 S3 租户对单个对象使用 S3 Select 到问题描述 SelectObjectContent 请求。
+
+S3 Select 可以高效地搜索大量数据，而无需部署数据库和相关资源即可启用搜索。它还可以降低检索数据的成本和延迟。
+
+
+
+== 什么是 S3 Select ？
+
+S3 Select 允许 S3 客户端使用 SelectObjectContent 请求仅筛选和检索对象所需的数据。S3 Select 的 StorageGRID 实施包括部分 S3 Select 命令和功能。
+
+
+
+== 使用 S3 Select 的注意事项和要求
+
+
+
+=== 网格管理要求
+
+网格管理员必须授予租户S3选择功能。选择*在或时允许S3选择*link:creating-tenant-account.html["创建租户"]link:editing-tenant-account.html["编辑租户"]。
+
+
+
+=== 对象格式要求
+
+要查询的对象必须采用以下格式之一：
+
+* *CSX*。可以按原样使用、也可以压缩到GZIP或bzip2归档中。
+* *镶木地板*。对镶木地板对象的其他要求：
++
+** S3 Select仅支持使用GZIP或Snappy进行列式压缩。S3 Select不支持对镶木地板对象进行整体对象压缩。
+** S3 Select不支持镶木地板输出。必须将输出格式指定为CSV或JSON。
+** 最大未压缩行组大小为512 MB。
+** 您必须使用对象架构中指定的数据类型。
+** 不能使用间隔、JSON、列表、时间或UUID逻辑类型。
+
+
+
+
+
+
+=== 端点要求
+
+必须将选择对象内容请求发送到link:configuring-load-balancer-endpoints.html["StorageGRID 负载平衡器端点"]。
+
+端点使用的管理节点和网关节点必须为以下选项之一：
+
+* 服务设备节点
+* 基于VMware的软件节点
+* 运行已启用cgroup v2的内核的裸机节点
+
+
+
+
+=== 一般注意事项
+
+查询不能直接发送到存储节点。
+
+
+CAUTION: SelectObjectContent 请求会降低所有 S3 客户端和所有租户的负载平衡器性能。仅在需要时才启用此功能，并且仅适用于受信任租户。
+
+请参见link:../s3/use-s3-select.html["有关使用 S3 Select 的说明"]。
+
+要查看link:../monitor/reviewing-support-metrics.html["Grafana 图表"]S3 Select操作随时间的变化，请在网格管理器中选择*support*>*Tools*>*Metrics *。

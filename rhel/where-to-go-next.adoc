@@ -1,0 +1,47 @@
+---
+permalink: rhel/where-to-go-next.html 
+sidebar: sidebar 
+keywords: what to do after red hat linux installation 
+summary: 完成安装后、执行所需的集成和配置任务。您可以根据需要执行可选任务。 
+---
+= 下一步行动
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成安装后、执行所需的集成和配置任务。您可以根据需要执行可选任务。
+
+
+
+== 所需任务
+
+* link:../admin/managing-tenants.html["创建租户帐户"]用于在StorageGRID系统上存储对象的S3客户端协议。
+* link:../admin/controlling-storagegrid-access.html["控制系统访问"]配置组和用户帐户。(可选)您可以link:../admin/using-identity-federation.html["配置联合身份源"](例如Active Directory或OpenLDAP)导入管理组和用户。或者，您可以link:../admin/managing-users.html#create-a-local-user["创建本地组和用户"]。
+* 集成并测试link:../s3/configuring-tenant-accounts-and-connections.html["S3 API"]用于将对象上传到StorageGRID系统的客户端应用程序。
+* link:../ilm/index.html["配置信息生命周期管理(ILM)规则和ILM策略"]您希望使用来保护对象数据。
+* 如果您的安装包含设备存储节点、请使用SANtricity OS完成以下任务：
++
+** 连接到每个 StorageGRID 设备。
+** 验证是否收到 AutoSupport 数据。
++
+请参阅。 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-hardware.html["设置硬件"^]
+
+
+
+* 查看并遵循link:../harden/index.html["StorageGRID 系统强化准则"]以消除安全风险。
+* link:../monitor/email-alert-notifications.html["为系统警报配置电子邮件通知"](英文)
+
+
+
+
+== 可选任务
+
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["更新网格节点IP地址"]如果在您规划部署并生成恢复软件包之后这些设置发生了更改。
+* link:../admin/changing-network-options-object-encryption.html["配置存储加密"]，如果需要。
+* link:../admin/configuring-stored-object-compression.html["配置存储压缩"]根据需要减小已存储对象的大小。
+* link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]隔离网络流量并对其进行分区(如果需要)。
+* link:../admin/configure-high-availability-group.html["配置高可用性组"]提高Grid Manager、租户管理器和S3客户端的连接可用性(如果需要)。
+* link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]用于S3客户端连接(如果需要)。
+

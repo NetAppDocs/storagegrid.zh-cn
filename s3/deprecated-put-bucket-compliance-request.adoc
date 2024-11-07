@@ -1,0 +1,111 @@
+---
+permalink: s3/deprecated-put-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
+summary: 已弃用Put Bucket. Compliance请求。但是，您可以继续使用此请求修改现有旧版合规存储分段的合规性设置。 
+---
+= 已弃用：Put Bucket. Compliance请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+已弃用Put Bucket. Compliance请求。但是，您可以继续使用此请求修改现有旧版合规存储分段的合规性设置。例如，您可以将现有存储分段置于合法保留状态或延长其保留期限。
+
+[NOTE]
+====
+先前 StorageGRID 版本中提供的 StorageGRID 合规性功能已弃用，并已被 S3 对象锁定取代。有关详细信息、请参见以下内容：
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 知识库：如何在 StorageGRID 11.5 中管理原有的合规存储分段"^]
+
+
+====
+要完成此操作、您必须具有S3：PutBucketCompliance权限或帐户root。
+
+发出 PUT 存储分段合规性请求时，必须为合规性设置的每个字段指定一个值。
+
+
+
+== 请求示例
+
+此示例请求修改名为的分段的合规性设置 `mybucket`。在此示例中、中的对象 `mybucket`现在将保留两年(1、051、200分钟)、而不是一年、从将对象插入网格时开始。此存储分段没有法律上的保留。每个对象将在两年后自动删除。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization name_
+Host: _host_
+Content-Length: 152
+
+<SGCompliance>
+  <RetentionPeriodMinutes>1051200</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| 名称 | 说明 
+
+
+ a| 
+RetentionPeriodMinutes
+ a| 
+添加到此存储分段的对象的保留期限长度，以分钟为单位。保留期限从将对象载入网格时开始。
+
+*重要*为RettionPeriodMinutes指定新值时、必须指定一个等于或大于存储分段的当前保留期限的值。设置存储分段的保留期限后、您不能减小该值、只能增加该值。
+
+
+
+ a| 
+乐高积木
+ a| 
+* true ：此存储分段当前处于合法保留状态。在解除合法保留之前、无法删除此存储分段中的对象、即使其保留期限已到期也是如此。
+* false ：此存储分段当前未处于合法保留状态。此存储分段中的对象可以在保留期限到期时删除。
+
+
+
+
+ a| 
+自动删除
+ a| 
+* true ：此存储分段中的对象将在保留期限到期时自动删除，除非此存储分段处于合法保留状态。
+* false ：保留期限到期后，不会自动删除此存储分段中的对象。如果需要删除这些对象，必须手动将其删除。
+
+
+|===
+
+
+== 合规性设置的一致性
+
+当您使用 PUT 存储分段合规性请求更新 S3 存储分段的合规性设置时， StorageGRID 会尝试更新整个网格中存储分段的元数据。默认情况下、StorageGRID会使用*强-全局*一致性来保证所有数据中心站点和包含存储分段元数据的所有存储节点在更改合规性设置后都具有读写后一致性。
+
+如果由于一个数据中心站点或一个站点上的多个存储节点不可用而导致StorageGRID无法实现*强全局*一致性、则响应的HTTP状态代码为 `503 Service Unavailable.`
+
+如果收到此响应，您必须联系网格管理员，以确保所需的存储服务尽快可用。如果网格管理员无法使每个站点上的存储节点足够可用、技术支持可能会通过强制保持*强站点*一致性来指示您重试失败的请求。
+
+
+CAUTION: 除非技术支持指示您执行此操作、并且您了解使用此级别可能会产生的后果、否则切勿强制实施*强站点*一致性以满足放入存储分段合规性要求。
+
+当一致性降低到*强站点*时，StorageGRID保证更新后的合规性设置将仅对站点内的客户端请求具有写后读的一致性。这意味着，在所有站点和存储节点均可用之前， StorageGRID 系统可能会暂时为此存储分段设置多个不一致的设置。设置不一致可能导致意外和意外的行为。例如、如果您将存储分段置于合法保留状态、而您强制实施较低的一致性、则存储分段的先前合规性设置(即合法保留)可能仍会在某些数据中心站点有效。因此，您认为处于合法保留状态的对象可能会在保留期限到期时被用户删除，或者如果启用了自动删除，也可以删除。
+
+要强制使用*strong-sit*一致性，请重新发出Put Bucket*兼容性请求并包括HTTP请求 `Consistency-Control`标头，如下所示：
+
+[listing]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Consistency-Control: strong-site
+----
+
+
+== 错误响应
+
+* 如果创建的存储分段不符合要求，则响应的HTTP状态代码为 `404 Not Found`。
+* 如果 `RetentionPeriodMinutes`在请求中小于存储分段的当前保留期限，则HTTP状态代码为 `400 Bad Request`。
+
+
+.相关信息
+link:deprecated-put-bucket-request-modifications-for-compliance.html["已弃用：为满足合规性而修改存储分段请求"]

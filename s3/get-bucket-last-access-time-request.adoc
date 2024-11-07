@@ -1,0 +1,48 @@
+---
+permalink: s3/get-bucket-last-access-time-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET last access time request 
+summary: 通过获取分段上次访问时间请求，您可以确定是为单个分段启用还是禁用了上次访问时间更新。 
+---
+= 获取存储分段上次访问时间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过获取分段上次访问时间请求，您可以确定是为单个分段启用还是禁用了上次访问时间更新。
+
+要完成此操作、您必须具有S3：GetBucketLastAccessTime权限或帐户root。
+
+
+
+== 请求示例
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-lastaccesstime HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 响应示例
+
+此示例显示已为存储分段启用上次访问时间更新。
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Sat, 29 Nov 2015 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/10.3.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LastAccessTime xmlns="http://s3.storagegrid.com/doc/2015-02-01/">enabled
+</LastAccessTime>
+----

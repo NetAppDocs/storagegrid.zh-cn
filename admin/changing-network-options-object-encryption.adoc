@@ -1,0 +1,74 @@
+---
+permalink: admin/changing-network-options-object-encryption.html 
+sidebar: sidebar 
+keywords: enable http, storage node connections 
+summary: 您可以将网络和对象安全性配置为对存储的对象进行加密、防止某些S3请求、或者允许客户端使用HTTP而不是HTTPS连接到存储节点。 
+---
+= 配置网络和对象安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将网络和对象安全性配置为对存储的对象进行加密、防止某些S3请求、或者允许客户端使用HTTP而不是HTTPS连接到存储节点。
+
+
+
+== 存储对象加密
+
+通过存储对象加密、可以在通过S3读取所有对象数据时对这些数据进行加密。默认情况下、存储的对象不会进行加密、但您可以选择使用AES‐128或AES‐256加密算法对对象进行加密。启用此设置后，所有新载入的对象都将被加密，但不会对现有存储的对象进行任何更改。如果禁用加密、则当前加密的对象仍会保持加密状态、但不会对新加装的对象进行加密。
+
+存储的对象加密设置仅适用于尚未通过存储分段级或对象级加密进行加密的S3对象。
+
+有关StorageGRID加密方法的更多详细信息，请参见link:../admin/reviewing-storagegrid-encryption-methods.html["查看 StorageGRID 加密方法"]。
+
+
+
+== 防止修改客户端
+
+防止客户端修改是一项系统范围的设置。如果选择了*prevent client修改*选项，则会拒绝以下请求。
+
+
+
+=== S3 REST API
+
+* DeleteBuckets请求
+* 修改现有对象数据，用户定义的元数据或 S3 对象标记的任何请求
+
+
+
+
+== 为存储节点连接启用HTTP
+
+默认情况下、客户端应用程序会使用HTTPS网络协议直接连接到存储节点。您可以选择为这些连接启用 HTTP ，例如在测试非生产网格时。
+
+仅当S3客户端需要直接与存储节点建立HTTP连接时、才使用HTTP进行存储节点连接。对于仅使用HTTPS连接的客户端或连接到负载平衡器服务的客户端(因为可以使用HTTP或HTTPS)、您不需要使用此选项link:../admin/configuring-load-balancer-endpoints.html["配置每个负载平衡器端点"]。
+
+请参见link:summary-ip-addresses-and-ports-for-client-connections.html["摘要：客户端连接的 IP 地址和端口"]、了解S3客户端在使用HTTP或HTTPS连接到存储节点时使用的端口。
+
+
+
+== 选择选项
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您具有 root 访问权限。
+
+
+.步骤
+. 选择*configuration*>*Security*>*Security settings。
+. 选择*网络和对象*选项卡。
+. 对于存储的对象加密，如果不希望对存储的对象进行加密，请使用*None*(默认)设置，或者选择*AES-128*或*AES-256*对存储的对象进行加密。
+. 如果要阻止S3客户端发出特定请求，可选择*prevent client修改*。
++
+
+NOTE: 如果更改此设置，则应用新设置需要大约一分钟的时间。已配置的值将进行缓存以提高性能和扩展能力。
+
+. 如果客户端直接连接到存储节点并且您要使用HTTP连接，则可以选择*为存储节点连接启用HTTP *。
++
+
+NOTE: 为生产网格启用 HTTP 时请务必小心，因为请求会以未加密方式发送。
+
+. 选择 * 保存 * 。
+

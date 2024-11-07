@@ -1,0 +1,22 @@
+---
+permalink: maintain/vmware-configuring-virtual-machine-for-automatic-restart.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, vmware, automatic restart, auto restart, configure automatic restart, configure auto restart 
+summary: 如果在重新启动 VMware vSphere 虚拟机管理程序后虚拟机未重新启动，则可能需要对虚拟机进行配置，使其自动重新启动。 
+---
+= VMware ：配置虚拟机以进行自动重新启动
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在重新启动 VMware vSphere 虚拟机管理程序后虚拟机未重新启动，则可能需要对虚拟机进行配置，使其自动重新启动。
+
+如果在恢复网格节点或执行其他维护操作步骤 期间发现虚拟机未重新启动，则应执行此操作步骤 。
+
+.步骤
+. 在 VMware vSphere Client 树中，选择未启动的虚拟机。
+. 右键单击虚拟机，然后选择 * 启动 * 。
+. 配置 VMware vSphere 虚拟机管理程序，以便将来自动重新启动虚拟机。
+

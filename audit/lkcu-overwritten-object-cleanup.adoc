@@ -1,0 +1,73 @@
+---
+permalink: audit/lkcu-overwritten-object-cleanup.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LKCU, Overwritten Object Cleanup 
+summary: 如果 StorageGRID 删除了先前需要清理以释放存储空间的已覆盖对象，则会生成此消息。当S3客户端将对象写入已包含对象的路径时、对象将被覆盖。删除过程会自动在后台进行。 
+---
+= LKCU ：覆盖对象清理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 StorageGRID 删除了先前需要清理以释放存储空间的已覆盖对象，则会生成此消息。当S3客户端将对象写入已包含对象的路径时、对象将被覆盖。删除过程会自动在后台进行。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CSIZ
+ a| 
+内容大小
+ a| 
+对象的大小（以字节为单位）。
+
+
+
+ a| 
+LTYP
+ a| 
+清理类型
+ a| 
+_ 仅供内部使用。 _
+
+
+
+ a| 
+LUID
+ a| 
+已删除对象 UUID
+ a| 
+已删除的对象的标识符。
+
+
+
+ a| 
+路径
+ a| 
+S3存储分段/密钥
+ a| 
+S3存储分段名称和S3密钥名称。
+
+
+
+ a| 
+SEGC
+ a| 
+容器UUID
+ a| 
+已分段对象的容器的 UUID 。只有当对象已分段时，此值才可用。
+
+
+
+ a| 
+UUID
+ a| 
+通用唯一标识符
+ a| 
+仍存在的对象的标识符。只有在尚未删除对象时，此值才可用。
+
+|===

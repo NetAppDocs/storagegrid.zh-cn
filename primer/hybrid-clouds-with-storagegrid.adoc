@@ -1,0 +1,52 @@
+---
+permalink: primer/hybrid-clouds-with-storagegrid.html 
+sidebar: sidebar 
+keywords: hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
+summary: 在混合云配置中使用StorageGRID 、方法是实施策略驱动型数据管理、将对象存储在云存储池中、利用StorageGRID 平台服务、并使用NetApp FabricPool 将数据从ONTAP 分层到StorageGRID。 
+---
+= 采用 StorageGRID 的混合云
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在混合云配置中使用StorageGRID 、方法是实施策略驱动型数据管理、将对象存储在云存储池中、利用StorageGRID 平台服务、并使用NetApp FabricPool 将数据从ONTAP 分层到StorageGRID。
+
+
+
+== 云存储池
+
+通过云存储池，您可以将对象存储在 StorageGRID 系统之外。例如、您可能希望将不常访问的对象移动到成本较低的云存储、例如Amazon S3 Glacier, S3 Glacier, S3 Glacier, Google Cloud或Microsoft Azure Blob存储中的Archive访问层。或者，您可能希望维护 StorageGRID 对象的云备份，该备份可用于恢复因存储卷或存储节点故障而丢失的数据。
+
+此外、还支持第三方配对存储、包括磁盘和磁带存储。
+
+
+NOTE: 不支持将云存储池与 FabricPool 结合使用，因为从云存储池目标检索对象会增加延迟。
+
+
+
+== S3 平台服务
+
+通过 S3 平台服务，您可以将远程服务用作对象复制，事件通知或搜索集成的端点。平台服务独立于网格的 ILM 规则运行，并可为各个 S3 存储分段启用。支持以下服务：
+
+* CloudMirror 复制服务会自动将指定对象镜像到目标 S3 存储分段，该存储分段可以位于 Amazon S3 或第二个 StorageGRID 系统上。
+* 事件通知服务会将有关指定操作的消息发送到支持接收简单通知服务(Simple Notification Service、Amazon SNS)事件的外部端点。
+* 搜索集成服务会将对象元数据发送到外部 Elasticsearch 服务，从而可以使用第三方工具搜索，可视化和分析元数据。
+
+
+例如，您可以使用 CloudMirror 复制将特定客户记录镜像到 Amazon S3 ，然后利用 AWS 服务对数据执行分析。
+
+
+
+== 使用FabricPool 进行ONTAP 数据层
+
+您可以使用 FabricPool 将数据分层到 StorageGRID ，从而降低 ONTAP 存储的成本。FabricPool 支持将数据自动分层到内部或外部的低成本对象存储层。
+
+与手动分层解决方案不同， FabricPool 可通过自动化数据分层来降低存储成本，从而降低总拥有成本。它通过分层到公有 和包括 StorageGRID 在内的私有云，提供云经济的优势。
+
+.相关信息
+* link:../ilm/what-cloud-storage-pool-is.html["什么是云存储池？"]
+* link:../tenant/what-platform-services-are.html["管理平台服务"]
+* link:../fabricpool/index.html["为 FabricPool 配置 StorageGRID"]
+

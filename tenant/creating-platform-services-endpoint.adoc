@@ -1,0 +1,367 @@
+---
+permalink: tenant/creating-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to create platform services endpoint 
+summary: 必须至少创建一个正确类型的端点，然后才能启用平台服务。 
+---
+= 创建平台服务端点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+必须至少创建一个正确类型的端点，然后才能启用平台服务。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* StorageGRID 管理员已为租户帐户启用平台服务。
+* 您属于具有的用户组link:tenant-management-permissions.html["管理端点或root访问权限"]。
+* 已创建平台服务端点引用的资源：
++
+** CloudMirror 复制： S3 存储分段
+** 事件通知：Amazon Simple Notification Service (Amazon SNS)或Kafka主题
+** 搜索通知： Elasticsearch index ，如果目标集群未配置为自动创建索引。
+
+
+* 您知道有关目标资源的信息：
++
+** 统一资源标识符（ URI ）的主机和端口
++
+
+NOTE: 如果您计划使用 StorageGRID 系统上托管的存储分段作为 CloudMirror 复制的端点，请联系网格管理员以确定需要输入的值。
+
+** 唯一资源名称（ URN ）
++
+link:specifying-urn-for-platform-services-endpoint.html["为平台服务端点指定 URN"]
+
+** 身份验证凭据（如果需要）：
++
+[role="tabbed-block"]
+====
+.搜索集成端点
+--
+对于搜索集成端点、您可以使用以下凭据：
+
+*** 访问密钥：访问密钥 ID 和机密访问密钥
+*** 基本 HTTP ：用户名和密码
+
+
+--
+.CloudMirror复制端点
+--
+对于CloudMirror复制端点、您可以使用以下凭据：
+
+*** 访问密钥：访问密钥 ID 和机密访问密钥
+*** CAP （ C2S 访问门户）：临时凭据 URL ，服务器和客户端证书，客户端密钥以及可选的客户端专用密钥密码短语。
+
+
+--
+.Amazon SNS端点
+--
+对于Amazon SNS端点、您可以使用以下凭据：
+
+*** 访问密钥：访问密钥 ID 和机密访问密钥
+
+
+--
+.Kafka端点
+--
+对于Kafka端点、您可以使用以下凭据：
+
+*** SASL/PLAIN：用户名和密码
+*** SASL/SCRAM-SHA-256：用户名和密码
+*** SASL/SCRAM-SHA-512：用户名和密码
+
+
+--
+====
+** 安全证书（如果使用自定义 CA 证书）
+
+
+* 如果启用了El在任 一El在任 一安全功能中、您将拥有用于连接测试的监控集群权限、以及用于文档更新的写入索引权限或同时具有索引和删除索引权限。
+
+
+.步骤
+. 选择 * 存储（ S3 ） * > * 平台服务端点 * 。此时将显示平台服务端点页面。
+. 选择 * 创建端点 * 。
+. 输入显示名称以简要说明端点及其用途。
++
+当端点名称在"端点"页面上列出时、端点支持的平台服务类型显示在端点名称旁边、因此您无需在名称中包含该信息。
+
+. 在 * URI * 字段中，指定端点的唯一资源标识符（ URI ）。
++
+--
+请使用以下格式之一：
+
+[listing]
+----
+https://host:port
+http://host:port
+----
+如果未指定端口、则会使用以下默认端口：
+
+** 端口443用于HTTPS URL、端口80用于HTTP URL (大多数端点)
+** 用于HTTPS和HTTP URI的端口9092 (仅限Kafka端点)
+
+
+--
++
+例如， StorageGRID 上托管的存储分段的 URI 可能为：
+
++
+[listing]
+----
+https://s3.example.com:10443
+----
++
+在此示例中、 `s3.example.com`表示StorageGRID高可用性(HA)组的虚拟IP (VIP)的DNS条目、并 `10443`表示负载平衡器端点中定义的端口。
+
++
+
+NOTE: 应尽可能连接到负载平衡节点的HA组、以避免单点故障。
+
++
+同样， AWS 上托管的存储分段的 URI 可能为：
+
++
+[listing]
+----
+https://s3-aws-region.amazonaws.com
+----
++
+
+NOTE: 如果此端点用于CloudMirror复制服务、请勿在URI中包含存储分段名称。您可以在 * URN* 字段中包含分段名称。
+
+. 输入端点的唯一资源名称（ URN ）。
++
+
+NOTE: 创建端点后、您无法更改此端点的URN。
+
+. 选择 * 继续 * 。
+. 为*身份验证类型*选择一个值。
++
+[role="tabbed-block"]
+====
+.搜索集成端点
+--
+输入或上传搜索集成端点的凭据。
+
+您提供的凭据必须具有目标资源的写入权限。
+
+[cols="1a,2a,2a"]
+|===
+| Authentication type | 说明 | 凭据 
+
+
+ a| 
+匿名
+ a| 
+提供对目标的匿名访问。仅适用于已禁用安全性的端点。
+ a| 
+无身份验证。
+
+
+
+ a| 
+访问密钥
+ a| 
+使用 AWS 模式的凭据对与目标的连接进行身份验证。
+ a| 
+** 访问密钥 ID
+** 机密访问密钥
+
+
+
+
+ a| 
+基本 HTTP
+ a| 
+使用用户名和密码对目标连接进行身份验证。
+ a| 
+** 用户名
+** 密码
+
+
+|===
+--
+.CloudMirror复制端点
+--
+输入或上传CloudMirror复制端点的凭据。
+
+您提供的凭据必须具有目标资源的写入权限。
+
+[cols="1a,2a,2a"]
+|===
+| Authentication type | 说明 | 凭据 
+
+
+ a| 
+匿名
+ a| 
+提供对目标的匿名访问。仅适用于已禁用安全性的端点。
+ a| 
+无身份验证。
+
+
+
+ a| 
+访问密钥
+ a| 
+使用 AWS 模式的凭据对与目标的连接进行身份验证。
+ a| 
+** 访问密钥 ID
+** 机密访问密钥
+
+
+
+
+ a| 
+CAP （ C2S 访问门户）
+ a| 
+使用证书和密钥对目标连接进行身份验证。
+ a| 
+** 临时凭据 URL
+** 服务器 CA 证书（ PEM 文件上传）
+** 客户端证书（ PEM 文件上传）
+** 客户端专用密钥（ PEM 文件上传， OpenSSL 加密格式或未加密的专用密钥格式）
+** 客户端专用密钥密码短语（可选）
+
+
+|===
+--
+.Amazon SNS端点
+--
+输入或上传Amazon SNS端点的凭据。
+
+您提供的凭据必须具有目标资源的写入权限。
+
+[cols="1a,2a,2a"]
+|===
+| Authentication type | 说明 | 凭据 
+
+
+ a| 
+匿名
+ a| 
+提供对目标的匿名访问。仅适用于已禁用安全性的端点。
+ a| 
+无身份验证。
+
+
+
+ a| 
+访问密钥
+ a| 
+使用 AWS 模式的凭据对与目标的连接进行身份验证。
+ a| 
+** 访问密钥 ID
+** 机密访问密钥
+
+
+|===
+--
+.Kafka端点
+--
+输入或上传Kafka端点的凭据。
+
+您提供的凭据必须具有目标资源的写入权限。
+
+[cols="1a,2a,2a"]
+|===
+| Authentication type | 说明 | 凭据 
+
+
+ a| 
+匿名
+ a| 
+提供对目标的匿名访问。仅适用于已禁用安全性的端点。
+ a| 
+无身份验证。
+
+
+
+ a| 
+SASL/普通
+ a| 
+使用带有纯文本的用户名和密码对目标连接进行身份验证。
+ a| 
+** 用户名
+** 密码
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-256
+ a| 
+使用用户名和密码并使用质询响应协议和SHA-256哈希对目标连接进行身份验证。
+ a| 
+** 用户名
+** 密码
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-512
+ a| 
+使用用户名和密码并使用质询响应协议和SHA-512哈希对目标连接进行身份验证。
+ a| 
+** 用户名
+** 密码
+
+
+|===
+如果用户名和密码源自从Kafka集群获取的委派令牌，请选择*使用委派进行身份验证*。
+
+--
+====
+. 选择 * 继续 * 。
+. 选择 * 验证服务器 * 单选按钮以选择如何验证与端点的 TLS 连接。
++
+[cols="1a,2a"]
+|===
+| 证书验证的类型 | 说明 
+
+
+ a| 
+使用自定义 CA 证书
+ a| 
+使用自定义安全证书。如果选择此设置，请在 * CA 证书 * 文本框中复制并粘贴自定义安全证书。
+
+
+
+ a| 
+使用操作系统 CA 证书
+ a| 
+使用操作系统上安装的默认网格 CA 证书来保护连接。
+
+
+
+ a| 
+请勿验证证书
+ a| 
+未验证用于 TLS 连接的证书。此选项不安全。
+
+|===
+. 选择 * 测试并创建端点 * 。
++
+** 如果可以使用指定凭据访问端点，则会显示一条成功消息。系统会从每个站点的一个节点验证与端点的连接。
+** 如果端点验证失败，则会显示一条错误消息。如果需要修改端点以更正错误，请选择 * 返回到端点详细信息 * 并更新此信息。然后，选择 * 测试并创建端点 * 。
++
+
+NOTE: 如果未为租户帐户启用平台服务、则端点创建将失败。请与 StorageGRID 管理员联系。
+
+
+
+
+
+配置端点后，您可以使用其 URN 配置平台服务。
+
+.相关信息
+* link:specifying-urn-for-platform-services-endpoint.html["为平台服务端点指定 URN"]
+* link:configuring-cloudmirror-replication.html["配置 CloudMirror 复制"]
+* link:configuring-event-notifications.html["配置事件通知"]
+* link:configuring-search-integration-service.html["配置搜索集成服务"]
+

@@ -1,0 +1,158 @@
+---
+permalink: monitor/commonly-used-prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, Prometheus metrics, metrics 
+summary: 请参阅此常用Prometheus指标列表、以更好地了解默认警报规则中的条件或构建自定义警报规则的条件。 
+---
+= 常用的 Prometheus 指标
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+请参阅此常用Prometheus指标列表、以更好地了解默认警报规则中的条件或构建自定义警报规则的条件。
+
+您也可以<<obtain-all-metrics,获取所有指标的完整列表>>。
+
+有关Prometheus查询语法的详细信息，请参见 https://prometheus.io/docs/prometheus/latest/querying/basics/["正在查询Prometheus"^]。
+
+
+
+== 什么是Prometheus指标？
+
+Prometheus指标是时间序列测量值。管理节点上的Prometheus服务会从所有节点上的服务收集这些指标。指标会存储在每个管理节点上，直到为 Prometheus 数据预留的空间已满为止。当卷达到容量时 `/var/local/mysql_ibdata/`、将首先删除最早的指标。
+
+
+
+== Prometheus指标在哪里使用？
+
+Prometheus收集的指标在网格管理器的多个位置使用：
+
+* * 节点页面 * ：节点页面上提供的选项卡上的图形和图表使用 Grafana 可视化工具显示 Prometheus 收集的时间序列指标。Grafana 以图形和图表格式显示时间序列数据，而 Prometheus 用作后端数据源。
++
+image::../media/nodes_page_network_traffic_graph.png[Prometheus 图]
+
+* * 警报 * ：如果使用 Prometheus 指标的警报规则条件评估为 true ，则会在特定严重性级别触发警报。
+* * 网格管理 APi* ：您可以在自定义警报规则中使用 Prometheus 指标，也可以使用外部自动化工具来监控 StorageGRID 系统。有关完整的 Prometheus 指标列表，请访问网格管理 API 。(从网格管理器的顶部，选择帮助图标，然后选择*API documents*>*metrics*。)虽然有1000多个指标可用、但监控最关键的StorageGRID 操作只需要相对较少的指标。
++
+
+NOTE: 名称中包含 _private_ 的指标仅供内部使用，在 StorageGRID 版本之间可能会发生更改，恕不另行通知。
+
+* 支持*>*工具*>*诊断*页面和*支持*>*工具*>*指标*页面：这些页面主要供技术支持使用，提供了多个使用Prometheus指标值的工具和图表。
++
+
+NOTE: 指标页面中的某些功能和菜单项有意不起作用，可能会发生更改。
+
+
+
+
+
+== 列出最常见的指标
+
+以下列表包含最常用的Prometheus指标。
+
+
+NOTE: 名称中包含_privly_的指标仅供内部使用、可能会在不同StorageGRID 版本之间进行更改、恕不另行通知。
+
+alertmanager_notifications _failed_total:: 失败警报通知的总数。
+node_filesystem_avail_bytes:: 可供非root用户使用的文件系统空间量(以字节为单位)。
+node_memory_MemAvailable_bytes:: 内存信息字段 MemAvailable_bytes 。
+node_network_Carrier:: 托架值 `/sys/class/net/_iface_`。
+node_network_receive ； errs_total:: 网络设备统计信息 `receive_errs`。
+node_network_transmit_errs_total:: 网络设备统计信息 `transmit_errs`。
+storaggrid_administratively 关闭:: 由于预期原因，节点未连接到网格。例如，节点或节点上的服务已正常关闭，节点正在重新启动或软件正在升级。
+storagegrid_appliage_compute_controller_hardware_status:: 设备中计算控制器硬件的状态。
+storagegrid_appliation_failed_disks:: 对于设备中的存储控制器、不是最佳驱动器的数量。
+storagegrid_appliage_storage_controller_hardware_status:: 设备中存储控制器硬件的整体状态。
+storagegrid_content_bages_and_containers:: 此存储节点已知的 S3 存储分段和 Swift 容器总数。
+storaggrid_content_objects:: 此存储节点已知的 S3 和 Swift 数据对象总数。计数仅对通过S3与系统连接的客户端应用程序创建的数据对象有效。
+storaggrid_content_objects_lost:: 此服务在 StorageGRID 系统中检测到缺失的对象总数。应采取措施确定丢失的发生原因 以及是否可以恢复。
++
+--
+link:../troubleshoot/troubleshooting-lost-and-missing-object-data.html["对丢失和丢失的对象数据进行故障排除"]
+
+--
+storagegRid_http_sessions_incoming_attempted:: 尝试访问存储节点的 HTTP 会话总数。
+storaggrid_http_sessions_incoming_currently 已建立:: 存储节点上当前处于活动状态（已打开）的 HTTP 会话数。
+storagegRid_http_sessions_incoming_failed:: 由于 HTTP 请求格式错误或在处理操作时失败而无法成功完成的 HTTP 会话总数。
+storagegRid_http_sessions_incoming_successful:: 已成功完成的 HTTP 会话总数。
+storaggrid_ilm_awaiting 背景对象:: 此节点上等待通过扫描进行 ILM 评估的对象总数。
+storaggrid_ilm_awaiting 客户端评估对象每秒对象数:: 根据此节点上的 ILM 策略评估对象的当前速率。
+storaggrid_ilm_awaiting 客户端对象:: 此节点上等待通过客户端操作进行 ILM 评估的对象总数（例如，载入）。
+storaggrid_ilm_awaing_total_objects:: 等待 ILM 评估的对象总数。
+storagegrid_ilm_scanne_objects_per_second:: 此节点拥有的对象在 ILM 中进行扫描和排队的速率。
+storaggrid_ilm_scann_period_estimated_minutes:: 在此节点上完成完整 ILM 扫描的估计时间。
++
+--
+* 注： * 完全扫描并不能保证 ILM 已应用于此节点拥有的所有对象。
+
+--
+storagegRid_load_Balancer_endpoint_ct_expiry_time:: 负载平衡器端点证书自 Epoch 以来的到期时间（以秒为单位）。
+storaggrid_metadata_queries_average ； latency ；毫秒:: 通过此服务对元数据存储运行查询所需的平均时间。
+storaggrid_network_received_bytes:: 自安装以来接收的总数据量。
+storaggrid_network_transmated_bytes:: 自安装以来发送的总数据量。
+storagegrid_node_cpu_utilization 百分比:: 此服务当前正在使用的可用 CPU 时间的百分比。指示服务的繁忙程度。可用 CPU 时间量取决于服务器的 CPU 数量。
+storaggrid_ntp_chosed_time_source_offset_mms:: 选定时间源提供的系统时间偏移。如果到达某个时间源的延迟与该时间源到达 NTP 客户端所需的时间不相等，则会引入偏移。
+storaggrid_ntp_locked:: 此节点未锁定到网络时间协议(NTP)服务器。
+storagegrid_s3_data_transfers_bytes_ingested:: 自上次重置属性以来从 S3 客户端载入到此存储节点的总数据量。
+storagegrid_s3_data_transfers_bytes_retrieved:: 自上次重置属性以来 S3 客户端从此存储节点检索的总数据量。
+storagegrid_s3_operations_failed:: S3 操作失败的总数（ HTTP 状态代码 4xx 和 5xx ），不包括因 S3 授权失败而导致的操作。
+storagegrid_s3_operations_successful:: 成功执行 S3 操作的总数（ HTTP 状态代码 2xx ）。
+storagegrid_s3_operations_unauthorized:: 授权失败导致的 S3 操作失败的总数。
+storagegRid_servercertificate_management_interface_cert_expiry_days:: 管理接口证书到期前的天数。
+storagegRid_servercertificate_storage_api_Endpoints" 证书到期日 ":: 对象存储 API 证书到期前的天数。
+storaggrid_service_cpu_seconds:: 自安装以来此服务使用 CPU 的累积时间。
+storagegrid_service_memory_usage_bytes:: 此服务当前正在使用的内存量（ RAM ）。此值与 Linux 顶部实用程序显示的值相同，即 Res 。
+storaggrid_service_network_received_bytes:: 自安装以来此服务收到的总数据量。
+storaggrid_service_network_transmated_bytes:: 此服务发送的总数据量。
+storagegrid_service_Restart:: 重新启动服务的总次数。
+storaggrid_service_runtime_seconds:: 自安装以来服务一直运行的总时间量。
+storaggrid_service_uptime_seconds:: 服务自上次重新启动以来的总运行时间。
+storaggrid_storage_state_current:: 存储服务的当前状态。属性值为：
++
+--
+* 10 = 脱机
+* 15 = 维护
+* 20 = 只读
+* 30 = 联机
+
+
+--
+storagegrid_storage_status:: 存储服务的当前状态。属性值为：
++
+--
+* 0 = 无错误
+* 10 = 正在过渡
+* 20 = 可用空间不足
+* 30 = 卷不可用
+* 40 = 错误
+
+
+--
+storagegrid存储利用率数据字节:: 存储节点上已复制和已进行过彻底编码的对象数据的估计总大小。
+storaggrid_storage_utilization metadata_allowed_bytes:: 每个存储节点的卷 0 上允许用于对象元数据的总空间。此值始终小于为节点上的元数据预留的实际空间，因为必要的数据库操作（如数据缩减和修复）以及未来的硬件和软件升级都需要预留部分空间。对象元数据允许的空间控制整体对象容量。
+storaggrid_storage_utilization metadata_bytes:: 存储卷 0 上的对象元数据量，以字节为单位。
+storaggrid_storage_utilization 总空间字节:: 分配给所有对象存储的存储空间总量。
+storagegRid_storage_utilization_usable_space_bytes:: 剩余的对象存储空间总量。计算方法是将存储节点上所有对象存储的可用空间量相加。
+storagegrid_swif_data_transfers_bytes_ingested:: 自上次重置属性以来从 Swift 客户端载入到此存储节点的总数据量。
+已检索 storaggrid_swif_data_transfers_bytes_reRetrieved:: 自上次重置属性以来 Swift 客户端从此存储节点检索的总数据量。
+storaggrid_swif_operations_failed:: Swift 操作失败的总数（ HTTP 状态代码 4xx 和 5xx ），不包括因 Swift 授权失败而导致的操作。
+storagegrid_swif_operations_successful:: 成功的 Swift 操作总数（ HTTP 状态代码 2xx ）。
+storaggrid_swif_operations_unauthorized:: 授权失败导致的 Swift 操作失败的总数（ HTTP 状态代码 401 ， 403 ， 405 ）。
+storagegrid_tenant_usage_data_bytes:: 租户的所有对象的逻辑大小。
+storagegrid_tenant_usage_object_count:: 租户的对象数。
+storagegRid_tenant_usage_quota_bytes:: 可用于租户对象的最大逻辑空间量。如果未提供配额指标，则可用空间量不受限制。
+
+
+
+
+== 获取所有指标的列表
+
+[[obtain all-metrics]]要获取完整的指标列表、请使用网格管理API。
+
+. 在网格管理器的顶部，选择帮助图标，然后选择*API documents*。
+. 找到 * 指标 * 操作。
+. 执行此 `GET /grid/metric-names`操作。
+. 下载结果。
+

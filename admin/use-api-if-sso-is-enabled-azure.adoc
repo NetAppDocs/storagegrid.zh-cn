@@ -1,0 +1,74 @@
+---
+permalink: admin/use-api-if-sso-is-enabled-azure.html 
+sidebar: sidebar 
+keywords: how to access storagegrid API if SSO is enabled with Azure 
+summary: 如果您已配置并启用单点登录（ SSO ），并且使用 Azure 作为 SSO 提供程序，则可以使用两个示例脚本获取对网格管理 API 或租户管理 API 有效的身份验证令牌。 
+---
+= 如果启用了单点登录，请使用 API （ Azure ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您有link:../admin/configuring-sso.html["已配置并启用单点登录（ SSO ）"]、并且使用Azure作为SSO提供程序、则可以使用两个示例脚本获取对网格管理API或租户管理API有效的身份验证令牌。
+
+
+
+== 如果启用了 Azure 单点登录，请登录到 API
+
+如果您使用 Azure 作为 SSO 身份提供程序，则以下说明适用
+
+.开始之前
+* 您知道属于 StorageGRID 用户组的联合用户的 SSO 电子邮件地址和密码。
+* 如果要访问租户管理 API ，您知道租户帐户 ID 。
+
+
+.关于此任务
+要获取身份验证令牌，可以使用以下示例脚本：
+
+*  `storagegrid-ssoauth-azure.py`Python脚本
+*  `storagegrid-ssoauth-azure.js`Node.js脚本
+
+
+对于Red Hat Enterprise Linux、Ubuntu或Debian以及VMware、 `./debs`这 `./vsphere`两个脚本都位于StorageGRID安装文件目录中(`./rpms`。
+
+要编写您自己与Azure的API集成、请参见 `storagegrid-ssoauth-azure.py`脚本。Python 脚本会直接向 StorageGRID 发出两个请求（首先获取 SAMLRequest ，然后再获取授权令牌），同时还会调用 Node.js 脚本与 Azure 交互以执行 SSO 操作。
+
+可以使用一系列 API 请求执行 SSO 操作，但这样做并不简单。puppeteer Node.js 模块用于擦除 Azure SSO 接口。
+
+如果存在URL编码问题，则可能会看到以下错误： `Unsupported SAML version`。
+
+.步骤
+. 安装所需的依赖关系，如下所示：
++
+.. 安装Node.js (请参见)。 https://nodejs.org/en/download/["https://nodejs.org/en/download/"^]
+.. 安装所需的 Node.js 模块（ puppeteer 和 jsdom ）：
++
+`npm install -g <module>`
+
+
+
+. 将 Python 脚本传递给 Python 解释器以运行此脚本。
++
+然后， Python 脚本将调用相应的 Node.js 脚本以执行 Azure SSO 交互。
+
+. 出现提示时，输入以下参数的值（或使用参数传递这些值）：
++
+** 用于登录到 Azure 的 SSO 电子邮件地址
+** StorageGRID 的地址
+** 要访问租户管理 API 的租户帐户 ID
+
+
+. 出现提示时，输入密码，并在收到请求时准备向 Azure 提供 MFA 授权。
++
+image::../media/sso_api_password_mfa.png[提示输入密码和 MFA]
+
++
+
+NOTE: 此脚本假定 MFA 是使用 Microsoft Authenticator 完成的。您可能需要修改脚本以支持其他形式的MFA (例如、输入在文本消息中收到的代码)。
+
++
+输出中提供了 StorageGRID 授权令牌。现在，您可以将令牌用于其他请求，类似于在未使用 SSO 时使用 API 的方式。
+
+

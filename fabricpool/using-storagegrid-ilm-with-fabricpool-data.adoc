@@ -1,0 +1,154 @@
+---
+permalink: fabricpool/using-storagegrid-ilm-with-fabricpool-data.html 
+sidebar: sidebar 
+keywords: FabricPool, requirements, ILM, information lifecycle management, ILM rule, ILM rules, ILM policy, erasure coding, replication, cloud storage pool, glacier 
+summary: 您可以使用此简单示例策略作为自己ILM规则和策略的起点。 
+---
+= 为FabricPool 数据配置ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用此简单示例策略作为自己ILM规则和策略的起点。
+
+本示例假设您正在为一个 StorageGRID 系统设计 ILM 规则和 ILM 策略，该系统在科罗拉多州丹佛的一个数据中心内有四个存储节点。此示例中的FabricPool数据使用名为的分段 `fabricpool-bucket`。
+
+
+CAUTION: 以下 ILM 规则和策略仅为示例。配置 ILM 规则的方法有多种。在激活新策略之前、请对其进行模拟、以确认其是否按预期工作、以防止内容丢失。要了解更多信息，请参阅link:../ilm/index.html["使用 ILM 管理对象"]。
+
+
+CAUTION: 为避免数据丢失、请勿使用将过期的ILM规则或删除FabricPool云层数据。将保留期限设置为*永久*、以确保StorageGRID ILM不会删除FabricPool对象。
+
+.开始之前
+* 您已查看link:best-practices-ilm.html["对FabricPool 数据使用ILM的最佳实践"]。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["ILM或root访问权限"]。
+* 如果您从先前的StorageGRID版本升级到StorageGRID 11.9、则已配置要使用的存储池。通常、您应为要用于存储数据的每个StorageGRID站点创建一个存储池。
++
+
+NOTE: 如果您最初安装的是StorageGRID 11.7或11.8.首次安装上述任一版本时、系统会自动为每个站点创建存储池。
+
+
+
+.步骤
+. 创建一个仅适用于中数据的ILM规则 `fabricpool-bucket`。此示例规则将创建经过删除编码的副本。
++
+[cols="1a,2a"]
+|===
+| 规则定义 | 示例值 
+
+
+ a| 
+规则名称
+ a| 
+2 + 1 FabricPool 数据纠删编码
+
+
+
+ a| 
+Bucket Name
+ a| 
+`fabricpool-bucket`
+
+您也可以筛选 FabricPool 租户帐户。
+
+
+
+ a| 
+高级筛选器
+ a| 
+对象大小大于0.2 MB。
+
+*注意：* FabricPool 仅写入4 MB对象，但必须添加对象大小筛选器，因为此规则使用纠删编码。
+
+
+
+ a| 
+参考时间
+ a| 
+载入时间
+
+
+
+ a| 
+时间段和放置位置
+ a| 
+从第0天存储到永久存储
+
+在丹佛使用2+1 EC方案通过纠删编码存储对象、并将这些对象永久保留在StorageGRID中。
+
+
+CAUTION: 为避免数据丢失、请勿使用将过期的ILM规则或删除FabricPool云层数据。
+
+
+
+ a| 
+加热行为
+ a| 
+平衡
+
+|===
+. 创建一个默认ILM规则、以便为第一个规则不匹配的任何对象创建两个复制副本。请勿选择基本筛选器(租户帐户或存储分段名称)或任何高级筛选器。
++
+[cols="1a,2a"]
+|===
+| 规则定义 | 示例值 
+
+
+ a| 
+规则名称
+ a| 
+两个复制副本
+
+
+
+ a| 
+Bucket Name
+ a| 
+无 _
+
+
+
+ a| 
+高级筛选器
+ a| 
+无 _
+
+
+
+ a| 
+参考时间
+ a| 
+载入时间
+
+
+
+ a| 
+时间段和放置位置
+ a| 
+从第0天存储到永久存储
+
+通过在Denver复制2个副本来存储对象。
+
+
+
+ a| 
+加热行为
+ a| 
+平衡
+
+|===
+. 创建ILM策略并选择两个规则。由于复制规则不使用任何筛选器，因此它可以是策略的默认（最后）规则。
+. 将测试对象载入网格。
+. 使用测试对象模拟策略以验证此行为。
+. 激活策略。
+
+
+激活此策略后， StorageGRID 将按如下所示放置对象数据：
+
+* 中从FabricPool分层的数据 `fabricpool-bucket`将使用2+1纠删编码方案进行纠删编码。两个数据片段和一个奇偶校验片段将放置在三个不同的存储节点上。
+* 所有其他分段中的所有对象都将被复制。将创建两个副本并将其放置在两个不同的存储节点上。
+* 这些副本将永久保留在StorageGRID中。StorageGRID ILM不会删除这些对象。
+

@@ -1,0 +1,83 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: when to monitor, what to monitor 
+summary: 即使发生错误或部分网格不可用时StorageGRID 系统仍可继续运行、您也应监控并解决潜在问题、以免影响网格的效率或可用性。 
+---
+= 监控的内容和时间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+即使发生错误或部分网格不可用时StorageGRID 系统仍可继续运行、您也应监控并解决潜在问题、以免影响网格的效率或可用性。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+.关于监控任务
+繁忙的系统会生成大量信息。以下列表提供了有关需要持续监控的最重要信息的指导。
+
+[cols="1a,1a"]
+|===
+| 要监控的内容 | 频率 
+
+
+ a| 
+link:monitoring-system-health.html["系统运行状况"]
+ a| 
+每天
+
+
+
+ a| 
+正在消耗的速率link:monitoring-storage-capacity.html["存储节点对象和元数据容量"]
+ a| 
+每周
+
+
+
+ a| 
+link:monitoring-information-lifecycle-management.html["信息生命周期管理操作"]
+ a| 
+每周
+
+
+
+ a| 
+link:monitoring-network-connections-and-performance.html["网络和系统资源"]
+ a| 
+每周
+
+
+
+ a| 
+link:monitoring-tenant-activity.html["租户活动"]
+ a| 
+每周
+
+
+
+ a| 
+link:monitoring-object-ingest-and-retrieval-rates.html["S3客户端操作"]
+ a| 
+每周
+
+
+
+ a| 
+link:monitoring-load-balancing-operations.html["负载平衡操作"]
+ a| 
+在初始配置之后以及任何配置更改之后
+
+
+
+ a| 
+link:grid-federation-monitor-connections.html["网格联合连接"]
+ a| 
+每周
+
+|===

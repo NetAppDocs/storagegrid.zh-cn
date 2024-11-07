@@ -1,0 +1,71 @@
+---
+permalink: admin/manage-platform-services-for-tenants.html 
+sidebar: sidebar 
+keywords: platform service, cloudmirror replication, event notification, search integration service 
+summary: 平台服务包括 CloudMirror 复制，事件通知和搜索集成服务。 
+---
+= 什么是平台服务？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+平台服务包括 CloudMirror 复制，事件通知和搜索集成服务。
+
+如果为 S3 租户帐户启用平台服务，则必须配置网格，以便租户可以访问使用这些服务所需的外部资源。
+
+
+
+== CloudMirror 复制
+
+StorageGRID CloudMirror复制服务用于将特定对象从StorageGRID存储分段镜像到指定的外部目标。
+
+例如，您可以使用 CloudMirror 复制将特定客户记录镜像到 Amazon S3 ，然后利用 AWS 服务对数据执行分析。
+
+
+NOTE: CloudMirror复制与跨网格复制功能有一些重要的相似之处和不同之处。要了解更多信息，请参阅link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["请比较跨网格复制和CloudMirror复制"]。
+
+
+NOTE: 如果源存储分段启用了 S3 对象锁定，则不支持 CloudMirror 复制。
+
+
+
+== 通知
+
+每个存储分段的事件通知用于将有关对对象执行的特定操作的通知发送到指定的外部Kafka集群或Amazon Simple Notification Service。
+
+例如，您可以配置向管理员发送有关添加到存储分段中的每个对象的警报，这些对象表示与关键系统事件关联的日志文件。
+
+
+NOTE: 虽然可以在启用了 S3 对象锁定的存储分段上配置事件通知，但通知消息中不会包含对象的 S3 对象锁定元数据（包括保留至日期和合法保留状态）。
+
+
+
+== 搜索集成服务
+
+搜索集成服务用于将S3对象元数据发送到指定的El路径 搜索索引、在该索引中、可以使用外部服务搜索或分析元数据。
+
+例如，您可以将存储分段配置为将 S3 对象元数据发送到远程 Elasticsearch 服务。然后，您可以使用 Elasticsearch 跨存储分段执行搜索，并对对象元数据中存在的模式执行复杂的分析。
+
+
+NOTE: 虽然可以在启用了 S3 对象锁定的情况下在存储分段上配置 Elasticsearch 集成，但通知消息中不会包含对象的 S3 对象锁定元数据（包括保留截止日期和合法保留状态）。
+
+通过平台服务，租户可以对其数据使用外部存储资源，通知服务以及搜索或分析服务。由于平台服务的目标位置通常位于 StorageGRID 部署外部，因此您必须确定是否要允许租户使用这些服务。如果是，则必须在创建或编辑租户帐户时启用平台服务。您还必须配置网络，使租户生成的平台服务消息能够访问其目标。
+
+
+
+== 使用平台服务的建议
+
+在使用平台服务之前，请注意以下建议：
+
+* 如果 StorageGRID 系统中的 S3 存储分段同时启用了版本控制和 CloudMirror 复制，则还应为目标端点启用 S3 存储分段版本控制。这样， CloudMirror 复制就可以在端点上生成类似的对象版本。
+* 如果 S3 请求需要进行 CloudMirror 复制，通知和搜索集成，则使用的活动租户不应超过 100 个。如果活动租户超过 100 个，则可能会导致 S3 客户端性能下降。
+* 发送到无法完成的端点的请求最多将排队到500、000个请求。此限制在活动租户之间平均共享。允许新租户暂时超过此500、000限制、以便新创建的租户不会受到不公平的处罚。
+
+
+.相关信息
+* link:../tenant/what-platform-services-are.html["管理平台服务"]
+* link:configuring-storage-proxy-settings.html["配置存储代理设置"]
+* link:../monitor/index.html["监控StorageGRID"]
+

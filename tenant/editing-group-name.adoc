@@ -1,0 +1,39 @@
+---
+permalink: tenant/editing-group-name.html 
+sidebar: sidebar 
+keywords: how to edit tenant group name 
+summary: 您可以编辑组的显示名称。您不能编辑组的唯一名称。 
+---
+= 编辑组名称
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以编辑组的显示名称。您不能编辑组的唯一名称。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有root访问权限的用户组。请参阅。 link:tenant-management-permissions.html["租户管理权限"]
+
+
+.步骤
+. 选择 * 访问管理 * > * 组 * 。
+. 选中要编辑其显示名称的组对应的复选框。
+. 选择 * 操作 * > * 编辑组名称 * 。
++
+此时将显示编辑组名称对话框。
+
++
+image::../media/edit_group_name.png[编辑组名称]
+
+. 如果要编辑本地组，请根据需要更新显示名称。
++
+您不能更改组的唯一名称。您不能编辑联盟组的显示名称。
+
+. 选择 * 保存更改 * 。
++
+页面右上角将显示一条确认消息。
+
+

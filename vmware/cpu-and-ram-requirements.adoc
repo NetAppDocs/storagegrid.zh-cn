@@ -1,0 +1,36 @@
+---
+permalink: vmware/cpu-and-ram-requirements.html 
+sidebar: sidebar 
+keywords: cpu, ram, cpu cores 
+summary: 在安装 StorageGRID 软件之前，请验证并配置硬件，使其可以支持 StorageGRID 系统。 
+---
+= CPU 和 RAM 要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在安装 StorageGRID 软件之前，请验证并配置硬件，使其可以支持 StorageGRID 系统。
+
+每个 StorageGRID 节点需要以下最低资源：
+
+* CPU 核心：每个节点 8 个
+* RAM：取决于可用的总RAM以及系统上运行的非StorageGRID软件的数量
++
+** 通常、每个节点至少24 GB、比系统总RAM少2到16 GB
+** 每个租户至少需要64 GB空间、其中大约包含5、000个分段
+
+
+
+
+VMware支持每个虚拟机使用一个节点。确保StorageGRID节点不超过可用物理RAM。每个虚拟机都必须专用于运行StorageGRID。
+
+
+CAUTION: 定期监控 CPU 和内存使用情况，以确保这些资源能够持续满足您的工作负载需求。例如，将虚拟存储节点的 RAM 和 CPU 分配增加一倍将提供与为 StorageGRID 设备节点提供的资源类似的资源。此外，如果每个节点的元数据量超过 500 GB ，请考虑将每个节点的 RAM 增加到 48 GB 或更多。有关管理对象元数据存储、增加元数据预留空间设置以及监控CPU和内存使用情况的信息，请参见link:../admin/index.html["管理"]、link:../monitor/index.html["监控"]和link:../upgrade/index.html["正在升级"]StorageGRID的说明。
+
+如果在底层物理主机上启用了超线程功能，则可以为每个节点提供 8 个虚拟核心（ 4 个物理核心）。如果底层物理主机上未启用超线程，则必须为每个节点提供 8 个物理核心。
+
+如果要使用虚拟机作为主机并控制 VM 的大小和数量，则应为每个 StorageGRID 节点使用一个 VM 并相应地调整 VM 的大小。
+
+另请参见link:storage-and-performance-requirements.html["存储和性能要求"]。

@@ -1,0 +1,115 @@
+---
+permalink: monitor/creating-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to create custom alert rules 
+summary: 您可以创建自定义警报规则来定义自己触发警报的条件。 
+---
+= 创建自定义警报规则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以创建自定义警报规则来定义自己触发警报的条件。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["管理警报或root访问权限"]。
+* 您熟悉link:commonly-used-prometheus-metrics.html["常用的 Prometheus 指标"]。
+* 您已了解 https://prometheus.io/docs/prometheus/latest/querying/basics/["Prometheus 查询的语法"^]。
+* (可选)您已观看视频： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3["视频：自定义警报"^]。
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3]
+image::../media/video-screenshot-alert-create-custom-118.png[视频：自定义警报]
+
+
+
+.关于此任务
+StorageGRID 不会验证自定义警报。如果您决定创建自定义警报规则，请遵循以下一般准则：
+
+* 查看默认警报规则的条件，并将其用作自定义警报规则的示例。
+* 如果为警报规则定义了多个条件，请对所有条件使用相同的表达式。然后，更改每个条件的阈值。
+* 仔细检查每个条件是否存在拼写错误和逻辑错误。
+* 请仅使用网格管理 API 中列出的指标。
+* 使用网格管理API测试表达式时、请注意、"成功"响应可能是空响应正文(未触发警报)。要查看警报是否实际触发，您可以临时将阈值设置为您希望当前为 true 的值。
++
+例如，要测试表达式 `node_memory_MemTotal_bytes < 24000000000`，请首先执行 `node_memory_MemTotal_bytes >= 0`并确保获得预期结果(所有节点返回一个值)。然后，将运算符和阈值改回预期值并重新执行。无结果表明此表达式当前没有警报。
+
+* 除非您已验证自定义警报是按预期触发的、否则不要假定该警报正常工作。
+
+
+.步骤
+. 选择 * 警报 * > * 规则 * 。
++
+此时将显示 "Alert Rules" 页面。
+
+. 选择 * 创建自定义规则 * 。
++
+此时将显示创建自定义规则对话框。
+
++
+image::../media/alerts_create_custom_rule.png[警报 > 创建自定义规则]
+
+. 选中或清除*已启用*复选框以确定当前是否已启用此警报规则。
++
+如果禁用了警报规则、则不会对其表达式进行评估、也不会触发任何警报。
+
+. 输入以下信息：
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+唯一名称
+ a| 
+此规则的唯一名称。警报规则名称显示在警报页面上，也是电子邮件通知的主题。警报规则的名称可以介于 1 到 64 个字符之间。
+
+
+
+ a| 
+说明
+ a| 
+所发生问题的问题描述 。问题描述 是警报页面和电子邮件通知中显示的警报消息。警报规则的说明可以介于 1 到 128 个字符之间。
+
+
+
+ a| 
+建议的操作
+ a| 
+也可以选择触发此警报时建议采取的操作。以纯文本格式输入建议的操作（无格式化代码）。警报规则的建议操作可以介于 0 到 1 ， 024 个字符之间。
+
+|===
+. 在条件部分中，为一个或多个警报严重性级别输入一个 Prometheus 表达式。
++
+基本表达式通常采用以下形式：
+
++
+`[metric] [operator] [value]`
+
++
+表达式可以是任意长度，但会显示在用户界面的单行上。至少需要一个表达式。
+
++
+如果节点的已安装 RAM 量小于 24 ， 000 ， 000 ， 000 字节（ 24 GB ），则此表达式会触发警报。
+
++
+`node_memory_MemTotal_bytes < 24000000000`
+
++
+要查看可用指标并测试Prometheus表达式、请选择帮助图标image:../media/icon_nms_question.png["问号图标"]、然后单击网格管理API的指标部分链接。
+
+. 在 * 持续时间 * 字段中，输入在触发警报之前条件必须持续保持有效的时间量，然后选择一个时间单位。
++
+要在条件变为 true 时立即触发警报，请输入 * 。增加此值可防止临时条件触发警报。
+
++
+默认值为 5 分钟。
+
+. 选择 * 保存 * 。
++
+此时，对话框将关闭，新的自定义警报规则将显示在 "Alert Rules" 表中。
+
+

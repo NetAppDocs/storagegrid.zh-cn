@@ -1,0 +1,84 @@
+---
+permalink: s3/configuring-tenant-accounts-and-connections.html 
+sidebar: sidebar 
+keywords: aws cli, test s3 client connection 
+summary: '您可以使用Amazon Web Services命令行界面(AWS CLI)测试与系统的连接、并验证是否可以读取和写入对象。' 
+---
+= 测试S3 REST API配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用Amazon Web Services命令行界面(AWS CLI)测试与系统的连接、并验证是否可以读取和写入对象。
+
+.开始之前
+* 您已从下载并安装AWS命令行界面 https://aws.amazon.com/cli["aws.amazon.com/cli"^]。
+* 您也可以选择link:../admin/configuring-load-balancer-endpoints.html["已创建负载平衡器端点"]。否则、您知道要连接到的存储节点的IP地址以及要使用的端口号。请参阅。 link:../admin/summary-ip-addresses-and-ports-for-client-connections.html["客户端连接的IP地址和端口"]
+* 您拥有 link:../admin/creating-tenant-account.html["已创建S3租户帐户"]。
+* 您已登录到租户和link:../tenant/creating-your-own-s3-access-keys.html["已创建访问密钥"]。
+
+
+有关这些步骤的详细信息，请参见link:../admin/configuring-client-connections.html["配置客户端连接"]。
+
+.步骤
+. 配置AWS命令行界面设置以使用您在StorageGRID 系统中创建的帐户：
++
+.. 进入配置模式： `aws configure`
+.. 输入您创建的帐户的访问密钥ID。
+.. 输入您创建的帐户的机密访问密钥。
+.. 输入要使用的默认区域。例如， `us-east-1`。
+.. 输入要使用的默认输出格式，或者按 * 输入 * 选择 JSON 。
+
+
+. 创建存储分段。
++
+此示例假设您已将负载平衡器端点配置为使用IP地址10.96.101.17和端口10443。
+
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443
+--no-verify-ssl create-bucket --bucket testbucket
+----
++
+如果已成功创建存储分段，则会返回存储分段的位置，如以下示例所示：
+
++
+[listing]
+----
+"Location": "/testbucket"
+----
+. 上传对象。
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+put-object --bucket testbucket --key s3.pdf --body C:\s3-test\upload\s3.pdf
+----
++
+如果对象上传成功，则返回一个 Etag ，该 Etag 是对象数据的哈希。
+
+. 列出存储分段的内容以验证是否已上传此对象。
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+list-objects --bucket testbucket
+----
+. 删除对象。
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+delete-object --bucket testbucket --key s3.pdf
+----
+. 删除存储分段。
++
+[listing]
+----
+aws s3api --endpoint-url https://10.96.101.17:10443 --no-verify-ssl
+delete-bucket --bucket testbucket
+----
+

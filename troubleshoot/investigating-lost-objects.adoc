@@ -1,0 +1,109 @@
+---
+permalink: troubleshoot/investigating-lost-objects.html 
+sidebar: sidebar 
+keywords: lost objects, investigating, objects 
+summary: 触发 * 对象丢失 * 警报时，您必须立即进行调查。收集有关受影响对象的信息并联系技术支持。 
+---
+= 调查丢失的对象
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+触发 * 对象丢失 * 警报时，您必须立即进行调查。收集有关受影响对象的信息并联系技术支持。
+
+.开始之前
+* 您必须使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+* 您必须拥有该 `Passwords.txt`文件。
+
+
+.关于此任务
+"* 对象丢失 * " 警报表示 StorageGRID 认为网格中没有对象副本。数据可能已永久丢失。
+
+立即调查丢失的对象警报。您可能需要采取措施以防止进一步数据丢失。在某些情况下，如果您立即采取措施，则可能能够还原丢失的对象。
+
+.步骤
+. 选择 * 节点 * 。
+. 选择 * 存储节点 _* > * 对象 * 。
+. 查看对象计数表中显示的丢失对象的数量。
++
+此数字表示此网格节点在整个 StorageGRID 系统中检测到缺少的对象总数。该值是 LDR 和 DDS 服务中数据存储组件的丢失对象计数器之和。
+
++
+image::../media/nodes_storage_nodes_objects_page_lost_object.png[节点存储节点对象页面丢失对象]
+
+. 从管理节点中，要确定触发*Objects Lost*警报的对象的唯一标识符(UUID)，link:../audit/accessing-audit-log-file.html["访问审核日志"]请执行以下操作：
++
+.. 登录到网格节点：
++
+... 输入以下命令： `ssh admin@grid_node_IP`
+... 输入文件中列出的密码 `Passwords.txt`。
+... 输入以下命令切换到root： `su -`
+... 输入文件中列出的密码 `Passwords.txt`。当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+.. 更改为审核日志所在的目录。输入： `cd /var/local/log/`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["了解审核信息的目标"](英文)
+
+====
+.. 使用 grep 提取对象丢失（ OLST ）审核消息。输入： `grep OLST audit_file_name`
+.. 记下消息中包含的 UUID 值。
++
+[listing]
+----
+>Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+[PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
+[ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
+----
+
+
+. 使用UUID查找丢失对象的元数据：
++
+.. 选择 * ILM * > * 对象元数据查找 * 。
+.. 输入UUID并选择*查找*。
+.. 查看元数据中的位置、并采取适当的措施：
++
+[cols="2a,4a"]
+|===
+| 元数据 | 结论 
+
+
+ a| 
+未找到对象<object_identifier>
+ a| 
+如果未找到对象，则返回消息 "error" ： "" 。
+
+如果未找到此对象，您可以重置 * 丢失的对象 * 计数以清除警报。缺少对象表示该对象已被有意删除。
+
+
+
+ a| 
+位置 > 0
+ a| 
+如果输出中列出了一些位置，则 * 对象丢失 * 警报可能为误报。
+
+确认对象存在。使用输出中列出的节点 ID 和文件路径确认对象文件位于列出的位置。
+
+(的过程link:searching-for-and-restoring-potentially-lost-objects.html["正在搜索可能丢失的对象"]说明了如何使用节点ID查找正确的存储节点。)
+
+如果对象存在，您可以重置 * 丢失的对象 * 计数以清除警报。
+
+
+
+ a| 
+位置 = 0
+ a| 
+如果输出中未列出任何位置，则此对象可能会丢失。您可以亲自尝试link:searching-for-and-restoring-potentially-lost-objects.html["搜索并还原对象"]、也可以联系技术支持。
+
+技术支持可能会要求您确定是否正在进行存储恢复操作步骤 。请参见有关和link:../maintain/restoring-object-data-to-storage-volume.html["将对象数据还原到存储卷"]的信息link:../maintain/restoring-volume.html["使用网格管理器还原对象数据"]。
+
+|===
+
+
+

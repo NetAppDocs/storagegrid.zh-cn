@@ -1,0 +1,53 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance storage node 
+summary: 您必须在网格管理器中选择启动恢复，才能将设备存储节点配置为故障节点的替代节点。 
+---
+= 选择 Start Recovery 以配置设备存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在网格管理器中选择启动恢复，才能将设备存储节点配置为故障节点的替代节点。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["维护或root访问权限"]。
+* 您具有配置密码短语。
+* 您已部署恢复设备存储节点。
+* 您知道已进行过数据检索的任何修复作业的开始日期。
+* 您已确认存储节点在过去15天内未重建。
+
+
+.步骤
+. 在网格管理器中，选择 * 维护 * > * 任务 * > * 恢复 * 。
+. 在 Pending Nodes 列表中选择要恢复的网格节点。
++
+节点发生故障后会显示在列表中、但您无法选择某个节点、直到它重新安装并准备好进行恢复为止。
+
+. 输入 * 配置密码短语 * 。
+. 单击 * 启动恢复 * 。
++
+image::../media/4b_select_recovery_node.png[显示维护 > 恢复页面的屏幕截图]
+
+. 在恢复网格节点表中监控恢复进度。
++
+当网格节点进入"等待手动步骤"阶段时、转到下一个主题并执行手动步骤以重新挂载和重新格式化设备存储卷。
+
++
+image::../media/recovery_reset_button.gif[显示等待手动步骤的阶段的屏幕截图]
+
++
+
+NOTE: 在恢复期间的任何时刻，您都可以单击 * 重置 * 来启动新的恢复。此时将显示一个对话框、指示如果重置操作步骤 、节点将处于不明确状态。
+
++
+image::../media/recovery_reset_warning.gif[显示重置恢复警告对话框的屏幕截图]
+
++
+如果要在重置过程后重试恢复、则必须在设备节点上运行以将该节点还原到预安装状态 `sgareinstall`。
+
+

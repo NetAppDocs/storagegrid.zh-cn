@@ -1,0 +1,232 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: StorageGRID 提供了用于捕获事件，诊断消息和错误情况的日志。系统可能会要求您收集日志文件并将其转发给技术支持以协助进行故障排除。 
+---
+= 日志文件参考
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 提供了用于捕获事件，诊断消息和错误情况的日志。系统可能会要求您收集日志文件并将其转发给技术支持以协助进行故障排除。
+
+这些日志分为以下几类：
+
+* link:storagegrid-software-logs.html["StorageGRID 软件日志"]
+* link:deployment-and-maintenance-logs.html["部署和维护日志"]
+* link:about-bycast-log.html["关于 bycast.log"]
+
+
+
+NOTE: 为每种日志类型提供的详细信息仅供参考。这些日志可供技术支持进行高级故障排除。使用审核日志和应用程序日志文件重建问题历史记录的高级技术不在本说明的范围之内。
+
+
+
+== 访问日志
+
+要访问日志、您可以link:collecting-log-files-and-system-data.html["收集日志文件和系统数据"]从一个或多个节点将日志文件归档为一个日志文件。或者，如果主管理节点不可用或无法访问特定节点，您可以按如下所示访问每个网格节点的各个日志文件：
+
+. 输入以下命令： `ssh admin@grid_node_IP`
+. 输入文件中列出的密码 `Passwords.txt`。
+. 输入以下命令切换到root： `su -`
+. 输入文件中列出的密码 `Passwords.txt`。
+
+
+
+
+== 将日志导出到系统日志服务器
+
+将日志导出到系统日志服务器可提供以下功能：
+
+* 接收所有网格管理器和租户管理器请求以及S3和Swift请求的列表。
+* 更好地了解返回错误的S3请求、而不会因审核日志记录方法而影响性能。
+* 访问易于解析的HTTP层请求和错误代码。
+* 更好地了解负载平衡器上的流量划分器阻止的请求。
+
+
+要导出日志，请参见link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]。
+
+
+
+== 日志文件类别
+
+StorageGRID 日志文件归档包含为每个类别描述的日志以及包含指标和调试命令输出的其他文件。
+
+[cols="1a,3a"]
+|===
+| 归档位置 | 说明 
+
+
+| 审核  a| 
+在正常系统操作期间生成的审核消息。
+
+
+
+| 基础操作系统日志  a| 
+基本操作系统信息，包括 StorageGRID 映像版本。
+
+
+
+| 捆绑包  a| 
+全局配置信息（捆绑包）。
+
+
+
+| Cassandra  a| 
+Cassandra 数据库信息和 Reaper 修复日志。
+
+
+
+| EC  a| 
+按配置文件ID列出的有关当前节点和EC组信息的vCS信息。
+
+
+
+| 网格  a| 
+常规网格日志，包括调试(`bycast.log`)和 `servermanager`日志。
+
+
+
+| grid．json  a| 
+网格配置文件在所有节点之间共享。此外、 `node.json`特定于当前节点。
+
+
+
+| hagroup  a| 
+高可用性组指标和日志。
+
+
+
+| 安装  a| 
+`Gdu-server`并安装日志。
+
+
+
+| lambda-arbitrator  a| 
+与 S3 Select 代理请求相关的日志。
+
+
+
+| lumberjack.log  a| 
+与日志收集相关的调试消息。
+
+
+
+| 指标  a| 
+Grafana ， Jaeger ，节点导出程序和 Prometheus 的服务日志。
+
+
+
+| 错误  a| 
+其他访问和错误日志。
+
+
+
+| MySQL  a| 
+MariaDB 数据库配置和相关日志。
+
+
+
+| 网络  a| 
+网络相关脚本和动态 IP 服务生成的日志。
+
+
+
+| nginx  a| 
+负载平衡器和网格联合配置文件和日志。还包括 Grid Manager 和租户管理器流量日志。
+
+
+
+| nginx 网关  a| 
+* `access.log`：网格管理器和租户管理器请求日志消息。
++
+** 使用系统日志导出时、这些消息会以作为前处理 `mgmt:`。
+** 这些日志消息的格式为 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$request" "$http_host" "$http_user_agent" "$http_referer"`
+
+
+* `cgr-access.log.gz`：入站跨网格复制请求。
++
+** 使用系统日志导出时、这些消息会以作为前处理 `cgr:`。
+** 这些日志消息的格式为 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
+
+
+* `endpoint-access.log.gz`：对负载平衡器端点的S3和Swift请求。
++
+** 使用系统日志导出时、这些消息会以作为前处理 `endpoint:`。
+** 这些日志消息的格式为 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
+
+
+* `nginx-gw-dns-check.log`：与新DNS检查警报相关。
+
+
+
+
+| NTP  a| 
+NTP 配置文件和日志。
+
+
+
+ a| 
+孤立对象
+ a| 
+与孤立对象相关的日志。
+
+
+
+| os  a| 
+节点和网格状态文件，包括服务 `pid`。
+
+
+
+| 其他  a| 
+下的日志文件 `/var/local/log`不会收集到其他文件夹中。
+
+
+
+| 性能  a| 
+CPU ，网络和磁盘 I/O 的性能信息
+
+
+
+| Prometheus-data  a| 
+当前 Prometheus 指标（如果日志收集包含 Prometheus 数据）。
+
+
+
+| 配置  a| 
+与网格配置过程相关的日志。
+
+
+
+| 草稿  a| 
+来自平台服务中使用的 raft 集群的日志。
+
+
+
+| SSH  a| 
+与SSH配置和服务相关的日志。
+
+
+
+| SNMP  a| 
+用于发送SNMP通知的SNMP代理配置。
+
+
+
+| 套接字数据  a| 
+用于网络调试的套接字数据。
+
+
+
+| system-commands.txt  a| 
+StorageGRID 容器命令的输出。包含系统信息，例如网络连接和磁盘使用情况。
+
+
+
+| synchron-recovery—软件包  a| 
+与在托管ADC服务的所有管理节点和存储节点之间保持最新恢复软件包的一致性相关。
+
+|===

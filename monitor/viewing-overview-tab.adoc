@@ -1,0 +1,62 @@
+---
+permalink: monitor/viewing-overview-tab.html 
+sidebar: sidebar 
+keywords: overview tab 
+summary: 概述选项卡提供了有关每个节点的基本信息。此外，它还会显示当前影响节点的任何警报。 
+---
+= 查看概述选项卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+概述选项卡提供了有关每个节点的基本信息。此外，它还会显示当前影响节点的任何警报。
+
+此时将显示所有节点的概述选项卡。
+
+
+
+== 节点信息
+
+概述选项卡的节点信息部分列出了有关节点的基本信息。
+
+image::../media/nodes_page_overview_tab.png[节点页面概述选项卡]
+
+节点的概述信息包括：
+
+* *Display name*(仅在节点已重命名时显示)：节点的当前显示名称。使用link:../maintain/rename-grid-site-node-overview.html["重命名网格、站点和节点"]步骤更新此值。
+* *系统名称*：您在安装期间为节点输入的名称。系统名称用于内部StorageGRID 操作、无法更改。
+* *类型*：节点的类型--管理节点、主管理节点、存储节点或网关节点。
+* * ID * ：节点的唯一标识符，也称为 UUID 。
+* * 连接状态 * ：三种状态之一。此时将显示最严重状态的图标。
++
+** *Unknown*image:../media/icon_alarm_blue_unknown.png["蓝色问号图标"]：由于未知原因，节点未连接到网格，或者一个或多个服务意外关闭。例如、节点之间的网络连接已断开、电源已关闭或服务已关闭。此外，可能还会触发 * 无法与节点 * 通信 " 警报。其他警报可能也处于活动状态。这种情况需要立即引起关注。
++
+
+NOTE: 在受管关闭操作期间，节点可能会显示为未知。在这些情况下，您可以忽略未知状态。
+
+** *administratively down *image:../media/icon_alarm_gray_administratively_down.png["灰色问号图标"]：由于预期原因，节点未连接到网格。例如，节点或节点上的服务已正常关闭，节点正在重新启动或软件正在升级。一个或多个警报可能也处于活动状态。
+** *已连接*image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]：节点已连接到网格。
+
+
+* * 已用存储 * ：仅适用于存储节点。
++
+** * 对象数据 * ：存储节点上已使用的对象数据总可用空间的百分比。
+** * 对象元数据 * ：存储节点上已使用的对象元数据的总允许空间百分比。
+
+
+* * 软件版本 * ：节点上安装的 StorageGRID 版本。
+* * HA 组 * ：仅适用于管理节点和网关节点。如果节点上的网络接口包含在高可用性组中，并且该接口是否为主接口，则显示此信息。
+* * IP 地址 * ：节点的 IP 地址。单击 * 显示其他 IP 地址 * 以查看节点的 IPv4 和 IPv6 地址以及接口映射。
+
+
+
+
+== 警报
+
+“概述”选项卡的“警报”部分列出了任何link:monitoring-system-health.html#view-current-and-resolved-alerts["当前影响此节点且尚未被禁止的警报"]。选择警报名称可查看其他详细信息和建议的操作。
+
+image::../media/nodes_page_alerts_table.png[节点页面警报表]
+
+警报也包括在link:monitoring-system-health.html#monitor-node-connection-states["节点连接状态"]中。

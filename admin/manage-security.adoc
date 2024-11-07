@@ -1,0 +1,47 @@
+---
+permalink: admin/manage-security.html 
+sidebar: sidebar 
+keywords: how to manage security 
+summary: 您可以从网格管理器配置各种安全设置，以帮助保护 StorageGRID 系统。 
+---
+= 管理安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从网格管理器配置各种安全设置，以帮助保护 StorageGRID 系统。
+
+
+
+== 管理加密
+
+StorageGRID 提供了多种数据加密选项。您应link:reviewing-storagegrid-encryption-methods.html["查看可用的加密方法"]确定哪些符合数据保护要求。
+
+
+
+== 管理证书
+
+您可以link:using-storagegrid-security-certificates.html["配置和管理服务器证书"]使用HTTP连接或用于向服务器验证客户端或用户身份的客户端证书。
+
+
+
+== 配置密钥管理服务器
+
+使用link:kms-configuring.html["密钥管理服务器"]可以保护StorageGRID数据、即使设备已从数据中心中删除也是如此。对设备卷进行加密后、您将无法访问设备上的任何数据、除非此节点可以与KMS进行通信。
+
+
+NOTE: 要使用加密密钥管理，必须在安装期间为每个设备启用 * 节点加密 * 设置，然后才能将该设备添加到网格中。
+
+
+
+== 管理代理设置
+
+如果您使用的是S3平台服务或云存储池、则可以在存储节点和外部S3端点之间配置link:configuring-storage-proxy-settings.html["存储代理服务器"]。如果您使用HTTPS或HTTP发送AutoSupport软件包、则可以在管理节点和技术支持之间配置link:configuring-admin-proxy-settings.html["管理代理服务器"]。
+
+
+
+== 控制防火墙
+
+为了增强系统的安全性，您可以通过在打开或关闭特定端口来控制对StorageGRID管理节点的访问link:controlling-access-through-firewalls.html["外部防火墙"]。您还可以通过配置每个节点来控制对其的网络访问link:manage-firewall-controls.html["内部防火墙"]。您可以阻止对除部署所需端口以外的所有端口进行访问。

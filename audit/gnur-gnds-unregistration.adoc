@@ -1,0 +1,42 @@
+---
+permalink: audit/gnur-gnds-unregistration.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GNUR, GNDS Unregistration 
+summary: 如果某个服务已从 StorageGRID 系统中取消注册有关自身的信息，则 CMN 服务将生成此审核消息。 
+---
+= GN-R ： GNDS 注销
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果某个服务已从 StorageGRID 系统中取消注册有关自身的信息，则 CMN 服务将生成此审核消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+更新请求的结果：
+
+* SUC ：成功
+* SUNV ：服务不可用
+* GERR ：其他故障
+
+
+
+
+ a| 
+GNID
+ a| 
+节点ID
+ a| 
+启动更新请求的服务的节点 ID 。
+
+|===

@@ -1,0 +1,128 @@
+---
+permalink: ilm/considerations-for-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: what is a cloud storage pool, considerations for a cloud storage pool 
+summary: 如果您计划使用云存储池将对象移出 StorageGRID 系统，则必须查看配置和使用云存储池的注意事项。 
+---
+= 云存储池注意事项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您计划使用云存储池将对象移出 StorageGRID 系统，则必须查看配置和使用云存储池的注意事项。
+
+
+
+== 一般注意事项
+
+* 通常，云归档存储（例如 Amazon S3 Glacier 或 Azure Blob 存储）是一个存储对象数据的廉价位置。但是，从云归档存储检索数据的成本相对较高。要实现最低的整体成本，您必须考虑何时以及多久访问一次云存储池中的对象。建议仅对预期不常访问的内容使用云存储池。
+* 不支持将云存储池与 FabricPool 结合使用，因为从云存储池目标检索对象会增加延迟。
+* 无法将启用了S3对象锁定的对象放置在云存储池中。
+* 如果云存储池的目标S3存储分段已启用S3对象锁定、则尝试配置存储分段复制(PutBucketReplication)将失败、并显示AccessDenied错误。
+* 云存储池不支持以下平台、身份验证和协议与S3对象锁定的组合：
++
+** *平台*：Google Cloud Platform和Azure
+** *身份验证类型*：随时随地使用IAM角色和匿名访问
+** *协议*：HTTP
+
+
+
+
+
+
+== 用于云存储池的端口的注意事项
+
+要确保 ILM 规则可以将对象移入和移出指定的云存储池，您必须配置包含系统存储节点的一个或多个网络。您必须确保以下端口可以与云存储池进行通信。
+
+默认情况下，云存储池使用以下端口：
+
+* * 80* ：对于以 http 开头的端点 URI
+* * 443 ：对于以 https 开头的端点 URI
+
+
+您可以在创建或编辑云存储池时指定其他端口。
+
+如果使用非透明代理服务器、则还必须link:../admin/configuring-storage-proxy-settings.html["配置存储代理"]允许将消息发送到外部端点、例如Internet上的端点。
+
+
+
+== 成本注意事项
+
+使用云存储池访问云中的存储需要通过网络连接到云。您必须根据希望使用云存储池在 StorageGRID 和云之间移动的数据量，考虑用于访问云并适当配置云的网络基础架构的成本。
+
+当 StorageGRID 连接到外部云存储池端点时，它会发出各种请求来监控连接并确保它可以执行所需的操作。虽然这些请求会产生一些额外成本，但监控云存储池的成本只能是在 S3 或 Azure 中存储对象的总成本的一小部分。
+
+如果您需要将对象从外部云存储池端点移回 StorageGRID ，可能会产生更显著的成本。在以下任一情况下，对象可能会移回 StorageGRID ：
+
+* 此对象的唯一副本位于云存储池中，您决定将此对象存储在 StorageGRID 中。在这种情况下、您需要重新配置ILM规则和策略。进行 ILM 评估时， StorageGRID 会发出多个请求，以便从云存储池中检索对象。然后， StorageGRID 会在本地创建指定数量的复制副本或经过纠删编码的副本。将对象移回 StorageGRID 后，云存储池中的副本将被删除。
+* 由于存储节点故障，对象丢失。如果某个对象的唯一剩余副本位于云存储池中，则 StorageGRID 会临时还原该对象，并在已恢复的存储节点上创建一个新副本。
+
+
+
+NOTE: 当对象从云存储池移回 StorageGRID 时， StorageGRID 会为每个对象向云存储池端点发出多个请求。在移动大量对象之前，请联系技术支持以帮助估算时间范围和相关成本。
+
+
+
+== S3 ：云存储池存储分段所需的权限
+
+用于云存储池的外部S3存储分段的策略必须授予StorageGRID权限、以便将对象移动到该存储分段、获取对象的状态、根据需要从Glacier"存储中还原对象等。理想情况下，StorageGRID应具有对存储分段(`s3:*`的完全控制访问权限；但是，如果不可能，存储分段策略必须向StorageGRID授予以下S3权限：
+
+* `s3:AbortMultipartUpload`
+* `s3:DeleteObject`
+* `s3:GetObject`
+* `s3:ListBucket`
+* `s3:ListBucketMultipartUploads`
+* `s3:ListMultipartUploadParts`
+* `s3:PutObject`
+* `s3:RestoreObject`
+
+
+
+
+== S3：外部存储分段的生命周期注意事项
+
+StorageGRID与云存储池中指定的外部S3存储分段之间的对象移动由StorageGRID中的ILM规则和活动ILM策略控制。相比之下，对象从云存储池中指定的外部 S3 存储分段过渡到 Amazon S3 Glacier 或 S3 Glacier 深度归档（或过渡到实施 Glacier 存储类的存储解决方案 ）则由该分段的生命周期配置控制。
+
+如果要从云存储池过渡对象、则必须在外部S3存储分段上创建适当的生命周期配置、并且必须使用实施Glacier"存储类并支持S3 RestorerObject API的存储解决方案。
+
+例如，假设您希望将从 StorageGRID 移动到云存储池的所有对象立即过渡到 Amazon S3 Glacier 存储。您应在外部 S3 存储分段上创建一个生命周期配置，用于指定单个操作（ * 过渡 * ），如下所示：
+
+[listing]
+----
+<LifecycleConfiguration>
+  <Rule>
+    <ID>Transition Rule</ID>
+    <Filter>
+       <Prefix></Prefix>
+    </Filter>
+    <Status>Enabled</Status>
+    <Transition>
+      <Days>0</Days>
+      <StorageClass>GLACIER</StorageClass>
+    </Transition>
+  </Rule>
+</LifecycleConfiguration>
+----
+此规则会在创建所有存储分段对象的日期（即从 StorageGRID 迁移到云存储池的日期）将这些对象过渡到 Amazon S3 Glacier 。
+
+
+CAUTION: 配置外部存储分段的生命周期时，切勿使用 * 到期 * 操作来定义对象何时过期。到期操作发生原因 外部存储系统以删除已过期的对象。如果稍后尝试从 StorageGRID 访问已过期的对象，则无法找到已删除的对象。
+
+如果要将云存储池中的对象过渡到S3 Glacier"深度归档"(而不是Amazon S3 Glacier")、请在存储分段生命周期中指定 `<StorageClass>DEEP_ARCHIVE</StorageClass>`。但是、请注意、您不能使用该 `Expedited`层从S3 Glaciereep Archive还原对象。
+
+
+
+== Azure ：访问层注意事项
+
+配置 Azure 存储帐户时，您可以将默认访问层设置为热或冷。创建用于云存储池的存储帐户时，应使用热层作为默认层。即使 StorageGRID 在将对象移动到云存储池时会立即将层设置为归档，但使用默认设置 " 热 " 可确保在至少 30 天之前从冷层中删除的对象不会收到提前删除费用。
+
+
+
+== Azure ：不支持生命周期管理
+
+请勿对云存储池中使用的容器使用Azure Blb存储生命周期管理。生命周期操作可能会干扰云存储池操作。
+
+.相关信息
+link:creating-cloud-storage-pool.html["创建云存储池"]

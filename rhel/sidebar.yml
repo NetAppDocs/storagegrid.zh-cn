@@ -1,0 +1,81 @@
+---
+section: rhel
+title: 在Red Hat Enterprise Linux上安装StorageGRID
+entries:
+- title: 快速入门
+  pdf-filename: 在Red Hat Enterprise Linux上安装StorageGRID
+  url: "/rhel/index.html"
+- title: 规划并准备在Red Hat上安装
+  entries:
+  - title: 所需信息和材料
+    url: "/rhel/required-materials.html"
+  - title: 下载并提取 StorageGRID 安装文件
+    url: "/rhel/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 手动验证安装文件
+    url: "/rhel/download-files-verify.html"
+  - title: 软件要求
+    url: "/rhel/software-requirements.html"
+  - title: CPU 和 RAM 要求
+    url: "/rhel/cpu-and-ram-requirements.html"
+  - title: 存储和性能要求
+    url: "/rhel/storage-and-performance-requirements.html"
+  - title: 节点容器迁移要求
+    url: "/rhel/node-container-migration-requirements.html"
+  - title: 准备主机(Red Hat)
+    entries:
+    - title: 主机范围设置的更改方式
+      url: "/rhel/how-host-wide-settings-change.html"
+    - title: 安装 Linux
+      url: "/rhel/installing-linux.html"
+    - title: 配置主机网络(Red Hat)
+      url: "/rhel/configuring-host-network.html"
+    - title: 配置主机存储
+      url: "/rhel/configuring-host-storage.html"
+    - title: 配置容器引擎存储卷
+      url: "/rhel/configuring-docker-storage-volume.html"
+    - title: 安装 StorageGRID 主机服务
+      url: "/rhel/installing-storagegrid-webscale-host-service.html"
+- title: 自动安装(Red Hat)
+  url: "/rhel/automating-installation.html"
+- title: 部署虚拟网格节点(Red Hat)
+  entries:
+  - title: 为Red Hat部署创建节点配置文件
+    url: "/rhel/creating-node-configuration-files.html"
+  - title: 网格节点如何发现主管理节点
+    url: "/rhel/how-grid-nodes-discover-primary-admin-node.html"
+  - title: 示例节点配置文件
+    url: "/rhel/example-node-configuration-files.html"
+  - title: 验证 StorageGRID 配置
+    url: "/rhel/validating-storagegrid-configuration.html"
+  - title: 启动 StorageGRID 主机服务
+    url: "/rhel/starting-storagegrid-host-service.html"
+- title: 配置网格并完成安装(Red Hat)
+  entries:
+  - title: 导航到网格管理器
+    url: "/rhel/navigating-to-grid-manager.html"
+  - title: 指定许可证信息
+    url: "/rhel/specifying-storagegrid-license-information.html"
+  - title: 添加站点
+    url: "/rhel/adding-sites.html"
+  - title: 指定网格网络子网
+    url: "/rhel/specifying-grid-network-subnets.html"
+  - title: 批准待定网格节点
+    url: "/rhel/approving-pending-grid-nodes.html"
+  - title: 指定NTP服务器信息
+    url: "/rhel/specifying-network-time-protocol-server-information.html"
+  - title: 指定DNS服务器信息
+    url: "/rhel/specifying-domain-name-system-server-information.html"
+  - title: 指定系统密码
+    url: "/rhel/specifying-storagegrid-system-passwords.html"
+  - title: 检查配置并完成安装
+    url: "/rhel/reviewing-your-configuration-and-completing-installation.html"
+  - title: 安装后准则
+    url: "/rhel/post-installation-guidelines.html"
+- title: 安装REST API
+  url: "/rhel/overview-of-installation-rest-api.html"
+- title: 下一步行动
+  url: "/rhel/where-to-go-next.html"
+- title: 对安装问题进行故障排除
+  url: "/rhel/troubleshooting-installation-issues.html"
+- title: 示例 /etc/sysconfig/network-scripts
+  url: "/rhel/example-etc-sysconfig-network-scripts.html"

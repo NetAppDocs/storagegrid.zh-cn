@@ -1,0 +1,30 @@
+---
+permalink: monitor/monitoring-put-and-get-performance.html 
+sidebar: sidebar 
+keywords: put, get, performance 
+summary: 您可以监控某些操作的性能，例如对象存储和检索，以帮助确定可能需要进一步调查的更改。 
+---
+= 监控 PUT 和 GET 性能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以监控某些操作的性能，例如对象存储和检索，以帮助确定可能需要进一步调查的更改。
+
+.关于此任务
+要监控Put和GET性能、您可以直接从工作站或使用开源S3TESTOR应用程序运行S3命令。使用这些方法可以独立于 StorageGRID 外部因素（例如客户端应用程序问题或外部网络问题）评估性能。
+
+对 PUT 和 GET 操作执行测试时，请遵循以下准则：
+
+* 使用与通常载入到网格中的对象相当的对象大小。
+* 对本地站点和远程站点执行操作。
+
+
+中的消息link:../audit/index.html["审核日志"]指示运行某些操作所需的总时间。例如，要确定 S3 GET 请求的总处理时间，您可以查看 SGET 审核消息中的时间属性值。您还可以在以下S3操作的审核消息中找到时间属性：删除、获取、机头、元数据已更新、发布、放置
+
+在分析结果时，请查看满足请求所需的平均时间以及可以实现的总吞吐量。定期重复相同的测试并记录结果、以便确定可能需要调查的趋势。
+
+* 您可以 https://github.com/s3tester["从 GitHub 下载 S3tester"^]。
+

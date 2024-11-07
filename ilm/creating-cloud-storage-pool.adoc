@@ -1,0 +1,229 @@
+---
+permalink: ilm/creating-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords: how to create cloud storage pool 
+summary: 云存储池指定一个外部Amazon S3存储分段或其他与S3兼容的提供程序或Azure Blb存储容器。 
+---
+= 创建云存储池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+云存储池指定一个外部Amazon S3存储分段或其他与S3兼容的提供程序或Azure Blb存储容器。
+
+创建云存储池时、您需要指定StorageGRID 将用于存储对象的外部存储分段或容器的名称和位置、云提供程序类型(Amazon S3/GCP或Azure Blb存储)以及StorageGRID 访问外部存储分段或容器所需的信息。
+
+StorageGRID 会在您保存云存储池后立即对其进行验证，因此您必须确保云存储池中指定的存储分段或容器存在且可访问。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["所需的访问权限"]。
+* 您已查看link:considerations-for-cloud-storage-pools.html["云存储池注意事项"]。
+* 云存储池引用的外部存储分段或容器已存在，并且您已具有<<service-endpoint-info,服务端点信息>>。
+* 要访问存储分段或容器、您可以<<authentication-account-info,身份验证类型的帐户信息>>选择。
+
+
+.步骤
+. 选择* ILM *>*存储池*>*云存储池*。
+. 选择*创建*，然后输入以下信息：
++
+[cols="1a,3a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+云存储池名称
+ a| 
+一个名称，用于简要说明云存储池及其用途。在配置 ILM 规则时，请使用易于识别的名称。
+
+
+
+ a| 
+提供程序类型
+ a| 
+您将在此云存储池中使用哪个云提供商：
+
+** * Amazon S3/GCP*：为Amazon S3、Commercial Cloud Services (C2S) S3、Google Cloud Platform (GCP)或其他S3兼容提供商选择此选项。
+** * Azure Blob 存储 *
+
+
+
+
+ a| 
+存储分段或容器
+ a| 
+外部S3存储分段或Azure容器的名称。保存云存储池后、您无法更改此值。
+
+|===
+. [[service-endpoint-info]]根据您选择的Provider类型、输入服务端点信息。
++
+[role="tabbed-block"]
+====
+.Amazon S3/GCP
+--
+.. 对于协议、请选择HTTPS或HTTP。
++
+
+NOTE: 不要对敏感数据使用HTTP连接。
+
+.. 输入主机名。示例：
++
+`s3-_aws-region_.amazonaws.com`
+
+.. 选择URL样式：
++
+[cols="1a,3a"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+自动检测
+ a| 
+尝试根据提供的信息自动检测要使用的 URL 模式。例如，如果指定 IP 地址， StorageGRID 将使用路径模式的 URL 。仅当您不知道要使用哪种特定模式时，才选择此选项。
+
+
+
+ a| 
+虚拟托管模式
+ a| 
+使用虚拟托管样式的URL访问存储分段。虚拟托管样式的URL会在域名中包含分段名称。示例： `+https://bucket-name.s3.company.com/key-name+`
+
+
+
+ a| 
+路径样式
+ a| 
+使用路径模式 URL 访问存储分段。路径样式的URL末尾包含分段名称示例： `+https://s3.company.com/bucket-name/key-name+`
+
+*注意：*不建议使用路径样式的URL选项，此选项将在StorageGRID 的未来版本中弃用。
+
+|===
+.. (可选)输入端口号、或者使用默认端口：443表示HTTPS、80表示HTTP。
+
+
+--
+.Azure Blob存储
+--
+.. 使用以下格式之一输入服务端点的URI。
++
+*** `+https://host:port+`
+*** `+http://host:port+`
+
+
+
+
+示例： `https://_myaccount_.blob.core.windows.net:443`
+
+如果未指定端口、则默认情况下、端口443用于HTTPS、端口80用于HTTP。
+
+--
+====
+
+
+. [[authentication－account－info]]选择*继续*。然后选择身份验证类型、并为云存储池端点输入所需信息：
++
+[role="tabbed-block"]
+====
+.访问密钥
+--
+_for Amazon S3/GCP或其他与S3兼容的提供程序_
+
+.. *访问密钥ID*：输入拥有外部存储分段的帐户的访问密钥ID。
+.. *机密访问密钥*：输入机密访问密钥。
+
+
+--
+.IAM角色无处不在
+--
+_for AWS IAM roles Anywhere服务_
+
+StorageGRID可使用AWS安全令牌服务(STS)动态生成短生命令牌以访问AWS资源。
+
+.. *AWS IAM角色无处不在区域*：选择云存储池所在的区域。例如， `us-east-1`。
+.. *信任锚点URN*：输入用于验证短期STS凭据请求的信任锚点的URN。可以是根CA、也可以是中间CA。
+.. *配置文件URN*：输入IAM角色Anywhere配置文件的URN，该配置文件列出了可假设任何受信任的角色。
+.. *角色URN*：输入IAM角色的URN、该URN可假设任何受信任的人。
+.. *会话持续时间*：输入临时安全凭据和角色会话的持续时间。输入至少15分钟且不超过12小时。
+.. *服务器CA证书*(可选)：一个或多个PEM格式的可信CA证书，用于在任意位置验证IAM角色。如果省略、则不会验证服务器。
+.. *end-实体 证书*:由信任锚点签名的X509证书的公共密钥，采用PEM格式。AWS IAM roles Anywhere使用此密钥颁发STS令牌。
+.. *end-实体 专用密钥*:最终实体证书的专用密钥。
+
+
+--
+.CAP (C2S访问门户)
+--
+_for Commercial Cloud Services (C2S) S3 service_
+
+.. *临时凭据URL*：输入StorageGRID将用于从CAP服务器获取临时凭据的完整URL，包括分配给您的C2S帐户的所有必需和可选API参数。
+.. *服务器CA证书*：选择*浏览*并上传StorageGRID将用于验证CAP服务器的CA证书。证书必须采用PEM编码、并由相应的政府证书颁发机构(CA)颁发。
+.. *客户端证书*：选择*浏览*并将StorageGRID用于标识自身的证书上传到CAP服务器。客户端证书必须采用PEM编码、由相应的政府证书颁发机构(CA)颁发、并授予对C2S帐户的访问权限。
+.. *客户端专用密钥*：选择*浏览*并上传PEM编码的客户端证书专用密钥。
+.. 如果客户端专用密钥已加密，请输入用于对客户端专用密钥进行解密的密码短语。否则，请将*客户端专用密钥密码短语*字段留空。
+
+
+
+NOTE: 如果要对客户端证书进行加密、请使用传统格式进行加密。不支持PKCS #8加密格式。
+
+--
+.Azure Blob存储
+--
+_对于Azure Blb存储、仅共享密钥_
+
+.. *帐户名称*：输入拥有外部容器的存储帐户的名称
+.. *帐户密钥*：输入存储帐户的机密密钥
+
+
+您可以使用 Azure 门户查找这些值。
+
+--
+.匿名
+--
+不需要追加信息。
+
+--
+====
+. 选择 * 继续 * 。然后选择要使用的服务器验证类型：
++
+[cols="1a,2a"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+在存储节点操作系统中使用根CA证书
+ a| 
+使用操作系统上安装的网格 CA 证书确保连接安全。
+
+
+
+ a| 
+使用自定义 CA 证书
+ a| 
+使用自定义 CA 证书。选择*浏览*并上传PEM编码的证书。
+
+
+
+ a| 
+请勿验证证书
+ a| 
+选择此选项意味着与云存储池的TLS连接不安全。
+
+|===
+. 选择 * 保存 * 。
++
+保存云存储池时， StorageGRID 将执行以下操作：
+
++
+** 验证存储分段或容器以及服务端点是否存在、以及是否可以使用您指定的凭据访问它们。
+** 将标记文件写入存储分段或容器、以将其标识为云存储池。请勿删除名为的此文件 `x-ntap-sgws-cloud-pool-uuid`。
++
+如果云存储池验证失败，您将收到一条错误消息，说明验证失败的原因。例如、如果存在证书错误或指定的存储分段或容器尚不存在、则可能会报告错误。
+
+
+
+. 如果发生错误，请参见link:troubleshooting-cloud-storage-pools.html["有关对云存储池进行故障排除的说明"]，解决所有问题，然后再次尝试保存云存储池。
+

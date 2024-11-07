@@ -1,0 +1,47 @@
+---
+permalink: ubuntu/reviewing-your-configuration-and-completing-installation.html 
+sidebar: sidebar 
+keywords: how to review your configuration and complete ubuntu debian installation 
+summary: 您必须仔细查看输入的配置信息，以确保安装成功完成。 
+---
+= 查看您的配置并完成安装
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须仔细查看输入的配置信息，以确保安装成功完成。
+
+.步骤
+. 查看 * 摘要 * 页面。
++
+image::../media/11_gmi_installer_summary_page.gif[此图通过周围文字进行了说明。]
+
+. 验证所有网格配置信息是否正确。使用摘要页面上的修改链接返回并更正任何错误。
+. 单击 * 安装 * 。
++
+
+NOTE: 如果将某个节点配置为使用客户端网络，则在单击 * 安装 * 时，该节点的默认网关会从网格网络切换到客户端网络。如果连接断开，则必须确保通过可访问的子网访问主管理节点。有关详细信息、请参见。 link:../network/index.html["网络连接准则"]
+
+. 单击 * 下载恢复包 * 。
++
+安装过程中，如果网格拓扑已定义，系统将提示您下载恢复软件包文件(`.zip`，并确认您可以成功访问此文件的内容。您必须下载恢复软件包文件，以便在一个或多个网格节点出现故障时恢复 StorageGRID 系统。安装将在后台继续、但在下载并验证此文件之前、您无法完成安装并访问StorageGRID 系统。
+
+. 确认您可以提取文件的内容 `.zip`、然后将其保存在两个安全、独立的位置。
++
+
+CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+
+. 选中*我已成功下载并验证恢复软件包文件*复选框，然后单击*下一步*。
++
+如果安装仍在进行中，则会显示状态页面。此页面指示每个网格节点的安装进度。
+
++
+image::../media/12_gmi_installer_status_page.gif[此图通过周围文字进行了说明。]
+
++
+当所有网格节点达到完成阶段后，将显示网格管理器的登录页面。
+
+. 使用 "root" 用户和您在安装期间指定的密码登录到网格管理器。
+

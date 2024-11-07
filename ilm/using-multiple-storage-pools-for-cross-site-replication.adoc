@@ -1,0 +1,79 @@
+---
+permalink: ilm/using-multiple-storage-pools-for-cross-site-replication.html 
+sidebar: sidebar 
+keywords: site-loss protection, cross-site replication, storage pools 
+summary: 如果您的StorageGRID 部署包含多个站点、则可以对已正确配置的存储池使用复制和纠删编码来启用站点丢失保护。 
+---
+= 启用站点丢失保护
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的StorageGRID 部署包含多个站点、则可以对已正确配置的存储池使用复制和纠删编码来启用站点丢失保护。
+
+复制和纠删编码需要不同的存储池配置：
+
+* 要使用复制保护站点丢失、请使用在StorageGRID 安装期间自动创建的站点专用存储池。然后、使用创建ILM规则以link:create-ilm-rule-define-placements.html["放置说明"]指定多个存储池、以便在每个站点上放置每个对象的一个副本。
+* 要使用纠删编码保护站点丢失，请link:guidelines-for-creating-storage-pools.html#guidelines-for-storage-pools-used-for-erasure-coded-copies["创建包含多个站点的存储池"]。然后、创建ILM规则、这些规则使用一个存储池、其中包含多个站点和任何可用的纠删编码架构。
+
+
+
+CAUTION: 在为StorageGRID部署配置站点丢失保护时，还必须考虑和的影响link:data-protection-options-for-ingest.html["加热选项"]link:../s3/consistency-controls.html["一致性"]。
+
+
+
+== 复制示例
+
+默认情况下、在StorageGRID 安装期间、系统会为每个站点创建一个存储池。如果存储池仅包含一个站点、则可以配置使用复制来保护站点丢失的ILM规则。在此示例中：
+
+* 存储池1包含站点1
+* 存储池2包含站点2
+* ILM规则包含两个放置位置：
++
+** 通过在站点1复制1个副本来存储对象
+** 通过在站点2复制1个副本来存储对象
+
+
+
+
+ILM规则放置：
+
+image::../media/ilm_replication_at_2_sites.png[在2个站点分别复制1个副本]
+
+image::../media/ilm_replication_make_2_copies_2_pools_2_sites.png[在2个站点(站点专用存储池)中的每个站点创建1个副本]
+
+如果一个站点丢失、则另一个站点上可以提供对象副本。
+
+
+
+== 纠删编码示例
+
+如果存储池中的每个存储池包含多个站点、则可以配置使用纠删编码保护站点丢失的ILM规则。在此示例中：
+
+* 存储池1包含站点1到3
+* ILM规则包含一个放置位置：在存储池1 (包含三个站点)上使用4+2 EC方案通过纠删编码存储对象
+
+
+ILM规则放置：
+
+image::../media/ilm_erasure_coding_site_loss_protection_4+2.png[EC 1存储池9存储节点3个站点]
+
+在此示例中：
+
+* ILM规则使用4+2纠删编码方案。
+* 每个对象都会被划分为四个相等的数据片段，并根据对象数据计算两个奇偶校验片段。
+* 六个片段中的每个片段都存储在三个数据中心站点的不同节点上，以便为节点故障或站点丢失提供数据保护。
+
+
+
+NOTE: 允许在包含任意数量站点的存储池中进行纠删编码、但两个站点除外。
+
+使用4+2纠删编码方案的ILM规则：
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example_template.png[通过使用4+2 EC方案对3个站点进行纠删编码来存储对象]
+
+如果一个站点丢失、数据仍可恢复：
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example.png[纠删编码4+2 EC方案1站点丢失]

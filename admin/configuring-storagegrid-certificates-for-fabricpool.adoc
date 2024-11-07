@@ -1,0 +1,40 @@
+---
+permalink: admin/configuring-storagegrid-certificates-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricpool, ONTAP certificates 
+summary: 对于执行严格主机名验证且不支持禁用严格主机名验证的 S3 客户端，例如使用 FabricPool 的 ONTAP 客户端，您可以在配置负载平衡器端点时生成或上传服务器证书。 
+---
+= 为 FabricPool 配置 StorageGRID 证书
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对于执行严格主机名验证但不支持禁用严格主机名验证的S3客户端(例如使用FabricPool 的ONTAP 客户端)、您可以在配置负载平衡器端点时生成或上传服务器证书。
+
+.开始之前
+* 您拥有 link:admin-group-permissions.html["特定访问权限"]。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+
+
+.关于此任务
+创建负载平衡器端点时，您可以生成自签名服务器证书或上传由已知证书颁发机构（ CA ）签名的证书。在生产环境中，您应使用由已知 CA 签名的证书。由 CA 签名的证书可以无中断地轮换。它们也更安全，因为它们可以更好地防止中间人攻击。
+
+以下步骤为使用 FabricPool 的 S3 客户端提供了一般准则。有关更多详细信息和过程，请参见link:../fabricpool/index.html["为 FabricPool 配置 StorageGRID"]。
+
+.步骤
+. （可选）配置一个高可用性（ High Availability ， HA ）组以供 FabricPool 使用。
+. 创建 S3 负载平衡器端点以供 FabricPool 使用。
++
+创建 HTTPS 负载平衡器端点时，系统会提示您上传服务器证书，证书专用密钥和可选的 CA 捆绑包。
+
+. 在 ONTAP 中将 StorageGRID 附加为云层。
++
+指定负载平衡器端点端口以及上载的 CA 证书中使用的完全限定域名。然后，提供 CA 证书。
+
++
+
+NOTE: 如果中间 CA 颁发了 StorageGRID 证书，则必须提供中间 CA 证书。如果 StorageGRID 证书是直接由根 CA 颁发的，则必须提供根 CA 证书。
+
+

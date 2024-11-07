@@ -1,0 +1,65 @@
+---
+permalink: expand/guidelines-for-adding-object-capacity.html 
+sidebar: sidebar 
+keywords: adding storage capacity, guidelines, storage volumes, expansion 
+summary: 您可以通过向现有存储节点添加存储卷或向现有站点添加新存储节点来扩展 StorageGRID 系统的对象存储容量。您必须以符合信息生命周期管理 \ （ ILM ）策略要求的方式添加存储容量。 
+---
+= 添加对象容量的准则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过向现有存储节点添加存储卷或向现有站点添加新存储节点来扩展 StorageGRID 系统的对象存储容量。添加存储容量时，必须满足信息生命周期管理（ ILM ）策略的要求。
+
+
+
+== 添加存储卷的准则
+
+在将存储卷添加到现有存储节点之前，请查看以下准则和限制：
+
+* 您必须检查当前的ILM规则，以确定在何处以及何时link:../expand/adding-storage-volumes-to-storage-nodes.html["添加存储卷"]增加或link:../ilm/what-erasure-coding-schemes-are.html["经过编程的对象"]的可用存储link:../ilm/what-replication-is.html["复制的对象"]。
+* 您不能通过添加存储卷来增加系统的元数据容量、因为对象元数据仅存储在卷0上。
+* 每个基于软件的存储节点最多可支持 16 个存储卷。如果您需要添加的容量超出此范围，则必须添加新的存储节点。
+* 您可以向每个SG6060设备添加一个或两个扩展架。每个扩展架可添加16个存储卷。如果安装了这两个扩展架、SG6060总共可支持48个存储卷。
+* 您可以向每个SG6160设备添加一个或两个扩展架。每个扩展架可添加60个存储卷。如果安装了这两个扩展架、SG6160总共可支持180个存储卷。
+* 您不能将存储卷添加到任何其他存储设备。
+* 您不能增加现有存储卷的大小。
+* 您不能在执行系统升级、恢复操作或其他扩展时向存储节点添加存储卷。
+
+
+在决定添加存储卷并确定必须扩展哪些存储节点以满足 ILM 策略后，请按照适用于您的存储节点类型的说明进行操作：
+
+* 要向SG6060存储设备添加一个或两个扩展架，请转至 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["将扩展架添加到已部署的SG6060"^]。
+* 要向SG6160存储设备添加一个或两个扩展架、请转至 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["将扩展架添加到已部署的SG6160"^]
+* 对于基于软件的节点，请按照的说明link:adding-storage-volumes-to-storage-nodes.html["将存储卷添加到存储节点"]进行操作。
+
+
+
+
+== 添加存储节点的准则
+
+在将存储节点添加到现有站点之前，请查看以下准则和限制：
+
+* 您必须检查当前的ILM规则，以确定在何处以及何时添加存储节点以增加或link:../ilm/what-erasure-coding-schemes-are.html["经过编程的对象"]的可用存储link:../ilm/what-replication-is.html["复制的对象"]。
+* 在一个扩展操作步骤 中添加的存储节点不应超过 10 个。
+* 您可以在一个扩展操作步骤 中将存储节点添加到多个站点。
+* 您可以在一个扩展操作步骤 中添加存储节点和其他类型的节点。
+* 在启动扩展操作步骤 之前，您必须确认在恢复过程中执行的所有数据修复操作均已完成。请参阅。 link:../maintain/checking-data-repair-jobs.html["检查数据修复作业"]
+* 如果在执行扩展之前或之后需要删除存储节点，则在一个 " 停用节点 " 操作步骤 中停用的存储节点不应超过 10 个。
+
+
+
+
+== 存储节点上的模块转换服务准则
+
+配置扩展时，必须选择是否在每个新存储节点上包含管理域控制器（ ADA ）服务。此 ADA 服务可跟踪网格服务的位置和可用性。
+
+* StorageGRID系统要求link:../maintain/understanding-adc-service-quorum.html["ADC 服务的仲裁"]每个站点随时都有可用的。
+* 每个站点至少有三个存储节点必须包含此 ADC-Service 。
+* 不建议将此 ADA 服务添加到每个存储节点。包含过多的 ADC 服务可能会因节点间通信量增加而导致发生原因 速度变慢。
+* 一个网格中包含的存储节点不应超过 48 个，而是使用了此 ADA 服务。这相当于 16 个站点，每个站点有三个模块转换服务。
+* 通常，在为新节点选择 * 数字转换服务 * 设置时，应选择 * 自动 * 。仅当新节点将替换包含此 ADC-Service 的另一个存储节点时，才选择 * 是 * 。如果要保留的ADC服务太少、则无法停用存储节点、因此、可以确保在删除旧服务之前、新的ADC服务可用。
+* 在部署后、您无法将ADC服务添加到节点。
+

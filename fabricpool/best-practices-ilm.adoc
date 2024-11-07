@@ -1,0 +1,47 @@
+---
+permalink: fabricpool/best-practices-ilm.html 
+sidebar: sidebar 
+keywords: FabricPool, best practices, ILM, information lifecycle management, ILM rule, ILM policy, erasure-coding, replication 
+summary: '如果要使用FabricPool 将数据分层到StorageGRID 、则必须了解对FabricPool 数据使用StorageGRID 信息生命周期管理(ILM)的要求。' 
+---
+= 对FabricPool 数据使用ILM的最佳实践
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使用FabricPool 将数据分层到StorageGRID 、则必须了解对FabricPool 数据使用StorageGRID 信息生命周期管理(ILM)的要求。
+
+
+CAUTION: FabricPool 不了解 StorageGRID ILM 规则或策略。如果 StorageGRID ILM 策略配置不当，可能会发生数据丢失。有关详细信息，请参见link:../ilm/what-ilm-rule-is.html["使用ILM规则管理对象"]和link:../ilm/creating-ilm-policy.html["创建ILM策略"]。
+
+
+
+== 将ILM与FabricPool 结合使用的准则
+
+使用FabricPool设置向导时、该向导会自动为您创建的每个S3存储分段创建一个新的ILM规则、并将该规则添加到非活动策略中。系统将提示您激活此策略。自动创建的规则遵循建议的最佳实践：在单个站点上使用2+1纠删编码。
+
+如果您要手动配置StorageGRID 、而不是使用FabricPool 设置向导、请查看这些准则、以确保您的ILM规则和ILM策略适合FabricPool 数据和您的业务需求。您可能需要创建新规则并更新活动ILM策略、以符合这些准则。
+
+* 您可以使用复制和纠删编码规则的任意组合来保护云层数据。
++
+建议的最佳实践是，在站点内使用 2+1 纠删编码，以实现经济高效的数据保护。纠删编码使用的 CPU 较多，但提供的存储容量明显低于复制。4+1 和 6+1 方案使用的容量小于 2+1 方案。但是，如果您需要在网格扩展期间添加存储节点， 4+1 和 6+1 方案的灵活性将会降低。有关详细信息，请参见 link:../expand/adding-storage-capacity-for-erasure-coded-objects.html["为经过纠删编码的对象添加存储容量"]。
+
+* 应用于 FabricPool 数据的每个规则都必须使用纠删编码，或者必须至少创建两个复制副本。
++
+
+CAUTION: 如果 ILM 规则在任何时间段内仅创建一个复制副本，则会使数据面临永久丢失的风险。如果某个对象只存在一个复制副本，则在存储节点出现故障或出现严重错误时，该对象将丢失。在升级等维护过程中，您还会暂时失去对对象的访问权限。
+
+* 如果需要link:remove-fabricpool-data.html["从StorageGRID中删除FabricPool数据"]，请使用ONTAP检索FabricPool卷的所有数据并将其提升到性能层。
++
+
+CAUTION: 为避免数据丢失、请勿使用将过期的ILM规则或删除FabricPool云层数据。将每个ILM规则中的保留期限设置为*永久*、以确保StorageGRID ILM不会删除FabricPool对象。
+
+* 请勿创建将FabricPool 云层数据从存储分段移动到其他位置的规则。您不能使用云存储池将FabricPool 数据移动到其他对象存储。
++
+
+NOTE: 不支持将云存储池与 FabricPool 结合使用，因为从云存储池目标检索对象会增加延迟。
+
+* 从 ONTAP 9.8 开始，您可以选择创建对象标记来帮助对分层数据进行分类和排序，以便于管理。例如，您只能在连接到 StorageGRID 的 FabricPool 卷上设置标记。然后，在 StorageGRID 中创建 ILM 规则时，您可以使用对象标记高级筛选器选择并放置此数据。
+

@@ -1,0 +1,81 @@
+---
+permalink: admin/security-for-clients.html 
+sidebar: sidebar 
+keywords: security, S3, client application, TLS 
+summary: StorageGRID租户帐户使用S3客户端应用程序将对象数据保存到StorageGRID。您应查看为客户端应用程序实施的安全措施。 
+---
+= S3客户端的安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID租户帐户使用S3客户端应用程序将对象数据保存到StorageGRID。您应查看为客户端应用程序实施的安全措施。
+
+
+
+== 摘要
+
+以下列表总结了如何为S3 REST API实施安全性：
+
+连接安全性:: TLS
+服务器身份验证:: 系统 CA 签名的 X.509 服务器证书或管理员提供的自定义服务器证书
+客户端身份验证:: S3帐户访问密钥ID和机密访问密钥
+客户端授权:: 存储分段所有权和所有适用的访问控制策略
+
+
+
+
+== StorageGRID如何为客户端应用程序提供安全性
+
+S3客户端应用程序可以连接到网关节点或管理节点上的负载平衡器服务、也可以直接连接到存储节点。
+
+* 连接到负载平衡器服务的客户端可以根据您的方式使用HTTPS或HTTPlink:configuring-load-balancer-endpoints.html["配置负载平衡器端点"]。
++
+建议使用HTTPS提供安全的TLS加密通信。您必须向端点附加安全证书。
+
++
+HTTP提供的未加密通信安全性较低、只能用于非生产或测试网格。
+
+* 连接到存储节点的客户端也可以使用HTTPS或HTTP。
++
+HTTPS是默认设置、建议使用。
+
++
+HTTP提供的未加密通信安全性较低、但对于非生产网格或测试网格、也可以选择使用link:changing-network-options-object-encryption.html["已启用"]它。
+
+* StorageGRID 与客户端之间的通信使用 TLS 进行加密。
+* 无论将负载平衡器端点配置为接受 HTTP 或 HTTPS 连接，网格中的负载平衡器服务和存储节点之间的通信都会进行加密。
+* 客户端必须向StorageGRID提供link:../s3/authenticating-requests.html["HTTP身份验证标头"]才能执行REST API操作。
+
+
+
+
+=== 安全证书和客户端应用程序
+
+在所有情况下，客户端应用程序都可以使用网格管理员上传的自定义服务器证书或 StorageGRID 系统生成的证书进行 TLS 连接：
+
+* 当客户端应用程序连接到负载平衡器服务时、它们将使用为负载平衡器端点配置的证书。每个负载平衡器端点都有自己的证书##8212;网格管理员上传的自定义服务器证书，或者网格管理员在配置端点时在StorageGRID中生成的证书。
++
+请参阅。 link:managing-load-balancing.html["负载平衡注意事项"]
+
+* 当客户端应用程序直接连接到存储节点时、它们会使用系统生成的服务器证书、这些证书是在安装StorageGRID 系统时为存储节点生成的(由系统证书颁发机构签名)。 或网格管理员为网格提供的单个自定义服务器证书。请参阅。 link:configuring-custom-server-certificate-for-storage-node.html["添加自定义S3 API证书"]
+
+
+应将客户端配置为信任对用于建立 TLS 连接的任何证书签名的证书颁发机构。
+
+
+
+== 支持 TLS 库的哈希和加密算法
+
+StorageGRID系统支持一组密码套件、客户端应用程序可以在建立TLS会话时使用这些套件。要配置加密方法，请进入*configuration*>*Security*>*Security settings，然后选择*TLS和SSH policies*。
+
+
+
+=== 支持的 TLS 版本
+
+StorageGRID 支持 TLS 1.2 和 TLS 1.3 。
+
+
+NOTE: 不再支持 SSLv3 和 TLS 1.1 （或更早版本）。

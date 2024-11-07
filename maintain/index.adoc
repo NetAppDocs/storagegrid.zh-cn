@@ -1,0 +1,33 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: maintain overview, maintenance overview, about maintain, about maintenance 
+summary: 网格维护任务包括停用节点或站点、重命名网格、节点或站点以及维护网络。您还可以执行主机和中间件过程以及网格节点过程。 
+---
+= 网格维护
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+网格维护任务包括停用节点或站点、重命名网格、节点或站点以及维护网络。您还可以执行主机和中间件过程以及网格节点过程。
+
+
+NOTE: 在这些说明中，“Linux”是指Red Hat®Enterprise Linux®、Ubuntu®或Debian®部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具"^]。
+
+
+
+== 开始之前
+
+* 您对 StorageGRID 系统有着广泛的了解。
+* 您已查看 StorageGRID 系统的拓扑并了解网格配置。
+* 您知道必须严格按照所有说明进行操作，并注意所有警告。
+* 您了解、未介绍的维护过程不受支持或不需要服务项目。
+
+
+
+
+== 设备的维护过程
+
+有关硬件过程，请参见 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["StorageGRID设备的维护说明"^]。

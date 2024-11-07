@@ -1,0 +1,49 @@
+---
+permalink: admin/viewing-storagegrid-license-information.html 
+sidebar: sidebar 
+keywords: storagegrid license, view license, licensed capacity of grid 
+summary: 您可以根据需要查看 StorageGRID 系统的许可证信息，例如网格的最大存储容量。 
+---
+= 查看 StorageGRID 许可证信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以根据需要查看 StorageGRID 系统的许可证信息，例如网格的最大存储容量。
+
+.开始之前
+您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+
+.关于此任务
+如果某个问题描述 具有此StorageGRID 系统的软件许可证，信息板上的运行状况卡将包含一个许可证状态图标和一个*License*链接。此数字表示与许可证相关的问题数量。
+
+image::../media/dashboard_health_panel_license_status.png[信息板运行状况卡许可证状态]
+
+.步骤
+. 通过执行以下操作之一访问许可证页面：
++
+** 选择 * 维护 * > * 系统 * > * 许可证 * 。
+** 从信息板上的运行状况卡中，选择许可证状态图标或*License*链接。
++
+只有当具有许可证的问题描述 时，才会显示此链接。
+
+
+
+. 查看当前许可证的只读详细信息：
++
+** StorageGRID 系统 ID ，此 ID 是此 StorageGRID 安装的唯一标识号
+** 许可证序列号
+** 许可证类型，*永久*或*订阅*
+** 网格的许可存储容量
+** 支持的存储容量
+** 许可证结束日期。*不适用*表示永久许可证。
+** 支持结束日期
++
+此日期是从当前许可证文件中读取的、如果您在获取许可证文件后延长或续订了支持服务合同、则此日期可能已过时。要更新此值，请参见link:updating-storagegrid-license-information.html["更新 StorageGRID 许可证信息"]。您还可以使用Active IQ 查看实际合同结束日期。
+
+** 许可证文本文件的内容
+
+
+

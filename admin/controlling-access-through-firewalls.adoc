@@ -1,0 +1,66 @@
+---
+permalink: admin/controlling-access-through-firewalls.html 
+sidebar: sidebar 
+keywords: firewall access, firewall ports, external firewall 
+summary: 您可以在外部防火墙处打开或关闭特定端口。 
+---
+= 在外部防火墙处控制访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在外部防火墙处打开或关闭特定端口。
+
+您可以通过在外部防火墙中打开或关闭特定端口来控制对 StorageGRID 管理节点上用户界面和 API 的访问。例如，除了使用其他方法控制系统访问之外，您可能还希望防止租户能够在防火墙处连接到网格管理器。
+
+如果要配置StorageGRID内部防火墙，请参见link:../admin/configure-firewall-controls.html["配置内部防火墙"]。
+
+[cols="1a,1a,2a"]
+|===
+| 端口 | 说明 | 端口是否已打开 ... 
+
+
+ a| 
+443
+ a| 
+管理节点的默认 HTTPS 端口
+ a| 
+Web 浏览器和管理 API 客户端可以访问网格管理器，网格管理 API ，租户管理器和租户管理 API 。
+
+* 注： * 端口 443 也用于某些内部流量。
+
+
+
+ a| 
+8443
+ a| 
+管理节点上的网格管理器端口受限
+ a| 
+* Web 浏览器和管理 API 客户端可以使用 HTTPS 访问网格管理器和网格管理 API 。
+* Web浏览器和管理API客户端无法访问租户管理器或租户管理API。
+* 请求内部内容将被拒绝。
+
+
+
+
+ a| 
+9443
+ a| 
+管理节点上的租户管理器端口受限
+ a| 
+* Web 浏览器和管理 API 客户端可以使用 HTTPS 访问租户管理器和租户管理 API 。
+* Web浏览器和管理API客户端无法访问网格管理器或网格管理API。
+* 请求内部内容将被拒绝。
+
+
+|===
+
+TIP: 受限网格管理器或租户管理器端口上不提供单点登录（ SSO ）。如果您希望用户通过单点登录进行身份验证，则必须使用默认 HTTPS 端口（ 443 ）。
+
+.相关信息
+* link:signing-in-to-grid-manager.html["登录到网格管理器"]
+* link:creating-tenant-account.html["创建租户帐户"]
+* link:../network/external-communications.html["外部通信"]
+

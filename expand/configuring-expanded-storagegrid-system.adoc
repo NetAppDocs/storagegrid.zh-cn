@@ -1,0 +1,65 @@
+---
+permalink: expand/configuring-expanded-storagegrid-system.html 
+sidebar: sidebar 
+keywords: expansion, configuration 
+summary: 完成扩展后，您必须执行其他集成和配置步骤。 
+---
+= 扩展后的配置步骤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成扩展后，您必须执行其他集成和配置步骤。
+
+.关于此任务
+您必须为要添加到扩展中的网格节点或站点完成下面列出的配置任务。某些任务可能是可选的、具体取决于在安装和管理系统时选择的选项、以及您希望如何配置扩展期间添加的节点和站点。
+
+.步骤
+. 如果您添加了站点：
++
+** link:../ilm/creating-storage-pool.html["创建存储池"]对于站点以及为新存储节点选择的每个存储级别。
+** 确认ILM策略满足新要求。如果需要更改规则，请执行、link:../ilm/access-create-ilm-rule-wizard.html["创建新规则"]和link:../ilm/creating-ilm-policy.html["更新ILM策略"]。如果规则已正确、则不会更改任何规则、link:../ilm/creating-ilm-policy.html#activate-ilm-policy["激活新策略"]以确保StorageGRID使用新节点。
+** 确认可从该站点访问网络时间协议(Network Time Protocol、NTP)服务器。请参阅。 link:../maintain/configuring-ntp-servers.html["管理NTP服务器"]
++
+
+CAUTION: 确保每个站点至少有两个节点可以访问至少四个外部 NTP 源。如果一个站点上只有一个节点可以访问 NTP 源，则在该节点关闭时会发生计时问题。此外，指定每个站点两个节点作为主要 NTP 源可确保在站点与网格其余部分隔离时的时间准确无误。
+
+
+
+. 如果向现有站点添加了一个或多个存储节点：
++
+** link:../ilm/viewing-storage-pool-details.html["查看存储池详细信息"]确认添加的每个节点都包含在预期存储池中并在预期ILM规则中使用。
+** 确认ILM策略满足新要求。如果需要更改规则，请执行、link:../ilm/access-create-ilm-rule-wizard.html["创建新规则"]和link:../ilm/creating-ilm-policy.html["更新ILM策略"]。如果规则已正确、则不会更改任何规则、link:../ilm/creating-ilm-policy.html#activate-ilm-policy["激活新策略"]以确保StorageGRID使用新节点。
+** link:verifying-storage-node-is-active.html["验证存储节点是否处于活动状态"]并且能够加热对象。
+** 如果您无法添加建议数量的存储节点、请重新平衡已进行过重复数据检索的数据。请参阅。 link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["添加存储节点后重新平衡经过纠删编码的数据"]
+
+
+. 如果添加了网关节点：
++
+** 如果将高可用性（ HA ）组用于客户端连接，则可以选择将网关节点添加到 HA 组。选择 * 配置 * > * 网络 * > * 高可用性组 * 以查看现有 HA 组列表并添加新节点。请参阅。 link:../admin/configure-high-availability-group.html["配置高可用性组"]
+
+
+. 如果添加了管理节点：
++
+.. 如果为 StorageGRID 系统启用了单点登录（ Single Sign-On ， SSO ），请为新管理节点创建依赖方信任。除非创建此依赖方信任、否则无法登录到此节点。请参阅。 link:../admin/configuring-sso.html["配置单点登录"]
+.. 如果您计划在管理节点上使用负载平衡器服务、则可以选择将新的管理节点添加到HA组。选择 * 配置 * > * 网络 * > * 高可用性组 * 以查看现有 HA 组列表并添加新节点。请参阅。 link:../admin/configure-high-availability-group.html["配置高可用性组"]
+.. 如果要使每个管理节点上的属性和审核信息保持一致，也可以将管理节点数据库从主管理节点复制到扩展管理节点。请参阅。 link:copying-admin-node-database.html["复制管理节点数据库"]
+.. 如果要使每个管理节点上的历史指标保持一致，也可以将 Prometheus 数据库从主管理节点复制到扩展管理节点。请参阅。 link:copying-prometheus-metrics.html["复制 Prometheus 指标"]
+.. 如果要使每个管理节点上的历史日志信息保持一致，也可以将现有审核日志从主管理节点复制到扩展管理节点。请参阅。 link:copying-audit-logs.html["复制审核日志"]
+
+
+. 要检查是否使用不可信客户端网络添加了扩展节点，或更改节点的客户端网络是不可信还是可信，请转至*configuration*>*Security*>*Firewall control*。
++
+如果扩展节点上的客户端网络不可信，则必须使用负载平衡器端点与客户端网络上的节点建立连接。请参阅link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]和link:../admin/manage-firewall-controls.html["管理防火墙控制"]。
+
+. 配置DNS。
++
+如果您一直在为每个网格节点单独指定 DNS 设置，则必须为新节点添加自定义的每节点 DNS 设置。请参阅。 link:../maintain/modifying-dns-configuration-for-single-grid-node.html["修改单网格节点的 DNS 配置"]
+
+
+
+要确保正常运行、请指定两个或三个DNS服务器。如果指定的值超过三个、则可能仅使用三个、因为某些平台上存在已知的操作系统限制。如果您的环境存在路由限制、则各个节点(通常是站点上的所有节点)可以link:../maintain/modifying-dns-configuration-for-single-grid-node.html["自定义DNS服务器列表"]使用一组不同的DNS服务器、最多可使用三个。
+
+如果可能、请使用每个站点可以在本地访问的DNS服务器、以确保受支持的站点可以解析外部目标的FQDN。

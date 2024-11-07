@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-manage-drives-tab.html 
+sidebar: sidebar 
+keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
+summary: 通过管理驱动器选项卡、您可以访问详细信息、并对支持此功能的设备中的驱动器执行故障排除和维护任务。 
+---
+= 查看管理驱动器选项卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过管理驱动器选项卡、您可以访问详细信息、并对支持此功能的设备中的驱动器执行故障排除和维护任务。
+
+使用管理驱动器选项卡、您可以执行以下操作：
+
+* 查看设备中的数据存储驱动器布局
+* 查看一个表、其中列出了每个驱动器位置、类型、状态、固件版本和序列号
+* 对每个驱动器执行故障排除和维护功能
+
+
+要访问“管理驱动器”选项卡，您必须拥有link:../admin/admin-group-permissions.html["存储设备管理员或root访问权限"]。
+
+有关使用管理驱动器选项卡的信息，请参阅 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/manage-drives-tab.html["使用管理驱动器选项卡"^]。

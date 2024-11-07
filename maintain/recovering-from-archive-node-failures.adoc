@@ -1,0 +1,16 @@
+---
+permalink: maintain/recovering-from-archive-node-failures.html 
+sidebar: sidebar 
+keywords: recover, archive node failure, workflow 
+summary: 已删除对归档节点的支持。 
+---
+= 从归档节点故障中恢复
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+已删除对归档节点的支持。
+
+有关恢复归档节点的信息，请参见 https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["从归档节点故障中恢复(StorageGRID 11.8文档站点)"^]。

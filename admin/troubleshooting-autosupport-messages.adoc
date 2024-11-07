@@ -1,0 +1,54 @@
+---
+permalink: admin/troubleshooting-autosupport-messages.html 
+sidebar: sidebar 
+keywords: troubleshoot autosupport, asup package 
+summary: 如果尝试发送AutoSupport软件包失败、StorageGRID系统会根据AutoSupport软件包的类型采取不同的操作。您可以通过选择支持>>工具>> AutoSupport >>结果来检查AutoSupport软件包的状态。 
+---
+= 对AutoSupport软件包进行故障排除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果尝试发送AutoSupport软件包失败、StorageGRID系统会根据AutoSupport软件包的类型采取不同的操作。您可以通过选择*support*>*工具*>* AutoSupport *>*结果*来检查AutoSupport包的状态。
+
+如果AutoSupport软件包无法发送，“Failed”(失败)将显示在AutoSupport页的*results*选项卡上。
+
+
+NOTE: 如果您配置了代理服务器以将AutoSupport软件包转发到NetApp，则应link:configuring-admin-proxy-settings.html["验证代理服务器配置设置是否正确"]。
+
+
+
+== 每周AutoSupport软件包失败
+
+如果每周AutoSupport软件包无法发送、StorageGRID系统将执行以下操作：
+
+. 更新最新的 result 属性以重试。
+. 尝试每四分钟重新发送15次AutoSupport软件包、持续一小时。
+. 发送失败一小时后，将最新结果属性更新为 Failed 。
+. 尝试在下次计划的时间再次发送AutoSupport软件包。
+. 如果软件包因NMS服务不可用而失败、并且软件包在七天之后发送、则保留常规AutoSupport计划。
+. 当NMS服务再次可用时、如果某个软件包在七天或更长时间内未发送、则会立即发送AutoSupport软件包。
+
+
+
+
+== 用户触发或事件触发的AutoSupport软件包故障
+
+如果用户触发或事件触发的AutoSupport软件包无法发送、StorageGRID系统将执行以下操作：
+
+. 如果已知错误，则显示错误消息。例如、如果用户在选择SMTP协议时未提供正确的电子邮件配置设置、则会显示以下错误： `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+. 不再尝试发送软件包。
+. 将错误记录在中 `nms.log`。
+
+
+如果发生故障并且选择了SMTP协议，请验证StorageGRID系统的电子邮件服务器是否配置正确，并且您的电子邮件服务器是否正在运行(*support*>*警报(原有)*>*原有电子邮件设置*)。AutoSupport页面上可能会显示以下错误消息： `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+
+了解如何link:../monitor/email-alert-notifications.html["配置电子邮件服务器设置"]。
+
+
+
+== 更正AutoSupport软件包故障
+
+如果发生故障且所选协议为 SMTP ，请验证 StorageGRID 系统的电子邮件服务器是否已正确配置且您的电子邮件服务器是否正在运行。AutoSupport页面上可能会显示以下错误消息： `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`

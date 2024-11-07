@@ -1,0 +1,66 @@
+---
+permalink: network/networking-requirements-and-guidelines.html 
+sidebar: sidebar 
+keywords: storagegrid, networking requirements, network requirements, nat 
+summary: 您必须验证当前的网络基础架构和配置是否可以支持计划的 StorageGRID 网络设计。 
+---
+= 网络要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须验证当前的网络基础架构和配置是否可以支持计划的 StorageGRID 网络设计。
+
+
+
+== 一般网络连接要求
+
+所有 StorageGRID 部署都必须能够支持以下连接。
+
+这些连接可以通过网格网络，管理网络或客户端网络进行，也可以通过这些网络的组合进行，如网络拓扑示例所示。
+
+* * 管理连接 * ：管理员到节点的入站连接，通常通过 SSH 。通过 Web 浏览器访问网格管理器，租户管理器和 StorageGRID 设备安装程序。
+* * NTP 服务器连接 * ：接收入站 UDP 响应的出站 UDP 连接。
++
+主管理节点必须至少可访问一个 NTP 服务器。
+
+* * DNS 服务器连接 * ：接收入站 UDP 响应的出站 UDP 连接。
+* * LDAP/Active Directory 服务器连接 * ：从存储节点上的身份服务发出的出站 TCP 连接。
+* *tcp*：从管理节点到或客户配置的代理的出站AutoSupport连接 `support.netapp.com`。
+* * 外部密钥管理服务器 * ：启用节点加密的每个设备节点的出站 TCP 连接。
+* 来自S3客户端的入站TCP连接。
+* 来自 StorageGRID 平台服务（例如 CloudMirror 复制）或云存储池的出站请求。
+
+
+如果StorageGRID 无法使用默认路由规则联系任何已配置的NTP或DNS服务器、只要指定了DNS和NTP服务器的IP地址、它就会自动尝试在所有网络(网格、管理和客户端)上进行联系。如果可以在任何网络上访问 NTP 或 DNS 服务器， StorageGRID 将自动创建其他路由规则，以确保将来尝试连接到该网络时都使用该网络。
+
+
+TIP: 虽然您可以使用这些自动发现的主机路由，但通常应手动配置 DNS 和 NTP 路由，以确保在自动发现失败时连接。
+
+如果您不准备在部署期间配置可选的管理和客户端网络、则可以在配置步骤期间批准网格节点时配置这些网络。此外，您还可以在安装后使用更改IP工具配置这些网络(请参见link:../maintain/configuring-ip-addresses.html["配置 IP 地址"])。
+
+仅支持通过VLAN接口进行S3客户端连接以及SSH、Grid Manager和租户管理连接。出站连接，例如与 NTP ， DNS ， LDAP ， AutoSupport 和 KMS 服务器的连接， 必须直接通过客户端，管理员或网格网络接口。如果将接口配置为支持 VLAN 接口的中继，则此流量将按交换机上的配置通过接口的原生 VLAN 进行传输。
+
+
+
+== 适用于多个站点的广域网（ WAN ）
+
+在为 StorageGRID 系统配置多个站点时，在计算客户端流量之前，站点之间的 WAN 连接的每个方向的最小带宽必须为 25 Mbit/ 秒。站点之间，节点或站点扩展，节点恢复以及其他操作或配置之间的数据复制或纠删编码需要额外的带宽。
+
+实际的最小WAN带宽要求取决于客户端活动和ILM保护方案。要在估算最低WAN带宽要求时获得帮助、请联系您的NetApp专业服务顾问。
+
+
+
+== 管理节点和网关节点的连接
+
+管理节点必须始终受到不可信客户端的保护，例如在开放式 Internet 上的客户端。您必须确保任何不可信的客户端都不能访问网格网络，管理网络或客户端网络上的任何管理节点。
+
+要添加到高可用性组的管理节点和网关节点必须使用静态 IP 地址进行配置。有关详细信息，请参见 link:../admin/managing-high-availability-groups.html["管理高可用性组"]。
+
+
+
+== 使用网络地址转换（ Network Address Translation ， NAT ）
+
+请勿在网格网络中的网格节点之间或StorageGRID 站点之间使用网络地址转换(Network Address Translation、NAT)。如果您对网格网络使用专用 IPv4 地址，则这些地址必须可从每个站点的每个网格节点直接路由。但是，您可以根据需要在外部客户端和网格节点之间使用 NAT ，例如为网关节点提供公有 IP 地址。只有在使用对网格中的所有节点都透明的通道应用程序时，才支持使用 NAT 桥接公有 网段，这意味着网格节点不需要了解公有 IP 地址。

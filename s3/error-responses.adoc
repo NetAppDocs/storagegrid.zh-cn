@@ -1,0 +1,378 @@
+---
+permalink: s3/error-responses.html 
+sidebar: sidebar 
+keywords: error, error responses 
+summary: StorageGRID 系统支持所有适用的标准 S3 REST API 错误响应。此外， StorageGRID 实施还添加了多个自定义响应。 
+---
+= 错误响应
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 系统支持所有适用的标准 S3 REST API 错误响应。此外， StorageGRID 实施还添加了多个自定义响应。
+
+
+
+== 支持的 S3 API 错误代码
+
+[cols="1a,1a"]
+|===
+| 名称 | HTTP状态 
+
+
+ a| 
+ACCESSDENIED
+ a| 
+403 已禁用
+
+
+
+ a| 
+BadDigest
+ a| 
+400 个错误请求
+
+
+
+ a| 
+BucketAlreadyExists
+ a| 
+409 冲突
+
+
+
+ a| 
+BucketNotEmpagty
+ a| 
+409 冲突
+
+
+
+ a| 
+实体不完整
+ a| 
+400 个错误请求
+
+
+
+ a| 
+内部错误
+ a| 
+500 内部服务器错误
+
+
+
+ a| 
+InvalidAccessKeyId
+ a| 
+403 已禁用
+
+
+
+ a| 
+InvalidArgument
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidBucketName
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidBucketState
+ a| 
+409 冲突
+
+
+
+ a| 
+InvalidDigest
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidEncryptionAlgorithmError
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidPart
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidPartOrder
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidRange
+ a| 
+416 无法满足请求的范围
+
+
+
+ a| 
+InvalidRequest
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidStorageClass
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidTag
+ a| 
+400 个错误请求
+
+
+
+ a| 
+InvalidURI
+ a| 
+400 个错误请求
+
+
+
+ a| 
+KeyTooLong
+ a| 
+400 个错误请求
+
+
+
+ a| 
+MalformedXML
+ a| 
+400 个错误请求
+
+
+
+ a| 
+MetadataTooLarge
+ a| 
+400 个错误请求
+
+
+
+ a| 
+方法未使用
+ a| 
+不允许使用 405 方法
+
+
+
+ a| 
+MissingContent长度
+ a| 
+411 需要长度
+
+
+
+ a| 
+MissingRequestBodyError
+ a| 
+400 个错误请求
+
+
+
+ a| 
+MissingSecurityHeader
+ a| 
+400 个错误请求
+
+
+
+ a| 
+NoSuchBucket
+ a| 
+未找到 404
+
+
+
+ a| 
+NoSuchKey
+ a| 
+未找到 404
+
+
+
+ a| 
+NoSuchUpload
+ a| 
+未找到 404
+
+
+
+ a| 
+未实施
+ a| 
+501 未实施
+
+
+
+ a| 
+NoSuchBucketPolicy
+ a| 
+未找到 404
+
+
+
+ a| 
+ObjectLockConfigurationNotFoundError
+ a| 
+未找到 404
+
+
+
+ a| 
+预条件已启用
+ a| 
+412- 前提条件失败
+
+
+
+ a| 
+已请求超时
+ a| 
+403 已禁用
+
+
+
+ a| 
+服务不可用
+ a| 
+503 服务不可用
+
+
+
+ a| 
+SignatureDoesNotMatch
+ a| 
+403 已禁用
+
+
+
+ a| 
+TooMany桶
+ a| 
+400 个错误请求
+
+
+
+ a| 
+用户密钥已规范
+ a| 
+400 个错误请求
+
+|===
+
+
+== StorageGRID 自定义错误代码
+
+[cols="2a,2a,1a"]
+|===
+| 名称 | 说明 | HTTP状态 
+
+
+ a| 
+XBucketLifeycleNotAllowed
+ a| 
+旧版合规存储分段不支持存储分段生命周期配置
+ a| 
+400 个错误请求
+
+
+
+ a| 
+XBucketPolicyParseException
+ a| 
+无法解析收到的存储分段策略 JSON 。
+ a| 
+400 个错误请求
+
+
+
+ a| 
+XComplianceConflict
+ a| 
+操作因原有合规性设置而被拒绝。
+ a| 
+403 已禁用
+
+
+
+ a| 
+XComplianceReducedRedundancyFor禁用
+ a| 
+原有的合规存储分段不允许减少冗余
+ a| 
+400 个错误请求
+
+
+
+ a| 
+XMaxBucketPolicyLengthExceeded
+ a| 
+您的策略超出了允许的最大存储分段策略长度。
+ a| 
+400 个错误请求
+
+
+
+ a| 
+XMissingInternalRequestHeader
+ a| 
+缺少内部请求的标题。
+ a| 
+400 个错误请求
+
+
+
+ a| 
+XNoSuchBucketCompliance
+ a| 
+指定的存储分段未启用原有合规性。
+ a| 
+未找到 404
+
+
+
+ a| 
+XNotAcceptable
+ a| 
+此请求包含一个或多个无法满足的接受标头。
+ a| 
+406 不可接受
+
+
+
+ a| 
+未实施
+ a| 
+您提供的请求意味着未实施的功能。
+ a| 
+501 未实施
+
+|===

@@ -1,0 +1,78 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| 路径和文件名 | 说明 
+
+
+| ./rpms/README  a| 
+一个文本文件，用于描述 StorageGRID 下载文件中包含的所有文件。
+
+
+
+| ./rpms/NLF000000.txt  a| 
+一种免费许可证，不提供产品的任何支持授权。
+
+
+
+| ./rpms/StorageGRID-Webscale-Images-_version_-SHA.rpm  a| 
+RPM软件包、用于在RHEL主机上安装StorageGRID节点映像。
+
+
+
+| ./rpms/StorageGRID-Webscale-Service-_version_-SHA.rpm  a| 
+RPM软件包、用于在RHEL主机上安装StorageGRID主机服务。
+
+
+
+| 部署脚本工具 | 说明 
+
+
+| ./rpms/configure-storagegrid.py  a| 
+一种用于自动配置 StorageGRID 系统的 Python 脚本。
+
+
+
+| ./rpms/configure-sga.py  a| 
+一种用于自动配置 StorageGRID 设备的 Python 脚本。
+
+
+
+| ./rpms/configure-storagegrid.sample.json  a| 
+用于脚本的示例配置文件 `configure-storagegrid.py`。
+
+
+
+| ./rpms/storagegrid-ssoauth.py  a| 
+一个示例 Python 脚本，启用单点登录后，您可以使用该脚本登录到网格管理 API 。您也可以使用此脚本进行Ping联盟集成。
+
+
+
+| ./rpms/configure-storagegrid.blank.json  a| 
+用于脚本的空配置文件 `configure-storagegrid.py`。
+
+
+
+| ./rpms/Extras 或 Ansible  a| 
+用于为StorageGRID容器部署配置RHEL主机的AndsableRole和操作手册示例。您可以根据需要自定义角色或攻略手册。
+
+
+
+| ./rpms/storagegrid-ssoauth-azure.py  a| 
+一个Python脚本示例、在使用Active Directory或Ping联合启用单点登录(Single Sign On、SSO)时、您可以使用该脚本登录到网格管理API。
+
+
+
+| ./rpms/storagegrid－ssoauth-azure.js  a| 
+由配套Python脚本调用的帮助程序 `storagegrid-ssoauth-azure.py`脚本、用于与Azure执行SSO交互。
+
+
+
+| ./rpms/Extras 或 API 架构  a| 
+StorageGRID 的 API 架构。
+
+*注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
+
+|===

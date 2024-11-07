@@ -1,0 +1,106 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: 您必须在网格管理器中创建一个租户帐户以供 FabricPool 使用。 
+---
+= 为 FabricPool 创建租户帐户
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在网格管理器中创建一个租户帐户以供 FabricPool 使用。
+
+租户帐户允许客户端应用程序在 StorageGRID 上存储和检索对象。每个租户帐户都有自己的帐户 ID ，授权组和用户，分段和对象。
+
+有关此任务的详细信息，请参见link:../admin/creating-tenant-account.html["创建租户帐户"]。要使用FabricPool设置向导完成此任务，请转至link:use-fabricpool-setup-wizard-steps.html["访问并完成FabricPool 设置向导"]。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+.步骤
+. 选择 * 租户 * 。
+. 选择 * 创建 * 。
+. 对于输入详细信息步骤、请输入以下信息。
++
+[cols="1a,3a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+名称
+ a| 
+租户帐户的名称。租户名称不需要唯一。创建租户帐户时，它会收到一个唯一的数字帐户 ID 。
+
+
+
+ a| 
+问题描述 (可选)
+ a| 
+用于帮助识别租户的问题描述。
+
+
+
+ a| 
+客户端类型
+ a| 
+对于FabricPool ，必须为*S3*。
+
+
+
+ a| 
+存储配额(可选)
+ a| 
+对于FabricPool 、将此字段留空。
+
+|===
+. 对于选择权限步骤：
++
+.. 不要选择*允许平台服务*。
++
+FabricPool 租户通常不需要使用CloudMirror复制等平台服务。
+
+.. (可选)选择*使用自己的身份源*。
+.. 不要选择*允许S3选择*。
++
+FabricPool 租户通常不需要使用S3 Select。
+
+.. (可选)选择*使用网格联合连接*以允许租户使用link:../admin/grid-federation-overview.html["网格联合连接"]进行帐户克隆和跨网格复制。然后、选择要使用的网格联合连接。
+
+
+. 在“定义root访问权限”步骤中，根据您的StorageGRID系统是使用link:../admin/using-identity-federation.html["身份联合"]、，link:../admin/configuring-sso.html["单点登录(SSO)"]还是同时使用这两者，指定哪个用户将拥有租户帐户的初始root访问权限。
++
+[cols="1a,2a"]
+|===
+| 选项 | 执行此操作 ... 
+
+
+ a| 
+如果未启用身份联合
+ a| 
+指定以本地root用户身份登录租户时要使用的密码。
+
+
+
+ a| 
+如果启用了身份联合
+ a| 
+.. 选择一个现有联盟组、以便对租户具有root访问权限。
+.. (可选)指定以本地root用户身份登录到租户时要使用的密码。
+
+
+
+
+ a| 
+如果同时启用了身份联合和单点登录(SSO)
+ a| 
+选择一个现有联盟组、以便对租户具有root访问权限。没有本地用户可以登录。
+
+|===
+. 选择 * 创建租户 * 。
+

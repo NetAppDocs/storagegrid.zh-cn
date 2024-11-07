@@ -1,0 +1,98 @@
+---
+permalink: expand/copying-audit-logs.html 
+sidebar: sidebar 
+keywords: copy audit log, Admin Node expansion, 
+summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅会记录在加入系统后发生的事件和操作。根据需要，您可以将审核日志从先前安装的管理节点复制到新的扩展管理节点，使其与 StorageGRID 系统的其余部分保持同步。 
+---
+= 复制审核日志
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅会记录在加入系统后发生的事件和操作。根据需要，您可以将审核日志从先前安装的管理节点复制到新的扩展管理节点，使其与 StorageGRID 系统的其余部分保持同步。
+
+.开始之前
+* 您已完成添加管理节点所需的扩展步骤。
+* 您已获得 `Passwords.txt`文件。
+
+
+.关于此任务
+要使历史审核消息在新管理节点上可用，必须手动将审核日志文件从现有管理节点复制到扩展管理节点。
+
+[NOTE]
+====
+默认情况下，审核信息会发送到管理节点上的审核日志。如果符合以下任一条件，则可以跳过这些步骤：
+
+* 您配置了外部系统日志服务器，审核日志现在将发送到系统日志服务器，而不是管理节点。
+* 您明确指定仅应将审核消息保存在生成这些消息的本地节点上。
+
+
+有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+
+====
+.步骤
+. 登录到主管理节点：
++
+.. 输入以下命令： `ssh _admin@_primary_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 停止AMS服务以防止其创建新文件： `service ams stop`
+. 导航到审核导出目录：
++
+`cd /var/local/log`
+
+. 重命名源 `audit.log`文件、以确保它不会覆盖要将其复制到的扩展管理节点上的文件：
++
+[listing]
+----
+ls -l
+mv audit.log _new_name_.txt
+----
+. 将所有审核日志文件复制到扩展管理节点上的目标位置：
++
+`scp -p * _IP_address_:/var/local/log`
+
+. 如果系统提示您输入的密码短语 `/root/.ssh/id_rsa`，请输入文件中列出的主管理节点的SSH访问密码 `Passwords.txt`。
+. 还原原始 `audit.log`文件：
++
+`mv _new_name_.txt audit.log`
+
+. 启动 AMS 服务：
++
+`service ams start`
+
+. 从服务器注销：
++
+`exit`
+
+. 登录到扩展管理节点：
++
+.. 输入以下命令： `ssh admin@_expansion_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 更新审核日志文件的用户和组设置：
++
+`cd /var/local/log`
+
++
+`chown ams-user:bycast *`
+
+. 从服务器注销：
++
+`exit`
+
+

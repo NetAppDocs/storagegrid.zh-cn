@@ -1,0 +1,186 @@
+---
+permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expansion, Linux, add storage volumes 
+summary: 如果某个存储节点包含的存储卷少于 16 个，则可以通过添加新的块存储设备，使其对 Linux 主机可见，并将新的块设备映射添加到用于该存储节点的 StorageGRID 配置文件来增加其容量。 
+---
+= Linux ：将直连卷或 SAN 卷添加到存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果某个存储节点包含的存储卷少于 16 个，则可以通过添加新的块存储设备，使其对 Linux 主机可见，并将新的块设备映射添加到用于该存储节点的 StorageGRID 配置文件来增加其容量。
+
+.开始之前
+* 您可以访问有关为 Linux 平台安装 StorageGRID 的说明。
++
+** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+
+
+* 您已获得 `Passwords.txt`文件。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+
+CAUTION: 在软件升级、恢复操作步骤 或其他扩展操作步骤 处于活动状态时、请勿尝试向存储节点添加存储卷。
+
+.关于此任务
+添加存储卷时，此存储节点将暂时不可用。您应一次在一个存储节点上执行此操作步骤 ，以避免影响面向客户端的网格服务。
+
+.步骤
+. 安装新的存储硬件。
++
+有关详细信息，请参见硬件供应商提供的文档。
+
+. 创建所需大小的新块存储卷。
++
+** 连接新驱动器并根据需要更新RAID控制器配置、或者在共享存储阵列上分配新的SAN LUN并允许Linux主机访问这些LUN。
+** 请使用与现有存储节点上的存储卷相同的永久性命名方案。
+** 如果使用 StorageGRID 节点迁移功能，请使作为此存储节点迁移目标的其他 Linux 主机可以看到新卷。有关详细信息，请参见有关为 Linux 平台安装 StorageGRID 的说明。
+
+
+. 以root用户或具有sudo权限的帐户登录到支持此存储节点的Linux主机。
+. 确认新存储卷在 Linux 主机上可见。
++
+您可能需要重新扫描设备。
+
+. 运行以下命令以临时禁用存储节点：
++
+`sudo storagegrid node stop <node-name>`
+
+. 使用vio或pica等文本编辑器编辑存储节点的节点配置文件，该文件位于 `/etc/storagegrid/nodes/<node-name>.conf`。
+. 找到节点配置文件中包含现有对象存储块设备映射的部分。
++
+在此示例中、 `BLOCK_DEVICE_RANGEDB_00`到 `BLOCK_DEVICE_RANGEDB_03`是现有对象存储块设备映射。
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+*BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0*
+*BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1*
+*BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2*
+*BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. 添加与为此存储节点添加的块存储卷对应的新对象存储块设备映射。
++
+确保从下一个开始 `BLOCK_DEVICE_RANGEDB_nn`。不要留下差距。
+
++
+** 根据上面的示例，从开始 `BLOCK_DEVICE_RANGEDB_04`。
+** 在以下示例中，节点中添加了四个新的块存储卷： `BLOCK_DEVICE_RANGEDB_04`至 `BLOCK_DEVICE_RANGEDB_07`。
+
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0
+BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1
+BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2
+BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3
+*BLOCK_DEVICE_RANGEDB_04 = /dev/mapper/sgws-sn1-rangedb-4*
+*BLOCK_DEVICE_RANGEDB_05 = /dev/mapper/sgws-sn1-rangedb-5*
+*BLOCK_DEVICE_RANGEDB_06 = /dev/mapper/sgws-sn1-rangedb-6*
+*BLOCK_DEVICE_RANGEDB_07 = /dev/mapper/sgws-sn1-rangedb-7*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. 运行以下命令以验证对存储节点的节点配置文件所做的更改：
++
+`sudo storagegrid node validate <node-name>`
+
++
+解决所有错误或警告，然后再继续下一步。
+
++
+[NOTE]
+====
+如果您发现类似以下内容的错误、则表示节点配置文件正在尝试将用于的 `<PURPOSE>`块设备映射 `<node-name>`到Linux文件系统中提供的、 `<path-name>`但该位置没有有效的块设备专用文件(或指向块设备专用文件的软链接)。
+
+[listing]
+----
+Checking configuration file for node <node-name>…
+ERROR: BLOCK_DEVICE_<PURPOSE> = <path-name>
+<path-name> is not a valid block device
+----
+验证您输入的是否正确 `<path-name>`。
+
+====
+. 运行以下命令以重新启动具有新块设备映射的节点：
++
+`sudo storagegrid node start <node-name>`
+
+. 使用文件中列出的密码以管理员身份登录到存储节点 `Passwords.txt`。
+. 检查服务是否正确启动：
++
+.. 查看服务器上所有服务的状态列表：+
+`sudo storagegrid-status`
++
+状态将自动更新。
+
+.. 请等待所有服务均已运行或已验证。
+.. 退出状态屏幕：
++
+`Ctrl+C`
+
+
+
+. 配置新存储以供存储节点使用：
++
+.. 配置新存储卷：
++
+`sudo add_rangedbs.rb`
+
++
+此脚本将查找任何新存储卷并提示您对其进行格式化。
+
+.. 输入 * 。 * 格式化存储卷。
+.. 如果先前已对任何卷进行格式化，请确定是否要重新格式化这些卷。
++
+*** 输入 * y * 重新格式化。
+*** 输入 * 。 n* 可跳过重新格式化。
+
+
+
+
++
+该 `setup_rangedbs.sh`脚本将自动运行。
+
+. 验证存储节点的存储状态是否为联机：
++
+.. 使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+.. 选择 * 支持 * > * 工具 * > * 网格拓扑 * 。
+.. 选择 * 站点 _* > * 存储节点 _* > * LDR* > * 存储 * 。
+.. 选择 * 配置 * 选项卡，然后选择 * 主 * 选项卡。
+.. 如果 * 存储状态 - 所需 * 下拉列表设置为只读或脱机，请选择 * 联机 * 。
+.. 单击 * 应用更改 * 。
+
+
+. 要查看新对象存储，请执行以下操作：
++
+.. 选择 * 节点 * > * 站点 _* > * 存储节点 _* > * 存储 * 。
+.. 在 * 对象存储 * 表中查看详细信息。
+
+
+
+
+.结果
+现在，您可以使用存储节点的扩展容量来保存对象数据。

@@ -1,0 +1,106 @@
+---
+permalink: audit/common-elements-in-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, messages, message, common elements, AMID, ANID, ASES, ASQN, ATID, ATIM, ATYP, AVER, RSLT 
+summary: 所有审核消息都包含通用要素。 
+---
+= 审核消息中的常见元素
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+所有审核消息都包含通用要素。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 键入 | 说明 
+
+
+ a| 
+在中
+ a| 
+FC32
+ a| 
+模块ID：生成消息的模块ID的四字符标识符。这表示生成审核消息的代码段。
+
+
+
+ a| 
+ANID
+ a| 
+UI32
+ a| 
+Node ID ：分配给生成消息的服务的网格节点 ID 。在配置和安装 StorageGRID 系统时，系统会为每个服务分配一个唯一的标识符。无法更改此ID。
+
+
+
+ a| 
+ASE
+ a| 
+UI64
+ a| 
+审核会话标识符：在先前版本中，此元素表示在服务启动后初始化审核系统的时间。此时间值是自操作系统时代(1970年1月1日00：00：00 UTC)以来以微秒为单位测量的。
+
+* 注： * 此元素已废弃，不再显示在审核消息中。
+
+
+
+ a| 
+ASQN
+ a| 
+UI64
+ a| 
+序列计数：在先前版本中，对于网格节点（ ANID ）上生成的每个审核消息，此计数器会递增，并在服务重新启动时重置为零。
+
+* 注： * 此元素已废弃，不再显示在审核消息中。
+
+
+
+ a| 
+Atid
+ a| 
+UI64
+ a| 
+跟踪 ID ：由单个事件触发的一组消息共享的标识符。
+
+
+
+ a| 
+Atim
+ a| 
+UI64
+ a| 
+时间戳：生成触发审核消息的事件的时间、以操作系统发生后(1970年1月1日00：00：00 UTC)微秒为单位。请注意，用于将时间戳转换为本地日期和时间的大多数可用工具均以毫秒为基础。
+
+可能需要对记录的时间戳进行舍入或截断。文件中审核消息开头显示的可供用户读取的时间 `audit.log`是ISO 8601格式的ATIM属性。日期和时间表示为，其中是表示 `_YYYY-MMDDTHH:MM:SS.UUUUUU_`日期时间段开始的 `T`文字字符串字符。 `_UUUUUU_`微秒。
+
+
+
+ a| 
+ATYP
+ a| 
+FC32
+ a| 
+Event Type：要记录的事件的四字符标识符。这将控制消息的 " 有效负载 " 内容：包含的属性。
+
+
+
+ a| 
+保护程序
+ a| 
+UI32
+ a| 
+version ：审核消息的版本。随着 StorageGRID 软件的发展，新版本的服务可能会在审核报告中加入新功能。通过此字段，可以在 AMS 服务中实现向后兼容性，以处理来自旧版本服务的消息。
+
+
+
+ a| 
+RSLT
+ a| 
+FC32
+ a| 
+result ：事件，进程或事务的结果。如果与消息无关，则不会使用 none 而不是 SUC ，这样就不会意外筛选该消息。
+
+|===

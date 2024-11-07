@@ -1,0 +1,169 @@
+---
+permalink: fabricpool/creating-load-balancer-endpoint-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, load balancer, endpoint, load balancing, create, creating, certificate 
+summary: 'StorageGRID 使用负载平衡器管理客户端应用程序(如FabricPool)的工作负载。负载平衡可最大限度地提高多个存储节点的速度和连接容量。' 
+---
+= 为 FabricPool 创建负载平衡器端点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 使用负载平衡器管理客户端应用程序(如FabricPool)的工作负载。负载平衡可最大限度地提高多个存储节点的速度和连接容量。
+
+在配置StorageGRID 以与FabricPool 结合使用时、您必须配置负载平衡器端点、并上传或生成负载平衡器端点证书、此证书用于保护ONTAP 和StorageGRID 之间的连接。
+
+要使用FabricPool设置向导完成此任务，请转至link:use-fabricpool-setup-wizard-steps.html["访问并完成FabricPool 设置向导"]。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+* 您已查看常规link:../admin/managing-load-balancing.html["负载平衡注意事项"]以及link:best-practices-for-load-balancing.html["FabricPool 负载平衡最佳实践"]。
+
+
+.步骤
+. 选择 * 配置 * > * 网络 * > * 负载平衡器端点 * 。
+. 选择 * 创建 * 。
+. 对于*输入端点详细信息*步骤，请填写以下字段。
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+名称
+ a| 
+端点的描述性名称。
+
+
+
+ a| 
+端口
+ a| 
+要用于负载平衡的 StorageGRID 端口。对于您创建的第一个端点、此字段默认为10433、但您可以输入任何未使用的外部端口。如果输入80或443、则仅在网关节点上配置端点。这些端口在管理节点上预留。
+
+*注意：*不允许使用其他网格服务使用的端口。请参见link:../network/internal-grid-node-communications.html["网络端口参考"]。
+
+将StorageGRID 附加为FabricPool 云层时、您需要向ONTAP 提供此编号。
+
+
+
+ a| 
+客户端类型
+ a| 
+选择 * 。 s3* 。
+
+
+
+ a| 
+网络协议
+ a| 
+选择 * HTTPS * 。
+
+*注意*：支持在不使用TLS加密的情况下与StorageGRID 通信，但不建议这样做。
+
+|===
+. 对于*选择绑定模式*步骤，指定绑定模式。绑定模式控制如何使用任何IP地址或特定IP地址和网络接口访问端点。
++
+[cols="1a,3a"]
+|===
+| 模式 | 说明 
+
+
+ a| 
+全局（默认）
+ a| 
+客户端可以使用任何网关节点或管理节点的IP地址、任何网络上任何HA组的虚拟IP (VIP)地址或相应的FQDN访问端点。
+
+除非需要限制此端点的可访问性，否则请使用 * 全局 * 设置（默认）。
+
+
+
+ a| 
+HA 组的虚拟 IP
+ a| 
+客户端必须使用HA组的虚拟IP地址(或相应的FQDN)才能访问此端点。
+
+具有此绑定模式的端点都可以使用相同的端口号、只要为端点选择的HA组不重叠即可。
+
+
+
+ a| 
+节点接口
+ a| 
+客户端必须使用选定节点接口的IP地址(或相应FQDN)才能访问此端点。
+
+
+
+ a| 
+节点类型
+ a| 
+根据您选择的节点类型、客户端必须使用任何管理节点的IP地址(或相应的FQDN)或任何网关节点的IP地址(或相应的FQDN)来访问此端点。
+
+|===
+. 对于*租户访问*步骤，请选择以下选项之一：
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+允许所有租户(默认)
+ a| 
+所有租户帐户都可以使用此端点来访问其分段。
+
+对于用于FabricPool 的负载平衡器端点，*允许所有租户*几乎始终是适当的选项。
+
+如果尚未创建任何租户帐户、则必须选择此选项。
+
+
+
+ a| 
+允许选定租户
+ a| 
+只有选定租户帐户才能使用此端点访问其分段。
+
+
+
+ a| 
+阻止选定租户
+ a| 
+选定租户帐户无法使用此端点访问其分段。所有其他租户均可使用此端点。
+
+|===
+. 对于*attach certificer*步骤，选择以下选项之一：
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+上传证书(建议)
+ a| 
+使用此选项可上传CA签名的服务器证书、证书专用密钥和可选的CA包。
+
+
+
+ a| 
+生成证书
+ a| 
+使用此选项可生成自签名证书。有关输入内容的详细信息、请参见link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]。
+
+
+
+ a| 
+使用StorageGRID S3证书
+ a| 
+只有在您已上传或生成自定义版本的StorageGRID 全局证书时、此选项才可用。有关详细信息、请参见。 link:../admin/configuring-custom-server-certificate-for-storage-node.html["配置S3 API证书"]
+
+|===
+. 选择 * 创建 * 。
+
+
+
+NOTE: 对端点证书所做的更改可能需要长达 15 分钟才能应用于所有节点。

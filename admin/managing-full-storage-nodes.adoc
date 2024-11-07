@@ -1,0 +1,32 @@
+---
+permalink: admin/managing-full-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage node is full 
+summary: 当存储节点达到容量时，您必须通过添加新存储来扩展 StorageGRID 系统。有三种选项可供选择：添加存储卷，添加存储扩展架和添加存储节点。 
+---
+= 管理完整存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当存储节点达到容量时，您必须通过添加新存储来扩展 StorageGRID 系统。有三种选项可供选择：添加存储卷，添加存储扩展架和添加存储节点。
+
+
+
+== 添加存储卷
+
+每个存储节点均支持最大数量的存储卷。定义的最大值因平台而异。如果存储节点包含的存储卷数少于最大数量，则可以添加卷以增加其容量。请参阅的说明link:../expand/index.html["扩展 StorageGRID 系统"]。
+
+
+
+== 添加存储扩展架
+
+某些StorageGRID设备存储节点(例如SG6060或SG6160)可以支持更多存储架。如果您的 StorageGRID 设备具有扩展功能，但尚未扩展到最大容量，则可以添加存储架以增加容量。请参阅的说明link:../expand/index.html["扩展 StorageGRID 系统"]。
+
+
+
+== 添加存储节点
+
+您可以通过添加存储节点来增加存储容量。添加存储时，必须仔细考虑当前活动的 ILM 规则和容量要求。请参阅的说明link:../expand/index.html["扩展 StorageGRID 系统"]。

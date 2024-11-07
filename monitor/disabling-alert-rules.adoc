@@ -1,0 +1,49 @@
+---
+permalink: monitor/disabling-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: 您可以更改默认或自定义警报规则的启用 / 禁用状态。 
+---
+= 禁用警报规则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以更改默认或自定义警报规则的启用 / 禁用状态。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["管理警报或root访问权限"]。
+
+
+.关于此任务
+禁用警报规则后、不会对其表达式进行评估、也不会触发警报。
+
+
+CAUTION: 通常，不建议禁用默认警报规则。如果禁用了警报规则，则可能无法检测到潜在问题，直到它阻止完成关键操作为止。
+
+.步骤
+. 选择 * 警报 * > * 规则 * 。
++
+此时将显示 "Alert Rules" 页面。
+
+. 选择要禁用或启用的警报规则对应的单选按钮。
+. 选择 * 编辑规则 * 。
++
+此时将显示编辑规则对话框。
+
+. 选中或清除*已启用*复选框以确定当前是否已启用此警报规则。
++
+如果禁用了警报规则、则不会对其表达式进行评估、也不会触发任何警报。
+
++
+
+NOTE: 如果您对当前警报禁用警报规则，则必须等待几分钟，以使警报不再显示为活动警报。
+
+. 选择 * 保存 * 。
++
+* 已禁用 * 显示在 * 状态 * 列中。
+
+

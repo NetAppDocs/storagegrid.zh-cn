@@ -1,0 +1,109 @@
+---
+permalink: admin/what-storage-volume-watermarks-are.html 
+sidebar: sidebar 
+keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
+summary: StorageGRID 使用三个存储卷水印来确保存储节点在空间严重不足之前安全地过渡到只读状态，并允许已过渡到只读状态的存储节点再次变为读写状态。 
+---
+= 什么是存储卷水印？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 使用三个存储卷水印来确保存储节点在空间严重不足之前安全地过渡到只读状态，并允许已过渡到只读状态的存储节点再次变为读写状态。
+
+image::../media/storage_volume_watermarks.png[存储卷水印]
+
+
+NOTE: 存储卷水印仅适用于用于复制和擦除编码对象数据的空间。要了解为卷0上的对象元数据预留的空间，请转至link:managing-object-metadata-storage.html["管理对象元数据存储"]。
+
+
+
+== 什么是软只读水印？
+
+*存储卷软只读水印*是第一个水印、用于指示存储节点用于对象数据的可用空间已满。
+
+如果存储节点中每个卷的可用空间小于该卷的软只读水印、则该存储节点将过渡到_read-only mode_。只读模式表示存储节点向 StorageGRID 系统的其余部分公布只读服务，但满足所有待处理的写入请求。
+
+例如、假设存储节点中的每个卷都具有10 GB的软只读水印。一旦每个卷的可用空间小于 10 GB ，存储节点就会过渡到软只读模式。
+
+
+
+== 什么是硬只读水印？
+
+下一个水印是*存储卷硬只读水印*，表示节点用于对象数据的可用空间已满。
+
+如果卷上的可用空间小于该卷的硬只读水印、则对该卷的写入将失败。但是、可以继续向其他卷写入数据、直到这些卷上的可用空间小于硬只读水印为止。
+
+例如、假设存储节点中的每个卷都有一个硬只读水印、即5 GB。一旦每个卷的可用空间小于 5 GB ，存储节点就不再接受任何写入请求。
+
+硬只读水印始终小于软只读水印。
+
+
+
+== 什么是读写水印？
+
+存储卷读写水印*仅适用于已转换为只读模式的存储节点。它可确定节点何时可以重新变为读写状态。如果存储节点中任一存储卷上的可用空间大于该卷的读写水印、则该节点会自动转换回读写状态。
+
+例如，假设存储节点已过渡到只读模式。此外、还假设每个卷都有一个读写水印、大小为30 GB。任何卷的可用空间增加到 30 GB 后，节点将再次变为读写状态。
+
+读写水印始终大于软只读水印和硬只读水印。
+
+
+
+== 查看存储卷水印
+
+您可以查看当前水印设置和系统优化的值。如果未使用优化水印、您可以确定是否可以或应该调整设置。
+
+.开始之前
+* 您已完成StorageGRID 11.6或更高版本的升级。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:admin-group-permissions.html["root访问权限"]。
+
+
+
+
+=== 查看当前水印设置
+
+您可以在网格管理器中查看当前存储水印设置。
+
+.步骤
+. 选择*support*>*other *>*存储水印*。
+. 在存储水印页面上、查看使用优化值复选框。
++
+** 如果选中此复选框、则会根据存储节点的大小和卷的相对容量为每个存储节点上的每个存储卷优化所有三个水印。
++
+这是默认的建议设置。请勿更新这些值。您也可以选择<<view-optimized-storage-watermarks,查看优化的存储水印>>。
+
+** 如果未选中使用优化值复选框、则会使用自定义(非优化)水印。不建议使用自定义水印设置。按照的说明link:../troubleshoot/troubleshoot-low-watermark-alert.html["对低只读水印覆盖警报进行故障排除"]确定您是否可以或应该调整设置。
++
+指定自定义水印设置时、必须输入大于0的值。
+
+
+
+
+
+
+
+=== [[view-优化 的存储水印]]查看优化的存储水印
+
+StorageGRID使用两个Prometheus指标来显示为存储卷软只读水印计算的优化值。您可以查看网格中每个存储节点的最小和最大优化值。
+
+. 选择 * 支持 * > * 工具 * > * 指标 * 。
+. 在 Prometheus 部分中，选择用于访问 Prometheus 用户界面的链接。
+. 要查看建议的最小软只读水印，请输入以下 Prometheus 指标，然后选择 * 执行 * ：
++
+`storagegrid_storage_volume_minimum_optimized_soft_readonly_watermark`
+
++
+最后一列显示每个存储节点上所有存储卷的软只读水印的最小优化值。如果此值大于存储卷软只读水印的自定义设置、则会为存储节点触发*低只读水印覆盖*警报。
+
+. 要查看建议的最大软只读水印数，请输入以下 Prometheus 指标，然后选择 * 执行 * ：
++
+`storagegrid_storage_volume_maximum_optimized_soft_readonly_watermark`
+
++
+最后一列显示每个存储节点上所有存储卷的软只读水印的最大优化值。
+
+

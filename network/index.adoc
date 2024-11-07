@@ -1,0 +1,62 @@
+---
+permalink: network/index.html 
+sidebar: sidebar 
+keywords: storagegrid, network, networking, ethernet, subnet, routing 
+summary: 使用以下准则了解 StorageGRID 架构和网络拓扑，并了解网络配置和配置的要求。 
+---
+= 网络连接准则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用以下准则了解 StorageGRID 架构和网络拓扑，并了解网络配置和配置的要求。
+
+
+
+== 关于这些说明
+
+这些准则提供了在部署和配置 StorageGRID 节点之前可用于创建 StorageGRID 网络基础架构的信息。使用这些准则有助于确保网格中的所有节点之间以及网格与外部客户端和服务之间可以进行通信。
+
+外部客户端和外部服务需要连接到 StorageGRID 网络才能执行如下功能：
+
+* 存储和检索对象数据
+* 接收电子邮件通知
+* 访问 StorageGRID 管理界面（网格管理器和租户管理器）
+* 访问审核共享（可选）
+* 提供以下服务：
++
+** 网络时间协议(NTP)
+** 域名系统(DNS)
+** 密钥管理服务器（ KMS ）
+
+
+
+
+必须正确配置 StorageGRID 网络，才能处理这些功能等的流量。
+
+
+
+== 开始之前
+
+为 StorageGRID 系统配置网络需要在以太网交换， TCP/IP 网络，子网，网络路由和防火墙方面具有丰富的经验。
+
+在配置网络连接之前，请熟悉中所述的StorageGRID架构link:../primer/index.html["了解StorageGRID"]。
+
+确定要使用的 StorageGRID 网络以及这些网络的配置方式后，您可以按照相应的说明安装和配置 StorageGRID 节点。
+
+.安装设备节点
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["安装设备硬件"^]
+
+
+.安装基于软件的节点
+* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+* link:../vmware/index.html["在VMware上安装StorageGRID"]
+
+
+.配置和管理 StorageGRID 软件
+* link:../admin/index.html["管理 StorageGRID"]
+* link:../release-notes/index.html["发行说明"]
+

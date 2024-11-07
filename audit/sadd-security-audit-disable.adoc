@@ -1,0 +1,47 @@
+---
+permalink: audit/sadd-security-audit-disable.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SADD, Security Audit Disable 
+summary: 此消息指示发起服务 \ （节点 ID\ ）已关闭审核消息日志记录；不再收集或传送审核消息。 
+---
+= Sadd ：禁用安全审核
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此消息指示发起服务（节点 ID ）已关闭审核消息日志记录；不再收集或传送审核消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+AETM
+ a| 
+启用方法
+ a| 
+用于禁用审核的方法。
+
+
+
+ a| 
+AEUN
+ a| 
+用户名
+ a| 
+执行命令以禁用审核日志记录的用户名。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+此字段的值为 none 。RSLT- 是一个必填消息字段，但与此消息无关。使用 none 而不是 SUC ，因此不会筛选此消息。
+
+|===
+此消息表示先前已启用日志记录，但现在已禁用。通常，只有在批量载入期间才会使用此功能来提高系统性能。在批量活动之后，将还原审核（ SAade ），并永久阻止禁用审核的功能。

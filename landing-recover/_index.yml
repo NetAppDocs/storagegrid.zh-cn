@@ -1,0 +1,39 @@
+---
+indexpage:
+  title: 恢复或更换节点
+  summary: 如果网格节点发生故障，您可以通过更换发生故障的物理或虚拟服务器，重新安装 StorageGRID 软件以及还原可恢复的数据来恢复该节点。
+  keywords: recover node, replace node
+  lead: 如果网格节点发生故障，您可以通过更换发生故障的物理或虚拟服务器，重新安装 StorageGRID 软件以及还原可恢复的数据来恢复该节点。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 警告和注意事项
+      url: "../maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: 收集所需材料
+      url: "../maintain/gathering-required-materials-for-grid-node-recovery.html"
+  - title: 恢复故障节点
+    links:
+    - title: 警告和注意事项
+      url: "../maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: 存储节点
+      url: "../maintain/recovering-from-storage-node-failures.html"
+    - title: 管理节点
+      url: "../maintain/recovering-from-admin-node-failures.html"
+    - title: 网关节点
+      url: "../maintain/replacing-gateway-node.html"
+    - title: 归档节点
+      url: "../maintain/recovering-from-archive-node-failures.html"
+  - title: 更换节点
+    links:
+    - title: 替换Linux节点
+      url: "../maintain/all-node-types-replacing-linux-node.html"
+    - title: 更换VMware节点
+      url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: 将Linux或VMware节点更换为服务设备
+      url: "../maintain/installing-services-appliance-platform-change-only.html"
+    - title: 克隆设备节点
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html
+  - title: 恢复站点
+    links:
+    - title: 技术支持如何恢复站点
+      url: "../maintain/how-site-recovery-is-performed-by-technical-support.html"

@@ -1,0 +1,43 @@
+---
+permalink: rhel/installing-storagegrid-webscale-host-service.html 
+sidebar: sidebar 
+keywords: how to install host services 
+summary: 您可以使用 StorageGRID RPM 软件包安装 StorageGRID 主机服务。 
+---
+= 安装 StorageGRID 主机服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 StorageGRID RPM 软件包安装 StorageGRID 主机服务。
+
+.关于此任务
+以下说明介绍如何从 RPM 软件包安装主机服务。或者、您也可以使用安装归档文件中包含的DNF存储库元数据远程安装RPM包。请参见适用于 Linux 操作系统的 DNF 存储库说明。
+
+.步骤
+. 将 StorageGRID RPM 软件包复制到每个主机，或使其在共享存储上可用。
++
+例如、将其放置在目录中 `/tmp`、以便在下一步中使用示例命令。
+
+. 以 root 身份或使用具有 sudo 权限的帐户登录到每个主机，然后按指定顺序运行以下命令：
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Images-version-SHA.rpm
+----
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Service-version-SHA.rpm
+----
++
+
+CAUTION: 您必须先安装映像软件包，然后再安装服务软件包。
+
++
+
+NOTE: 如果您将软件包放置在以外的目录中 `/tmp`，请修改命令以反映您使用的路径。
+
+

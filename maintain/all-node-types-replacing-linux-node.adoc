@@ -1,0 +1,20 @@
+---
+permalink: maintain/all-node-types-replacing-linux-node.html 
+sidebar: sidebar 
+keywords: replace linux node 
+summary: 如果发生故障需要您部署一个或多个新的物理或虚拟主机、或者在现有主机上重新安装Linux、请先部署并配置替代主机、然后才能恢复网格节点。对于所有类型的网格节点，此操作步骤 是网格节点恢复过程的一个步骤。 
+---
+= 替换Linux节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果发生故障需要您部署一个或多个新的物理或虚拟主机、或者在现有主机上重新安装Linux、请先部署并配置替代主机、然后才能恢复网格节点。对于所有类型的网格节点，此操作步骤 是网格节点恢复过程的一个步骤。
+
+"Linux"是指Red Hat®Enterprise Linux®、Ubuntu®或Debian®部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
+
+此过程仅作为恢复基于软件的存储节点、主管理节点或非主管理节点或网关节点过程中的一个步骤来执行。无论您要恢复的网格节点类型如何，这些步骤都是相同的。
+
+如果物理或虚拟 Linux 主机上托管了多个网格节点，则可以按任意顺序恢复网格节点。但是，如果存在主管理节点，则首先恢复主管理节点会阻止其他网格节点在尝试联系主管理节点进行注册以进行恢复时停止恢复。

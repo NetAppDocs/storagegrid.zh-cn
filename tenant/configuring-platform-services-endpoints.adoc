@@ -1,0 +1,53 @@
+---
+permalink: tenant/configuring-platform-services-endpoints.html 
+sidebar: sidebar 
+keywords: how to configure platform services endpoint 
+summary: 在为存储分段配置平台服务之前，必须至少将一个端点配置为平台服务的目标。 
+---
+= 配置平台服务端点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为存储分段配置平台服务之前，必须至少将一个端点配置为平台服务的目标。
+
+StorageGRID 管理员可以按租户访问平台服务。要创建或使用平台服务端点、您必须是具有"管理端点"或"根"访问权限的租户用户、并且网格中的网络连接已配置为允许存储节点访问外部端点资源。对于单个租户、您最多可以配置500个平台服务端点。有关详细信息，请与 StorageGRID 管理员联系。
+
+
+
+== 什么是平台服务端点？
+
+平台服务端点用于指定StorageGRID访问外部目标所需的信息。
+
+例如、如果要将对象从StorageGRID 存储分段复制到Amazon S3存储分段、则需要创建一个平台服务端点、其中包含StorageGRID 访问Amazon上的目标存储分段所需的信息和凭据。
+
+每种类型的平台服务都需要自己的端点，因此您必须为计划使用的每个平台服务至少配置一个端点。定义平台服务端点后，您可以在用于启用此服务的配置 XML 中使用此端点的 URN 作为目标。
+
+您可以对多个源存储分段使用与目标相同的端点。例如，您可以配置多个源分段，将对象元数据发送到同一搜索集成端点，以便可以跨多个分段执行搜索。您还可以将源存储分段配置为使用多个端点作为目标、这样、您可以执行以下操作：将有关对象创建的通知发送到一个Amazon Simple Notification Service (Amazon SNS)主题、将有关对象删除的通知发送到另一个Amazon SNS主题。
+
+
+
+== 用于 CloudMirror 复制的端点
+
+StorageGRID 支持表示 S3 存储分段的复制端点。这些存储分段可能托管在 Amazon Web Services ，相同或远程 StorageGRID 部署或其他服务上。
+
+
+
+== 通知的端点
+
+StorageGRID支持Amazon SNS和Kafka端点。不支持简单队列服务(Simple Queue Service、SQS)或AWS Lamba端点。
+
+对于Kafka端点、不支持相互TLS。因此、如果 `ssl.client.auth`在Kafka代理配置中将设置为 `required`、则可能导致Kafka端点配置问题。
+
+
+
+== 搜索集成服务的端点
+
+StorageGRID 支持表示 Elasticsearch 集群的搜索集成端点。这些El路径 搜索集群可以位于本地数据中心、也可以托管在AWS云或其他位置。
+
+搜索集成端点是指特定的 Elasticsearch 索引和类型。您必须先在 Elasticsearch 中创建索引，然后才能在 StorageGRID 中创建端点，否则端点创建将失败。在创建端点之前、无需创建类型。如果需要， StorageGRID 将在向端点发送对象元数据时创建此类型。
+
+.相关信息
+link:../admin/index.html["管理 StorageGRID"]

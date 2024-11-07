@@ -1,0 +1,76 @@
+---
+permalink: expand/copying-admin-node-database.html 
+sidebar: sidebar 
+keywords: copy Admin Node database, alert history, Admin Node expansion 
+summary: 通过扩展操作步骤 添加管理节点时，您可以选择将数据库从主管理节点复制到新的管理节点。通过复制数据库，您可以保留有关属性，警报和警报的历史信息。 
+---
+= 复制管理节点数据库
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过扩展操作步骤 添加管理节点时，您可以选择将数据库从主管理节点复制到新的管理节点。通过复制数据库，您可以保留有关属性，警报和警报的历史信息。
+
+.开始之前
+* 您已完成添加管理节点所需的扩展步骤。
+* 您已获得 `Passwords.txt`文件。
+* 您具有配置密码短语。
+
+
+.关于此任务
+StorageGRID 软件激活过程会在扩展管理节点上为 NMS 服务创建一个空数据库。当 NMS 服务在扩展管理节点上启动时，它会记录当前属于系统的服务器和服务的信息或稍后添加的服务器和服务的信息。此管理节点数据库包含以下信息：
+
+* 警报历史记录
+* 历史属性数据、用于"节点"页面上的原有模式图表
+
+
+为了确保管理节点数据库在节点之间保持一致，您可以将数据库从主管理节点复制到扩展管理节点。
+
+
+NOTE: 将数据库从主管理节点（ _source 管理节点 _ ）复制到扩展管理节点可能需要数小时才能完成。在此期间，无法访问网格管理器。
+
+在复制数据库之前，请按照以下步骤停止主管理节点和扩展管理节点上的 MI 服务和管理 API 服务。
+
+.步骤
+. 在主管理节点上完成以下步骤：
++
+.. 登录到管理节点：
++
+... 输入以下命令： `ssh admin@_grid_node_IP_`
+... 输入文件中列出的密码 `Passwords.txt`。
+... 输入以下命令切换到root： `su -`
+... 输入文件中列出的密码 `Passwords.txt`。
+
+
+.. 运行以下命令： `recover-access-points`
+.. 输入配置密码短语。
+.. 停止MI服务： `service mi stop`
+.. 停止管理应用程序程序接口(mgmt-api)服务： `service mgmt-api stop`
+
+
+. 在扩展管理节点上完成以下步骤：
++
+.. 登录到扩展管理节点：
++
+... 输入以下命令： `ssh admin@_grid_node_IP_`
+... 输入文件中列出的密码 `Passwords.txt`。
+... 输入以下命令切换到root： `su -`
+... 输入文件中列出的密码 `Passwords.txt`。
+
+
+.. 停止MI服务： `service mi stop`
+.. 停止mgmt-api服务： `service mgmt-api stop`
+.. 将 SSH 专用密钥添加到 SSH 代理。输入：``ssh-add``
+.. 输入文件中列出的SSH访问密码 `Passwords.txt`。
+.. 将数据库从源管理节点复制到扩展管理节点： `/usr/local/mi/bin/mi-clone-db.sh _Source_Admin_Node_IP_`
+.. 出现提示时，确认要覆盖扩展管理节点上的 MI 数据库。
++
+数据库及其历史数据将复制到扩展管理节点。完成复制操作后，此脚本将启动扩展管理节点。
+
+.. 如果不再需要对其他服务器进行无密码访问，请从 SSH 代理中删除私钥。输入：``ssh-add -D``
+
+
+. 在主管理节点上重新启动服务： `service servermanager start`
+

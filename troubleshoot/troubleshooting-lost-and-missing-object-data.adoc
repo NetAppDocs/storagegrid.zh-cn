@@ -1,0 +1,26 @@
+---
+permalink: troubleshoot/troubleshooting-lost-and-missing-object-data.html 
+sidebar: sidebar 
+keywords: how to troubleshoot lost object data, how to troubleshoot missing object data 
+summary: 可以出于多种原因检索对象，包括从客户端应用程序读取请求，对复制的对象数据进行后台验证， ILM 重新评估以及在存储节点恢复期间还原对象数据。 
+---
+= 对丢失和丢失的对象数据进行故障排除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+可以出于多种原因检索对象，包括从客户端应用程序读取请求，对复制的对象数据进行后台验证， ILM 重新评估以及在存储节点恢复期间还原对象数据。
+
+StorageGRID 系统使用对象元数据中的位置信息来确定从哪个位置检索对象。如果在预期位置未找到对象的副本，则系统会尝试从系统中的其他位置检索该对象的另一个副本，前提是 ILM 策略包含一条规则，用于为该对象创建两个或更多副本。
+
+如果此检索成功， StorageGRID 系统将替换缺少的对象副本。否则，系统将触发 * 对象丢失 * 警报，如下所示：
+
+* 对于复制的副本、如果无法检索到另一个副本、则会将对象视为丢失、并触发警报。
+* 对于经过删除编码的副本、如果无法从预期位置检索副本、则在尝试从其他位置检索副本之前、已检测到损坏的副本(ECO)属性会增加一个。如果未找到其他副本，则会触发警报。
+
+
+您应立即调查所有*对象丢失*警报、以确定丢失的根本原因、并确定对象是否仍位于脱机或当前不可用的存储节点中。请参阅。 link:../troubleshoot/investigating-lost-objects.html["调查丢失的对象"]
+
+如果没有副本的对象数据丢失，则不存在恢复解决方案 。但是，您必须重置丢失对象计数器，以防止已知丢失的对象屏蔽任何新的丢失对象。请参阅。 link:resetting-lost-and-missing-object-counts.html["重置丢失和缺失的对象计数"]

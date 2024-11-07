@@ -1,0 +1,191 @@
+---
+permalink: admin/grid-federation-what-is-cross-grid-replication.html 
+sidebar: sidebar 
+keywords: cross-grid replication, cgr, disaster recovery, grid federation 
+summary: 跨网格复制是指在通过网格联合连接连接的两个StorageGRID 系统中的选定S3分段之间自动复制对象。跨网格复制需要帐户克隆。 
+---
+= 什么是跨网格复制？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+跨网格复制是指在中连接的两个StorageGRID系统中的选定S3分段之间自动复制对象link:grid-federation-overview.html["网格联合连接"]。link:grid-federation-what-is-account-clone.html["帐户克隆"]跨网格复制需要。
+
+
+
+== 跨网格复制工作流
+
+此工作流图汇总了在两个网格上的分段之间配置跨网格复制的步骤。
+
+image::../media/grid-federation-cgr-workflow.png[跨网格复制工作流]
+
+
+
+== 跨网格复制的要求
+
+如果租户帐户具有*使用网格联合连接*权限以使用一个或多个link:grid-federation-overview.html["网格联合连接"]，则具有root访问权限的租户用户可以在每个网格的相应租户帐户中创建相同的分段。这些存储分段：
+
+* 名称必须相同、但可以具有不同的区域
+* 必须启用版本控制
+* 必须已禁用S3对象锁定
+* 必须为空
+
+
+创建这两个分段后、可以为其中一个分段或这两个分段配置跨网格复制。
+
+.了解更多信息。
+link:../tenant/grid-federation-manage-cross-grid-replication.html["管理跨网格复制"]
+
+
+
+== 跨网格复制的工作原理
+
+可以将跨网格复制配置为单向或双向进行。
+
+
+
+=== 单向复制
+
+如果仅对一个网格上的某个分段启用跨网格复制、则添加到该分段(源分段)的对象将复制到另一网格上的相应分段(目标分段)。但是、添加到目标存储分段的对象不会复制回源存储分段。在图中、已为从网格1到网格2启用跨网格复制 `my-bucket`、但在另一个方向上未启用。
+
+image::../media/grid-federation-cross-grid-replication-one-direction.png[显示一个方向的网格联合连接的图像]
+
+
+
+=== 双向复制
+
+如果为两个网格上的同一存储分段启用跨网格复制、则添加到任一存储分段的对象将复制到另一个网格。在图中、跨网格复制在两个方向上均已启用 `my-bucket`。
+
+image::../media/grid-federation-cross-grid-replication.png[显示单向复制与双向复制的图像]
+
+
+
+=== 当对象被加热时会发生什么情况？
+
+当S3客户端向启用了跨网格复制的存储分段添加对象时、会发生以下情况：
+
+. StorageGRID 会自动将对象从源存储分段复制到目标存储分段。执行此后台复制操作所需的时间取决于多个因素、包括待处理的其他复制操作的数量。
++
+S3客户端可以通过发出GetObject或HeadObject请求来验证对象的复制状态。此响应包括一个StorageGRID专用的 `x-ntap-sg-cgr-replication-status`响应标头、该标头将具有以下值之一：S3客户端可以通过发出GetObject或HeadObject请求来验证对象的复制状态。此响应包括一个StorageGRID专用的 `x-ntap-sg-cgr-replication-status`响应标头、该标头将具有以下值之一：
+
++
+[cols="1a,2a"]
+|===
+| 网格 | 复制状态 
+
+
+ a| 
+源
+ a| 
+** *completed*：所有网格连接的复制均成功。
+** *pending *：对象尚未复制到至少一个网格连接。
+** *失败*：任何网格连接都未等待复制、至少一个网格出现故障并出现永久故障。用户必须解决此错误。
+
+
+
+
+ a| 
+目标
+ a| 
+*REPRAM*：对象已从源网格复制。
+
+|===
++
+
+NOTE: StorageGRID不支持此 `x-amz-replication-status`标题。
+
+. StorageGRID使用每个网格的活动ILM策略来管理对象、就像管理任何其他对象一样。例如、网格1上的对象A可能会存储为两个复制副本并永久保留、而复制到网格2的对象A的副本可能会使用2+1纠删编码进行存储、并在三年后删除。
+
+
+
+
+=== 删除对象时会发生什么情况？
+
+如中所述link:../primer/delete-data-flow.html["删除数据流"]，StorageGRID可以出于以下任一原因删除对象：
+
+* S3客户端发出删除请求。
+* 租户管理器用户link:../tenant/deleting-s3-bucket-objects.html["删除存储分段中的对象"]可选择从存储分段中删除所有对象。
+* 此存储分段具有生命周期配置、此配置将过期。
+* 对象的ILM规则中的最后一个时间段结束、并且未指定其他放置位置。
+
+
+如果StorageGRID 因"删除存储分段"操作中的对象、存储分段生命周期到期或ILM放置到期而删除对象、则不会从网格联合连接中的其他网格中删除复制的对象。但是、S3客户端删除操作添加到源存储分段的删除标记可以选择复制到目标存储分段。
+
+要了解S3客户端从启用了跨网格复制的存储分段中删除对象时会发生什么情况、请查看S3客户端如何从启用了版本控制的存储分段中删除对象、如下所示：
+
+* 如果S3客户端发出包含版本ID的删除请求、则该对象的版本将被永久删除。不会向存储分段添加任何删除标记。
+* 如果S3客户端发出的删除请求不包含版本ID、则StorageGRID 不会删除任何对象版本。而是向存储分段添加删除标记。删除标记会使StorageGRID 如同对象已被删除一样：
++
+** 没有版本ID的GetObject请求将失败 `404 No Object Found`
+** 具有有效版本ID的GetObject请求将成功并返回请求的对象版本。
+
+
+
+
+当S3客户端从启用了跨网格复制的存储分段中删除对象时、StorageGRID 将确定是否将删除请求复制到目标、如下所示：
+
+* 如果删除请求包含版本ID、则该对象版本将从源网格中永久删除。但是、StorageGRID 不会复制包含版本ID的删除请求、因此不会从目标中删除同一对象版本。
+* 如果删除请求不包含版本ID、则StorageGRID 可以根据为存储分段配置跨网格复制的方式选择复制删除标记：
++
+** 如果选择复制删除标记(默认)、则会将删除标记添加到源存储分段并复制到目标存储分段。实际上，该对象在两个网格上似乎都被删除。
+** 如果选择不复制删除标记、则删除标记将添加到源存储分段、但不会复制到目标存储分段。实际上、在源网格上删除的对象不会在目标网格上删除。
+
+
+
+
+在该图中，当时，*“已将删除标记link:../tenant/grid-federation-manage-cross-grid-replication.html["已启用跨网格复制"]”设置为*Yes*。包含版本ID的源存储分段的删除请求不会从目标存储分段中删除对象。对不包含版本ID的源存储分段的删除请求将显示为删除目标存储分段中的对象。
+
+image::../media/grid-federation-cross-grid-replication-delete.png[显示在两个网格上复制客户端删除的图像]
+
+
+NOTE: 如果要使对象删除在网格之间保持同步、请为两个网格上的分段创建相应的link:../s3/create-s3-lifecycle-configuration.html["S3生命周期配置"]。
+
+
+
+=== 如何复制加密对象
+
+使用跨网格复制在网格之间复制对象时、您可以对单个对象进行加密、使用默认分段加密或配置网格范围的加密。在为存储分段启用跨网格复制之前或之后、您可以添加、修改或删除默认存储分段或网格范围的加密设置。
+
+要对单个对象进行加密、可以在向源存储分段添加对象时使用SSE (使用StorageGRID托管密钥的服务器端加密)。使用 `x-amz-server-side-encryption`请求标头并指定 `AES256`。请参阅。 link:../s3/using-server-side-encryption.html["使用服务器端加密"]
+
+
+NOTE: 跨网格复制不支持使用SSE-C (使用客户提供的密钥进行服务器端加密)。载入操作将失败。
+
+要对存储分段使用默认加密，请使用PutBucketEncryption请求并将参数设置 `SSEAlgorithm`为 `AES256`。存储分段级加密适用于未包含请求标头的任何已加载对象 `x-amz-server-side-encryption`。请参阅。 link:../s3/operations-on-buckets.html["对存储分段执行的操作"]
+
+要使用网格级加密，请将*存储对象加密*选项设置为*AES-256*。网格级加密适用于未在存储分段级别进行加密的任何对象、或者不带请求标头的已加载对象 `x-amz-server-side-encryption`。请参阅。 link:../admin/changing-network-options-object-encryption.html["配置网络和对象选项"]
+
+
+NOTE: SSE不支持AES-128。如果使用*AES-128*选项为源网格启用了*存储对象加密*选项，则AES-128算法的使用不会传播到复制的对象。相反、复制的对象将使用目标的默认分段或网格级加密设置(如果可用)。
+
+在确定如何对源对象进行加密时、StorageGRID 会应用以下规则：
+
+. 如果存在、请使用" `x-amz-server-side-encryption`加载"标题。
+. 如果不存在加载标头、请使用存储分段默认加密设置(如果已配置)。
+. 如果未配置存储分段设置、请使用网格范围的加密设置(如果已配置)。
+. 如果不存在网格范围设置、请勿对源对象进行加密。
+
+
+在确定如何对复制的对象进行加密时、StorageGRID 会按以下顺序应用这些规则：
+
+. 使用与源对象相同的加密、除非该对象使用AES-128加密。
+. 如果源对象未加密或使用AES-128、请使用目标存储分段的默认加密设置(如果已配置)。
+. 如果目标存储分段没有加密设置、请使用目标的网格范围加密设置(如果已配置)。
+. 如果不存在网格范围设置、请勿对目标对象进行加密。
+
+
+
+
+=== 不支持PutObjectTaging.和DeleteObjectTaging
+
+启用了跨网格复制的分段中的对象不支持PutObjectTbaging和DeleteObjectTbagingrequests。
+
+如果S3客户端发出PutObjectTaging或DeleteObjectTagingRequest、则返回。 `501 Not Implemented`消息为 `Put(Delete) ObjectTagging is not available for buckets that have cross-grid replication configured`。
+
+
+
+=== 分段对象的复制方式
+
+复制到目标网格的源网格的最大区块大小适用场景 对象。将对象复制到另一个网格时，源网格的*最大区块大小*设置(*configuration*>*System*>*Storage options *)将同时在两个网格上使用。例如、假设源网格的最大区块大小为1 GB、而目标网格的最大区块大小为50 MB。如果在源网格上加载2 GB对象、则该对象将另存为两个1 GB区块。它还会作为两个1 GB区块复制到目标网格、即使该网格的最大区块大小为50 MB也是如此。

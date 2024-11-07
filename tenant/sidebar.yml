@@ -1,0 +1,129 @@
+---
+section: tenant
+title: 使用租户帐户
+entries:
+- title: 什么是租户帐户
+  pdf-filename: 使用 StorageGRID 租户帐户
+  url: "/tenant/index.html"
+- title: 如何登录和注销
+  entries:
+  - title: 登录到租户管理器
+    url: "/tenant/signing-in-to-tenant-manager.html"
+  - title: 注销租户管理器
+    url: "/tenant/signing-out-of-tenant-manager.html"
+- title: 租户管理器信息板
+  url: "/tenant/understanding-tenant-manager-dashboard.html"
+- title: 租户管理 API
+  entries:
+  - title: 了解租户管理 API
+    url: "/tenant/understanding-tenant-management-api.html"
+  - title: 租户管理 API 版本控制
+    url: "/tenant/tenant-management-api-versioning.html"
+  - title: 防止跨站点请求伪造（ CSRF ）
+    url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
+- title: 使用网格联合连接
+  entries:
+  - title: 克隆租户组和用户
+    url: "/tenant/grid-federation-account-clone.html"
+  - title: 使用API克隆S3访问密钥
+    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: 管理跨网格复制
+    url: "/tenant/grid-federation-manage-cross-grid-replication.html"
+  - title: 查看网格联合连接
+    url: "/tenant/grid-federation-view-connections-tenant.html"
+- title: 管理组和用户
+  entries:
+  - title: 使用身份联合
+    url: "/tenant/using-identity-federation.html"
+  - title: 管理租户组
+    entries:
+    - title: 创建S3组
+      url: "/tenant/creating-groups-for-s3-tenant.html"
+    - title: 创建Swift组
+      url: "/tenant/creating-groups-for-swift-tenant.html"
+    - title: 租户管理权限
+      url: "/tenant/tenant-management-permissions.html"
+    - title: 管理组
+      url: "/tenant/manage-groups.html"
+  - title: 管理本地用户
+    url: "/tenant/managing-local-users.html"
+- title: 管理 S3 访问密钥
+  entries:
+  - title: 租户访问密钥
+    pdf-filename: 管理 S3 访问密钥
+    url: "/tenant/managing-s3-access-keys.html"
+  - title: 创建S3访问密钥
+    url: "/tenant/creating-your-own-s3-access-keys.html"
+  - title: 查看 S3 访问密钥
+    url: "/tenant/viewing-your-s3-access-keys.html"
+  - title: 删除S3访问密钥
+    url: "/tenant/deleting-your-own-s3-access-keys.html"
+  - title: 创建其他用户的 S3 访问密钥
+    url: "/tenant/creating-another-users-s3-access-keys.html"
+  - title: 查看其他用户的 S3 访问密钥
+    url: "/tenant/viewing-another-users-s3-access-keys.html"
+  - title: 删除其他用户的 S3 访问密钥
+    url: "/tenant/deleting-another-users-s3-access-keys.html"
+- title: 管理 S3 存储分段
+  entries:
+  - title: 创建存储分段
+    url: "/tenant/creating-s3-bucket.html"
+  - title: 查看存储分段详细信息
+    url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 将ILM策略标记应用于存储分段
+    url: "/tenant/ilm-policy-tags.html"
+  - title: 管理存储分段策略
+    url: "/tenant/manage-bucket-policy.html"
+  - title: 管理存储分段一致性
+    url: "/tenant/manage-bucket-consistency.html"
+  - title: 启用或禁用上次访问时间更新
+    url: "/tenant/enabling-or-disabling-last-access-time-updates.html"
+  - title: 更改对象版本控制
+    url: "/tenant/changing-bucket-versioning.html"
+  - title: 使用 S3 对象锁定
+    url: "/tenant/using-s3-object-lock.html"
+  - title: 更新S3对象锁定默认保留
+    url: "/tenant/update-default-retention-settings.html"
+  - title: 配置跨源资源共享（ CORS ）
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 删除存储分段中的对象
+    url: "/tenant/deleting-s3-bucket-objects.html"
+  - title: 删除存储分段
+    url: "/tenant/deleting-s3-bucket.html"
+  - title: 使用S3控制台
+    url: "/tenant/use-s3-console.html"
+- title: 管理 S3 平台服务
+  entries:
+  - title: S3 平台服务
+    pdf-filename: 管理 S3 平台服务
+    entries:
+    - title: 平台服务注意事项
+      url: "/tenant/considerations-for-platform-services.html"
+    - title: CloudMirror 复制服务
+      url: "/tenant/understanding-cloudmirror-replication-service.html"
+    - title: 存储分段通知
+      url: "/tenant/understanding-notifications-for-buckets.html"
+    - title: 搜索集成服务
+      url: "/tenant/understanding-search-integration-service.html"
+  - title: 管理平台服务端点
+    entries:
+    - title: 配置平台服务端点
+      url: "/tenant/configuring-platform-services-endpoints.html"
+    - title: 指定URN
+      url: "/tenant/specifying-urn-for-platform-services-endpoint.html"
+    - title: 创建端点
+      url: "/tenant/creating-platform-services-endpoint.html"
+    - title: 测试连接
+      url: "/tenant/testing-connection-for-platform-services-endpoint.html"
+    - title: 编辑端点
+      url: "/tenant/editing-platform-services-endpoint.html"
+    - title: 删除端点
+      url: "/tenant/deleting-platform-services-endpoint.html"
+    - title: 对平台服务错误进行故障排除
+      url: "/tenant/troubleshooting-platform-services-endpoint-errors.html"
+  - title: 配置 CloudMirror 复制
+    url: "/tenant/configuring-cloudmirror-replication.html"
+  - title: 配置事件通知
+    url: "/tenant/configuring-event-notifications.html"
+  - title: 配置搜索集成服务
+    url: "/tenant/configuring-search-integration-service.html"

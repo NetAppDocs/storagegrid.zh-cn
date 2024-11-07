@@ -1,0 +1,63 @@
+---
+permalink: tenant/understanding-cloudmirror-replication-service.html 
+sidebar: sidebar 
+keywords: cloudmirror replication 
+summary: 如果您希望 StorageGRID 将添加到 S3 存储分段的指定对象复制到一个或多个目标存储分段，则可以为该存储分段启用 CloudMirror 复制。 
+---
+= 了解CloudMirror复制服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您希望StorageGRID将添加到S3存储分段的指定对象复制到一个或多个外部目标存储分段、则可以为该存储分段启用CloudMirror复制。
+
+例如，您可以使用 CloudMirror 复制将特定客户记录镜像到 Amazon S3 ，然后利用 AWS 服务对数据执行分析。
+
+
+NOTE: 如果源存储分段启用了 S3 对象锁定，则不支持 CloudMirror 复制。
+
+
+
+== CloudMirror和ILM
+
+CloudMirror复制独立于网格的活动ILM策略运行。CloudMirror 服务会在将对象存储到源存储分段时复制这些对象，并尽快将其交付到目标存储分段。对象载入成功后，系统将触发复制对象的传送。
+
+
+
+== CloudMirror和跨网格复制
+
+CloudMirror复制与跨网格复制功能有重要的相似之处和不同之处。请参阅 link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["请比较跨网格复制和CloudMirror复制"]。
+
+
+
+== CloudMirror和S3存储分段
+
+CloudMirror 复制通常配置为使用外部 S3 存储分段作为目标。但是，您也可以将复制配置为使用另一个 StorageGRID 部署或任何与 S3 兼容的服务。
+
+现有存储分段:: 如果为现有存储分段启用了CloudMirror复制、则只会复制添加到该存储分段的新对象。不会复制存储分段中的任何现有对象。要强制复制现有对象，您可以通过执行对象复制来更新现有对象的元数据。
++
+--
+
+NOTE: 如果您使用CloudMirror复制将对象复制到Amazon S3目标、请注意、Amazon S3会将每个Put请求标头中用户定义的元数据的大小限制为2 KB。如果对象的用户定义元数据大于 2 KB ，则不会复制该对象。
+
+--
+多个目标分段:: 要将单个分段中的对象复制到多个目标分段、请在复制配置XML中为每个规则指定目标。不能同时将一个对象复制到多个分段。
+分版本或未分版本的分段:: 您可以在受版本管理或未受版本管理的分段上配置CloudMirror复制。目标分段可以是版本控制、也可以是未版本控制。您可以使用版本控制和未版本控制的分段的任意组合。例如，您可以将版本控制的存储分段指定为未版本控制的源存储分段的目标，反之亦然。您还可以在未版本控制的存储分段之间进行复制。
+
+
+
+
+== 删除、复制环路和事件
+
+删除行为:: 与Amazon S3服务跨区域复制(CRR)的删除行为相同。删除源存储分段中的对象绝不会删除目标中复制的对象。如果源和目标存储分段都已进行版本控制，则会复制删除标记。如果目标存储分段未进行版本控制、则删除源存储分段中的对象不会将删除标记复制到目标存储分段或删除目标对象。
+防止复制环路:: 当对象复制到目标分段时、StorageGRID会将其标记为"副本"。目标StorageGRID分段不会再次复制标记为副本的对象、从而防止您出现意外复制环路。此副本标记是StorageGRID的内部标记、不会妨碍您在使用Amazon S3存储分段作为目标时利用AWS CRR。
++
+--
+
+NOTE: 用于标记复本的自定义标头为 `x-ntap-sg-replica`。此标记可防止级联镜像。StorageGRID 支持在两个网格之间使用双向CloudMirror。
+
+--
+目标存储分段中的事件:: 无法保证目标存储分段中事件的唯一性和顺序。由于为确保成功交付而执行的操作，可能会将一个源对象的多个相同副本传送到目标。在极少数情况下，如果从两个或更多不同的 StorageGRID 站点同时更新同一对象，则目标存储分段上的操作顺序可能与源存储分段上的事件顺序不匹配。
+

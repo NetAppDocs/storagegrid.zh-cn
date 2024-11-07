@@ -1,0 +1,73 @@
+---
+permalink: audit/olst-system-detected-lost-object.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, OLST, System Detected Lost Object 
+summary: 如果 DDS 服务在 StorageGRID 系统中找不到对象的任何副本，则会生成此消息。 
+---
+= OLST ：系统检测到丢失对象
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果DDS服务在StorageGRID 系统中找不到对象的任何副本、则会生成此消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CBID
+ a| 
+内容块标识符
+ a| 
+丢失对象的 CBID 。
+
+
+
+ a| 
+NOID
+ a| 
+节点ID
+ a| 
+丢失对象的最后一个已知直接或近线位置(如果可用)。如果卷信息不可用，则只能使用节点 ID 而不使用卷 ID 。
+
+
+
+ a| 
+路径
+ a| 
+S3存储分段/密钥
+ a| 
+S3存储分段名称和S3密钥名称(如果可用)。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+此字段的值为 none 。RSLT- 是一个必填消息字段，但与此消息无关。使用 none 而不是 SUC ，因此不会筛选此消息。
+
+
+
+ a| 
+UUID
+ a| 
+通用唯一 ID
+ a| 
+StorageGRID 系统中丢失对象的标识符。
+
+
+
+ a| 
+卷
+ a| 
+Volume ID
+ a| 
+丢失对象的最后一个已知位置的存储节点的卷ID (如果可用)。
+
+|===

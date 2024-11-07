@@ -1,0 +1,280 @@
+---
+permalink: admin/use-api-if-sso-is-enabled-ping.html 
+sidebar: sidebar 
+keywords: how to access storagegrid API if SSO is enabled with PingFederate 
+summary: 如果您已配置并启用单点登录（ SSO ），并且使用 PingFederate 作为 SSO 提供程序，则必须对一系列 API 请求进行问题描述 处理，以获取对网格管理 API 或租户管理 API 有效的身份验证令牌。 
+---
+= 如果启用了单点登录，请使用 API （ PingFederate ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您有link:../admin/configuring-sso.html["已配置并启用单点登录（ SSO ）"]、并且使用PingFedate作为SSO提供程序、则必须发出一系列API请求以获取对网格管理API或租户管理API有效的身份验证令牌。
+
+
+
+== 如果启用了单点登录，请登录到 API
+
+如果您使用 PingFederate 作为 SSO 身份提供程序，则以下说明适用
+
+.开始之前
+* 您知道属于 StorageGRID 用户组的联合用户的 SSO 用户名和密码。
+* 如果要访问租户管理 API ，您知道租户帐户 ID 。
+
+
+.关于此任务
+要获取身份验证令牌，可以使用以下示例之一：
+
+*  `storagegrid-ssoauth.py`Python脚本、位于Red Hat Enterprise Linux、 `./debs`Ubuntu或Debian以及 `./vsphere`VMware的StorageGRID安装文件目录中(`./rpms`。
+* cURL 请求的示例工作流。
++
+如果执行速度过慢，则卷曲工作流可能会超时。您可能会看到以下错误： `A valid SubjectConfirmation was not found on this Response`。
+
++
+
+NOTE: 示例 cURL 工作流不会保护密码不会被其他用户看到。
+
++
+如果存在URL编码问题，则可能会看到以下错误： `Unsupported SAML version`。
+
+
+
+.步骤
+. 选择以下方法之一以获取身份验证令牌：
++
+** 使用 `storagegrid-ssoauth.py`Python脚本。转至步骤 2 。
+** 使用 curl 请求。转至步骤 3 。
+
+
+. 如果要使用该 `storagegrid-ssoauth.py`脚本、请将该脚本传递给Python解释器并运行该脚本。
++
+出现提示时，输入以下参数的值：
+
++
+** SSO 方法。您可以输入"pingfederate"的任何变体(Pingfederate、pingfedate等)。
+** SSO 用户名
+** 安装 StorageGRID 的域。此字段不用于 PingFederate 。您可以将其留空或输入任何值。
+** StorageGRID 的地址
+** 要访问租户管理 API 的租户帐户 ID 。
++
+image::../media/sso_auth_python_script_ping.png[用于 Ping 联合的 SSO 身份验证脚本]
+
++
+输出中提供了 StorageGRID 授权令牌。现在，您可以将令牌用于其他请求，类似于在未使用 SSO 时使用 API 的方式。
+
+
+
+. 如果要使用 curl 请求，请使用以下操作步骤 。
++
+.. 声明登录所需的变量。
++
+[source, bash]
+----
+export SAMLUSER='my-sso-username'
+export SAMLPASSWORD='my-password'
+export TENANTACCOUNTID='12345'
+export STORAGEGRID_ADDRESS='storagegrid.example.com'
+----
++
+
+NOTE: 要访问网格管理API，请使用0作为 `TENANTACCOUNTID`。
+
+.. 要接收签名的身份验证URL，请向发出POST请求 `/api/v3/authorize-saml`，然后从响应中删除其他JSON编码。
++
+此示例显示了一个 POST 请求，用于为 TENANTACCOBTID 提供签名身份验证 URL 。结果将传递到 python -m json.tool 以删除 JSON 编码。
+
++
+[source, bash]
+----
+curl -X POST "https://$STORAGEGRID_ADDRESS/api/v3/authorize-saml" \
+  -H "accept: application/json" -H  "Content-Type: application/json" \
+  --data "{\"accountId\": \"$TENANTACCOUNTID\"}" | python -m json.tool
+----
++
+此示例的响应包括一个 URL 编码的签名 URL ，但不包括额外的 JSON 编码层。
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "https://my-pf-baseurl/idp/SSO.saml2?...",
+    "responseTime": "2018-11-06T16:30:23.355Z",
+    "status": "success"
+}
+----
+.. 保存响应中的、 `SAMLRequest`以供后续命令使用。
++
+[listing]
+----
+export SAMLREQUEST="https://my-pf-baseurl/idp/SSO.saml2?..."
+----
+.. 导出响应和 cookie ，并对响应执行回显：
++
+[source, bash]
+----
+RESPONSE=$(curl -c - "$SAMLREQUEST")
+----
++
+[source, bash]
+----
+echo "$RESPONSE" | grep 'input type="hidden" name="pf.adapterId" id="pf.adapterId"'
+----
+.. 导出 "pf.adapterId" 值，并对响应执行回显：
++
+[listing]
+----
+export ADAPTER='myAdapter'
+----
++
+[source, bash]
+----
+echo "$RESPONSE" | grep 'base'
+----
+.. 导出 "href" 值（删除后斜杠 / ），并对响应执行回显：
++
+[listing]
+----
+export BASEURL='https://my-pf-baseurl'
+----
++
+[source, bash]
+----
+echo "$RESPONSE" | grep 'form method="POST"'
+----
+.. 导出 "act" 值：
++
+[listing]
+----
+export SSOPING='/idp/.../resumeSAML20/idp/SSO.ping'
+----
+.. 发送 Cookie 以及凭据：
++
+[source, bash]
+----
+curl -b <(echo "$RESPONSE") -X POST "$BASEURL$SSOPING" \
+--data "pf.username=$SAMLUSER&pf.pass=$SAMLPASSWORD&pf.ok=clicked&pf.cancel=&pf.adapterId=$ADAPTER" --include
+----
+.. 从隐藏字段保存 `SAMLResponse`：
++
+[source, bash]
+----
+export SAMLResponse='PHNhbWxwOlJlc3BvbnN...1scDpSZXNwb25zZT4='
+----
+.. 使用保存的 `SAMLResponse`，发出StorageGRID``/api/saml-response``请求以生成StorageGRID身份验证令牌。
++
+对于 `RelayState`，请使用租户帐户ID；如果要登录到网格管理API，请使用0。
+
++
+[source, bash]
+----
+curl -X POST "https://$STORAGEGRID_ADDRESS:443/api/saml-response" \
+  -H "accept: application/json" \
+  --data-urlencode "SAMLResponse=$SAMLResponse" \
+  --data-urlencode "RelayState=$TENANTACCOUNTID" \
+  | python -m json.tool
+----
++
+响应包括身份验证令牌。
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "56eb07bf-21f6-40b7-af0b-5c6cacfb25e7",
+    "responseTime": "2018-11-07T21:32:53.486Z",
+    "status": "success"
+}
+----
+.. 将响应中的身份验证令牌另存为 `MYTOKEN`。
++
+[source, bash]
+----
+export MYTOKEN="56eb07bf-21f6-40b7-af0b-5c6cacfb25e7"
+----
++
+现在、您可以对其他请求使用、与未使用SSO时使用 `MYTOKEN`API的方式类似。
+
+
+
+
+
+
+
+== 如果启用了单点登录，请注销 API
+
+如果已启用单点登录（ Single Sign-On ， SSO ），则必须对一系列 API 请求进行问题描述 ，才能注销网格管理 API 或租户管理 API 。如果您使用 PingFederate 作为 SSO 身份提供程序，则以下说明适用
+
+.关于此任务
+如果需要、您可以从组织的单点注销页面注销、以注销StorageGRID API。或者，您也可以从 StorageGRID 触发单点注销（ SLO ），这需要有效的 StorageGRID 令牌。
+
+.步骤
+. 要生成签名注销请求、请将`cookie "sso=true "传递到SLO API：
++
+[source, bash]
+----
+curl -k -X DELETE "https://$STORAGEGRID_ADDRESS/api/v3/authorize" \
+-H "accept: application/json" \
+-H "Authorization: Bearer $MYTOKEN" \
+--cookie "sso=true" \
+| python -m json.tool
+----
++
+返回注销 URL ：
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "https://my-ping-url/idp/SLO.saml2?SAMLRequest=fZDNboMwEIRfhZ...HcQ%3D%3D",
+    "responseTime": "2021-10-12T22:20:30.839Z",
+    "status": "success"
+}
+----
+. 保存注销 URL 。
++
+[source, bash]
+----
+export LOGOUT_REQUEST='https://my-ping-url/idp/SLO.saml2?SAMLRequest=fZDNboMwEIRfhZ...HcQ%3D%3D'
+----
+. 向注销 URL 发送请求以触发 SLO 并重定向回 StorageGRID 。
++
+[source, bash]
+----
+curl --include "$LOGOUT_REQUEST"
+----
++
+返回 302 响应。此重定向位置不适用于纯 API 注销。
+
++
+[listing]
+----
+HTTP/1.1 302 Found
+Location: https://$STORAGEGRID_ADDRESS:443/api/saml-logout?SAMLResponse=fVLLasMwEPwVo7ss%...%23rsa-sha256
+Set-Cookie: PF=QoKs...SgCC; Path=/; Secure; HttpOnly; SameSite=None
+----
+. 删除 StorageGRID 承载令牌。
++
+删除 StorageGRID 承载令牌的工作方式与不使用 SSO 相同。如果未提供`cookie "sso=true "、则用户将从StorageGRID中注销、而不会影响SSO状态。
+
++
+[source, bash]
+----
+curl -X DELETE "https://$STORAGEGRID_ADDRESS/api/v3/authorize" \
+-H "accept: application/json" \
+-H "Authorization: Bearer $MYTOKEN" \
+--include
+----
++
+ `204 No Content`响应指示用户现在已注销。
+
++
+[listing]
+----
+HTTP/1.1 204 No Content
+----
+

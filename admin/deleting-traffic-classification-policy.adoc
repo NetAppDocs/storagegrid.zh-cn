@@ -1,0 +1,49 @@
+---
+permalink: admin/deleting-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: delete traffic classification policy 
+summary: 如果您不再需要流量分类策略，可以将其删除。 
+---
+= 删除流量分类策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以删除不再需要的流量分类策略。请确保删除正确的策略、因为删除策略后无法检索到该策略。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:admin-group-permissions.html["root访问权限"]。
+
+
+.步骤
+. 选择 * 配置 * > * 网络 * > * 流量分类 * 。
++
+此时将显示"流量分类策略"页面、其中的现有策略在表中列出。
+
+. 使用操作菜单或详细信息页面删除策略。
++
+[role="tabbed-block"]
+====
+.操作菜单
+--
+.. 选中策略对应的复选框。
+.. 选择 * 操作 * > * 删除 * 。
+
+
+--
+.策略详细信息页面
+--
+.. 选择策略名称。
+.. 选择策略名称旁边的*Remove*按钮。
+
+
+--
+====
+. 选择*是*确认要删除策略。
++
+此策略将被删除。
+
+

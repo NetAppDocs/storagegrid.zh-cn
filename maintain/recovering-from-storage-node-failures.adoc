@@ -1,0 +1,77 @@
+---
+permalink: maintain/recovering-from-storage-node-failures.html 
+sidebar: sidebar 
+keywords: recover, storage node failure, Reaper 
+summary: 用于恢复故障存储节点的操作步骤 取决于故障类型和故障存储节点的类型。 
+---
+= 从存储节点故障中恢复
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+用于恢复故障存储节点的操作步骤 取决于故障类型和故障存储节点的类型。
+
+使用此表为出现故障的存储节点选择恢复操作步骤 。
+
+[cols="1a,1a,1a"]
+|===
+| 问题描述 | 操作 | 备注 
+
+
+ a| 
+* 多个存储节点出现故障。
+* 第二个存储节点在存储节点发生故障或恢复后不到 15 天出现故障。
++
+这包括在恢复另一个存储节点期间存储节点出现故障的情况。
+
+
+ a| 
+请联系技术支持。
+ a| 
+在 15 天内恢复多个存储节点（或多个存储节点）可能会影响 Cassandra 数据库的完整性，从而可能导致发生原因 数据丢失。
+
+技术支持可以确定何时可以安全地开始恢复第二个存储节点。
+
+* 注意 * ：如果某个站点上有多个包含此 ADA 服务的存储节点发生故障，则该站点的任何待定平台服务请求都将丢失。
+
+
+
+ a| 
+一个站点上的多个存储节点出现故障或整个站点出现故障。
+ a| 
+请联系技术支持。可能需要执行站点恢复操作步骤。
+ a| 
+技术支持将评估您的情况并制定恢复计划。请参阅。 link:how-site-recovery-is-performed-by-technical-support.html["技术支持如何恢复站点"]
+
+
+
+ a| 
+设备存储节点出现故障。
+ a| 
+link:recovering-storagegrid-appliance-storage-node.html["恢复设备存储节点"]
+ a| 
+对于所有故障，设备存储节点的恢复操作步骤 均相同。
+
+
+
+ a| 
+一个或多个存储卷发生故障，但系统驱动器完好无损
+ a| 
+link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["从系统驱动器完好无损的存储卷故障中恢复"]
+ a| 
+此操作步骤 用于基于软件的存储节点。
+
+
+
+ a| 
+系统驱动器出现故障。
+ a| 
+link:reviewing-warnings-for-system-drive-recovery.html["从系统驱动器故障中恢复"]
+ a| 
+节点更换操作步骤 取决于部署平台以及是否有任何存储卷也出现故障。
+
+|===
+
+NOTE: 某些 StorageGRID 恢复过程使用 Reaper 处理 Cassandra 修复。一旦相关服务或所需服务开始，便会自动进行修复。您可能会注意到脚本输出中提到"reaper"或"cassandr修复"。如果您看到指示修复失败的错误消息、请运行错误消息中指示的命令。

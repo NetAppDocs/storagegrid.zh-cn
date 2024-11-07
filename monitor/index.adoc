@@ -1,0 +1,46 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords: monitor StorageGRID 
+summary: 定期监控StorageGRID系统以确保其按预期运行。 
+---
+= 监控StorageGRID 系统
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+定期监控StorageGRID系统以确保其按预期运行。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+
+NOTE: 要更改网格管理器中显示的存储值的单位，请选择网格管理器右上角的用户下拉列表，然后选择*用户首选项*。
+
+.关于此任务
+这些说明介绍了如何：
+
+* link:viewing-dashboard.html["查看和管理信息板"]
+* link:viewing-nodes-page.html["查看节点页面"]
+* link:information-you-should-monitor-regularly.html["定期监控系统的以下方面："]
++
+** link:monitoring-system-health.html["系统运行状况"]
+** link:monitoring-storage-capacity.html["存储容量"]
+** link:monitoring-information-lifecycle-management.html["信息生命周期管理"]
+** link:monitoring-network-connections-and-performance.html["网络和系统资源"]
+** link:monitoring-tenant-activity.html["租户活动"]
+** link:monitoring-load-balancing-operations.html["负载平衡操作"]
+** link:grid-federation-monitor-connections.html["网格联合连接"]
+
+
+* link:managing-alerts.html["管理警报"]
+* link:logs-files-reference.html["查看日志文件"]
+* link:configure-audit-messages.html["配置审核消息和日志目标"]
+* link:considerations-for-external-syslog-server.html["使用外部系统日志服务器"]收集审核信息
+* link:using-snmp-monitoring.html["使用SNMP进行监控"]
+* link:using-charts-and-reports.html["获取其他StorageGRID数据"]，包括度量和诊断
+

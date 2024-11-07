@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: '属于系统审核类别的审核消息用于与审核系统本身、网格节点状态、系统范围任务活动\(网格任务\)以及服务备份操作相关的事件。' 
+---
+= 系统审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+属于系统审核类别的审核消息用于与审核系统本身、网格节点状态、系统范围任务活动(网格任务)和服务备份操作相关的事件。
+
+[cols="1a,2a,1a"]
+|===
+| 代码 | 消息标题和问题描述 | 请参见 
+
+
+ a| 
+ECMC
+ a| 
+缺失经过删除编码的数据片段：表示检测到缺失经过删除编码的数据片段。
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC：缺少经过Erasure编码的数据片段"]
+
+
+
+ a| 
+ECOC
+ a| 
+经删除编码的数据片段已损坏：表示检测到经删除编码的数据片段已损坏。
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["EECO：经过Erasure编码的数据片段已损坏"]
+
+
+
+ a| 
+ETAF
+ a| 
+安全身份验证失败：尝试使用传输层安全（ Transport Layer Security ， TLS ）进行连接失败。
+ a| 
+link:etaf-security-authentication-failed.html["ETAF ：安全身份验证失败"]
+
+
+
+ a| 
+GNRG
+ a| 
+GNDS 注册：服务在 StorageGRID 系统中更新或注册了有关自身的信息。
+ a| 
+link:gnrg-gnds-registration.html["GNRG ： GNDS 注册"]
+
+
+
+ a| 
+GNUR
+ a| 
+GNDS 注销：服务已从 StorageGRID 系统中注销自身。
+ a| 
+link:gnur-gnds-unregistration.html["GN-R ： GNDS 注销"]
+
+
+
+ a| 
+GTED
+ a| 
+网格任务已结束： CMN 服务已完成网格任务的处理。
+ a| 
+link:gted-grid-task-ended.html["GTed ：网格任务已结束"]
+
+
+
+ a| 
+GTSt
+ a| 
+网格任务已启动： CMN 服务已开始处理网格任务。
+ a| 
+link:gtst-grid-task-started.html["GTST ：已启动网格任务"]
+
+
+
+ a| 
+GTSU
+ a| 
+已提交网格任务：已将网格任务提交到 CMN 服务。
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU ：已提交网格任务"]
+
+
+
+ a| 
+LLST
+ a| 
+Location Lost ：当某个位置丢失时，会生成此审核消息。
+ a| 
+link:llst-location-lost.html["LLST ：位置丢失"]
+
+
+
+ a| 
+OLST
+ a| 
+对象丢失：无法在 StorageGRID 系统中找到请求的对象。
+ a| 
+link:olst-system-detected-lost-object.html["OLST ：系统检测到丢失对象"]
+
+
+
+ a| 
+Sadd
+ a| 
+禁用安全审核：已关闭审核消息日志记录。
+ a| 
+link:sadd-security-audit-disable.html["Sadd ：禁用安全审核"]
+
+
+
+ a| 
+Sade
+ a| 
+启用安全审核：审核消息日志记录已还原。
+ a| 
+link:sade-security-audit-enable.html["Sade ：启用安全审核"]
+
+
+
+ a| 
+SVRF
+ a| 
+对象存储验证失败：内容块验证检查失败。
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF ：对象存储验证失败"]
+
+
+
+ a| 
+SVRU
+ a| 
+对象存储验证未知：在对象存储中检测到意外的对象数据。
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU ：对象存储验证未知"]
+
+
+
+ a| 
+系统
+ a| 
+节点停止：已请求关闭。
+ a| 
+link:sysd-node-stop.html["SYSD ：节点停止"]
+
+
+
+ a| 
+系统
+ a| 
+节点停止：服务已正常停止。
+ a| 
+link:syst-node-stopping.html["Syst ：节点正在停止"]
+
+
+
+ a| 
+系统
+ a| 
+节点启动：服务已启动；消息中显示了上次关闭的性质。
+ a| 
+link:sysu-node-start.html["SYSU ：节点启动"]
+
+|===

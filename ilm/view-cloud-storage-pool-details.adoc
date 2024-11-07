@@ -1,0 +1,43 @@
+---
+permalink: ilm/view-cloud-storage-pool-details.html 
+sidebar: sidebar 
+keywords: view cloud storage pool 
+summary: 您可以查看云存储池的详细信息以确定其使用位置以及包含哪些节点和存储级别。 
+---
+= 查看云存储池详细信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以查看云存储池的详细信息、以确定其使用位置以及包含哪些节点和存储级别。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+.步骤
+. 选择* ILM *>*存储池*>*云存储池*。
++
+"云存储池"表包含包含包含存储节点的每个云存储池的以下信息：
+
++
+** *Name*：池的唯一显示名称。
+** *URI*：云存储池的统一资源标识符。
+** *提供商类型*：此云存储池使用哪个云提供商。
+** *容器*：用于云存储池的存储分段的名称。
+** *ILM usage*：当前使用池的方式。一个云存储池可能未使用、也可能用于一个或多个ILM规则、纠删编码配置文件或这两者。
+** *上次错误*：对此云存储池执行运行状况检查期间检测到的最后一次错误。
+
+
+. 要查看特定云存储池的详细信息、请选择其名称。
++
+此时将显示池的详细信息页面。
+
+. 查看*身份验证*选项卡、了解此云存储池的身份验证类型并编辑身份验证详细信息。
+. 查看*服务器验证*选项卡可了解验证详细信息、编辑验证、下载新证书或复制证书PEM。
+. 查看* ILM使用情况*选项卡以确定云存储池当前是否正在任何ILM规则或纠删编码配置文件中使用。
+. (可选)转到使用云存储池的* ILM规则页面*link:working-with-ilm-rules-and-ilm-policies.html["了解并管理任何规则"]。
+

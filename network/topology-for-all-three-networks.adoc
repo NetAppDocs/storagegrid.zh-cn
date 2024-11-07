@@ -1,0 +1,25 @@
+---
+permalink: network/topology-for-all-three-networks.html 
+sidebar: sidebar 
+keywords: network topology for storagegrid 
+summary: 您可以将所有这三个网络配置为一个网络拓扑，其中包括专用网格网络，特定于特定于站点的受限制管理网络和开放式客户端网络。如果需要，使用负载平衡器端点和不可信的客户端网络可以提供额外的安全性。 
+---
+= 所有这三个网络的拓扑结构
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将所有这三个网络配置为一个网络拓扑，其中包括专用网格网络，特定于特定于站点的受限制管理网络和开放式客户端网络。如果需要，使用负载平衡器端点和不可信的客户端网络可以提供额外的安全性。
+
+在此示例中：
+
+* 网格网络用于处理与内部对象管理操作相关的网络流量。
+* 管理网络用于处理与管理功能相关的流量。
+* 客户端网络用于传输与S3客户端请求相关的流量。
+
+
+*拓扑示例：网格、管理和客户端网络*
+
+image::../media/grid_admin_client_networks.png[网格管理客户端网络]

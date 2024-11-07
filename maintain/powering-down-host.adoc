@@ -1,0 +1,126 @@
+---
+permalink: maintain/powering-down-host.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop services, power down host, power off host 
+summary: 在关闭主机电源之前，必须停止该主机上所有网格节点上的服务。 
+---
+= 关闭主机
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在关闭主机电源之前，必须停止该主机上所有网格节点上的服务。
+
+.步骤
+. 登录到网格节点：
++
+.. 输入以下命令： `ssh admin@_grid_node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+. 停止节点上运行的所有服务： `service servermanager stop`
++
+服务可能需要长达 15 分钟才能关闭，您可能需要远程登录到系统以监控关闭过程。
+
+. 对主机上的每个节点重复步骤 1 和 2 。
+. 如果您使用的是 Linux 主机：
++
+.. 登录到主机操作系统。
+.. 停止节点： `storagegrid node stop`
+.. 关闭主机操作系统。
+
+
+. 如果此节点正在VMware虚拟机上运行、或者它是设备节点、请发出shutdown命令： `shutdown -h now`
++
+无论命令的结果如何、均可执行此步骤 `service servermanager stop`。
+
++
+
+NOTE: 在设备节点上发出命令后 `shutdown -h now`、必须重新启动设备以重新启动节点。
+
++
+对于设备，此命令将关闭控制器，但设备仍处于打开状态。您必须完成下一步。
+
+. 如果要关闭设备节点、请按照适用于您的设备的步骤进行操作。
++
+[role="tabbed-block"]
+====
+.SG6160
+--
+.. 关闭SG6100-CN存储控制器的电源。
+.. 等待SG6100-CN存储控制器上的蓝色电源LED熄灭。
+
+
+--
+.SGF6112
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+.SG6000
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 关闭设备电源，然后等待蓝色电源 LED 熄灭。
+
+
+--
+.SGs了
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 从 SANtricity 系统管理器的主页中，选择 * 查看正在执行的操作 * 。
+.. 确认所有操作均已完成，然后再继续下一步。
+.. 关闭控制器架上的两个电源开关、然后等待控制器架上的所有LED熄灭。
+
+
+--
+.SG5700
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 关闭设备电源，等待所有 LED 和七段显示活动停止。
+
+
+--
+.SG110或SG1100
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+.SG100或SG1000
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+====
+. 从命令Shell中注销： `exit`
+
+
+.相关信息
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112和SG6160存储设备"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000存储设备"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700存储设备"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG工具"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110和SG1100服务设备"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100和SG1000服务设备"^]
+

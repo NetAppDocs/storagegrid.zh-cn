@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: '如果租户尝试执行的非多部分PutObject操作超过S3大小限制5 GiB、则会触发"S3 Put Object Size Too Lize"警报。' 
+---
+= 对S3放置对象大小太大警报进行故障排除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果租户尝试执行的非多部分PutObject操作超过S3大小限制5 GiB、则会触发"S3 Put Object Size Too Lize"警报。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+确定哪些租户使用大于5 GiB的对象、以便您可以向其发出通知。
+
+.步骤
+. 转到*configuration*>*Monitoring*>*Audit and syslog server*。
+. 如果客户端写入正常、请访问审核日志：
++
+.. 输入 `ssh admin@_primary_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+.. 输入 `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["了解审核信息的目标"](英文)
+
+====
+.. 确定哪些租户正在使用大于5 GiB的对象。
++
+... 输入 `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... 对于结果中的每个审核消息、请查看 `S3AI`字段以确定租户帐户ID。使用消息中的其他字段确定客户端、存储分段和对象使用的IP地址：
++
+[cols="1a,2a"]
+|===
+| 代码 | 说明 
+
+
+| SAIP  a| 
+源IP
+
+
+
+| S3AI  a| 
+租户ID
+
+
+
+| S3BK  a| 
+存储分段
+
+
+
+| S3KY  a| 
+对象
+
+
+
+| CSIZ  a| 
+大小(字节)
+
+|===
++
+*审核日志结果示例*
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. 如果客户端写入不正常、请使用警报中的租户ID来标识租户：
++
+.. 转到*support*>*Tools*>*Logs*。收集警报中存储节点的应用程序日志。指定警报前后15分钟。
+.. 提取文件并转到 `bycast.log`：
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. 在日志中搜索 `method=PUT`并在字段中标识客户端 `clientIP`。
++
+*示例bycast。log*
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. 通知租户PutObject的最大大小为5 GiB、并对大于5 GiB的对象使用多部分上传。
+. 如果应用程序已更改、请忽略警报一周。
+

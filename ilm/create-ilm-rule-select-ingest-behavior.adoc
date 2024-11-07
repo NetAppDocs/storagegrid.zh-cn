@@ -1,0 +1,43 @@
+---
+permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
+sidebar: sidebar 
+keywords: ilm rule step 3, define ingest behavior 
+summary: '通过创建ILM规则向导的第3步\(选择导出行为\)、您可以选择在导出时如何保护通过此规则筛选的对象。' 
+---
+= 第3步(共3步)：选择加数据行为
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+创建ILM规则向导的*选择导出行为*步骤允许您选择在导出时如何保护通过此规则筛选的对象。
+
+.关于此任务
+StorageGRID 可以创建临时副本并将对象排入队列，以便稍后进行 ILM 评估，也可以立即创建副本以满足规则的放置说明。
+
+.步骤
+. 选择要使用的。link:data-protection-options-for-ingest.html["加热行为"]
++
+有关详细信息，请参见 link:advantages-disadvantages-of-ingest-options.html["加热选项的优点、缺点和限制"]。
+
++
+[NOTE]
+====
+如果规则使用以下放置方式之一、则不能使用"平衡"或"严格"选项：
+
+** 第 0 天的云存储池
+** 规则使用用户定义的创建时间作为参考时间时的云存储池
+
+
+请参阅。 link:example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html["示例 5 ：用于严格载入行为的 ILM 规则和策略"]
+
+====
+. 选择 * 创建 * 。
++
+此时将创建ILM规则。只有在将规则添加到中并激活该策略后、此规则才会处于活动link:creating-ilm-policy.html["ILM策略"]状态。
+
++
+要查看规则的详细信息、请在ILM规则页面上选择规则的名称。
+
+

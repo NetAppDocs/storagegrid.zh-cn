@@ -1,0 +1,581 @@
+---
+permalink: network/external-communications.html 
+sidebar: sidebar 
+keywords: storagegrid, network port, external communications, ports, TCP, UDP, client communications 
+summary: 客户端需要与网格节点进行通信才能载入和检索内容。使用的端口取决于所选的对象存储协议。这些端口需要可供客户端访问。 
+---
+= 外部通信
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+客户端需要与网格节点进行通信才能载入和检索内容。使用的端口取决于所选的对象存储协议。这些端口需要可供客户端访问。
+
+
+
+== 对端口的访问受限
+
+如果企业网络策略限制对任何端口的访问、您可以执行以下操作之一：
+
+* link:../admin/configuring-load-balancer-endpoints.html["负载平衡器端点"]用于允许对用户定义的端口进行访问。
+* 部署节点时重新映射端口。但是，您不应重新映射负载平衡器端点。请参见有关StorageGRID节点的端口重新映射的信息：
++
+** link:../rhel/creating-node-configuration-files.html#port-remap-keys["在Red Hat Enterprise Linux上为StorageGRID重新映射端口密钥"]
+** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Ubuntu或Debian上StorageGRID的端口重新映射密钥"]
+** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["重新映射VMware上StorageGRID的端口"]
+** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["可选：重新映射设备的网络端口"^]
+
+
+
+
+
+
+== 用于外部通信的端口
+
+下表显示了用于向节点进行流量的端口。
+
+
+NOTE: 此列表不包括可能配置为link:../admin/configuring-load-balancer-endpoints.html["负载平衡器端点"]的端口。
+
+[cols="1a,1a,1a,1a,1a,4a"]
+|===
+| 端口 | TCP 或 UDP | 协议 | 发件人 | 至 | 详细信息 
+
+
+ a| 
+22
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+服务笔记本电脑
+ a| 
+所有节点
+ a| 
+要执行控制台步骤，需要 SSH 或控制台访问。您也可以选择使用端口 2022 ，而不是 22 。
+
+
+
+ a| 
+25
+ a| 
+TCP
+ a| 
+SMTP
+ a| 
+管理节点
+ a| 
+电子邮件服务器
+ a| 
+用于警报和基于电子邮件的 AutoSupport 。您可以使用电子邮件服务器页面覆盖默认端口设置 25 。
+
+
+
+ a| 
+53
+ a| 
+TCP/UDP
+ a| 
+DNS
+ a| 
+所有节点
+ a| 
+DNS 服务器
+ a| 
+用于DNS。
+
+
+
+ a| 
+67
+ a| 
+UDP
+ a| 
+DHCP
+ a| 
+所有节点
+ a| 
+DHCP服务
+ a| 
+也可用于支持基于 DHCP 的网络配置。dhclient 服务不会对静态配置的网格运行。
+
+
+
+ a| 
+68
+ a| 
+UDP
+ a| 
+DHCP
+ a| 
+DHCP服务
+ a| 
+所有节点
+ a| 
+也可用于支持基于 DHCP 的网络配置。对于使用静态 IP 地址的网格，不会运行 dhclient 服务。
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+浏览器
+ a| 
+管理节点
+ a| 
+端口 80 重定向到管理节点用户界面的端口 443 。
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+浏览器
+ a| 
+设备
+ a| 
+端口 80 重定向到 StorageGRID 设备安装程序的端口 8443 。
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+具有模块转换器的存储节点
+ a| 
+AWS
+ a| 
+用于发送到 AWS 或其他使用 HTTP 的外部服务的平台服务消息。创建端点时，租户可以覆盖默认的 HTTP 端口设置 80 。
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+存储节点
+ a| 
+AWS
+ a| 
+发送到使用 HTTP 的 AWS 目标的云存储池请求。配置云存储池时，网格管理员可以覆盖默认 HTTP 端口设置 80 。
+
+
+
+ a| 
+111
+ a| 
+TCP/UDP
+ a| 
+rpcbind
+ a| 
+NFS 客户端
+ a| 
+管理节点
+ a| 
+由基于 NFS 的审核导出（ portmap ）使用。
+
+* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
+
+*注：*对NFS的支持已弃用，将在未来版本中删除。
+
+
+
+ a| 
+123
+ a| 
+UDP
+ a| 
+NTP
+ a| 
+主要 NTP 节点
+ a| 
+外部 NTP
+ a| 
+网络时间协议服务。选择为主 NTP 源的节点还会将时钟时间与外部 NTP 时间源同步。
+
+
+
+ a| 
+161
+ a| 
+TCP/UDP
+ a| 
+SNMP
+ a| 
+SNMP 客户端
+ a| 
+所有节点
+ a| 
+用于 SNMP 轮询。所有节点均提供基本信息；管理节点还提供警报数据。配置后，默认为 UDP 端口 161 。
+
+* 注： * 仅需要此端口，只有在配置了 SNMP 的情况下，才会在节点防火墙上打开此端口。如果您计划使用 SNMP ，则可以配置备用端口。
+
+* 注： * 有关将 SNMP 与 StorageGRID 结合使用的信息，请联系您的 NetApp 客户代表。
+
+
+
+ a| 
+162
+ a| 
+TCP/UDP
+ a| 
+SNMP 通知
+ a| 
+所有节点
+ a| 
+通知目标
+ a| 
+出站 SNMP 通知和陷阱默认为 UDP 端口 162 。
+
+* 注： * 只有在启用 SNMP 并配置通知目标时，才需要此端口。如果您计划使用 SNMP ，则可以配置备用端口。
+
+* 注： * 有关将 SNMP 与 StorageGRID 结合使用的信息，请联系您的 NetApp 客户代表。
+
+
+
+ a| 
+389
+ a| 
+TCP/UDP
+ a| 
+LDAP
+ a| 
+具有模块转换器的存储节点
+ a| 
+Active Directory/LDAP
+ a| 
+用于连接到 Active Directory 或 LDAP 服务器以实现身份联合。
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+浏览器
+ a| 
+管理节点
+ a| 
+供 Web 浏览器和管理 API 客户端用于访问 Grid Manager 和租户管理器。
+
+*注意*：如果关闭Grid Manager端口443或8443，则当前连接到被阻止端口的任何用户(包括您在内)将无法访问Grid Manager，除非其IP地址已添加到特权地址列表中。请参见link:../admin/configure-firewall-controls.html["配置防火墙控件"]以配置特权IP地址。
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+管理节点
+ a| 
+Active Directory
+ a| 
+如果启用了单点登录（ SSO ），则由连接到 Active Directory 的管理节点使用。
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+具有模块转换器的存储节点
+ a| 
+AWS
+ a| 
+用于发送到 AWS 或其他使用 HTTPS 的外部服务的平台服务消息。创建端点时，租户可以覆盖默认的 HTTP 端口设置 443 。
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+存储节点
+ a| 
+AWS
+ a| 
+发送到使用 HTTPS 的 AWS 目标的云存储池请求。配置云存储池时，网格管理员可以覆盖默认 HTTPS 端口设置 443 。
+
+
+
+ a| 
+903
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+NFS 客户端
+ a| 
+管理节点
+ a| 
+由基于NFS的审核导出使用(`rpc.mountd`)。
+
+* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
+
+*注：*对NFS的支持已弃用，将在未来版本中删除。
+
+
+
+ a| 
+2022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+服务笔记本电脑
+ a| 
+所有节点
+ a| 
+要执行控制台步骤，需要 SSH 或控制台访问。您也可以选择使用端口 22 ，而不是 2022 。
+
+
+
+ a| 
+2049
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+NFS 客户端
+ a| 
+管理节点
+ a| 
+由基于 NFS 的审核导出（ NFS ）使用。
+
+* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
+
+*注：*对NFS的支持已弃用，将在未来版本中删除。
+
+
+
+ a| 
+5353
+ a| 
+UDP
+ a| 
+mDNS
+ a| 
+所有节点
+ a| 
+所有节点
+ a| 
+提供多播DNS (mDNS)服务、用于在安装、扩展和恢复期间进行全网格IP更改和主管理节点发现。
+
+
+
+ a| 
+5696
+ a| 
+TCP
+ a| 
+KMIP
+ a| 
+设备
+ a| 
+公里
+ a| 
+从配置了节点加密的设备到密钥管理服务器（ KMS ）的密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）外部流量，除非在 StorageGRID 设备安装程序的 KMS 配置页面上指定了其他端口。
+
+
+
+ a| 
+8022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+服务笔记本电脑
+ a| 
+所有节点
+ a| 
+端口 8022 上的 SSH 允许访问设备和虚拟节点平台上的基本操作系统，以便进行支持和故障排除。此端口不用于基于 Linux 的（裸机）节点，并且不需要在网格节点之间或在正常操作期间访问。
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+浏览器
+ a| 
+管理节点
+ a| 
+可选。供 Web 浏览器和管理 API 客户端用于访问网格管理器。可用于分隔网格管理器和租户管理器通信。
+
+*注意*：如果关闭Grid Manager端口443或8443，则当前连接到被阻止端口的任何用户(包括您在内)将无法访问Grid Manager，除非其IP地址已添加到特权地址列表中。请参见link:../admin/configure-firewall-controls.html["配置防火墙控件"]以配置特权IP地址。
+
+
+
+ a| 
+9022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+服务笔记本电脑
+ a| 
+设备
+ a| 
+在预配置模式下授予对 StorageGRID 设备的访问权限，以便提供支持和进行故障排除。在网格节点之间或正常操作期间，不需要访问此端口。
+
+
+
+ a| 
+9091
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+外部 Grafana 服务
+ a| 
+管理节点
+ a| 
+由外部 Grafana 服务使用，用于安全访问 StorageGRID Prometheus 服务。
+
+* 注： * 只有在启用了基于证书的 Prometheus 访问时，才需要此端口。
+
+
+
+ a| 
+9092
+ a| 
+TCP
+ a| 
+Kafka
+ a| 
+具有模块转换器的存储节点
+ a| 
+Kafka集群
+ a| 
+用于发送到Kafka集群的平台服务消息。租户可以在创建端点时覆盖默认Kafka端口设置9092。
+
+
+
+ a| 
+9443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+浏览器
+ a| 
+管理节点
+ a| 
+可选。供 Web 浏览器和管理 API 客户端用于访问租户管理器。可用于分隔网格管理器和租户管理器通信。
+
+
+
+ a| 
+18082
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+S3 客户端
+ a| 
+存储节点
+ a| 
+直接发送到存储节点（ HTTPS ）的 S3 客户端流量。
+
+
+
+ a| 
+18083
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Swift 客户端
+ a| 
+存储节点
+ a| 
+Swift 客户端流量直接发送到存储节点（ HTTPS ）。
+
+
+
+ a| 
+18084
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+S3 客户端
+ a| 
+存储节点
+ a| 
+直接发送到存储节点（ HTTP ）的 S3 客户端流量。
+
+
+
+ a| 
+18085
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Swift 客户端
+ a| 
+存储节点
+ a| 
+Swift 客户端流量直接发送到存储节点（ HTTP ）。
+
+
+
+ a| 
+23000-23999
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+源网格上用于跨网格复制的所有节点
+ a| 
+目标网格上用于跨网格复制的管理节点和网关节点
+ a| 
+此端口范围是为网格联合连接预留的。给定连接中的两个网格使用相同的端口。
+
+|===

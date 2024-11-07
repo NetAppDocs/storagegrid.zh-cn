@@ -1,0 +1,70 @@
+---
+permalink: harden/other-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, security 
+summary: 除了遵循 StorageGRID 网络和节点的强化准则之外，您还应遵循 StorageGRID 系统其他方面的强化准则。 
+---
+= 其他强化准则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+除了遵循 StorageGRID 网络和节点的强化准则之外，您还应遵循 StorageGRID 系统其他方面的强化准则。
+
+
+
+== 临时安装密码
+
+要在安装期间保护StorageGRID系统的安全、请在StorageGRID安装UI或安装API中的临时安装程序密码页面上设置密码。设置后、此密码将应用于所有StorageGRID安装方法、包括用户界面、安装API和 `configure-storagegrid.py`脚本。
+
+有关详细信息、请参见：
+
+* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+* link:../vmware/index.html["在VMware上安装StorageGRID"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["安装StorageGRID设备"^]
+
+
+
+
+== 日志和审核消息
+
+始终以安全的方式保护 StorageGRID 日志和审核消息输出。从支持和系统可用性角度来看， StorageGRID 日志和审核消息可提供宝贵的信息。此外， StorageGRID 日志和审核消息输出中包含的信息和详细信息通常具有敏感性。
+
+将 StorageGRID 配置为向外部系统日志服务器发送安全事件。如果使用系统日志导出，请为传输协议选择 TLS 和 RELP/TLS 。
+
+有关StorageGRID日志的详细信息、请参见link:../monitor/logs-files-reference.html["日志文件参考"]。有关StorageGRID审核消息的详细信息、请参见link:../audit/audit-messages-main.html["审核消息"]。
+
+
+
+== NetApp AutoSupport
+
+通过StorageGRID的AutoSupport功能、您可以主动监控系统的运行状况、并自动将软件包发送给NetApp 支持站点、组织的内部支持团队或支持合作伙伴。默认情况下、首次配置StorageGRID时、向NetApp发送AutoSupport软件包处于启用状态。
+
+可以禁用 AutoSupport 功能。但是， NetApp 建议启用此功能，因为如果您的 StorageGRID 系统上出现问题描述 ， AutoSupport 有助于加快识别和解决问题的速度。
+
+对于传输协议， AutoSupport 支持 HTTPS ， HTTP 和 SMTP 。由于AutoSupport软件包的敏感性、NetApp强烈建议使用HTTPS作为向NetApp发送AutoSupport软件包的默认传输协议。
+
+
+
+== 跨源资源共享(CORS)
+
+如果您希望S3存储分段和该存储分段中的对象可供其他域中的Web应用程序访问、则可以为该存储分段配置跨源站资源共享(CORS)。通常、除非需要、否则不要启用CORS。如果需要 CORS ，请将其限制为可信源。
+
+请参见的步骤link:../tenant/configuring-cross-origin-resource-sharing-cors.html["配置跨源站资源共享(CORS)"]。
+
+
+
+== 外部安全设备
+
+全面强化的解决方案 必须解决 StorageGRID 之外的安全机制问题。使用其他基础架构设备筛选和限制对 StorageGRID 的访问是建立和保持严格安全防护的有效方法。这些外部安全设备包括防火墙，入侵防护系统（ IP ）和其他安全设备。
+
+对于不可信的客户端流量，建议使用第三方负载平衡器。第三方负载平衡可提供更多控制和更多保护层，防止受到攻击。
+
+
+
+== 勒索软件防护
+
+按照中的建议帮助保护对象数据免受勒索软件攻击 https://www.netapp.com/media/69498-tr-4921.pdf["利用StorageGRID 防御勒索软件"^]。

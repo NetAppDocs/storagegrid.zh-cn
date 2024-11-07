@@ -1,0 +1,122 @@
+---
+permalink: fabricpool/configure-ontap.html 
+sidebar: sidebar 
+keywords: fabricPool, system manager, ONTAP CLI, add cloud tier 
+summary: 获取所需的StorageGRID 信息后、您可以转到ONTAP 将StorageGRID 添加为云层。 
+---
+= 配置ONTAP 系统管理器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+获取所需的StorageGRID 信息后、您可以转到ONTAP 将StorageGRID 添加为云层。
+
+.开始之前
+* 完成FabricPool设置向导后、您将 `ONTAP_FabricPool_settings___bucketname__.txt`下载文件。
+* 如果您手动配置了StorageGRID 、则您拥有用于StorageGRID 的完全限定域名(FQDN)或StorageGRID HA组的虚拟IP (VIP)地址、负载平衡器端点的端口号、负载平衡器证书、 租户帐户的root用户的访问密钥ID和机密密钥、以及ONTAP 将在该租户中使用的分段名称。
+
+
+
+
+== 访问ONTAP 系统管理器
+
+以下说明介绍如何使用ONTAP 系统管理器将StorageGRID 添加为云层。您可以使用ONTAP 命令行界面完成相同的配置。有关说明，请转至 https://docs.netapp.com/us-en/ontap/fabricpool/index.html["适用于FabricPool的ONTAP文档"^]。
+
+.步骤
+. 访问要分层到StorageGRID 的ONTAP 集群的System Manager。
+. 以集群管理员身份登录。
+. 导航到*存储*>*层*>*添加云层*。
+. 从对象存储提供程序列表中选择* StorageGRID *。
+
+
+
+
+== 输入StorageGRID 值
+
+有关详细信息、请参见 https://docs.netapp.com/us-en/ontap/fabricpool/index.html["适用于FabricPool的ONTAP文档"^] 。
+
+.步骤
+. 使用您手动获取的文件或值填写"添加云层"表单 `ONTAP_FabricPool_settings___bucketname__.txt`。
++
+[cols="1a,3a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+名称
+ a| 
+输入此云层的唯一名称。您可以接受默认值。
+
+
+
+ a| 
+URL模式
+ a| 
+如果link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]选择*虚拟托管样式URL*。
+
+*路径样式URL*是ONTAP 的默认设置，但建议StorageGRID 使用虚拟托管样式的请求。如果为*服务器名称(FFQDN)*字段提供IP地址而不是域名，则必须使用*路径样式URL*。
+
+
+
+ a| 
+服务器名称(FQDN)
+ a| 
+输入用于StorageGRID 的完全限定域名(FQDN)或StorageGRID HA组的虚拟IP (VIP)地址。例如， `s3.storagegrid.__company__.com`。
+
+请注意以下事项：
+
+** 此处指定的IP地址或域名必须与您为StorageGRID 负载平衡器端点上传或生成的证书匹配。
+** 如果您提供了域名、则DNS记录必须映射到要用于连接到StorageGRID 的每个IP地址。请参阅。 link:configure-dns-server.html["配置DNS服务器"]
+
+
+
+
+ a| 
+SSL
+ a| 
+Enabled (已启用)(默认)。
+
+
+
+ a| 
+对象存储证书
+ a| 
+粘贴要用于StorageGRID负载平衡器端点的PEM证书，包括：
+`-----BEGIN CERTIFICATE-----`和 `-----END CERTIFICATE-----`。
+
+* 注意： * 如果中间 CA 颁发了 StorageGRID 证书，则必须提供中间 CA 证书。如果 StorageGRID 证书是直接由根 CA 颁发的，则必须提供根 CA 证书。
+
+
+
+ a| 
+端口
+ a| 
+输入StorageGRID 负载平衡器端点使用的端口。ONTAP 将在连接到StorageGRID 时使用此端口。例如、10433.
+
+
+
+ a| 
+访问密钥和机密密钥
+ a| 
+输入StorageGRID 租户帐户的root用户的访问密钥ID和机密访问密钥。
+
+*提示*：如果您将来在StorageGRID 中生成新的访问密钥和机密访问密钥，请在从StorageGRID 中删除旧值之前在ONTAP 中输入新密钥。否则、ONTAP 可能会暂时失去对StorageGRID 的访问权限。
+
+
+
+ a| 
+容器名称
+ a| 
+输入您创建的用于此ONTAP 层的StorageGRID 存储分段的名称。
+
+|===
+. 在ONTAP 中完成最终的FabricPool 配置。
++
+.. 将一个或多个聚合附加到云层。
+.. (可选)创建卷分层策略。
+
+
+

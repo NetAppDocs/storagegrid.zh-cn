@@ -1,0 +1,67 @@
+---
+indexpage:
+  title: 配置和管理StorageGRID系统
+  summary: 您需要对新StorageGRID 系统执行的配置任务取决于您使用网格的方式。您至少需要设置系统访问、使用FabricPool 和S3向导以及管理各种存储和安全设置。
+  keywords: configure, sign in, manage admin groups, manage admin users, use identity
+    federation, use ILM, create tenants, manage client connections, secure system,
+    harden system
+  lead: 您需要对新StorageGRID 系统执行的配置任务取决于您使用网格的方式。您至少需要设置系统访问、使用FabricPool 和S3向导以及管理各种存储和安全设置。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 登录到网格管理器
+      url: "../admin/signing-in-to-grid-manager.html"
+    - title: 配置 AutoSupport
+      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: 使用网格管理 API
+      url: "../admin/using-grid-management-api.html"
+  - title: 管理管理员组和用户
+    links:
+    - title: 使用身份联合
+      url: "../admin/using-identity-federation.html"
+    - title: 管理管理组
+      url: "../admin/managing-admin-groups.html"
+    - title: 管理组权限
+      url: "../admin/admin-group-permissions.html"
+    - title: 配置单点登录
+      url: "../admin/configuring-sso.html"
+  - title: 使用网格联盟
+    links:
+    - title: 什么是网格联合？
+      url: "../admin/grid-federation-overview.html"
+    - title: 请比较跨网格复制与CloudMirror
+      url: "../admin/grid-federation-compare-cgr-to-cloudmirror.html"
+    - title: 创建网格联合连接
+      url: "../admin/grid-federation-create-connection.html"
+    - title: 管理允许的租户
+      url: "../admin/grid-federation-manage-tenants.html"
+  - title: 管理客户端连接和租户
+    links:
+    - title: 配置S3端点域名
+      url: "../admin/configuring-s3-api-endpoint-domain-names.html"
+    - title: 使用S3设置向导
+      url: "../admin/use-s3-setup-wizard.html"
+    - title: 使用FabricPool 设置向导
+      url: "../fabricpool/use-fabricpool-setup-wizard.html"
+    - title: 创建租户
+      url: "../admin/creating-tenant-account.html"
+  - title: 使用信息生命周期管理(ILM)
+    links:
+    - title: 了解ILM生命周期
+      url: "../ilm/how-ilm-operates-throughout-objects-life.html"
+    - title: 管理ILM规则
+      url: "../ilm/what-ilm-rule-is.html"
+    - title: 管理ILM策略
+      url: "../ilm/creating-ilm-policy.html"
+    - title: ILM示例
+      url: "../ilm/example-1-ilm-rules-and-policy-for-object-storage.html"
+  - title: 保护您的系统
+    links:
+    - title: 为什么系统强化至关重要
+      url: "../harden/index.html"
+    - title: 查看加密方法
+      url: "../admin/reviewing-storagegrid-encryption-methods.html"
+    - title: 管理安全证书
+      url: "../admin/using-storagegrid-security-certificates.html"
+    - title: 管理TLS和SSH策略
+      url: "../admin/manage-tls-ssh-policy.html"

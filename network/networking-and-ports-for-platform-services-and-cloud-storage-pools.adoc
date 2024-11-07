@@ -1,0 +1,52 @@
+---
+permalink: network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: networking for platform services, networking for cloud storage pools 
+summary: 如果您计划使用 StorageGRID 平台服务或云存储池，则必须配置网格网络和防火墙以确保可以访问目标端点。 
+---
+= 用于平台服务和云存储池的网络和端口
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您计划使用 StorageGRID 平台服务或云存储池，则必须配置网格网络和防火墙以确保可以访问目标端点。
+
+
+
+== 平台服务的网络连接
+
+如和中所述link:../admin/manage-platform-services-for-tenants.html["管理租户的平台服务"]link:../tenant/considerations-for-platform-services.html["管理平台服务"]，平台服务包括提供搜索集成、事件通知和CloudMirror复制的外部服务。
+
+平台服务需要从托管 StorageGRID ADA 服务的存储节点访问外部服务端点。提供访问权限的示例包括：
+
+* 在具有 ADE 服务的存储节点上，使用路由到目标端点的 AESL 条目配置唯一管理网络。
+* 依靠客户端网络提供的默认路由。如果使用默认路由、则可以使用link:../admin/manage-firewall-controls.html["不可信客户端网络功能"]限制入站连接。
+
+
+
+
+== 云存储池网络连接
+
+云存储池还需要从存储节点访问所使用的外部服务提供的端点，例如 Amazon S3 Glacier 或 Microsoft Azure Blob 存储。有关信息，请参见 link:../ilm/what-cloud-storage-pool-is.html["什么是云存储池"]。
+
+
+
+== 用于平台服务和云存储池的端口
+
+默认情况下，平台服务和云存储池通信使用以下端口：
+
+* *80*:以开头的端点URIs `http`
+* *443*：用于以开头的端点URI `https`
+
+
+创建或编辑端点时，可以指定其他端口。请参阅。 link:internal-grid-node-communications.html["网络端口参考"]
+
+如果使用非透明代理服务器、则还必须link:../admin/configuring-storage-proxy-settings.html["配置存储代理设置"]允许将消息发送到外部端点、例如Internet上的端点。
+
+
+
+== VLAN 和平台服务以及云存储池
+
+您不能将VLAN网络用于平台服务或云存储池。目标端点必须可通过网格，管理员或客户端网络访问。

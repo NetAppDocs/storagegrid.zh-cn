@@ -1,0 +1,31 @@
+---
+permalink: monitor/manually-triggering-autosupport-message.html 
+sidebar: sidebar 
+keywords: autosupport, triggering autosupport, manually triggering autosupport, autosupport triggers 
+summary: 要帮助技术支持解决StorageGRID系统的问题、您可以手动触发要发送的AutoSupport软件包。 
+---
+= 手动触发AutoSupport软件包
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要帮助技术支持解决StorageGRID系统的问题、您可以手动触发要发送的AutoSupport软件包。
+
+.开始之前
+* 您必须使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您必须具有root访问权限或其他网格配置权限。
+
+
+.步骤
+. 选择 * 支持 * > * 工具 * > * AutoSupport * 。
+. 在*操作*选项卡上，选择*发送用户触发的AutoSupport *。
++
+StorageGRID尝试向NetApp 支持站点 发送AutoSupport软件包。如果尝试成功，则会更新 * 结果 * 选项卡上的 * 最新结果 * 和 * 最后成功时间 * 值。如果出现问题，“最新结果”值将更新为“失败”，并且StorageGRID不会尝试再次发送AutoSupport软件包。
+
++
+
+TIP: 发送用户触发的AutoSupport软件包后、请在1分钟后刷新浏览器中的AutoSupport页面以访问最新结果。
+
+

@@ -1,0 +1,26 @@
+---
+permalink: admin/what-object-segmentation-is.html 
+sidebar: sidebar 
+keywords: object segmentation, multipart upload 
+summary: 对象分段是指将对象拆分为一组大小固定的较小对象的过程、用于优化大型对象的存储和资源使用。S3 多部分上传还会创建分段对象，其中每个部分都有一个对象。 
+---
+= 什么是对象分段？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对象分段是指将对象拆分为一组大小固定的较小对象的过程、用于优化大型对象的存储和资源使用。S3 多部分上传还会创建分段对象，其中每个部分都有一个对象。
+
+将对象载入 StorageGRID 系统后， LDR 服务会将该对象拆分为多个区块，并创建一个区块容器，其中会将所有区块的标题信息列为内容。
+
+image::../media/object_segmentation_diagram.gif[对象细分工作流]
+
+检索分段容器时， LDR 服务会从其分段中汇集原始对象并将该对象返回给客户端。
+
+容器和区块不一定存储在同一个存储节点上。容器和分段可以存储在 ILM 规则中指定的存储池中的任何存储节点上。
+
+StorageGRID 系统会单独处理每个区块，并计入受管对象和存储对象等属性的数量。例如，如果存储在 StorageGRID 系统中的对象拆分为两个区块，则在载入完成后，受管对象的值将增加三个，如下所示：
+
+`segment container + segment 1 + segment 2 = three stored objects`

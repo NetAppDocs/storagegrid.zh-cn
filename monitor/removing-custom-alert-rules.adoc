@@ -1,0 +1,38 @@
+---
+permalink: monitor/removing-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: 如果您不想再使用自定义警报规则，可以将其删除。 
+---
+= 删除自定义警报规则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您不想再使用自定义警报规则，可以将其删除。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["管理警报或root访问权限"]。
+
+
+.步骤
+. 选择 * 警报 * > * 规则 * 。
++
+此时将显示 "Alert Rules" 页面。
+
+. 选择要删除的自定义警报规则对应的单选按钮。
++
+您无法删除默认警报规则。
+
+. 选择 * 删除自定义规则 * 。
++
+此时将显示确认对话框。
+
+. 选择 * 确定 * 以删除警报规则。
++
+任何处于活动状态的警报实例将在 10 分钟内得到解决。
+
+

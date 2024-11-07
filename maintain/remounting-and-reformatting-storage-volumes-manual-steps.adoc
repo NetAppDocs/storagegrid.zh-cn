@@ -1,0 +1,260 @@
+---
+permalink: maintain/remounting-and-reformatting-storage-volumes-manual-steps.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance storage volume, appliance volume, remount manually, reformat manually 
+summary: 要重新挂载保留的存储卷并重新格式化任何故障存储卷，您必须手动运行两个脚本。第一个脚本将重新挂载格式正确的卷，使其格式化为 StorageGRID 存储卷。第二个脚本将重新格式化所有已卸载的卷，根据需要重新构建 Cassandra 并启动服务。 
+---
+= 重新挂载和重新格式化存储卷(手动步骤)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要重新挂载保留的存储卷并重新格式化任何故障存储卷，您必须手动运行两个脚本。第一个脚本将重新挂载格式正确的卷，使其格式化为 StorageGRID 存储卷。第二个脚本将重新格式化所有已卸载的卷，根据需要重新构建 Cassandra 并启动服务。
+
+.开始之前
+* 您已更换已知需要更换的任何故障存储卷的硬件。
++
+运行此 `sn-remount-volumes`脚本可能有助于确定其他故障存储卷。
+
+* 您已检查是否未在执行存储节点停用，或者已暂停节点停用操作步骤 。（在网格管理器中，选择 * 维护 * > * 任务 * > * 取消配置 * 。）
+* 您已检查扩展是否未在进行中。（在网格管理器中，选择 * 维护 * > * 任务 * > * 扩展 * 。）
+* 您拥有 link:reviewing-warnings-for-system-drive-recovery.html["已查看有关存储节点系统驱动器恢复的警告"]。
++
+
+CAUTION: 如果多个存储节点脱机或此网格中的存储节点在过去 15 天内已重建，请联系技术支持。请勿运行此 `sn-recovery-postinstall.sh`脚本。在两个或多个存储节点上相互重建 Cassandra 的 15 天内可能会导致数据丢失。
+
+
+
+.关于此任务
+要完成此操作步骤 ，请执行以下高级任务：
+
+* 登录到已恢复的存储节点。
+* 运行 `sn-remount-volumes`脚本以重新挂载格式正确的存储卷。运行此脚本时，它将执行以下操作：
++
+** 挂载和卸载每个存储卷以重放 XFS 日志。
+** 执行 XFS 文件一致性检查。
+** 如果文件系统一致，则确定存储卷是否为格式正确的 StorageGRID 存储卷。
+** 如果存储卷格式正确，请重新挂载该存储卷。卷上的所有现有数据保持不变。
+
+
+* 查看脚本输出并解决任何问题。
+* 运行 `sn-recovery-postinstall.sh`脚本。运行此脚本时，它将执行以下操作。
++
+
+CAUTION: 在运行以重新格式化故障存储卷和还原对象元数据之前、请勿在恢复期间重新启动存储节点 `sn-recovery-postinstall.sh`。在完成之前重新启动存储节点 `sn-recovery-postinstall.sh`会导致尝试启动的服务出现错误、并导致StorageGRID设备节点退出维护模式。请参阅的步骤<<post-install-script-step,安装后脚本>>。
+
++
+** 重新格式化脚本无法挂载或发现格式不正确的任何存储卷 `sn-remount-volumes`。
++
+
+NOTE: 如果重新格式化某个存储卷，则该卷上的所有数据都将丢失。假设已将 ILM 规则配置为存储多个对象副本，则必须执行额外的操作步骤 以从网格中的其他位置还原对象数据。
+
+** 如果需要，在节点上重建 Cassandra 数据库。
+** 启动存储节点上的服务。
+
+
+
+
+.步骤
+. 登录到已恢复的存储节点：
++
+.. 输入以下命令： `ssh admin@_grid_node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+. 运行第一个脚本重新挂载任何格式正确的存储卷。
++
+
+NOTE: 如果所有存储卷都是新的，需要进行格式化，或者所有存储卷都出现故障，您可以跳过此步骤并运行第二个脚本，重新格式化所有已卸载的存储卷。
+
++
+.. 运行脚本： `sn-remount-volumes`
++
+此脚本可能需要数小时才能在包含数据的存储卷上运行。
+
+.. 在脚本运行期间，查看输出并问题解答 任何提示。
++
+
+NOTE: 根据需要，您可以使用 `tail -f`命令监控脚本日志文件的内容(`/var/local/log/sn-remount-volumes.log`)。日志文件包含比命令行输出更详细的信息。
+
++
+[listing]
+----
+root@SG:~ # sn-remount-volumes
+The configured LDR noid is 12632740
+
+====== Device /dev/sdb ======
+Mount and unmount device /dev/sdb and checking file system consistency:
+The device is consistent.
+Check rangedb structure on device /dev/sdb:
+Mount device /dev/sdb to /tmp/sdb-654321 with rangedb mount options
+This device has all rangedb directories.
+Found LDR node id 12632740, volume number 0 in the volID file
+Attempting to remount /dev/sdb
+Device /dev/sdb remounted successfully
+
+====== Device /dev/sdc ======
+Mount and unmount device /dev/sdc and checking file system consistency:
+Error: File system consistency check retry failed on device /dev/sdc.
+You can see the diagnosis information in the /var/local/log/sn-remount-volumes.log.
+
+This volume could be new or damaged. If you run sn-recovery-postinstall.sh,
+this volume and any data on this volume will be deleted. If you only had two
+copies of object data, you will temporarily have only a single copy.
+StorageGRID will attempt to restore data redundancy by making
+additional replicated copies or EC fragments, according to the rules in
+the active ILM policies.
+
+Don't continue to the next step if you believe that the data remaining on
+this volume can't be rebuilt from elsewhere in the grid (for example, if
+your ILM policy uses a rule that makes only one copy or if volumes have
+failed on multiple nodes). Instead, contact support to determine how to
+recover your data.
+
+====== Device /dev/sdd ======
+Mount and unmount device /dev/sdd and checking file system consistency:
+Failed to mount device /dev/sdd
+This device could be an uninitialized disk or has corrupted superblock.
+File system check might take a long time. Do you want to continue? (y or n) [y/N]? y
+
+Error: File system consistency check retry failed on device /dev/sdd.
+You can see the diagnosis information in the /var/local/log/sn-remount-volumes.log.
+
+This volume could be new or damaged. If you run sn-recovery-postinstall.sh,
+this volume and any data on this volume will be deleted. If you only had two
+copies of object data, you will temporarily have only a single copy.
+StorageGRID will attempt to restore data redundancy by making
+additional replicated copies or EC fragments, according to the rules in
+the active ILM policies.
+
+Don't continue to the next step if you believe that the data remaining on
+this volume can't be rebuilt from elsewhere in the grid (for example, if
+your ILM policy uses a rule that makes only one copy or if volumes have
+failed on multiple nodes). Instead, contact support to determine how to
+recover your data.
+
+====== Device /dev/sde ======
+Mount and unmount device /dev/sde and checking file system consistency:
+The device is consistent.
+Check rangedb structure on device /dev/sde:
+Mount device /dev/sde to /tmp/sde-654321 with rangedb mount options
+This device has all rangedb directories.
+Found LDR node id 12000078, volume number 9 in the volID file
+Error: This volume does not belong to this node. Fix the attached volume and re-run this script.
+----
++
+在示例输出中，一个存储卷已成功重新挂载，三个存储卷出现错误。
+
++
+*** `/dev/sdb`已通过XFS文件系统一致性检查并具有有效的卷结构、因此已成功重新挂载。此脚本重新挂载的设备上的数据将保留下来。
+*** `/dev/sdc`未通过XFS文件系统一致性检查、因为存储卷是新的或已损坏。
+*** `/dev/sdd`无法挂载、因为磁盘未初始化或磁盘的超块已损坏。当脚本无法挂载存储卷时、它会询问您是否要运行文件系统一致性检查。
++
+**** 如果存储卷已连接到新磁盘，请将 * N * 问题解答 到提示符处。您不需要检查新磁盘上的文件系统。
+**** 如果存储卷已连接到现有磁盘，问题解答 请将 * 。 *您可以使用文件系统检查的结果来确定损坏的来源。结果将保存在日志文件中 `/var/local/log/sn-remount-volumes.log`。
+
+
+*** `/dev/sde`已通过XFS文件系统一致性检查并具有有效的卷结构；但是、volID文件中的LDR节点ID与此存储节点的ID不匹配( `configured LDR noid`显示在顶部)。此消息表示此卷属于另一个存储节点。
+
+
+
+
+. 查看脚本输出并解决任何问题。
++
+
+CAUTION: 如果存储卷未通过 XFS 文件系统一致性检查或无法挂载，请仔细查看输出中的错误消息。您必须了解在这些卷上运行此脚本的含义 `sn-recovery-postinstall.sh`。
+
++
+.. 检查以确保结果中包含所需所有卷的条目。如果未列出任何卷、请重新运行此脚本。
+.. 查看所有已挂载设备的消息。确保没有指示存储卷不属于此存储节点的错误。
++
+在此示例中、的输出 `/dev/sde`包括以下错误消息：
+
++
+[listing]
+----
+Error: This volume does not belong to this node. Fix the attached volume and re-run this script.
+----
++
+
+CAUTION: 如果报告某个存储卷属于另一个存储节点，请联系技术支持。如果运行此 `sn-recovery-postinstall.sh`脚本、则存储卷将被重新格式化、从而可能导致数据丢失。
+
+.. 如果无法挂载任何存储设备，请记下此设备的名称，然后修复或更换此设备。
++
+
+NOTE: 您必须修复或更换任何无法挂载的存储设备。
+
++
+您将使用设备名称查找卷ID、在运行脚本将对象数据还原到卷时需要输入此ID `repair-data` (下一过程)。
+
+.. 修复或更换所有无法挂载的设备后、再次运行 `sn-remount-volumes`脚本、以确认可以重新挂载的所有存储卷均已重新挂载。
++
+
+CAUTION: 如果某个存储卷无法挂载或格式不正确、则在继续下一步后、该卷以及该卷上的任何数据将被删除。如果对象数据有两个副本，则只有一个副本，直到完成下一个操作步骤 （还原对象数据）为止。
+
+
+
++
+
+CAUTION: 如果您认为无法从网格中的其他位置重建故障存储卷上剩余的数据(例如、如果您的ILM策略使用的规则仅创建一个副本、或者卷在多个节点上发生故障)、请勿运行此 `sn-recovery-postinstall.sh`脚本。请联系技术支持以确定如何恢复数据。
+
+. 运行 `sn-recovery-postinstall.sh`脚本： `sn-recovery-postinstall.sh`
++
+此脚本将重新格式化无法挂载或格式不正确的任何存储卷；根据需要在节点上重建 Cassandra 数据库；并启动存储节点上的服务。
+
++
+请注意以下事项：
+
++
+** 此脚本可能需要数小时才能运行。
+** 通常，在脚本运行期间，您应单独保留 SSH 会话。
+** 在SSH会话处于活动状态时，请勿按*Ctrl+C*。
+** 如果发生网络中断并终止 SSH 会话，则此脚本将在后台运行，但您可以从 " 恢复 " 页面查看进度。
+** 如果存储节点使用 RSM 服务，则随着节点服务重新启动，脚本可能会暂停 5 分钟。每当 RSM 服务首次启动时，预计会有 5 分钟的延迟。
+
+
++
+
+NOTE: RSM 服务位于包含此 ADC 服务的存储节点上。
+
++
+
+NOTE: 某些 StorageGRID 恢复过程使用 Reaper 处理 Cassandra 修复。一旦相关服务或所需服务开始，便会自动进行修复。您可能会注意到脚本输出中提到"reaper"或"cassandr修复"。如果您看到指示修复失败的错误消息、请运行错误消息中指示的命令。
+
+. [[post-install-script-step ]]在脚本运行时 `sn-recovery-postinstall.sh`、监控网格管理器中的"RecRecovery (恢复)"页面。
++
+恢复页面上的进度栏和阶段列提供了该脚本的简要状态 `sn-recovery-postinstall.sh`。
+
++
+image::../media/recovering_cassandra.png[显示网格管理界面中的恢复进度的屏幕截图]
+
+. 脚本在节点上启动服务后 `sn-recovery-postinstall.sh`、您可以将对象数据还原到由脚本格式化的任何存储卷。
++
+该脚本会询问您是否要使用Grid Manager卷还原过程。
+
++
+** 在大多数情况下，您应该link:../maintain/restoring-volume.html["使用网格管理器还原对象数据"]。使用网格管理器的答案 `y`。
+** 在极少数情况下、例如在技术支持的指导下、或者您知道替代节点可用于对象存储的卷比原始节点少时、您必须link:restoring-object-data-to-storage-volume.html["手动还原对象数据"]使用此 `repair-data`脚本。如果其中一种情况适用，请回答 `n`。
++
+[NOTE]
+====
+如果您回答 `n`使用Grid Manager卷还原过程(手动还原对象数据)：
+
+*** 您无法使用网格管理器还原对象数据。
+*** 您可以使用网格管理器监控手动还原作业的进度。
+
+
+====
++
+选择后、该脚本将完成、并显示恢复对象数据的后续步骤。查看这些步骤后、按任意键返回到命令行。
+
+
+
+

@@ -1,0 +1,27 @@
+---
+permalink: network/client-network-topology.html 
+sidebar: sidebar 
+keywords: client network topology 
+summary: '可以选择使用客户端网络。使用客户端网络可以将客户端网络流量(例如S3\)与网格内部流量分隔开、从而提高网格网络的安全性。如果未配置管理网络，则可通过客户端网络或网格网络处理管理流量。' 
+---
+= 客户端网络拓扑
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+可以选择使用客户端网络。使用客户端网络可以将客户端网络流量(例如S3)与网格内部流量分隔开、从而提高网格网络的安全性。如果未配置管理网络，则可通过客户端网络或网格网络处理管理流量。
+
+配置客户端网络时，您需要为所配置节点的 eth2 接口建立主机 IP 地址，子网掩码和网关 IP 地址。每个节点的客户端网络可以独立于任何其他节点上的客户端网络。
+
+如果在安装期间为节点配置客户端网络，则在安装完成后，节点的默认网关将从网格网络网关切换到客户端网络网关。如果稍后添加客户端网络，则节点的默认网关将以相同方式进行切换。
+
+在此示例中、客户端网络用于S3客户端请求和管理功能、而网格网络专用于内部对象管理操作。
+
+image::../media/grid_client_networks.png[网格客户端网络]
+
+image::../media/grid_client_networks_ips.png[网格客户端网络 IP]
+
+.相关信息
+link:../maintain/changing-nodes-network-configuration.html["更改节点网络配置"]

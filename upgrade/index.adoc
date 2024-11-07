@@ -1,0 +1,28 @@
+---
+permalink: upgrade/index.html 
+sidebar: sidebar 
+keywords: storagegrid software upgrade 
+summary: 按照以下说明将 StorageGRID 系统升级到新版本。 
+---
+= 升级 StorageGRID 软件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+按照以下说明将 StorageGRID 系统升级到新版本。
+
+执行升级时、StorageGRID系统中的所有节点都会升级。
+
+
+
+== 开始之前
+
+查看这些主题、了解StorageGRID 11.9中的新增功能和增强功能、确定是否已弃用或删除任何功能、以及了解StorageGRID API的变更。
+
+* link:whats-new.html["StorageGRID 11.9."]
+* link:removed-or-deprecated-features.html["已删除或已弃用的功能"]
+* link:changes-to-grid-management-api.html["对网格管理 API 进行的更改"]
+* link:changes-to-tenant-management-api.html["对租户管理 API 进行的更改"]
+

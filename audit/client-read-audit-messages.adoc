@@ -1,0 +1,76 @@
+---
+permalink: audit/client-read-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3, swift 
+summary: 当S3客户端应用程序请求检索对象时、系统会记录客户端读取审核消息。 
+---
+= 客户端读取审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当S3客户端应用程序请求检索对象时、系统会记录客户端读取审核消息。
+
+[cols="1a,3a,1a,1a"]
+|===
+| 代码 | 说明 | 使用人 | 请参见 
+
+
+ a| 
+S3SL
+ a| 
+S3 Select请求：在S3 Select请求返回到客户端后记录完成。S3SL消息可以包括错误消息和错误代码详细信息。此请求可能未成功。
+ a| 
+S3 客户端
+ a| 
+link:s3-select-request.html["S3SL：S3选择请求"]
+
+
+
+ a| 
+SGET
+ a| 
+S3 GET ：记录成功的事务以检索对象或列出存储分段中的对象。
+
+* 注： * 如果事务对子资源执行操作，则审核消息将包含字段 S3SR 。
+ a| 
+S3 客户端
+ a| 
+link:sget-s3-get.html["SGET ： S3 GET"]
+
+
+
+ a| 
+Shea
+ a| 
+S3 head ：记录成功的事务以检查是否存在对象或存储分段。
+ a| 
+S3 客户端
+ a| 
+link:shea-s3-head.html["Shea ： S3 机头"]
+
+
+
+ a| 
+wget
+ a| 
+Swift get ：记录成功的事务以检索对象或列出容器中的对象。
+ a| 
+Swift 客户端
+ a| 
+link:wget-swift-get.html["WGET ： Swift GET"]
+
+
+
+ a| 
+WHEA
+ a| 
+Swift head ：记录成功的事务以检查是否存在对象或容器。
+ a| 
+Swift 客户端
+ a| 
+link:whea-swift-head.html["WHEA ： Swift head"]
+
+|===

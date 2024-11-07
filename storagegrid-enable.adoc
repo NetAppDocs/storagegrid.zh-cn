@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: storagegrid-enable.html 
+keywords: storagegrid, how to enable, third-party solutions, tools, applications, examples 
+summary: 了解如何在StorageGRID 环境中测试和启用应用程序。 
+---
+= 如何在您的环境中启用StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+请访问 https://docs.netapp.com/us-en/storagegrid-enable/index.html["如何启用StorageGRID"^]、了解如何在StorageGRID环境中测试和启用应用程序。

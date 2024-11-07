@@ -1,0 +1,58 @@
+---
+permalink: tenant/deleting-s3-bucket.html 
+sidebar: sidebar 
+keywords: how to delete S3 bucket 
+summary: 您可以使用租户管理器删除空的 S3 存储分段。 
+---
+= 删除 S3 存储分段
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用租户管理器删除一个或多个空的 S3 分段。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有的用户组link:tenant-management-permissions.html["管理所有分段或root访问权限"]。这些权限将覆盖组或存储分段策略中的权限设置。
+* 要删除的存储分段为空。如果要删除的分段为_NOT _空，link:../tenant/deleting-s3-bucket-objects.html["从存储分段中删除对象"]。
+
+
+.关于此任务
+以下说明介绍如何使用租户管理器删除 S3 存储分段。您也可以使用或删除S3存储分段link:understanding-tenant-management-api.html["租户管理 API"]link:../s3/operations-on-buckets.html["S3 REST API"]。
+
+如果S3存储分段包含对象、非当前对象版本或删除标记、则不能将其删除。有关如何删除S3版本控制对象的信息，请参见link:../ilm/how-objects-are-deleted.html["如何删除对象"]。
+
+.步骤
+. 从信息板中选择*查看存储分段*，或选择*存储(S3)*>*存储分段*。
++
+此时将显示 " 分段 " 页面，其中会显示所有现有的 S3 分段。
+
+. 使用*操作*菜单或特定存储分段的详细信息页面。
++
+[role="tabbed-block"]
+====
+.操作菜单
+--
+.. 选中要删除的每个存储分段对应的复选框。
+.. 选择*Actions*>*Delete Buc分 段*。
+
+
+--
+.详细信息页面
+--
+.. 选择存储分段名称以显示其详细信息。
+.. 选择*删除存储分段*。
+
+
+--
+====
+. 出现确认对话框时，选择*Yes*。
++
+StorageGRID 会确认每个存储分段均为空，然后删除每个存储分段。此操作可能需要几分钟时间。
+
++
+如果存储分段不为空，则会显示一条错误消息。必须link:../tenant/deleting-s3-bucket-objects.html["删除存储分段中的所有对象和任何删除标记"]先删除存储分段。
+
+

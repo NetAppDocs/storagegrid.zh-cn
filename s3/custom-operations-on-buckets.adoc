@@ -1,0 +1,98 @@
+---
+permalink: s3/custom-operations-on-buckets.html 
+sidebar: sidebar 
+keywords: operations, buckets, custom, storagegrid bucket operations 
+summary: StorageGRID系统支持添加到S3 REST API中的自定义操作。 
+---
+= StorageGRID自定义操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID系统支持添加到S3 REST API中的自定义操作。
+
+下表列出了StorageGRID支持的自定义操作。
+
+[cols="1a,2a"]
+|===
+| 操作 | 说明 
+
+
+ a| 
+link:get-bucket-consistency-request.html["获取存储分段一致性"]
+ a| 
+返回应用于特定存储分段的一致性。
+
+
+
+ a| 
+link:put-bucket-consistency-request.html["PUT 存储分段一致性"]
+ a| 
+设置应用于特定存储分段的一致性。
+
+
+
+ a| 
+link:get-bucket-last-access-time-request.html["获取存储分段上次访问时间"]
+ a| 
+返回为特定存储分段启用还是禁用上次访问时间更新。
+
+
+
+ a| 
+link:put-bucket-last-access-time-request.html["PUT 分段上次访问时间"]
+ a| 
+用于启用或禁用特定存储分段的上次访问时间更新。
+
+
+
+ a| 
+link:delete-bucket-metadata-notification-configuration-request.html["删除存储分段元数据通知配置"]
+ a| 
+删除与特定存储分段关联的元数据通知配置 XML 。
+
+
+
+ a| 
+link:get-bucket-metadata-notification-configuration-request.html["获取存储分段元数据通知配置"]
+ a| 
+返回与特定存储分段关联的元数据通知配置 XML 。
+
+
+
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["PUT 存储分段元数据通知配置"]
+ a| 
+配置存储分段的元数据通知服务。
+
+
+
+ a| 
+link:get-storage-usage-request.html["获取存储使用量"]
+ a| 
+告诉您某个帐户以及与该帐户关联的每个存储分段使用的总存储量。
+
+
+
+ a| 
+link:deprecated-put-bucket-request-modifications-for-compliance.html["已弃用：具有合规性设置的CreateBucket"]
+ a| 
+已弃用且不支持：您无法再在启用合规性的情况下创建新存储分段。
+
+
+
+ a| 
+link:deprecated-get-bucket-compliance-request.html["已弃用：GET分段合规性"]
+ a| 
+已弃用但受支持：返回当前对现有旧版合规存储分段有效的合规性设置。
+
+
+
+ a| 
+link:deprecated-put-bucket-compliance-request.html["已弃用：Put Bucket"]
+ a| 
+已弃用但受支持：允许您修改现有旧版合规存储分段的合规性设置。
+
+|===

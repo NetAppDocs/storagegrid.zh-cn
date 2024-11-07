@@ -1,0 +1,60 @@
+---
+permalink: upgrade/checking-systems-condition-before-upgrading-software.html 
+sidebar: sidebar 
+keywords: upgrade, grid tasks, firewall, ports 
+summary: 在升级StorageGRID系统之前、请确认系统已准备好进行升级。确保系统正常运行、并且所有网格节点均正常运行。 
+---
+= 检查系统的状况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在升级StorageGRID系统之前、请确认系统已准备好进行升级。确保系统正常运行、并且所有网格节点均正常运行。
+
+.步骤
+. 使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+. 检查并解决所有活动警报。
+. 确认没有处于活动状态或待定状态的存在冲突的网格任务。
++
+.. 选择 * 支持 * > * 工具 * > * 网格拓扑 * 。
+.. 选择 * 站点 _* > * 主管理节点 _* > * CMN* > * 网格任务 * > * 配置 * 。
++
+信息生命周期管理评估（ ILME ）任务是唯一可与软件升级同时运行的网格任务。
+
+.. 如果任何其他网格任务处于活动状态或处于待定状态，请等待其完成或释放锁定。
++
+
+NOTE: 如果任务未完成或未解除锁定，请联系技术支持。
+
+
+
+. 请参阅link:../network/internal-grid-node-communications.html["内部网格节点通信"]和link:../network/external-communications.html["外部通信"]、以确保在升级之前已打开StorageGRID来说所有必需的端口。
++
+
+NOTE: 升级到StorageGRID 11.9.
+
++
+在StorageGRID 11.7中添加了以下必需端口。请确保在升级到StorageGRID 11.9.
+
++
+[cols="1a,2a"]
+|===
+| 端口 | 说明 
+
+
+ a| 
+18086
+ a| 
+用于从StorageGRID负载平衡器到LDR和新LDR服务的S3请求的TCP端口。
+
+在升级之前、请确认此端口已从所有网格节点打开到所有存储节点。
+
+升级到StorageGRID 11.9.后、阻止此端口将导致发生原因S3服务中断。
+
+|===
+
+
+
+CAUTION: 如果您已打开任何自定义防火墙端口，则在升级预检期间会收到通知。在继续升级之前，您必须联系技术支持。

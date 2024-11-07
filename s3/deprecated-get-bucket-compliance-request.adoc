@@ -1,0 +1,95 @@
+---
+permalink: s3/deprecated-get-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated GET compliance requests 
+summary: 获取存储分段合规性请求已弃用。但是，您可以继续使用此请求来确定当前对现有旧版合规存储分段有效的合规性设置。 
+---
+= 已弃用：获取存储分段合规性请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+获取存储分段合规性请求已弃用。但是，您可以继续使用此请求来确定当前对现有旧版合规存储分段有效的合规性设置。
+
+[NOTE]
+====
+先前 StorageGRID 版本中提供的 StorageGRID 合规性功能已弃用，并已被 S3 对象锁定取代。有关详细信息、请参见以下内容：
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 知识库：如何在 StorageGRID 11.5 中管理原有的合规存储分段"^]
+
+
+====
+要完成此操作、您必须具有S3：GetBucketCompliance权限或帐户root。
+
+
+
+== 请求示例
+
+通过此示例请求，您可以确定名为的分段的合规性设置 `mybucket`。
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 响应示例
+
+在响应XML中、 `<SGCompliance>`列出了对分段有效的合规性设置。此示例响应显示了一个存储分段的合规性设置，从将对象载入网格开始，每个对象将保留一年（ 525600 分钟）。此存储分段当前没有法律上的保留。每个对象将在一年后自动删除。
+
+[listing, subs="specialcharacters,quotes"]
+----
+HTTP/1.1 200 OK
+Date: _date_
+Connection: _connection_
+Server: StorageGRID/11.1.0
+x-amz-request-id: _request ID_
+Content-Length: _length_
+Content-Type: application/xml
+
+<SGCompliance>
+  <RetentionPeriodMinutes>525600</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| 名称 | 说明 
+
+
+ a| 
+RetentionPeriodMinutes
+ a| 
+添加到此存储分段的对象的保留期限长度，以分钟为单位。保留期限从将对象载入网格时开始。
+
+
+
+ a| 
+乐高积木
+ a| 
+* true ：此存储分段当前处于合法保留状态。在解除合法保留之前、无法删除此存储分段中的对象、即使其保留期限已到期也是如此。
+* false ：此存储分段当前未处于合法保留状态。此存储分段中的对象可以在保留期限到期时删除。
+
+
+
+
+ a| 
+自动删除
+ a| 
+* true ：此存储分段中的对象将在保留期限到期时自动删除，除非此存储分段处于合法保留状态。
+* false ：保留期限到期后，不会自动删除此存储分段中的对象。如果需要删除这些对象，必须手动将其删除。
+
+
+|===
+
+
+== 错误响应
+
+如果创建的存储分段不符合要求，则响应的HTTP状态代码为，其中S3错误代码 `XNoSuchBucketCompliance`为 `404 Not Found`。

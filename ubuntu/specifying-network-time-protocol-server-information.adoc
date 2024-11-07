@@ -1,0 +1,45 @@
+---
+permalink: ubuntu/specifying-network-time-protocol-server-information.html 
+sidebar: sidebar 
+keywords: how to specify Network Time Protocol server information 
+summary: 您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。 
+---
+= 指定网络时间协议服务器信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。
+
+.关于此任务
+您必须为 NTP 服务器指定 IPv4 地址。
+
+您必须指定外部 NTP 服务器。指定的 NTP 服务器必须使用 NTP 协议。
+
+您必须指定四个引用 Stratum 3 或更高配置的 NTP 服务器，以防止出现时间偏差问题。
+
+[NOTE]
+====
+为生产级StorageGRID 安装指定外部NTP源时、请勿在早于Windows Server 2016的Windows版本上使用Windows时间(W32Time)服务。早期版本的 Windows 上的时间服务不够准确， Microsoft 不支持在 StorageGRID 等高精度环境中使用。
+
+https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["支持边界，用于为高精度环境配置 Windows 时间服务"^]
+
+====
+外部 NTP 服务器由先前分配了主 NTP 角色的节点使用。
+
+
+CAUTION: 确保每个站点至少有两个节点可以访问至少四个外部 NTP 源。如果一个站点上只有一个节点可以访问 NTP 源，则在该节点关闭时会发生计时问题。此外，指定每个站点两个节点作为主要 NTP 源可确保在站点与网格其余部分隔离时的时间准确无误。
+
+.步骤
+. 在 * 服务器 1* 到 * 服务器 4* 文本框中指定至少四个 NTP 服务器的 IPv4 地址。
+. 如有必要，请选择最后一个条目旁边的加号以添加其他服务器条目。
++
+image::../media/8_gmi_installer_ntp_page.gif[此图通过周围文字进行了说明。]
+
+. 选择 * 下一步 * 。
+
+
+.相关信息
+link:../network/index.html["网络连接准则"]

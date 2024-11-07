@@ -1,0 +1,94 @@
+---
+permalink: admin/kms-overview-of-kms-and-appliance-configuration.html 
+sidebar: sidebar 
+keywords: kms, appliance configuration, node encryption 
+summary: 在使用密钥管理服务器 \ （ KMS\ ）保护设备节点上的 StorageGRID 数据安全之前，您必须完成两项配置任务：设置一个或多个 KMS 服务器以及为设备节点启用节点加密。完成这两项配置任务后，密钥管理过程将自动进行。 
+---
+= Kms和设备配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用密钥管理服务器（ KMS ）保护设备节点上的 StorageGRID 数据之前，必须完成两项配置任务：设置一个或多个 KMS 服务器以及为设备节点启用节点加密。完成这两项配置任务后，密钥管理过程将自动进行。
+
+此流程图显示了使用 KMS 在设备节点上保护 StorageGRID 数据的高级步骤。
+
+image::../media/kms_configuration_overview.png[Kms配置工作流、将在以下文本中进行介绍]
+
+流程图显示了 KMS 设置和设备设置并行进行；但是，您可以根据需要在为新设备节点启用节点加密之前或之后设置密钥管理服务器。
+
+
+
+== 设置密钥管理服务器（ KMS ）
+
+设置密钥管理服务器包括以下高级步骤。
+
+[cols="1a,1a"]
+|===
+| 步骤 | 请参见 
+
+
+ a| 
+访问 KMS 软件，并向每个 KMS 或 KMS 集群添加一个 StorageGRID 客户端。
+ a| 
+link:kms-configuring-storagegrid-as-client.html["在 KMS 中将 StorageGRID 配置为客户端"]
+
+
+
+ a| 
+在 KMS 上获取 StorageGRID 客户端所需的信息。
+ a| 
+link:kms-configuring-storagegrid-as-client.html["在 KMS 中将 StorageGRID 配置为客户端"]
+
+
+
+ a| 
+将 KMS 添加到网格管理器中，将其分配到一个站点或一组默认站点，上传所需的证书并保存 KMS 配置。
+ a| 
+link:kms-adding.html["添加密钥管理服务器（ KMS ）"]
+
+|===
+
+
+== 设置设备
+
+设置要使用 KMS 的设备节点包括以下高级步骤。
+
+. 在设备安装的硬件配置阶段，使用 StorageGRID 设备安装程序为设备启用 * 节点加密 * 设置。
++
+
+NOTE: 将设备添加到网格后、您无法启用*节点加密*设置、并且无法对未启用节点加密的设备使用外部密钥管理。
+
+. 运行 StorageGRID 设备安装程序。在安装期间，系统会为每个设备卷分配一个随机数据加密密钥（ DEK ），如下所示：
++
+** 这些 DEks 用于对每个卷上的数据进行加密。这些密钥是在设备操作系统中使用Linux统一密钥设置(LUKS)磁盘加密生成的、无法更改。
+** 每个 DEK 都通过主密钥加密密钥（ KEK ）进行加密。初始 KEK 是一个临时密钥，用于对密钥进行加密，直到设备可以连接到 KMS 为止。
+
+
+. 将设备节点添加到 StorageGRID 。
+
+
+有关详细信息、请参见。 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["启用节点加密"^]
+
+
+
+== 密钥管理加密过程（自动发生）
+
+密钥管理加密包括以下高级步骤，这些步骤会自动执行。
+
+. 在网格中安装启用了节点加密的设备时， StorageGRID 会确定包含新节点的站点是否存在 KMS 配置。
++
+** 如果已为站点配置 KMS ，则设备将接收 KMS 配置。
+** 如果尚未为站点配置 KMS ，则设备上的数据将继续由临时 KEK 加密，直到您为站点配置 KMS 且设备收到 KMS 配置为止。
+
+
+. 设备使用 KMS 配置连接到 KMS 并请求加密密钥。
+. KMS 会向设备发送加密密钥。KMS 中的新密钥将取代临时的 KEK ，现在用于对设备卷的 DEK 进行加密和解密。
++
+
+CAUTION: 加密设备节点连接到配置的 KMS 之前存在的任何数据都将使用临时密钥进行加密。但是，在将临时密钥替换为 KMS 加密密钥之前，不应将设备卷视为不受从数据中心删除的保护。
+
+. 如果设备已启动或重新启动，它将重新连接到 KMS 以请求密钥。此密钥保存在易失性内存中、无法经受断电或重新启动的影响。
+

@@ -1,0 +1,127 @@
+---
+permalink: rhel/configuring-docker-storage-volume.html 
+sidebar: sidebar 
+keywords: how to configure container engine storage volume, Docker, Podman 
+summary: 在安装容器引擎（ Docker 或 Podman ）之前，您可能需要格式化存储卷并将其挂载。 
+---
+= 配置容器引擎存储卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在安装容器引擎（ Docker 或 Podman ）之前，您可能需要格式化存储卷并将其挂载。
+
+
+NOTE: 不再支持将Docker用作纯软件部署的容器引擎。在未来版本中、Docker将被另一个容器引擎取代。
+
+.关于此任务
+如果您计划对Docker或Podman存储卷使用本地存储、并且包含Docker和 `/var/lib/containers`Podman的主机分区具有足够的可用空间、则可以跳过这些步骤 `/var/lib/docker`。
+
+
+NOTE: 只有 Red Hat Enterprise Linux （ RHEL ）才支持 Podman 。
+
+.步骤
+. 在容器引擎存储卷上创建文件系统：
++
+[listing]
+----
+sudo mkfs.ext4 container-engine-storage-volume-device
+----
+. 挂载容器引擎存储卷：
++
+** 对于 Docker ：
++
+[listing]
+----
+sudo mkdir -p /var/lib/docker
+sudo mount container-storage-volume-device /var/lib/docker
+----
+** 对于 Podman ：
++
+[listing]
+----
+sudo mkdir -p /var/lib/containers
+sudo mount container-storage-volume-device /var/lib/containers
+----
+
+
+. 将 container-storage-volume-device 的条目添加到 /etc/fstab 中。
++
+此步骤可确保存储卷将在主机重新启动后自动重新挂载。
+
+
+
+
+
+== 安装 Docker
+
+StorageGRID 系统作为一组容器在 Red Hat Enterprise Linux 上运行。如果您已选择使用 Docker 容器引擎，请按照以下步骤安装 Docker 。否则，<<安装 Podman,安装 Podman>>。
+
+.步骤
+. 按照适用于您的 Linux 版本的说明安装 Docker 。
++
+
+NOTE: 如果您的 Linux 分发版不包含 Docker ，您可以从 Docker 网站下载它。
+
+. 运行以下两个命令，确保已启用并启动 Docker ：
++
+[listing]
+----
+sudo systemctl enable docker
+----
++
+[listing]
+----
+sudo systemctl start docker
+----
+. 输入以下命令确认您已安装预期版本的 Docker ：
++
+[listing]
+----
+sudo docker version
+----
++
+客户端和服务器版本必须为1.11.0或更高版本。
+
+
+
+
+
+== 安装 Podman
+
+StorageGRID 系统作为一组容器在 Red Hat Enterprise Linux 上运行。如果您已选择使用 Podman 容器引擎，请按照以下步骤安装 Podman 。否则，<<安装 Docker,安装 Docker>>。
+
+
+NOTE: 只有 Red Hat Enterprise Linux （ RHEL ）才支持 Podman 。
+
+.步骤
+. 按照适用于您的 Linux 版本的说明安装 Podman 和 Podman-Docker 。
++
+
+NOTE: 安装 Podman 时，您还必须安装 Podman-Docker 软件包。
+
+. 输入以下命令，确认您已安装所需的 Podman 和 Podman-Docker 版本：
++
+[listing]
+----
+sudo docker version
+----
++
+
+NOTE: 通过 Podman-Docker 软件包，您可以使用 Docker 命令。
+
++
+客户端和服务器版本必须为3.2.3或更高版本。
+
++
+[listing]
+----
+Version: 3.2.3
+API Version: 3.2.3
+Go Version: go1.15.7
+Built: Tue Jul 27 03:29:39 2021
+OS/Arch: linux/amd64
+----
+

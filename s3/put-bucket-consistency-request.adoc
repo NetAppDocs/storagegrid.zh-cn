@@ -1,0 +1,80 @@
+---
+permalink: s3/put-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket consistency request 
+summary: '通过"放置分段一致性请求"、您可以指定要应用于对分段执行的操作的一致性。' 
+---
+= PUT 存储分段一致性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过"放置分段一致性请求"、您可以指定要应用于对分段执行的操作的一致性。
+
+默认一致性设置为保证新创建的对象在写入后进行读取。
+
+.开始之前
+要完成此操作、您必须具有S3：PutBucketConsistency权限或帐户root。
+
+
+
+== 请求
+
+ `x-ntap-sg-consistency`参数必须包含以下值之一：
+
+[cols="1a,2a"]
+|===
+| 一致性 | 说明 
+
+
+ a| 
+全部
+ a| 
+所有节点都会立即接收数据，否则请求将失败。
+
+
+
+ a| 
+强大的全局功能
+ a| 
+保证所有站点中所有客户端请求的写入后读一致性。
+
+
+
+ a| 
+强大的站点
+ a| 
+保证站点内所有客户端请求的写入后读一致性。
+
+
+
+ a| 
+读后写
+ a| 
+（默认）为新对象提供写入后读一致性，并为对象更新提供最终一致性。提供高可用性和数据保护保证。建议用于大多数情况。
+
+
+
+ a| 
+可用
+ a| 
+为新对象和对象更新提供最终一致性。对于S3存储分段、请仅在需要时使用(例如、对于包含很少读取的日志值的存储分段、或者对于不存在的密钥执行HEAD或GET操作)。S3 FabricPool 存储分段不支持。
+
+|===
+*注意：*通常、应使用"新写入后读取"一致性。如果请求无法正常工作、请尽可能更改应用程序客户端的行为。或者、将客户端配置为为为每个API请求指定一致性。只能在最后一种方法下、在存储分段级别设置一致性。
+
+
+
+== 请求示例
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.相关信息
+link:consistency-controls.html["一致性值"]

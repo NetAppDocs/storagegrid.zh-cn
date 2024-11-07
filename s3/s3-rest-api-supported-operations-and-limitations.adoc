@@ -1,0 +1,71 @@
+---
+permalink: s3/s3-rest-api-supported-operations-and-limitations.html 
+sidebar: sidebar 
+keywords: s3 rest api supported operations, s3 rest api limitations 
+summary: StorageGRID 系统实施简单存储服务 API （ API 版本 2006-03-01 ），支持大多数操作，但有一些限制。在集成 S3 REST API 客户端应用程序时，您需要了解实施详细信息。 
+---
+= S3 REST API实施详细信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 系统实施简单存储服务 API （ API 版本 2006-03-01 ），支持大多数操作，但有一些限制。在集成 S3 REST API 客户端应用程序时，您需要了解实施详细信息。
+
+StorageGRID 系统既支持虚拟托管模式请求，也支持路径模式请求。
+
+
+
+== 日期处理
+
+S3 REST API 的 StorageGRID 实施仅支持有效的 HTTP 日期格式。
+
+对于接受日期值的任何标头， StorageGRID 系统仅支持有效的 HTTP 日期格式。日期的时间部分可以使用格林威治标准时间（ GMT ）格式或通用协调时间（ UTC ）格式指定，并且不存在时区偏移（必须指定 +0000 ）。如果您在请求中包括 `x-amz-date`标题，则它将覆盖在“日期请求”标题中指定的任何值。使用AWS签名版本4时、 `x-amz-date`由于不支持日期标头、因此签名请求中必须存在标头。
+
+
+
+== 通用请求标头
+
+StorageGRID系统支持由定义的通用请求标头 https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Amazon Simple Storage Service API参考：通用请求标头"^]，但有一个例外。
+
+[cols="1a,2a"]
+|===
+| 请求标题 | 实施 
+
+
+ a| 
+Authorization
+ a| 
+完全支持 AWS 签名版本 2
+
+支持 AWS 签名版本 4 ，但以下情况除外：
+
+* 在中提供实际有效负载校验和值时 `x-amz-content-sha256`，该值将被接受而不进行验证，就像为标头提供了该值一样 `UNSIGNED-PAYLOAD`。如果您提供的 `x-amz-content-sha256`标头值表示 `aws-chunked`流式传输(例如、STAVAMMA-AWS4-HMAC-SHA256-payload)、则不会根据区块数据验证区块签名。
+
+
+
+
+ a| 
+X-AMZ-securation-token
+ a| 
+未实施。返回。 `XNotImplemented`
+
+|===
+
+
+== 通用响应标头
+
+StorageGRID 系统支持由 _Simple Storage Service API 参考 _ 定义的所有通用响应标头，但有一个例外。
+
+[cols="1a,2a"]
+|===
+| 响应标头 | 实施 
+
+
+ a| 
+X-AMZ-ID-2
+ a| 
+未使用
+
+|===

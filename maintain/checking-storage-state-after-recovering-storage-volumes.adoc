@@ -1,0 +1,35 @@
+---
+permalink: maintain/checking-storage-state-after-recovering-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume recovery, storage state, storage volume 
+summary: 恢复存储卷后，您必须验证存储节点的所需状态是否设置为联机，并确保每当重新启动存储节点服务器时，此状态默认为联机。 
+---
+= 恢复存储卷后检查存储状态
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+恢复存储卷后，您必须验证存储节点的所需状态是否设置为联机，并确保每当重新启动存储节点服务器时，此状态默认为联机。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 存储节点已恢复，数据恢复已完成。
+
+
+.步骤
+. 选择 * 支持 * > * 工具 * > * 网格拓扑 * 。
+. 检查 * 已恢复存储节点 * > * LDR* > * 存储 * > * 存储状态 - 所需 * 和 * 存储状态 - 当前 * 的值。
++
+这两个属性的值均应为联机。
+
+. 如果 "Storage State" （存储状态）— "Desired " （所需）设置为只读，请完成以下步骤：
++
+.. 单击 * 配置 * 选项卡。
+.. 从 * 存储状态 - 所需 * 下拉列表中，选择 * 联机 * 。
+.. 单击 * 应用更改 * 。
+.. 单击 * 概述 * 选项卡并确认 * 存储状态 - 所需 * 和 * 存储状态 - 当前 * 的值已更新为联机。
+
+
+

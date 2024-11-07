@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-network-tab.html 
+sidebar: sidebar 
+keywords: network tab 
+summary: 网络选项卡显示一个图形，其中显示了通过节点，站点或网格上的所有网络接口接收和发送的网络流量。 
+---
+= 查看网络选项卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+网络选项卡显示一个图形，其中显示了通过节点，站点或网格上的所有网络接口接收和发送的网络流量。
+
+此时将显示所有节点，每个站点和整个网格的网络选项卡。
+
+要显示不同的时间间隔，请选择图表或图形上方的控件之一。您可以显示间隔为 1 小时， 1 天， 1 周或 1 个月的可用信息。您还可以设置自定义间隔，以便指定日期和时间范围。
+
+对于节点，网络接口表提供了有关每个节点的物理网络端口的信息。网络通信表提供了有关每个节点的接收和传输操作以及任何驱动程序报告的故障计数器的详细信息。
+
+image::../media/nodes_page_network_tab.png[节点页面网络选项卡]
+
+.相关信息
+link:monitoring-network-connections-and-performance.html["监控网络连接和性能"]

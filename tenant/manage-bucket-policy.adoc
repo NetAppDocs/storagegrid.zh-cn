@@ -1,0 +1,37 @@
+---
+permalink: tenant/manage-bucket-policy.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: 您可以控制用户对S3存储分段以及该存储分段中的对象的访问。 
+---
+= 管理存储分段策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以控制用户对S3存储分段以及该存储分段中的对象的访问。
+
+.开始之前
+* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您属于具有的用户组link:tenant-management-permissions.html["root访问权限"]。查看所有存储分段和管理所有存储分段权限仅允许查看。
+* 您已确认已满足所需数量的存储节点和站点。如果任何站点中没有两个或更多存储节点、或者某个站点不可用、则可能无法对这些设置进行更改。
+
+
+.步骤
+. 选择*Buckets*，然后选择要管理的存储分段。
+. 在存储分段详细信息页面上、选择*存储分段访问*>*存储分段策略*。
+. 执行以下操作之一：
++
+** 选中*启用策略*复选框以输入存储分段策略。然后输入有效的JSON格式字符串。
++
+每个分段策略的大小限制为20、480字节。
+
+** 通过编辑字符串来修改现有策略。
+** 通过取消选择*Enable policy*来禁用策略。
+
+
+
+
+有关存储分段策略的详细信息(包括语言语法和示例)，请参见link:../s3/example-bucket-policies.html["存储分段策略示例"]。

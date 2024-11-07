@@ -1,0 +1,247 @@
+---
+permalink: s3/put-object.html 
+sidebar: sidebar 
+keywords: object, add object, put, PutObject request 
+summary: 您可以使用S3 PutObject请求将对象添加到分段。 
+---
+= PutObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用S3 PutObject请求将对象添加到分段。
+
+
+
+== 解决冲突
+
+冲突的客户端请求（例如，两个客户端写入同一密钥）将以 " 最新成功 " 为基础进行解决。" 最新赢单 " 评估的时间取决于 StorageGRID 系统何时完成给定请求，而不是 S3 客户端何时开始操作。
+
+
+
+== 对象大小
+
+一个PutObject操作的最大_Recommended_大小为5 GiB (5、368、709、120字节)。如果您的对象大于5 GiB、请改用link:operations-for-multipart-uploads.html["多部分上传"]。
+
+一个PutObject操作的最大_supported_大小为5 TiB (5、497、555、138、880字节)。
+
+
+NOTE: 如果您从StorageGRID 11.5或更早版本升级、则在尝试上传超过5 GiB的对象时、将触发S3 Put Object Size Too Liger警报。如果您全新安装了StorageGRID 11.7或11.7、则在这种情况下不会触发警报。但是、为了符合AWS S3标准、未来版本的StorageGRID不支持上传超过5 GiB的对象。
+
+
+
+== 用户元数据大小
+
+Amazon S3 将每个 PUT 请求标头中用户定义的元数据的大小限制为 2 KB 。StorageGRID 将用户元数据限制为 24 KiB 。用户定义的元数据的大小是通过采用 UTF-8 编码的每个键和值的字节数之和来衡量的。
+
+
+
+== 用户元数据中的 UTF-8 字符
+
+如果某个请求在用户定义的元数据的密钥名称或值中包含（未转义） UTF-8 值，则会未定义 StorageGRID 行为。
+
+StorageGRID 不会解析或解释用户定义的元数据的密钥名称或值中包含的转义 UTF-8 字符。转义的 UTF-8 字符被视为 ASCII 字符：
+
+* 如果用户定义的元数据包含转义的UTF-8字符、则PutObject、CopyObject、GetObject和HeadObject请求会成功。
+* 如果键名或值的解释值包含不可打印字符、则StorageGRID不会返回 `x-amz-missing-meta`标题。
+
+
+
+
+== 对象标记限制
+
+您可以在上传新对象时为其添加标记，也可以将其添加到现有对象中。StorageGRID 和 Amazon S3 对每个对象最多支持 10 个标记。与对象关联的标记必须具有唯一的标记密钥。一个标记密钥的长度最多可以是 128 个 Unicode 字符，而标记值的长度最多可以是 256 个 Unicode 字符。密钥和值区分大小写。
+
+
+
+== 对象所有权
+
+在 StorageGRID 中，所有对象均归存储分段所有者帐户所有，包括由非所有者帐户或匿名用户创建的对象。
+
+
+
+== 支持的请求标头
+
+支持以下请求标头：
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
++
+指定for ``Content-Encoding``StorageGRID时 `aws-chunked`、不会验证以下各项：
+
++
+** StorageGRID不会根据区块数据验证 `chunk-signature`。
+** StorageGRID不会根据对象验证您提供的值 `x-amz-decoded-content-length`。
+
+
+* `Content-Language`
+* `Content-Length`
+* `Content-MD5`
+* `Content-Type`
+* `Expires`
+* `Transfer-Encoding`
++
+如果同时使用有效负载签名、则支持分块传输编码 `aws-chunked`。
+
+* `x-amz-checksum-sha256`
+* `x-amz-meta-`，后跟一个包含用户定义的元数据的名称-值对。
++
+为用户定义的元数据指定名称 - 值对时，请使用以下通用格式：
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+x-amz-meta-_name_: _value_
+----
++
+如果要使用*用户定义的创建时间*选项作为ILM规则的参考时间，则必须使用 `creation-time`作为创建对象时记录的元数据的名称。例如：
+
++
+[listing]
+----
+x-amz-meta-creation-time: 1443399726
+----
++
+自1970年1月1日以来、的值 `creation-time`以秒为单位进行评估。
+
++
+
+NOTE: ILM规则不能同时使用*用户定义的创建时间*作为参考时间和平衡或严格的加注选项。创建 ILM 规则时返回错误。
+
+* `x-amz-tagging`
+* S3 对象锁定请求标头
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+如果在发出请求时没有这些标头、则会使用存储分段默认保留设置来计算对象版本模式和保留截止日期。请参阅。 link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+
+
+
+* SSA 请求标头：
++
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+请参见 <<服务器端加密的请求标头>>
+
+
+
+
+
+
+
+== 请求标头不受支持
+
+不支持以下请求标头：
+
+* `x-amz-acl`
+* `x-amz-sdk-checksum-algorithm`
+* `x-amz-trailer`
+* `x-amz-website-redirect-location`
++
+ `x-amz-website-redirect-location`标题返回 `XNotImplemented`。
+
+
+
+
+
+== 存储类选项
+
+ `x-amz-storage-class`支持请求标头。为提交的值 `x-amz-storage-class`会影响StorageGRID在加载期间保护对象数据的方式、而不会影响StorageGRID系统中存储对象的永久性副本数(由ILM确定)。
+
+如果匹配已加数据对象的ILM规则使用了严格加数据选项、则标头将 `x-amz-storage-class`不起作用。
+
+以下值可用于 `x-amz-storage-class`：
+
+* `STANDARD`(默认)
++
+** * 双提交 * ：如果 ILM 规则为载入行为指定了双提交选项，则在载入对象后，系统会立即创建该对象的第二个副本并将其分发到其他存储节点（双提交）。评估ILM时、StorageGRID 会确定这些初始临时副本是否符合规则中的放置说明。否则、可能需要在不同位置创建新对象副本、并且可能需要删除初始临时副本。
+** *已平衡*：如果ILM规则指定了已平衡选项、而StorageGRID 无法立即创建规则中指定的所有副本、则StorageGRID 会在不同的存储节点上创建两个临时副本。
++
+如果StorageGRID可以立即创建ILM规则(同步放置)中指定的所有对象副本、则标头无效。 `x-amz-storage-class`
+
+
+
+* `REDUCED_REDUNDANCY`
++
+** * 双提交 * ：如果 ILM 规则为载入行为指定了双提交选项，则 StorageGRID 会在载入对象时创建一个临时副本（单个提交）。
+** *均衡*：如果ILM规则指定了均衡选项，则只有当系统无法立即创建规则中指定的所有副本时，StorageGRID 才会创建一个临时副本。如果 StorageGRID 可以执行同步放置，则此标头不起作用。如果与对象匹配的ILM规则创建单个复制副本、则最好使用此 `REDUCED_REDUNDANCY`选项。在这种情况下、使用 `REDUCED_REDUNDANCY`可避免在每次执行加载操作时不必要地创建和删除额外的对象副本。
+
+
++
+在其他情况下、不建议使用 `REDUCED_REDUNDANCY`选项。 `REDUCED_REDUNDANCY`增加了在加数据过程中对象数据丢失的风险。例如，如果最初将单个副本存储在发生故障的存储节点上，而此存储节点未能进行 ILM 评估，则可能会丢失数据。
+
+
+
+
+CAUTION: 在任何一段时间内只复制一个副本会使数据面临永久丢失的风险。如果某个对象只存在一个复制副本，则在存储节点出现故障或出现严重错误时，该对象将丢失。在升级等维护过程中，您还会暂时失去对对象的访问权限。
+
+指定 `REDUCED_REDUNDANCY`仅会影响在首次应用对象时创建的副本数。它不会影响通过活动ILM策略评估对象时为对象创建的副本数、也不会导致数据在StorageGRID系统中以较低的冗余级别进行存储。
+
+
+NOTE: 如果在启用了S3对象锁定的情况下将对象导入存储分段、则会忽略此 `REDUCED_REDUNDANCY`选项。如果要将对象移入旧的兼容存储分段、则此 `REDUCED_REDUNDANCY`选项将返回错误。StorageGRID 将始终执行双提交载入，以确保满足合规性要求。
+
+
+
+== 服务器端加密的请求标头
+
+您可以使用以下请求标头通过服务器端加密对对象进行加密。SSE 和 SSI-C 选项是互斥的。
+
+* * SSE* ：如果要使用 StorageGRID 管理的唯一密钥对对象进行加密，请使用以下标题。
++
+** `x-amz-server-side-encryption`
++
+如果 `x-amz-server-side-encryption`PutObject请求中未包含标题、则PutObject响应将省略网格范围link:../admin/changing-network-options-object-encryption.html["存储对象加密设置"]。
+
+
+
+* * SSI-C* ：如果要使用您提供和管理的唯一密钥对对象进行加密，请使用所有这三个标头。
++
+** `x-amz-server-side-encryption-customer-algorithm`：指定 `AES256`。
+** `x-amz-server-side-encryption-customer-key`：指定新对象的加密密钥。
+** `x-amz-server-side-encryption-customer-key-MD5`：指定新对象的加密密钥的MD5摘要。
+
+
+
+
+
+CAUTION: 您提供的加密密钥永远不会存储。如果丢失加密密钥，则会丢失相应的对象。在使用客户提供的密钥保护对象数据之前，请查看的注意事项link:using-server-side-encryption.html["使用服务器端加密"]。
+
+
+NOTE: 如果使用 SSE 或 SSI-C 对对象进行加密，则会忽略任何分段级别或网格级别的加密设置。
+
+
+
+== 版本控制
+
+如果为存储分段启用了版本控制、则会自动为所存储对象的版本生成唯一的 `versionId`。此消息 `versionId`也会通过响应标头在响应中返回 `x-amz-version-id`。
+
+如果版本控制已暂停、则对象版本将使用空进行存储 `versionId`、如果已存在空版本、则会被覆盖。
+
+
+
+== 授权标题的签名计算
+
+使用标头对请求进行身份验证时 `Authorization`、StorageGRID与AWS在以下方面有所不同：
+
+* StorageGRID不要求 `host`标题包含在中 `CanonicalHeaders`。
+* StorageGRID不需要 `Content-Type`包含在中 `CanonicalHeaders`。
+* StorageGRID不要求 `x-amz-*`标题包含在中 `CanonicalHeaders`。
+
+
+
+NOTE: 作为一般最佳实践、请始终将这些标头包含在中 `CanonicalHeaders`以确保它们经过验证；但是、如果排除这些标头、StorageGRID不会返回错误。
+
+有关详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-header-based-auth.html["授权标头的签名计算：传输单个区块中的有效负载(AWS签名版本4)"^]。
+
+.相关信息
+* link:../ilm/index.html["使用 ILM 管理对象"]
+* link:https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html["Amazon Simple Storage Service API参考：PutObject"^]
+

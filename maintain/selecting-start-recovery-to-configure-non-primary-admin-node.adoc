@@ -1,0 +1,56 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node 
+summary: 更换非主管理节点后，您必须在网格管理器中选择启动恢复，以将新节点配置为故障节点的替代节点。 
+---
+= 选择 Start Recovery 以配置非主管理节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+更换非主管理节点后，您必须在网格管理器中选择启动恢复，以将新节点配置为故障节点的替代节点。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["维护或root访问权限"]。
+* 您具有配置密码短语。
+* 您已部署并配置替代节点。
+
+
+.步骤
+. 在网格管理器中，选择 * 维护 * > * 任务 * > * 恢复 * 。
+. 在 Pending Nodes 列表中选择要恢复的网格节点。
++
+节点发生故障后会显示在列表中、但您无法选择某个节点、直到它重新安装并准备好进行恢复为止。
+
+. 输入 * 配置密码短语 * 。
+. 单击 * 启动恢复 * 。
++
+image::../media/4b_select_recovery_node.png[显示维护 > 恢复页面的屏幕截图]
+
+. 在恢复网格节点表中监控恢复进度。
++
+
+NOTE: 在恢复操作步骤 运行期间，您可以单击 * 重置 * 以启动新的恢复。此时将显示一个对话框、指示如果重置操作步骤 、节点将处于不明确状态。
+
++
+image::../media/recovery_reset_warning.gif[显示重置恢复警告对话框的屏幕截图]
+
++
+如果要在重置操作步骤 后重试恢复，必须将节点还原到预安装状态，如下所示：
+
++
+** * VMware * ：删除已部署的虚拟网格节点。然后，当您准备好重新启动恢复时，重新部署节点。
+** *Linux*：通过在Linux主机上运行以下命令来重新启动节点： `storagegrid node force-recovery _node-name_`
+** *设备*：如果要在重置过程后重试恢复，则必须通过在该节点上运行将该设备节点还原到预安装状态 `sgareinstall`。请参阅。 link:preparing-appliance-for-reinstallation-platform-replacement-only.html["准备要重新安装的设备（仅限平台更换）"]
+
+
+. 如果为 StorageGRID 系统启用了单点登录（ SSO ），并且已恢复的管理节点的依赖方信任已配置为使用默认管理接口证书，请在 Active Directory 联合身份验证服务（ AD FS ）中更新（或删除并重新创建）该节点的依赖方信任。使用在管理节点恢复过程中生成的新默认服务器证书。
++
+
+NOTE: 要配置依赖方信任，请参见link:../admin/configuring-sso.html["配置单点登录"]。要访问默认服务器证书，请登录到管理节点的命令 Shell 。转到 `/var/local/mgmt-api`目录、然后选择 `server.crt`文件。
+
+

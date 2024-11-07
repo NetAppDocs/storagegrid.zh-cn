@@ -1,0 +1,46 @@
+---
+permalink: maintain/removing-port-remaps.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
+summary: 如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。您必须在每个管理节点和网关节点上运行一个脚本，该节点的重新映射端口相互冲突，以删除该节点的所有端口重新映射。 
+---
+= 删除端口重新映射
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。您必须在每个管理节点和网关节点上运行一个脚本，该节点具有冲突的重新映射端口，以删除该节点的所有端口重新映射。
+
+.关于此任务
+此操作步骤 将删除所有端口重新映射。如果需要保留部分重新映射，请联系技术支持。
+
+有关配置负载平衡器端点的信息，请参见link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]。
+
+
+NOTE: 如果端口重新映射提供了客户端访问、请重新配置客户端、使其使用其他端口作为负载平衡器端点、以避免服务丢失。否则、删除端口映射将导致客户端访问丢失、因此应相应地进行计划。
+
+
+NOTE: 对于在裸机主机上部署为容器的 StorageGRID 系统，此操作步骤 不起作用。请参阅的说明link:removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
+
+.步骤
+. 登录到此节点。
++
+.. 输入以下命令： `ssh -p 8022 admin@node_IP`
++
+端口 8022 是基础操作系统的 SSH 端口，而端口 22 是运行 StorageGRID 的容器引擎的 SSH 端口。
+
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 运行以下脚本： `remove-port-remap.sh`
+. 重新启动节点： `reboot`
+. 从命令Shell中注销： `exit`
+. 对具有冲突重新映射端口的每个管理节点和网关节点重复上述步骤。
+

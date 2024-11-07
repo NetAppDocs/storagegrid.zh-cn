@@ -1,0 +1,156 @@
+---
+section: audit
+title: 查看审核日志
+entries:
+- title: 审核消息和日志
+  pdf-filename: 查看 StorageGRID 审核日志
+  url: "/audit/index.html"
+- title: 审核消息流和保留
+  url: "/audit/audit-message-flow-and-retention.html"
+- title: 访问审核日志文件
+  url: "/audit/accessing-audit-log-file.html"
+- title: 审核日志文件轮换
+  url: "/audit/audit-log-file-rotation.html"
+- title: 审核日志文件格式
+  entries:
+  - title: 审核日志格式示例
+    pdf-filename: 审核日志文件格式
+    url: "/audit/audit-log-file-format.html"
+  - title: 使用审核解释工具
+    url: "/audit/using-audit-explain-tool.html"
+  - title: 使用 audit-sum 工具
+    url: "/audit/using-audit-sum-tool.html"
+- title: 审核消息格式
+  entries:
+  - title: 审核消息示例
+    pdf-filename: 审核消息格式
+    url: "/audit/audit-message-format.html"
+  - title: 数据类型
+    url: "/audit/data-types.html"
+  - title: 事件专用数据
+    url: "/audit/event-specific-data.html"
+  - title: 审核消息中的常见元素
+    url: "/audit/common-elements-in-audit-messages.html"
+  - title: 审核消息示例
+    url: "/audit/audit-message-examples.html"
+- title: 审核消息和对象生命周期
+  entries:
+  - title: 何时生成审核消息？
+    url: "/audit/audit-messages-and-object-lifecycle.html"
+  - title: 对象载入事务
+    url: "/audit/object-ingest-transactions.html"
+  - title: 对象删除事务
+    url: "/audit/object-delete-transactions.html"
+  - title: 对象检索事务
+    url: "/audit/object-retrieve-transactions.html"
+  - title: 元数据更新消息
+    url: "/audit/metadata-update-messages.html"
+- title: 审核消息
+  entries:
+  - title: 消息说明
+    pdf-filename: 审核消息
+    url: "/audit/audit-messages-main.html"
+  - title: 审核消息类别
+    entries:
+    - title: 系统审核消息
+      url: "/audit/system-audit-messages.html"
+    - title: 对象存储审核消息
+      url: "/audit/object-storage-audit-messages.html"
+    - title: 客户端读取审核消息
+      url: "/audit/client-read-audit-messages.html"
+    - title: 客户端写入审核消息
+      url: "/audit/client-write-audit-messages.html"
+    - title: 管理审核消息
+      url: "/audit/management-audit-message.html"
+    - title: ILM审核消息
+      url: "/audit/ilm-audit-messages.html"
+  - title: 审核消息参考
+    entries:
+    - title: BROR：存储分段只读请求
+      url: "/audit/bror-bucket-read-only-request.html"
+    - title: CBRB ：对象接收开始
+      url: "/audit/cbrb-object-receive-begin.html"
+    - title: CBRE ：对象接收结束
+      url: "/audit/cbre-object-receive-end.html"
+    - title: CBSB ：对象发送开始
+      url: "/audit/cbsb-object-send-begin.html"
+    - title: CBSE ：对象发送结束
+      url: "/audit/cbse-object-send-end.html"
+    - title: CGRR：跨网格复制请求
+      url: "/audit/cgrr-cross-grid-replication-request.html"
+    - title: EBDL：清空存储分段删除
+      url: "/audit/ebdl-empty-bucket-delete.html"
+    - title: EBKR：空分段请求
+      url: "/audit/ebkr-empty-bucket-request.html"
+    - title: ECMC：缺少经过Erasure编码的数据片段
+      url: "/audit/ecmc-missing-erasure-coded-data-fragment.html"
+    - title: EECO：经过Erasure编码的数据片段已损坏
+      url: "/audit/ecoc-corrupt-erasure-coded-data-fragment.html"
+    - title: ETAF ：安全身份验证失败
+      url: "/audit/etaf-security-authentication-failed.html"
+    - title: GNRG ： GNDS 注册
+      url: "/audit/gnrg-gnds-registration.html"
+    - title: GN-R ： GNDS 注销
+      url: "/audit/gnur-gnds-unregistration.html"
+    - title: GTed ：网格任务已结束
+      url: "/audit/gted-grid-task-ended.html"
+    - title: GTST ：已启动网格任务
+      url: "/audit/gtst-grid-task-started.html"
+    - title: GTSU ：已提交网格任务
+      url: "/audit/gtsu-grid-task-submitted.html"
+    - title: idel ： ILM 已启动删除
+      url: "/audit/idel-ilm-initiated-delete.html"
+    - title: LKCU ：覆盖对象清理
+      url: "/audit/lkcu-overwritten-object-cleanup.html"
+    - title: LKDM：泄漏对象清理
+      url: "/audit/lkdm-leaked-object-cleanup.html"
+    - title: LLST ：位置丢失
+      url: "/audit/llst-location-lost.html"
+    - title: MGAU ：管理审核消息
+      url: "/audit/mgau-management-audit-message.html"
+    - title: OLST ：系统检测到丢失对象
+      url: "/audit/olst-system-detected-lost-object.html"
+    - title: ORLM ：符合对象规则
+      url: "/audit/orlm-object-rules-met.html"
+    - title: OVWR ：对象覆盖
+      url: "/audit/ovwr-object-overwrite.html"
+    - title: S3SL：S3选择请求
+      url: "/audit/s3-select-request.html"
+    - title: Sadd ：禁用安全审核
+      url: "/audit/sadd-security-audit-disable.html"
+    - title: Sade ：启用安全审核
+      url: "/audit/sade-security-audit-enable.html"
+    - title: SCMT ：对象存储提交
+      url: "/audit/scmt-object-store-commit.html"
+    - title: SDEL ： S3 delete
+      url: "/audit/sdel-s3-delete.html"
+    - title: SGET ： S3 GET
+      url: "/audit/sget-s3-get.html"
+    - title: Shea ： S3 机头
+      url: "/audit/shea-s3-head.html"
+    - title: SPOS ： S3 POST
+      url: "/audit/spos-s3-post.html"
+    - title: SPUT ： S3 PUT
+      url: "/audit/sput-s3-put.html"
+    - title: Srem ：对象存储删除
+      url: "/audit/srem-object-store-remove.html"
+    - title: SUPD ：已更新 S3 元数据
+      url: "/audit/supd-s3-metadata-updated.html"
+    - title: SVRF ：对象存储验证失败
+      url: "/audit/svrf-object-store-verify-fail.html"
+    - title: SVRU ：对象存储验证未知
+      url: "/audit/svru-object-store-verify-unknown.html"
+    - title: SYSD ：节点停止
+      url: "/audit/sysd-node-stop.html"
+    - title: Syst ：节点正在停止
+      url: "/audit/syst-node-stopping.html"
+    - title: SYSU ：节点启动
+      url: "/audit/sysu-node-start.html"
+    - title: WDEL ： Swift delete
+      url: "/audit/wdel-swift-delete.html"
+    - title: WGET ： Swift GET
+      url: "/audit/wget-swift-get.html"
+    - title: WHEA ： Swift head
+      url: "/audit/whea-swift-head.html"
+    - title: WWPUT ： Swift PUT
+      url: "/audit/wput-swift-put.html"

@@ -1,0 +1,137 @@
+---
+section: ilm
+title: 使用 ILM 管理对象
+entries:
+- title: 使用ILM
+  pdf-filename: 使用 ILM 管理 StorageGRID 对象
+  url: "/ilm/index.html"
+- title: ILM 和对象生命周期
+  entries:
+  - title: ILM 如何在对象的整个生命周期内运行
+    url: "/ilm/how-ilm-operates-throughout-objects-life.html"
+  - title: 如何载入对象
+    entries:
+    - title: 加热选项
+      url: "/ilm/data-protection-options-for-ingest.html"
+    - title: 加热选项的优点、缺点和限制
+      url: "/ilm/advantages-disadvantages-of-ingest-options.html"
+  - title: 对象的存储方式（复制或纠删编码）
+    entries:
+    - title: 什么是复制
+      url: "/ilm/what-replication-is.html"
+    - title: 为什么不应使用单副本复制
+      url: "/ilm/why-you-should-not-use-single-copy-replication.html"
+    - title: 什么是纠删编码
+      url: "/ilm/what-erasure-coding-is.html"
+    - title: 什么是纠删编码方案
+      url: "/ilm/what-erasure-coding-schemes-are.html"
+    - title: 纠删编码的优势，劣势和要求
+      url: "/ilm/advantages-disadvantages-and-requirements-for-ec.html"
+  - title: 如何确定对象保留
+    url: "/ilm/how-object-retention-is-determined.html"
+  - title: 如何删除对象
+    url: "/ilm/how-objects-are-deleted.html"
+- title: 创建和分配存储级别
+  url: "/ilm/creating-and-assigning-storage-grades.html"
+- title: 使用存储池
+  entries:
+  - title: 什么是存储池
+    url: "/ilm/what-storage-pool-is.html"
+  - title: 创建存储池的准则
+    url: "/ilm/guidelines-for-creating-storage-pools.html"
+  - title: 启用站点丢失保护
+    url: "/ilm/using-multiple-storage-pools-for-cross-site-replication.html"
+  - title: 创建存储池
+    url: "/ilm/creating-storage-pool.html"
+  - title: 查看存储池详细信息
+    url: "/ilm/viewing-storage-pool-details.html"
+  - title: 编辑存储池
+    url: "/ilm/editing-storage-pool.html"
+  - title: 删除存储池
+    url: "/ilm/removing-storage-pool.html"
+- title: 使用云存储池
+  entries:
+  - title: 什么是云存储池
+    url: "/ilm/what-cloud-storage-pool-is.html"
+  - title: Cloud Storage Pool 对象的生命周期
+    url: "/ilm/lifecycle-of-cloud-storage-pool-object.html"
+  - title: 何时使用云存储池
+    url: "/ilm/when-to-use-cloud-storage-pools.html"
+  - title: 云存储池注意事项
+    url: "/ilm/considerations-for-cloud-storage-pools.html"
+  - title: 比较云存储池和 CloudMirror 复制
+    url: "/ilm/comparing-cloud-storage-pools-to-cloudmirror-replication.html"
+  - title: 创建云存储池
+    url: "/ilm/creating-cloud-storage-pool.html"
+  - title: 查看云存储池详细信息
+    url: "/ilm/view-cloud-storage-pool-details.html"
+  - title: 编辑云存储池
+    url: "/ilm/editing-cloud-storage-pool.html"
+  - title: 删除云存储池
+    url: "/ilm/removing-cloud-storage-pool.html"
+  - title: 对云存储池进行故障排除
+    url: "/ilm/troubleshooting-cloud-storage-pools.html"
+- title: 管理纠删编码配置文件
+  url: "/ilm/manage-erasure-coding-profiles.html"
+- title: 配置区域（可选，仅 S3 ）
+  url: "/ilm/configuring-regions-optional-and-s3-only.html"
+- title: 创建 ILM 规则
+  entries:
+  - title: 使用规则管理对象
+    url: "/ilm/what-ilm-rule-is.html"
+  - title: 访问创建 ILM 规则向导
+    url: "/ilm/access-create-ilm-rule-wizard.html"
+  - title: 第1步(共3步)：输入详细信息
+    url: "/ilm/create-ilm-rule-enter-details.html"
+  - title: 第 2 步，共 3 步：定义放置位置
+    url: "/ilm/create-ilm-rule-define-placements.html"
+  - title: 在ILM规则中使用上次访问时间
+    url: "/ilm/using-last-access-time-in-ilm-rules.html"
+  - title: 第3步(共3步)：选择加数据行为
+    url: "/ilm/create-ilm-rule-select-ingest-behavior.html"
+  - title: 创建默认 ILM 规则
+    url: "/ilm/creating-default-ilm-rule.html"
+- title: 管理ILM策略
+  entries:
+  - title: 使用ILM策略
+    url: "/ilm/ilm-policy-overview.html"
+  - title: 创建ILM策略
+    url: "/ilm/creating-ilm-policy.html"
+  - title: ILM策略模拟示例
+    url: "/ilm/simulating-ilm-policy-examples.html"
+  - title: 管理ILM策略标记
+    url: "/ilm/manage-ilm-policy-tags.html"
+  - title: 使用对象元数据查找验证 ILM 策略
+    url: "/ilm/verifying-ilm-policy-with-object-metadata-lookup.html"
+- title: 使用ILM策略和规则
+  url: "/ilm/working-with-ilm-rules-and-ilm-policies.html"
+- title: 使用 S3 对象锁定
+  entries:
+  - title: 使用 S3 对象锁定管理对象
+    url: "/ilm/managing-objects-with-s3-object-lock.html"
+  - title: S3对象锁定任务
+    url: "/ilm/workflow-for-s3-object-lock.html"
+  - title: S3 对象锁定的要求
+    url: "/ilm/requirements-for-s3-object-lock.html"
+  - title: 全局启用 S3 对象锁定
+    url: "/ilm/enabling-s3-object-lock-globally.html"
+  - title: 解决更新 S3 对象锁定或原有合规性配置时出现的一致性错误
+    url: "/ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html"
+- title: ILM 规则和策略示例
+  entries:
+  - title: 示例 1 ：对象存储的 ILM 规则和策略
+    url: "/ilm/example-1-ilm-rules-and-policy-for-object-storage.html"
+  - title: 示例 2 ：用于 EC 对象大小筛选的 ILM 规则和策略
+    url: "/ilm/example-2-ilm-rules-and-policy-for-ec-object-size-filtering.html"
+  - title: 示例 3 ：用于更好地保护映像文件的 ILM 规则和策略
+    url: "/ilm/example-3-ilm-rules-and-policy-for-better-protection-for-image-files.html"
+  - title: 示例 4 ： S3 版本对象的 ILM 规则和策略
+    url: "/ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html"
+  - title: 示例 5 ：用于严格载入行为的 ILM 规则和策略
+    url: "/ilm/example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html"
+  - title: 示例 6 ：更改 ILM 策略
+    url: "/ilm/example-6-changing-ilm-policy.html"
+  - title: 示例 7 ： S3 对象锁定的兼容 ILM 策略
+    url: "/ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html"
+  - title: 示例8：S3存储分段生命周期和ILM策略的优先级
+    url: "/ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html"

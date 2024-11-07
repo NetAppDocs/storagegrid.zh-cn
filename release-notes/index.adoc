@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: 获取有关已修复问题和已知问题的特定版本信息。 
+---
+= 发行说明
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+获取有关已修复问题和已知问题的特定版本信息。
+
+登录到包含StorageGRID版本注释的NetApp支持站点 https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["查看或下载 PDF 文件"^]。

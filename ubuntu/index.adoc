@@ -1,0 +1,59 @@
+---
+permalink: ubuntu/index.html 
+sidebar: sidebar 
+keywords: about ubuntu, ubuntu overview 
+summary: 按照以下简要步骤安装Ubuntu或Debian StorageGRID节点。 
+---
+= 在Ubuntu或Debian上安装StorageGRID的快速入门
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+按照以下简要步骤安装Ubuntu或Debian StorageGRID节点。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]准备
+[role="quick-margin-list"]
+* 了解 link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID 架构和网络拓扑"]。
+* 了解的具体信息link:../network/index.html["StorageGRID 网络连接"]。
+* 收集并准备link:required-materials.html["所需信息和材料"]。
+* 准备所需的link:cpu-and-ram-requirements.html["CPU和RAM"]。
+* 为提供link:storage-and-performance-requirements.html["存储和性能要求"]。
+* link:how-host-wide-settings-change.html["准备Linux服务器"]用于托管StorageGRID节点。
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]部署
+[role="quick-margin-para"]
+部署网格节点。部署网格节点时，它们会作为 StorageGRID 系统的一部分创建并连接到一个或多个网络。
+
+[role="quick-margin-list"]
+* 要在步骤1中准备的主机上部署基于软件的网格节点，请使用Linux命令行和link:creating-node-configuration-files.html["节点配置文件"]。
+* 要部署StorageGRID设备节点，请执行 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["硬件安装快速入门"^]。
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]配置
+[role="quick-margin-para"]
+部署完所有节点后，使用网格管理器link:navigating-to-grid-manager.html["配置网格并完成安装"]。
+
+
+
+== 自动安装
+
+为了节省时间并保持一致性、您可以自动安装StorageGRID主机服务和配置网格节点。
+
+* 使用标准流程编排框架(例如、Ands还是Puppet或Chef)实现自动化：
++
+** 安装Ubuntu或Debian
+** 配置网络和存储
+** 安装容器引擎和StorageGRID主机服务
+** 部署虚拟网格节点
+
+
++
+请参阅。 link:automating-installation.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["自动安装和配置 StorageGRID 主机服务"]
+
+* 在部署网格节点后、link:automating-installation.html#automate-the-configuration-of-storagegrid["自动配置StorageGRID系统"]使用安装归档文件中提供的Python配置脚本。
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["自动安装和配置设备网格节点"^]
+* 如果您是StorageGRID部署的高级开发人员，请使用自动安装网格节点link:overview-of-installation-rest-api.html["安装REST API"]。
+

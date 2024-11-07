@@ -1,0 +1,49 @@
+---
+permalink: ilm/editing-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords: edit cloud storage pool 
+summary: 您可以编辑云存储池以更改其名称，服务端点或其他详细信息；但是，您不能更改云存储池的 S3 存储分段或 Azure 容器。 
+---
+= 编辑云存储池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以编辑云存储池以更改其名称、服务端点或其他详细信息；但是、您不能更改云存储池的S3存储分段或Azure容器。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+* 您已查看link:considerations-for-cloud-storage-pools.html["云存储池注意事项"]。
+
+
+.步骤
+. 选择* ILM *>*存储池*>*云存储池*。
++
+" 云存储池 " 表列出了现有的云存储池。
+
+. 选中要编辑的云存储池对应的复选框、然后选择*操作*>*编辑*。
++
+或者、选择云存储池的名称、然后选择*编辑*。
+
+. 根据需要更改云存储池名称、服务端点、身份验证凭据或证书验证方法。
++
+
+NOTE: 您不能更改云存储池的提供程序类型、S3存储分段或Azure容器。
+
++
+如果您以前上载了服务器证书或客户端证书，则可以展开“*证书详细信息*”可面面面面面，查看当前正在使用的证书。
+
+. 选择 * 保存 * 。
++
+保存云存储池时， StorageGRID 会验证存储分段或容器以及服务端点是否存在，以及是否可以使用您指定的凭据访问它们。
+
++
+如果云存储池验证失败，则会显示一条错误消息。例如，如果存在证书错误，则可能会报告错误。
+
++
+请参见中的说明link:troubleshooting-cloud-storage-pools.html["对云存储池进行故障排除"]、解决此问题、然后再次尝试保存云存储池。
+
+

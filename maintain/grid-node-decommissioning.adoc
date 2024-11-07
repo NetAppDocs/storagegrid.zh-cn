@@ -1,0 +1,62 @@
+---
+permalink: maintain/grid-node-decommissioning.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, remove grid node 
+summary: 您可以使用节点停用操作步骤删除一个或多个站点上的一个或多个网格节点。您不能停用主管理节点。 
+---
+= 网格节点停用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用节点停用操作步骤删除一个或多个站点上的一个或多个网格节点。您不能停用主管理节点。
+
+
+
+== 何时停用节点
+
+如果满足以下任一条件，请使用节点停用操作步骤 ：
+
+* 您在扩展中添加了一个较大的存储节点、并且希望删除一个或多个较小的存储节点、同时保留对象。
++
+
+TIP: 如果要将旧设备更换为新设备、请考虑 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["正在克隆设备节点"^]不要在扩展中添加新设备、然后停用旧设备。
+
+* 您所需的总存储较少。
+* 您不再需要网关节点。
+* 您不再需要非主管理节点。
+* 您的网格包含一个无法恢复或恢复联机的已断开节点。
+* 网格包含一个归档节点。
+
+
+
+
+== 如何停用节点
+
+您可以停用已连接的网格节点或已断开连接的网格节点。
+
+停用已连接节点:: 通常，只有在网格节点连接到StorageGRID系统且所有节点均正常运行时(*nones*页面和*Decommmission Noes*页面上有绿色图标)，才应停用网格节点。
++
+--
+有关说明，请参阅link:decommissioning-connected-grid-nodes.html["停用已连接的网格节点"]。
+
+--
+停用已断开连接的节点:: 在某些情况下、您可能需要停用当前未连接到网格的网格节点(运行状况未知或已被管理员关闭的节点)。
++
+--
+有关说明，请参阅link:decommissioning-disconnected-grid-nodes.html["停用已断开连接的网格节点"]。
+
+--
+
+
+
+
+== 停用节点前应考虑的事项
+
+在执行任一操作步骤之前、请查看每种类型节点的注意事项：
+
+* link:considerations-for-decommissioning-admin-or-gateway-nodes.html["停用管理节点或网关节点的注意事项"]
+* link:considerations-for-decommissioning-storage-nodes.html["存储节点停用注意事项"]
+

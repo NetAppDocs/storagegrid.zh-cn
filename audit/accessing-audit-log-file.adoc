@@ -1,0 +1,39 @@
+---
+permalink: audit/accessing-audit-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, log file, access, accessing 
+summary: 审核共享包含活动的 audit.log 文件和任何压缩的审核日志文件。您可以直接从管理节点的命令行访问审核日志文件。 
+---
+= 访问审核日志文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+审核共享包含活动 `audit.log`文件和任何压缩的审核日志文件。您可以直接从管理节点的命令行访问审核日志文件。
+
+.开始之前
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+* 您必须拥有该 `Passwords.txt`文件。
+* 您必须知道管理节点的 IP 地址。
+
+
+.步骤
+. 登录到管理节点：
++
+.. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 转到包含审核日志文件的目录：
++
+`cd /var/local/log`
+
+. 根据需要查看当前审核日志文件或已保存的审核日志文件。
+

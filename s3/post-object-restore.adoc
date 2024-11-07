@@ -1,0 +1,83 @@
+---
+permalink: s3/post-object-restore.html 
+sidebar: sidebar 
+keywords: post, RestoreObject, object 
+summary: 您可以使用S3 RestorEObject请求还原存储在云存储池中的对象。 
+---
+= RestorEObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用S3 RestorEObject请求还原存储在云存储池中的对象。
+
+
+
+== 支持的请求类型
+
+StorageGRID仅支持用于还原对象的RestorEObject请求。它不支持此 `SELECT`类型的还原。选择请求返回。 `XNotImplemented`
+
+
+
+== 版本控制
+
+(可选)指定 `versionId`以还原受版本控制分段中某个对象的特定版本。如果未指定 `versionId`，则会还原对象的最新版本
+
+
+
+== 云存储池对象上的RestorEObject的行为
+
+如果对象已存储在中link:../ilm/what-cloud-storage-pool-is.html["云存储池"]，则根据对象的状态，RestorEObject请求具有以下行为。有关详细信息、请参见link:head-object.html["HeadObject"]。
+
+
+NOTE: 如果某个对象存储在云存储池中、并且该对象的一个或多个副本也位于网格中、则无需发出RestorEObject请求来还原该对象。而是可以使用GetObject请求直接检索本地副本。
+
+[cols="1a,2a"]
+|===
+| 对象的状态 | RestorEObject的行为 
+
+
+ a| 
+对象已载入 StorageGRID ，但尚未通过 ILM 进行评估，或者对象不在云存储池中
+ a| 
+`403 Forbidden`、 `InvalidObjectState`
+
+
+
+ a| 
+云存储池中的对象，但尚未过渡到无法检索的状态
+ a| 
+`200 OK`不进行任何更改。
+
+*注意*：在将对象转换为不可检索状态之前，您不能更改其 `expiry-date`。
+
+
+
+ a| 
+对象已过渡到无法检索的状态
+ a| 
+`202 Accepted`在请求正文中指定的天数内将对象的可检索副本还原到云存储池。在此期间结束时，对象将返回到无法检索的状态。
+
+(可选)使用 `Tier`请求元素确定完成(`Expedited`、 `Standard`或 `Bulk`所需的恢复作业时间。如果未指定 `Tier`，则使用该 `Standard`层。
+
+*重要*：如果对象已迁移到S3 Glaciereep Archive或云存储池使用Azure Blb存储、则无法使用该层还原它 `Expedited`。返回以下错误 `403 Forbidden` `InvalidTier`： `Retrieval option is not supported by this storage class`。
+
+
+
+ a| 
+正在从不可检索状态还原的对象
+ a| 
+`409 Conflict`、 `RestoreAlreadyInProgress`
+
+
+
+ a| 
+对象已完全还原到云存储池
+ a| 
+`200 OK`
+
+*注意：*如果对象已还原到可检索状态，您可以使用的新值重新发出RestoreObject请求来 `Days`更改它 `expiry-date`。还原日期将相对于请求时间进行更新。
+
+|===

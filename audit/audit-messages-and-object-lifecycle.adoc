@@ -1,0 +1,47 @@
+---
+permalink: audit/audit-messages-and-object-lifecycle.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
+summary: 每次载入，检索或删除对象时都会生成审核消息。您可以通过查找S3 API专用的审核消息在审核日志中确定这些事务。 
+---
+= 何时生成审核消息？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每次载入，检索或删除对象时都会生成审核消息。您可以通过查找S3 API专用的审核消息在审核日志中确定这些事务。
+
+审核消息通过每个协议专用的标识符进行链接。
+
+[cols="1a,1a"]
+|===
+| 协议 | 代码 
+
+
+ a| 
+链接 S3 操作
+ a| 
+S3BK (铲斗)、S3KY (钥匙)或两者
+
+
+
+ a| 
+链接 Swift 操作
+ a| 
+WCON (容器)、WOBJ(对象)或两者
+
+
+
+ a| 
+链接内部操作
+ a| 
+CBID (对象的内部标识符)
+
+|===
+
+
+== 审核消息的时间
+
+由于网格节点之间的时间差异，对象大小和网络延迟等因素，不同服务生成的审核消息的顺序可能与本节示例中所示的顺序不同。

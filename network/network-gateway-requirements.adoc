@@ -1,0 +1,19 @@
+---
+permalink: network/network-gateway-requirements.html 
+sidebar: sidebar 
+keywords: network gateway requirements 
+summary: 对于网络网关或路由器，请遵循以下要求和准则。 
+---
+= 网络网关要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对于网络网关或路由器，请遵循以下要求和准则。
+
+* 如果设置了此值，则给定网络的网关必须位于特定网络的子网内。
+* 如果使用静态寻址配置接口，则必须指定 0.0.0.0 以外的网关地址。
+* 如果没有网关、最佳做法是将网关地址设置为网络接口的IP地址。
+

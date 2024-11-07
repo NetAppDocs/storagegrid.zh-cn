@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: 在为StorageGRID 系统启用单点登录之前、请查看要求和注意事项。 
+---
+= 单点登录的要求和注意事项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为StorageGRID 系统启用单点登录(Single Sign On、SSO)之前、请查看相关要求和注意事项。
+
+
+
+== 身份提供程序要求
+
+StorageGRID 支持以下 SSO 身份提供程序（ IdP ）：
+
+* Active Directory 联合身份验证服务（ AD FS ）
+* Azure Active Directory （ Azure AD ）
+* PingFederate
+
+
+您必须先为 StorageGRID 系统配置身份联合，然后才能配置 SSO 身份提供程序。用于身份联合的 LDAP 服务类型控制您可以实施的 SSO 类型。
+
+[cols="1a,1a"]
+|===
+| 已配置 LDAP 服务类型 | SSO 身份提供程序的选项 
+
+
+ a| 
+Active Directory
+ a| 
+* Active Directory
+* Azure
+* PingFederate
+
+
+
+
+ a| 
+Azure
+ a| 
+Azure
+
+|===
+
+
+=== AD FS 要求
+
+您可以使用以下任意版本的 AD FS ：
+
+* Windows Server 2022 AD FS
+* Windows Server 2019 AD FS
+* Windows Server 2016 AD FS
+
+
+
+NOTE: Windows Server 2016应使用 https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["KB3201845 更新"^]、或更高版本。
+
+
+
+=== 其他要求
+
+* 传输层安全（ Transport Layer Security ， TLS ） 1.2 或 1.3
+* Microsoft .NET Framework 3.5.1 或更高版本
+
+
+
+
+=== Azure注意事项
+
+如果您使用Azure作为SSO类型、并且用户的用户主体名称未使用sAMAccountName作为前缀、则在StorageGRID 与LDAP服务器断开连接时可能会出现登录问题。要允许用户登录、您必须还原与LDAP服务器的连接。
+
+
+
+== 服务器证书要求
+
+默认情况下， StorageGRID 会在每个管理节点上使用管理接口证书来保护对网格管理器，租户管理器，网格管理 API 和租户管理 API 的访问。在为 StorageGRID 配置依赖方信任（ AD FS ），企业应用程序（ Azure ）或服务提供商连接（ PingFederate ）时，您可以使用服务器证书作为 StorageGRID 请求的签名证书。
+
+如果您尚未link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["已为管理接口配置自定义证书"]执行此操作，则应立即执行此操作。安装自定义服务器证书时，该证书将用于所有管理节点，您可以在所有 StorageGRID 依赖方信任关系，企业应用程序或 SP 连接中使用该证书。
+
+
+NOTE: 建议不要在依赖方信任，企业应用程序或 SP 连接中使用管理节点的默认服务器证书。如果节点发生故障而您恢复了该节点，则会生成一个新的默认服务器证书。在登录到已恢复的节点之前，您必须使用新证书更新依赖方信任，企业应用程序或 SP 连接。
+
+您可以通过登录到管理节点的命令Shell并转到目录来访问此节点的服务器证书 `/var/local/mgmt-api`。自定义服务器证书名为 `custom-server.crt`。此节点的默认服务器证书名为 `server.crt`。
+
+
+
+== 端口要求
+
+受限网格管理器或租户管理器端口上不提供单点登录（ SSO ）。如果您希望用户通过单点登录进行身份验证，则必须使用默认 HTTPS 端口（ 443 ）。请参阅。 link:controlling-access-through-firewalls.html["在外部防火墙处控制访问"]

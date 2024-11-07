@@ -1,0 +1,27 @@
+---
+permalink: primer/retrieve-data-flow.html 
+sidebar: sidebar 
+keywords: object data, retrieve 
+summary: '检索操作由 StorageGRID 系统与客户端之间定义的数据流组成。系统使用属性跟踪从存储节点或云存储池(如有必要)检索对象的情况。' 
+---
+= 检索数据流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+检索操作由 StorageGRID 系统与客户端之间定义的数据流组成。系统使用属性跟踪从存储节点或云存储池(如有必要)检索对象的情况。
+
+存储节点的 LDR 服务会在元数据存储中查询对象数据的位置，并从源 LDR 服务中检索这些数据。首选情况下，从存储节点检索。如果对象在存储节点上不可用、检索请求将定向到云存储池。
+
+
+NOTE: 如果唯一的对象副本位于AWS GlacierStorage或Azure归档层上、则客户端应用程序必须发出问题描述a S3 Restore-Object请求、才能将可检索副本还原到云存储池。
+
+image::../media/retrieve_data_flow.png[检索]
+
+. LDR 服务从客户端应用程序接收检索请求。
+. LDR 服务会在元数据存储库中查询对象数据位置和元数据。
+. LDR 服务将检索请求转发到源 LDR 服务。
+. 源 LDR 服务从查询的 LDR 服务返回对象数据，系统将对象返回给客户端应用程序。
+

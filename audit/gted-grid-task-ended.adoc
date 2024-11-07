@@ -1,0 +1,49 @@
+---
+permalink: audit/gted-grid-task-ended.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTED, Grid Task Ended 
+summary: 此审核消息表示 CMN 服务已完成指定网格任务的处理，并已将此任务移至历史表。如果结果为 SUC ， ABRT 或 Rolf ，则会显示相应的 Grid Task Started 审核消息。其他结果表明，此网格任务的处理从未开始。 
+---
+= GTed ：网格任务已结束
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此审核消息表示 CMN 服务已完成指定网格任务的处理，并已将此任务移至历史表。如果结果为 SUC ， ABRT 或 Rolf ，则会显示相应的 Grid Task Started 审核消息。其他结果表明，此网格任务的处理从未开始。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+SID
+ a| 
+任务 ID
+ a| 
+此字段可唯一标识生成的网格任务，并允许在整个生命周期内对网格任务进行管理。
+
+* 注意： * 任务 ID 是在生成网格任务时分配的，而不是在提交任务时分配的。给定网格任务可能会提交多次，在这种情况下， " 任务 ID" 字段不足以唯一链接已提交，已开始和已结束的审核消息。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+网格任务的最终状态结果：
+
+* SUC ：已成功完成网格任务。
+* ABRT：网格任务已终止、但未发生回滚错误。
+* Rolf：网格任务已终止、无法完成回滚过程。
+* 取消：用户在启动网格任务之前已取消此任务。
+* expr ：网格任务在启动之前已过期。
+* IVLD ：网格任务无效。
+* auth ：未授权网格任务。
+* DUPL ：网格任务被拒绝为重复项。
+
+
+|===

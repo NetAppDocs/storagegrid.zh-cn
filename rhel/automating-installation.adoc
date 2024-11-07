@@ -1,0 +1,145 @@
+---
+permalink: rhel/automating-installation.html 
+sidebar: sidebar 
+keywords: how to automate red hat linux installation 
+summary: 您可以自动安装 StorageGRID 主机服务和配置网格节点。 
+---
+= 在Red Hat Enterprise Linux上自动安装StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以自动安装 StorageGRID 主机服务和配置网格节点。
+
+在以下任一情况下，自动部署可能会很有用：
+
+* 您已使用标准业务流程框架（例如 Ansible ， Puppet 或 Chef ）部署和配置物理或虚拟主机。
+* 您打算部署多个 StorageGRID 实例。
+* 您正在部署一个大型的复杂 StorageGRID 实例。
+
+
+StorageGRID 主机服务由软件包安装，并由配置文件驱动。您可以使用以下方法之一创建配置文件：
+
+* link:creating-node-configuration-files.html["创建配置文件"]在手动安装期间以交互方式进行安装。
+* 如本文所述，提前（或以编程方式）准备配置文件，以便使用标准业务流程框架实现自动安装。
++
+StorageGRID提供了可选的Python脚本、用于自动配置StorageGRID设备和整个StorageGRID系统("网格")。您可以直接使用这些脚本、也可以对其进行检查、以了解如何使用link:overview-of-installation-rest-api.html["StorageGRID 安装 REST API"]您自己开发的网格部署和配置工具。
+
+
+
+
+
+== 自动安装和配置 StorageGRID 主机服务
+
+您可以使用 Ansible ， Puppet ， Chef ， Fabric 或 SaltStack 等标准业务流程框架自动安装 StorageGRID 主机服务。
+
+StorageGRID 主机服务打包在 RPM 中，并由配置文件驱动，您可以提前（或以编程方式）准备这些配置文件，以启用自动安装。如果您已使用标准流程编排框架安装和配置RHEL、则将StorageGRID添加到您的操作手册或秘诀应该非常简单。
+
+请参见安装归档文件随附的文件夹中的示例《Andsive角色和操作手册 `/extras`》。此《Ands还是 一本手册》介绍了此角色如何 `storagegrid`准备主机并将StorageGRID安装到目标服务器上。您可以根据需要自定义角色或攻略手册。
+
+
+NOTE: 此示例攻略手册不包括在启动 StorageGRID 主机服务之前创建网络设备所需的步骤。在完成并使用攻略手册之前，请添加以下步骤。
+
+您可以自动执行准备主机和部署虚拟网格节点的所有步骤。
+
+
+
+=== Ansible 角色和攻略手册示例
+
+安装归档文件在文件夹中提供了示例Ansive角色和操作手册 `/extras`。《安可解决方案手册》介绍了该角色如何 `storagegrid`准备主机并将StorageGRID安装到目标服务器上。您可以根据需要自定义角色或攻略手册。
+
+提供的角色示例中的安装任务 `storagegrid`使用 `ansible.builtin.dnf`模块从本地RPM文件或远程YUM存储库执行安装。如果此模块不可用或不受支持、您可能需要在以下文件中编辑相应的Ansable任务、才能使用 `yum`或 `ansible.builtin.yum`模块：
+
+* `roles/storagegrid/tasks/rhel_install_from_repo.yml`
+* `roles/storagegrid/tasks/rhel_install_from_local.yml`
+
+
+
+
+== 自动配置 StorageGRID
+
+部署网格节点后，您可以自动配置 StorageGRID 系统。
+
+.开始之前
+* 您可以从安装归档中了解以下文件的位置。
++
+[cols="1a,1a"]
+|===
+| 文件名 | 说明 
+
+
+| configure-storagegrid.py  a| 
+用于自动配置的 Python 脚本
+
+
+
+| configure-storaggrid.sample.json  a| 
+用于脚本的配置文件示例
+
+
+
+| configure-storaggrid.blank.json  a| 
+用于脚本的空配置文件
+
+|===
+* 您已创建 `configure-storagegrid.json`配置文件。要创建此文件，您可以修改示例配置文件(`configure-storagegrid.sample.json`()或空白配置文件()(`configure-storagegrid.blank.json`。
+
+
+.关于此任务
+您可以使用 `configure-storagegrid.py`Python脚本和 `configure-storagegrid.json`配置文件自动配置StorageGRID系统。
+
+
+NOTE: 您也可以使用网格管理器或安装 API 配置系统。
+
+.步骤
+. 登录到用于运行 Python 脚本的 Linux 计算机。
+. 更改为提取安装归档的目录。
++
+例如：
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/platform
+----
++
+其中 `platform`是 `debs`、 `rpms`或 `vsphere`。
+
+. 运行 Python 脚本并使用您创建的配置文件。
++
+例如：
+
++
+[listing]
+----
+./configure-storagegrid.py ./configure-storagegrid.json --start-install
+----
+
+
+.结果
+在配置过程中会生成恢复软件包 `.zip`文件、并将其下载到运行安装和配置过程的目录中。您必须备份恢复软件包文件，以便在一个或多个网格节点发生故障时恢复 StorageGRID 系统。例如，将其复制到安全的备份网络位置和安全的云存储位置。
+
+
+CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+
+如果您指定生成随机密码、请打开 `Passwords.txt`文件并查找访问StorageGRID系统所需的密码。
+
+[listing]
+----
+######################################################################
+##### The StorageGRID "Recovery Package" has been downloaded as: #####
+#####           ./sgws-recovery-package-994078-rev1.zip          #####
+#####   Safeguard this file as it will be needed in case of a    #####
+#####                 StorageGRID node recovery.                 #####
+######################################################################
+----
+系统会在显示确认消息时安装并配置 StorageGRID 系统。
+
+[listing]
+----
+StorageGRID has been configured and installed.
+----
+.相关信息
+link:overview-of-installation-rest-api.html["安装REST API"]

@@ -1,0 +1,61 @@
+---
+permalink: s3/recommendations-for-implementing-s3-rest-api.html 
+sidebar: sidebar 
+keywords: implement s3 rest api 
+summary: 在实施用于 StorageGRID 的 S3 REST API 时，应遵循以下建议。 
+---
+= 实施 S3 REST API 的建议
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在实施用于 StorageGRID 的 S3 REST API 时，应遵循以下建议。
+
+
+
+== 针对不存在的对象的建议
+
+如果您的应用程序定期检查某个对象是否位于您不希望该对象实际存在的路径上，则应使用“可用”link:consistency-controls.html["一致性"]。例如、如果您的应用程序在放置之前指向某个位置、则应使用"可用"一致性。
+
+否则、如果HEAD操作未找到对象、则在同一站点上的两个或更多存储节点不可用或某个远程站点不可访问时、您可能会收到大量500个内部服务器错误。
+
+您可以使用请求为每个存储分段设置"可用"一致性link:put-bucket-consistency-request.html["PUT 存储分段一致性"]、也可以在单个API操作的请求标头中指定一致性。
+
+
+
+== 对象密钥建议
+
+根据首次创建分段的时间、请遵循这些对象键名建议。
+
+.在StorageGRID 11.4或更早版本中创建的分段
+* 不要使用随机值作为对象键的前四个字符。这与 AWS 以前针对密钥前缀的建议不同。请改用非随机、非唯一的前缀，如 `image`。
+* 如果按照以前的AWS建议在密钥前缀中使用随机和唯一字符、请在对象密钥前添加目录名称。也就是说，请使用以下格式：
++
+`mybucket/mydir/f8e3-image3132.jpg`
+
++
+而不是以下格式：
+
++
+`mybucket/f8e3-image3132.jpg`
+
+
+
+.在StorageGRID 11.4或更高版本中创建的分段
+不需要限制对象密钥名称以满足性能最佳实践。在大多数情况下、对象密钥名称的前四个字符可以使用随机值。
+
+
+TIP: 但S3工作负载例外、它会在短时间后持续删除所有对象。为了最大限度地降低此使用情形对性能的影响、请每隔数千个对象更改一次密钥名称的前导部分、并使用日期之类的内容。例如、假设S3客户端通常每秒写入2、000个对象、而ILM或存储分段生命周期策略将在三天后删除所有对象。为了最大限度地降低对性能的影响、您可以使用如下模式命名密钥： `/mybucket/mydir/_yyyymmddhhmmss_-_random_UUID_.jpg`
+
+
+
+== "范围读取"建议
+
+如果link:../admin/configuring-stored-object-compression.html["用于压缩存储对象的全局选项"]已启用、S3客户端应用程序应避免执行指定要返回的字节数范围的GetObject操作。这些"范围读取"操作效率低下、因为StorageGRID必须有效地解压缩对象才能访问请求的字节。从非常大的对象请求少量字节的GetObject操作效率特别低；例如、从50 GB压缩对象读取10 MB的范围是效率低下的。
+
+如果从压缩对象读取范围，则客户端请求可能会超时。
+
+
+NOTE: 如果需要压缩对象，并且客户端应用程序必须使用范围读取，请增加应用程序的读取超时时间。

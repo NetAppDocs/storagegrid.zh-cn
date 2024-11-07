@@ -1,0 +1,28 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, system, security 
+summary: 系统强化是指尽可能消除 StorageGRID 系统中的安全风险的过程。 
+---
+= 系统强化的一般注意事项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+系统强化是指尽可能消除 StorageGRID 系统中的安全风险的过程。
+
+在安装和配置StorageGRID时、请遵循这些准则来帮助您满足任何规定的机密性、完整性和可用性安全目标。
+
+您应该已经在使用行业标准最佳实践来强化系统。例如、您可以对StorageGRID使用强密码、使用HTTPS而不是HTTP、并在可用时启用基于证书的身份验证。
+
+StorageGRID遵循 https://security.netapp.com/policy/["NetApp漏洞处理策略"^]。报告的漏洞会根据产品安全意外事件响应流程进行验证和解决。
+
+强化StorageGRID系统时、请考虑以下事项：
+
+* *您实施了三个StorageGRID网络中的哪一个网络*。所有 StorageGRID 系统都必须使用网格网络，但您也可以使用管理网络，客户端网络或这两者。每个网络都有不同的安全注意事项。
+* *用于StorageGRID系统中各个节点的平台类型*。StorageGRID 节点可以部署在 VMware 虚拟机上， Linux 主机上的容器引擎中或作为专用硬件设备。每种类型的平台都有自己的一套强化最佳实践。
+* *租户帐户的信任程度*。如果您是使用不可信租户帐户的服务提供商，则与仅使用可信的内部租户相比，您将面临不同的安全问题。
+* *您的组织遵循哪些安全要求和约定*。您可能需要遵守特定的法规或企业要求。
+

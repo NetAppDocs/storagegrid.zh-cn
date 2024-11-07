@@ -1,0 +1,52 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: edit traffic classification policy 
+summary: 您可以编辑流量分类策略以更改其名称或问题描述 ，或者创建，编辑或删除此策略的任何规则或限制。 
+---
+= 编辑流量分类策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以编辑流量分类策略以更改其名称或问题描述 ，或者创建，编辑或删除此策略的任何规则或限制。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:admin-group-permissions.html["root访问权限"]。
+
+
+.步骤
+. 选择 * 配置 * > * 网络 * > * 流量分类 * 。
++
+此时将显示"流量分类策略"页面、并在表中列出现有策略。
+
+. 使用操作菜单或详细信息页面编辑策略。请参见link:../admin/creating-traffic-classification-policies.html["创建流量分类策略"]了解要输入的内容。
++
+[role="tabbed-block"]
+====
+.操作菜单
+--
+.. 选中策略对应的复选框。
+.. 选择*Actions*>*Edit*。
+
+
+--
+.详细信息页面
+--
+.. 选择策略名称。
+.. 选择策略名称旁边的*Edit*按钮。
+
+
+--
+====
+. 对于输入策略名称步骤，可选择编辑策略名称或问题描述 ，然后选择*CONTINUOD*。
+. 对于添加匹配规则步骤，可选择添加规则或编辑现有规则的*Type*和*Match Value*，然后选择*Continue*。
+. 对于“设置限制”步骤，可以选择添加、编辑或删除限制，然后选择*CONTINUOD*。
+. 查看更新后的策略，然后选择*保存并继续*。
++
+您对策略所做的更改将被保存，网络流量现在将根据流量分类策略进行处理。您可以查看流量图表并验证策略是否正在强制实施预期的流量限制。
+
+

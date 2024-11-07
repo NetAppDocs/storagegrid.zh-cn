@@ -1,0 +1,132 @@
+---
+permalink: maintain/decommissioning-connected-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, connected nodes, decommission node 
+summary: 您可以停用并永久删除连接到网格的节点。 
+---
+= 停用已连接的网格节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以停用并永久删除连接到网格的节点。
+
+.开始之前
+* 您了解停用的注意事项和停用的注意事项link:considerations-for-decommissioning-admin-or-gateway-nodes.html["管理节点和网关节点"]link:considerations-for-decommissioning-storage-nodes.html["存储节点"]。
+* 您已收集所有必需的材料。
+* 您已确保没有处于活动状态的数据修复作业。
+* 您已确认网格中的任何位置均未进行存储节点恢复。如果是、请等待、直到在恢复过程中执行的任何Cassandrebuild完成为止。然后，您可以继续停用。
+* 您已确保在节点停用操作步骤 运行期间不会运行其他维护过程，除非节点停用操作步骤 已暂停。
+* 您具有配置密码短语。
+* 已连接网格节点。
+* 要取消配置的一个或多个节点的*取消配置可能*列包含一个绿色复选标记。
++
+
+NOTE: 如果一个或多个卷脱机(已卸载)、或者它们联机(已挂载)但处于错误状态、则不会开始取消配置。
+
++
+
+NOTE: 如果在停用过程中一个或多个卷脱机、则停用过程将在这些卷恢复联机后完成。
+
+* 所有网格节点的运行状况均正常(绿色)image:../media/icon_alert_green_checkmark.png["绿色复选标记图标"]。如果您在 * 运行状况 * 列中看到以下图标之一，则必须尝试解析问题描述 ：
++
+[cols="1a,1a,3a"]
+|===
+| 图标 | 颜色 | 严重性 
+
+
+ a| 
+image:../media/icon_alarm_yellow_notice.gif["黄色方形图标"]
+ a| 
+黄色
+ a| 
+通知
+
+
+
+ a| 
+image:../media/icon_alert_yellow_minor.png["浅橙色钻石图标"]
+ a| 
+浅橙色
+ a| 
+次要
+
+
+
+ a| 
+image:../media/icon_alert_orange_major.png["深橙色钻石图标"]
+ a| 
+深橙色
+ a| 
+主要
+
+
+
+ a| 
+image:../media/icon_alert_red_critical.png["红色 x 图标"]
+ a| 
+红色
+ a| 
+关键
+
+|===
+* 如果您先前停用了已断开连接的存储节点，则数据修复作业均已成功完成。请参阅。 link:checking-data-repair-jobs.html["检查数据修复作业"]
+
+
+
+CAUTION: 在此操作步骤 中指示删除网格节点的虚拟机或其他资源之前、请勿删除此网格节点。
+
+
+CAUTION: 在包含基于软件的纯元数据节点的网格中停用存储节点时、请务必小心谨慎。如果停用配置为存储_Both _对象和元数据的所有节点、则会从网格中删除存储对象的功能。有关纯元数据存储节点的详细信息、请参见link:../primer/what-storage-node-is.html#types-of-storage-nodes["存储节点的类型"]。
+
+.关于此任务
+停用某个节点后、该节点的服务将被禁用、并且该节点会自动关闭。
+
+.步骤
+. 在停用节点页面中、选中要停用的每个网格节点对应的复选框。
+. 输入配置密码短语。
++
+已启用 * 开始取消配置 * 按钮。
+
+. 选择*开始取消配置*。
+. 在确认对话框中查看节点列表，然后选择*OK*。
++
+此时将启动节点停用操作步骤 ，并显示每个节点的进度。
+
++
+
+CAUTION: 请勿在停用操作步骤 启动后使存储节点脱机。更改状态可能会导致某些内容未复制到其他位置。
+
+. 新恢复软件包发布后，请选择横幅中的恢复软件包链接或选择*Maintenance (维护)*>*System*(系统)>*Recovery package*(恢复软件包)以访问恢复软件包页面。然后、下载 `.zip`文件。
++
+请参阅。 link:downloading-recovery-package.html["正在下载恢复包"]
+
++
+
+NOTE: 请尽快下载恢复包，以确保在停用操作步骤 期间出现问题时可以恢复网格。
+
+. 定期监控 " 停用节点 " 页面，以确保所有选定节点均已成功停用。
++
+
+TIP: 存储节点停用可能需要数天或数周时间。
+
++
+完成所有任务后，系统将重新显示节点选择列表，并显示成功消息。
+
+
+
+.完成后
+完成节点停用操作步骤 后，请完成以下步骤：
+
+. 按照适用于您的平台的步骤进行操作。例如：
++
+** * Linux * ：您可能需要断开卷的连接并删除在安装期间创建的节点配置文件。请参阅link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]和link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]。
+** *VMware*：您可能希望使用vCenter的"从磁盘删除"选项来删除虚拟机。您可能还需要删除独立于虚拟机的任何数据磁盘。
+** * StorageGRID 设备 * ：设备节点会自动恢复为未部署状态，您可以在此状态下访问 StorageGRID 设备安装程序。您可以关闭设备电源或将其添加到另一个 StorageGRID 系统。
+
+
+. 确保已停用网格节点的驱动器已擦除干净。使用商用数据擦除工具或服务永久安全地从驱动器中删除数据。
+. 如果您停用了某个设备节点，并且该设备上的数据已使用节点加密进行保护，请使用 StorageGRID 设备安装程序清除密钥管理服务器配置（清除 KMS ）。如果要将设备添加到另一个网格，则必须清除 KMS 配置。有关说明，请参阅 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["监控维护模式下的节点加密"^]。
+

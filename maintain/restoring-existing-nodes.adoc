@@ -1,0 +1,220 @@
+---
+permalink: maintain/restoring-existing-nodes.html 
+sidebar: sidebar 
+keywords: recover, restore node to host, node configuration file, start host service 
+summary: 要将发生故障的网格节点还原到新的Linux主机、请执行以下步骤来还原节点配置文件。 
+---
+= 将网格节点还原到主机
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要将发生故障的网格节点还原到新的Linux主机、请执行以下步骤来还原节点配置文件。
+
+. <<restore-validate-grid-nodes,还原并验证节点>>还原节点配置文件。对于新安装、您需要为要安装在主机上的每个网格节点创建一个节点配置文件。将网格节点还原到替代主机时，您需要还原或替换任何出现故障的网格节点的节点配置文件。
+. <<start-storagegrid-host-service,启动 StorageGRID 主机服务>>(英文)
+. 根据需要，<<recover-nodes-fail-start,恢复无法启动的所有节点>>。
+
+
+如果从上一主机保留了任何块存储卷，则可能需要执行其他恢复过程。本节中的命令可帮助您确定需要执行的其他过程。
+
+
+
+== 还原和验证网格节点
+
+您必须还原任何出现故障的网格节点的网格配置文件，然后验证网格配置文件并解决任何错误。
+
+.关于此任务
+您可以导入主机上应存在的任何网格节点、但前提是其 `/var/local`卷不会因上一台主机发生故障而丢失。例如、如果您对StorageGRID系统数据卷使用共享存储、则该 `/var/local`卷可能仍存在、如适用于Linux操作系统的StorageGRID安装说明中所述。导入节点会将其节点配置文件还原到主机。
+
+如果无法导入缺少的节点、则必须重新创建其网格配置文件。
+
+然后，您必须验证网格配置文件，并解决可能发生的任何网络或存储问题，然后再继续重新启动 StorageGRID 。重新创建节点的配置文件时，必须为要恢复的节点所使用的替代节点使用相同的名称。
+
+有关节点卷位置的详细信息、请参见安装说明 `/var/local`。
+
+* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+
+
+.步骤
+. 在已恢复主机的命令行中、列出当前配置的所有StorageGRID节点：``sudo storagegrid node list``
++
+如果未配置网格节点，则不会显示任何输出。如果配置了某些网格节点，则输出格式应为：
+
++
+[listing]
+----
+Name               Metadata-Volume
+================================================================
+dc1-adm1           /dev/mapper/sgws-adm1-var-local
+dc1-gw1            /dev/mapper/sgws-gw1-var-local
+dc1-sn1            /dev/mapper/sgws-sn1-var-local
+dc1-arc1           /dev/mapper/sgws-arc1-var-local
+----
++
+如果未列出应在主机上配置的部分或全部网格节点、则需要还原缺少的网格节点。
+
+. 要导入具有卷的网格节点 `/var/local`、请执行以下操作：
++
+.. 对要导入的每个节点运行以下命令：``sudo storagegrid node import node-var-local-volume-path``
++
+只有在目标节点在上次运行该命令的主机上完全关闭后、该 `storagegrid node import`命令才会成功。否则，您将看到类似以下内容的错误：
+
++
+`This node (_node-name_) appears to be owned by another host (UUID host-uuid).`
+
++
+`Use the --force flag if you are sure import is safe.`
+
+.. 如果您看到有关节点属于其他主机的错误、请使用标志再次运行命令 `--force`以完成导入：``sudo storagegrid --force node import node-var-local-volume-path``
++
+
+NOTE: 使用标志导入的任何节点都 `--force`需要执行其他恢复步骤，然后才能重新加入网格，如中所述link:whats-next-performing-additional-recovery-steps-if-required.html["下一步操作：如果需要，执行其他恢复步骤"]。
+
+
+
+. 对于没有卷的网格节点 `/var/local`、重新创建节点的配置文件以将其还原到主机。有关说明、请参见：
++
+** link:../rhel/creating-node-configuration-files.html["为Red Hat Enterprise Linux创建节点配置文件"]
+** link:../ubuntu/creating-node-configuration-files.html["为Ubuntu或Debian创建节点配置文件"]
++
+
+NOTE: 重新创建节点的配置文件时，必须为要恢复的节点所使用的替代节点使用相同的名称。对于 Linux 部署，请确保配置文件名称包含节点名称。应尽可能使用相同的网络接口，块设备映射和 IP 地址。这种做法可以最大限度地减少恢复期间需要复制到节点的数据量，从而可以显著加快恢复速度（在某些情况下，只需几分钟而不是几周）。
+
++
+
+NOTE: 如果在为节点重新创建配置文件时使用任何新的块设备(StorageGRID节点以前未使用的设备)作为以开头的任何配置变量的值 `BLOCK_DEVICE_`，请遵循中的指导。<<fix-block-errors,修复缺少的块设备错误>>
+
+
+
+. 在已恢复的主机上运行以下命令以列出所有 StorageGRID 节点。
++
+`sudo storagegrid node list`
+
+. 验证名称显示在 StorageGRID 节点列表输出中的每个网格节点的节点配置文件：
++
+`sudo storagegrid node validate _node-name_`
+
++
+在启动 StorageGRID 主机服务之前，您必须解决任何错误或警告。以下各节详细介绍了在恢复期间可能具有特殊意义的错误。
+
+
+
+
+
+=== 修复缺少的网络接口错误
+
+如果主机网络配置不正确或名称拼写错误、则在StorageGRID检查文件中指定的映射时会发生错误 `/etc/storagegrid/nodes/_node-name_.conf`。
+
+您可能会看到与此模式匹配的错误或警告：
+
+[listing]
+----
+Checking configuration file /etc/storagegrid/nodes/<node-name>.conf for node <node-name>...
+ERROR: <node-name>: GRID_NETWORK_TARGET = <host-interface-name>
+       <node-name>: Interface <host-interface-name>' does not exist
+----
+可能会报告网格网络，管理网络或客户端网络的错误。此错误意味着该 `/etc/storagegrid/nodes/_node-name_.conf`文件会将指定的StorageGRID网络映射到名为的主机接口 `_host-interface-name_`，但当前主机上没有与该名称相同的接口。
+
+如果收到此错误，请验证是否已完成中的步骤link:deploying-new-linux-hosts.html["部署新的 Linux 主机"]。对所有主机接口使用与原始主机相同的名称。
+
+如果您无法为主机接口命名以匹配节点配置文件，则可以编辑节点配置文件，并更改 grid_network_target ， admin_network_target 或 client_network_target 的值以匹配现有主机接口。
+
+确保主机接口提供对相应物理网络端口或 VLAN 的访问，并且该接口不直接引用绑定或网桥设备。您必须在主机上的绑定设备上配置 VLAN （或其他虚拟接口），或者使用网桥和虚拟以太网（ veth ）对。
+
+
+
+=== 修复缺少的块设备错误
+
+系统会检查每个已恢复的节点是否映射到有效的块设备专用文件或块设备专用文件的有效软链接。如果StorageGRID在文件中发现无效映射 `/etc/storagegrid/nodes/_node-name_.conf`、则会显示缺少块设备错误。
+
+如果您发现与此模式匹配的错误：
+
+[listing]
+----
+Checking configuration file /etc/storagegrid/nodes/<node-name>.conf for node <node-name>...
+ERROR: <node-name>: BLOCK_DEVICE_PURPOSE = <path-name>
+       <node-name>: <path-name> does not exist
+----
+这意味着、会 `/etc/storagegrid/nodes/_node-name_.conf`将_no-name_使用的块设备映射 `PURPOSE`到Linux文件系统中的给定路径名、但在该位置没有有效的块设备专用文件或指向块设备专用文件的软链接。
+
+确认已完成中的步骤link:deploying-new-linux-hosts.html["部署新的 Linux 主机"]。对所有块设备使用与原始主机相同的永久性设备名称。
+
+如果您无法还原或重新创建缺少的块设备专用文件、则可以分配具有适当大小和存储类别的新块设备、并编辑节点配置文件以将的值更 `BLOCK_DEVICE_PURPOSE`改为指向新的块设备专用文件。
+
+使用适用于Linux操作系统的表确定适当的大小和存储类别：
+
+* link:../rhel/storage-and-performance-requirements.html["Red Hat Enterprise Linux的存储和性能要求"]
+* link:../ubuntu/storage-and-performance-requirements.html["Ubuntu或Debian的存储和性能要求"]
+
+
+在继续更换块设备之前、请查看有关配置主机存储的建议：
+
+* link:../rhel/configuring-host-storage.html["为Red Hat Enterprise Linux配置主机存储"]
+* link:../ubuntu/configuring-host-storage.html["为Ubuntu或Debian配置主机存储"]
+
+
+
+NOTE: 如果您必须为以开头的任何配置文件变量提供新的块存储 `BLOCK_DEVICE_`设备、因为原始块设备在故障主机上丢失、请确保新块设备未格式化、然后再尝试执行进一步的恢复过程。如果您使用的是共享存储并已创建新卷，则新块设备将取消格式化。如果不确定，请对任何新的块存储设备特殊文件运行以下命令。
+
+[CAUTION]
+====
+仅对新块存储设备运行以下命令。如果您认为块存储仍包含要恢复的节点的有效数据、请勿运行此命令、因为设备上的任何数据都将丢失。
+
+`sudo dd if=/dev/zero of=/dev/mapper/my-block-device-name bs=1G count=1`
+
+====
+
+
+== 启动 StorageGRID 主机服务
+
+要启动 StorageGRID 节点并确保它们在主机重新启动后重新启动，您必须启用并启动 StorageGRID 主机服务。
+
+.步骤
+. 在每个主机上运行以下命令：
++
+[listing]
+----
+sudo systemctl enable storagegrid
+sudo systemctl start storagegrid
+----
+. 运行以下命令以确保部署正在进行：
++
+[listing]
+----
+sudo storagegrid node status node-name
+----
+. 如果任何节点返回状态"Nnot running"(未运行)或"STOPPEed"(已停止)、请运行以下命令：
++
+[listing]
+----
+sudo storagegrid node start node-name
+----
+. 如果您先前已启用并启动 StorageGRID 主机服务（或者不确定此服务是否已启用和启动），请同时运行以下命令：
++
+[listing]
+----
+sudo systemctl reload-or-restart storagegrid
+----
+
+
+
+
+== 恢复无法正常启动的节点
+
+如果StorageGRID 节点未正常重新加入网格且未显示为可恢复、则可能已损坏。您可以强制节点进入恢复模式。
+
+.步骤
+. 确认节点的网络配置是否正确。
++
+由于网络接口映射不正确或网格网络IP地址或网关不正确、此节点可能无法重新加入网格。
+
+. 如果网络配置正确、请发出 `force-recovery`命令：
++
+`sudo storagegrid node force-recovery _node-name_`
+
+. 对节点执行其他恢复步骤。请参阅。 link:whats-next-performing-additional-recovery-steps-if-required.html["下一步操作：如果需要，执行其他恢复步骤"]
+

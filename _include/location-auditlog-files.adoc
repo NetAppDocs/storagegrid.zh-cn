@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["了解审核信息的目标"](英文)

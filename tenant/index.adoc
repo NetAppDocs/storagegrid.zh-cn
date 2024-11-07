@@ -1,0 +1,62 @@
+---
+permalink: tenant/index.html 
+sidebar: sidebar 
+keywords: use tenant account 
+summary: 租户帐户允许您使用简单存储服务（ S3 ） REST API 或 Swift REST API 在 StorageGRID 系统中存储和检索对象。 
+---
+= 使用租户帐户
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+租户帐户允许您使用简单存储服务（ S3 ） REST API 或 Swift REST API 在 StorageGRID 系统中存储和检索对象。
+
+
+
+== 什么是租户帐户？
+
+每个租户帐户都有自己的联合或本地组，用户， S3 分段或 Swift 容器以及对象。
+
+租户帐户可用于按不同实体隔离存储的对象。例如，以下任一使用情形均可使用多个租户帐户：
+
+* * 企业用例： * 如果在企业中使用 StorageGRID 系统，则网格的对象存储可能会被组织中的不同部门隔离。例如，可能存在营销部门，客户支持部门，人力资源部门等的租户帐户。
++
+
+NOTE: 如果使用 S3 客户端协议，则还可以使用 S3 分段和分段策略在企业中的各个部门之间隔离对象。您无需创建单独的租户帐户。有关详细信息、请参见实施说明link:../s3/bucket-and-group-access-policies.html["S3存储分段和存储分段策略"]。
+
+* * 服务提供商用例： * 如果服务提供商正在使用 StorageGRID 系统，则网格的对象存储可能会被租用该存储的不同实体分隔。例如，可能存在公司 A ，公司 B ，公司 C 等的租户帐户。
+
+
+
+
+== 如何创建租户帐户
+
+租户帐户由创建link:../admin/managing-tenants.html["使用网格管理器的 StorageGRID 网格管理员"]。创建租户帐户时、网格管理员指定以下内容：
+
+* 基本信息、包括租户名称、客户端类型(S3)和可选存储配额。
+* 租户帐户的权限、例如租户帐户是否可以使用S3平台服务、配置自己的身份源、使用S3 Select或使用网格联盟连接。
+* 租户的初始root访问权限、具体取决于StorageGRID 系统是使用本地组和用户、身份联合还是单点登录(SSO)。
+
+
+此外，如果 S3 租户帐户需要符合法规要求，网格管理员可以为 StorageGRID 系统启用 S3 对象锁定设置。启用 S3 对象锁定后，所有 S3 租户帐户均可创建和管理合规的存储分段。
+
+
+
+=== 配置 S3 租户
+
+完成后link:../admin/creating-tenant-account.html["已创建 S3 租户帐户"]，您可以访问租户管理器来执行如下任务：
+
+* 设置身份联合(除非身份源与网格共享)
+* 管理组和用户
+* 使用网格联盟进行帐户克隆和跨网格复制
+* 管理 S3 访问密钥
+* 创建和管理S3存储分段
+* 使用S3平台服务
+* 使用 S3 Select
+* 监控存储使用情况
+
+
+
+TIP: 虽然您可以使用租户管理器创建和管理S3存储分段、但必须使用link:../s3/index.html["S3 客户端"]或link:use-s3-console.html["S3控制台"]来加存和管理对象。

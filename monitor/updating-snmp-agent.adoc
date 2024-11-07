@@ -1,0 +1,102 @@
+---
+permalink: monitor/updating-snmp-agent.html 
+sidebar: sidebar 
+keywords: how to update the SNMP agent 
+summary: 您可以禁用SNMP通知、更新社区字符串、或者添加或删除代理地址、USM用户和陷阱目标。 
+---
+= 更新 SNMP 代理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以禁用SNMP通知、更新社区字符串、或者添加或删除代理地址、USM用户和陷阱目标。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+
+
+.关于此任务
+有关SNMP代理页面上每个字段的详细信息、请参见link:configuring-snmp-agent.html["配置 SNMP 代理"]。您必须选择页面底部的*保存*以提交您在每个选项卡上所做的任何更改。
+
+.步骤
+. 选择 * 配置 * > * 监控 * > * SNMP 代理 * 。
++
+此时将显示SNMP代理页面。
+
+. 要在所有网格节点上禁用SNMP代理，请清除*Enable SNMP*复选框，然后选择*Save*。
++
+如果重新启用SNMP代理、则会保留先前的任何SNMP配置设置。
+
+. (可选)更新Basic configuration部分中的信息：
++
+.. 根据需要更新*系统联系人*和*系统位置*。
+.. (可选)选中或清除*启用SNMP代理通知*复选框以控制StorageGRID SNMP代理是否发送陷阱和通知通知。
++
+清除此复选框后、SNMP代理支持只读MIB访问、但不会发送SNMP通知。
+
+.. (可选)选中或清除*启用身份验证陷阱*复选框，以控制StorageGRID SNMP代理在收到未经正确身份验证的协议消息时是否发送身份验证陷阱。
+
+
+. 如果使用SNMPv1或SNMPv2c，则可以选择在“团体字符串”部分中更新或添加*只读社区*。
+. 要更新陷阱目标、请选择其他配置部分中的陷阱目标选项卡。
++
+使用此选项卡可以定义StorageGRID陷阱或通知通知的一个或多个目标。如果启用SNMP代理并选择*保存*，则在触发警报时，StorageGRID会向每个定义的目标发送通知。此外，还会为受支持的 MIB-II 实体（例如 ifdown 和 coldstart ）发送标准通知。
+
++
+有关输入内容的详细信息，请参见link:../monitor/configuring-snmp-agent.html#create-trap-destinations["创建陷阱目标"]。
+
++
+** (可选)更新或删除默认陷阱社区。
++
+如果删除默认陷阱团体、则必须先确保任何现有陷阱目标使用自定义社区字符串。
+
+** 要添加陷阱目标，请选择*Cree*。
+** 要编辑陷阱目标，请选择单选按钮，然后选择*Edit*。
+** 要删除陷阱目标，请选择单选按钮，然后选择*Remove*。
+** 要提交更改，请选择页面底部的*保存*。
+
+
+. 要更新业务代表地址，请选择其他配置部分中的业务代表地址选项卡。
++
+使用此选项卡指定一个或多个"侦听地址"。这些地址是SNMP代理可以接收查询的StorageGRID地址。
+
++
+有关输入内容的详细信息，请参见link:../monitor/configuring-snmp-agent.html#create-agent-addresses["创建代理地址"]。
+
++
+** 要增加业务代表地址，请选择*Cree*。
+** 要编辑业务代表地址，请选择单选按钮，然后选择*Edit*。
+** 要删除业务代表地址，请选择单选按钮，然后选择*Remove*。
+** 要提交更改，请选择页面底部的*保存*。
+
+
+. 要更新USM用户、请选择其他配置部分中的USM用户选项卡。
++
+使用此选项卡可定义有权查询 MIB 或接收陷阱并通知的 USM 用户。
+
++
+有关输入内容的详细信息，请参见link:../monitor/configuring-snmp-agent.html#create-usm-users["创建USM用户"]。
+
++
+** 要添加USM用户，请选择*Cree*。
+** 要编辑USM用户，请选择单选按钮，然后选择*Edit*。
++
+无法更改现有USM用户的用户名。如果需要更改用户名，必须删除此用户并创建新用户名。
+
++
+
+NOTE: 如果添加或删除用户的权威引擎ID、并且当前已为目标选择该用户、则必须编辑或删除目标。否则，在保存 SNMP 代理配置时会发生验证错误。
+
+** 要删除USM用户，请选择单选按钮，然后选择*Remove*。
++
+
+NOTE: 如果您删除的用户当前已被选定为陷阱目标、则必须编辑或删除该目标。否则，在保存 SNMP 代理配置时会发生验证错误。
+
+** 要提交更改，请选择页面底部的*保存*。
+
+
+. 更新SNMP代理配置后，选择*Save*。
+

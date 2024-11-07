@@ -1,0 +1,98 @@
+---
+permalink: audit/cgrr-cross-grid-replication-request.html 
+sidebar: sidebar 
+keywords: cgrr, cross-grid replication request, audit message, 
+summary: 当StorageGRID 尝试跨网格复制操作在网格联盟连接中的分段之间复制对象时、将生成此消息。 
+---
+= CGRR：跨网格复制请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当StorageGRID 尝试跨网格复制操作在网格联盟连接中的分段之间复制对象时、将生成此消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CSIZ
+ a| 
+对象大小
+ a| 
+对象的大小（以字节为单位）。
+
+StorageGRID 11.8.因此、跨网格复制请求(从StorageGRID 11.7升级到11.8)可能具有不准确的总对象大小。
+
+
+
+ a| 
+S3AI
+ a| 
+S3租户帐户ID
+ a| 
+拥有从中复制对象的存储分段的租户帐户的ID。
+
+
+
+ a| 
+GFID
+ a| 
+网格联合连接ID
+ a| 
+用于跨网格复制的网格联合连接的ID。
+
+
+
+ a| 
+工序
+ a| 
+CGR操作
+ a| 
+尝试的跨网格复制操作的类型：
+
+* 0 = Replicate对象
+* 1 =重复多部分对象
+* 2= Replicate delete标记
+
+
+
+
+ a| 
+S3BK
+ a| 
+S3存储分段
+ a| 
+S3 存储分段名称。
+
+
+
+ a| 
+S3KY
+ a| 
+S3 密钥
+ a| 
+S3 密钥名称，不包括存储分段名称。
+
+
+
+ a| 
+VSID
+ a| 
+版本ID
+ a| 
+正在复制的对象的特定版本的版本ID。
+
+
+
+ a| 
+RSLT
+ a| 
+结果代码
+ a| 
+返回成功(SUC)或一般错误(ERR)。
+
+|===

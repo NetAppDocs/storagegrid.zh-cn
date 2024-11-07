@@ -1,0 +1,105 @@
+---
+permalink: ilm/comparing-cloud-storage-pools-to-cloudmirror-replication.html 
+sidebar: sidebar 
+keywords: cloud storage pools, cloudmirror replication 
+summary: 在开始使用云存储池时，了解云存储池与 StorageGRID CloudMirror 复制服务之间的相似之处和不同之处可能会很有帮助。 
+---
+= 比较云存储池和 CloudMirror 复制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始使用云存储池时，了解云存储池与 StorageGRID CloudMirror 复制服务之间的相似之处和不同之处可能会很有帮助。
+
+[cols="1a,3a,3a"]
+|===
+|  | 云存储池 | CloudMirror 复制服务 
+
+
+ a| 
+主要目的是什么？
+ a| 
+用作归档目标。云存储池中的对象副本可以是对象的唯一副本，也可以是其他副本。也就是说、您可以在StorageGRID 中保留一个副本并将一个副本发送到云存储池、而不是在现场保留两个副本。
+ a| 
+允许租户自动将对象从StorageGRID (源)中的存储分段复制到外部S3存储分段(目标)。在独立的S3基础架构中为对象创建一个独立副本。
+
+
+
+ a| 
+如何设置？
+ a| 
+使用网格管理器或网格管理API以与存储池相同的方式进行定义。可选择作为ILM规则中的放置位置。虽然存储池包含一组存储节点，但云存储池是使用远程 S3 或 Azure 端点（ IP 地址，凭据等）定义的。
+ a| 
+租户用户、方法是使用租link:../tenant/configuring-cloudmirror-replication.html["配置 CloudMirror 复制"]户管理器或S3 API定义CloudMirror端点(IP地址、凭据等)。设置 CloudMirror 端点后，可以将该租户帐户拥有的任何分段配置为指向 CloudMirror 端点。
+
+
+
+ a| 
+谁负责设置？
+ a| 
+通常是网格管理员
+ a| 
+通常是租户用户
+
+
+
+ a| 
+目标是什么？
+ a| 
+* 任何兼容的 S3 基础架构（包括 Amazon S3 ）
+* Azure Blob 归档层
+* Google Cloud Platform （ GCP ）
+
+ a| 
+* 任何兼容的 S3 基础架构（包括 Amazon S3 ）
+* Google Cloud Platform （ GCP ）
+
+
+
+
+ a| 
+将对象移动到目标的原因是什么？
+ a| 
+活动ILM策略中的一个或多个ILM规则。ILM 规则定义 StorageGRID 将哪些对象移动到云存储池以及何时移动这些对象。
+ a| 
+将新对象插入已配置CloudMirror端点的源存储分段的操作。在为源存储分段配置CloudMirror端点之前、源存储分段中存在的对象不会进行复制、除非对其进行了修改。
+
+
+
+ a| 
+如何检索对象？
+ a| 
+应用程序必须向 StorageGRID 发出请求，以检索已移动到云存储池的对象。如果某个对象的唯一副本已过渡到归档存储，则 StorageGRID 会管理还原该对象的过程，以便可以检索该对象。
+ a| 
+由于目标存储分段中的镜像副本是一个独立的副本，因此应用程序可以通过向 StorageGRID 或 S3 目标发出请求来检索对象。例如，假设您使用 CloudMirror 复制将对象镜像到合作伙伴组织。配对节点可以使用自己的应用程序直接从 S3 目标读取或更新对象。不需要使用 StorageGRID 。
+
+
+
+ a| 
+是否可以直接从目标读取？
+ a| 
+不可以。移动到云存储池的对象由StorageGRID管理。读取请求必须定向到 StorageGRID （ StorageGRID 将负责从云存储池中检索）。
+ a| 
+可以，因为镜像副本是一个独立副本。
+
+
+
+ a| 
+如果从源中删除对象，会发生什么情况？
+ a| 
+此对象也会从云存储池中删除。
+ a| 
+不会复制删除操作。已删除的对象不再位于 StorageGRID 存储分段中，但它仍位于目标存储分段中。同样，可以删除目标分段中的对象而不影响源。
+
+
+
+ a| 
+发生灾难后如何访问对象（ StorageGRID 系统无法运行）？
+ a| 
+必须恢复发生故障的 StorageGRID 节点。在此过程中，复制对象的副本可能会使用云存储池中的副本进行还原。
+ a| 
+CloudMirror 目标中的对象副本独立于 StorageGRID ，因此可以在恢复 StorageGRID 节点之前直接访问这些副本。
+
+|===

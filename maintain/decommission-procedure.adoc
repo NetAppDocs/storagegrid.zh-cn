@@ -1,0 +1,24 @@
+---
+permalink: maintain/decommission-procedure.html 
+sidebar: sidebar 
+keywords: how to decommission 
+summary: 您可以执行停用操作步骤 ，以便从 StorageGRID 系统中永久删除网格节点或整个站点。 
+---
+= 停用节点或站点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以执行停用操作步骤 ，以便从 StorageGRID 系统中永久删除网格节点或整个站点。
+
+要删除网格节点或站点，请执行以下停用过程之一：
+
+* 执行link:grid-node-decommissioning.html["网格节点停用"]以删除一个或多个节点、这些节点可以位于一个或多个站点上。您删除的节点可以联机并连接到 StorageGRID 系统，也可以脱机并断开连接。
+* 执行link:considerations-for-removing-site.html["站点停用"]以删除站点。如果所有节点都连接到StorageGRID ，则执行*已连接站点停用*。如果所有节点都与StorageGRID 断开连接，则执行*断开连接的站点停用*。如果站点中既有已连接节点、也有已断开连接的节点、则必须将所有脱机节点恢复联机。
++
+
+CAUTION: 在执行断开连接的站点停用之前、请联系您的NetApp客户代表。在取消配置站点向导中启用所有步骤之前， NetApp 将查看您的要求。如果您认为可以恢复站点或从站点恢复对象数据，则不应尝试执行已断开连接的站点停用。
+
+

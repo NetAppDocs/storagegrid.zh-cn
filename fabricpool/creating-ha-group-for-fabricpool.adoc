@@ -1,0 +1,99 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+summary: 在配置 StorageGRID 以与 FabricPool 结合使用时，您可以选择创建一个或多个高可用性（ HA ）组。HA组是一组节点、每个节点都包含StorageGRID 负载平衡器服务。HA组可以包含网关节点、管理节点或同时包含这两者。 
+---
+= 为 FabricPool 创建高可用性（ HA ）组
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在配置 StorageGRID 以与 FabricPool 结合使用时，您可以选择创建一个或多个高可用性（ HA ）组。HA组是一组节点、每个节点都包含StorageGRID 负载平衡器服务。HA组可以包含网关节点、管理节点或同时包含这两者。
+
+您可以使用HA组帮助保持FabricPool 数据连接可用。HA组使用虚拟IP地址(VIP)提供对负载平衡器服务的高可用性访问。如果HA组中的活动接口发生故障、则备份接口可以管理工作负载、而对FabricPool 操作的影响微乎其微。
+
+有关此任务的详细信息，请参见link:../admin/managing-high-availability-groups.html["管理高可用性组"]。要使用FabricPool设置向导完成此任务，请转至link:use-fabricpool-setup-wizard-steps.html["访问并完成FabricPool 设置向导"]。
+
+.开始之前
+* 您已查看link:best-practices-for-high-availability-groups.html["高可用性组的最佳实践"]。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+* 如果您计划使用 VLAN ，则已创建 VLAN 接口。请参阅。 link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
+
+
+.步骤
+. 选择 * 配置 * > * 网络 * > * 高可用性组 * 。
+. 选择 * 创建 * 。
+. 对于“*输入详细信息*”步骤，请填写以下字段。
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+HA组名称
+ a| 
+此HA组的唯一显示名称。
+
+
+
+ a| 
+问题描述 (可选)
+ a| 
+此HA组的问题描述。
+
+|===
+. 对于*Add interfaces*步骤，选择要在此HA组中使用的节点接口。
++
+使用列标题对行进行排序，或者输入搜索词以更快地找到接口。
+
++
+您可以选择一个或多个节点、但只能为每个节点选择一个接口。
+
+. 对于“确定接口优先级”步骤，请确定此HA组的主接口和任何备份接口。
++
+拖动行以更改*优先级顺序*列中的值。
+
++
+列表中的第一个接口是主接口。主接口是活动接口，除非发生故障。
+
++
+如果HA组包含多个接口、而活动接口发生故障、则虚拟IP (VIP)地址将按优先级顺序移至第一个备份接口。如果该接口发生故障， VIP 地址将移至下一个备份接口，依此类推。解决故障后， VIP 地址将移回可用的最高优先级接口。
+
+. 对于“*输入IP地址*”步骤，请填写以下字段。
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+ a| 
+Subnet CIDR
+ a| 
+采用CIDR表示法的VIP子网的地址##8212;后跟斜杠的IPv4地址和子网长度(0-32)。
+
+网络地址不能设置任何主机位。例如， `192.16.0.0/22`。
+
+
+
+ a| 
+网关IP地址(可选)
+ a| 
+可选。如果用于访问StorageGRID 的ONTAP IP地址与StorageGRID VIP地址不在同一子网上、请输入StorageGRID VIP本地网关IP地址。本地网关 IP 地址必须位于 VIP 子网中。
+
+
+
+ a| 
+虚拟IP地址
+ a| 
+为HA组中的活动接口至少输入一个VIP地址、最多输入十个VIP地址。所有VIP地址都必须位于VIP子网内。
+
+必须至少有一个地址为IPv4。您也可以指定其他 IPv4 和 IPv6 地址。
+
+|===
+. 选择 * 创建 HA 组 * ，然后选择 * 完成 * 。
+

@@ -1,0 +1,28 @@
+---
+permalink: monitor/snmp-alert-notifications.html 
+sidebar: sidebar 
+keywords: how to use snmp notifications for alerts 
+summary: 如果您希望 StorageGRID 在发生警报时发送 SNMP 通知，则必须启用 StorageGRID SNMP 代理并配置一个或多个陷阱目标。 
+---
+= 为警报设置 SNMP 通知
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您希望 StorageGRID 在发生警报时发送 SNMP 通知，则必须启用 StorageGRID SNMP 代理并配置一个或多个陷阱目标。
+
+您可以使用网格管理器中的 * 配置 * > * 监控 * > * SNMP 代理 * 选项或网格管理 API 的 SNMP 端点来启用和配置 StorageGRID SNMP 代理。SNMP 代理支持所有三个版本的 SNMP 协议。
+
+要了解如何配置SNMP代理，请参见link:using-snmp-monitoring.html["使用 SNMP 监控"]。
+
+配置 StorageGRID SNMP 代理后，可以发送两种类型的事件驱动型通知：
+
+* 陷阱是由SNMP代理发送的通知、不需要管理系统进行确认。陷阱用于通知管理系统 StorageGRID 中发生了某种情况，例如触发警报。所有三个版本的 SNMP 均支持陷阱。
+* 通知与陷阱类似，但需要管理系统确认。如果 SNMP 代理未在特定时间内收到确认，则会重新发送通知，直到收到确认或达到最大重试值为止。SNMPv2c 和 SNMPv3 支持 INFORM 。
+
+
+在任何严重性级别触发默认或自定义警报时，系统都会发送陷阱和通知通知通知。要禁止警报的 SNMP 通知，您必须为此警报配置静默。请参阅。 link:silencing-alert-notifications.html["静默警报通知"]
+
+如果您的StorageGRID部署包含多个管理节点、则主管理节点是警报通知、AutoSupport软件包以及SNMP陷阱和通知的首选发送方。如果主管理节点不可用、则其他管理节点会临时发送通知。请参阅。 link:../primer/what-admin-node-is.html["什么是管理节点？"]

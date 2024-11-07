@@ -1,0 +1,47 @@
+---
+permalink: ilm/access-create-ilm-rule-wizard.html 
+sidebar: sidebar 
+keywords: create ILM rule, information lifecycle rule 
+summary: 您可以使用创建 ILM 规则向导创建 ILM 规则。 
+---
+= 访问创建ILM规则向导
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过 ILM 规则管理对象数据随时间的放置。要创建ILM规则、请使用创建ILM规则向导。
+
+
+NOTE: 如果要为策略创建默认ILM规则、请改用。link:creating-default-ilm-rule.html["有关创建默认ILM规则的说明"]
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+* 如果要指定此规则适用于哪些租户帐户、您拥有link:../admin/admin-group-permissions.html["租户帐户权限"]或知道每个帐户的帐户ID。
+* 如果希望规则按上次访问时间元数据筛选对象、则必须通过S3存储分段启用上次访问时间更新。
+* 您已配置计划使用的任何云存储池。请参阅。 link:creating-cloud-storage-pool.html["创建云存储池"]
+* 您熟悉link:data-protection-options-for-ingest.html["加热选项"]。
+* 如果需要创建与S3对象锁定配合使用的合规规则，则您熟悉link:requirements-for-s3-object-lock.html["S3 对象锁定的要求"]。
+* (可选)您已观看视频： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["视频：ILM规则概述"^]。
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
+image::../media/video-screenshot-ilm-rules-118.png[视频：ILM规则概述]
+
+
+
+.关于此任务
+创建 ILM 规则时：
+
+* 请考虑 StorageGRID 系统的拓扑和存储配置。
+* 考虑要创建哪些类型的对象副本(复制或删除编码)以及所需的每个对象的副本数。
+* 确定连接到 StorageGRID 系统的应用程序中使用的对象元数据类型。ILM 规则根据对象的元数据筛选对象。
+* 请考虑随时间推移对象副本的放置位置。
+* 确定要使用的加网选项(均衡、严格或双重提交)。
+
+
+.步骤
+. 选择 * ILM * > * 规则 * 。
+. 选择 * 创建 * 。link:create-ilm-rule-enter-details.html["第1步(输入详细信息)"]的创建ILM规则向导。
+

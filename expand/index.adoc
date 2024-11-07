@@ -1,0 +1,74 @@
+---
+permalink: expand/index.html 
+sidebar: sidebar 
+keywords: expand grid 
+summary: 您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。 
+---
+= 扩展类型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。
+
+StorageGRID扩展允许您添加：
+
+* 存储卷到存储节点
+* 新网格节点到现有站点
+* 整个新站点
+
+
+执行扩展的原因决定了您必须添加的每种类型的新节点数以及这些新节点的位置。例如，如果要执行扩展以增加存储容量，添加元数据容量或添加冗余或新功能，则节点要求会有所不同。
+
+按照适用于您所执行扩展类型的步骤进行操作：
+
+[role="tabbed-block"]
+====
+.添加存储卷
+--
+按照的步骤进行操作link:adding-storage-volumes-to-storage-nodes.html["将存储卷添加到存储节点"]。
+
+--
+.添加网格节点
+--
+. 按照的步骤进行操作link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["将网格节点添加到现有站点"]。
+. link:updating-subnets-for-grid-network.html["更新子网"](英文)
+. 部署网格节点：
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["设备"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
++
+
+NOTE: "Linux"是指Red Hat Enterprise Linux、Ubuntu或Debian部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
+
+
+
+. link:performing-expansion.html["执行扩展"](英文)
+. link:configuring-expanded-storagegrid-system.html["配置扩展的系统"](英文)
+
+
+--
+.添加新站点
+--
+. 按照的步骤进行操作link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["添加新站点"]。
+. link:updating-subnets-for-grid-network.html["更新子网"](英文)
+. 部署网格节点：
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["设备"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
++
+
+NOTE: "Linux"是指Red Hat Enterprise Linux、Ubuntu或Debian部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
+
+
+
+. link:performing-expansion.html["执行扩展"](英文)
+. link:configuring-expanded-storagegrid-system.html["配置扩展的系统"](英文)
+
+
+--
+====

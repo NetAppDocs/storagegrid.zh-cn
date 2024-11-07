@@ -1,0 +1,100 @@
+---
+permalink: maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
+summary: 您必须运行一个脚本来重新格式化和重新挂载故障存储卷上的存储，并在系统确定有必要时在存储节点上重建 Cassandra 数据库。 
+---
+= 恢复发生故障的存储卷并重建 Cassandra 数据库
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须运行一个脚本来重新格式化和重新挂载故障存储卷上的存储，并在系统确定有必要时在存储节点上重建 Cassandra 数据库。
+
+.开始之前
+* 您已获得 `Passwords.txt`文件。
+* 服务器上的系统驱动器完好无损。
+* 已确定故障的发生原因 、并且已在必要时获取更换存储硬件。
+* 替换存储的总大小与原始存储相同。
+* 您已检查是否未在执行存储节点停用，或者已暂停节点停用操作步骤 。（在网格管理器中，选择 * 维护 * > * 任务 * > * 取消配置 * 。）
+* 您已检查扩展是否未在进行中。（在网格管理器中，选择 * 维护 * > * 任务 * > * 扩展 * 。）
+* 您拥有 link:reviewing-warnings-about-storage-volume-recovery.html["已查看有关存储卷恢复的警告"]。
+
+
+.步骤
+. 根据需要，更换与先前已确定并卸载的故障存储卷关联的故障物理或虚拟存储。
++
+请勿在此步骤中重新挂载卷。存储将在后续步骤中重新挂载并添加到中 `/etc/fstab`。
+
+. 在网格管理器中，转至*N节点*>> `*appliance Storage Node*`*Hardere*。在页面的StorageGRID 设备部分中、验证存储RAID模式是否运行正常。
+. 登录到发生故障的存储节点：
++
+.. 输入以下命令： `ssh admin@_grid_node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 使用文本编辑器(vi或vm)从文件中删除故障卷 `/etc/fstab`、然后保存文件。
++
+
+NOTE: 注释掉文件中出现故障的卷 `/etc/fstab`是不够的。必须从中删除此卷、因为恢复过程会验证此 `fstab`文件中的所有行是否 `fstab`与挂载的文件系统匹配。
+
+. 重新格式化任何发生故障的存储卷，并根据需要重建 Cassandra 数据库。输入： `reformat_storage_block_devices.rb`
++
+** 卸载存储卷0后、系统将显示提示和消息、指示Cassand拉 服务正在停止。
+** 如果需要，系统将提示您重建 Cassandra 数据库。
++
+*** 查看警告。如果其中任何一项都不适用，请重建 Cassandra 数据库。输入： *
+*** 如果多个存储节点脱机或在过去 15 天内重建了另一个存储节点。输入： *
++
+该脚本将退出而不重建 Cassandra 。请联系技术支持。
+
+
+
+** 对于存储节点上的每个rangedb驱动器，当系统询问您：时，输入以下响应之一： `Reformat the rangedb drive _<name>_ (device _<major number>:<minor number>_)? [y/n]?`
++
+*** * y * 重新格式化出现错误的驱动器。此操作将重新格式化存储卷、并将重新格式化的存储卷添加到文件中 `/etc/fstab`。
+*** *n*(如果驱动器没有错误，并且您不想重新格式化它)。
++
+
+NOTE: 选择 * n * 将退出此脚本。挂载驱动器（如果您认为应保留驱动器上的数据且错误地卸载了驱动器）或删除驱动器。然后、再次运行 `reformat_storage_block_devices.rb`命令。
+
++
+
+NOTE: 某些 StorageGRID 恢复过程使用 Reaper 处理 Cassandra 修复。一旦相关服务或所需服务开始，便会自动进行修复。您可能会注意到脚本输出中提到"reaper"或"cassandr修复"。如果您看到指示修复失败的错误消息、请运行错误消息中指示的命令。
+
++
+在以下示例输出中、必须重新格式化驱动器 `/dev/sdf`、并且不需要重建cassandreas:
+
++
+[listing]
+----
+root@DC1-S1:~ # reformat_storage_block_devices.rb
+Formatting devices that are not in use...
+Skipping in use device /dev/sdc
+Skipping in use device /dev/sdd
+Skipping in use device /dev/sde
+Reformat the rangedb drive /dev/sdf (device 8:64)? [Y/n]? y
+Successfully formatted /dev/sdf with UUID b951bfcb-4804-41ad-b490-805dfd8df16c
+All devices processed
+Running: /usr/local/ldr/setup_rangedb.sh 12368435
+Cassandra does not need rebuilding.
+Starting services.
+Informing storage services of new volume
+
+Reformatting done.  Now do manual steps to
+restore copies of data.
+----
+
+
+
+
+
+
+在重新格式化和重新挂载存储卷并完成必要的cassand拉 操作后，您可以link:../maintain/restoring-volume.html["使用网格管理器还原对象数据"]。

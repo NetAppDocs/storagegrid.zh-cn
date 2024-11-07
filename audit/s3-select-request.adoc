@@ -1,0 +1,156 @@
+---
+permalink: audit/s3-select-request.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, S3SL, S3 Select request 
+summary: 此消息指示用户已启动S3 Select作业。 
+---
+= S3SL：S3选择请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此消息会在S3 Select请求返回给客户端后记录完成。S3SL消息可以包括错误消息和错误代码详细信息。此请求可能未成功。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+BYSC
+ a| 
+已扫描字节数
+ a| 
+从存储节点扫描(接收)的字节数。
+
+如果对对象进行压缩、BYSC和BYPR可能会有所不同。如果对象已压缩、则BYSC将具有经过压缩的字节计数、而BYPR将是解压缩后的字节。
+
+
+
+ a| 
+BYPR
+ a| 
+已处理的字节数
+ a| 
+已处理的字节数。指示S3 Select作业实际处理或处理了多少字节的"已扫描字节数"。
+
+
+
+ a| 
+BYRT
+ a| 
+返回的字节数
+ a| 
+S3 Select作业返回到客户端的字节数。
+
+
+
+ a| 
+重新
+ a| 
+记录已处理
+ a| 
+S3 Select作业从存储节点收到的记录或行数。
+
+
+
+ a| 
+RERT
+ a| 
+返回的记录
+ a| 
+S3 Select作业返回到客户端的记录或行数。
+
+
+
+ a| 
+JOFI
+ a| 
+作业已完成
+ a| 
+指示S3 Select作业是否已完成处理。如果此值为false、则作业无法完成、并且错误字段中可能包含数据。客户端可能已收到部分结果、或者根本没有结果。
+
+
+
+ a| 
+Reid
+ a| 
+请求ID
+ a| 
+S3 Select请求的标识符。
+
+
+
+ a| 
+EXTM
+ a| 
+执行时间
+ a| 
+S3选择作业完成所需的时间(以秒为单位)。
+
+
+
+ a| 
+ERMG
+ a| 
+错误消息
+ a| 
+S3 Select作业生成的错误消息。
+
+
+
+ a| 
+很差
+ a| 
+错误类型
+ a| 
+S3 Select作业生成的错误类型。
+
+
+
+ a| 
+错误
+ a| 
+Stacktrace错误
+ a| 
+S3 Select作业生成的Stacktrace出错。
+
+
+
+ a| 
+S3BK
+ a| 
+S3存储分段
+ a| 
+S3 存储分段名称。
+
+
+
+ a| 
+S3AK
+ a| 
+S3 访问密钥 ID （请求发件人）
+ a| 
+发送请求的用户的S3访问密钥ID。
+
+
+
+ a| 
+S3AI
+ a| 
+S3 租户帐户 ID （请求发件人）
+ a| 
+发送请求的用户的租户帐户 ID 。
+
+
+
+ a| 
+S3KY
+ a| 
+S3 密钥
+ a| 
+S3 密钥名称，不包括存储分段名称。
+
+|===

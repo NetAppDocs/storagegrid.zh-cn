@@ -1,0 +1,206 @@
+---
+permalink: s3/index.html 
+sidebar: sidebar 
+keywords: about s3, s3 rest api, s3 overview 
+summary: StorageGRID 支持简单存储服务 \ （ S3\ ） API ，该 API 作为一组表示状态传输 \ （ REST \ ） Web 服务实施。 
+---
+= S3 REST API支持的版本和更新
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 支持简单存储服务（ S3 ） API ，该 API 作为一组表示状态传输（ Representational State Transfer ， REST ） Web 服务来实施。
+
+通过对S3 REST API的支持、您可以将为S3 Web服务开发的面向服务的应用程序与使用StorageGRID 系统的内部对象存储连接起来。需要对客户端应用程序当前使用S3 REST API调用的情况进行最小更改。
+
+
+
+== 支持的版本
+
+StorageGRID 支持以下特定版本的 S3 和 HTTP 。
+
+[cols="1a,1a"]
+|===
+| 项目 | 版本 
+
+
+ a| 
+S3 API规范
+ a| 
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Amazon Web Services （ AWS ）文档： Amazon Simple Storage Service API 参考"^]
+
+
+
+ a| 
+HTTP
+ a| 
+1.1
+
+有关 HTTP 的详细信息，请参见 HTTP/1.1 （ RFC 7230-35 ）。
+
+https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616 ：超文本传输协议（ HTTP/1.1 ）"^]
+
+* 注 * ： StorageGRID 不支持 HTTP/1.1 管道化。
+
+|===
+
+
+== 对S3 REST API支持进行了更新
+
+[cols="1a,4a"]
+|===
+| 版本 | 注释 
+
+
+ a| 
+11.9
+ a| 
+* 增加了对以下请求和支持的标头预先计算的SHA-256校验和值的支持。您可以使用此功能验证已上传对象的完整性：
++
+** CompleteMultipartUpload： `x-amz-checksum-sha256`
+** CreateMultipartUpload： `x-amz-checksum-algorithm`
+** GetObject： `x-amz-checksum-mode`
+** 标题对象： `x-amz-checksum-mode`
+** ListParts
+** PutObject： `x-amz-checksum-sha256`
+** 上传部件： `x-amz-checksum-sha256`
+
+
+* 增加了网格管理员控制租户级别保留和合规性设置的功能。这些设置会影响S3对象锁定设置。
++
+** 分段默认保留模式和对象保留模式：监管或合规(如果网格管理员允许)。
+** 存储分段默认保留期限和对象保留截止日期：必须小于或等于网格管理员设置的最长保留期限所允许的值。
+
+
+* 改进了对内容编码和流 `x-amz-content-sha256`值的支持 `aws-chunked`。限制：
++
+** 如果存在、 `chunk-signature`则为可选且不经过验证
+** 如果存在、 `x-amz-trailer`则忽略内容
+
+
+
+
+
+
+ a| 
+11.8
+ a| 
+更新了S3操作的名称，使其与中使用的名称一致 http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Amazon Web Services （ AWS ）文档： Amazon Simple Storage Service API 参考"^]。
+
+
+
+ a| 
+11.7
+ a| 
+* 已添加。link:quick-reference-support-for-aws-apis.html["快速参考：支持的S3 API请求"]
+* 增加了对将监管模式与S3对象锁定结合使用的支持。
+* 增加了对GET对象和HEAD对象请求的StorageGRID专用响应标头的支持 `x-ntap-sg-cgr-replication-status`。此标头可提供跨网格复制的对象复制状态。
+* 现在，选择对象内容请求支持镶木图对象。
+
+
+
+
+ a| 
+11.6
+ a| 
+* 增加了对在GET对象和HEAD对象请求中使用Request参数的支持 `partNumber`。
+* 增加了对 S3 对象锁定的默认保留模式和存储分段级别的默认保留期限的支持。
+* 增加了对策略条件密钥的支持 `s3:object-lock-remaining-retention-days`、用于设置对象允许的保留期限。
+* 已将单个Put对象操作的最大_Recommended_大小更改为5 GiB (5、368、709、120字节)。如果对象大于 5 GiB ，请改用多部分上传。
+
+
+
+
+ a| 
+11.5
+ a| 
+* 增加了对管理存储分段加密的支持。
+* 增加了对 S3 对象锁定和已弃用旧合规性请求的支持。
+* 增加了对在版本控制的存储分段上使用删除多个对象的支持。
+* 现在已正确支持此 `Content-MD5`请求标头。
+
+
+
+
+ a| 
+11.4
+ a| 
+* 增加了对删除存储分段标记，获取存储分段标记和放置存储分段标记的支持。不支持成本分配标记。
+* 对于在 StorageGRID 11.4 中创建的分段，不再需要限制对象密钥名称以满足性能最佳实践。
+* 增加了对事件类型分段通知的支持 `s3:ObjectRestore:Post`。
+* 现在，多部件的 AWS 大小限制已强制实施。多部分上传中的每个部件必须介于 5 MiB 和 5 GiB 之间。最后一个部件可以小于 5 MiB 。
+* 增加了对TLS 1.3的支持
+
+
+
+
+ a| 
+11.3
+ a| 
+* 增加了对使用客户提供的密钥（ SSI-C ）对对象数据进行服务器端加密的支持。
+* 增加了对删除、获取和放置存储分段生命周期操作(仅限到期操作)以及响应标头的支持 `x-amz-expiration`。
+* 更新了 PUT 对象， PUT 对象 - 复制和多部件上传，以说明在载入时使用同步放置的 ILM 规则的影响。
+* 不再支持 TLS 1.1 密码。
+
+
+
+
+ a| 
+11.2
+ a| 
+增加了对用于云存储池的后对象还原的支持。增加了对在组和存储分段策略中使用 AWS 语法来处理 ARN ，策略条件密钥和策略变量的支持。仍支持使用 StorageGRID 语法的现有组和存储分段策略。
+
+* 注意： * 在其他配置 JSON/XML 中使用 ARN/URN 的情况没有改变，包括在自定义 StorageGRID 功能中使用的情况。
+
+
+
+ a| 
+11.1
+ a| 
+增加了对跨源站资源共享(CORS)、用于S3客户端连接到网格节点的HTTP以及分段合规性设置的支持。
+
+
+
+ a| 
+11.0
+ a| 
+增加了对为存储分段配置平台服务（ CloudMirror 复制，通知和 Elasticsearch 搜索集成）的支持。此外、还增加了对存储分段的对象标记位置限制以及可用一致性的支持。
+
+
+
+ a| 
+10.4
+ a| 
+增加了对版本控制，端点域名页面更新，策略中的条件和变量，策略示例以及 PutOverwriteObject 权限的 ILM 扫描更改的支持。
+
+
+
+ a| 
+10.3
+ a| 
+增加了对版本控制的支持。
+
+
+
+ a| 
+10.2
+ a| 
+增加了对组和存储分段访问策略以及多部件副本（上传部件 - 复制）的支持。
+
+
+
+ a| 
+10.1
+ a| 
+增加了对多部分上传，虚拟托管模式请求和 v4 身份验证的支持。
+
+
+
+ a| 
+10.0
+ a| 
+StorageGRID 系统最初支持 S3 REST API 。当前支持的 _Simple Storage Service API 参考版本为 2006-03-01 。
+
+|===

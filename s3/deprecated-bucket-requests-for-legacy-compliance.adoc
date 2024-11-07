@@ -1,0 +1,43 @@
+---
+permalink: s3/deprecated-bucket-requests-for-legacy-compliance.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated bucket requests 
+summary: 您可能需要使用 StorageGRID S3 REST API 来管理使用原有合规性功能创建的分段。 
+---
+= 已弃用旧合规性存储分段请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要使用 StorageGRID S3 REST API 来管理使用原有合规性功能创建的分段。
+
+
+
+== 已弃用合规性功能
+
+先前 StorageGRID 版本中提供的 StorageGRID 合规性功能已弃用，并已被 S3 对象锁定取代。
+
+如果您之前启用了全局合规性设置，则会在 StorageGRID 11.6 中启用全局 S3 对象锁定设置。您不能再在启用了合规性的情况下创建新的存储分段；但是，您可以根据需要使用 StorageGRID S3 REST API 管理任何现有的旧合规存储分段。
+
+* link:use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+* link:../ilm/index.html["使用 ILM 管理对象"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp 知识库：如何在 StorageGRID 11.5 中管理原有的合规存储分段"^]
+
+
+已弃用的合规性请求：
+
+* link:../s3/deprecated-put-bucket-request-modifications-for-compliance.html["已弃用 - 为符合性修改存储分段请求"]
++
+SGCompliance XML 元素已弃用。以前，您可以将此 StorageGRID 自定义元素包含在 PUT 存储分段请求的可选 XML 请求正文中，以创建合规存储分段。
+
+* link:../s3/deprecated-get-bucket-compliance-request.html["已弃用—获取存储分段合规性"]
++
+获取存储分段合规性请求已弃用。但是，您可以继续使用此请求来确定当前对现有旧版合规存储分段有效的合规性设置。
+
+* link:../s3/deprecated-put-bucket-compliance-request.html["已弃用—放置分段合规性"]
++
+已弃用Put Bucket. Compliance请求。但是，您可以继续使用此请求修改现有旧版合规存储分段的合规性设置。例如，您可以将现有存储分段置于合法保留状态或延长其保留期限。
+
+

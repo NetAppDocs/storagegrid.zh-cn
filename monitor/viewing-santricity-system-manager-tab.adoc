@@ -1,0 +1,47 @@
+---
+permalink: monitor/viewing-santricity-system-manager-tab.html 
+sidebar: sidebar 
+keywords: SANtricity System Manager tab, hardware diagnostics 
+summary: 通过 SANtricity 系统管理器选项卡，您可以访问 SANtricity 系统管理器，而无需配置或连接存储设备的管理端口。您可以使用此选项卡查看硬件诊断和环境信息以及与驱动器相关的问题。 
+---
+= 查看SANtricity系统管理器选项卡(仅限E系列)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过 SANtricity 系统管理器选项卡，您可以访问 SANtricity 系统管理器，而无需配置或连接存储设备的管理端口。您可以使用此选项卡查看硬件诊断和环境信息以及与驱动器相关的问题。
+
+
+CAUTION: 从网格管理器访问 SANtricity 系统管理器通常仅用于监控设备硬件和配置 E 系列 AutoSupport 。SANtricity 系统管理器中的许多功能和操作(例如升级固件)不适用于监控StorageGRID 设备。为避免出现问题、请始终按照设备的硬件维护说明进行操作。要升级SANtricity固件、请参见 https://docs.netapp.com/us-en/storagegrid-appliances/landing-maintain-hdwr/index.html["维护配置过程"^]适用于您的存储设备的。
+
+
+NOTE: 只有使用E系列硬件的存储设备节点才会显示SANtricity 系统管理器选项卡。
+
+使用 SANtricity System Manager ，您可以执行以下操作：
+
+* 查看性能数据、例如存储阵列级别的性能、I/O延迟、存储控制器CPU利用率和吞吐量。
+* 检查硬件组件状态。
+* 执行支持功能、包括查看诊断数据和配置E系列AutoSupport。
++
+
+NOTE: 要使用SANtricity系统管理器为E系列AutoSupport配置代理，请参见link:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["通过StorageGRID发送E系列AutoSupport软件包"]。
+
+
+
+要通过网格管理器访问SANtricity系统管理器，您必须拥有link:../admin/admin-group-permissions.html["存储设备管理员或root访问权限"]。
+
+
+NOTE: 要使用网格管理器访问 SANtricity 系统管理器，您必须具有 SANtricity 固件 8.70 或更高版本。
+
+此选项卡将显示 SANtricity 系统管理器的主页。
+
+image::../media/nodes_page_santricity_tab.png[节点页面 SANtricity 选项卡]
+
+
+NOTE: 您可以使用 SANtricity 系统管理器链接在新浏览器窗口中打开 SANtricity 系统管理器，以便于查看。
+
+要查看存储阵列级别性能和容量使用情况的详细信息、请将光标置于每个图形上方。
+
+有关查看可从SANtricity系统管理器选项卡访问的信息的详细信息，请参见 https://docs.netapp.com/us-en/e-series-family/index.html["NetApp E 系列和 SANtricity 文档"^]。

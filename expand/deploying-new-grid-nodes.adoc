@@ -1,0 +1,198 @@
+---
+permalink: expand/deploying-new-grid-nodes.html 
+sidebar: sidebar 
+keywords: expansion, add nodes 
+summary: 在扩展中部署新网格节点的步骤与首次安装网格时使用的步骤相同。您必须先部署所有新的网格节点，然后才能执行扩展。 
+---
+= 部署新的网格节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在扩展中部署新网格节点的步骤与首次安装网格时使用的步骤相同。您必须先部署所有新的网格节点，然后才能执行扩展。
+
+扩展网格时、添加的节点不必与现有节点类型匹配。您可以添加 VMware 节点，基于 Linux 容器的节点或设备节点。
+
+
+
+== VMware ：部署网格节点
+
+您必须在 VMware vSphere 中为要添加到扩展中的每个 VMware 节点部署一个虚拟机。
+
+.步骤
+. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["将新节点部署为虚拟机"]并将其连接到一个或多个StorageGRID网络。
++
+部署节点时，您可以选择重新映射节点端口或增加 CPU 或内存设置。
+
+. 部署完所有新的VMware节点后，link:performing-expansion.html["执行扩展操作步骤"]。
+
+
+
+
+== Linux ：部署网格节点
+
+您可以在新的 Linux 主机或现有的 Linux 主机上部署网格节点。如果您需要更多的 Linux 主机来满足要添加到网格中的 StorageGRID 节点的 CPU ， RAM 和存储要求，请按照首次安装主机时准备主机的方式对其进行准备。然后，按照安装期间部署网格节点的方式部署扩展节点。
+
+.开始之前
+* 您已获得有关为您的 Linux 版本安装 StorageGRID 的说明，并已查看硬件和存储要求。
++
+** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
+** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
+
+
+* 如果您计划在现有主机上部署新的网格节点，则已确认现有主机具有足够的 CPU ， RAM 和存储容量来容纳其他节点。
+* 您计划最大限度地减少故障域。例如，不应将所有网关节点部署在一个物理主机上。
++
+
+CAUTION: 在生产部署中、不要在一个物理或虚拟主机上运行多个存储节点。为每个存储节点使用专用主机可提供一个隔离的故障域。
+
+* 如果StorageGRID 节点使用从NetApp ONTAP 系统分配的存储、请确认此卷未启用FabricPool 分层策略。对 StorageGRID 节点使用的卷禁用 FabricPool 分层可简化故障排除和存储操作。
+
+
+.步骤
+. 如果要添加新主机，请访问有关部署 StorageGRID 节点的安装说明。
+. 要部署新主机，请按照说明准备主机。
+. 要创建节点配置文件并验证 StorageGRID 配置，请按照有关部署网格节点的说明进行操作。
+. 如果要向新的 Linux 主机添加节点，请启动 StorageGRID 主机服务。
+. 如果要向现有Linux主机添加节点、请使用StorageGRID主机服务命令行界面启动新节点：``sudo storagegrid node start [<node name\>]``
+
+
+.完成后
+部署所有新网格节点后，您可以link:performing-expansion.html["执行扩展"]。
+
+
+
+== 设备：部署存储，网关或非主管理节点
+
+要在设备节点上安装 StorageGRID 软件，请使用设备中提供的 StorageGRID 设备安装程序。在扩展中，每个存储设备都充当一个存储节点，而每个服务设备则充当一个网关节点或非主管理节点。任何设备都可以连接到网格网络，管理网络和客户端网络。
+
+.开始之前
+* 此设备已安装在机架或机柜中，并已连接到您的网络并已启动。
+* 您已完成这些 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-hardware.html["设置硬件"^]步骤。
++
+设置设备硬件包括配置StorageGRID 连接(网络链路和IP地址)所需的步骤、以及启用节点加密、更改RAID模式和重新映射网络端口的可选步骤。
+
+* StorageGRID 设备安装程序的 IP 配置页面上列出的所有网格网络子网均已在主管理节点上的网格网络子网列表中定义。
+* 替代设备上的 StorageGRID 设备安装程序固件与网格上当前运行的 StorageGRID 软件版本兼容。如果这些版本不兼容、则必须升级StorageGRID 设备安装程序固件。
+* 您有一台带的服务笔记本电脑link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您知道分配给设备计算控制器的一个 IP 地址。您可以对任何已连接的 StorageGRID 网络使用此 IP 地址。
+
+
+.关于此任务
+在设备节点上安装 StorageGRID 的过程分为以下阶段：
+
+* 您可以指定或确认主管理节点的 IP 地址以及设备节点的名称。
+* 您开始安装，并等待卷配置完毕并安装软件。
++
+在执行设备安装任务时，安装将暂停。要恢复安装，请登录到网格管理器，批准所有网格节点并完成 StorageGRID 安装过程。
+
++
+
+NOTE: 如果您需要一次部署多个设备节点、可以使用设备安装脚本自动执行安装过程 `configure-sga.py`。
+
+
+
+.步骤
+. 打开浏览器，然后输入设备计算控制器的 IP 地址之一。
++
+`https://_Controller_IP_:8443`
+
++
+此时将显示 StorageGRID 设备安装程序主页页面。
+
+. 在 * 主管理节点 * 连接部分中，确定是否需要指定主管理节点的 IP 地址。
++
+如果先前已在此数据中心中安装了其他节点，则 StorageGRID 设备安装程序可以自动发现此 IP 地址，前提是主管理节点或至少一个配置了 admin_IP 的其他网格节点位于同一子网上。
+
+. 如果未显示此 IP 地址或您需要更改此 IP 地址，请指定地址：
++
+[cols="1a,2a"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+手动输入 IP
+ a| 
+.. 清除*启用管理节点发现*复选框。
+.. 手动输入 IP 地址。
+.. 单击 * 保存 * 。
+.. 等待连接状态，使新 IP 地址准备就绪。
+
+
+
+
+ a| 
+自动发现所有已连接的主管理节点
+ a| 
+.. 选中*启用管理节点发现*复选框。
+.. 等待显示发现的 IP 地址列表。
+.. 为要部署此设备存储节点的网格选择主管理节点。
+.. 单击 * 保存 * 。
+.. 等待连接状态，使新 IP 地址准备就绪。
+
+
+|===
+. 在 * 节点名称 * 字段中，输入要用于此设备节点的名称，然后选择 * 保存 * 。
++
+节点名称将分配给 StorageGRID 系统中的此设备节点。它显示在网格管理器的节点页面（概述选项卡）上。如果需要，您可以在批准节点时更改名称。
+
+. 在*Installation*部分中，确认当前状态为“Ready to start installation of _node name_ into GRID with Primary Admin Node _admin_IP_”，并且已启用*Start Installation*按钮。
++
+如果未启用 * 开始安装 * 按钮，则可能需要更改网络配置或端口设置。有关说明、请参见设备的维护说明。
+
+. 从 StorageGRID 设备安装程序主页中，选择 * 开始安装 * 。
++
+image::../media/appliance_installer_home_start_installation_enabled.gif[本图通过周围的文字进行了说明。]
+
++
+当前状态将更改为"正在进行安装"、并显示"监视器安装"页面。
+
+. 如果扩展包含多个设备节点，请对每个设备重复上述步骤。
++
+
+NOTE: 如果您需要一次部署多个设备存储节点，则可以使用 configure-sga.py 设备安装脚本自动执行安装过程。
+
+. 如果需要手动访问监控器安装页面，请从菜单栏中选择 * 监控器安装 * 。
++
+"Monitor Installation" 页面将显示安装进度。
+
++
+image::../media/monitor_installation_configure_storage.gif[此图通过周围文字进行了说明。]
+
++
+蓝色状态栏指示当前正在进行的任务。绿色状态条表示已成功完成的任务。
+
++
+
+NOTE: 安装程序可确保先前安装中完成的任务不会重新运行。如果要重新运行安装、则不需要重新运行的任何任务都会显示绿色状态栏和状态"已跳过"。
+
+. 查看前两个安装阶段的进度。
++
+*1.配置设备 *
+
++
+在此阶段，将执行以下过程之一：
+
++
+** 对于存储设备、安装程序将连接到存储控制器、清除任何现有配置、与SANtricity 操作系统通信以配置卷以及配置主机设置。
+** 对于服务设备，安装程序将从计算控制器中的驱动器中清除任何现有配置，并配置主机设置。
+
+
++
+*2.安装 OS*
+
++
+在此阶段，安装程序会将 StorageGRID 的基本操作系统映像复制到设备。
+
+. 继续监控安装进度，直到控制台窗口显示一条消息，提示您使用网格管理器批准节点。
++
+
+NOTE: 等待您在此扩展中添加的所有节点都准备好进行批准，然后再转到网格管理器来批准这些节点。
+
++
+image::../media/monitor_installation_install_sgws.gif[此图通过周围文字进行了说明。]
+
+

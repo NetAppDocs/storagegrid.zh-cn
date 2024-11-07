@@ -1,0 +1,396 @@
+---
+permalink: s3/operations-on-buckets.html 
+sidebar: sidebar 
+keywords: bucket, buckets, operations on buckets 
+summary: StorageGRID系统最多支持为每个S3租户帐户配置5、000个分段。 
+---
+= 对存储分段执行的操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID系统最多支持为每个S3租户帐户配置5、000个分段。
+
+每个网格最多可以包含100、000个分段。
+
+要支持5、000个存储分段、网格中的每个存储节点必须至少具有64 GB RAM。
+
+存储分段名称限制遵循AWS US Standard区域限制、但您应进一步将其限制为DNS命名约定、以支持S3虚拟托管模式请求。
+
+有关详细信息，请参见以下内容：
+
+* https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html["《Amazon Simple Storage Service用户指南：存储分段配额、限制和限制》"^]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
+
+
+ListObjects (GET Bucket)和ListObjectVersies (GET Bucket)对象版本)操作支持StorageGRIDlink:consistency-controls.html["一致性值"]。
+
+您可以检查是否已为各个存储分段启用上次访问时间更新。请参阅。 link:get-bucket-last-access-time-request.html["获取存储分段上次访问时间"]
+
+下表介绍了 StorageGRID 如何实施 S3 REST API 存储分段操作。要执行其中任何操作，必须为帐户提供必要的访问凭据。
+
+[cols="1a,3a"]
+|===
+| 操作 | 实施 
+
+
+ a| 
+CreateBucket
+ a| 
+创建新存储分段。创建存储分段后，您就会成为存储分段所有者。
+
+* 存储分段名称必须符合以下规则：
++
+** 每个 StorageGRID 系统必须是唯一的（而不仅仅是租户帐户中的唯一）。
+** 必须符合 DNS 要求。
+** 必须包含至少3个且不超过63个字符。
+** 可以是一个或多个标签的序列，并使用一个句点分隔相邻标签。每个标签必须以小写字母或数字开头和结尾，并且只能使用小写字母，数字和连字符。
+** 不能与文本格式的 IP 地址类似。
+** 不应在虚拟托管模式请求中使用句点。句点会在验证服务器通配符证书时出现发生原因 问题。
+
+
+* 默认情况下，分段是在区域中创建的 `us-east-1`；但是，您可以在请求正文中使用 `LocationConstraint`请求元素来指定其他区域。使用元素时 `LocationConstraint`、必须指定已使用网格管理器或网格管理API定义的区域的确切名称。如果您不知道应使用的区域名称、请联系您的系统管理员。
++
+*注意*：如果CreateBucket(创建存储分段)请求使用的区域尚未在StorageGRID中定义，则会发生错误。
+
+* 您可以包含 `x-amz-bucket-object-lock-enabled`请求标头、以便在启用S3对象锁定的情况下创建分段。请参阅。 link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
++
+创建存储分段时，必须启用 S3 对象锁定。创建分段后、您无法添加或禁用S3对象锁定。S3 对象锁定需要分段版本控制，在创建分段时会自动启用分段版本控制。
+
+
+
+
+
+ a| 
+DeleteBucket
+ a| 
+删除存储分段。
+
+
+
+ a| 
+DeleteBucketCors
+ a| 
+删除存储分段的CORS配置。
+
+
+
+ a| 
+DeleteBucketEncryption
+ a| 
+从存储分段中删除默认加密。现有加密对象将保持加密状态、但添加到存储分段的任何新对象不会加密。
+
+
+
+ a| 
+DeleteBucketLifecycle
+ a| 
+从存储分段中删除生命周期配置。请参阅。 link:create-s3-lifecycle-configuration.html["创建 S3 生命周期配置"]
+
+
+
+ a| 
+DeleteBucketPolicy
+ a| 
+删除附加到存储分段的策略。
+
+
+
+ a| 
+DeleteBucketReplication
+ a| 
+删除附加到存储分段的复制配置。
+
+
+
+ a| 
+DeleteBucketTbaging
+ a| 
+使用 `tagging`子资源从存储分段中删除所有标记。
+
+*注意*：如果为此存储分段设置了非默认ILM策略标记，则会有一个存储分段标记，并为其分配一个 `NTAP-SG-ILM-BUCKET-TAG`值。如果存在存储分段标记、请勿发出DeleteBucketTag请求 `NTAP-SG-ILM-BUCKET-TAG`。而是使用标记及其分配的值发出PutBucketTag请求 `NTAP-SG-ILM-BUCKET-TAG`、以从存储分段中删除所有其他标记。请勿修改或删除 `NTAP-SG-ILM-BUCKET-TAG`存储分段标签。
+
+
+
+ a| 
+GetBucketAcl
+ a| 
+返回肯定响应以及存储分段所有者的ID、DisplayName和权限、指示所有者对存储分段具有完全访问权限。
+
+
+
+ a| 
+GetBucketCors
+ a| 
+返回 `cors`存储分段的配置。
+
+
+
+ a| 
+GetBucketEncryption
+ a| 
+返回存储分段的默认加密配置。
+
+
+
+ a| 
+GetBucketLifecycleConfiguration
+
+(以前称为GET分段生命周期)
+ a| 
+返回存储分段的生命周期配置。请参阅。 link:create-s3-lifecycle-configuration.html["创建 S3 生命周期配置"]
+
+
+
+ a| 
+GetBucketLocation
+ a| 
+返回使用CreateBucket.请求中的元素设置的区域 `LocationConstraint`。如果存储分段的区域为 `us-east-1`，则为该区域返回空字符串。
+
+
+
+ a| 
+GetBucketNotizationConfiguration
+
+(以前称为GET分段通知)
+ a| 
+返回附加到存储分段的通知配置。
+
+
+
+ a| 
+GetBucketPolicy
+ a| 
+返回附加到存储分段的策略。
+
+
+
+ a| 
+GetBucketReplication
+ a| 
+返回附加到存储分段的复制配置。
+
+
+
+ a| 
+GetBucketTaging
+ a| 
+使用 `tagging`子资源返回存储分段的所有标记。
+
+*注意*：如果为此存储分段设置了非默认ILM策略标记，则会有一个存储分段标记，并为其分配一个 `NTAP-SG-ILM-BUCKET-TAG`值。请勿修改或删除此标记。
+
+
+
+ a| 
+GetBucketVersioning
+ a| 
+此实现使用 `versioning`子资源返回存储分段的版本控制状态。
+
+* _blank_：从未启用版本控制(分段已"取消版本控制")
+* Enabled ：已启用版本控制
+* suspended ：先前已启用版本控制并已暂停
+
+
+
+
+ a| 
+GetObjectLockConfiguration
+ a| 
+返回存储分段默认保留模式和默认保留期限(如果已配置)。
+
+请参阅。 link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
+
+
+
+ a| 
+HeadBucket
+ a| 
+确定存储分段是否存在、以及您是否有权访问该存储分段。
+
+此操作将返回：
+
+* `x-ntap-sg-bucket-id`：UUID格式的存储分段的UUID。
+* `x-ntap-sg-trace-id`：关联请求的唯一跟踪ID。
+
+
+
+
+ a| 
+ListObjects和ListObjectsV2
+
+(以前称为GET分段)
+ a| 
+返回分段中的部分或全部对象(最多1、000个)。对象的存储类可以具有两个值之一、即使对象是使用存储类选项获取的也是 `REDUCED_REDUNDANCY`如此：
+
+* `STANDARD`，表示对象存储在由存储节点组成的存储池中。
+* `GLACIER`，表示对象已移至云存储池指定的外部存储分段。
+
+
+如果存储分段包含大量具有相同前缀的已删除密钥、则响应可能包含一些 `CommonPrefixes`不包含密钥的密钥。
+
+
+
+ a| 
+ListObjectVersies
+
+(以前称为Get BucketObject Version)
+ a| 
+如果对存储分段具有读取访问权限、则对子资源使用此操作 `versions`可列出存储分段中所有版本对象的元数据。
+
+
+
+ a| 
+PutBucketCors
+ a| 
+设置存储分段的CORS配置、以便存储分段可以处理跨源站请求。跨源资源共享（ CORS ）是一种安全机制，允许一个域中的客户端 Web 应用程序访问不同域中的资源。例如、假设您使用名为的S3存储分段 `images`来存储图形。通过设置存储分段的CORS配置 `images`，您可以允许该存储分段中的图像显示在网站上 `+http://www.example.com+`。
+
+
+
+ a| 
+PutBucketEncryption
+ a| 
+设置现有存储分段的默认加密状态。启用存储分段级别加密后，添加到存储分段中的任何新对象都会进行加密。 StorageGRID 支持使用 StorageGRID 管理的密钥进行服务器端加密。指定服务器端加密配置规则时，请将参数设置 `SSEAlgorithm`为 `AES256`，而不要使用 `KMSMasterKeyID`参数。
+
+如果对象上传请求已指定加密(即、如果请求包含请求标头)、则会忽略存储分段默认加密配置 `x-amz-server-side-encryption-*`。
+
+
+
+ a| 
+PutBucketLifecycleConfiguration
+
+(以前称为"放置分段生命周期")
+ a| 
+为存储分段创建新的生命周期配置或替换现有生命周期配置。StorageGRID 在一个生命周期配置中最多支持 1 ， 000 条生命周期规则。每个规则可以包含以下 XML 元素：
+
+* 到期日期(天数、日期、ExpireObjectDeleteMarker)
+* 非当前版本到期(新非当前版本、非当前日期)
+* 筛选器（前缀，标记）
+* 状态
+* ID
+
+
+StorageGRID 不支持以下操作：
+
+* AbortIncompleteMultipartUpload
+* 过渡
+
+
+请参阅。 link:create-s3-lifecycle-configuration.html["创建 S3 生命周期配置"]要了解存储分段生命周期中的到期操作如何与ILM放置指令交互，请参见link:../ilm/how-ilm-operates-throughout-objects-life.html["ILM 如何在对象的整个生命周期内运行"]。
+
+* 注 * ：存储分段生命周期配置可用于启用了 S3 对象锁定的存储分段，但传统合规存储分段不支持存储分段生命周期配置。
+
+
+
+ a| 
+PutBucketNotizationConfiguration
+
+(以前称为Put Bucket"通知)
+ a| 
+使用请求正文中包含的通知配置XML配置分段的通知。您应了解以下实施详细信息：
+
+* StorageGRID支持将Amazon Simple Notification Service (Amazon SNS)或Kafka主题作为目标。不支持简单队列服务(SQS)或Amazon Lamba端点。
+* 必须将通知目标指定为 StorageGRID 端点的 URN 。可以使用租户管理器或租户管理 API 创建端点。
++
+要成功配置通知，端点必须存在。如果端点不存在， `400 Bad Request`则返回错误代码 `InvalidArgument`。
+
+* 您不能为以下事件类型配置通知。这些事件类型 * 不 * 受支持。
++
+** `s3:ReducedRedundancyLostObject`
+** `s3:ObjectRestore:Completed`
+
+
+* 从StorageGRID 发送的事件通知使用标准JSON格式、不同之处在于它们不包含某些密钥、而对其他密钥使用特定值、如以下列表所示：
++
+** * 事件源 *
++
+`sgws:s3`
+
+** * awsRegion*
++
+不包括
+
+** * 。 x-AMZ-id-2*
++
+不包括
+
+** * arn*
++
+`urn:sgws:s3:::bucket_name`
+
+
+
+
+
+
+
+ a| 
+PutBucketPolicy
+ a| 
+设置附加到存储分段的策略。请参阅。 link:bucket-and-group-access-policies.html["使用存储分段和组访问策略"]
+
+
+
+ a| 
+PutBucketReplication
+ a| 
+使用请求正文中提供的复制配置link:../tenant/understanding-cloudmirror-replication-service.html["StorageGRID CloudMirror复制"]XML配置存储分段。对于 CloudMirror 复制，您应了解以下实施详细信息：
+
+* StorageGRID 仅支持复制配置的 V1 。这意味着StorageGRID不支持在规则中使用 `Filter`元素、而是遵循V1约定来删除对象版本。有关详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["《Amazon Simple Storage Service用户指南：复制配置》"^]。
+* 分段复制可以在分版本或未分版本的分段上配置。
+* 您可以在复制配置 XML 的每个规则中指定不同的目标存储分段。一个源存储分段可以复制到多个目标存储分段。
+* 必须将目标分段指定为租户管理器或租户管理 API 中指定的 StorageGRID 端点的 URN 。请参阅。 link:../tenant/configuring-cloudmirror-replication.html["配置 CloudMirror 复制"]
++
+要成功进行复制配置，必须存在此端点。如果端点不存在，则请求将作为失败 `400 Bad Request`。错误消息指出： `Unable to save the replication policy. The specified endpoint URN does not exist: _URN_.`
+
+* 您无需在配置XML中指定 `Role`。StorageGRID 不使用此值，如果提交，则会忽略此值。
+* 如果在配置XML中省略该存储类、则默认情况下、StorageGRID将使用该 `STANDARD`存储类。
+* 如果从源存储分段中删除对象或删除源存储分段本身，则跨区域复制行为如下：
++
+** 如果在复制对象或存储分段之前将其删除、则不会复制该对象或存储分段、也不会通知您。
+** 如果您在复制对象或存储分段后将其删除，则 StorageGRID 会对跨区域复制的 V1 遵循标准 Amazon S3 删除行为。
+
+
+
+
+
+
+ a| 
+PutBucketTaging
+ a| 
+使用 `tagging`子资源为存储分段添加或更新一组标记。添加存储分段标记时，请注意以下限制：
+
+* StorageGRID 和 Amazon S3 为每个存储分段最多支持 50 个标签。
+* 与存储分段关联的标记必须具有唯一的标记密钥。一个标记密钥的长度最多可包含 128 个 Unicode 字符。
+* 标记值的长度最多可以为 256 个 Unicode 字符。
+* 密钥和值区分大小写。
+
+
+*注意*：如果为此存储分段设置了非默认ILM策略标记，则会有一个存储分段标记，并为其分配一个 `NTAP-SG-ILM-BUCKET-TAG`值。确保 `NTAP-SG-ILM-BUCKET-TAG`在所有PutBucketTag请求中、存储分段标记都包含在已分配的值中。请勿修改或删除此标记。
+
+*注意*：此操作将覆盖存储分段已有的任何当前标记。如果在集合中省略了任何现有标记、则会删除存储分段中的这些标记。
+
+
+
+ a| 
+PutBucketVersioning
+ a| 
+使用 `versioning`子资源设置现有存储分段的版本控制状态。您可以使用以下值之一设置版本控制状态：
+
+* Enabled ：为存储分段中的对象启用版本控制。添加到存储分段中的所有对象都会收到唯一的版本 ID 。
+* suspended ：为存储分段中的对象禁用版本控制。添加到存储分段的所有对象都会收到版本ID `null`。
+
+
+
+
+ a| 
+PutObjectLockConfiguration
+ a| 
+配置或删除存储分段默认保留模式和默认保留期限。
+
+如果修改了默认保留期限，则现有对象版本的保留日期将保持不变，不会使用新的默认保留期限重新计算。
+
+有关详细信息、请参见link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]。
+
+|===

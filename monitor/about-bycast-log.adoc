@@ -1,0 +1,1394 @@
+---
+permalink: monitor/about-bycast-log.html 
+sidebar: sidebar 
+keywords: bycast, log 
+summary: '/var/local/log/bycast.log 文件是 StorageGRID 软件的主要故障排除文件。每个网格节点都有一个 `bycast.log`文件。该文件包含特定于该网格节点的消息。' 
+---
+= 关于 bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+该文件 `/var/local/log/bycast.log`是StorageGRID软件的主要故障排除文件。每个网格节点都有一个 `bycast.log`文件。该文件包含特定于该网格节点的消息。
+
+该文件 `/var/local/log/bycast-err.log`是的子集 `bycast.log`。它包含严重性错误和严重的消息。
+
+您也可以更改审核日志的目标并将审核信息发送到外部系统日志服务器。配置外部系统日志服务器后，仍会生成并存储审核记录的本地日志。请参阅。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+
+
+
+== bycast.log 的文件轮换
+
+当文件达到1 GB时 `bycast.log`、将保存现有文件、并启动新的日志文件。
+
+保存的文件将重命名 `bycast.log.1`，新文件名为 `bycast.log`。当新的达到1 GB时 `bycast.log`， `bycast.log.1`将重命名并压缩为，并 `bycast.log`重命名 `bycast.log.1`为 `bycast.log.2.gz`。
+
+的旋转限制 `bycast.log`为21个文件。创建文件的第22个版本时 `bycast.log`、最旧的文件将被删除。
+
+的旋转限制 `bycast-err.log`为七个文件。
+
+
+NOTE: 如果日志文件已被压缩，则不能将其解压缩到写入该文件的同一位置。将文件解压缩到同一位置可能会干扰日志轮换脚本。
+
+您也可以更改审核日志的目标并将审核信息发送到外部系统日志服务器。配置外部系统日志服务器后，仍会生成并存储审核记录的本地日志。请参阅。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+
+.相关信息
+link:collecting-log-files-and-system-data.html["收集日志文件和系统数据"]
+
+
+
+== bycast.log 中的消息
+
+中的消息 `bycast.log`由Ade,异步分布式环境(异 步分布式环境)写入。ADE 是每个网格节点的服务所使用的运行时环境。
+
+ADE 消息示例：
+
+[listing]
+----
+May 15 14:07:11 um-sec-rg1-agn3 ADE: |12455685    0357819531
+SVMR EVHR 2019-05-05T27T17:10:29.784677| ERROR 0906 SVMR: Health
+check on volume 3 has failed with reason 'TOUT'
+----
+ADE 消息包含以下信息：
+
+[cols="1a,2a"]
+|===
+| 消息段 | 示例中的值 
+
+
+ a| 
+节点ID
+| 12455685 
+
+
+ a| 
+ADE 进程 ID
+| 0357819531 
+
+
+ a| 
+模块名称
+| SVMR 
+
+
+ a| 
+消息标识符
+| EVHR 
+
+
+ a| 
+UTC 系统时间
+| 2019-05-05T27T17：10：29.784677 (YYYY-MM-DDTHH：MM：SS.uuuuuuu) 
+
+
+ a| 
+严重性级别
+| 错误 
+
+
+ a| 
+内部跟踪编号
+| 0906 
+
+
+ a| 
+消息
+| SVMR ：卷 3 的运行状况检查失败，原因为 "Tut" 
+|===
+
+
+== bycast.log 中的消息严重性
+
+中的消息 `bycast.log`已分配严重性级别。
+
+例如：
+
+* * 通知 * —发生了应记录的事件。大多数日志消息都处于此级别。
+* * 警告 * - 发生意外情况。
+* * 错误 * —发生了一个会影响操作的重大错误。
+* * 严重 * —发生异常情况，导致正常操作停止。您应立即解决基本情况。
+
+
+
+
+== 中的错误代码 `bycast.log`
+
+中的大多数错误消息 `bycast.log`都包含错误代码。
+
+下表列出了中常见的非数字代码 `bycast.log`。非数字代码的确切含义取决于报告上下文。
+
+[cols="1a,1a"]
+|===
+| 错误代码 | 含义 
+
+
+ a| 
+SUC
+ a| 
+无错误
+
+
+
+ a| 
+GERR
+ a| 
+未知
+
+
+
+ a| 
+已完成
+ a| 
+已取消
+
+
+
+ a| 
+异常
+ a| 
+已中止
+
+
+
+ a| 
+输出
+ a| 
+超时
+
+
+
+ a| 
+调用
+ a| 
+无效
+
+
+
+ a| 
+NFND
+ a| 
+未找到
+
+
+
+ a| 
+服务器
+ a| 
+版本
+
+
+
+ a| 
+配置
+ a| 
+配置
+
+
+
+ a| 
+失败
+ a| 
+失败
+
+
+
+ a| 
+ICPL
+ a| 
+未完成
+
+
+
+ a| 
+完成
+ a| 
+完成
+
+
+
+ a| 
+SUNV
+ a| 
+服务不可用
+
+|===
+下表列出了中的数字错误代码 `bycast.log`。
+
+[cols="1a,2a,3a"]
+|===
+| 错误编号 | 错误代码 | 含义 
+
+
+ a| 
+001
+ a| 
+EPERM
+ a| 
+不允许执行此操作
+
+
+
+ a| 
+002
+ a| 
+已执行
+ a| 
+没有此类文件或目录
+
+
+
+ a| 
+003
+ a| 
+ESRCH
+ a| 
+无此过程
+
+
+
+ a| 
+004
+ a| 
+EINTR
+ a| 
+系统调用中断
+
+
+
+ a| 
+005
+ a| 
+EIO
+ a| 
+I/O 错误
+
+
+
+ a| 
+006
+ a| 
+ENXIO
+ a| 
+没有此类设备或地址
+
+
+
+ a| 
+007
+ a| 
+E2BIG
+ a| 
+参数列表太长
+
+
+
+ a| 
+008
+ a| 
+ENOExec
+ a| 
+Exec 格式错误
+
+
+
+ a| 
+009
+ a| 
+EBADF
+ a| 
+文件编号错误
+
+
+
+ a| 
+010
+ a| 
+ECHILD
+ a| 
+无子进程
+
+
+
+ a| 
+011
+ a| 
+EAGAIN
+ a| 
+请重试
+
+
+
+ a| 
+012
+ a| 
+ENOMEM
+ a| 
+内存不足
+
+
+
+ a| 
+013
+ a| 
+EACCE
+ a| 
+权限被拒绝
+
+
+
+ a| 
+014
+ a| 
+默认
+ a| 
+地址错误
+
+
+
+ a| 
+015
+ a| 
+ENOTBLK
+ a| 
+需要块设备
+
+
+
+ a| 
+016
+ a| 
+EBUSY
+ a| 
+设备或资源繁忙
+
+
+
+ a| 
+017
+ a| 
+EEXIST
+ a| 
+文件已存在
+
+
+
+ a| 
+018
+ a| 
+EXDEV
+ a| 
+跨设备链路
+
+
+
+ a| 
+019
+ a| 
+ENODEV
+ a| 
+没有此类设备
+
+
+
+ a| 
+020
+ a| 
+ENOTDIR
+ a| 
+不是目录
+
+
+
+ a| 
+021
+ a| 
+EISDIR
+ a| 
+是一个目录
+
+
+
+ a| 
+022
+ a| 
+EINVAL
+ a| 
+参数无效
+
+
+
+ a| 
+023
+ a| 
+ENFILE
+ a| 
+文件表溢出
+
+
+
+ a| 
+024
+ a| 
+EMFILE
+ a| 
+打开的文件过多
+
+
+
+ a| 
+025
+ a| 
+ENOTTY
+ a| 
+不是一种打字机
+
+
+
+ a| 
+026
+ a| 
+ETXTBSY
+ a| 
+文本文件繁忙
+
+
+
+ a| 
+027
+ a| 
+EFBIG
+ a| 
+文件太大
+
+
+
+ a| 
+028
+ a| 
+ENOSPC
+ a| 
+设备上没有剩余空间
+
+
+
+ a| 
+029
+ a| 
+ESPIPE
+ a| 
+非法寻道
+
+
+
+ a| 
+030
+ a| 
+EROFS
+ a| 
+只读文件系统
+
+
+
+ a| 
+031
+ a| 
+EMLINK
+ a| 
+链路太多
+
+
+
+ a| 
+032
+ a| 
+EPIPE
+ a| 
+管道已断开
+
+
+
+ a| 
+033
+ a| 
+以登
+ a| 
+数学参数不在功能域中
+
+
+
+ a| 
+034
+ a| 
+电子书
+ a| 
+数学结果不可代表
+
+
+
+ a| 
+035
+ a| 
+EDEADLK
+ a| 
+可能会发生资源死锁
+
+
+
+ a| 
+036
+ a| 
+ENAMETOOLONG
+ a| 
+文件名太长
+
+
+
+ a| 
+037
+ a| 
+ENOLCK
+ a| 
+没有可用的记录锁定
+
+
+
+ a| 
+038
+ a| 
+ENOSYS
+ a| 
+未实施功能
+
+
+
+ a| 
+039
+ a| 
+ENOTEMPTY
+ a| 
+目录不为空
+
+
+
+ a| 
+040
+ a| 
+ELOOP
+ a| 
+遇到的符号链接太多
+
+
+
+ a| 
+041
+ a| 
+ a| 
+
+
+
+ a| 
+042
+ a| 
+ENOMSG
+ a| 
+没有所需类型的消息
+
+
+
+ a| 
+043
+ a| 
+EIDRM
+ a| 
+已删除标识符
+
+
+
+ a| 
+044
+ a| 
+ECHRNG
+ a| 
+通道编号超出范围
+
+
+
+ a| 
+045
+ a| 
+EL2NSYNC
+ a| 
+2 级未同步
+
+
+
+ a| 
+046
+ a| 
+EL3HLT
+ a| 
+级别 3 已暂停
+
+
+
+ a| 
+047
+ a| 
+EL3RST
+ a| 
+3 级重置
+
+
+
+ a| 
+048
+ a| 
+ELNRNG
+ a| 
+链路编号超出范围
+
+
+
+ a| 
+049
+ a| 
+EUNATCH
+ a| 
+未连接协议驱动程序
+
+
+
+ a| 
+050
+ a| 
+ENOCSI
+ a| 
+没有可用的 CSI 结构
+
+
+
+ a| 
+051
+ a| 
+EL2HLT
+ a| 
+级别 2 已暂停
+
+
+
+ a| 
+052
+ a| 
+EBADE
+ a| 
+交换无效
+
+
+
+ a| 
+053
+ a| 
+EBADR
+ a| 
+请求描述符无效
+
+
+
+ a| 
+054
+ a| 
+EXFULL
+ a| 
+Exchange 已满
+
+
+
+ a| 
+055
+ a| 
+ENOANO
+ a| 
+无阳极
+
+
+
+ a| 
+056
+ a| 
+EBADRQC
+ a| 
+请求代码无效
+
+
+
+ a| 
+057
+ a| 
+EBADLT
+ a| 
+插槽无效
+
+
+
+ a| 
+058
+ a| 
+ a| 
+
+
+
+ a| 
+059
+ a| 
+EBFNT
+ a| 
+字体文件格式错误
+
+
+
+ a| 
+060
+ a| 
+ENOSTR
+ a| 
+设备不是流
+
+
+
+ a| 
+061
+ a| 
+ENODATA
+ a| 
+无可用数据
+
+
+
+ a| 
+062
+ a| 
+时间
+ a| 
+计时器已过期
+
+
+
+ a| 
+063
+ a| 
+ENOSR
+ a| 
+流资源不足
+
+
+
+ a| 
+064
+ a| 
+ENONET
+ a| 
+计算机不在网络上
+
+
+
+ a| 
+065
+ a| 
+ENOPK
+ a| 
+未安装软件包
+
+
+
+ a| 
+066
+ a| 
+EREMOTE
+ a| 
+对象为远程对象
+
+
+
+ a| 
+067
+ a| 
+ENOLINK
+ a| 
+链路已切断
+
+
+
+ a| 
+068
+ a| 
+EADV
+ a| 
+公布错误
+
+
+
+ a| 
+069
+ a| 
+ESRMNT
+ a| 
+Srmount 错误
+
+
+
+ a| 
+070
+ a| 
+eComm
+ a| 
+发送时出现通信错误
+
+
+
+ a| 
+071
+ a| 
+EPROTO
+ a| 
+协议错误
+
+
+
+ a| 
+072
+ a| 
+EMULTIHOP
+ a| 
+已尝试多跃点
+
+
+
+ a| 
+073
+ a| 
+EDOTDOT
+ a| 
+RFS 专用错误
+
+
+
+ a| 
+074
+ a| 
+EBADMSG
+ a| 
+不是数据消息
+
+
+
+ a| 
+075
+ a| 
+超越
+ a| 
+对于定义的数据类型，值太大
+
+
+
+ a| 
+076
+ a| 
+ENOTUNIQ
+ a| 
+名称在网络上不唯一
+
+
+
+ a| 
+077
+ a| 
+EBADFD
+ a| 
+文件描述符处于错误状态
+
+
+
+ a| 
+078
+ a| 
+错误
+ a| 
+已更改远程地址
+
+
+
+ a| 
+079
+ a| 
+EIBAcc
+ a| 
+无法访问所需的共享库
+
+
+
+ a| 
+080
+ a| 
+EIBBAD
+ a| 
+访问损坏的共享库
+
+
+
+ a| 
+081
+ a| 
+ELIBSCN
+ a| 
+
+
+
+ a| 
+082
+ a| 
+ELIBMAX
+ a| 
+正在尝试链接过多的共享库
+
+
+
+ a| 
+083
+ a| 
+ELIBExec
+ a| 
+无法直接执行共享库
+
+
+
+ a| 
+084
+ a| 
+EILSEQ
+ a| 
+字节序列非法
+
+
+
+ a| 
+085
+ a| 
+错误
+ a| 
+应重新启动中断的系统调用
+
+
+
+ a| 
+086
+ a| 
+ESTRPIPE
+ a| 
+流管道错误
+
+
+
+ a| 
+087
+ a| 
+EUSERs.
+ a| 
+用户过多
+
+
+
+ a| 
+088
+ a| 
+ENOTSOCK
+ a| 
+在非套接字上执行套接字操作
+
+
+
+ a| 
+089
+ a| 
+EDESTADDRREQ
+ a| 
+目标地址为必填项
+
+
+
+ a| 
+090
+ a| 
+EMSSIZE
+ a| 
+消息太长
+
+
+
+ a| 
+091
+ a| 
+EPROTOTYPE
+ a| 
+套接字的协议类型错误
+
+
+
+ a| 
+092
+ a| 
+ENOPROTOOPT
+ a| 
+协议不可用
+
+
+
+ a| 
+093
+ a| 
+产品说明
+ a| 
+不支持协议
+
+
+
+ a| 
+094
+ a| 
+ESOCKTNOSUPPORT
+ a| 
+不支持套接字类型
+
+
+
+ a| 
+095
+ a| 
+EOPNOTSUPP
+ a| 
+传输端点上不支持此操作
+
+
+
+ a| 
+096
+ a| 
+EPFNOSUPPORT
+ a| 
+不支持协议系列
+
+
+
+ a| 
+097
+ a| 
+EAFNOSUPPORT
+ a| 
+协议不支持地址系列
+
+
+
+ a| 
+098
+ a| 
+EADDRINUSE
+ a| 
+地址已在使用中
+
+
+
+ a| 
+099
+ a| 
+EADDRNOTAVAIL
+ a| 
+无法分配请求的地址
+
+
+
+ a| 
+100
+ a| 
+ENETDOWN
+ a| 
+网络已关闭
+
+
+
+ a| 
+101
+ a| 
+ENETUNREACH
+ a| 
+无法访问网络
+
+
+
+ a| 
+102
+ a| 
+ENETRESET
+ a| 
+由于重置，网络已断开连接
+
+
+
+ a| 
+103
+ a| 
+已完成
+ a| 
+软件导致连接终止
+
+
+
+ a| 
+104
+ a| 
+ECONNRESET
+ a| 
+对等方重置连接
+
+
+
+ a| 
+105
+ a| 
+ENOBUFS
+ a| 
+无可用缓冲区空间
+
+
+
+ a| 
+106
+ a| 
+EISCONN
+ a| 
+传输端点已连接
+
+
+
+ a| 
+107
+ a| 
+ENOTCONN
+ a| 
+传输端点未连接
+
+
+
+ a| 
+108
+ a| 
+ESHUTDOWN
+ a| 
+传输端点关闭后无法发送
+
+
+
+ a| 
+109
+ a| 
+ETOOMANYREFS
+ a| 
+参考太多：无法拼接
+
+
+
+ a| 
+110
+ a| 
+ETIMEDOUT
+ a| 
+连接超时
+
+
+
+ a| 
+111
+ a| 
+ECONNREFUSED
+ a| 
+连接被拒绝
+
+
+
+ a| 
+112
+ a| 
+EHOSTDOWN
+ a| 
+主机已关闭
+
+
+
+ a| 
+113
+ a| 
+EHOSTUNREACH
+ a| 
+没有到主机的路由
+
+
+
+ a| 
+114
+ a| 
+EALREADY
+ a| 
+操作已在进行中
+
+
+
+ a| 
+115
+ a| 
+EINPROGRESS
+ a| 
+操作正在进行中
+
+
+
+ a| 
+116
+ a| 
+ a| 
+
+
+
+ a| 
+117
+ a| 
+EUC
+ a| 
+结构需要清理
+
+
+
+ a| 
+118
+ a| 
+ENOTCAM
+ a| 
+不是名为 type 的 Xenix 文件
+
+
+
+ a| 
+119
+ a| 
+ENAVAIL
+ a| 
+没有可用的 Xenix 信号
+
+
+
+ a| 
+120
+ a| 
+EISNAM
+ a| 
+是一个命名类型的文件
+
+
+
+ a| 
+121
+ a| 
+EREMOTEIO
+ a| 
+远程 I/O 错误
+
+
+
+ a| 
+122
+ a| 
+EDQUOT
+ a| 
+已超过配额
+
+
+
+ a| 
+123
+ a| 
+ENOMINDIUM
+ a| 
+未找到介质
+
+
+
+ a| 
+124
+ a| 
+EMeduMTYPE
+ a| 
+介质类型错误
+
+
+
+ a| 
+125
+ a| 
+ECANCELED
+ a| 
+操作已取消
+
+
+
+ a| 
+126
+ a| 
+ENOKEY
+ a| 
+所需密钥不可用
+
+
+
+ a| 
+127
+ a| 
+EKEYEXPIRED
+ a| 
+密钥已过期
+
+
+
+ a| 
+128
+ a| 
+EKBREVOKED
+ a| 
+密钥已撤销
+
+
+
+ a| 
+129
+ a| 
+已完成
+ a| 
+密钥已被服务拒绝
+
+
+
+ a| 
+130
+ a| 
+终止
+ a| 
+对于稳定可靠的 mMutexes ： owner died
+
+
+
+ a| 
+131
+ a| 
+ENOTRECOVERABLE
+ a| 
+对于强大的 mutexes ：状态不可恢复
+
+|===

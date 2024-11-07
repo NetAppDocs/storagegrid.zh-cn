@@ -1,0 +1,114 @@
+---
+section: s3
+title: 使用S3 REST API
+entries:
+- title: 支持的版本和更新
+  pdf-filename: 将 S3 与 StorageGRID 结合使用
+  url: "/s3/index.html"
+- title: 快速参考
+  url: "/s3/quick-reference-support-for-aws-apis.html"
+- title: 测试S3 REST API连接
+  url: "/s3/configuring-tenant-accounts-and-connections.html"
+- title: StorageGRID 如何实施 S3 REST API
+  entries:
+  - title: 客户端请求冲突
+    url: "/s3/conflicting-client-requests.html"
+  - title: 一致性值
+    url: "/s3/consistency-controls.html"
+  - title: 对象版本控制
+    url: "/s3/object-versioning.html"
+  - title: 使用S3 REST API配置S3对象锁定
+    url: "/s3/use-s3-api-for-s3-object-lock.html"
+  - title: 创建 S3 生命周期配置
+    url: "/s3/create-s3-lifecycle-configuration.html"
+  - title: 实施 S3 REST API 的建议
+    url: "/s3/recommendations-for-implementing-s3-rest-api.html"
+- title: 支持Amazon S3 REST API
+  entries:
+  - title: 实施详细信息
+    url: "/s3/s3-rest-api-supported-operations-and-limitations.html"
+  - title: 对请求进行身份验证
+    url: "/s3/authenticating-requests.html"
+  - title: 对服务执行的操作
+    url: "/s3/operations-on-the-service.html"
+  - title: 对存储分段执行的操作
+    url: "/s3/operations-on-buckets.html"
+  - title: 对对象执行的操作
+    entries:
+    - title: S3对象操作
+      url: "/s3/operations-on-objects.html"
+    - title: 使用 S3 Select
+      url: "/s3/use-s3-select.html"
+    - title: 使用服务器端加密
+      url: "/s3/using-server-side-encryption.html"
+    - title: CopyObject
+      url: "/s3/put-object-copy.html"
+    - title: GetObject
+      url: "/s3/get-object.html"
+    - title: HeadObject
+      url: "/s3/head-object.html"
+    - title: PutObject
+      url: "/s3/put-object.html"
+    - title: RestorEObject
+      url: "/s3/post-object-restore.html"
+    - title: SelectObjectContent
+      url: "/s3/select-object-content.html"
+  - title: 多部分上传操作
+    entries:
+    - title: 多部分上传
+      pdf-filename: 多部分上传操作
+      url: "/s3/operations-for-multipart-uploads.html"
+    - title: CompleteMultipartUpload
+      url: "/s3/complete-multipart-upload.html"
+    - title: CreateMultipartUpload
+      url: "/s3/initiate-multipart-upload.html"
+    - title: ListMultipartUploads
+      url: "/s3/list-multipart-uploads.html"
+    - title: 上传部件
+      url: "/s3/upload-part.html"
+    - title: 上传PartCopy
+      url: "/s3/upload-part-copy.html"
+  - title: 错误响应
+    url: "/s3/error-responses.html"
+- title: StorageGRID自定义操作
+  entries:
+  - title: 自定义操作列表
+    pdf-filename: StorageGRID自定义操作
+    url: "/s3/custom-operations-on-buckets.html"
+  - title: 获取存储分段一致性
+    url: "/s3/get-bucket-consistency-request.html"
+  - title: PUT 存储分段一致性
+    url: "/s3/put-bucket-consistency-request.html"
+  - title: 获取存储分段上次访问时间
+    url: "/s3/get-bucket-last-access-time-request.html"
+  - title: PUT 分段上次访问时间
+    url: "/s3/put-bucket-last-access-time-request.html"
+  - title: 删除存储分段元数据通知配置
+    url: "/s3/delete-bucket-metadata-notification-configuration-request.html"
+  - title: 获取存储分段元数据通知配置
+    url: "/s3/get-bucket-metadata-notification-configuration-request.html"
+  - title: PUT 存储分段元数据通知配置
+    url: "/s3/put-bucket-metadata-notification-configuration-request.html"
+  - title: 获取存储使用量
+    url: "/s3/get-storage-usage-request.html"
+  - title: 已弃用旧合规性存储分段请求
+    entries:
+    - title: 弃用的功能和请求
+      pdf-filename: 已弃用旧合规性存储分段请求
+      url: "/s3/deprecated-bucket-requests-for-legacy-compliance.html"
+    - title: 已弃用—为合规性修改CreateBucket
+      url: "/s3/deprecated-put-bucket-request-modifications-for-compliance.html"
+    - title: 已弃用—获取存储分段合规性请求
+      url: "/s3/deprecated-get-bucket-compliance-request.html"
+    - title: 已弃用— PUT 存储分段合规性请求
+      url: "/s3/deprecated-put-bucket-compliance-request.html"
+- title: 存储分段和组访问策略
+  entries:
+  - title: 使用存储分段和组访问策略
+    url: "/s3/bucket-and-group-access-policies.html"
+  - title: 存储分段策略示例
+    url: "/s3/example-bucket-policies.html"
+  - title: 组策略示例
+    url: "/s3/example-group-policies.html"
+- title: 在审核日志中跟踪 S3 操作
+  url: "/s3/s3-operations-tracked-in-audit-logs.html"

@@ -1,0 +1,72 @@
+---
+permalink: fabricpool/creating-s3-bucket-and-access-key.html 
+sidebar: sidebar 
+keywords: fabricPool, S3 bucket, bucket, access key, secret access key 
+summary: 在将 StorageGRID 与 FabricPool 工作负载结合使用之前，您必须为 FabricPool 数据创建一个 S3 存储分段。您还需要为要用于 FabricPool 的租户帐户获取访问密钥和机密访问密钥。 
+---
+= 创建S3存储分段并获取访问密钥
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将 StorageGRID 与 FabricPool 工作负载结合使用之前，您必须为 FabricPool 数据创建一个 S3 存储分段。您还需要为要用于 FabricPool 的租户帐户获取访问密钥和机密访问密钥。
+
+有关此任务的详细信息，请参见link:../tenant/creating-s3-bucket.html["创建 S3 存储分段"]和link:../tenant/creating-your-own-s3-access-keys.html["创建您自己的 S3 访问密钥"]。要使用FabricPool设置向导完成此任务，请转至link:use-fabricpool-setup-wizard-steps.html["访问并完成FabricPool 设置向导"]。
+
+.开始之前
+* 您已创建一个租户帐户供 FabricPool 使用。
+* 您对租户帐户具有root访问权限。
+
+
+.步骤
+. 登录到租户管理器。
++
+您可以执行以下任一操作：
+
++
+** 从网格管理器的租户帐户页面中，选择此租户的 * 登录 * 链接，然后输入您的凭据。
+** 在 Web 浏览器中输入租户帐户的 URL ，然后输入凭据。
+
+
+. 为 FabricPool 数据创建 S3 存储分段。
++
+您必须为计划使用的每个 ONTAP 集群创建一个唯一的存储分段。
+
++
+.. 从信息板中选择*查看存储分段*，或选择*存储(S3)*>*存储分段*。
+.. 选择 * 创建存储分段 * 。
+.. 输入要用于FabricPool 的StorageGRID 存储分段的名称。例如， `fabricpool-bucket`。
++
+
+TIP: 创建存储分段后、无法更改存储分段名称。
+
+.. 为此存储分段选择区域。
++
+默认情况下、所有存储分段都会在区域中创建 `us-east-1`。
+
+.. 选择 * 继续 * 。
+.. 选择 * 创建存储分段 * 。
++
+
+NOTE: 不要为FabricPool 存储分段选择*启用对象版本控制*。同样、请勿编辑FabricPool分段以使用*可用*或非默认一致性。FabricPool存储分段的建议一致性为*read-after-new-write*，这是新存储分段的默认一致性。
+
+
+
+. 创建访问密钥和机密访问密钥。
++
+.. 选择 * 存储（ S3 ） * > * 我的访问密钥 * 。
+.. 选择 * 创建密钥 * 。
+.. 选择 * 创建访问密钥 * 。
+.. 将访问密钥 ID 和机密访问密钥复制到安全位置，或者选择 * 下载 .csv * 以保存包含访问密钥 ID 和机密访问密钥的电子表格文件。
++
+将 StorageGRID 配置为 FabricPool 云层时，您将在 ONTAP 中输入这些值。
+
++
+
+TIP: 如果您将来在StorageGRID 中生成新的访问密钥和机密访问密钥、请在ONTAP 中输入新密钥、然后再从StorageGRID 中删除旧值。否则、ONTAP 可能会暂时失去对StorageGRID 的访问权限。
+
+
+
+

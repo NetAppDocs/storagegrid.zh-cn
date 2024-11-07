@@ -1,0 +1,26 @@
+---
+permalink: ubuntu/post-installation-guidelines.html 
+sidebar: sidebar 
+keywords: after installation guidelines ubuntu or debian 
+summary: 完成网格节点部署和配置后，请按照以下准则更改 DHCP 地址和网络配置。 
+---
+= 安装后准则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成网格节点部署和配置后，请按照以下准则更改 DHCP 地址和网络配置。
+
+* 如果使用 DHCP 分配 IP 地址，请为所使用网络上的每个 IP 地址配置 DHCP 预留。
++
+您只能在部署阶段设置 DHCP 。配置期间无法设置DHCP。
+
++
+
+NOTE: 通过DHCP更改网格网络配置后、节点会重新启动、如果DHCP更改同时影响多个节点、则可能会导致中断。
+
+* 如果要更改网格节点的 IP 地址，子网掩码和默认网关，必须使用更改 IP 过程。请参阅。 link:../maintain/configuring-ip-addresses.html["配置 IP 地址"]
+* 如果更改网络配置，包括更改路由和网关，则客户端与主管理节点和其他网格节点的连接可能会断开。根据应用的网络更改、您可能需要重新建立这些连接。
+

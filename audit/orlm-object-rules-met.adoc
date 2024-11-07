@@ -1,0 +1,158 @@
+---
+permalink: audit/orlm-object-rules-met.html 
+sidebar: sidebar 
+keywords: audit message, ORLM, Object Rules Met, ilm rule 
+summary: 如果对象已按照 ILM 规则的指定成功存储和复制，则会生成此消息。 
+---
+= ORLM ：符合对象规则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果对象已按照 ILM 规则的指定成功存储和复制，则会生成此消息。
+
+
+NOTE: 如果策略中的另一条规则使用对象大小高级筛选器，则使用默认的 Make 2 Copies 规则成功存储对象时不会生成 ORLM 消息。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+BUID
+ a| 
+存储分段标题
+ a| 
+存储分段 ID 字段。用于内部操作。仅当统计数据为 PRGD 时才显示。
+
+
+
+ a| 
+CBID
+ a| 
+内容块标识符
+ a| 
+对象的 CBID 。
+
+
+
+ a| 
+CSIZ
+ a| 
+内容大小
+ a| 
+对象的大小（以字节为单位）。
+
+
+
+ a| 
+LOC
+ a| 
+位置
+ a| 
+对象数据在 StorageGRID 系统中的存储位置。如果对象没有位置（例如，已删除），则此对象的值为 "" 。
+
+CEC：对于纠删编码对象、应用于对象数据的纠删编码配置文件ID和纠删编码组ID。
+
+CLDI ：对于复制的对象， LDR 节点 ID 和对象位置的卷 ID 。
+
+CLNL ：归档对象数据时对象位置的弧节点 ID 。
+
+
+
+ a| 
+路径
+ a| 
+S3存储分段/密钥
+ a| 
+S3存储分段名称和S3密钥名称。
+
+
+
+ a| 
+RSLT
+ a| 
+结果
+ a| 
+ILM 操作的结果。
+
+SUC ： ILM 操作成功。
+
+
+
+ a| 
+规则
+ a| 
+规则标签
+ a| 
+为应用于此对象的 ILM 规则提供的可读标签。
+
+
+
+ a| 
+SEGC
+ a| 
+容器UUID
+ a| 
+已分段对象的容器的 UUID 。只有当对象已分段时，此值才可用。
+
+
+
+ a| 
+SGCB
+ a| 
+容器CBID
+ a| 
+已分段对象的容器的 CBID 。此值仅适用于已分段和多部分对象。
+
+
+
+ a| 
+临时
+ a| 
+状态
+ a| 
+ILM 操作的状态。
+
+Done ：已完成对对象的 ILM 操作。
+
+DDER ：对象已标记为待未来 ILM 重新评估。
+
+PRGD ：此对象已从 StorageGRID 系统中删除。
+
+NLOC ：在 StorageGRID 系统中找不到对象数据。此状态可能表示对象数据的所有副本均缺失或已损坏。
+
+
+
+ a| 
+UUID
+ a| 
+通用唯一标识符
+ a| 
+StorageGRID 系统中对象的标识符。
+
+
+
+ a| 
+VSID
+ a| 
+版本ID
+ a| 
+在受版本控制的存储分段中创建的新对象的版本 ID 。对未受版本管理的分段中的分段和对象执行的操作不包括此字段。
+
+|===
+对于单个对象、可以多次发出ORLM审核消息。例如、每当发生以下事件之一时、都会发出此命令：
+
+* 对象的 ILM 规则将永久满足。
+* 此 Epoch 已满足对象的 ILM 规则。
+* ILM 规则已删除此对象。
+* 后台验证过程检测到复制的对象数据的副本已损坏。StorageGRID 系统会执行 ILM 评估以替换损坏的对象。
+
+
+.相关信息
+* link:object-ingest-transactions.html["对象载入事务"]
+* link:object-delete-transactions.html["对象删除事务"]
+

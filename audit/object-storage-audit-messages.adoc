@@ -1,0 +1,94 @@
+---
+permalink: audit/object-storage-audit-messages.html 
+sidebar: sidebar 
+keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
+summary: 您应熟悉属于对象存储审核类别的审核消息。这些事件与 StorageGRID 系统中对象的存储和管理相关。其中包括对象存储和检索，网格节点到网格节点的传输以及验证。 
+---
+= 对象存储审核消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+属于对象存储审核类别的审核消息用于与StorageGRID 系统中的对象存储和管理相关的事件。其中包括对象存储和检索，网格节点到网格节点的传输以及验证。
+
+
+NOTE: 由于功能已弃用、因此从产品和文档中删除了审核代码。如果遇到此处未列出的审核代码、请查看此主题的先前版本以了解早期SG版本。例如， https://docs.netapp.com/us-en/storagegrid-118/audit/object-storage-audit-messages.html["StorageGRID 11.8.对象存储审核消息"^]。
+
+[cols="1a,2a,1a"]
+|===
+| 代码 | 说明 | 请参见 
+
+
+ a| 
+运动内衣
+ a| 
+存储分段只读请求：存储分段已进入或退出只读模式。
+ a| 
+link:bror-bucket-read-only-request.html["BROR：存储分段只读请求"]
+
+
+
+ a| 
+CBSE
+ a| 
+对象发送结束：源实体完成了网格节点到网格节点的数据传输操作。
+ a| 
+link:cbse-object-send-end.html["CBSE ：对象发送结束"]
+
+
+
+ a| 
+CBRE
+ a| 
+对象接收结束：目标实体完成了网格节点到网格节点的数据传输操作。
+ a| 
+link:cbre-object-receive-end.html["CBRE ：对象接收结束"]
+
+
+
+ a| 
+CRR
+ a| 
+跨网格复制请求：StorageGRID 尝试执行跨网格复制操作、以便在网格联合连接中的分段之间复制对象。
+ a| 
+link:cgrr-cross-grid-replication-request.html["CGRR：跨网格复制请求"]
+
+
+
+ a| 
+EBDL
+ a| 
+清空存储分段删除：ILM扫描程序删除存储分段中正在删除所有对象的对象(执行空存储分段操作)。
+ a| 
+link:ebdl-empty-bucket-delete.html["EBDL：清空存储分段删除"]
+
+
+
+ a| 
+EBKR
+ a| 
+空分段请求：用户发送了打开或关闭空分段的请求(即删除分段对象或停止删除对象)。
+ a| 
+link:ebkr-empty-bucket-request.html["EBKR：空分段请求"]
+
+
+
+ a| 
+SCMT
+ a| 
+对象存储提交：内容块已完全存储和验证，现在可以请求。
+ a| 
+link:scmt-object-store-commit.html["SCMT：对象存储提交请求"]
+
+
+
+ a| 
+Srem
+ a| 
+对象存储删除：已从网格节点中删除内容块，无法再直接请求。
+ a| 
+link:srem-object-store-remove.html["Srem ：对象存储删除"]
+
+|===

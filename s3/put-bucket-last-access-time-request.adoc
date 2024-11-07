@@ -1,0 +1,50 @@
+---
+permalink: s3/put-bucket-last-access-time-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, put bucket last access time request 
+summary: 通过获取分段上次访问时间请求，您可以确定是为单个分段启用还是禁用了上次访问时间更新。 
+---
+= PUT 分段上次访问时间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过 PUT 分段上次访问时间请求，您可以为各个分段启用或禁用上次访问时间更新。禁用上次访问时间更新可提高性能，它是使用 10.3.0 或更高版本创建的所有存储分段的默认设置。
+
+要完成此操作、您必须对某个存储分段拥有S3：PutBucketLastAccessTime权限、或者以root帐户身份登录。
+
+
+NOTE: 从 StorageGRID 10.3 版开始，默认情况下，所有新存储分段都会禁用对上次访问时间的更新。如果您的存储分段是使用早期版本的 StorageGRID 创建的，并且您希望与新的默认行为匹配，则必须明确禁用上述每个存储分段的上次访问时间更新。您可以使用"放置分段上次访问时间"请求或从租户管理器中某个分段的详细信息页面启用或禁用对上次访问时间的更新。请参阅。 link:../tenant/enabling-or-disabling-last-access-time-updates.html["启用或禁用上次访问时间更新"]
+
+如果禁用了某个存储分段的上次访问时间更新，则会对存储分段上的操作应用以下行为：
+
+* GetObject、GetObjectAcl、GetObjectTaging和HeadObject请求不更新上次访问时间。此对象不会添加到用于信息生命周期管理（ ILM ）评估的队列中。
+* 仅更新元数据的CopyObject和PutObjectTagingRequests也会更新上次访问时间。对象将添加到队列中以进行 ILM 评估。
+* 如果对源存储分段禁用了对上次访问时间的更新、则CopyObject请求不会更新源存储分段的上次访问时间。复制的对象不会添加到源存储分段的 ILM 评估队列中。但是、对于目标、CopyObject请求始终会更新上次访问时间。对象副本将添加到队列中以进行 ILM 评估。
+* CompleteMultipartUpload请求更新上次访问时间。已完成的对象将添加到队列中以进行 ILM 评估。
+
+
+
+
+== 请求示例
+
+此示例将为存储分段启用上次访问时间。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-lastaccesstime=enabled HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+此示例将禁用存储分段的上次访问时间。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-lastaccesstime=disabled HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----

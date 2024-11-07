@@ -1,0 +1,184 @@
+---
+permalink: maintain/powering-off-and-on-all-nodes-in-grid.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
+summary: 例如，如果要移动数据中心，您可能需要关闭整个 StorageGRID 系统。以下步骤简要概述了执行受控关闭和启动的建议顺序。 
+---
+= 关闭并打开网格中的所有节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+例如，如果要移动数据中心，您可能需要关闭整个 StorageGRID 系统。以下步骤简要概述了执行受控关闭和启动的建议顺序。
+
+关闭站点或网格中的所有节点后，在存储节点脱机时，您将无法访问已载入的对象。
+
+
+
+== 停止服务并关闭网格节点
+
+在关闭 StorageGRID 系统之前，必须先停止每个网格节点上运行的所有服务，然后关闭所有 VMware 虚拟机，容器引擎和 StorageGRID 设备。
+
+.关于此任务
+首先停止管理节点和网关节点上的服务、然后停止存储节点上的服务。
+
+通过此方法，您可以使用主管理节点尽可能长时间地监控其他网格节点的状态。
+
+
+NOTE: 如果一台主机包含多个网格节点、则在停止该主机上的所有节点之前、不要关闭该主机。如果主机包含主管理节点，请最后关闭该主机。
+
+
+NOTE: 如果需要、您可以link:linux-migrating-grid-node-to-new-host.html["将节点从一台 Linux 主机迁移到另一台 Linux 主机"]在不影响网格功能或可用性的情况下执行主机维护。
+
+.步骤
+. 停止所有客户端应用程序访问网格。
+. 【登录到每个网关节点】登录到每个网关节点：
++
+.. 输入以下命令： `ssh admin@_grid_node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+. [[STOP_ALL_SERIS]停止节点上运行的所有服务： `service servermanager stop`
++
+服务可能需要长达 15 分钟才能关闭，您可能需要远程登录到系统以监控关闭过程。
+
+. 重复上述两个步骤、以停止所有存储节点和非主管理节点上的服务。
++
+您可以按任何顺序停止这些节点上的服务。
+
++
+
+NOTE: 如果您发出 `service servermanager stop`命令以停止设备存储节点上的服务、则必须重新启动设备以重新启动节点。
+
+. 对于主管理节点，重复和<<stop_all_services,停止节点上的所有服务>>的步骤<<log_in_to_gn,登录到节点>>。
+. 对于在 Linux 主机上运行的节点：
++
+.. 登录到主机操作系统。
+.. 停止节点： `storagegrid node stop`
+.. 关闭主机操作系统。
+
+
+. 对于VMware虚拟机上运行的节点以及设备存储节点、发出shutdown命令： `shutdown -h now`
++
+无论命令的结果如何、均可执行此步骤 `service servermanager stop`。
+
++
+对于设备，此命令将关闭计算控制器，但设备仍处于打开状态。您必须完成下一步。
+
+. 如果您有设备节点、请按照适用于您的设备的步骤进行操作。
++
+[role="tabbed-block"]
+====
+.SG110或SG1100
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+.SG100或SG1000
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+.SG6160
+--
+.. 关闭SG6100-CN存储控制器的电源。
+.. 等待SG6100-CN存储控制器上的蓝色电源LED熄灭。
+
+
+--
+.SGF6112
+--
+.. 关闭设备电源。
+.. 等待蓝色电源 LED 熄灭。
+
+
+--
+.SG6000
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 关闭设备电源，然后等待蓝色电源 LED 熄灭。
+
+
+--
+.SGs了
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 从 SANtricity 系统管理器的主页中，选择 * 查看正在执行的操作 * 。
+.. 确认所有操作均已完成，然后再继续下一步。
+.. 关闭控制器架上的两个电源开关、然后等待控制器架上的所有LED熄灭。
+
+
+--
+.SG5700
+--
+.. 等待存储控制器背面的绿色缓存活动 LED 熄灭。
++
+当需要将缓存的数据写入驱动器时，此 LED 亮起。您必须等待此 LED 关闭，然后再关闭电源。
+
+.. 关闭设备电源，等待所有 LED 和七段显示活动停止。
+
+
+--
+====
+. 如果需要、从命令Shell中注销： `exit`
++
+此时， StorageGRID 网格已关闭。
+
+
+
+
+
+== 启动网格节点
+
+
+CAUTION: 如果整个网格已关闭超过 15 天，则在启动任何网格节点之前，您必须联系技术支持。请勿尝试执行重建Cassand拉 数据的恢复过程。这样做可能会导致数据丢失。
+
+如果可能、请按以下顺序打开网格节点的电源：
+
+* 首先为管理节点接通电源。
+* 请最后为网关节点通电。
+
+
+
+NOTE: 如果主机包含多个网格节点，则在启动主机时，这些节点将自动恢复联机。
+
+.步骤
+. 打开主管理节点和任何非主管理节点的主机的电源。
++
+
+NOTE: 在重新启动存储节点之前，您将无法登录到管理节点。
+
+. 启动所有存储节点的主机。
++
+您可以按任意顺序打开这些节点的电源。
+
+. 启动所有网关节点的主机。
+. 登录到网格管理器。
+. 选择 * 节点 * 并监控网格节点的状态。验证节点名称旁边是否没有警报图标。
+
+
+.相关信息
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112和SG6160存储设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110和SG1100服务设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100和SG1000服务设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000存储设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG工具"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700存储设备"^]
+

@@ -1,0 +1,126 @@
+= 测试连接并保存配置
+:allow-uri-read: 
+
+
+. 选择 * 启用身份联合 * 。
+. 在 LDAP 服务类型部分中，选择要配置的 LDAP 服务类型。
++
+image::../media/ldap_service_type.png[显示 LDAP 服务类型选项的身份联合页面]
+
++
+选择 * 其他 * 可为使用 Oracle 目录服务器的 LDAP 服务器配置值。
+
+. 如果选择了 * 其他 * ，请填写 LDAP 属性部分中的字段。否则，请继续执行下一步。
++
+** * 用户唯一名称 * ：包含 LDAP 用户唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `uid`此属性相当于 `sAMAccountName`。如果要配置Oracle Directory Server，请输入 `uid`。
+** * 用户 UID* ：包含 LDAP 用户的永久唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `entryUUID`此属性相当于 `objectGUID`。如果要配置Oracle Directory Server，请输入 `nsuniqueid`。每个用户在指定属性中的值都必须是一个 32 位十六进制数字，采用 16 字节或字符串格式，其中会忽略连字符。
+** * 组唯一名称 * ：包含 LDAP 组唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `cn`此属性相当于 `sAMAccountName`。如果要配置Oracle Directory Server，请输入 `cn`。
+** * 组 UID* ：包含 LDAP 组的永久唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `entryUUID`此属性相当于 `objectGUID`。如果要配置Oracle Directory Server，请输入 `nsuniqueid`。每个组在指定属性中的值必须是一个 32 位十六进制数字，采用 16 字节或字符串格式，其中会忽略连字符。
+
+
+. 对于所有 LDAP 服务类型，请在配置 LDAP 服务器部分中输入所需的 LDAP 服务器和网络连接信息。
++
+** * 主机名 * ： LDAP 服务器的完全限定域名（ FQDN ）或 IP 地址。
+** * 端口 * ：用于连接到 LDAP 服务器的端口。
++
+
+NOTE: STARTTLS 的默认端口为 389 ， LDAPS 的默认端口为 636 。但是，只要防火墙配置正确，您就可以使用任何端口。
+
+** * 用户名 * ：要连接到 LDAP 服务器的用户的可分辨名称（ DN ）的完整路径。
++
+对于 Active Directory ，您还可以指定低级别的登录名称或用户主体名称。
+
++
+指定的用户必须具有列出组和用户以及访问以下属性的权限：
+
++
+*** `sAMAccountName`或 `uid`
+*** `objectGUID` `entryUUID`或 `nsuniqueid`
+*** `cn`
+*** `memberOf`或 `isMemberOf`
+*** *Active Directory*： `objectSid`、 `primaryGroupID`、 `userAccountControl`和 `userPrincipalName`
+*** *Azer*: `accountEnabled`和 `userPrincipalName`
+
+
+** * 密码 * ：与用户名关联的密码。
++
+
+NOTE: 如果您以后更改密码、则必须在此页面上更新密码。
+
+** * 组基本 DN* ：要搜索组的 LDAP 子树的可分辨名称（ DN ）的完整路径。在 Active Directory 示例（如下）中，可分辨名称相对于基础 DN （ DC=storagegrid ， DC=example ， DC=com ）的所有组均可用作联合组。
++
+
+NOTE: * 组唯一名称 * 值在其所属的 * 组基本 DN* 中必须是唯一的。
+
+** * 用户基础 DN* ：要搜索用户的 LDAP 子树的可分辨名称（ DN ）的完整路径。
++
+
+NOTE: 用户唯一名称 * 值在其所属的 * 用户基础 DN* 中必须是唯一的。
+
+** *绑定用户名格式*(可选)：如果无法自动确定模式，StorageGRID 应使用默认用户名模式。
++
+建议提供 * 绑定用户名格式 * ，因为如果 StorageGRID 无法绑定到服务帐户，它可以允许用户登录。
+
++
+输入以下模式之一：
+
++
+*** *UserPrincipalName模式(Active Directory和Azure)*： `[USERNAME]@_example_.com`
+*** *低级登录名称模式(Active Directory和Azure)*： `_example_\[USERNAME]`
+*** *可分辨名称模式*： `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
++
+与写入的内容完全相同，请包含 * 。
+
+
+
+
+
+. 在传输层安全（ TLS ）部分中，选择一个安全设置。
++
+** * 使用 STARTTLS * ：使用 STARTTLS 确保与 LDAP 服务器的通信安全。这是建议的 Active Directory ， OpenLDAP 或其他选项，但 Azure 不支持此选项。
+** * 使用 LDAPS* ： LDAPS （基于 SSL 的 LDAP ）选项使用 TLS 与 LDAP 服务器建立连接。您必须为 Azure 选择此选项。
+** * 请勿使用 TLS* ： StorageGRID 系统与 LDAP 服务器之间的网络流量将不会受到保护。Azure 不支持此选项。
++
+
+NOTE: 如果 Active Directory 服务器强制实施 LDAP 签名，则不支持使用 * 不使用 TLS* 选项。您必须使用 STARTTLS 或 LDAPS 。
+
+
+
+. 如果选择 STARTTLS 或 LDAPS ，请选择用于保护连接安全的证书。
++
+** * 使用操作系统 CA 证书 * ：使用操作系统上安装的默认网格 CA 证书确保连接安全。
+** * 使用自定义 CA 证书 * ：使用自定义安全证书。
++
+如果选择此设置，请将自定义安全证书复制并粘贴到 CA 证书文本框中。
+
+
+
+
+
+
+
+=== 测试连接并保存配置
+
+输入所有值后，必须先测试连接，然后才能保存配置。如果您提供了 LDAP 服务器的连接设置和绑定用户名格式，则 StorageGRID 会对其进行验证。
+
+.步骤
+. 选择 * 测试连接 * 。
+. 如果未提供绑定用户名格式：
++
+** 如果连接设置有效、则会显示"Test connection sule"(测试连接成功)消息。选择 * 保存 * 以保存配置。
+** 如果连接设置无效、则会显示"无法建立测试连接"消息。选择 * 关闭 * 。然后，解决所有问题并重新测试连接。
+
+
+. 如果您提供了绑定用户名格式，请输入有效联合用户的用户名和密码。
++
+例如，输入您自己的用户名和密码。请勿在用户名中包含任何特殊字符、例如@或/。
+
++
+image::../media/identity_federation_test_connection.png[身份联合提示以验证绑定用户名格式]
+
++
+** 如果连接设置有效、则会显示"Test connection sule"(测试连接成功)消息。选择 * 保存 * 以保存配置。
+** 如果连接设置，绑定用户名格式或测试用户名和密码无效，则会显示一条错误消息。解决所有问题并重新测试连接。
+
+
+

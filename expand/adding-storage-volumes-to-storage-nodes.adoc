@@ -1,0 +1,50 @@
+---
+permalink: expand/adding-storage-volumes-to-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+summary: 您可以通过添加其他存储卷来扩展存储卷数量不超过 16 个的存储节点的存储容量。您可能需要将存储卷添加到多个存储节点，以满足对复制的或经过纠删编码的副本的 ILM 要求。 
+---
+= 将存储卷添加到存储节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过添加其他存储卷来扩展存储卷数量不超过 16 个的存储节点的存储容量。您可能需要将存储卷添加到多个存储节点，以满足对复制的或经过纠删编码的副本的 ILM 要求。
+
+.开始之前
+在添加存储卷之前、请查看link:guidelines-for-adding-object-capacity.html["添加对象容量的准则"]以确保您知道要将卷添加到何处以满足ILM策略的要求。
+
+
+NOTE: 这些说明仅适用于基于软件的存储节点。请参见 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["将扩展架添加到已部署的SG6060"^]或 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["将扩展架添加到已部署的SG6160"^]、了解如何通过安装扩展架向SG6060或SG6160添加存储卷。无法扩展其他设备存储节点。
+
+.关于此任务
+存储节点的底层存储分为多个存储卷。存储卷是基于块的存储设备，由 StorageGRID 系统格式化并挂载以存储对象。每个存储节点最多可支持 16 个存储卷，在网格管理器中称为 _object stores_ 。
+
+
+NOTE: 对象元数据始终存储在对象存储 0 中。
+
+每个对象存储都挂载在与其 ID 对应的卷上。例如、ID为0000的对象存储对应于 `/var/local/rangedb/0`挂载点。
+
+在添加新存储卷之前，请使用网格管理器查看每个存储节点的当前对象存储以及相应的挂载点。您可以在添加存储卷时使用此信息。
+
+.步骤
+. 选择 * 节点 * > * 站点 _* > * 存储节点 _* > * 存储 * 。
+. 向下滚动以查看每个卷和对象存储的可用存储容量。
++
+对于设备存储节点、每个磁盘的全球通用名称与在SANtricity OS (连接到设备存储控制器的管理软件)中查看标准卷属性时显示的卷全球通用标识符(WWID)匹配。
+
++
+为了帮助您解释与卷挂载点相关的磁盘读取和写入统计信息，磁盘设备表的 * 名称 * 列（即 _sdc_ ， _sdd_ ， _sde_ 等）中显示的名称的第一部分与卷表的 * 设备 * 列中显示的值匹配。
+
++
+image::../media/nodes_page_storage_tables_vol_expansion.png[节点页面存储表]
+
+. 按照适用于您的平台的说明向存储节点添加新存储卷。
++
+** link:vmware-adding-storage-volumes-to-storage-node.html["VMware ：将存储卷添加到存储节点"]
+** link:linux-adding-direct-attached-or-san-volumes-to-storage-node.html["Linux ：将直连卷或 SAN 卷添加到存储节点"]
+
+
+

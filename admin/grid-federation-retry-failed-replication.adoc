@@ -1,0 +1,204 @@
+---
+permalink: admin/grid-federation-retry-failed-replication.html 
+sidebar: sidebar 
+keywords: grid federation, troubleshoot 
+summary: 解决跨网格复制永久失败警报后、您应确定是否有任何对象或删除标记无法复制到其他网格。然后、您可以重新创建这些对象或使用网格管理API重试复制。 
+---
+= 确定并重试失败的复制操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+解决*跨网格复制永久失败*警报后，您应确定是否有任何对象或删除标记无法复制到另一网格。然后、您可以重新创建这些对象或使用网格管理API重试复制。
+
+*跨网格复制永久失败*警报指示无法在两个网格上的分段之间复制租户对象、原因是需要用户干预才能解决。此警报通常是由源存储分段或目标存储分段的更改引起的。有关详细信息，请参见 link:grid-federation-troubleshoot.html["对网格联合错误进行故障排除"]。
+
+
+
+== 确定是否有任何对象无法复制
+
+要确定是否有任何对象或删除标记未复制到其他网格、您可以在审核日志中搜索link:../audit/cgrr-cross-grid-replication-request.html["CGRR (跨网格复制请求)"]消息。如果StorageGRID 无法将对象、多部分对象或删除标记复制到目标存储分段、则会将此消息添加到日志中。
+
+您可以使用将结果转换为易于阅读的link:../audit/using-audit-explain-tool.html["Audy-讲解 工具"]格式。
+
+.开始之前
+* 您具有 root 访问权限。
+* 您已获得 `Passwords.txt`文件。
+* 您知道主管理节点的IP地址。
+
+
+.步骤
+. 登录到主管理节点：
++
+.. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+
+
+. 在audit.log中搜索CGRR消息、并使用audy-expand工具对结果进行格式化。
++
+例如、此命令将对过去30分钟内的所有CGRR消息进行greps、并使用audy-explast工具。
+
++
+`# awk -vdate=$(date -d "30 minutes ago" '+%Y-%m-%dT%H:%M:%S') '$1$2 >= date { print }' audit.log | grep CGRR | audit-explain`
+
++
+此命令的结果类似于此示例、其中包含六条CGRR消息的条目。在此示例中、所有跨网格复制请求均返回一个一般错误、因为无法复制对象。前三个错误用于"replicate object"操作、后三个错误用于"replicate delete marker"操作。
+
++
+[listing]
+----
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-0" version:QjRBNDIzODAtNjQ3My0xMUVELTg2QjEtODJBMjAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-3" version:QjRDOTRCOUMtNjQ3My0xMUVELTkzM0YtOTg1MTAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-1" version:NUQ0OEYxMDAtNjQ3NC0xMUVELTg2NjMtOTY5NzAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-5" version:NUQ1ODUwQkUtNjQ3NC0xMUVELTg1NTItRDkwNzAwQkI3NEM4 error:general error
+----
++
+每个条目都包含以下信息：
+
++
+[cols="1a,2a"]
+|===
+| 字段 | 说明 
+
+
+| CGRR跨网格复制请求  a| 
+请求的名称
+
+
+
+| 租户  a| 
+租户的帐户ID
+
+
+
+| 连接  a| 
+网格联合连接的ID
+
+
+
+| 操作  a| 
+正在尝试的复制操作类型：
+
+** 复制对象
+** 复制删除标记
+** 复制多部分对象
+
+
+
+
+| 存储分段  a| 
+分段名称
+
+
+
+| 对象  a| 
+对象名称
+
+
+
+| version  a| 
+对象的版本标识
+
+
+
+| 错误  a| 
+错误的类型。如果跨网格复制失败、则错误为"General error"。
+
+|===
+
+
+
+
+== 重试失败的复制
+
+生成对象列表并删除未复制到目标存储分段的标记并解决底层问题后、您可以通过以下两种方式之一重试复制：
+
+* 将每个对象重新装入源存储分段。
+* 使用网格管理专用API、如所述。
+
+
+.步骤
+. 在网格管理器的顶部，选择帮助图标，然后选择*API documents*。
+. 选择*转至专用API文档*。
++
+
+NOTE: 标记为"专用"的StorageGRID API端点如有更改、恕不另行通知。StorageGRID 私有端点也会忽略此请求的 API 版本。
+
+. 在*cross-grid复制-高级*部分中，选择以下端点：
++
+`POST /private/cross-grid-replication-retry-failed`
+
+. 选择 * 试用 * 。
+. 在*body文本框中，将*versionID*的示例条目替换为audit.log中与失败的跨网格复制请求对应的版本ID。
++
+请务必在字符串周围保留双引号。
+
+. 选择 * 执行 * 。
+. 确认服务器响应代码为*204*，表示对象或删除标记已标记为等待跨网格复制到另一网格。
++
+
+NOTE: Pending表示跨网格复制请求已添加到内部队列进行处理。
+
+
+
+
+
+== 监控复制重试次数
+
+您应监控复制重试操作以确保其完成。
+
+
+TIP: 将对象或删除标记复制到另一个网格可能需要数小时甚至更长时间。
+
+您可以通过以下两种方式之一监控重试操作：
+
+* 使用S3link:../s3/head-object.html["HeadObject"]或link:../s3/get-object.html["GetObject"]请求。此响应包括StorageGRID专用的 `x-ntap-sg-cgr-replication-status`响应标头、该标头将具有以下值之一：
++
+[cols="1a,2a"]
+|===
+| 网格 | 复制状态 
+
+
+ a| 
+源
+ a| 
+** *已完成*：复制成功。
+** *pending *：对象尚未复制。
+** *失败*：复制失败并出现永久故障。用户必须解决此错误。
+
+
+
+
+ a| 
+目标
+ a| 
+*REPRAM*：对象已从源网格复制。
+
+|===
+* 使用网格管理专用API、如所述。
+
+
+.步骤
+. 在专用API文档的*跨网格复制-高级*部分中，选择以下端点：
++
+`GET /private/cross-grid-replication-object-status/{id}`
+
+. 选择 * 试用 * 。
+. 在参数部分中、输入您在请求中使用的版本ID `cross-grid-replication-retry-failed`。
+. 选择 * 执行 * 。
+. 确认服务器响应代码为*200*。
+. 查看复制状态、该状态为以下状态之一：
++
+** *pending *：对象尚未复制。
+** *已完成*：复制成功。
+** *failer*：复制失败并出现永久故障。用户必须解决此错误。
+
+
+

@@ -1,0 +1,315 @@
+---
+permalink: s3/put-bucket-metadata-notification-configuration-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket metadata notification configuration request 
+summary: 通过 PUT Bucket 元数据通知配置请求，您可以为各个存储分段启用搜索集成服务。您在请求正文中提供的元数据通知配置 XML 用于指定将其元数据发送到目标搜索索引的对象。 
+---
+= PUT 存储分段元数据通知配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过 PUT Bucket 元数据通知配置请求，您可以为各个存储分段启用搜索集成服务。您在请求正文中提供的元数据通知配置 XML 用于指定将其元数据发送到目标搜索索引的对象。
+
+要完成此操作、您必须对某个存储分段拥有S3：PutBucketMetadataNotification权限、或者以root帐户身份登录。
+
+
+
+== 请求
+
+此请求必须在请求正文中包含元数据通知配置。每个元数据通知配置都包含一个或多个规则。每个规则都指定其适用场景 的对象以及 StorageGRID 应将对象元数据发送到的目标。
+
+可以按对象名称的前缀筛选对象。例如、可以将带有前缀的对象的元数据发送到一个目标、将带有前缀的对象发送 `/images`到另一个目标 `/videos`。
+
+前缀重叠的配置无效、在提交时将被拒绝。例如、如果配置中包含一个用于带有前缀的对象的规则、而包含另一个用于带有前缀的对象的规则、 `test2`则不允许执行此配置 `test`。
+
+必须使用 StorageGRID 端点的 URN 指定目标。提交元数据通知配置时，端点必须存在，否则请求将作为失败 `400 Bad Request`。错误消息指出： `Unable to save the metadata notification (search) policy. The specified endpoint URN does not exist: _URN_.`
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>rule-status</Status>
+        <Prefix>key-prefix</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Rule-2</ID>
+         ...
+    </Rule>
+     ...
+</MetadataNotificationConfiguration>
+----
+下表介绍了元数据通知配置 XML 中的元素。
+
+[cols="1a,2a,1a"]
+|===
+| 名称 | 说明 | 必填 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+用于指定元数据通知的对象和目标的规则的容器标记。
+
+包含一个或多个规则元素。
+ a| 
+是
+
+
+
+ a| 
+规则
+ a| 
+用于标识应将其元数据添加到指定索引中的对象的规则的容器标记。
+
+拒绝前缀重叠的规则。
+
+包含在 MetadataNotificationConfiguration 元素中。
+ a| 
+是
+
+
+
+ a| 
+ID
+ a| 
+规则的唯一标识符。
+
+包含在 Rule 元素中。
+ a| 
+否
+
+
+
+ a| 
+状态
+ a| 
+状态可以是 " 已启用 " 或 " 已禁用 " 。不会对已禁用的规则执行任何操作。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+前缀
+ a| 
+与前缀匹配的对象受此规则的影响，其元数据将发送到指定目标。
+
+要匹配所有对象，请指定一个空前缀。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+目标
+ a| 
+规则目标的容器标记。
+
+包含在 Rule 元素中。
+ a| 
+是
+
+
+
+ a| 
+URN
+ a| 
+发送对象元数据的目标的 urn 。必须是具有以下属性的 StorageGRID 端点的 URN ：
+
+* `es`必须是第三个元素。
+* URN必须以索引结尾，并以形式键入元数据的存储位置 `domain-name/myindex/mytype`。
+
+
+端点使用租户管理器或租户管理 API 进行配置。它们的形式如下：
+
+* `arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype`
+* `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+必须在提交配置 XML 之前配置端点，否则配置将失败并显示 404 错误。
+
+urn 包含在目标元素中。
+ a| 
+是
+
+|===
+
+
+== 请求示例
+
+此示例显示了为存储分段启用搜索集成。在此示例中，所有对象的对象元数据都将发送到同一目标。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /test1?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+           <Urn>urn:sgws:es:::sgws-notifications/test1/all</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+在此示例中、与前缀匹配的对象的对象元数据 `/images`将发送到一个目标、而与前缀匹配的对象的对象元数据 `/videos`将发送到另一个目标。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /graphics?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Images-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/images</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/es-domain/graphics/imagetype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Videos-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/videos</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-west-1:22222222:domain/es-domain/graphics/videotype</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+
+
+== 由搜索集成服务生成的 JSON
+
+为存储分段启用搜索集成服务后，每次添加，更新或删除对象元数据或标记时，系统都会生成一个 JSON 文档并将其发送到目标端点。
+
+此示例显示了在名为的分段中创建 `test`具有密钥的对象时可能生成的JSON示例 `SGWS/Tagging.txt`。 `test`存储分段未进行版本控制、因此 `versionId`标记为空。
+
+[listing]
+----
+{
+  "bucket": "test",
+  "key": "SGWS/Tagging.txt",
+  "versionId": "",
+  "accountId": "86928401983529626822",
+  "size": 38,
+  "md5": "3d6c7634a85436eee06d43415012855",
+  "region":"us-east-1",
+  "metadata": {
+    "age": "25"
+  },
+  "tags": {
+    "color": "yellow"
+  }
+}
+----
+
+
+== 元数据通知中包含的对象元数据
+
+下表列出了启用搜索集成后发送到目标端点的 JSON 文档中包含的所有字段。
+
+文档名称包括存储分段名称，对象名称和版本 ID （如果存在）。
+
+[cols="1a,1a,1a"]
+|===
+| 键入 | 项目名称 | 说明 
+
+
+ a| 
+存储分段和对象信息
+ a| 
+存储分段
+ a| 
+存储分段的名称
+
+
+
+ a| 
+存储分段和对象信息
+ a| 
+密钥
+ a| 
+对象密钥名称
+
+
+
+ a| 
+存储分段和对象信息
+ a| 
+版本 ID
+ a| 
+对象版本，用于受版本控制的分段中的对象
+
+
+
+ a| 
+存储分段和对象信息
+ a| 
+region
+ a| 
+存储分段区域、例如 `us-east-1`
+
+
+
+ a| 
+系统元数据
+ a| 
+大小
+ a| 
+HTTP 客户端可见的对象大小（以字节为单位）
+
+
+
+ a| 
+系统元数据
+ a| 
+md5
+ a| 
+对象哈希
+
+
+
+ a| 
+用户元数据
+ a| 
+元数据
+`_key:value_`
+ a| 
+对象的所有用户元数据，作为键值对
+
+
+
+ a| 
+Tags
+ a| 
+标记
+`_key:value_`
+ a| 
+为对象定义的所有对象标记，作为键值对
+
+|===
+
+NOTE: 对于标记和用户元数据， StorageGRID 会将日期和数字作为字符串或 S3 事件通知传递给 Elasticsearch 。要配置 Elasticsearch 以将这些字符串解释为日期或数字，请按照 Elasticsearch 说明进行动态字段映射和映射日期格式。在配置搜索集成服务之前，必须在索引上启用动态字段映射。为文档编制索引后、无法在索引中编辑文档的域类型。
+
+.相关信息
+link:../tenant/index.html["使用租户帐户"]

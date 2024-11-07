@@ -1,0 +1,120 @@
+---
+permalink: monitor/grid-federation-monitor-connections.html 
+sidebar: sidebar 
+keywords: grid federation, monitor connection, cross grid replication metrics 
+summary: 您可以监控有关所有网格联合连接的基本信息、有关特定连接的详细信息或有关跨网格复制操作的Prometheus指标。您可以从任一网格监控连接。 
+---
+= 监控网格联合连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以监控有关所有的基本信息link:../admin/grid-federation-overview.html["网格联合连接"]、有关特定连接的详细信息或有关跨网格复制操作的Prometheus指标。您可以从任一网格监控连接。
+
+.开始之前
+* 您已使用登录到任一网格上的网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有已登录到的网格的link:../admin/admin-group-permissions.html["root访问权限"]。
+
+
+
+
+== 查看所有连接
+
+"网格联盟"页面显示有关所有网格联盟连接以及允许使用网格联盟连接的所有租户帐户的基本信息。
+
+.步骤
+. 选择*configuration*>*System*>*Grid Federation。
++
+此时将显示Grid Federation页面。
+
+. 要查看此网格上所有连接的基本信息，请选择*Connections*选项卡。
++
+在此选项卡中、您可以：
+
++
+** link:../admin/grid-federation-create-connection.html["创建新连接"](英文)
+** 选择与的现有连接link:../admin/grid-federation-manage-connection.html["编辑或测试"]。
+
+
++
+image::../media/grid-federation-connections-tab.png[网格联合连接选项卡]
+
+. 要查看此网格上具有*使用网格联合连接*权限的所有租户帐户的基本信息、请选择*允许的租户*选项卡。
++
+在此选项卡中、您可以：
+
++
+** link:../monitor/monitoring-tenant-activity.html["查看每个允许租户的详细信息页面"](英文)
+** 查看每个连接的详细信息页面。请参阅。 <<view-specific-connection,查看特定连接>>
+** 选择允许的租户，然后选择link:../admin/grid-federation-manage-tenants.html["删除权限"]。
+** 检查是否存在跨网格复制错误、如果有、请清除最后一个错误。请参阅。 link:../admin/grid-federation-troubleshoot.html["对网格联合错误进行故障排除"]
++
+image::../media/grid-federation-permitted-tenants-tab.png[网格联盟允许的租户选项卡]
+
+
+
+
+
+
+
+== [[view-Specific连接]]查看特定连接
+
+您可以查看特定网格联合连接的详细信息。
+
+.步骤
+. 从"网格联合"页面中选择任一选项卡、然后从表中选择连接名称。
++
+在连接的详细信息页面中、您可以：
+
++
+** 查看有关连接的基本状态信息、包括本地和远程主机名、端口和连接状态。
+** 选择与的连接link:../admin/grid-federation-manage-connection.html["编辑、测试或删除"]。
+
+
+. 查看特定连接时，请选择*允许的租户*选项卡以查看有关该连接允许的租户的详细信息。
++
+在此选项卡中、您可以：
+
++
+** link:../monitor/monitoring-tenant-activity.html["查看每个允许租户的详细信息页面"](英文)
+** link:../admin/grid-federation-manage-tenants.html["删除租户的权限"]可使用连接。
+** 检查是否存在跨网格复制错误、并清除最后一个错误。请参阅。 link:../admin/grid-federation-troubleshoot.html["对网格联合错误进行故障排除"]
++
+image::../media/grid-federation-permitted-tenants-tab-for-connection.png[grid联合允许的租户选项卡(用于连接)]
+
+
+
+. 查看特定连接时，选择*Certificates*选项卡以查看系统为此连接生成的服务器和客户机证书。
++
+在此选项卡中、您可以：
+
++
+** link:../admin/grid-federation-manage-connection.html["轮换连接证书"](英文)
+** 选择*服务器*或*客户端*以查看或下载关联的证书或复制证书PEM。
++
+image::../media/grid-federation-certificates-tab.png[grid联合证书选项卡]
+
+
+
+
+
+
+
+== 查看跨网格复制指标
+
+您可以使用Grafana中的跨网格复制信息板查看有关网格上跨网格复制操作的Prometheus指标。
+
+.步骤
+. 在网格管理器中，选择*support*>*Tools*>*Metrics *。
++
+
+NOTE: 指标页面上提供的工具供技术支持使用。这些工具中的某些功能和菜单项有意不起作用，可能会发生更改。请参见列表link:../monitor/commonly-used-prometheus-metrics.html["常用的 Prometheus 指标"]。
+
+. 在页面的Grafana部分中，选择*跨网格复制*。
++
+有关详细说明，请参见link:../monitor/reviewing-support-metrics.html["查看支持指标"]。
+
+. 要重试复制失败的对象，请参见link:../admin/grid-federation-retry-failed-replication.html["确定并重试失败的复制操作"]。
+

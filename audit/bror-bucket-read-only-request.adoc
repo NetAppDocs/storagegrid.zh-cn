@@ -1,0 +1,64 @@
+---
+permalink: audit/bror-bucket-read-only-request.html 
+sidebar: sidebar 
+keywords: bror, bucket read only request, empty bucket, audit message, 
+summary: 当存储分段进入或退出只读模式时、LDR服务会生成此审核消息。例如、存储分段在被空时进入只读模式。 
+---
+= BROR：存储分段只读请求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当存储分段进入或退出只读模式时、LDR服务会生成此审核消息。例如、删除所有对象时、存储分段将进入只读模式。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+BKHD
+ a| 
+存储分段UUID
+ a| 
+分段标识。
+
+
+
+ a| 
+BROV
+ a| 
+存储分段只读请求值
+ a| 
+存储分段是设置为只读状态还是保持只读状态(1 =只读、0 =非只读)。
+
+
+
+ a| 
+Bros.
+ a| 
+存储分段只读原因
+ a| 
+将存储分段设为只读或保持只读状态的原因。例如、emptyBucket.
+
+
+
+ a| 
+S3AI
+ a| 
+S3租户帐户ID
+ a| 
+发送请求的租户帐户的ID。空值表示匿名访问。
+
+
+
+ a| 
+S3BK
+ a| 
+S3存储分段
+ a| 
+S3 存储分段名称。
+
+|===

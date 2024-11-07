@@ -1,0 +1,92 @@
+---
+permalink: maintain/removing-port-remaps-on-bare-metal-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
+summary: 如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。 
+---
+= 删除裸机主机上的端口重新映射
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。
+
+.关于此任务
+如果您在裸机主机上运行 StorageGRID ，请按照此操作步骤 而不是常规操作步骤 删除端口重新映射。您必须为每个管理节点和网关节点编辑节点配置文件，该节点的重新映射端口相互冲突，以删除该节点的所有端口重新映射并重新启动该节点。
+
+
+CAUTION: 此操作步骤 将删除所有端口重新映射。如果需要保留部分重新映射，请联系技术支持。
+
+有关配置负载平衡器端点的信息，请参见有关管理 StorageGRID 的说明。
+
+
+NOTE: 此操作步骤 可能会在节点重新启动时暂时丢失服务。
+
+.步骤
+. 登录到支持此节点的主机。以 root 用户身份或使用具有 sudo 权限的帐户登录。
+. 运行以下命令以临时禁用此节点： `sudo storagegrid node stop _node-name_`
+. 使用 vim 或 pico 等文本编辑器编辑节点的节点配置文件。
++
+节点配置文件位于 `/etc/storagegrid/nodes/_node-name_.conf`。
+
+. 找到节点配置文件中包含端口重新映射的部分。
++
+请参见以下示例中的最后两行。
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_ESL = 10.0.0.0/8, 172.19.0.0/16, 172.21.0.0/16
+ADMIN_NETWORK_GATEWAY = 10.224.0.1
+ADMIN_NETWORK_IP = 10.224.5.140
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_MTU = 1400
+ADMIN_NETWORK_TARGET = eth1
+ADMIN_NETWORK_TARGET_TYPE = Interface
+BLOCK_DEVICE_VAR_LOCAL = /dev/sda2
+CLIENT_NETWORK_CONFIG = STATIC
+CLIENT_NETWORK_GATEWAY = 47.47.0.1
+CLIENT_NETWORK_IP = 47.47.5.140
+CLIENT_NETWORK_MASK = 255.255.248.0
+CLIENT_NETWORK_MTU = 1400
+CLIENT_NETWORK_TARGET = eth2
+CLIENT_NETWORK_TARGET_TYPE = Interface
+GRID_NETWORK_CONFIG = STATIC
+GRID_NETWORK_GATEWAY = 192.168.0.1
+GRID_NETWORK_IP = 192.168.5.140
+GRID_NETWORK_MASK = 255.255.248.0
+GRID_NETWORK_MTU = 1400
+GRID_NETWORK_TARGET = eth0
+GRID_NETWORK_TARGET_TYPE = Interface
+NODE_TYPE = VM_API_Gateway
+*PORT_REMAP = client/tcp/8082/443*
+*PORT_REMAP_INBOUND = client/tcp/8082/443*
+----
+. 编辑 port_remap 和 port_remap_inbound 条目以删除端口重新映射。
++
+[listing]
+----
+PORT_REMAP =
+PORT_REMAP_INBOUND =
+----
+. 运行以下命令以验证对节点的节点配置文件所做的更改：``sudo storagegrid node validate _node-name_``
++
+解决所有错误或警告，然后再继续下一步。
+
+. 运行以下命令重新启动节点而不重新映射端口： `sudo storagegrid node start _node-name_`
+. 使用文件中列出的密码以管理员身份登录到此节点 `Passwords.txt`。
+. 验证服务是否正确启动。
++
+.. 查看服务器上所有服务的状态列表：``sudo storagegrid-status``
++
+状态将自动更新。
+
+.. 请等待，直到所有服务的状态均为 " 正在运行 " 或 " 已验证 " 。
+.. 退出状态屏幕：``Ctrl+C``
+
+
+. 对具有冲突重新映射端口的每个管理节点和网关节点重复上述步骤。
+

@@ -1,0 +1,85 @@
+---
+permalink: monitor/running-diagnostics.html 
+sidebar: sidebar 
+keywords: how to run diagnostics 
+summary: 在对问题描述 进行故障排除时，您可以与技术支持一起在 StorageGRID 系统上运行诊断并查看结果。 
+---
+= Run diagnostics
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在对问题描述 进行故障排除时，您可以与技术支持一起在 StorageGRID 系统上运行诊断并查看结果。
+
+* link:reviewing-support-metrics.html["查看支持指标"]
+* link:commonly-used-prometheus-metrics.html["常用的 Prometheus 指标"]
+
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
+
+
+.关于此任务
+" 诊断 " 页面会对网格的当前状态执行一组诊断检查。每个诊断检查可以具有以下三种状态之一：
+
+* image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]*正常*：所有值均在正常范围内。
+* image:../media/icon_alert_yellow_minor.png["图标警报黄色次要"]*注意*：一个或多个值超出正常范围。
+* image:../media/icon_alert_red_critical.png["图标警报红色严重"]*注意*：一个或多个值明显超出正常范围。
+
+
+诊断状态与当前警报无关，可能并不表示网格存在操作问题。例如，即使未触发任何警报，诊断检查也可能会显示 " 小心 " 状态。
+
+.步骤
+. 选择 * 支持 * > * 工具 * > * 诊断 * 。
++
+此时将显示 "Diagnostics " 页面，其中列出了每个诊断检查的结果。结果将按严重性（ " 小心 " ， " 注意 " 和 " 正常 " ）进行排序。在每个严重性范围内，结果按字母顺序排序。
+
++
+在此示例中，所有诊断均处于正常状态。
+
++
+image::../media/support_diagnostics_page.png[支持诊断页面]
+
+. 要了解有关特定诊断的详细信息，请单击行中的任意位置。
++
+此时将显示有关此诊断及其当前结果的详细信息。此时将列出以下详细信息：
+
++
+** * 状态 * ：此诊断的当前状态：正常，注意或小心。
+** * 项目查询 * ：如果用于诊断，则为用于生成状态值的 Prometheus 表达式。（并非所有诊断都使用 Prometheus 表达式。）
+** * 阈值 * ：如果可用于诊断，则为每个异常诊断状态提供系统定义的阈值。(阈值并不用于所有诊断。)
++
+
+NOTE: 您不能更改这些阈值。
+
+** * 状态值 * ：显示整个 StorageGRID 系统中诊断的状态和值的表。在此示例中，显示了 StorageGRID 系统中每个节点的当前 CPU 利用率。所有节点值均低于警示和警示阈值，因此诊断的整体状态为正常。
+
+
++
+image::../media/support_diagnostics_cpu_utilization.png[支持诊断 CPU 利用率]
+
+. * 可选 * ：要查看与此诊断相关的 Grafana 图表，请单击 * Grafana dashboard* 链接。
++
+并非所有诊断都显示此链接。
+
++
+此时将显示相关的 Grafana 信息板。在此示例中，将显示节点信息板，其中显示了此节点的 CPU 利用率随时间变化以及此节点的其他 Grafana 图表。
+
++
+
+NOTE: 您也可以从 * 支持 * > * 工具 * > * 指标 * 页面的 Grafana 部分访问预构建的 Grafana 信息板。
+
++
+image::../media/grafana_dashboard_nodes.png[Grafana 信息板节点]
+
+. * 可选 * ：要查看一段时间内的 Prometheus 表达式图表，请单击 * 在 Prometheus* 中查看。
++
+此时将显示诊断中使用的表达式的 Prometheus 图形。
+
++
+image::../media/support_diagnostics_prometheus_png.png[支持诊断程序页面]
+
+

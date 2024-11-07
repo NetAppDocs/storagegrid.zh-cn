@@ -1,0 +1,71 @@
+---
+permalink: ubuntu/download-files-verify.html 
+sidebar: sidebar 
+keywords: ubuntu installation files, how to verify files 
+summary: 如有必要、您可以手动验证StorageGRID安装归档文件中的文件。 
+---
+= 手动验证安装文件(可选)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如有必要、您可以手动验证StorageGRID安装归档文件中的文件。
+
+.开始之前
+您可以从 https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["StorageGRID 的 "NetApp 下载 " 页面"^]获得link:../ubuntu/downloading-and-extracting-storagegrid-installation-files.html#ubuntu-download-verification-package["已下载验证软件包"]。
+
+.步骤
+. 从验证软件包中提取项目：
++
+`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+
+. 确保已提取这些项目：
++
+** 叶证书： `Leaf-Cert.pem`
+** 证书链： `CA-Int-Cert.pem`
+** 时间戳响应链： `TS-Cert.pem`
+** 校验和文件： `sha256sum`
+** 校验和签名： `sha256sum.sig`
+** 时间戳响应文件： `sha256sum.sig.tsr`
+
+
+. 使用链验证叶证书是否有效。
++
+*示例*： `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+*预期输出*： `Leaf-Cert.pem: OK`
+
+. 如果步骤_2_因叶证书过期而失败、请使用 `tsr`文件进行验证。
++
+*示例*： `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+*预期输出包括*： `Verification: OK`
+
+. 从叶证书创建公共密钥文件。
++
+*示例*： `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+*预期输出*：_none_
+
+. 使用公共密钥根据验证 `sha256sum`文件 `sha256sum.sig`。
++
+*示例*： `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+*预期输出*： `Verified OK`
+
+. 根据新创建的校验和验证 `sha256sum`文件内容。
++
+*示例*： `sha256sum -c sha256sum`
+
++
+*预期输出*： `_<filename>_: OK`+
+`_<filename>_`是您下载的归档文件的名称。
+
+. link:../ubuntu/downloading-and-extracting-storagegrid-installation-files.html["完成其余步骤"]解压缩并选择适当的安装文件。
+

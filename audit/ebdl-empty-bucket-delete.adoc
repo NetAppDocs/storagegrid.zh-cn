@@ -1,0 +1,64 @@
+---
+permalink: audit/ebdl-empty-bucket-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
+summary: 'ILM扫描程序删除了存储分段中正在删除所有对象的对象(执行空存储分段操作)。' 
+---
+= EBDL：清空存储分段删除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ILM扫描程序删除了存储分段中正在删除所有对象的对象(执行空存储分段操作)。
+
+[cols="1a,1a,4a"]
+|===
+| 代码 | 字段 | 说明 
+
+
+ a| 
+CSIZ
+ a| 
+对象大小
+ a| 
+对象的大小（以字节为单位）。
+
+
+
+ a| 
+路径
+ a| 
+S3存储分段/密钥
+ a| 
+S3存储分段名称和S3密钥名称。
+
+
+
+ a| 
+SEGC
+ a| 
+容器UUID
+ a| 
+已分段对象的容器的 UUID 。只有当对象已分段时，此值才可用。
+
+
+
+ a| 
+UUID
+ a| 
+通用唯一标识符
+ a| 
+StorageGRID 系统中对象的标识符。
+
+
+
+ a| 
+RSLT
+ a| 
+删除操作的结果
+ a| 
+事件、流程或事务的结果。如果与消息无关，则不会使用 none 而不是 SUC ，这样就不会意外筛选该消息。
+
+|===

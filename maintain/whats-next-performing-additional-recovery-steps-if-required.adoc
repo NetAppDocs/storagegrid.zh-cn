@@ -1,0 +1,78 @@
+---
+permalink: maintain/whats-next-performing-additional-recovery-steps-if-required.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, corrective action, additional recovery 
+summary: 根据您为使 StorageGRID 节点在替代主机上运行而采取的特定操作，您可能需要对每个节点执行其他恢复步骤。 
+---
+= 下一步操作：如果需要，执行其他恢复步骤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+根据您为使 StorageGRID 节点在替代主机上运行而采取的特定操作，您可能需要对每个节点执行其他恢复步骤。
+
+如果在更换 Linux 主机或将故障网格节点还原到新主机时不需要采取任何更正操作，则节点恢复已完成。
+
+
+
+== 更正操作和后续步骤
+
+在更换节点期间、您可能需要执行以下更正操作之一：
+
+* 您必须使用 `--force`标志导入节点。
+* 对于任何 `<PURPOSE>`，配置文件变量的值 `BLOCK_DEVICE_<PURPOSE>`是指不包含与主机发生故障前相同的数据的块设备。
+* 您为此节点发出的命令 `storagegrid node force-recovery _node-name_`。
+* 您添加了一个新的块设备。
+
+
+如果您采取了上述 * 任何 * 更正操作，则必须执行其他恢复步骤。
+
+[cols="2a,1a"]
+|===
+| 恢复类型 | 下一步 
+
+
+ a| 
+主管理节点
+ a| 
+link:configuring-replacement-primary-admin-node.html["配置替代主管理节点"]
+
+
+
+ a| 
+非主管理节点
+ a| 
+link:selecting-start-recovery-to-configure-non-primary-admin-node.html["选择 Start Recovery 以配置非主管理节点"]
+
+
+
+ a| 
+网关节点
+ a| 
+link:selecting-start-recovery-to-configure-gateway-node.html["选择 Start Recovery 以配置网关节点"]
+
+
+
+ a| 
+存储节点（基于软件）：
+
+* 如果必须使用 `--force`标志导入节点、或者您发出了 `storagegrid node force-recovery _node-name_`
+* 如果您必须执行完整节点重新安装，或者需要还原 /var/local
+
+ a| 
+link:selecting-start-recovery-to-configure-storage-node.html["选择启动恢复以配置存储节点"]
+
+
+
+ a| 
+存储节点（基于软件）：
+
+* 添加新块设备时。
+* 如果对于任何 `<PURPOSE>`，配置文件变量的值 `BLOCK_DEVICE_<PURPOSE>`引用的块设备所包含的数据与主机发生故障前的数据不同。
+
+ a| 
+link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["从系统驱动器完好无损的存储卷故障中恢复"]
+
+|===

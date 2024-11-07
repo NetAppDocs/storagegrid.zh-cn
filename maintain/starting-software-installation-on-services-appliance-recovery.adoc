@@ -1,0 +1,126 @@
+---
+permalink: maintain/starting-software-installation-on-services-appliance-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, services appliance, start software installation 
+summary: 要在服务设备上安装网关节点或管理节点、请使用该设备中提供的StorageGRID设备安装程序。 
+---
+= 开始在服务设备上安装软件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要在服务设备上安装网关节点或管理节点、请使用该设备中提供的StorageGRID设备安装程序。
+
+.开始之前
+* 设备安装在机架中、连接到您的网络并打开电源。
+* 可以使用StorageGRID 设备安装程序为此设备配置网络链路和IP地址。
+* 如果要安装网关节点或非主管理节点，则您知道 StorageGRID 网格的主管理节点的 IP 地址。
+* StorageGRID 设备安装程序的"IP Configuration"(IP配置)页面上列出的所有网格网络子网都在主管理节点上的"Grid Network Subnet"(网格网络子网)列表中进行定义。
++
+请参阅。 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["硬件安装快速入门"^]
+
+* 您正在使用link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您已将其中一个IP地址分配给此设备。您可以使用管理网络，网格网络或客户端网络的 IP 地址。
+* 如果您要安装主管理节点，则可以使用此版本 StorageGRID 的 Ubuntu 或 Debian 安装文件。
++
+
+NOTE: 在制造过程中，服务设备会预加载最新版本的 StorageGRID 软件。如果预加载的软件版本与StorageGRID 部署中使用的版本匹配、则不需要安装文件。
+
+
+
+.关于此任务
+要在服务设备上安装StorageGRID软件、请执行以下操作：
+
+* 对于主管理节点，您可以指定节点的名称，然后上传相应的软件包（如果需要）。
+* 对于非主管理节点或网关节点，您可以指定或确认主管理节点的 IP 地址以及节点的名称。
+* 您开始安装，并等待卷配置完毕并安装软件。
+* 在整个过程中，安装将暂停。要恢复安装，您必须登录到网格管理器并将待定节点配置为故障节点的替代节点。
+* 配置节点后，设备安装过程将完成，设备将重新启动。
+
+
+.步骤
+. 打开浏览器并输入服务设备的IP地址之一。
++
+`https://_Controller_IP_:8443`
+
++
+此时将显示 StorageGRID 设备安装程序主页页面。
+
++
+image::../media/services_appliance_installer_gateway_node.png[设备安装程序主页]
+
+. 安装主管理节点：
++
+.. 在 "This Node" 部分中，对于 "* 节点类型 " ，选择 "* 主管理 * " 。
+.. 在 * 节点名称 * 字段中，输入与要恢复的节点相同的名称，然后单击 * 保存 * 。
+.. 在安装部分中，检查当前状态下列出的软件版本
++
+如果准备安装的软件版本正确，请跳至<<installation_section_step,安装步骤>>。
+
+.. 如果需要上传其他版本的软件，请在 * 高级 * 菜单下选择 * 上传 StorageGRID 软件 * 。
++
+此时将显示上传 StorageGRID 软件页面。
+
++
+image::../media/upload_sw_for_pa_on_sga1000.png[周围文本所述的屏幕截图]
+
+.. 单击 * 浏览 * 上传适用于 StorageGRID 软件的 * 软件包 * 和 * 校验和文件 * 。
++
+选择这些文件后，这些文件将自动上传。
+
+.. 单击 * 主页 * 返回到 StorageGRID 设备安装程序主页页面。
+
+
+. 安装网关节点或非主管理节点：
++
+.. 在 "This Node" 部分中，对于 "* 节点类型 " ，根据要还原的节点类型选择 "* 网关 * " 或 "* 非主管理 * " 。
+.. 在 * 节点名称 * 字段中，输入与要恢复的节点相同的名称，然后单击 * 保存 * 。
+.. 在主管理节点连接部分中，确定是否需要指定主管理节点的 IP 地址。
++
+假设主管理节点或至少一个配置了 admin_ip 的其他网格节点位于同一子网上， StorageGRID 设备安装程序可以自动发现此 IP 地址。
+
+.. 如果未显示此 IP 地址或您需要更改此 IP 地址，请指定地址：
+
+
++
+[cols="1a,2a"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+手动输入 IP
+ a| 
+.. 清除*启用管理节点发现*复选框。
+.. 手动输入 IP 地址。
+.. 单击 * 保存 * 。
+.. 等待新IP地址的连接状态变为"就绪"。
+
+
+
+
+ a| 
+自动发现所有已连接的主管理节点
+ a| 
+.. 选中*启用管理节点发现*复选框。
+.. 从已发现的 IP 地址列表中，选择要部署此服务设备的网格的主管理节点。
+.. 单击 * 保存 * 。
+.. 等待新IP地址的连接状态变为"就绪"。
+
+
+|===
+. 在 "Installation_section_steP]] 中，确认当前状态为 Ready to start installation of node name 且 * Start Installation* 按钮已启用。
++
+如果未启用 * 开始安装 * 按钮，则可能需要更改网络配置或端口设置。有关说明、请参见设备的维护说明。
+
+. 在 StorageGRID 设备安装程序主页中，单击 * 开始安装 * 。
++
+当前状态将更改为"正在进行安装"、并显示"监视器安装"页面。
+
++
+
+NOTE: 如果需要手动访问监控器安装页面，请单击菜单栏中的 * 监控器安装 * 。
+
+

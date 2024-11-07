@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: 您可以使用部署和维护日志对问题进行故障排除。 
+---
+= 部署和维护日志
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用部署和维护日志对问题进行故障排除。
+
+[cols="1a,3a,1a"]
+|===
+| 文件名 | 备注 | 在上找到 
+
+
+| /var/local/log/install.log  a| 
+在软件安装期间创建。包含安装事件的记录。
+ a| 
+所有节点
+
+
+
+| /var/local/log/expansion-progress.log  a| 
+在扩展操作期间创建。包含扩展事件的记录。
+ a| 
+存储节点
+
+
+
+| /var/local/log/pa-move.log  a| 
+在运行脚本时创建 `pa-move.sh`。
+ a| 
+主管理节点
+
+
+
+| /var/local/log/pa-move-new_pa.log  a| 
+在运行脚本时创建 `pa-move.sh`。
+ a| 
+主管理节点
+
+
+
+| /var/local/log/pa-move-old_pa.log  a| 
+在运行脚本时创建 `pa-move.sh`。
+ a| 
+主管理节点
+
+
+
+| /var/local/log/gdu-server.log  a| 
+由 GDU 服务创建。包含与主管理节点管理的配置和维护过程相关的事件。
+ a| 
+主管理节点
+
+
+
+| /var/local/log/send_admin_hw.log  a| 
+在安装期间创建。包含与节点与主管理节点的通信相关的调试信息。
+ a| 
+所有节点
+
+
+
+| /var/local/log/upgrade.log  a| 
+在软件升级期间创建。包含软件更新事件的记录。
+ a| 
+所有节点
+
+|===

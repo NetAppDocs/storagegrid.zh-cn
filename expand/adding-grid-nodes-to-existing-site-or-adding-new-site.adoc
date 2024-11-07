@@ -1,0 +1,30 @@
+---
+permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
+sidebar: sidebar 
+keywords: grid node, add node, add site, expand, expansion 
+summary: 按照此操作步骤向现有站点添加网格节点或添加新站点。一次只能执行一种类型的扩展。 
+---
+= 向现有站点添加网格节点或添加新站点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+按照此操作步骤向现有站点添加网格节点或添加新站点。一次只能执行一种类型的扩展。
+
+.开始之前
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限或维护权限"]。
+* 网格中的所有现有节点在所有站点上均已启动且正在运行。
+* 先前的任何扩展，升级，停用或恢复过程均已完成。
++
+
+NOTE: 如果正在进行另一个扩展，升级，恢复或活动的停用操作步骤 ，则系统将阻止您启动扩展。但是，如有必要，您可以暂停已停用的操作步骤 以启动扩展。
+
+
+
+.步骤
+. link:updating-subnets-for-grid-network.html["更新网格网络的子网"](英文)
+. link:deploying-new-grid-nodes.html["部署新的网格节点"](英文)
+. link:performing-expansion.html["执行扩展"](英文)
+
