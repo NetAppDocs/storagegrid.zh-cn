@@ -991,7 +991,6 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">开放源代码</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。</block>
-  <block id="0f47986745ce840c10499664283d7b6b" category="paragraph"><block ref="0f47986745ce840c10499664283d7b6b" category="inline-link-rx"></block></block>
   <block id="3dfff02e3cb803d1f2b51c6559e09b93" category="summary">访问网格管理器中的 " 停用节点 " 页面时，您可以一目了然地看到哪些节点可以停用。</block>
   <block id="35acb565e0420d61af96306b6a452bd0" category="doc">访问 " 取消配置节点 " 页面</block>
   <block id="bd045462ee18e63d4b77b3058af88574" category="admonition">在包含基于软件的纯元数据节点的网格中停用存储节点时、请务必小心谨慎。如果停用配置为存储_Both _对象和元数据的所有节点、则会从网格中删除存储对象的功能。有关纯元数据存储节点的详细信息、请参见<block ref="8e49185a846f0d976af4a2b64adfc64f" category="inline-link-macro-rx"></block>。</block>
@@ -22073,4 +22072,5 @@
   <block id="9c4530f91dac5a70605fa05838af7d37" category="sidebar">规划并准备在VMware上安装</block>
   <block id="9341019b55764d5f593cd0200c56103f" category="sidebar">部署虚拟机网格节点（ VMware ）</block>
   <block id="0f6d5554b15490c07bc95913e7162eb3" category="sidebar">配置网格并完成安装（ VMware ）</block>
+  <block id="6aa2cc2f099a383774f35aa72c7c8c6d" category="paragraph"><block ref="6aa2cc2f099a383774f35aa72c7c8c6d" category="inline-link-rx"></block></block>
 </blocks>
