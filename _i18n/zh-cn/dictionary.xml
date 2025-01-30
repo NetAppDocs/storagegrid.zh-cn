@@ -527,8 +527,6 @@
   <block id="30868fae92d89a9793e12292921235c3" category="paragraph">尝试创建，编辑或删除云存储池时，可能会遇到此错误。如果存储分段或容器包含标记文件、但该文件的元数据字段不具有预期的UUID、则会发生此错误<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>。</block>
   <block id="3427e82447d636e44bf8b66d558973cc" category="paragraph">通常，只有在创建新的云存储池且另一个 StorageGRID 实例已使用同一个云存储池时，您才会看到此错误。</block>
   <block id="5c73aa491a47730f7386a8e266cdd4ce" category="paragraph">请尝试以下步骤以更正问题描述 ：</block>
-  <block id="20564729782b8141c7a04e9c5a585b24" category="list-text">请检查以确保您的组织中没有人也在使用此云存储池。</block>
-  <block id="c392a96c42380011f536641d5ccb8a7b" category="list-text">删除目标存储分段中的所有现有对象(包括文件)<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>、然后再次尝试配置云存储池。</block>
   <block id="6b7f55690053b8f4ddb5fc043ef8356c" category="section-title">错误：无法创建或更新云存储池。端点出错</block>
   <block id="79ce9bc00a24c7bd48cecab70c2b1a19" category="paragraph">在以下情况下、您可能会遇到此错误：</block>
   <block id="b14283f1d92daa1b8e938e666f4d38db" category="list-text">尝试创建或编辑云存储池时。</block>
@@ -22070,4 +22068,9 @@
   <block id="0f6d5554b15490c07bc95913e7162eb3" category="sidebar">配置网格并完成安装（ VMware ）</block>
   <block id="6aa2cc2f099a383774f35aa72c7c8c6d" category="paragraph"><block ref="6aa2cc2f099a383774f35aa72c7c8c6d" category="inline-link-rx"></block></block>
   <block id="b6db03b02a5517de79a9f3e95a62dcc5" category="list-text"><block ref="b6db03b02a5517de79a9f3e95a62dcc5" category="inline-link-rx"></block></block>
+  <block id="690b67e90a9e1ba6fd7c3d1323cd44d9" category="paragraph">请尝试以下步骤之一来解决此问题：</block>
+  <block id="c3fe71180f70e9f0b9529679b6e53e25" category="list-text">如果要配置新的云存储池、并且存储分段包含与以下示例类似的文件和其他对象密钥、请创建一个新存储分段并改用此新存储<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>分段。</block>
+  <block id="770fbfd4043319c0e635afbe80bceff1" category="paragraph">附加对象键的示例：<block ref="dabbe37950e5e86b9594e09b6c8867c0" prefix=" " category="inline-code"></block></block>
+  <block id="85201768cf405bc4bf70556e00bd01a5" category="list-text">如果<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>文件是存储分段中的唯一对象、请删除此文件。</block>
+  <block id="c23683543ffb04cdbb0fff7641342e20" category="paragraph">如果这些步骤不适用于您的情形、请联系支持部门。</block>
 </blocks>
