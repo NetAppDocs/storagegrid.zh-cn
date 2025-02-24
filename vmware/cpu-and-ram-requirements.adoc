@@ -24,6 +24,20 @@ summary: 在安装 StorageGRID 软件之前，请验证并配置硬件，使其�
 
 
 
+基于软件的纯元数据节点资源必须与现有存储节点资源匹配。例如：
+
+* 如果现有StorageGRID站点使用SG6000或SG6100设备、则基于软件的纯元数据节点必须满足以下最低要求：
++
+** 128 GB RAM
+** 8核CPU
+** 用于cassandr数据库的8 TB SSD或等效存储(rangedb/0)
+
+
+* 如果现有StorageGRID站点正在使用具有24 GB RAM、8核CPU以及3 TB或4 TB元数据存储的虚拟存储节点、则基于软件的纯元数据节点应使用类似的资源(24 GB RAM、8核CPU和4 TB元数据存储(rangedb/0)。
+
+
+添加新StorageGRID站点时、新站点的元数据总容量至少应与现有StorageGRID站点匹配、新站点资源应与现有StorageGRID站点的存储节点匹配。
+
 VMware支持每个虚拟机使用一个节点。确保StorageGRID节点不超过可用物理RAM。每个虚拟机都必须专用于运行StorageGRID。
 
 
