@@ -15467,18 +15467,6 @@
   <block id="1a57484ff9a9f122a13500c288220fa9" category="paragraph">HEAD 事务的结果。结果始终为：</block>
   <block id="5e40945c709ced297e7ef26292e16830" category="summary">当 Swift 客户端发出 PUT 事务时，系统会请求创建新的对象或容器。如果事务成功，服务器将发出此消息。</block>
   <block id="4f25651b47c8d7d6f7dc8e120eb476f3" category="paragraph">检索到的对象的大小（以字节为单位）。容器上的操作不包括此字段。</block>
-  <block id="c97c39c2fb666ab046747b5eb4d80a29" category="summary">您可以在此处找到其他版本的NetApp StorageGRID软件的文档。</block>
-  <block id="d6802b050b61628b78b01c33ead6fac3" category="doc">其他版本的NetApp StorageGRID 文档</block>
-  <block id="9c033c2a387cf8d35a3a34cb680e78a5" category="paragraph">您可以在此处找到其他版本的NetApp StorageGRID软件的文档：</block>
-  <block id="7bb5d1e21ca0bacc168d63d7155d3755" category="inline-link">StorageGRID 1.18文档</block>
-  <block id="d9419a01ee4fdcd160bf1446e5a481f5" category="list-text"><block ref="d9419a01ee4fdcd160bf1446e5a481f5" category="inline-link-rx"></block></block>
-  <block id="444a66aeef372672e744a05782bffa7c" category="inline-link">StorageGRID 11.7文档</block>
-  <block id="a6b4363f6225727f0507281f9ae58717" category="list-text"><block ref="a6b4363f6225727f0507281f9ae58717" category="inline-link-rx"></block></block>
-  <block id="b6a6856979f644f23831092a77a579ae" category="inline-link">StorageGRID 11.5文档</block>
-  <block id="ebe15b7f3ab23a21b80c2db319837831" category="list-text"><block ref="ebe15b7f3ab23a21b80c2db319837831" category="inline-link-rx"></block></block>
-  <block id="6d307701f8a2621afa3c68f86b66b9f7" category="inline-link">StorageGRID 11.5文档</block>
-  <block id="57e1c48b034af2352e5a69534ab37dd2" category="list-text"><block ref="57e1c48b034af2352e5a69534ab37dd2" category="inline-link-rx"></block></block>
-  <block id="50c142f8f9e19c4c84cb06dbc431b229" category="inline-link">StorageGRID 11.4 文档中心</block>
   <block id="5208ea2d7fef4547592b83bcd81c2e37" category="summary">您可以通过向现有站点添加新的网格节点来为 StorageGRID 系统添加冗余或其他功能。</block>
   <block id="6528e12a81667c9d5b35b16ec0e912e9" category="doc">添加网格节点以向系统添加功能</block>
   <block id="2bf9e1a6f3726dcb54f4b80fc1f3131b" category="paragraph">例如、您可以选择添加要在高可用性(HA)组中使用的网关节点、也可以在远程站点添加管理节点以允许使用本地节点进行监控。</block>
@@ -21722,7 +21710,6 @@
   <block id="38647a77b29bd1530254141826cd2a31" category="list-text">重新启动虚拟机以应用新密码。</block>
   <block id="ff886cdf237f3f7f3030e719394ff044" category="list-text">配置 VMware vSphere 虚拟机管理程序以自动重新启动。</block>
   <block id="51b363c1bb2300c82ae6f4278cd08cd8" category="paragraph">您必须将虚拟机管理程序配置为在服务器重新启动时重新启动虚拟机。如果不自动重新启动，虚拟机和网格节点将在服务器重新启动后保持关闭状态。有关详细信息，请参见 VMware vSphere 虚拟机管理程序文档。</block>
-  <block id="2f0574719ffbf08aeb528b5265507fb2" category="sidebar">StorageGRID 11．11文档</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">开始使用</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
   <block id="640a3dfe21013fb2c8b8eb33081782c7" category="sidebar">StorageGRID 快速入门</block>
@@ -21748,7 +21735,6 @@
   <block id="8ef596bf4eb7277f78ad1d7ad4cc04de" category="sidebar">StorageGRID 知识库</block>
   <block id="c2d388654878e1108f99fdeaa465fcac" category="sidebar">NetApp 博客</block>
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">NetApp 社区</block>
-  <block id="8ba7e9fc95ff683b40e7c59130ea44da" category="sidebar">其他版本</block>
   <block id="9ccd79e77976b22b2105fd27f98d48e7" category="sidebar">StorageGRID 11.4文档</block>
   <block id="2d294fa8c5c1e338f276c6d73fef64bc" category="sidebar">配置和管理StorageGRID系统</block>
   <block id="968d1b87721e1f0d94da98833546494e" category="sidebar">管理管理员组和用户</block>
@@ -21840,7 +21826,6 @@
   <block id="92e82fdcdded78777d379f2789e31ab8" category="sidebar">平台服务</block>
   <block id="4cc0ba636011fd91df08096a9dbb52a5" category="sidebar">存储分段和组访问策略</block>
   <block id="925e28e2f338c8314615c67e7ef5a642" category="sidebar">使用 Swift</block>
-  <block id="27525e55f6ce407082185070b3ccbbe8" category="sidebar">StorageGRID 11.9.</block>
   <block id="902177bd02ae0a4f1a6bb299d07e6ff7" category="sidebar">安装设备</block>
   <block id="93001c0e0ab00af3500dd1799087e9d4" category="sidebar">应用StorageGRID修补程序</block>
   <block id="071f9267dd9fe157d7d4f7bceddc04cf" category="sidebar">在应用修补程序之前，请检查系统的状况</block>
@@ -22067,7 +22052,6 @@
   <block id="9341019b55764d5f593cd0200c56103f" category="sidebar">部署虚拟机网格节点（ VMware ）</block>
   <block id="0f6d5554b15490c07bc95913e7162eb3" category="sidebar">配置网格并完成安装（ VMware ）</block>
   <block id="6aa2cc2f099a383774f35aa72c7c8c6d" category="paragraph"><block ref="6aa2cc2f099a383774f35aa72c7c8c6d" category="inline-link-rx"></block></block>
-  <block id="b6db03b02a5517de79a9f3e95a62dcc5" category="list-text"><block ref="b6db03b02a5517de79a9f3e95a62dcc5" category="inline-link-rx"></block></block>
   <block id="690b67e90a9e1ba6fd7c3d1323cd44d9" category="paragraph">请尝试以下步骤之一来解决此问题：</block>
   <block id="c3fe71180f70e9f0b9529679b6e53e25" category="list-text">如果要配置新的云存储池、并且存储分段包含与以下示例类似的文件和其他对象密钥、请创建一个新存储分段并改用此新存储<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>分段。</block>
   <block id="770fbfd4043319c0e635afbe80bceff1" category="paragraph">附加对象键的示例：<block ref="dabbe37950e5e86b9594e09b6c8867c0" prefix=" " category="inline-code"></block></block>
@@ -22083,4 +22067,7 @@
   <block id="b869131b8d3adc70fb1aa175c961a46b" category="list-text">如果现有StorageGRID站点正在使用具有24 GB RAM、8核CPU以及3 TB或4 TB元数据存储的虚拟存储节点、则基于软件的纯元数据节点应使用类似的资源(24 GB RAM、8核CPU和4 TB元数据存储(rangedb/0)。</block>
   <block id="5526d91c2268df033d56db9b208fdf10" category="list-text">添加新StorageGRID站点时、新站点的元数据总容量至少应与现有StorageGRID站点匹配、新站点资源应与现有StorageGRID站点的存储节点匹配。</block>
   <block id="b99211e689eb30a0f585e81b64ad800d" category="paragraph">基于软件的纯元数据节点资源必须与现有存储节点资源匹配。例如：</block>
+  <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="sidebar">StorageGRID 11.9文档</block>
+  <block id="27a5fc98d432133572f8dd4b135b3de1" category="sidebar">原有版本</block>
+  <block id="f1b48448e2c7ce36850ff6ee0cf84515" category="sidebar">StorageGRID 11.9文档</block>
 </blocks>
