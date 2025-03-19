@@ -44,20 +44,50 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[节点存储节
 ... 输入文件中列出的密码 `Passwords.txt`。当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
 
 
-.. 更改为审核日志所在的目录。输入： `cd /var/local/log/`
+.. 更改为审核日志所在的目录。
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["了解审核信息的目标"](英文)
+--
+审核日志目录和适用节点取决于您的审核目标设置。
 
-====
+[cols="1a,2a"]
+|===
+| 选项 | 目标 
+
+
+ a| 
+本地节点(默认)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+管理节点/本地节点
+ a| 
+*** 管理节点(主节点和非主节点)： `/var/local/audit/export/audit.log`
+*** 所有节点： `/var/local/log/localaudit.log`在此模式下、文件通常为空或缺失。
+
+
+
+
+ a| 
+外部系统日志服务器
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+根据您的审核目标设置、输入： `cd /var/local/log`或 `/var/local/audit/export/`
+
+要了解更多信息，请参阅 link:../monitor/configure-audit-messages.html#select-audit-information-destinations["选择审核信息目标"]。
+
+--
 .. 使用 grep 提取对象丢失（ OLST ）审核消息。输入： `grep OLST audit_file_name`
 .. 记下消息中包含的 UUID 值。
 +
 [listing]
 ----
->Admin: # grep OLST audit.log
-2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
 [PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
 [ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
 ----
