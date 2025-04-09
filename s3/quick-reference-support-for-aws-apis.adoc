@@ -847,6 +847,7 @@ StorageGRID支持此请求的所有<<common-params,通用参数和标头>>以及
 * `Content-Disposition`
 * `Content-Encoding`
 * `Content-Language`
+* `Expires`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
