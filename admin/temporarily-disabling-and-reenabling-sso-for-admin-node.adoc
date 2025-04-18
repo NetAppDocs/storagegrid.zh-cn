@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 如果单点登录 \ （ SSO\ ）系统发生故障，您可能无法登录到网格管理器。在这种情况下，您可以为一个管理节点临时禁用并重新启用 SSO 。要禁用并重新启用 SSO ，必须访问节点的命令 Shell 。 
 ---
-= 临时禁用并重新启用一个管理节点的单点登录
+= 为一个管理节点临时禁用并重新启用SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

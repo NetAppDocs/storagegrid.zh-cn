@@ -32,16 +32,16 @@ NOTE: 如果要使用其他 LDAP v3 服务，请联系技术支持。
 
 == 启用单点登录
 
-StorageGRID 系统支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标准的单点登录（ SSO ）。之后link:configuring-sso.html["配置并启用SSO"]，所有用户都必须先通过外部身份提供程序进行身份验证，然后才能访问网格管理器、租户管理器、网格管理API或租户管理API。本地用户无法登录到StorageGRID。
+StorageGRID 系统支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标准的单点登录（ SSO ）。之后link:how-sso-works.html["配置并启用SSO"]，所有用户都必须先通过外部身份提供程序进行身份验证，然后才能访问网格管理器、租户管理器、网格管理API或租户管理API。本地用户无法登录到StorageGRID。
 
 
 
 == 更改配置密码短语
 
-许多安装和维护过程以及下载 StorageGRID 恢复软件包都需要配置密码短语。下载 StorageGRID 系统的网格拓扑信息和加密密钥备份时，也需要使用密码短语。您可以link:changing-provisioning-passphrase.html["更改密码短语"]根据需要执行此操作。
+许多安装和维护过程以及下载StorageGRID恢复软件包都需要配置密码短语。下载 StorageGRID 系统的网格拓扑信息和加密密钥备份时，也需要使用密码短语。您可以link:changing-provisioning-passphrase.html["更改密码短语"]根据需要执行此操作。
 
 
 
 == 更改节点控制台密码
 
-网格中的每个节点都有一个唯一的节点控制台密码、您需要使用SSH以"admin"身份登录到此节点、或者通过VM/物理控制台连接登录到root用户。您可以根据需要link:change-node-console-password.html["更改节点控制台密码"]对每个节点执行此操作。
+网格中的每个节点都有一个节点控制台密码、您需要使用SSH以"admin"身份登录到此节点、或者通过VM/物理控制台连接登录到root用户。您可以根据需要link:change-node-console-password.html["更改节点控制台密码"]对每个节点执行此操作。

@@ -70,6 +70,8 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: 查看存储分段详细信息
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 管理分支存储分段
+    url: "/tenant/manage-branch-buckets.html"
   - title: 将ILM策略标记应用于存储分段
     url: "/tenant/ilm-policy-tags.html"
   - title: 管理存储分段策略
@@ -84,8 +86,10 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: 更新S3对象锁定默认保留
     url: "/tenant/update-default-retention-settings.html"
-  - title: 配置跨源资源共享（ CORS ）
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 为分段和对象配置CORS
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
+  - title: 为管理接口启用CORS
+    url: "/tenant/enable-cross-origin-resource-sharing-for-management-interface.html"
   - title: 删除存储分段中的对象
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: 删除存储分段

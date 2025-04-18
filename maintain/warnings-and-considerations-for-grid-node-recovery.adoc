@@ -17,7 +17,7 @@ summary: 如果网格节点发生故障，您必须尽快恢复。开始之前�
 CAUTION: StorageGRID 是一个分布式系统，由多个节点组成，这些节点彼此协同工作。请勿使用磁盘快照还原网格节点。请参阅每种类型节点的恢复和维护过程。
 
 
-NOTE: 如果整个 StorageGRID 站点出现故障，请联系技术支持。技术支持将与您合作制定并执行站点恢复计划、以最大限度地提高恢复的数据量并满足您的业务目标。请参阅。 link:how-site-recovery-is-performed-by-technical-support.html["技术支持如何恢复站点"]
+NOTE: 如果整个 StorageGRID 站点出现故障，请联系技术支持。技术支持将与您合作制定并执行站点恢复计划、以最大限度地提高恢复的数据量并满足您的业务目标。请参阅 link:how-site-recovery-is-performed-by-technical-support.html["技术支持如何恢复站点"]。
 
 尽快恢复出现故障的网格节点的一些原因包括：
 

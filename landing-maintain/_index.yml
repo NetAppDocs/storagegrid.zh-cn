@@ -9,7 +9,7 @@ indexpage:
     links:
     - title: 网格维护
       url: "../maintain/index.html"
-    - title: 下载恢复包
+    - title: 下载恢复软件包
       url: "../maintain/downloading-recovery-package.html"
   - title: 停用节点或站点
     links:

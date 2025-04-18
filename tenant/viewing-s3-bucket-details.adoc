@@ -68,7 +68,7 @@ S3 对象锁定:: 是否为存储分段启用S3对象锁定。
 . 要查看特定存储分段的详细信息、请从表中选择存储分段名称。
 +
 .. 查看网页顶部的摘要信息以确认存储分段的详细信息、例如区域和对象计数。
-.. 查看容量限制使用量栏。如果使用率为100%或接近100%、请考虑增加限制或删除某些对象。
+.. 查看容量限制使用量和对象计数限制使用量栏。如果使用率为100%或接近100%、请考虑增加限制或删除某些对象。
 .. 根据需要选择*删除存储分段中的对象*和*删除存储分段*。
 +
 [CAUTION]
@@ -88,6 +88,7 @@ S3 对象锁定:: 是否为存储分段启用S3对象锁定。
 **** link:manage-bucket-consistency.html["管理存储分段一致性"]
 **** link:enabling-or-disabling-last-access-time-updates.html["上次访问时间更新"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["Capacity limit"]
+**** link:../tenant/creating-s3-bucket.html#object-count-limit["对象计数限制"]
 **** link:changing-bucket-versioning.html["对象版本控制"]
 **** link:using-s3-object-lock.html["S3 对象锁定"]
 **** link:update-default-retention-settings.html["默认存储分段保留"]
@@ -97,10 +98,11 @@ S3 对象锁定:: 是否为存储分段启用S3对象锁定。
 *** *平台服务*：link:considerations-for-platform-services.html["管理平台服务"](如果租户允许)
 *** *存储分段访问*：查看或更改选项设置。您必须具有特定的访问权限。
 +
-**** 进行配置link:configuring-cross-origin-resource-sharing-cors.html["跨源资源共享（ CORS ）"]、使存储分段和存储分段中的对象可供其他域中的Web应用程序访问。
+**** 进行配置link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["桶和对象的CORS"]、使存储分段和存储分段中的对象可供其他域中的Web应用程序访问。
 **** link:../tenant/manage-bucket-policy.html["控制用户访问"]S3存储分段和该存储分段中的对象。
 
 
+*** *分支*：查看该存储分段的分支存储分段列表。link:../tenant/manage-branch-buckets.html["创建新的分支存储分段或管理分支存储分段"](英文)
 
 
 

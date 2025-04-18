@@ -1,0 +1,50 @@
+---
+permalink: maintain/move-adc-service.html 
+sidebar: sidebar 
+keywords: storagegrid, move adc, adc quorum 
+summary: 您可以将ADC服务移动到同一站点上的另一个存储节点。 
+---
+= 移动ADC服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将ADC服务移动到同一站点上的另一个存储节点。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:admin-group-permissions.html["维护或root访问权限"]。
+* 源节点包含ADC服务。
+* 目标节点不包含ADC服务。
+* 目标节点可以是纯元数据节点、也可以是组合(元数据和对象数据)节点。
+* 源节点和目标节点位于同一站点。
+
+
+.关于此任务
+当您要执行以下操作时、请使用移动ADC过程：
+
+* 停用包含ADC服务的存储节点
+* 将ADC节点转换为纯数据节点
+* 添加一个节点以运行与ADC相关的任务
+
+
+要停用存储节点或时link:../maintain/convert-to-data-only-node.html["将存储节点转换为纯数据节点"]，首先可能需要使用移动ADC过程。您需要确保link:../maintain/understanding-adc-service-quorum.html["保持ADC仲裁"]。
+
+此过程会将ADC、IDNT、ACCT和RSM服务从一个存储节点移动到同一站点上的另一个存储节点。RSM和ACCT服务依赖于ADC服务、因此它们会在ADC服务移动时自动移动。
+
+.步骤
+. 记录源节点和目标节点的节点ID。
++
+在网格管理API中，源节点ID称为 `sourceNodeId`。目标节点ID称为 `targetNodeId`。
+
+. 在网格管理器的顶部，选择帮助图标，然后选择*API documents*。
+. 选择*转至专用API文档*。
+. 选择 `POST /private/move-adc/start`操作。有关详细信息、请参见 link:../admin/using-grid-management-api.html#issue-api-requests["问题描述 API 请求"] 。
++
+在此过程中、每个节点都将重新启动。
+
+. 您可以使用 `GET /private/move-adc`监控过程。如果发生错误、请选择 `POST /private/move-adc/retry`以重试此过程。
+. link:../maintain/downloading-recovery-package.html["下载恢复软件包"]完成此过程后。
+

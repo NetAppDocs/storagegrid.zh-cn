@@ -55,6 +55,13 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616 ：超文本传输�
 
 
  a| 
+12.0
+ a| 
+增加了对管理接口跨源站资源共享(CORS)的支持、从而允许其他域使用管理API访问StorageGRID中的数据。link:../tenant/enable-cross-origin-resource-sharing-for-management-interface.html["了解更多信息。"](英文)
+
+
+
+ a| 
 11.9
  a| 
 * 增加了对以下请求和支持的标头预先计算的SHA-256校验和值的支持。您可以使用此功能验证已上传对象的完整性：

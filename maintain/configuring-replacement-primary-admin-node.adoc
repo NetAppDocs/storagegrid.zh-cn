@@ -16,7 +16,7 @@ summary: 必须将替代节点配置为 StorageGRID 系统的主管理节点。
 .开始之前
 * 对于虚拟机上托管的主管理节点、虚拟机已部署、启动并初始化。
 * 对于服务设备上托管的主管理节点，您已更换此设备并安装了软件。请参见 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["设备安装说明"^]。
-* 您已有恢复软件包文件的最新备份(`sgws-recovery-package-_id-revision_.zip`)。
+* 恢复软件包文件的最新备份(`sgws-recovery-package-_id-revision_.zip`)。
 * 您具有配置密码短语。
 
 
@@ -38,10 +38,10 @@ summary: 必须将替代节点配置为 StorageGRID 系统的主管理节点。
 +
 image::../media/install_or_recover_primary_admin_node.png[安装或恢复主管理节点]
 
-. 上传恢复包的最新备份：
+. 上传恢复软件包的最新备份：
 +
 .. 单击 * 浏览 * 。
-.. 找到 StorageGRID 系统的最新恢复软件包文件，然后单击 * 打开 * 。
+.. 找到StorageGRID系统的最新恢复软件包文件，然后单击*Open*。
 
 
 . 输入配置密码短语。
@@ -52,7 +52,7 @@ image::../media/install_or_recover_primary_admin_node.png[安装或恢复主管�
 . 如果为 StorageGRID 系统启用了单点登录（ SSO ），并且已恢复的管理节点的依赖方信任已配置为使用默认管理接口证书，请在 Active Directory 联合身份验证服务（ AD FS ）中更新（或删除并重新创建）该节点的依赖方信任。使用在管理节点恢复过程中生成的新默认服务器证书。
 +
 
-NOTE: 要配置依赖方信任，请参见link:../admin/configuring-sso.html["配置单点登录"]。要访问默认服务器证书，请登录到管理节点的命令 Shell 。转到 `/var/local/mgmt-api`目录、然后选择 `server.crt`文件。
+NOTE: 要配置依赖方信任，请参见link:../admin/configure-sso.html["配置单点登录"]。要访问默认服务器证书，请登录到管理节点的命令 Shell 。转到 `/var/local/mgmt-api`目录、然后选择 `server.crt`文件。
 
 
 

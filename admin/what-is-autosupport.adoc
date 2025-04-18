@@ -13,14 +13,14 @@ summary: 通过AutoSupport功能、StorageGRID可以向NetApp技术支持发送�
 [role="lead"]
 通过AutoSupport功能、StorageGRID可以向NetApp技术支持发送运行状况和状态包。
 
-使用AutoSupport可以显著加快确定和解决问题的速度。技术支持还可以监控系统的存储需求，并帮助您确定是否需要添加新节点或站点。或者、您也可以配置要发送到另一个目标的AutoSupport软件包。
+使用AutoSupport有助于更快地解决问题。技术支持可以监控系统的存储需求、并帮助确定是否需要添加新节点或站点。或者、AutoSupport可以将软件包发送到另一个目标。
 
 StorageGRID具有两种类型的AutoSupport：
 
 * *Windows* StorageGRID AutoSupport报告StorageGRID软件问题。首次安装StorageGRID时、默认情况下处于启用状态。您可以link:configure-autosupport-grid-manager.html["更改默认AutoSupport配置"]根据需要执行此操作。
 +
 
-NOTE: 如果未启用StorageGRID AutoSupport、网格管理器信息板上将显示一条消息。此消息包含指向 AutoSupport 配置页面的链接。如果关闭此消息，则此消息将不会再次显示，直到清除浏览器缓存为止，即使 AutoSupport 仍处于禁用状态。
+NOTE: 如果未启用StorageGRID AutoSupport、网格管理器信息板上将显示一条消息。此消息包含指向 AutoSupport 配置页面的链接。如果您关闭了该邮件、它将在清除浏览器缓存之前不会再次显示、即使AutoSupport仍保持禁用状态也是如此。
 
 * *设备硬件AutoSupport *报告StorageGRID设备问题。您必须link:configure-autosupport-grid-manager.html#autosupport-for-appliances["在每个设备上配置硬件AutoSupport"]。
 

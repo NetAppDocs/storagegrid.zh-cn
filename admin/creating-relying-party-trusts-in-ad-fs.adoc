@@ -15,8 +15,8 @@ summary: 您必须使用 Active Directory 联合身份验证服务（ AD FS ）�
 
 .开始之前
 * 您已为 StorageGRID 配置单点登录，并选择了 * AD FS* 作为 SSO 类型。
-* 在网格管理器的单点登录页面上选择了 * 沙盒模式 * 。请参阅。 link:../admin/using-sandbox-mode.html["使用沙盒模式"]
-* 您知道系统中每个管理节点的完全限定域名（或 IP 地址）和依赖方标识符。您可以在 StorageGRID 单点登录页面上的管理节点详细信息表中找到这些值。
+* 网格管理器中有link:../admin/configure-sso.html#enter-sandbox-mode-adfs["已进入沙盒模式"]。
+* 您知道系统中每个管理节点的完全限定域名（或 IP 地址）和依赖方标识符。您可以在StorageGRID配置SSO页面上的管理节点详细信息表中找到这些值。
 +
 
 NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建依赖方信任。对每个管理节点拥有依赖方信任，可确保用户可以安全地登录和注销任何管理节点。
@@ -88,7 +88,7 @@ NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建依赖方信�
 
 
 . 重复上述步骤，为 StorageGRID 系统中的所有管理节点配置依赖方信任。
-. 完成后，返回到 StorageGRID 并测试所有相关方信任，以确认其配置正确。有关说明、请参见。 link:using-sandbox-mode.html["使用沙盒模式"]
+. 完成后、返回到StorageGRID并link:../admin/configure-sso.html#test-sso["测试所有依赖方信任"]确认其配置正确。
 
 
 
@@ -139,7 +139,7 @@ NOTE: 输入显示名称时，请使用管理节点的相关方标识符，与�
 
 
 . 重复上述步骤，为 StorageGRID 系统中的所有管理节点配置依赖方信任。
-. 完成后，返回到 StorageGRID 并测试所有相关方信任，以确认其配置正确。有关说明、请参见。 link:using-sandbox-mode.html["使用沙盒模式"]
+. 完成后、返回StorageGRID并link:../admin/configure-sso.html#test-sso["测试所有依赖方信任"]确认其配置正确。
 
 
 
@@ -233,5 +233,5 @@ NOTE: (`server.crt`不建议使用管理节点的默认证书)。如果管理节
 
 
 . 重复上述步骤，为 StorageGRID 系统中的所有管理节点配置依赖方信任。
-. 完成后，返回到 StorageGRID 并测试所有相关方信任，以确认其配置正确。有关说明、请参见。 link:using-sandbox-mode.html["使用沙盒模式"]
+. 完成后、返回StorageGRID并link:../admin/configure-sso.html#test-sso["测试所有依赖方信任"]确认其配置正确。
 

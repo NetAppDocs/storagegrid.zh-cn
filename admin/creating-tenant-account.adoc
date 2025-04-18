@@ -13,7 +13,7 @@ summary: 您必须至少创建一个租户帐户，才能控制对 StorageGRID �
 [role="lead"]
 您必须至少创建一个租户帐户，才能控制对 StorageGRID 系统中存储的访问。
 
-根据是否配置和以及用于创建租户帐户的link:configuring-sso.html["单点登录"]Grid Manager帐户是否属于具有root访问权限的管理员组、创建租户帐户的步骤会有所不同link:using-identity-federation.html["身份联合"]。
+根据是否配置和以及用于创建租户帐户的link:how-sso-works.html["单点登录"]Grid Manager帐户是否属于具有root访问权限的管理员组、创建租户帐户的步骤会有所不同link:using-identity-federation.html["身份联合"]。
 
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
@@ -118,7 +118,7 @@ NOTE: 其中某些权限还有其他要求。有关详细信息、请选择每�
  a| 
 使用自己的身份源
  a| 
-租户可以为联盟组和用户配置和管理自己的身份源。如果您的StorageGRID系统具有、则此选项将被禁用link:../admin/configuring-sso.html["已配置SSO"]。
+租户可以为联盟组和用户配置和管理自己的身份源。如果您的StorageGRID系统具有、则此选项将被禁用link:../admin/how-sso-works.html["已配置SSO"]。
 
 
 

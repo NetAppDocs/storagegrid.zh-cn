@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . 如果客户端写入不正常、请使用警报中的租户ID来标识租户：
 +
-.. 转到*support*>*Tools*>*Logs*。收集警报中存储节点的应用程序日志。指定警报前后15分钟。
+.. 转到*support*>*Tools*>*Logs*。收集警报中存储节点的应用程序日志。指定警报前后15分钟。请参阅 link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]。
 .. 提取文件并转到 `bycast.log`：
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

@@ -45,18 +45,18 @@ StorageGRID 安装归档
 获取最新恢复软件包文件的副本 `.zip`：
 `sgws-recovery-package-_id-revision_.zip`
 
-每次修改系统时、文件的内容 `.zip`都会更新。在进行此类更改后，系统会指示您将最新版本的恢复软件包存储在安全位置。使用最新副本从网格故障中恢复。
+每次修改系统时、文件的内容 `.zip`都会更新。进行此类更改后、系统会指示您将最新版本的恢复软件包存储在安全位置。使用最新副本从网格故障中恢复。
 
-如果主管理节点运行正常，您可以从网格管理器下载恢复软件包。选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
+如果主管理节点运行正常、则可以从网格管理器下载恢复软件包。选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
 
-如果无法访问网格管理器、则可以在包含ADC服务的某些存储节点上找到恢复软件包的加密副本。在每个存储节点上、检查"Recovery Package：Use the Recovery Package with the Highest Revision Number"(恢复软件包：使用修订版号最高的恢复软件包)的此位置 `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg`。
+如果无法访问网格管理器、则可以在包含ADC服务的某些存储节点上找到恢复软件包的加密副本。在每个存储节点上、检查恢复软件包的以下位置： `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg`使用修订版号最高的恢复软件包。
 
 
 
  a| 
 `Passwords.txt`文件
  a| 
-包含访问命令行上的网格节点所需的密码。包含在恢复包中。
+包含访问命令行上的网格节点所需的密码。包含在恢复软件包中。
 
 
 

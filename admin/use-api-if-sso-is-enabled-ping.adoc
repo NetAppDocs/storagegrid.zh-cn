@@ -11,7 +11,7 @@ summary: 如果您已配置并启用单点登录（ SSO ），并且使用 PingF
 
 
 [role="lead"]
-如果您有link:../admin/configuring-sso.html["已配置并启用单点登录（ SSO ）"]、并且使用PingFedate作为SSO提供程序、则必须发出一系列API请求以获取对网格管理API或租户管理API有效的身份验证令牌。
+如果您有link:../admin/how-sso-works.html["已配置并启用单点登录（ SSO ）"]、并且使用PingFedate作为SSO提供程序、则必须发出一系列API请求以获取对网格管理API或租户管理API有效的身份验证令牌。
 
 
 

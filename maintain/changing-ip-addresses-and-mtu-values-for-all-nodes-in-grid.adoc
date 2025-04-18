@@ -36,7 +36,7 @@ NOTE: 如果现有 DNS 服务器无法通过新 IP 地址访问网格，请在�
 
 +
 
-NOTE: 如果为 StorageGRID 系统启用了 SSO ，并且任何依赖方信任均使用管理节点 IP 地址（而不是建议的完全限定域名）进行配置，请准备在 Active Directory 联合身份验证服务（ AD FS ）中更新或重新配置这些依赖方信任 更改 IP 地址后立即执行。请参阅。 link:../admin/configuring-sso.html["配置单点登录"]
+NOTE: 如果为 StorageGRID 系统启用了 SSO ，并且任何依赖方信任均使用管理节点 IP 地址（而不是建议的完全限定域名）进行配置，请准备在 Active Directory 联合身份验证服务（ AD FS ）中更新或重新配置这些依赖方信任 更改 IP 地址后立即执行。请参阅。 link:../admin/configure-sso.html["配置单点登录"]
 
 +
 

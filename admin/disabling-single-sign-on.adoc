@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: 如果您不想再使用此功能，可以禁用单点登录 \ （ sso\ ）。必须先禁用单点登录，然后才能禁用身份联合。 
 ---
-= 禁用单点登录
+= 禁用SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

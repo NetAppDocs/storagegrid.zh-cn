@@ -1,0 +1,53 @@
+---
+permalink: maintain/convert-to-data-only-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop services, power down host, power off host 
+summary: 要提高性能、您可以将速度较慢的非ADC存储节点转换为纯数据存储节点。 
+---
+= 将存储节点转换为纯数据节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要提高性能、您可以将速度较慢的非ADC存储节点转换为纯数据存储节点。
+
+如果存储节点具有不同的性能特征、则将存储节点专用于数据可能会很有意义。例如、为了可能提高性能、您可以将纯数据、大容量旋转磁盘存储节点与纯元数据高性能存储节点结合使用。
+
+此外、您还可以通过从cassanda中删除低RAM节点来获得更多元数据容量、从而提高每个节点的元数据容量限制。请参阅 link:../admin/managing-object-metadata-storage.html["管理对象元数据存储"]。
+
+安装纯数据节点时、网格必须包含以下内容：
+
+* 每个网格至少需要两个组合存储节点或仅用于数据的存储节点
+* 每个站点至少有一个组合存储节点或纯数据存储节点
+* 每个站点至少需要三个组合存储节点或仅包含元数据的存储节点
+
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:admin-group-permissions.html["维护或root访问权限"]。
+* 要转换的存储节点不包含ADC服务、或者您必须link:../maintain/move-adc-service.html["已移动ADC服务"]使用其他节点。
+* 存储节点不是纯元数据节点或纯数据节点。
+* 此站点的其他节点上有足够的元数据空间来容纳要从要转换的存储节点迁移的元数据。
+
+
+.关于此任务
+使用此过程可将不包含ADC服务的一个或多个组合存储节点或仅元数据存储节点转换为纯数据节点。存储节点必须位于同一站点上。
+
+除了转换存储节点之外、此过程还会从该节点中停用cassand拉。所有元数据都将迁移到组合存储节点或纯元数据存储节点。根据需要迁移的元数据量、每个节点可能需要长达数天的时间才能完成此过程。
+
+
+TIP: 通常、如果每个节点的元数据使用量小于1 TB、则一次最多可以转换10个节点。如果每个节点的元数据使用量超过1 TB、则在每个过程中最多转换5个节点。
+
+.步骤
+. 记录要转换的非ADC存储节点的节点ID。
+. 在网格管理器的顶部，选择帮助图标，然后选择*API documents*。
+. 选择*转至专用API文档*。
+. 选择 `POST /private/convert-to-data-only-node/start`操作。有关详细信息、请参见 link:../admin/using-grid-management-api.html#issue-api-requests["问题描述 API 请求"] 。
++
+在此过程中、每个节点都将重新启动。
+
+. 您可以使用 `GET /private/convert-to-data-only-node`监控过程。如果发生错误、请选择 `POST /private/convert-to-data-only-node/retry`以重试此过程。
+. link:../maintain/downloading-recovery-package.html["下载恢复软件包"]完成此过程后。
+

@@ -107,7 +107,7 @@ image::../media/ilm_rule_multiple_placements_in_single_time_period.png[网格管
 .相关信息
 * link:data-protection-options-for-ingest.html["加热选项"]
 * link:advantages-disadvantages-of-ingest-options.html["加热选项的优点、缺点和限制"]
-* link:../s3/consistency-controls.html#how-consistency-controls-and-ILM-rules-interact["一致性和ILM规则如何相互作用以影响数据保护"]
+* link:../s3/consistency.html#how-consistency-and-ILM-rules-interact["一致性和ILM规则如何相互作用以影响数据保护"]
 
 
 

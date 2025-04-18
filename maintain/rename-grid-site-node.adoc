@@ -171,7 +171,7 @@ image::../media/rename-bulk-rename-tool-after.png[之后批量重命名工具]
 
 .步骤
 . 输入配置密码短语。
-. 选择*下载恢复软件包*。
+. 选择 * 下载恢复包 * 。
 +
 下载将立即开始。
 
@@ -179,7 +179,7 @@ image::../media/rename-bulk-rename-tool-after.png[之后批量重命名工具]
 . 将文件复制 `sgws-recovery-package-_id-revision_.zip`到两个安全、独立的位置。
 +
 
-CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+CAUTION: 恢复软件包文件必须受到保护、因为它包含可用于从StorageGRID 系统获取数据的加密密钥和密码。
 
 . 选择*完成*以返回到第一步。
 

@@ -75,8 +75,6 @@ link:../monitor/viewing-nodes-page.html["节点页面"]显示有关整个网格�
 
 节点主页显示整个网格的组合指标。要查看特定站点或节点的信息，请选择站点或节点。
 
-image::../media/nodes_page.png[节点页面主页]
-
 
 
 == 租户页面
@@ -84,8 +82,6 @@ image::../media/nodes_page.png[节点页面主页]
 link:../admin/managing-tenants.html["租户页面"]允许您link:../tenant/index.html["创建并监控存储租户帐户"]为StorageGRID系统设置。您必须至少创建一个租户帐户，以指定谁可以存储和检索对象以及这些对象可以使用哪些功能。
 
 " 租户 " 页面还提供每个租户的使用情况详细信息，包括已用存储容量和对象数量。如果在创建租户时设置了配额，则可以查看已使用的配额量。
-
-image::../media/tenants_page.png[租户菜单和页面]
 
 
 
@@ -145,7 +141,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * 用于link:../admin/grid-federation-overview.html["网格联盟"]克隆租户帐户信息并在两个StorageGRID系统之间复制对象数据。
 * (可选)启用link:../admin/configuring-stored-object-compression.html["压缩存储的对象"]选项。
 * link:../ilm/managing-objects-with-s3-object-lock.html["管理S3对象锁定"]
-* 了解和等存储选项link:../admin/what-object-segmentation-is.html["对象分段"]link:../admin/what-storage-volume-watermarks-are.html["存储卷水印"]。
+* 了解和等存储设置link:../admin/what-object-segmentation-is.html["对象分段"]link:../admin/what-storage-volume-watermarks-are.html["存储卷水印"]。
 * link:../ilm/manage-erasure-coding-profiles.html["管理纠删编码配置文件"](英文)
 
 
@@ -169,7 +165,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * link:../admin/managing-users.html["管理管理员用户"]
 * 更改link:../admin/changing-provisioning-passphrase.html["配置密码短语"]或link:../admin/change-node-console-password.html["节点控制台密码"]
 * link:../admin/using-identity-federation.html["使用身份联合"]
-* link:../admin/configuring-sso.html["正在配置SSO"]
+* link:../admin/how-sso-works.html["配置 SSO"]
 
 
 

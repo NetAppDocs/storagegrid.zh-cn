@@ -19,9 +19,9 @@ summary: 按照以下说明将 StorageGRID 系统升级到新版本。
 
 == 开始之前
 
-查看这些主题、了解StorageGRID 11.9中的新增功能和增强功能、确定是否已弃用或删除任何功能、以及了解StorageGRID API的变更。
+查看这些主题、了解StorageGRID 12.0中的新增功能和增强功能、确定是否已弃用或删除任何功能、以及了解StorageGRID API的变更。
 
-* link:whats-new.html["StorageGRID 11.9."]
+* link:whats-new.html["StorageGRID 12.0."]
 * link:removed-or-deprecated-features.html["已删除或已弃用的功能"]
 * link:changes-to-grid-management-api.html["对网格管理 API 进行的更改"]
 * link:changes-to-tenant-management-api.html["对租户管理 API 进行的更改"]

@@ -26,4 +26,4 @@ CAUTION: 在包含基于软件的纯元数据节点的网格中停用存储节�
 * 在第二个停用过程中，您可以删除第三个存储节点，因为ADC仲裁现在只需要三个ADC服务即可保持可用： `((0.5 * 4) + 1)`。
 
 
-如果您需要停用存储节点、但由于ADC仲裁要求而无法停用、请在中添加一个新存储节点link:../expand/index.html["扩展"]、并指定它应具有ADC服务。然后、停用现有存储节点。
+如果需要停用存储节点、则可以继续满足ADC仲裁要求、方法是link:../upgrade/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["将ADC服务移动到同一站点上的另一个存储节点"]在中添加一个新存储节点link:../expand/index.html["扩展"]并指定其应具有ADC服务。然后、您可以停用现有存储节点、而不会影响仲裁。

@@ -29,7 +29,7 @@ summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅�
 * 您明确指定仅应将审核消息保存在生成这些消息的本地节点上。
 
 
-有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"]
 
 ====
 .步骤

@@ -19,7 +19,7 @@ summary: 在配置StorageGRID 系统以与FabricPool 结合使用时、您可能
 
 FabricPool 工作负载的读取操作率通常较高、从而可能会生成大量审核消息。
 
-* 如果您不需要FabricPool 或任何其他S3应用程序的客户端读取操作记录，可选择进入*configuration*>*Monitoring*>*Audit and syslog server*。将“*客户端读取”设置更改为“*错误”，以减少审核日志中记录的审核消息数。有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+* 如果您不需要FabricPool 或任何其他S3应用程序的客户端读取操作记录，可选择进入*configuration*>*Monitoring*>*Audit and syslog server*。将“*客户端读取”设置更改为“*错误”，以减少审核日志中记录的审核消息数。有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"]
 * 如果您的网格很大、可以使用多种类型的S3应用程序、也可以保留所有审核数据、配置外部系统日志服务器并远程保存审核信息。使用外部服务器可以最大限度地降低审核消息日志记录对性能的影响、而不会降低审核数据的完整性。有关详细信息、请参见。 link:../monitor/considerations-for-external-syslog-server.html["外部系统日志服务器的注意事项"]
 
 

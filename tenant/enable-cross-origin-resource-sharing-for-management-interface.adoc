@@ -1,0 +1,42 @@
+---
+permalink: tenant/enable-cross-origin-resource-sharing-for-management-interface.html 
+sidebar: sidebar 
+keywords: how to configure cross-origin resource sharing, cors, management, api, domain 
+summary: '如果您希望使用管理API将StorageGRID中的数据访问到另一个域、则可以为发送到StorageGRID的管理API请求启用跨源站资源共享(CORS)。' 
+---
+= 为管理接口启用StorageGRID CORS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您希望使用管理API将StorageGRID中的数据访问到另一个域、则可以为发送到StorageGRID的管理API请求启用跨源站资源共享(CORS)。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 提供对所有CORS配置请求的link:tenant-management-permissions.html["root访问权限"]访问权限。
+
+
+.关于此任务
+CORS是一种安全机制、允许一个域中的客户端Web应用程序访问另一个域中的资源。例如，假设您要在域中为StorageGRID构建监控信息板 `\http://www.example.com`。通过在StorageGRID中为和“网格管理器”启用CORS `\http://www.example.com`，StorageGRID域响应来自的网格管理API请求 `\http://www.example.com`。
+
+CORS支持带有或 `multipart/formdata`请求的 `Content-Type`管理API (mgmt-API)请求 `application/json`。
+
+.步骤
+. 在“StorageGRID配置”页面的“*网络*”下，选择“*管理接口CORS设置”。
+. 选择*Grid Manager*或*租 户管理器*，或同时选择这两个选项。
++
+** *Grid Manager*：为跨域网格管理API请求启用CORS。
+** *租户管理器*：为跨域租户管理API请求启用CORS。
+
+
+. 在*域*字段中输入其他域的URL。
++
+如果要在StorageGRID中为多个域启用CORS，请选择*添加另一个域*。
+
+. 选择 * 保存 * 。
+
+
+.相关信息
+link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["为分段和对象配置StorageGRID CORS"]

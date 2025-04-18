@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: 此版本的 StorageGRID 引入了以下功能。 
+keywords: what is new in StorageGRID 12.0 
+summary: 此版本的StorageGRID 引入了以下特性和功能变更。 
 ---
-= StorageGRID 11.9.
+= StorageGRID 12.0.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,131 +15,11 @@ summary: 此版本的 StorageGRID 引入了以下功能。
 
 
 
-== 可扩展性
+== 使用S3对象锁定进行跨网格复制
 
+您可以在启用了S3对象锁定的存储分段之间配置跨网格复制。请参阅 link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["使用S3对象锁定进行跨网格复制"]。
 
-
-=== 纯数据存储节点
-
-要实现更精细的扩展，您现在可以安装link:../primer/what-storage-node-is.html#types-of-storage-nodes["纯数据存储节点"]。如果元数据处理并不重要、您可以经济高效地优化基础架构。这种灵活性有助于适应不同的工作负载和增长模式。
-
-
-
-== Cloud Storage Pool增强功能
-
-
-
-=== IAM角色无处不在
-
-StorageGRID现在支持使用的短期凭据link:../ilm/creating-cloud-storage-pool.html["适用于云存储池的Amazon S3中任意位置的IAM角色"]。
-
-如果使用长期凭据访问S3存储分段、则会在这些凭据泄露时带来安全风险。短期凭据的使用寿命有限、从而降低了未经授权访问的风险。
-
-
-
-=== S3对象锁定分段
-
-您现在可以了link:../ilm/creating-cloud-storage-pool.html["使用Amazon S3端点配置云存储池"]。S3对象锁定有助于防止意外或恶意删除对象。如果您将数据从StorageGRID分层到Amazon S3、则在两个系统上启用对象锁定可增强整个数据生命周期内的数据保护。
-
-
-
-== 多租户
-
-
-
-=== 存储分段限制
-
-通过link:../tenant/creating-s3-bucket.html["设置S3存储分段的限制"]，您可以防止租户独占容量。此外、不受控制的增长可能导致意外成本。通过定义限制、您可以更好地估计租户存储支出。
-
-
-
-=== 每个租户5、000个分段
-
-为了提高可扩展性，StorageGRID现在支持的最高扩展到link:../s3/operations-on-buckets.html["每个租户5、000个S3存储分段"]。每个网格最多可以包含100、000个分段。
-
-要支持5、000个存储分段、网格中的每个存储节点必须至少具有64 GB RAM。
-
-
-
-== 改进了S3对象锁定
-
-每租户配置功能可在灵活性和数据安全性之间实现适当的平衡。现在、您可以将每个租户的保留设置配置为：
-
-* 允许或禁止兼容模式
-* 设置最长保留期限
-
-
-请参阅：
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["使用 S3 对象锁定管理对象"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["网格管理员如何控制对象保留"]
-* link:../admin/creating-tenant-account.html["创建租户帐户"]
-
-
-
-
-== S3兼容性
-
-
-
-=== X-AMZ-Checksum和SHA256校验和
-
-* 现在、S3 REST API支持链接：.S3 / operations-on-objects.html[`x-amz-checksum-sha256`校验和]。
-* StorageGRID现在为Put、GET和HEAD操作提供SHA-256校验和支持。这些校验和可增强数据完整性。
-
-
-
-
-=== 对S3协议支持进行的更改
-
-* 增加了对Amazon S3装载点的支持、使应用程序可以像本地文件系统一样直接连接到S3存储分段。现在、您可以在更多应用程序和用例中使用StorageGRID。
-* 在添加对mountpoint的支持时，StorageGRID 11包含link:../s3/index.html#updates-to-rest-api-support["对S3协议支持进行了其他更改"]。
-
-
-
-
-== 维护和可支持性
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"]现在、可以自动为传统设备创建硬件故障情形。
-
-
-
-=== 扩展了节点克隆操作
-
-节点克隆可用性已得到扩展、可支持更大的存储节点。
-
-
-
-=== 改进了对过期删除标记的ILM处理
-
-现在、时间段为天的ILM加载时间规则也会删除过期的对象删除标记。只有在经过一段时间且当前删除程序已过期(没有非当前版本)时、删除标记才会被删除。
-
-请参阅link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]和link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["分段生命周期优先于ILM策略的示例"]。
-
-
-
-=== 改进了节点停用
-
-为了平稳高效地过渡到StorageGRID下一代硬件、我们对其进行了改进。link:../maintain/grid-node-decommissioning.html["节点停用"]
-
-
-
-=== 负载平衡器端点的系统日志
-
-负载平衡器端点访问日志包含故障排除信息、例如HTTP状态代码。StorageGRID现在支持link:../monitor/configure-audit-messages.html["将这些日志导出到外部系统日志服务器"]。此增强功能可实现更高效的日志管理、并可与现有监控和警报系统集成。
-
-
-
-=== 维护和可支持性方面的其他增强功能
-
-* 指标UI更新
-* 新的操作系统限制条件
-* 支持新的第三方组件
-
+NetApp建议仅在StorageGRID 12.0源分段和目标分段之间使用此功能。但是、禁用了S3对象锁定的StorageGRID 11.2源分段和启用了S3对象锁定的StorageGRID 12.0目标分段之间支持此功能。
 
 
 
@@ -147,15 +27,29 @@ link:../admin/what-is-autosupport.html["AutoSupport"]现在、可以自动为传
 
 
 
-=== SSH访问密钥轮换
+=== 磁盘上加密密码的安全增强功能
 
-网格管理员现在可以link:../admin/change-ssh-access-passwords.html["更新和轮换SSH密钥"]。能够轮换SSH密钥是一项安全最佳实践、也是一种主动防御机制。
+提高了密码安全性、包括大幅增加了SHA512密码哈希的哈希轮数。
 
 
 
-=== root登录警报
+== S3存储分段
 
-当未知实体以root身份登录到网格管理器时，link:../monitor/alerts-reference.html["此时将触发警报"]。监控root SSH登录是保护基础架构的一个主动步骤。
+
+
+=== 分支存储分段
+
+现在、您可以link:../tenant/manage-branch-bucket-html["创建分支分段"]使用S3存储分段。通过分支存储分段、可以访问在特定时间存在的S3存储分段对象。分支分段与备份不同。
+
+
+
+== 用户接口
+
+
+
+=== 暗主题
+
+网格管理器和租户管理器的用户菜单中提供了暗主题和系统主题设置。
 
 
 
@@ -163,12 +57,6 @@ link:../admin/what-is-autosupport.html["AutoSupport"]现在、可以自动为传
 
 
 
-=== 已移动纠删编码配置文件页面
+=== 配置区域增强功能
 
-纠删编码配置文件页面现在位于*configuration*>*System*>*Erasure coding*。它以前位于ILM菜单中。
-
-
-
-=== 搜索增强功能
-
-link:../primer/exploring-grid-manager.html#search-field["网格管理器中的搜索字段"]现在、包含更好的匹配逻辑、使您可以通过搜索常见缩写和按页面中某些设置的名称来查找页面。您还可以搜索更多类型的项目、例如节点、用户和租户帐户。
+现在，网格管理器中的区域页面包含一个*Default region*选项卡。您可以使用此选项卡更改为S3存储分段定义的默认区域。link:../ilm/configuring-regions-optional-and-s3-only.html["了解更多信息。"](英文)

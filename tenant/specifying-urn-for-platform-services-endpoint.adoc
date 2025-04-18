@@ -45,7 +45,7 @@ CloudMirror 复制
  a| 
 通知
  a| 
-`sns`或 `kafka`
+`sns` `kafka`或 `webhook`
 
 
 
@@ -57,7 +57,9 @@ CloudMirror 复制
 |===
 例如，要继续为StorageGRID上托管的CloudMirror端点指定URN，您可以添加 `s3`到get `urn:sgws:s3`。
 
-URN 的最后一个元素用于标识目标 URI 上的特定目标资源。
+对于大多数端点，URN的最后一个元素用于标识目标URI上的特定目标资源，例如 `sns-topic-name`。
+
+对于webhook端点、目标资源本身就是目标URI。
 
 [cols="1a,2a"]
 |===
@@ -75,6 +77,8 @@ CloudMirror 复制
 通知
  a| 
 `sns-topic-name`或 `kafka-topic-name`
+
+*注:*对于webhook端点,只要端点的URN是唯一的,URN的最后一个元素可以是任意字符串。
 
 
 
@@ -152,6 +156,14 @@ urn:mysite:sns:optional:optional:sns-topic-name
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
+----
++
+指定webhook端点：
+
++
+[listing]
+----
+urn:mysite:webhook:optional:optional:webhook-name
 ----
 * 搜索集成：
 +

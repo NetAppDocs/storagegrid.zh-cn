@@ -25,7 +25,7 @@ StorageGRID系统最多支持为每个S3租户帐户配置5、000个分段。
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
 
 
-ListObjects (GET Bucket)和ListObjectVersies (GET Bucket)对象版本)操作支持StorageGRIDlink:consistency-controls.html["一致性值"]。
+ListObjects (GET Bucket)和ListObjectVersies (GET Bucket)对象版本)操作支持StorageGRIDlink:consistency.html["一致性值"]。
 
 您可以检查是否已为各个存储分段启用上次访问时间更新。请参阅。 link:get-bucket-last-access-time-request.html["获取存储分段上次访问时间"]
 
@@ -290,7 +290,7 @@ PutBucketNotizationConfiguration
  a| 
 使用请求正文中包含的通知配置XML配置分段的通知。您应了解以下实施详细信息：
 
-* StorageGRID支持将Amazon Simple Notification Service (Amazon SNS)或Kafka主题作为目标。不支持简单队列服务(SQS)或Amazon Lamba端点。
+* StorageGRID支持将Amazon Simple Notification Service (Amazon SNS)主题、Kafka主题或webhook端点作为目标。不支持简单队列服务(Simple Queue Service、SQS)或AWS Lamba端点。
 * 必须将通知目标指定为 StorageGRID 端点的 URN 。可以使用租户管理器或租户管理 API 创建端点。
 +
 要成功配置通知，端点必须存在。如果端点不存在， `400 Bad Request`则返回错误代码 `InvalidArgument`。

@@ -87,6 +87,9 @@ NOTE: 此示例攻略手册不包括在启动 StorageGRID 主机服务之前创�
 * 您已创建 `configure-storagegrid.json`配置文件。要创建此文件，您可以修改示例配置文件(`configure-storagegrid.sample.json`()或空白配置文件()(`configure-storagegrid.blank.json`。
 
 
+
+CAUTION: 将修改后的配置文件的密码部分中的管理密码和配置密码短语存储 `configure-storagegrid.json`在一个安全位置。安装、扩展和维护过程需要使用这些密码。您还应备份修改后的 `configure-storagegrid.json`配置文件、并将其存储在安全位置。
+
 .关于此任务
 您可以使用 `configure-storagegrid.py`Python脚本和 `configure-storagegrid.json`配置文件自动配置StorageGRID系统。
 
@@ -119,10 +122,10 @@ cd StorageGRID-Webscale-version/platform
 
 
 .结果
-在配置过程中会生成恢复软件包 `.zip`文件、并将其下载到运行安装和配置过程的目录中。您必须备份恢复软件包文件，以便在一个或多个网格节点发生故障时恢复 StorageGRID 系统。例如，将其复制到安全的备份网络位置和安全的云存储位置。
+在配置过程中会生成恢复软件包 `.zip`文件、并将其下载到运行安装和配置过程的目录中。您必须备份恢复软件包文件、以便在一个或多个网格节点发生故障时恢复StorageGRID系统。例如，将其复制到安全的备份网络位置和安全的云存储位置。
 
 
-CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+CAUTION: 恢复软件包文件必须受到保护、因为它包含可用于从StorageGRID 系统获取数据的加密密钥和密码。
 
 如果您指定生成随机密码、请打开 `Passwords.txt`文件并查找访问StorageGRID系统所需的密码。
 

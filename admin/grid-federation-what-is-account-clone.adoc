@@ -37,7 +37,7 @@ image::../media/grid-federation-account-clone-workflow.png[帐户克隆工作流
 
 .步骤
 . 为两个网格配置相同的标识源。请参阅。 link:using-identity-federation.html["使用身份联合"]
-. 为两个网格配置相同的SSO身份提供程序(Idp)。请参阅。 link:configuring-sso.html["配置单点登录"]
+. 为两个网格配置相同的SSO身份提供程序(Idp)。请参阅。 link:how-sso-works.html["配置单点登录"]
 . link:managing-admin-groups.html["创建同一个管理员组"]通过导入同一联盟组在两个网格上。
 +
 创建租户时、您需要选择此组、以获得源租户帐户和目标租户帐户的初始root访问权限。

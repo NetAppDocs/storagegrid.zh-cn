@@ -46,7 +46,7 @@ summary: 您可以执行多项任务来帮助确定与管理节点和StorageGRID
 
 
 . 确定节点的硬件是否脱机。
-. 如果为StorageGRID系统启用了单点登录(SSO)，请参阅的步骤link:../admin/configuring-sso.html["配置单点登录"]。
+. 如果为StorageGRID系统启用了单点登录(SSO)，请参阅的步骤link:../admin/configure-sso.html["配置单点登录"]。
 +
 要解决任何问题，您可能需要暂时禁用并重新启用单个管理节点的 SSO 。
 

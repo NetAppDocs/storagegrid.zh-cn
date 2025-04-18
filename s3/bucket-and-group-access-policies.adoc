@@ -996,6 +996,13 @@ NotIpAddress
  a| 
 检查当前请求上下文中是否存在条件密钥。
 
+
+
+ a| 
+IfExists
+ a| 
+附加到任何条件运算符(空条件除外)、以检查是否缺少该条件键。如果条件键不存在则返回true。
+
 |===
 
 
@@ -1082,6 +1089,24 @@ S3 ： ListBucketVersions 权限
 
 
  a| 
+S3：对象锁定模式
+ a| 
+S3 ： PutObject
+ a| 
+与PutObject、CopyObject和CreateMultipartUpload请求中从请求标头扩展的进行比较 `object-lock-mode`。
+
+
+
+ a| 
+S3：对象锁定模式
+ a| 
+S3 ： PutObjectRetention
+ a| 
+与PutObject保留 请求中从XML正文扩展的进行比较 `object-lock-mode`。
+
+
+
+ a| 
 S3 ： object-lock-real-retenation-days
  a| 
 S3 ： PutObject
@@ -1125,6 +1150,15 @@ S3 ： PutObjectTagging
 S3 ： PutObjectVersionTagging
  a| 
 如果对象请求包含标记、则需要特定的标记密钥和值。
+
+
+
+ a| 
+s3：x-amz-server-sy-sy-customer-algorithm
+ a| 
+S3 ： PutObject
+ a| 
+与或 `copy-source-sse-customer-algorithm`从PutObject、CopyObject、CreateMultipartUpload、UploadPart、UploadPartCopy和CompleteMultipartUpload请求中的请求标头展开的进行比较 `sse-customer-algorithm`。
 
 |===
 

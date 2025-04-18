@@ -477,9 +477,7 @@ StorageGRID 系统 ID
 
 您可以收集整个网格或选定节点的日志。
 
-如果仅收集选定节点的日志，请确保至少包含一个具有此 ADA 服务的存储节点。（一个站点的前三个存储节点包含此 ADC-Service 。）
-
-link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]
+如果仅收集选定节点的日志，请确保至少包含一个具有此 ADA 服务的存储节点。站点上安装的前三个存储节点包括ADC服务。
 
 
 

@@ -17,7 +17,7 @@
  a| 
 使用自己的身份源
  a| 
-租户可以为联盟组和用户配置和管理自己的身份源。如果您的StorageGRID系统具有、则此选项将被禁用link:../admin/configuring-sso.html["已配置SSO"]。
+租户可以为联盟组和用户配置和管理自己的身份源。如果您的StorageGRID系统具有、则此选项将被禁用link:../admin/how-sso-works.html["已配置SSO"]。
 
 
 

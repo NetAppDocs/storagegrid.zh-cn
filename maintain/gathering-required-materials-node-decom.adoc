@@ -21,14 +21,14 @@ summary: 在执行网格节点停用之前，您必须获取以下信息。
  a| 
 恢复软件包 `.zip`文件
  a| 
-必须link:downloading-recovery-package.html["下载最新的恢复软件包"] `.zip`文件(`sgws-recovery-package-_id-revision_.zip`)。如果发生故障，您可以使用恢复包文件还原系统。
+必须link:downloading-recovery-package.html["下载最新的恢复软件包"] `.zip`文件(`sgws-recovery-package-_id-revision_.zip`)。如果发生故障、您可以使用恢复软件包文件还原系统。
 
 
 
  a| 
 `Passwords.txt`文件
  a| 
-此文件包含在命令行上访问网格节点所需的密码，并包含在恢复包中。
+此文件包含通过命令行访问网格节点所需的密码、并包含在恢复软件包中。
 
 
 
