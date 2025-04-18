@@ -76,7 +76,7 @@ NOTE: 分段版本控制、S3对象锁定和分段加密的一致性值不能设
 以下存储分段设置不会使用较强的一致性、因此更改可用性较高。对这些设置所做的更改可能需要一段时间才能生效。
 
 * link:considerations-for-platform-services.html["平台服务配置：通知、复制或搜索集成"]
-* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["为分段和对象配置StorageGRID CORS"]
+* link:configuring-cross-origin-resource-sharing-cors.html["CORS配置"]
 * <<change-bucket-consistency,更改存储分段一致性>>
 
 

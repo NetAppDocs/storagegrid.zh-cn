@@ -15,8 +15,6 @@ summary: 平台服务包括 CloudMirror 复制，事件通知和搜索集成服�
 
 如果为 S3 租户帐户启用平台服务，则必须配置网格，以便租户可以访问使用这些服务所需的外部资源。
 
-不支持平台服务link:../tenant/manage-branch-buckets.html["分支存储分段"]。
-
 
 
 == CloudMirror 复制
@@ -25,16 +23,17 @@ StorageGRID CloudMirror复制服务用于将特定对象从StorageGRID存储分�
 
 例如，您可以使用 CloudMirror 复制将特定客户记录镜像到 Amazon S3 ，然后利用 AWS 服务对数据执行分析。
 
-CloudMirror复制与跨网格复制功能有一些重要的相似之处和不同之处。要了解更多信息，请参阅link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["请比较跨网格复制和CloudMirror复制"]。
+
+NOTE: CloudMirror复制与跨网格复制功能有一些重要的相似之处和不同之处。要了解更多信息，请参阅link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["请比较跨网格复制和CloudMirror复制"]。
 
 
-NOTE: 如果源存储分段启用了S3对象锁定、则不支持CloudMirror复制。
+NOTE: 如果源存储分段启用了 S3 对象锁定，则不支持 CloudMirror 复制。
 
 
 
 == 通知
 
-每个存储分段的事件通知用于将有关对对象执行的特定操作的通知发送到指定的外部Kafka集群、webhook端点或Amazon Simple Notification Service。
+每个存储分段的事件通知用于将有关对对象执行的特定操作的通知发送到指定的外部Kafka集群或Amazon Simple Notification Service。
 
 例如，您可以配置向管理员发送有关添加到存储分段中的每个对象的警报，这些对象表示与关键系统事件关联的日志文件。
 

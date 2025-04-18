@@ -30,7 +30,6 @@ summary: 默认情况下、首次安装StorageGRID时会启用StorageGRID AutoSu
 * *事件触发*：每小时或发生重大系统事件时自动发送AutoSupport软件包。默认设置： enabled 。
 * *按需*：允许技术支持请求您的StorageGRID系统自动发送AutoSupport软件包、这在他们正在使用问题描述时非常有用(需要HTTPS AutoSupport传输协议)。默认设置： disabled 。
 * *用户触发*：随时手动发送AutoSupport软件包。
-* *日志收集*：link:../monitor/collecting-log-files-and-system-data.html["手动收集日志文件和系统数据并发送AutoSupport软件包"]。
 
 
 

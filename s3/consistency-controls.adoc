@@ -1,10 +1,10 @@
 ---
-permalink: s3/consistency.html 
+permalink: s3/consistency-controls.html 
 sidebar: sidebar 
 keywords: consistency, consistency control, consistency values 
 summary: 一致性可在不同存储节点和站点之间的对象可用性与这些对象的一致性之间实现平衡。您可以根据应用程序的要求更改一致性。 
 ---
-= 一致性
+= 一致性值
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,15 @@ summary: 一致性可在不同存储节点和站点之间的对象可用性与�
 [role="lead"]
 一致性可在不同存储节点和站点之间的对象可用性与这些对象的一致性之间实现平衡。您可以根据应用程序的要求更改一致性。
 
-默认情况下， StorageGRID 保证新创建的对象的写入后读一致性。成功完成 PUT 后的任何 GET 都将能够读取新写入的数据。对现有对象的覆盖，元数据更新和删除最终保持一致。
+默认情况下， StorageGRID 保证新创建的对象的写入后读一致性。成功完成 PUT 后的任何 GET 都将能够读取新写入的数据。对现有对象的覆盖，元数据更新和删除最终保持一致。覆盖通常需要几秒钟或几分钟才能传播，但可能需要长达 15 天的时间。
 
 如果要以不同的一致性执行对象操作、您可以：
 
-* 为指定一致性<<bucket-consistency,每个存储分段>>。
+* 为指定一致性<<bucket-consistency-control,每个存储分段>>。
 * 为指定一致性<<api-operation-consistency-control,每个API操作>>。
 * 通过执行以下任务之一更改默认的网格范围一致性：
 +
-** 在网格管理器中，转至*配置*>*系统*>*存储设置*>*默认存储分段一致性*。
+** 在网格管理器中，转至*configuration*>*System*>*Storage settings *>*Default s一致 性*。
 ** (英文)
 +
 
@@ -79,7 +79,7 @@ NOTE: 对于PutObject和GetObject操作、必须使用相同的一致性。
 
 
 
-== [[bket-sistic]]指定存储分段的一致性
+== [[bket-sistery-control]]指定存储分段的一致性
 
 要设置存储分段的一致性、可以使用StorageGRIDlink:put-bucket-consistency-request.html["PUT 存储分段一致性"]请求。或者、也可以link:../tenant/manage-bucket-consistency.html#change-bucket-consistency["更改存储分段的一致性"]从租户管理器中执行此操作。
 
@@ -92,7 +92,7 @@ NOTE: 对于PutObject和GetObject操作、必须使用相同的一致性。
 
 
 
-== [[how－sisticy-and-ilm-맦 퓲-interact ]]如何通过一致性和ILM规则交互来影响数据保护
+== [[how－sistic-controls-and-ilm-맦 퓲-interact ]]如何通过一致性和ILM规则交互来影响数据保护
 
 您选择的一致性和ILM规则都会影响对象的保护方式。这些设置可以进行交互。
 

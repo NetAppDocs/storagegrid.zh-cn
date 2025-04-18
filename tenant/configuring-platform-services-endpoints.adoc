@@ -37,7 +37,7 @@ StorageGRID 支持表示 S3 存储分段的复制端点。这些存储分段可�
 
 == 通知的端点
 
-StorageGRID支持Amazon SNS、Kafka和webhook端点。不支持简单队列服务(Simple Queue Service、SQS)和AWS Lamba端点。
+StorageGRID支持Amazon SNS和Kafka端点。不支持简单队列服务(Simple Queue Service、SQS)或AWS Lamba端点。
 
 对于Kafka端点、不支持相互TLS。因此、如果 `ssl.client.auth`在Kafka代理配置中将设置为 `required`、则可能导致Kafka端点配置问题。
 

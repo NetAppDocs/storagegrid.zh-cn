@@ -347,7 +347,7 @@ S3应用程序将用于连接到外部负载平衡器的端口号。
 +
 租户名称不需要唯一。创建租户帐户时，它会收到一个唯一的数字帐户 ID 。
 
-. 根据您的StorageGRID系统是使用link:using-identity-federation.html["身份联合"]、link:how-sso-works.html["单点登录(SSO)"]还是同时使用这两者，定义租户帐户的root访问权限。
+. 根据您的StorageGRID系统是使用link:using-identity-federation.html["身份联合"]、link:configuring-sso.html["单点登录(SSO)"]还是同时使用这两者，定义租户帐户的root访问权限。
 +
 [cols="1a,2a"]
 |===

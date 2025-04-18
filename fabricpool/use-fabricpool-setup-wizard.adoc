@@ -56,7 +56,7 @@ TIP: 除非您知道自己有特殊要求、或者您的实施需要大量自定
 
 === 配置身份联合和SSO
 
-如果您计划对StorageGRID 系统使用身份联合或单点登录(SSO)、则已启用这些功能。此外、您还了解哪个联盟组应该对ONTAP 要使用的租户帐户具有root访问权限。请参阅link:../admin/using-identity-federation.html["使用身份联合"]和link:../admin/how-sso-works.html["配置单点登录"]。
+如果您计划对StorageGRID 系统使用身份联合或单点登录(SSO)、则已启用这些功能。此外、您还了解哪个联盟组应该对ONTAP 要使用的租户帐户具有root访问权限。请参阅link:../admin/using-identity-federation.html["使用身份联合"]和link:../admin/configuring-sso.html["配置单点登录"]。
 
 
 

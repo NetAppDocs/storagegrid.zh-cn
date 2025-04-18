@@ -1,38 +1,38 @@
 ---
-permalink: admin/creating-enterprise-application-entra-id.html 
+permalink: admin/creating-enterprise-application-azure.html 
 sidebar: sidebar 
-keywords: enterprise application, entra id, single sign on, sso 
-summary: 您可以使用Entra ID为系统中的每个管理节点创建企业应用程序。 
+keywords: enterprise application, azure ad, single sign on, sso 
+summary: 您可以使用 Azure AD 为系统中的每个管理节点创建企业级应用程序。 
 ---
-= 使用Entra ID创建企业级应用程序
+= 在 Azure AD 中创建企业级应用程序
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以使用Entra ID为系统中的每个管理节点创建企业应用程序。
+您可以使用 Azure AD 为系统中的每个管理节点创建企业级应用程序。
 
 .开始之前
-* 您已开始为StorageGRID配置单点登录，并选择了*Entra ID*作为SSO类型。
-* 网格管理器中有link:../admin/configure-sso.html#enter-sandbox-mode["已进入沙盒模式"]。
-* 系统中每个管理节点都有 * 企业级应用程序名称 * 。您可以从配置SSO页面上的管理节点详细信息表中复制这些值。
+* 您已开始为 StorageGRID 配置单点登录，并选择了 * Azure * 作为 SSO 类型。
+* 在网格管理器的单点登录页面上选择了 * 沙盒模式 * 。请参阅。 link:../admin/using-sandbox-mode.html["使用沙盒模式"]
+* 系统中每个管理节点都有 * 企业级应用程序名称 * 。您可以从 StorageGRID 单点登录页面上的管理节点详细信息表复制这些值。
 +
 
 NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建一个企业级应用程序。为每个管理节点配备一个企业级应用程序可确保用户可以安全地登录和注销任何管理节点。
 
-* 您具有使用Entra ID创建企业级应用程序的经验。
+* 您有在 Azure Active Directory 中创建企业级应用程序的经验。
 * 您有一个 Azure 帐户且订阅有效。
-* 您在Entra ID帐户中具有以下角色之一：全局管理员、云应用程序管理员、应用程序管理员或服务主体所有者。
+* 您在 Azure 帐户中具有以下角色之一：全局管理员，云应用程序管理员，应用程序管理员或服务主体的所有者。
 
 
 
 
-== 访问Entra ID
+== 访问 Azure AD
 
 .步骤
 . 登录到 https://portal.azure.com["Azure 门户"^]。
-. 导航到 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["输入ID"^]。
+. 导航到 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["Azure Active Directory"^]。
 . 选择。 https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["企业级应用程序"^]
 
 
@@ -40,23 +40,23 @@ NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建一个企业�
 
 == 创建企业级应用程序并保存 StorageGRID SSO 配置
 
-要在StorageGRID中保存Entra ID的SSO配置、必须使用Entra ID为每个管理节点创建一个企业应用程序。您将从Entra ID复制联合元数据URL并将其粘贴到配置SSO页面上相应的*联合元数据URL*字段中。
+要在StorageGRID 中保存Azure的SSO配置、您必须使用Azure为每个管理节点创建一个企业应用程序。您将从 Azure 复制联合元数据 URL ，并将其粘贴到 StorageGRID Single Sign-On 页面上对应的 * 联合元数据 URL* 字段中。
 
 .步骤
 . 对每个管理节点重复以下步骤。
 +
-.. 在Entra ID Enterprise应用程序窗格中，选择*New application*。
+.. 在 Azure Enterprise 应用程序窗格中，选择 * 新建应用程序 * 。
 .. 选择 * 创建您自己的应用程序 * 。
-.. 对于该名称，请输入您从“配置SSO”页面上的管理节点详细信息表中复制的*企业应用程序名称*。
+.. 对于此名称，请输入您从 StorageGRID Single Sign-On 页面上的管理节点详细信息表中复制的 * 企业应用程序名称 * 。
 .. 保持选中 * 集成在库（非库）中找不到的任何其他应用程序 * 单选按钮。
 .. 选择 * 创建 * 。
 .. 选择 * 。 2.设置单点登录 * 框，或者选择左侧边距中的 * 单点登录 * 链接。
 .. 选择 * SAML * 框。
 .. 复制 * 应用程序联合元数据 URL* ，该 URL 可在 * 步骤 3 SAML 签名证书 * 下找到。
-.. 转到配置SSO页面，并将URL粘贴到与您使用的*企业应用程序名称*对应的*联合元数据URL*字段中。
+.. 转到 StorageGRID 单点登录页面，然后将 URL 粘贴到与您使用的 * 企业应用程序名称 * 对应的 * 联合元数据 URL* 字段中。
 
 
-. 在为每个管理节点粘贴了联合元数据URL并对SSO配置进行了所有其他所需的更改之后，请在“配置SSO”页面上选择*保存*。
+. 为每个管理节点粘贴联合元数据 URL 并对 SSO 配置进行所有其他所需更改后，请在 StorageGRID Single Sign-On 页面上选择 * 保存 * 。
 
 
 
@@ -71,7 +71,7 @@ NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建一个企业�
 .. 从管理节点登录到 StorageGRID 。
 .. 选择 * 配置 * > * 访问控制 * > * 单点登录 * 。
 .. 选择按钮以下载此管理节点的 SAML 元数据。
-.. 保存要上传到Entra ID的文件。
+.. 保存要上传到 Azure AD 的文件。
 
 
 
@@ -80,7 +80,7 @@ NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建一个企业�
 
 == 将 SAML 元数据上传到每个企业级应用程序
 
-为每个StorageGRID管理节点下载SAML元数据文件后、请在Entra ID中执行以下步骤：
+为每个 StorageGRID 管理节点下载 SAML 元数据文件后，在 Azure AD 中执行以下步骤：
 
 .步骤
 . 返回到 Azure 门户。
@@ -98,5 +98,5 @@ NOTE: 您可能需要刷新 " 企业应用程序 " 页面才能查看先前在�
 .. 加载文件后，选择 * 保存 * ，然后选择 * X * 以关闭窗格。此时将返回到使用 SAML 设置单点登录页面。
 
 
-. link:../admin/configure-sso.html#test-sso["测试每个应用程序"](英文)
+. 按照中的步骤link:../admin/using-sandbox-mode.html["使用沙盒模式"]测试每个应用程序。
 

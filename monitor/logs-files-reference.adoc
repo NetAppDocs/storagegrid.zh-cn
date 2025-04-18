@@ -47,7 +47,7 @@ NOTE: 为每种日志类型提供的详细信息仅供参考。这些日志可�
 * 更好地了解负载平衡器上的流量划分器阻止的请求。
 
 
-要导出日志，请参见link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"]。
+要导出日志，请参见link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]。
 
 
 

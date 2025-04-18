@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
 summary: 在为StorageGRID 系统启用单点登录之前、请查看要求和注意事项。 
 ---
-= SSO的要求和注意事项
+= 单点登录的要求和注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ summary: 在为StorageGRID 系统启用单点登录之前、请查看要求和�
 StorageGRID 支持以下 SSO 身份提供程序（ IdP ）：
 
 * Active Directory 联合身份验证服务（ AD FS ）
-* 输入ID
+* Azure Active Directory （ Azure AD ）
 * PingFederate
 
 
@@ -35,16 +35,16 @@ StorageGRID 支持以下 SSO 身份提供程序（ IdP ）：
 Active Directory
  a| 
 * Active Directory
-* 输入ID
+* Azure
 * PingFederate
 
 
 
 
  a| 
-输入ID
+Azure
  a| 
-输入ID
+Azure
 
 |===
 

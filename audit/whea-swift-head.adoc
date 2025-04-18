@@ -2,7 +2,7 @@
 permalink: audit/whea-swift-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, WHEA, Swift HEAD 
-summary: 当Swift客户端发出head操作时、系统会请求检查是否存在帐户、容器或对象、并检索任何相关元数据。如果操作成功、服务器将发出此消息。 
+summary: 当 Swift 客户端发出 HEAD 事务时，系统会请求检查是否存在帐户，容器或对象，并检索任何相关元数据。如果事务成功，服务器将发出此消息。 
 ---
 = WHEA ： Swift head
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 当Swift客户端发出head操作时、系统会请求检查是否存�
 
 
 [role="lead"]
-当Swift客户端发出head操作时、系统会请求检查是否存在帐户、容器或对象、并检索任何相关元数据。如果操作成功、服务器将发出此消息。
+当 Swift 客户端发出 HEAD 事务时，系统会请求检查是否存在帐户，容器或对象，并检索任何相关元数据。如果事务成功，服务器将发出此消息。
 
 [cols="1a,1a,4a"]
 |===
@@ -52,7 +52,7 @@ RSLT
  a| 
 结果代码
  a| 
-机头操作的结果。结果始终为：
+HEAD 事务的结果。结果始终为：
 
 SUC ：成功
 

@@ -32,7 +32,7 @@ TIP: StorageGRID 管理员必须使用网格管理器或网格管理 API 为每�
 
 == 如何配置平台服务
 
-平台服务可与使用或配置的外部端点进行通信link:configuring-platform-services-endpoints.html["租户管理器"]link:understanding-tenant-management-api.html["租户管理 API"]。每个端点表示一个外部目标、例如StorageGRID S3存储分段、Amazon Web Services存储分段、Amazon SNS主题、webhook端点或本地、AWS或其他位置托管的ElanicSearch集群。
+平台服务可与使用或配置的外部端点进行通信link:configuring-platform-services-endpoints.html["租户管理器"]link:understanding-tenant-management-api.html["租户管理 API"]。每个端点表示一个外部目标、例如StorageGRID S3存储分段、Amazon Web Services存储分段、Amazon SNS主题或本地、AWS或其他位置托管的ElanicSearch集群。
 
 创建外部端点后、您可以通过向存储分段添加XML配置来为该存储分段启用平台服务。XML 配置可确定存储分段应处理的对象，存储分段应执行的操作以及存储分段应用于服务的端点。
 

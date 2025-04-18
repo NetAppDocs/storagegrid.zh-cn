@@ -2,7 +2,7 @@
 permalink: admin/changing-provisioning-passphrase.html 
 sidebar: sidebar 
 keywords: provisioning passphrase, change passphrase 
-summary: 使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，扩展和维护过程需要密码短语。下载恢复软件包备份时、还需要使用密码短语、其中包括StorageGRID系统的网格拓扑信息、网格节点控制台密码和加密密钥。 
+summary: 使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，扩展和维护过程需要密码短语。下载恢复软件包备份时也需要使用密码短语，其中包括网格拓扑信息，网格节点控制台密码以及 StorageGRID 系统的加密密钥。 
 ---
 = 更改配置密码短语
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，
 
 
 [role="lead"]
-使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，扩展和维护过程需要密码短语。下载恢复软件包备份时、还需要使用密码短语、其中包括StorageGRID系统的网格拓扑信息、网格节点控制台密码和加密密钥。
+使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，扩展和维护过程需要密码短语。下载恢复软件包备份时也需要使用密码短语，其中包括网格拓扑信息，网格节点控制台密码以及 StorageGRID 系统的加密密钥。
 
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
@@ -20,17 +20,14 @@ summary: 使用此操作步骤 更改 StorageGRID 配置密码短语。恢复，
 
 
 .关于此任务
-许多安装和维护过程以及都需要配置密码短语link:../maintain/downloading-recovery-package.html["正在下载恢复软件包"]。配置密码短语未在此文件中列出 `Passwords.txt`。请务必记录配置密码短语并将其保存在安全的位置。
+许多安装和维护过程以及都需要配置密码短语link:../maintain/downloading-recovery-package.html["正在下载恢复包"]。配置密码短语未在此文件中列出 `Passwords.txt`。请务必记录配置密码短语并将其保存在安全的位置。
 
 .步骤
 . 选择 * 配置 * > * 访问控制 * > * 网格密码 * 。
 . 在*更改配置密码短语*下，选择*进行更改*
 . 输入当前配置密码短语。
 . 输入新密码短语。密码短语必须至少包含 8 个字符，并且不能超过 32 个字符。密码短语区分大小写。
-+
-
-CAUTION: 将配置密码短语存储在安全位置。安装、扩展和维护过程都需要使用它。
-
+. 将新配置密码短语存储在安全位置。安装，扩展和维护过程需要使用它。
 . 重新输入新密码短语，然后选择 * 保存 * 。
 +
 配置密码短语更改完成后，系统将显示一个绿色的成功横幅。
@@ -42,6 +39,6 @@ image::../media/change_provisioning_passphrase_success.png[已更改配置密码
 . 输入新的配置密码短语以下载新的恢复软件包。
 +
 
-CAUTION: 更改配置密码短语后、必须立即下载新的恢复软件包。恢复软件包文件允许您在发生故障时还原系统。
+CAUTION: 更改配置密码短语后，您必须立即下载新的恢复软件包。通过恢复包文件，您可以在发生故障时还原系统。
 
 

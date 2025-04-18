@@ -42,7 +42,7 @@ summary: 您可以使用更改 IP 工具更改一个或多个节点的网络配�
 NOTE: 不允许IP地址交换。如果必须在网格节点之间交换 IP 地址，则必须使用临时中间 IP 地址。
 
 
-NOTE: 如果为 StorageGRID 系统启用了单点登录（ SSO ），并且您要更改管理节点的 IP 地址，请注意，使用管理节点的 IP 地址（而不是建议的完全限定域名）配置的任何依赖方信任都将无效。您将无法再登录到此节点。更改 IP 地址后，您必须立即使用新的 IP 地址更新或重新配置 Active Directory 联合身份验证服务（ AD FS ）中节点的依赖方信任。请参阅的说明link:../admin/configure-sso.html["正在配置SSO"]。
+NOTE: 如果为 StorageGRID 系统启用了单点登录（ SSO ），并且您要更改管理节点的 IP 地址，请注意，使用管理节点的 IP 地址（而不是建议的完全限定域名）配置的任何依赖方信任都将无效。您将无法再登录到此节点。更改 IP 地址后，您必须立即使用新的 IP 地址更新或重新配置 Active Directory 联合身份验证服务（ AD FS ）中节点的依赖方信任。请参阅的说明link:../admin/configuring-sso.html["正在配置SSO"]。
 
 
 NOTE: 使用更改 IP 工具对网络所做的任何更改都会传播到 StorageGRID 设备的安装程序固件。这样，如果在设备上重新安装 StorageGRID 软件，或者将设备置于维护模式，则网络配置将正确无误。
@@ -208,44 +208,3 @@ Updating grid network configuration on Name
 
 
 
-
-
-
-== 临时更改LACP PDU速率
-
-要对设备中安装的网络组件执行维护操作(例如升级NIC固件)、您可以检查当前的LACP PDU速率设置。如果需要、您还可以在快速和慢速之间非持久切换LACP PDU速率。
-
-
-NOTE: 要永久更改LACP PDU速率，请参阅 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["配置网络链路"^]。
-
-.开始之前
-* 管理节点已安装并正在运行。
-* 您已获得 `Passwords.txt`文件。
-
-
-.步骤
-. 登录到主管理节点：
-+
-.. 输入以下命令： `ssh admin@primary_Admin_Node_IP`
-.. 输入文件中列出的密码 `Passwords.txt`。
-.. 输入以下命令切换到root： `su -`
-.. 输入文件中列出的密码 `Passwords.txt`。
-+
-当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
-
-
-
-. 要检查当前的LACP PDU速率设置、请输入以下命令：
-+
-`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate'`
-
-. 要临时更改LACP PDU速率、请输入以下命令：
-+
-`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate _<speed>_'`
-
-+
-其中 `_<version-number>_`是 `fast`或 `slow`。
-
-
-
-下次重新启动设备时、LACP PDU速率将还原为先前设置。

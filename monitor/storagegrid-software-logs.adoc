@@ -14,7 +14,7 @@ summary: 您可以使用 StorageGRID 日志对问题进行故障排除。
 您可以使用 StorageGRID 日志对问题进行故障排除。
 
 
-NOTE: 如果要将日志发送到外部系统日志服务器或更改审核信息的目标(如 `bycast.log`和) `nms.log`，请参见link:../monitor/configure-audit-messages.html#["配置审核消息和外部系统日志服务器"]。
+NOTE: 如果要将日志发送到外部系统日志服务器或更改审核信息的目标(如 `bycast.log`和) `nms.log`，请参见link:../monitor/configure-audit-messages.html#["配置审核消息和日志目标"]。
 
 
 

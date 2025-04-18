@@ -24,7 +24,7 @@ indexpage:
     - title: 管理组权限
       url: "../admin/admin-group-permissions.html"
     - title: 配置单点登录
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: 使用网格联盟
     links:
     - title: 什么是网格联合？

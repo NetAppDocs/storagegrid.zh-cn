@@ -20,10 +20,6 @@ summary: 如果允许 S3 租户使用平台服务，则必须为网格配置网�
 * 本地托管的 Elasticsearch 集群
 * 支持接收Amazon Simple Notification Service消息的本地应用程序
 * 本地托管的Kafka集群
-* 支持HTTP POST通知请求的外部或本地托管的webhook端点。
-+
-此端点可以托管在各种Web服务器、框架或Data Processing工具(如Fluentd)上。
-
 * 同一个或另一个 StorageGRID 实例上本地托管的 S3 存储分段
 * 外部端点，例如 Amazon Web Services 上的端点。
 

@@ -19,6 +19,9 @@ summary: 在安装完成之前， StorageGRID 设备安装程序会提供状态�
 "Monitor Installation" 页面将显示安装进度。
 
 +
+image::../media/monitor_installation_services_appl.png[监控器安装—服务设备]
+
++
 蓝色状态栏指示当前正在进行的任务。绿色状态条表示已成功完成的任务。
 
 +
@@ -40,7 +43,13 @@ NOTE: 安装程序可确保先前安装中完成的任务不会重新运行。�
 . 继续监控安装进度，直到出现以下情况之一：
 +
 ** 对于设备网关节点或非主设备管理节点， * 安装 StorageGRID * 阶段将暂停，嵌入式控制台上会显示一条消息，提示您使用网格管理器在管理节点上批准此节点。
++
+image::../media/monitor_installation_install_sgws.gif[图像通过周围的文本进行说明]
+
 ** 对于设备主管理节点，将显示第五阶段（ Load StorageGRID 安装程序）。如果第五阶段的进度超过 10 分钟，请手动刷新页面。
++
+image::../media/monitor_reinstallation_primary_admin.png[主管理节点重新安装第 5 阶段的屏幕截图]
+
 
 
 . 针对要恢复的设备网格节点类型、转到恢复过程的下一步。

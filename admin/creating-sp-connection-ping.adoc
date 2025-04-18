@@ -15,12 +15,12 @@ summary: 您可以使用 PingFederate 为系统中的每个管理节点创建服
 
 .开始之前
 * 您已为 StorageGRID 配置单点登录，并选择了 * Ping 联邦 * 作为 SSO 类型。
-* 网格管理器中有link:../admin/configure-sso.html#enter-sandbox-mode["已进入沙盒模式"]。
-* 您拥有系统中每个管理节点的 * SP 连接 ID* 。您可以在配置SSO页面上的管理节点详细信息表中找到这些值。
+* 在网格管理器的单点登录页面上选择了 * 沙盒模式 * 。请参阅。 link:../admin/using-sandbox-mode.html["使用沙盒模式"]
+* 您拥有系统中每个管理节点的 * SP 连接 ID* 。您可以在 StorageGRID 单点登录页面上的管理节点详细信息表中找到这些值。
 * 您已为系统中的每个管理节点下载 * SAML 元数据 * 。
 * 您在 PingFederate 服务器中创建 SP 连接的经验。
 * 您有https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["《管理员参考指南》"^]用于PingFedate服务器的。PingFederate 文档提供了详细的分步说明和说明。
-* 您有link:../admin/admin-group-permissions.html["管理员权限"]用于PingFedate服务器的。
+* 您有link:admin-group-permissions.html["管理员权限"]用于PingFedate服务器的。
 
 
 .关于此任务
@@ -109,7 +109,7 @@ TIP: 您必须为 StorageGRID 系统中的每个管理节点创建一个 SP 连�
 
 .步骤
 . 在导入元数据选项卡上，选择 * 文件 * 。
-. 从"配置SSO"页面为管理节点选择已下载的SAML元数据文件。
+. 选择从管理节点的 StorageGRID 单点登录页面下载的 SAML 元数据文件。
 . 查看"元数据摘要"以及"常规信息"选项卡上提供的信息。
 +
 合作伙伴的实体 ID 和连接名称设置为 StorageGRID SP 连接 ID 。（例如 10.96.105.200-DC1-ADM1-105-200 ）。基本 URL 是 StorageGRID 管理节点的 IP 。

@@ -145,6 +145,9 @@ NOTE: 如果您需要一次部署多个设备节点、可以使用设备安装�
 
 . 从 StorageGRID 设备安装程序主页中，选择 * 开始安装 * 。
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[本图通过周围的文字进行了说明。]
+
++
 当前状态将更改为"正在进行安装"、并显示"监视器安装"页面。
 
 . 如果扩展包含多个设备节点，请对每个设备重复上述步骤。
@@ -155,6 +158,9 @@ NOTE: 如果您需要一次部署多个设备存储节点，则可以使用 conf
 . 如果需要手动访问监控器安装页面，请从菜单栏中选择 * 监控器安装 * 。
 +
 "Monitor Installation" 页面将显示安装进度。
+
++
+image::../media/monitor_installation_configure_storage.gif[此图通过周围文字进行了说明。]
 
 +
 蓝色状态栏指示当前正在进行的任务。绿色状态条表示已成功完成的任务。
@@ -185,5 +191,8 @@ NOTE: 安装程序可确保先前安装中完成的任务不会重新运行。�
 +
 
 NOTE: 等待您在此扩展中添加的所有节点都准备好进行批准，然后再转到网格管理器来批准这些节点。
+
++
+image::../media/monitor_installation_install_sgws.gif[此图通过周围文字进行了说明。]
 
 

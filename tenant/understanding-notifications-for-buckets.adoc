@@ -11,7 +11,7 @@ summary: 如果您希望StorageGRID向目标Kafka集群或Amazon Simple Notifica
 
 
 [role="lead"]
-如果您希望StorageGRID将有关指定事件的通知发送到目标Kafka集群、webhook端点或Amazon Simple Notification Service、则可以为S3分段启用事件通知。
+如果您希望StorageGRID向目标Kafka集群或Amazon Simple Notification Service发送有关指定事件的通知、则可以为S3存储分段启用事件通知。
 
 例如，您可以配置向管理员发送有关添加到存储分段中的每个对象的警报，这些对象表示与关键系统事件关联的日志文件。
 

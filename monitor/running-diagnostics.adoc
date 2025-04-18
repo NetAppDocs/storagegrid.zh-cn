@@ -38,7 +38,7 @@ summary: 在对问题描述 进行故障排除时，您可以与技术支持一�
 此时将显示 "Diagnostics " 页面，其中列出了每个诊断检查的结果。结果将按严重性（ " 小心 " ， " 注意 " 和 " 正常 " ）进行排序。在每个严重性范围内，结果按字母顺序排序。
 
 +
-在本示例中、一个诊断程序的状态为警示、三个诊断程序的状态为正常。
+在此示例中，所有诊断均处于正常状态。
 
 +
 image::../media/support_diagnostics_page.png[支持诊断页面]
@@ -55,18 +55,18 @@ image::../media/support_diagnostics_page.png[支持诊断页面]
 
 NOTE: 您不能更改这些阈值。
 
-** *状态值*：显示整个StorageGRID系统中诊断状态和值的图形和表(屏幕截图中未显示此表)。在此示例中，显示了 StorageGRID 系统中每个节点的当前 CPU 利用率。所有节点值均低于警示和警示阈值，因此诊断的整体状态为正常。
+** * 状态值 * ：显示整个 StorageGRID 系统中诊断的状态和值的表。在此示例中，显示了 StorageGRID 系统中每个节点的当前 CPU 利用率。所有节点值均低于警示和警示阈值，因此诊断的整体状态为正常。
+
+
 +
-image::../media/support_diagnostics_cpu_utilization.png[诊断状态值示例]
+image::../media/support_diagnostics_cpu_utilization.png[支持诊断 CPU 利用率]
 
-
-
-. *可选*：要查看与此诊断相关的Grafana图表，请选择*Grafana信息板*。
+. * 可选 * ：要查看与此诊断相关的 Grafana 图表，请单击 * Grafana dashboard* 链接。
 +
 并非所有诊断都显示此链接。
 
 +
-此时将显示相关的 Grafana 信息板。在此示例中、将显示节点信息板、其中显示此节点的CPU利用率随时间的变化、以及此节点的其他Grafana图表。
+此时将显示相关的 Grafana 信息板。在此示例中，将显示节点信息板，其中显示了此节点的 CPU 利用率随时间变化以及此节点的其他 Grafana 图表。
 
 +
 

@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0使用网格管理API版本4。版本4已弃用版本3；但是、版本1、2和3仍受支持。 
+summary: StorageGRID版本是使用网格管理API版本4的。版本4已弃用版本3；但是、版本1、2和3仍受支持。 
 ---
 = 对网格管理 API 进行的更改
 :allow-uri-read: 
@@ -11,21 +11,42 @@ summary: StorageGRID 12.0使用网格管理API版本4。版本4已弃用版本3�
 
 
 [role="lead"]
-StorageGRID 12.0使用网格管理API版本4。版本4已弃用版本3；但是、版本1、2和3仍受支持。
+StorageGRID版本是使用网格管理API版本4的。版本4已弃用版本3；但是、版本1、2和3仍受支持。
 
 
-NOTE: 您可以继续在StorageGRID 12.0中使用已弃用的管理API版本；但是、在未来的StorageGRID版本中、将不再支持这些版本的API。升级到StorageGRID 12.0后、您可以使用API停用已弃用的API `PUT /grid/config/management`。
+NOTE: 您可以继续在StorageGRID 11.9中使用已弃用的管理API版本；但是、在未来的StorageGRID版本中、将不再支持这些版本的API。升级到StorageGRID版本之后、您可以使用API停用已弃用的API `PUT /grid/config/management`。
 
 要了解更多信息，请访问link:../admin/using-grid-management-api.html["使用网格管理 API"]。
 
 
 
-== 用于移动ADC的新专用端点
+== 启用全局S3对象锁定后、请查看合规性设置
 
-添加了以下专用端点、可用于link:../maintain/move-adc-service.html["移动ADC服务"]从一个存储节点到同一站点上的另一个存储节点：
+启用全局S3对象锁定设置后、请查看现有租户的合规性设置。启用此设置时、每个租户的S3对象锁定设置取决于创建租户时的StorageGRID版本。
 
-`/private/move-adc`
 
-`/private/move-adc/start`
 
-`/private/move-adc/retry`
+== 已删除原有mgmt-API请求
+
+已删除以下原有请求：
+
+`/grid/server-types`
+
+`/grid/ntp-roles`
+
+
+
+== 对API进行的更改 `GET /private/storage-usage`
+
+* 响应正文中添加了一个新属性，即 `usageCacheDuration`。此属性指定使用情况查找缓存保持有效的持续时间(以秒为单位)。根据租户存储配额和存储分段容量限制检查使用情况时、此值适用。
+* 此 `GET /api/v4/private/storage-usage`行为已得到更正、以便与模式中的嵌套匹配。
+* 这些更改仅适用于专用API。
+
+
+
+
+== 对API进行的更改 `GET cross-grid-replication`
+
+org/containers/:name/cross-grid复制* get API不再需要root access (`manageAllContainers`)(`rootAccess`权限；但是，您必须属于具有Manage All Buc分 段)或View All Buc分 段(查看所有分段)(`viewAllContainers`权限的用户组。
+
+org/containers/:name/cross-grid复制* put API保持不变，仍然需要root访问(`rootAccess`权限。

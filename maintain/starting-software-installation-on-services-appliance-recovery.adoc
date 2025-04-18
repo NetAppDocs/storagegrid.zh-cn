@@ -48,6 +48,9 @@ NOTE: 在制造过程中，服务设备会预加载最新版本的 StorageGRID �
 +
 此时将显示 StorageGRID 设备安装程序主页页面。
 
++
+image::../media/services_appliance_installer_gateway_node.png[设备安装程序主页]
+
 . 安装主管理节点：
 +
 .. 在 "This Node" 部分中，对于 "* 节点类型 " ，选择 "* 主管理 * " 。
@@ -58,7 +61,10 @@ NOTE: 在制造过程中，服务设备会预加载最新版本的 StorageGRID �
 
 .. 如果需要上传其他版本的软件，请在 * 高级 * 菜单下选择 * 上传 StorageGRID 软件 * 。
 +
-此时将显示"Upload StorageGRID Software"页面。
+此时将显示上传 StorageGRID 软件页面。
+
++
+image::../media/upload_sw_for_pa_on_sga1000.png[周围文本所述的屏幕截图]
 
 .. 单击 * 浏览 * 上传适用于 StorageGRID 软件的 * 软件包 * 和 * 校验和文件 * 。
 +
@@ -75,7 +81,7 @@ NOTE: 在制造过程中，服务设备会预加载最新版本的 StorageGRID �
 +
 假设主管理节点或至少一个配置了 admin_ip 的其他网格节点位于同一子网上， StorageGRID 设备安装程序可以自动发现此 IP 地址。
 
-.. 如果未显示此IP地址或您需要更改它、请指定地址：
+.. 如果未显示此 IP 地址或您需要更改此 IP 地址，请指定地址：
 
 
 +
@@ -107,7 +113,7 @@ NOTE: 在制造过程中，服务设备会预加载最新版本的 StorageGRID �
 |===
 . 在 "Installation_section_steP]] 中，确认当前状态为 Ready to start installation of node name 且 * Start Installation* 按钮已启用。
 +
-如果*开始安装*按钮未启用，则可能需要更改网络配置或端口设置。请参阅设备的维护说明。
+如果未启用 * 开始安装 * 按钮，则可能需要更改网络配置或端口设置。有关说明、请参见设备的维护说明。
 
 . 在 StorageGRID 设备安装程序主页中，单击 * 开始安装 * 。
 +

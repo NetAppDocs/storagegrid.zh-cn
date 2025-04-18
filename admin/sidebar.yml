@@ -61,23 +61,23 @@ entries:
     url: "/admin/managing-users.html"
   - title: 使用单点登录（ SSO ）
     entries:
-    - title: SSO 的工作原理
-      url: "/admin/how-sso-works.html"
-    - title: SSO的要求
+    - title: 配置单点登录
+      url: "/admin/configuring-sso.html"
+    - title: 单点登录的要求
       url: "/admin/requirements-for-sso.html"
     - title: 确认联合用户可以登录
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: 配置 SSO
-      url: "/admin/configure-sso.html"
+    - title: 使用沙盒模式
+      url: "/admin/using-sandbox-mode.html"
     - title: 在 AD FS 中创建依赖方信任
       url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: 使用Entra ID创建企业级应用程序
-      url: "/admin/creating-enterprise-application-entra-id.html"
+    - title: 在 Azure 中创建企业级应用程序
+      url: "/admin/creating-enterprise-application-azure.html"
     - title: 在 PingFederate 中创建 SP 连接
       url: "/admin/creating-sp-connection-ping.html"
-    - title: 禁用SSO
+    - title: 禁用单点登录
       url: "/admin/disabling-single-sign-on.html"
-    - title: 为一个管理节点临时禁用并重新启用SSO
+    - title: 临时禁用并重新启用一个管理节点的单点登录
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
 - title: 使用网格联盟
   entries:

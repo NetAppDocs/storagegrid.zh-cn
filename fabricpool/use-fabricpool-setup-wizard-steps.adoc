@@ -365,7 +365,7 @@ FabricPool 将用于连接到外部负载平衡器的端口号。
 .新租户和存储分段
 --
 . 要创建新租户和存储分段，请输入*租户名称*。例如， `FabricPool tenant`。
-. 根据您的StorageGRID系统是使用link:../admin/using-identity-federation.html["身份联合"]、link:../admin/how-sso-works.html["单点登录(SSO)"]还是同时使用这两者，定义租户帐户的root访问权限。
+. 根据您的StorageGRID系统是使用link:../admin/using-identity-federation.html["身份联合"]、link:../admin/configuring-sso.html["单点登录(SSO)"]还是同时使用这两者，定义租户帐户的root访问权限。
 +
 [cols="1a,3a"]
 |===

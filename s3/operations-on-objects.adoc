@@ -15,7 +15,7 @@ summary: 本节介绍 StorageGRID 系统如何对对象实施 S3 REST API 操作
 
 以下条件适用于所有对象操作：
 
-* 对对象执行的所有操作均支持StorageGRIDlink:consistency.html["一致性值"]、但以下操作除外：
+* 对对象执行的所有操作均支持StorageGRIDlink:consistency-controls.html["一致性值"]、但以下操作除外：
 +
 ** GetObjectAcl
 ** `OPTIONS /`

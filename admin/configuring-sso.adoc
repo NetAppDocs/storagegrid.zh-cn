@@ -1,17 +1,21 @@
 ---
-permalink: admin/how-sso-works.html 
+permalink: admin/configuring-sso.html 
 sidebar: sidebar 
-keywords: single sign on, sso, SAML 
-summary: '启用单点登录(SSO)后、只有在使用贵组织实施的SSO登录过程授权了用户凭据的情况下、用户才能访问网格管理器、租户管理器、网格管理API或租户管理API。本地用户无法登录到 StorageGRID 。' 
+keywords: configure single sign on, sso, SAML 
+summary: 启用单点登录（ SSO ）后，只有在用户凭据通过贵组织实施的 SSO 登录过程获得授权的情况下，用户才能访问网格管理器，租户管理器，网格管理 API 或租户管理 API 。本地用户无法登录到 StorageGRID 。 
 ---
-= SSO 的工作原理
+= 配置单点登录
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-启用单点登录(SSO)后、只有在使用贵组织实施的SSO登录过程授权了用户凭据的情况下、用户才能访问网格管理器、租户管理器、网格管理API或租户管理API。本地用户无法登录到StorageGRID。
+启用单点登录（ SSO ）后，只有在用户凭据通过贵组织实施的 SSO 登录过程获得授权的情况下，用户才能访问网格管理器，租户管理器，网格管理 API 或租户管理 API 。本地用户无法登录到StorageGRID。
+
+
+
+== 单点登录的工作原理
 
 StorageGRID 系统支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标准的单点登录（ SSO ）。
 
@@ -19,7 +23,7 @@ StorageGRID 系统支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标�
 
 
 
-== 启用 SSO 后登录
+=== 启用 SSO 后登录
 
 启用 SSO 并登录到 StorageGRID 后，系统会将您重定向到组织的 SSO 页面以验证您的凭据。
 
@@ -29,13 +33,19 @@ StorageGRID 系统支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标�
 此时将显示 StorageGRID 登录页面。
 
 +
-** 如果这是您首次在此浏览器上访问此URL、系统将提示您输入帐户ID。
-** 如果您以前访问过网格管理器或租户管理器、系统会提示您选择最近的帐户或输入帐户ID。
+** 如果这是您首次在此浏览器上访问此 URL ，系统将提示您输入帐户 ID ：
++
+image::../media/sso_sign_in_first_time.png[首次登录时启用 SSO]
+
+** 如果您之前访问过网格管理器或租户管理器，系统将提示您选择最近的帐户或输入帐户 ID ：
++
+image::../media/sign_in_sso.png[启用 StorageGRID 时登录页面]
+
+
+
 +
 
 NOTE: 如果输入租户帐户的完整StorageGRID (即完全限定域名或IP地址，后跟)，则不会显示“URL登录”页面 `/?accountId=_20-digit-account-id_`。而是会立即重定向到您所在组织的SSO登录页面，您可以在该页面中<<signin_sso,使用您的 SSO 凭据登录>>进行登录。
-
-
 
 . 指示您是要访问网格管理器还是租户管理器：
 +
@@ -46,6 +56,9 @@ NOTE: 如果输入租户帐户的完整StorageGRID (即完全限定域名或IP�
 . 选择 * 登录 *
 +
 StorageGRID 会将您重定向到贵组织的 SSO 登录页面。例如：
+
++
+image::../media/sso_organization_page.gif[SSO 的示例组织登录页面]
 
 . 【签名 _sso]] 使用您的 SSO 凭据登录。
 +
@@ -69,7 +82,7 @@ NOTE: 如果此服务帐户不可访问，则只要您是具有 StorageGRID 访�
 
 
 
-== 启用 SSO 后注销
+=== 启用 SSO 后注销
 
 为 StorageGRID 启用 SSO 后，注销时会发生什么情况取决于您登录到的内容以及注销的位置。
 
@@ -78,10 +91,6 @@ NOTE: 如果此服务帐户不可访问，则只要您是具有 StorageGRID 访�
 . 选择*注销*。
 +
 此时将显示 StorageGRID 登录页面。更新了 * 近期帐户 * 下拉列表，其中包含 * 网格管理器 * 或租户名称，以便您将来可以更快地访问这些用户界面。
-
-+
-
-TIP: 下表总结了在使用单个浏览器会话时注销时会发生的情况。如果您通过多个浏览器会话登录到 StorageGRID ，则必须单独注销所有浏览器会话。
 
 +
 [cols="1a,1a,1a"]
@@ -125,3 +134,6 @@ TIP: 下表总结了在使用单个浏览器会话时注销时会发生的情况
 
 |===
 
+
+
+NOTE: 下表总结了在使用单个浏览器会话时注销时会发生的情况。如果您通过多个浏览器会话登录到 StorageGRID ，则必须单独注销所有浏览器会话。

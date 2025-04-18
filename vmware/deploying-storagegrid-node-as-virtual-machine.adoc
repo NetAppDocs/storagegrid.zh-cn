@@ -160,7 +160,7 @@ NOTE: 如果要恢复网格节点，则必须输入要恢复的节点的名称�
 .. 使用*临时安装密码*下拉列表指定临时安装密码，以便在新节点加入网格之前访问VM控制台或StorageGRID安装API，或者使用SSH。
 +
 
-NOTE: 临时安装密码仅在节点安装期间使用。将节点添加到网格后，您可以使用link:../admin/change-node-console-password.html["节点控制台密码"](在恢复软件包的文件中列出) `Passwords.txt`来访问该节点。
+NOTE: 临时安装密码仅在节点安装期间使用。将节点添加到网格后，您可以使用(link:../admin/change-node-console-password.html["节点控制台密码"]在恢复软件包的文件中列出) `Passwords.txt`来访问该节点。
 
 +
 *** *使用节点名称*：您为*节点名称*字段提供的值用作临时安装密码。

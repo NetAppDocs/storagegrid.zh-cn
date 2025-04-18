@@ -23,7 +23,7 @@ settings:
   langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0.
+  - title: StorageGRID 11.9文档
     url: "/index.html"
   - title: StorageGRID设备
     url: "/storagegrid-hardware.html"
@@ -84,7 +84,7 @@ sidebar:
     entries:
     - title: 网格维护
       url: "/maintain/index.html"
-    - title: 下载恢复软件包
+    - title: 下载恢复包
       url: "/maintain/downloading-recovery-package.html"
     - title: 停用节点或站点
       entries:
@@ -102,10 +102,6 @@ sidebar:
             url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
           - title: ADC仲裁
             url: "/maintain/understanding-adc-service-quorum.html"
-          - title: 移动ADC服务
-            url: "/maintain/move-adc-service.html"
-          - title: 转换为纯数据节点
-            url: "/maintain/convert-to-data-only-node.html"
           - title: 查看 ILM 策略和存储配置
             url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
           - title: 整合存储节点

@@ -83,6 +83,9 @@ NOTE: 恢复设备存储节点时、请使用与原始设备相同的存储类�
 
 . 在 StorageGRID 设备安装程序主页中，单击 * 开始安装 * 。
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[此图通过周围的文字进行了说明。]
+
++
 当前状态将更改为"正在进行安装"、并显示"监视器安装"页面。
 
 +

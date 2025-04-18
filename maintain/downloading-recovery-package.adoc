@@ -2,16 +2,16 @@
 permalink: maintain/downloading-recovery-package.html 
 sidebar: sidebar 
 keywords: storagegrid, recovery package 
-summary: 恢复软件包文件允许您在发生故障时还原StorageGRID系统。 
+summary: 通过恢复包文件，您可以在发生故障时还原 StorageGRID 系统。 
 ---
-= 下载恢复软件包
+= 下载恢复包
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-恢复软件包文件允许您在发生故障时还原StorageGRID系统。
+通过恢复包文件，您可以在发生故障时还原 StorageGRID 系统。
 
 .开始之前
 * 在主管理节点中，您可以使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
@@ -19,7 +19,7 @@ summary: 恢复软件包文件允许您在发生故障时还原StorageGRID系统
 * 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
 
 
-在对StorageGRID系统进行网格拓扑更改之前或升级软件之前、请下载当前恢复软件包文件。然后、在更改网格拓扑后或升级软件后下载新的恢复软件包副本。
+在对 StorageGRID 系统进行网格拓扑更改之前或升级软件之前，请下载当前的恢复软件包文件。然后，在更改网格拓扑或升级软件后下载恢复包的新副本。
 
 .步骤
 . 选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
@@ -28,9 +28,9 @@ summary: 恢复软件包文件允许您在发生故障时还原StorageGRID系统
 下载将立即开始。
 
 . 下载完成后、打开 `.zip`文件并确认您可以访问其中的内容、包括 `Passwords.txt`文件。
-. 将下载的恢复软件包文件复制(`.zip`到两个安全、独立的位置。
+. 将下载的恢复软件包文件(`.zip`()复制到两个安全、安全、独立的位置。
 +
 
-CAUTION: 恢复软件包文件必须受到保护、因为它包含可用于从StorageGRID 系统获取数据的加密密钥和密码。
+CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
 
 
