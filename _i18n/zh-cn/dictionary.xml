@@ -22072,7 +22072,7 @@
   <block id="6a64e9fc562766a7f6b1689dd486f4a7" category="paragraph"><block ref="27706d6f60316253cf081a1ba27f02f2" category="inline-link-macro-rx"></block>现在、包含更好的匹配逻辑、使您可以通过搜索常见缩写和按页面中某些设置的名称来查找页面。您还可以搜索更多类型的项目、例如节点、用户和租户帐户。</block>
   <block id="ac9e1e2bf1a207a1d05e2ed264526547" category="admonition">临时安装密码仅在节点安装期间使用。将节点添加到网格后，您可以使用(<block ref="2ec3f906b92d969fc17249306583d340" category="inline-link-macro-rx"></block>在恢复软件包的文件中列出)<block ref="28325afa13c532a62489ef0d7bee3061" prefix=" " category="inline-code"></block>来访问该节点。</block>
   <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="sidebar">StorageGRID 11.9文档</block>
-  <block id="f1b48448e2c7ce36850ff6ee0cf84515" category="sidebar">StorageGRID 11.9文档</block>
   <block id="347afcb3de2c9c49a08bf435cf79f443" category="sidebar">单点登录的要求</block>
   <block id="10c56c2b95c28fe773fe6d60b1a0b05a" category="sidebar">在 Azure 中创建企业级应用程序</block>
+  <block id="62ac0c5174767d68b645672d105a4ec3" category="sidebar">StorageGRID软件文档</block>
 </blocks>
