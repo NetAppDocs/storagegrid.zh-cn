@@ -7893,7 +7893,6 @@
   <block id="eb3db80ec2336fd5596023f87be5485d" category="paragraph">90 GB</block>
   <block id="0df51dc869c05895b3417062b8239a22" category="paragraph">对象数据</block>
   <block id="7d3a49cf894d799795ce950c6315ec33" category="paragraph">此主机上的每个存储节点 3 个</block>
-  <block id="5fbe1be68e07b3a60e4d84e1fa23507c" category="paragraph">* 注： * 基于软件的存储节点可以包含 1 到 16 个存储卷；建议至少使用 3 个存储卷。</block>
   <block id="09a7b6154058cee76fceb704a851fdf8" category="inline-xref">存储节点的存储要求</block>
   <block id="64b17463568d05370bbd62fe9964694b" category="paragraph">12 TB (4 TB/LUN)有关详细信息、请参见<block ref="afc45619ce9e6bcbd3743fbd6af36714" category="inline-xref-macro-rx"></block>。</block>
   <block id="cf17d726d00fffcd024da613027d3c4f" category="paragraph">存储节点(仅限元数据)</block>
@@ -7922,8 +7921,6 @@
   <block id="1f11313abbd1ddd6eac432557b57842d" category="paragraph">* 容器池： * 300 GB</block>
   <block id="18ca1cd6f10f9d1afbea672bf64ff5ba" category="paragraph">* 系统数据： * 670GB</block>
   <block id="4f936569b0076d3dee0f2ee943177d4c" category="paragraph">* 对象数据： * 12 ， 000 GB</block>
-  <block id="21fd745fc8c85861b4954f9b73b0cadd" category="paragraph">一个基于软件的存储节点可以包含 1 到 16 个存储卷—建议使用 3 个或更多存储卷。每个存储卷应大于或等于 4 TB 。</block>
-  <block id="b23308487ff68b966a0faaa2d491972b" category="admonition">一个设备存储节点最多可以包含 48 个存储卷。</block>
   <block id="68dcfdb403fe85daa76650a6b31b08bf" category="paragraph">如图所示， StorageGRID 会为每个存储节点的存储卷 0 上的对象元数据预留空间。存储卷 0 和存储节点中的任何其他存储卷上的任何剩余空间专用于对象数据。</block>
   <block id="412facad8cbb1cfae91f321a836cefa4" category="paragraph">为了提供冗余并防止对象元数据丢失， StorageGRID 会为每个站点的系统中的所有对象存储三个元数据副本。对象元数据的三个副本均匀分布在每个站点的所有存储节点上。</block>
   <block id="dda39577d588a2228ae04a1a5837c660" category="paragraph">在安装包含纯元数据存储节点的网格时、网格还必须包含用于对象存储的最少节点数。有关纯元数据存储节点的详细信息、请参见<block ref="8e49185a846f0d976af4a2b64adfc64f" category="inline-link-macro-rx"></block>。</block>
@@ -15184,14 +15181,12 @@
   <block id="c479bf6d01ccf731d2aa34984b90aef7" category="inline-link-macro">监控存储容量并绘制图表</block>
   <block id="174e58d1780c09732ea24ad166e3fb09" category="paragraph">绘制整体存储容量的消耗速度图表有助于您了解要在扩展中添加多少存储以及何时需要额外存储空间。您可以使用网格管理器<block ref="ee4dd4f47c7f00295e821e32d0c67648" category="inline-link-macro-rx"></block>。</block>
   <block id="9e5ee88c5422cac1e5bba5993123e4bd" category="paragraph">在规划扩展的时间时，请务必考虑购买和安装额外存储可能需要多长时间。</block>
-  <block id="e13c477a6cd13b89c334ef81d8f9f798" category="summary">您可以通过添加其他存储卷来扩展存储卷数量不超过 16 个的存储节点的存储容量。您可能需要将存储卷添加到多个存储节点，以满足对复制的或经过纠删编码的副本的 ILM 要求。</block>
   <block id="846344959768642083beeda8a60a8279" category="doc">将存储卷添加到存储节点</block>
   <block id="09e91e9533de61221745c8e99edc073c" category="inline-link-macro">添加对象容量的准则</block>
   <block id="9802525c216e9a62d1507f773c521ffa" category="paragraph">在添加存储卷之前、请查看<block ref="cc67dbb4e97043c00aebb97ddc580449" category="inline-link-macro-rx"></block>以确保您知道要将卷添加到何处以满足ILM策略的要求。</block>
   <block id="80c41098192177786ef3a9e33a7ee233" category="inline-link">将扩展架添加到已部署的SG6060</block>
   <block id="002c5b52cccb8df3acc3fed409d4cf3f" category="inline-link">将扩展架添加到已部署的SG6160</block>
   <block id="2be6ad5e2e5b8183e8ce21da7c80bb45" category="admonition">这些说明仅适用于基于软件的存储节点。请参见<block ref="80939074506991608b6e5cc84f728c9b" category="inline-link-rx"></block>或<block ref="ef34b01068ea7c3e677ab9e27b749868" category="inline-link-rx"></block>、了解如何通过安装扩展架向SG6060或SG6160添加存储卷。无法扩展其他设备存储节点。</block>
-  <block id="23abdd34ef84f4aef0cd76a623df7bb3" category="paragraph">存储节点的底层存储分为多个存储卷。存储卷是基于块的存储设备，由 StorageGRID 系统格式化并挂载以存储对象。每个存储节点最多可支持 16 个存储卷，在网格管理器中称为 _object stores_ 。</block>
   <block id="bd236d9d3bcb1d3c04b6cc8eb036653a" category="admonition">对象元数据始终存储在对象存储 0 中。</block>
   <block id="a5f6c2ca086c7266530d1fa443b47f9f" category="paragraph">每个对象存储都挂载在与其 ID 对应的卷上。例如、ID为0000的对象存储对应于<block ref="fb8e0763a6ea6baa7d3ce4773c2ef12d" prefix=" " category="inline-code"></block>挂载点。</block>
   <block id="631a2b7b5594b31ac84ca1924efe03d5" category="paragraph">在添加新存储卷之前，请使用网格管理器查看每个存储节点的当前对象存储以及相应的挂载点。您可以在添加存储卷时使用此信息。</block>
@@ -15539,7 +15534,6 @@
   <block id="7584324fbb5b4f308291afe39ae1fa57" category="inline-link-macro">经过编程的对象</block>
   <block id="1c4dad7c1e632f228233c95b3af8fdf4" category="list-text">您必须检查当前的ILM规则，以确定在何处以及何时<block ref="2e1803269a2fa2f25aefd111db6c60a8" category="inline-link-macro-rx"></block>增加或<block ref="52a6bc3f78038d090b01507e9786a12f" category="inline-link-macro-rx"></block>的可用存储<block ref="7d3caadb2757c5cf8926cac1c3a3be75" category="inline-link-macro-rx"></block>。</block>
   <block id="37bdecae27704c73159076aa2b720da2" category="list-text">您不能通过添加存储卷来增加系统的元数据容量、因为对象元数据仅存储在卷0上。</block>
-  <block id="2c6290648dce2c705d937655137229d6" category="list-text">每个基于软件的存储节点最多可支持 16 个存储卷。如果您需要添加的容量超出此范围，则必须添加新的存储节点。</block>
   <block id="2f06840ff142d0bafc26d86604af5659" category="list-text">您可以向每个SG6060设备添加一个或两个扩展架。每个扩展架可添加16个存储卷。如果安装了这两个扩展架、SG6060总共可支持48个存储卷。</block>
   <block id="e4c94823822eb560adf47c0c8c4401e4" category="list-text">您可以向每个SG6160设备添加一个或两个扩展架。每个扩展架可添加60个存储卷。如果安装了这两个扩展架、SG6160总共可支持180个存储卷。</block>
   <block id="b0142299ae4aa7466f64b9bfa95eaf6a" category="list-text">您不能将存储卷添加到任何其他存储设备。</block>
@@ -15593,7 +15587,6 @@
   <block id="78c96aa64afd88831f01462151a9f424" category="open-title">添加新站点</block>
   <block id="8444fc9328e42b467d09b960901aff3f" category="inline-link-macro">添加新站点</block>
   <block id="2986969b5148d66e805f3a37ca40a73e" category="list-text">按照的步骤进行操作<block ref="39ac7e48aa71b338aa6610e68c70fd2a" category="inline-link-macro-rx"></block>。</block>
-  <block id="dd2a065fb261e525830f85844976e790" category="summary">如果某个存储节点包含的存储卷少于 16 个，则可以通过添加新的块存储设备，使其对 Linux 主机可见，并将新的块设备映射添加到用于该存储节点的 StorageGRID 配置文件来增加其容量。</block>
   <block id="1f607e36bfae0ed8067e84e06ffaf6bc" category="list-text">您可以访问有关为 Linux 平台安装 StorageGRID 的说明。</block>
   <block id="b0880c1b676e67050270238d3222c66f" category="admonition">在软件升级、恢复操作步骤 或其他扩展操作步骤 处于活动状态时、请勿尝试向存储节点添加存储卷。</block>
   <block id="85fc2381be7174b5fcf6a658841aad37" category="paragraph">添加存储卷时，此存储节点将暂时不可用。您应一次在一个存储节点上执行此操作步骤 ，以避免影响面向客户端的网格服务。</block>
@@ -15792,7 +15785,6 @@
   <block id="6239bec365055baf85b0e5fcfed82750" category="list-text">选择 * 节点 * &gt; * 扩展存储节点 _* &gt; * 存储 * 。</block>
   <block id="b372d526b93e8b57f9c7f19633288356" category="list-text">将光标置于*已用存储-对象数据*图形上方可查看*已用*的值，即已用于对象数据的总可用空间量。</block>
   <block id="11aed68e02a00262e86b22e6fe8e59ab" category="list-text">将光标移至图形右侧时，请验证 * 已用 * 的值是否正在增加。</block>
-  <block id="e92c5373eb703a3ef302c2133943f358" category="summary">如果某个存储节点包含的存储卷少于 16 个，则可以使用 VMware vSphere 添加卷来增加其容量。</block>
   <block id="3897360f54ba898d463f8ce18c60b35d" category="list-text">您可以访问有关安装适用于 VMware 的 StorageGRID 部署的说明。</block>
   <block id="e6050c9475e86115a8d66d604cc71dce" category="list-text">如有必要，请安装新的存储硬件并创建新的 VMware 数据存储库。</block>
   <block id="6bb1adcd234c86fe49b5934d4025481d" category="list-text">向虚拟机添加一个或多个硬盘以用作存储（对象存储）。</block>
@@ -21076,7 +21068,6 @@
   <block id="4a2ae3ed1fe842f4ec4578150c1ed669" category="paragraph">200 GB LUN ，用于管理节点表</block>
   <block id="a702e2880b2ff959d45f40003d1769c3" category="paragraph">200 GB LUN ，用于管理节点审核日志</block>
   <block id="f9fe44cce94cbc903afd79e26e2a9fff" category="paragraph">此主机上每个存储节点 3 个 LUN</block>
-  <block id="6a8412966fa8b8dc8c8a3c6b8d4482e3" category="paragraph">* 注 * ：一个存储节点可以包含 1 到 16 个存储 LUN ；建议至少使用 3 个存储 LUN 。</block>
   <block id="4178b8f061d209db837e9a0d0f49f3b8" category="paragraph">每个 LUN 的最小大小： 4 TB</block>
   <block id="23db49193604131ae89ef0d00fde3211" category="paragraph">测试的最大 LUN 大小： 39 TB 。</block>
   <block id="389fd1e4330521add4f39f8416246691" category="paragraph">1个LUN</block>
@@ -22075,4 +22066,13 @@
   <block id="347afcb3de2c9c49a08bf435cf79f443" category="sidebar">单点登录的要求</block>
   <block id="10c56c2b95c28fe773fe6d60b1a0b05a" category="sidebar">在 Azure 中创建企业级应用程序</block>
   <block id="62ac0c5174767d68b645672d105a4ec3" category="sidebar">StorageGRID软件文档</block>
+  <block id="904e1054af13ad291a33f039db48d8ca" category="summary">您可以通过添加其他存储卷来扩展存储卷数量不超过 48 个的存储节点的存储容量。您可能需要将存储卷添加到多个存储节点，以满足对复制的或经过纠删编码的副本的 ILM 要求。</block>
+  <block id="0c9004ee19e04ed92f3531cd179d7377" category="paragraph">存储节点的底层存储分为多个存储卷。存储卷是基于块的存储设备，由 StorageGRID 系统格式化并挂载以存储对象。每个存储节点最多可支持 48 个存储卷，在网格管理器中称为 _object stores_ 。</block>
+  <block id="0ffa4284271560fc408b40f2deb860ad" category="list-text">每个基于软件的存储节点最多可支持 48 个存储卷。如果您需要添加的容量超出此范围，则必须添加新的存储节点。</block>
+  <block id="9e598ab3d52b41fc3850c87c46b25170" category="summary">如果某个存储节点包含的存储卷少于 48 个，则可以通过添加新的块存储设备，使其对 Linux 主机可见，并将新的块设备映射添加到用于该存储节点的 StorageGRID 配置文件来增加其容量。</block>
+  <block id="9a095d6bfb2a2e358857f45f6d5e9c1c" category="summary">如果某个存储节点包含的存储卷少于 48 个，则可以使用 VMware vSphere 添加卷来增加其容量。</block>
+  <block id="694eae39e46e7948c79ff767c6f7a7f9" category="paragraph">* 注： * 基于软件的存储节点可以包含 1 到 48 个存储卷；建议至少使用 3 个存储卷。</block>
+  <block id="33bdc9df10550b8b609ca4a2e41d11f2" category="paragraph">基于软件的存储节点可以有 1 到 48 个存储卷；建议 3 个或更多存储卷。每个存储卷应大于或等于 4 TB 。</block>
+  <block id="c4fa5f0f5e66f145d0a0e8bbfe05601f" category="admonition">设备存储节点还可以拥有最多 48 个存储卷。</block>
+  <block id="2722dd00588cd9ed5f9edf892f03cf99" category="paragraph">* 注 * ：一个存储节点可以包含 1 到 48 个存储 LUN ；建议至少使用 3 个存储 LUN 。</block>
 </blocks>
