@@ -13,16 +13,8 @@ summary: 存储节点上的底层存储分为多个对象存储。对象存储�
 [role="lead"]
 存储节点上的底层存储分为多个对象存储。对象存储也称为存储卷。
 
-您可以查看每个存储节点的对象存储信息。对象存储显示在 * 节点 * > * 存储节点 _* > * 存储 * 页面的底部。
+您可以查看每个存储节点的对象存储信息。选择*节点* > *存储节点* > *存储*。
 
 image::../media/nodes_page_storage_nodes_storage_tables.png[节点页面存储节点存储表]
-
-要查看更多信息link:../monitor/viewing-grid-topology-tree.html["有关每个存储节点的详细信息"]，请执行以下步骤：
-
-. 选择 * 支持 * > * 工具 * > * 网格拓扑 * 。
-. 选择 * 站点 _* > * 存储节点 _* > * LDR* > * 存储 * > * 概述 * > * 主 * 。
-
-
-image::../media/storage_node_object_stores.png[存储节点对象存储]
 
 根据故障的性质，存储卷的故障可能会反映在中link:../monitor/alerts-reference.html["存储卷警报"]。如果存储卷发生故障，您应尽快修复故障存储卷，以将存储节点还原到完整功能。如有必要，您可以转到*Configuration*选项卡，以便StorageGRID系统可以使用该选项卡link:../maintain/checking-storage-state-after-recovering-storage-volumes.html["将存储节点置于只读‐状态"]进行数据检索，同时为服务器的完全恢复做准备。

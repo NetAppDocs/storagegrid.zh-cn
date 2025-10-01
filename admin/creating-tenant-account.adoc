@@ -13,7 +13,7 @@ summary: 您必须至少创建一个租户帐户，才能控制对 StorageGRID �
 [role="lead"]
 您必须至少创建一个租户帐户，才能控制对 StorageGRID 系统中存储的访问。
 
-根据是否配置和以及用于创建租户帐户的link:configuring-sso.html["单点登录"]Grid Manager帐户是否属于具有root访问权限的管理员组、创建租户帐户的步骤会有所不同link:using-identity-federation.html["身份联合"]。
+创建租户帐户的步骤取决于link:using-identity-federation.html["身份联合"]和link:how-sso-works.html["单点登录"]是否配置，以及用于创建租户帐户的网格管理器帐户是否属于具有 Root 访问权限的管理员组。
 
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
@@ -42,7 +42,7 @@ TIP: 如果在创建租户之前此管理员组不在两个网格上、则不会
 == 访问向导
 
 .步骤
-. 选择 * 租户 * 。
+. 选择*租户*。
 . 选择 * 创建 * 。
 
 
@@ -77,9 +77,7 @@ TIP: 如果在创建租户之前此管理员组不在两个网格上、则不会
  a| 
 客户端类型
  a| 
-此租户将使用的客户端协议类型，即*S3*或*swift。
-
-*注意*：对Swift客户端应用程序的支持已弃用、将在未来版本中删除。
+必须为*S3*。
 
 
 
@@ -118,7 +116,7 @@ NOTE: 其中某些权限还有其他要求。有关详细信息、请选择每�
  a| 
 使用自己的身份源
  a| 
-租户可以为联盟组和用户配置和管理自己的身份源。如果您的StorageGRID系统具有、则此选项将被禁用link:../admin/configuring-sso.html["已配置SSO"]。
+租户可以为联合组和用户配置和管理自己的身份源。如果您有以下情况，则此选项被禁用link:../admin/how-sso-works.html["已配置SSO"]适用于您的StorageGRID系统。
 
 
 
@@ -290,7 +288,7 @@ TIP: 在更改密码之前、本地root用户无法登录到目标网格上的�
  a| 
 端口 443
  a| 
-* 在网格管理器中，选择 * 租户 * ，然后选择租户名称右侧的 * 登录 * 。
+* 从网格管理器中，选择“租户”，然后选择租户名称右侧的“Sign in”。
 * 在 Web 浏览器中输入租户的 URL ：
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ TIP: 在更改密码之前、本地root用户无法登录到目标网格上的�
  a| 
 受限端口
  a| 
-* 在网格管理器中，选择 * 租户 * ，然后选择 * 受限 * 。
+* 从网格管理器中，选择*租户*，然后选择*受限*。
 * 在 Web 浏览器中输入租户的 URL ：
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

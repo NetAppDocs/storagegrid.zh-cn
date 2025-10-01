@@ -40,6 +40,7 @@ summary: 您可以在管理网络子网列表中添加，删除或更改一个�
 
 ====
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 登录到主管理节点：
 +
 .. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
@@ -102,7 +103,7 @@ image::../media/change_ip_tool_aesl_sample_input.gif[更改 IP 工具示例]
 . 准备好后，输入 * 。 q* 可返回主菜单屏幕。您所做的更改将一直保留，直到清除或应用为止。
 +
 
-NOTE: 如果您在步骤2中选择了任一"全部"节点选择模式，请按*Enter*(不带*q*)进入列表中的下一个节点。
+NOTE: 如果您在步骤 3 中选择了任何“全部”节点选择模式，请按 *Enter*（不带 *q*）转到列表中的下一个节点。
 
 . 选择以下选项之一：
 +
@@ -151,10 +152,11 @@ Updating grid network configuration on Name
 ----
 
 
-. 从网格管理器下载新的恢复软件包。
+. 从网格管理器下载新的恢复包。
 +
-.. 选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
+.. 选择*维护* > *系统* > *恢复包*。
 .. 输入配置密码短语。
 
 
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当您完成添加或更改子网列表后。
 

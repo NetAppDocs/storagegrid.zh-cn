@@ -38,27 +38,6 @@ link:sdel-s3-delete.html["SDEL ： S3 delete"]
 |===
 
 
-== Swift 删除审核消息
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| 代码 | 名称 | 说明 | 跟踪 | 请参见 
-
-
- a| 
-WDEL
- a| 
-Swift 删除
- a| 
-请求从容器或容器中删除对象。
- a| 
-CBID ， WOBJ
- a| 
-link:wdel-swift-delete.html["WDEL ： Swift delete"]
-
-|===
-
-
 == 示例： S3 对象删除
 
 当 S3 客户端从存储节点（ LDR 服务）中删除对象时，系统会生成一条审核消息并将其保存到审核日志中。

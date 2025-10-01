@@ -1,0 +1,28 @@
+= 
+:allow-uri-read: 
+
+
+* *all*：所有节点都会立即接收对象元数据、否则请求将失败。
+* *强全局*：保证所有站点上所有客户端请求的读写一致性。配置 Quorum 语义时，将应用以下行为：
++
+** 当网格具有三个或更多站点时，允许对客户端请求进行站点故障容忍。双站点电网不具备站点故障容忍能力。
+** 如果一个站点发生故障，以下 S3 操作将无法成功：
++
+*** DeleteBucketEncryption
+*** PutBucketBranch
+*** PutBucketEncryption
+*** PutBucketVersioning
+*** PutObjectLegalHold
+*** PutObjectLockConfiguration
+*** PutObject保留
+
+
+
+
++
+如果需要，您可以 https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["配置StorageGRID Quorum 语义以实现强全局一致性"^]。
+
+* *strong-sit*：对象元数据会立即分发到站点上的其他节点。保证站点内所有客户端请求的写入后读一致性。
+* *read-after-new-write*：为新对象提供写入后读取一致性，并最终为对象更新提供一致性。提供高可用性和数据保护保证。建议用于大多数情况。
+* *可用*：为新对象和对象更新提供最终一致性。对于S3存储分段、请仅在需要时使用(例如、对于包含很少读取的日志值的存储分段、或者对于不存在的密钥执行HEAD或GET操作)。S3 FabricPool 存储分段不支持。
+

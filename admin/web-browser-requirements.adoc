@@ -21,24 +21,24 @@ summary: 您必须使用受支持的 Web 浏览器。
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-您应将浏览器窗口设置为建议的宽度。
+将浏览器窗口设置为建议的宽度。
 
 [cols="3a,1a"]
 |===

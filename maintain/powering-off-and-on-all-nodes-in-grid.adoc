@@ -33,6 +33,7 @@ NOTE: 如果一台主机包含多个网格节点、则在停止该主机上的�
 NOTE: 如果需要、您可以link:linux-migrating-grid-node-to-new-host.html["将节点从一台 Linux 主机迁移到另一台 Linux 主机"]在不影响网格功能或可用性的情况下执行主机维护。
 
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 停止所有客户端应用程序访问网格。
 . 【登录到每个网关节点】登录到每个网关节点：
 +
@@ -141,6 +142,7 @@ NOTE: 如果您发出 `service servermanager stop`命令以停止设备存储节
 +
 此时， StorageGRID 网格已关闭。
 
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当您关闭完节点后。
 
 
 
@@ -171,7 +173,7 @@ NOTE: 在重新启动存储节点之前，您将无法登录到管理节点。
 
 . 启动所有网关节点的主机。
 . 登录到网格管理器。
-. 选择 * 节点 * 并监控网格节点的状态。验证节点名称旁边是否没有警报图标。
+. 选择*节点*并监控网格节点的状态。验证节点名称旁边没有警报图标。
 
 
 .相关信息

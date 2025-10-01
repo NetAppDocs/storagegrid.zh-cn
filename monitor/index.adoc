@@ -39,8 +39,8 @@ NOTE: 要更改网格管理器中显示的存储值的单位，请选择网格�
 
 * link:managing-alerts.html["管理警报"]
 * link:logs-files-reference.html["查看日志文件"]
-* link:configure-audit-messages.html["配置审核消息和日志目标"]
+* link:configure-log-management.html["配置日志管理和外部系统日志服务器"]
 * link:considerations-for-external-syslog-server.html["使用外部系统日志服务器"]收集审核信息
 * link:using-snmp-monitoring.html["使用SNMP进行监控"]
-* link:using-charts-and-reports.html["获取其他StorageGRID数据"]，包括度量和诊断
+* link:manage-io-prioritization.html["更改 I/O 优先级"]改变 I/O 操作的相对优先级
 

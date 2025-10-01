@@ -30,7 +30,7 @@ summary: 您可以创建管理组来管理一个或多个管理员用户的安�
 === 访问向导
 
 .步骤
-. 选择 * 配置 * > * 访问控制 * > * 管理组 * 。
+. 选择*配置* > *访问控制* > *管理组*。
 . 选择 * 创建组 * 。
 
 
@@ -62,7 +62,7 @@ summary: 您可以创建管理组来管理一个或多个管理员用户的安�
 . 选择 * 联合组 * 。
 . 输入要导入的组的名称，与此名称在配置的身份源中显示的名称完全相同。
 +
-** 对于 Active Directory 和 Azure ，请使用 sAMAccountName 。
+** 对于 Active Directory 和 Microsoft Entra ID，使用 sAMAccountName。
 ** 对于 OpenLDAP ，请使用 CN （公用名）。
 ** 对于另一个 LDAP ，请为 LDAP 服务器使用适当的唯一名称。
 

@@ -73,4 +73,4 @@ CAUTION: SelectObjectContent 请求会降低所有 S3 客户端和所有租户�
 
 请参见link:../s3/use-s3-select.html["有关使用 S3 Select 的说明"]。
 
-要查看link:../monitor/reviewing-support-metrics.html["Grafana 图表"]S3 Select操作随时间的变化，请在网格管理器中选择*support*>*Tools*>*Metrics *。
+查看link:../monitor/reviewing-support-metrics.html["Grafana 图表"]对于 S3 选择随时间推移的操作，在网格管理器中选择 *支持* > *工具* > *指标*。

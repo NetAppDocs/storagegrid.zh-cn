@@ -2,7 +2,7 @@
 permalink: audit/shea-s3-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SHEA, S3 HEAD 
-summary: 当 S3 客户端发出 HEAD 事务时，系统会请求检查是否存在对象或存储分段，并检索有关对象的元数据。如果事务成功，服务器将发出此消息。 
+summary: 当 S3 客户端发出 HEAD 操作时，会发出请求来检查对象或存储桶是否存在并检索有关对象的元数据。如果操作成功，服务器将发出此消息。 
 ---
 = Shea ： S3 机头
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 当 S3 客户端发出 HEAD 事务时，系统会请求检查是否存�
 
 
 [role="lead"]
-当 S3 客户端发出 HEAD 事务时，系统会请求检查是否存在对象或存储分段，并检索有关对象的元数据。如果事务成功，服务器将发出此消息。
+当 S3 客户端发出 HEAD 操作时，会发出请求来检查对象或存储桶是否存在并检索有关对象的元数据。如果操作成功，服务器将发出此消息。
 
 [cols="1a,1a,4a"]
 |===

@@ -117,11 +117,10 @@ image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]
 
 *已解决警报*：您可以搜索和查看已解决警报的历史记录。
 
-您也可以观看以下视频： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["视频：警报概述"^]
+或者，您已经观看了视频：
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[视频：警报概述]
-
+.警报概述
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 下表介绍了网格管理器中显示的当前警报和已解决警报的信息。
 
 [cols="1a,3a"]

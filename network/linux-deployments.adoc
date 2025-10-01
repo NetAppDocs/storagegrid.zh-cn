@@ -1,7 +1,7 @@
 ---
 permalink: network/linux-deployments.html 
 sidebar: sidebar 
-keywords: linux network, container engine, red hat enterprise linux rhel network, ubuntu network 
+keywords: linux network, container engine, red hat enterprise linux network, rhel network, ubuntu network 
 summary: 为了提高效率，可靠性和安全性， StorageGRID 系统在 Linux 上作为一组容器引擎运行。StorageGRID 系统不需要与容器引擎相关的网络配置。 
 ---
 = Linux 部署
@@ -18,7 +18,7 @@ summary: 为了提高效率，可靠性和安全性， StorageGRID 系统在 Lin
 
 CAUTION: 不要直接使用绑定或网桥设备作为容器网络接口。这样做可能会由于内核问题描述 在容器命名空间中对绑定和网桥设备使用 macvlan 而阻止节点启动。
 
-请参见或部署的安装说明link:../rhel/index.html["Red Hat Enterprise Linux"]。link:../ubuntu/index.html["Ubuntu 或 Debian"]
+查看link:../swnodes/index.html["安装说明"]。
 
 
 
@@ -41,12 +41,14 @@ NOTE: 主机本身以及主机上运行的一个或多个节点均可使用主�
 * 打开主机所需的端口。
 * 如果要在 StorageGRID 中使用 VLAN 接口，则主机必须具有一个或多个中继接口，以提供对所需 VLAN 的访问。这些接口可以作为 eth0 ， eth2 或其他接口传递到节点容器中。要添加中继或访问接口，请参见以下内容：
 +
-** *RHEL (安装节点之前)*：link:../rhel/creating-node-configuration-files.html["创建节点配置文件"]
-** *Ubuntu或Debian (安装节点之前)*：link:../ubuntu/creating-node-configuration-files.html["创建节点配置文件"]
-** *RHEL、Ubuntu或Debian (安装节点后)*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：向节点添加中继或访问接口"]
+** *Linux（安装节点之前）*：link:../swnodes/creating-node-configuration-files.html["创建节点配置文件"]
+** *Linux（安装节点后）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["向节点添加中继或访问接口"]
 
 
 
+
+
+NOTE: “Linux”指的是 RHEL、Ubuntu 或 Debian 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 
 
@@ -132,8 +134,4 @@ NOTE: 此表不包括访问共享存储所需的 SAN 带宽。如果您使用的
 
 在这种情况下，您应至少提供 11 + 20 + 10 = 41 Gbps 的网络带宽， 可通过两个 40 Gbps 接口或五个 10 Gbps 接口来满足，这些接口可能聚合为中继，然后由三个或更多 VLAN 共享，这些 VLAN 承载主机所在物理数据中心的本地网格，管理和客户端子网。
 
-有关在 StorageGRID 集群中的主机上配置物理和网络资源以准备 StorageGRID 部署的一些建议方法，请参见以下内容：
-
-* link:../rhel/configuring-host-network.html["配置主机网络(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html["配置主机网络（ Ubuntu 或 Debian ）"]
-
+有关在StorageGRID集群中的主机上配置物理和网络资源以准备StorageGRID部署的一些推荐方法，请参阅link:../swnodes/configuring-host-network.html["配置主机网络"]。

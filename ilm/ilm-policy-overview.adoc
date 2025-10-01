@@ -26,7 +26,7 @@ CAUTION: 配置不正确的 ILM 策略可能导致无法恢复的数据丢失。
 * 如果网格包含多个站点、则默认规则会复制每个站点上每个对象的一个副本。
 
 
-如果默认策略不满足您的存储要求、您可以创建自己的规则和策略。请参阅link:what-ilm-rule-is.html["创建ILM规则"]和link:creating-ilm-policy.html["创建ILM策略"]。
+如果默认策略不能满足您的存储要求，您可以创建自己的规则和策略。看link:what-ilm-rule-is.html["创建ILM规则"]和link:creating-ilm-policy.html["创建ILM策略"]。
 
 
 
@@ -56,6 +56,11 @@ ILM策略标记:: 如果要允许租户在每个存储分段的多个数据保�
 例如、您可能有三个标记、分别名为Gold、Silver和Bronze。您可以根据ILM策略存储对象的时长和位置为每个标记分配ILM策略。租户可以通过标记其存储分段来选择要使用的策略。标记为Gold的存储分段由Gold策略管理、并获得Gold级别的数据保护和性能。
 
 --
+
+
+
+NOTE: 你可以link:../ilm/creating-ilm-policy.html#activate-ilm-policy["最多创建 10 个策略标签"]为您的网格。
+
 默认ILM策略标记:: 安装StorageGRID时、系统会自动创建默认ILM策略标记。每个网格都必须有一个分配给默认标记的活动策略。默认策略适用于任何未标记的S3存储分段。
 
 

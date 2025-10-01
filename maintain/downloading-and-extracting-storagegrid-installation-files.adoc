@@ -41,7 +41,7 @@ StorageGRID 软件版本采用以下格式： 11.x.y 。
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -62,9 +62,12 @@ VMware
 +
 步骤中为每个平台列出的路径与归档文件安装的顶级目录相对。
 
-. 如果要恢复link:../rhel/index.html["Red Hat Enterprise Linux系统"]，请选择相应的文件。
-
-
+. 如果你正在恢复link:../swnodes/index.html["基于软件的节点"]，选择相应的文件：
++
+[role="tabbed-block"]
+====
+.RHEL
+--
 [cols="1a,1a"]
 |===
 | 路径和文件名 | 说明 
@@ -139,9 +142,9 @@ StorageGRID 的 API 架构。
 *注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
 
 |===
-. 如果要恢复link:../ubuntu/index.html["Ubuntu 或 Debian 系统"]，请选择相应的文件。
-
-
+--
+.Ubuntu 或 Debian
+--
 [cols="1a,1a"]
 |===
 | 路径和文件名 | 说明 
@@ -221,9 +224,9 @@ StorageGRID 的 API 架构。
 *注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
 
 |===
-. 如果要恢复link:../vmware/index.html["VMware 系统"]，请选择相应的文件。
-
-
+--
+.VMware
+--
 [cols="1a,1a"]
 |===
 | 路径和文件名 | 说明 
@@ -318,8 +321,15 @@ StorageGRID 的 API 架构。
 *注意*：如果您没有用于升级兼容性测试的非生产StorageGRID 环境，则在执行升级之前，可以使用这些模式来确认为使用StorageGRID 管理API而编写的任何代码是否与新的StorageGRID 版本兼容。
 
 |===
+--
+====
+
+
 . 如果要恢复基于 StorageGRID 设备的系统，请选择相应的文件。
 
+
+
+NOTE: 对于设备安装，仅当您需要避免网络流量时才需要这些文件。设备可以从您执行恢复过程的管理节点下载所需的文件。
 
 [cols="1a,1a"]
 |===
@@ -336,5 +346,3 @@ StorageGRID 的 API 架构。
 images-version-SHA.deb`。
 
 |===
-
-NOTE: 对于设备安装，只有在需要避免网络流量时，才需要这些文件。设备可以从主管理节点下载所需文件。

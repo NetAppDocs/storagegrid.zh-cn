@@ -25,7 +25,7 @@ summary: 您可以监控有关所有网格联合连接的基本信息、有关�
 "网格联盟"页面显示有关所有网格联盟连接以及允许使用网格联盟连接的所有租户帐户的基本信息。
 
 .步骤
-. 选择*configuration*>*System*>*Grid Federation。
+. 选择*配置* > *系统* > *网格联合*。
 +
 此时将显示Grid Federation页面。
 
@@ -107,7 +107,7 @@ image::../media/grid-federation-certificates-tab.png[grid联合证书选项卡]
 您可以使用Grafana中的跨网格复制信息板查看有关网格上跨网格复制操作的Prometheus指标。
 
 .步骤
-. 在网格管理器中，选择*support*>*Tools*>*Metrics *。
+. 从网格管理器中，选择*支持* > *工具* > *指标*。
 +
 
 NOTE: 指标页面上提供的工具供技术支持使用。这些工具中的某些功能和菜单项有意不起作用，可能会发生更改。请参见列表link:../monitor/commonly-used-prometheus-metrics.html["常用的 Prometheus 指标"]。

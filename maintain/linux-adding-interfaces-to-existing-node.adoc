@@ -13,11 +13,7 @@ summary: 按照以下步骤将管理网络或客户端网络上的接口添加�
 [role="lead"]
 按照以下步骤将管理网络或客户端网络上的接口添加到安装后的 Linux 节点中。
 
-如果在安装期间未在 Linux 主机上的节点配置文件中配置 admin_network_target 或 client_network_target ，请使用此操作步骤 添加接口。有关节点配置文件的详细信息，请参见适用于 Linux 操作系统的说明：
-
-* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-
+如果在安装期间未在 Linux 主机上的节点配置文件中配置 ADMIN_NETWORK_TARGET 或 CLIENT_NETWORK_TARGET，请使用此过程添加接口。有关节点配置文件的更多信息，请参阅link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"]。
 
 您可以在托管需要新网络分配的节点的 Linux 服务器上执行此操作步骤 ，而不是在节点内部执行。此操作步骤 仅会将接口添加到节点；如果您尝试指定任何其他网络参数，则会发生验证错误。
 

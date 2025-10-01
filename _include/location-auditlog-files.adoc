@@ -19,7 +19,7 @@
  a| 
 管理节点/本地节点
  a| 
-* 管理节点(主节点和非主节点)： `/var/local/audit/export/audit.log`
+* 管理节点（主要和非主要）： `/var/local/audit/export/audit.log`
 * 所有节点： `/var/local/log/localaudit.log`在此模式下、文件通常为空或缺失。
 
 
@@ -33,4 +33,4 @@
 |===
 根据您的审核目标设置、输入： `cd /var/local/log`或 `/var/local/audit/export/`
 
-要了解更多信息，请参阅 link:../monitor/configure-audit-messages.html#select-audit-information-destinations["选择审核信息目标"]。
+要了解更多信息，请参阅link:../monitor/configure-log-management.html#select-log-location["选择日志位置"]。

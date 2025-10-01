@@ -63,3 +63,6 @@ NOTE: 标记名称和说明对租户可见。选择有助于租户在选择要�
 
 . 选择*是*以删除标记。
 
+
+.相关信息
+link:creating-ilm-policy.html#activate-ilm-policy["了解如何创建 ILM 策略标签"]

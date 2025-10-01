@@ -3,18 +3,18 @@
 
 
 .开始之前
-* 您必须使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
-* 您必须具有root访问权限或其他网格配置权限。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您具有 Root 访问权限或其他网格配置权限。
 
 
 .步骤
-. 选择 * 支持 * > * 工具 * > * AutoSupport * 。
+. 选择 *支持* > *工具* > *AutoSupport*。
 . 在*操作*选项卡上，选择*发送用户触发的AutoSupport *。
 +
-StorageGRID尝试向NetApp 支持站点 发送AutoSupport软件包。如果尝试成功，则会更新 * 结果 * 选项卡上的 * 最新结果 * 和 * 最后成功时间 * 值。如果出现问题，“最新结果”值将更新为“失败”，并且StorageGRID不会尝试再次发送AutoSupport软件包。
+StorageGRID尝试将AutoSupport包发送到NetApp支持站点。如果尝试成功，则*结果*选项卡上的*最近结果*和*上次成功时间*值将会更新。如果出现问题，*最新结果*值将更新为“失败”，并且StorageGRID不会再次尝试发送AutoSupport包。
 
-+
-
-TIP: 发送用户触发的AutoSupport软件包后、请在1分钟后刷新浏览器中的AutoSupport页面以访问最新结果。
+. 1 分钟后，刷新浏览器中的AutoSupport页面以访问最新结果。
 
 
+
+TIP: 此外，您还可以link:../monitor/collecting-log-files-and-system-data.html["收集更广泛的日志文件和系统数据"]并将它们发送至NetApp支持站点。

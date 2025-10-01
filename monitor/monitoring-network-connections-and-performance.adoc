@@ -24,7 +24,7 @@ summary: 节点和站点之间网络的完整性和带宽以及各个网格节�
 此外、请考虑link:../admin/managing-traffic-classification-policies.html["创建网络流量分类策略"]监控与特定租户、分段、子网或负载平衡器端点相关的流量。您可以根据需要设置流量限制策略。
 
 .步骤
-. 选择 * 节点 * 。
+. 选择*节点*。
 +
 此时将显示节点页面。网格中的每个节点均以表格式列出。
 
@@ -54,7 +54,7 @@ image::../media/nodes_page_network_communication.png[节点页面网络通信]
 
 . 使用与流量分类策略关联的指标监控网络流量。
 +
-.. 选择 * 配置 * > * 网络 * > * 流量分类 * 。
+.. 选择*配置* > *网络* > *流量分类*。
 +
 此时将显示 " 流量分类策略 " 页面，并在表中列出现有策略。
 
@@ -82,7 +82,7 @@ image::../media/traffic_classification_policies_main_screen_w_examples.png[图�
 监控各个网格节点以检查其资源使用情况。如果节点始终过载，则可能需要更多节点才能高效运行。
 
 .步骤
-. 从 * 节点 * 页面中，选择节点。
+. 从*节点*页面中选择节点。
 . 选择 * 硬件 * 选项卡以显示 CPU 利用率和内存使用情况的图形。
 +
 image::../media/nodes_page_hardware_tab_graphs.png[节点页面硬件选项卡]

@@ -23,7 +23,7 @@
 
 == 可选任务
 
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["更新网格节点IP地址"]如果在您规划部署并生成恢复软件包之后这些设置发生了更改。
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["更新网格节点IP地址"]如果自您计划部署并生成恢复包以来它们已经发生了变化。
 * link:../admin/changing-network-options-object-encryption.html["配置存储加密"]，如果需要。
 * link:../admin/configuring-stored-object-compression.html["配置存储压缩"]根据需要减小已存储对象的大小。
 * link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]隔离网络流量并对其进行分区(如果需要)。

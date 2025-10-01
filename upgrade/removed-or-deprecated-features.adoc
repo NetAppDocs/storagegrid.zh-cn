@@ -103,7 +103,7 @@ Docker容器引擎
  a| 
 待定
  a| 
-不再支持将Docker用作纯软件部署的容器引擎。在未来版本中、Docker将被另一个容器引擎取代。请参阅link:../ubuntu/software-requirements.html#docker-versions-tested["列出当前支持的Docker版本"]。
+不再支持将 Docker 作为纯软件部署的容器引擎。 Docker 将在未来的版本中被另一个容器引擎取代。请参阅link:../swnodes/software-requirements.html["基于软件的节点的软件要求"]了解当前支持的 Docker 版本列表。
 
 
 
@@ -117,6 +117,18 @@ NFS审核导出
 12.0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["为NFS配置审核客户端访问(StorageGRID 11.8)"^]
+
+
+
+ a| 
+端口重映射
+ a| 
+12.0
+ a| 
+12.1
+ a| 
+12.2
+ a| 
 
 
 

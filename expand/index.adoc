@@ -13,6 +13,8 @@ summary: 您可以在不中断系统操作的情况下扩展StorageGRID系统的
 [role="lead"]
 您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。
 
+在扩展网格节点之前，您必须确认没有处于活动状态的数据修复作业。如果任何修复失败，则必须重新启动它们并让它们完成，然后再执行退役或扩展程序。请参阅link:../maintain/checking-data-repair-jobs.html["检查数据修复作业"] 。
+
 StorageGRID扩展允许您添加：
 
 * 存储卷到存储节点
@@ -26,11 +28,6 @@ StorageGRID扩展允许您添加：
 
 [role="tabbed-block"]
 ====
-.添加存储卷
---
-按照的步骤进行操作link:adding-storage-volumes-to-storage-nodes.html["将存储卷添加到存储节点"]。
-
---
 .添加网格节点
 --
 . 按照的步骤进行操作link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["将网格节点添加到现有站点"]。
@@ -40,15 +37,21 @@ StorageGRID扩展允许您添加：
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["设备"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: "Linux"是指Red Hat Enterprise Linux、Ubuntu或Debian部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 
+
+
+
+NOTE: “Linux”指的是 RHEL、Ubuntu 或 Debian 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 . link:performing-expansion.html["执行扩展"](英文)
 . link:configuring-expanded-storagegrid-system.html["配置扩展的系统"](英文)
 
+
+--
+.添加存储卷
+--
+按照的步骤进行操作link:adding-storage-volumes-to-storage-nodes.html["将存储卷添加到存储节点"]。
 
 --
 .添加新站点
@@ -60,11 +63,12 @@ NOTE: "Linux"是指Red Hat Enterprise Linux、Ubuntu或Debian部署。有关支�
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["设备"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: "Linux"是指Red Hat Enterprise Linux、Ubuntu或Debian部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 
+
+
+
+NOTE: “Linux”指的是 RHEL、Ubuntu 或 Debian 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 . link:performing-expansion.html["执行扩展"](英文)
 . link:configuring-expanded-storagegrid-system.html["配置扩展的系统"](英文)

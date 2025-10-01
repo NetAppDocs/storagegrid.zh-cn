@@ -1,0 +1,22 @@
+---
+permalink: monitor/using-task-tab.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
+summary: 所有节点均显示“任务”选项卡。您可以使用此选项卡重命名或重新启动节点，或者将设备节点置于维护模式。对于存储节点，您可以设置存储状态。 
+---
+= 使用任务选项卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+所有节点均显示“任务”选项卡。您可以使用此选项卡重命名或重新启动节点，或者将设备节点置于维护模式。对于存储节点，您可以设置存储状态。
+
+有关此选项卡上每个选项的完整要求和说明、请参见以下内容：
+
+* link:../maintain/rename-grid-site-node-overview.html["重命名网格、站点和节点"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["重新启动网格节点"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["将设备置于维护模式"^]
+* 在将直接连接或 SAN 卷添加到存储节点后，或者在恢复存储节点后，您可以验证或设置存储节点的存储状态。这些说明可以在描述这些任务的主题中找到。
+

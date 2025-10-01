@@ -125,7 +125,7 @@ NOTE: 非当前时间仅适用于启用了版本控制的分段中的S3对象。
  a| 
 创建 S3 存储分段的区域。使用 * ILM * > * 区域 * 定义显示的区域。
 
-* 注： * 值 us-east-1 将匹配在 us-east-1 区域创建的分段中的对象以及未指定区域的分段中的对象。请参阅。 link:configuring-regions-optional-and-s3-only.html["配置区域（可选，仅 S3 ）"]
+*注意：* us-east-1 的值将匹配在 us-east-1 区域创建的存储桶中的对象以及未指定区域的存储桶中的对象。看link:configuring-regions-optional-and-s3-only.html["配置 S3 区域"] 。
 
 
 

@@ -13,7 +13,7 @@ summary: 如果您希望 StorageGRID 在发生警报时发送 SNMP 通知，则�
 [role="lead"]
 如果您希望 StorageGRID 在发生警报时发送 SNMP 通知，则必须启用 StorageGRID SNMP 代理并配置一个或多个陷阱目标。
 
-您可以使用网格管理器中的 * 配置 * > * 监控 * > * SNMP 代理 * 选项或网格管理 API 的 SNMP 端点来启用和配置 StorageGRID SNMP 代理。SNMP 代理支持所有三个版本的 SNMP 协议。
+您可以使用网格管理器中的 *配置* > *监控* > *SNMP 代理* 选项或网格管理 API 的 SNMP 端点来启用和配置StorageGRID SNMP 代理。  SNMP 代理支持 SNMP 协议的所有三个版本。
 
 要了解如何配置SNMP代理，请参见link:using-snmp-monitoring.html["使用 SNMP 监控"]。
 

@@ -21,9 +21,7 @@ summary: 除了遵循 StorageGRID 网络和节点的强化准则之外，您还�
 
 有关详细信息、请参见：
 
-* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-* link:../vmware/index.html["在VMware上安装StorageGRID"]
+* link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["安装StorageGRID设备"^]
 
 
@@ -53,7 +51,7 @@ summary: 除了遵循 StorageGRID 网络和节点的强化准则之外，您还�
 
 如果您希望S3存储分段和该存储分段中的对象可供其他域中的Web应用程序访问、则可以为该存储分段配置跨源站资源共享(CORS)。通常、除非需要、否则不要启用CORS。如果需要 CORS ，请将其限制为可信源。
 
-请参见的步骤link:../tenant/configuring-cross-origin-resource-sharing-cors.html["配置跨源站资源共享(CORS)"]。
+请参阅link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["为存储桶和对象配置 CORS"]。
 
 
 

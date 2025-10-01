@@ -144,3 +144,6 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["
 
 
 如果只有一小部分对象需要加密，请考虑在存储分段或单个对象级别控制加密。启用多个级别的加密会产生额外的性能成本。
+
+.相关信息
+link:manage-tls-ssh-policy.html#select-a-security-policy["了解 FIPS 认证的加密选项"]

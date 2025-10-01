@@ -24,11 +24,10 @@ NOTE: 如果要为策略创建默认ILM规则、请改用。link:creating-defaul
 * 您已配置计划使用的任何云存储池。请参阅。 link:creating-cloud-storage-pool.html["创建云存储池"]
 * 您熟悉link:data-protection-options-for-ingest.html["加热选项"]。
 * 如果需要创建与S3对象锁定配合使用的合规规则，则您熟悉link:requirements-for-s3-object-lock.html["S3 对象锁定的要求"]。
-* (可选)您已观看视频： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["视频：ILM规则概述"^]。
+* 或者，您已经观看了视频：
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[视频：ILM规则概述]
-
+.ILM 规则概述
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
 
 
 .关于此任务

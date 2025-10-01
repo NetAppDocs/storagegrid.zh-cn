@@ -27,5 +27,5 @@ summary: 您可以通过向现有站点添加新的网格节点来为 StorageGRI
 * 主管理节点会在初始安装期间部署。您无法在扩展期间添加主管理节点。
 * 您可以在同一扩展中添加存储节点和其他类型的节点。
 * 添加存储节点时，必须仔细规划新节点的数量和位置。请参阅。 link:../expand/guidelines-for-adding-object-capacity.html["添加对象容量的准则"]
-* 如果“防火墙”控制页上“不可信客户端网络”选项卡上的*set new node default*选项为*unun不信任*，则使用“客户端网络”连接到扩展节点的客户端应用程序必须使用负载平衡器端点端口(*配置*>*安全性*>*防火墙控制*)进行连接。请参阅和的说明link:../admin/configure-firewall-controls.html["更改新节点的安全设置"]link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]。
+* 如果防火墙控制页面上不受信任的客户端网络选项卡上的 *设置新节点默认值* 选项为 *不受信任*，则使用客户端网络连接到扩展节点的客户端应用程序必须使用负载平衡器端点端口进行连接（*配置* > *安全* > *防火墙控制*）。请参阅说明link:../admin/configure-firewall-controls.html["更改新节点的安全设置"]以及link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]。
 

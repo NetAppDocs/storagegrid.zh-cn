@@ -19,9 +19,9 @@ summary: 您可以通过复制现有组来更快地创建新组。
 
 
 .步骤
-. 选择 * 访问管理 * > * 组 * 。
+. 选择“访问管理”>“组”。
 . 选中要复制的组对应的复选框。
-. 选择 * 复制组 * 。有关创建组link:creating-groups-for-swift-tenant.html["Swift 租户"]的其他详细信息，请参见为或为创建组的说明link:creating-groups-for-s3-tenant.html["S3 租户"]。
+. 选择*重复组*。有关创建群组的更多详细信息，请参阅创建群组的说明link:creating-groups-for-s3-tenant.html["S3 租户"]。
 . 选择 * 本地组 * 选项卡以创建本地组，或者选择 * 联合组 * 选项卡以从先前配置的身份源导入组。
 +
 如果为StorageGRID系统启用了单点登录(SSO)，则属于本地组的用户将无法登录到租户管理器，尽管他们可以根据使用客户端应用程序来管理租户的资源link:tenant-management-permissions.html["组权限"]。

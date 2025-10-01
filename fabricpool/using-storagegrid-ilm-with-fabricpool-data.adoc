@@ -25,7 +25,7 @@ CAUTION: 为避免数据丢失、请勿使用将过期的ILM规则或删除Fabri
 * 您已查看link:best-practices-ilm.html["对FabricPool 数据使用ILM的最佳实践"]。
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您拥有link:../admin/admin-group-permissions.html["ILM或root访问权限"]。
-* 如果您从先前的StorageGRID版本升级到StorageGRID 11.9、则已配置要使用的存储池。通常、您应为要用于存储数据的每个StorageGRID站点创建一个存储池。
+* 如果您从 11.7 之前的StorageGRID版本升级到StorageGRID 12.0，则您已配置将使用的存储池。一般来说，您应该为用于存储数据的每个StorageGRID站点创建一个存储池。  （从 11.7 版开始，每个站点都会自动创建存储池。）
 +
 
 NOTE: 如果您最初安装的是StorageGRID 11.7或11.8.首次安装上述任一版本时、系统会自动为每个站点创建存储池。

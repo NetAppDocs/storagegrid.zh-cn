@@ -2,7 +2,7 @@
 permalink: tenant/index.html 
 sidebar: sidebar 
 keywords: use tenant account 
-summary: 租户帐户允许您使用简单存储服务（ S3 ） REST API 或 Swift REST API 在 StorageGRID 系统中存储和检索对象。 
+summary: '租户帐户允许您使用简单存储服务 (S3) REST API 在StorageGRID系统中存储和检索对象。' 
 ---
 = 使用租户帐户
 :allow-uri-read: 
@@ -11,20 +11,20 @@ summary: 租户帐户允许您使用简单存储服务（ S3 ） REST API 或 Sw
 
 
 [role="lead"]
-租户帐户允许您使用简单存储服务（ S3 ） REST API 或 Swift REST API 在 StorageGRID 系统中存储和检索对象。
+租户帐户允许您使用简单存储服务(S3) REST API在StorageGRID系统中存储和检索对象。
 
 
 
 == 什么是租户帐户？
 
-每个租户帐户都有自己的联合或本地组，用户， S3 分段或 Swift 容器以及对象。
+每个租户帐户都有自己的联合组或本地组、用户、S3分段和对象。
 
 租户帐户可用于按不同实体隔离存储的对象。例如，以下任一使用情形均可使用多个租户帐户：
 
 * * 企业用例： * 如果在企业中使用 StorageGRID 系统，则网格的对象存储可能会被组织中的不同部门隔离。例如，可能存在营销部门，客户支持部门，人力资源部门等的租户帐户。
 +
 
-NOTE: 如果使用 S3 客户端协议，则还可以使用 S3 分段和分段策略在企业中的各个部门之间隔离对象。您无需创建单独的租户帐户。有关详细信息、请参见实施说明link:../s3/bucket-and-group-access-policies.html["S3存储分段和存储分段策略"]。
+NOTE: 如果您使用 S3 客户端协议，您还可以使用 S3 存储桶和存储桶策略在企业各部门之间隔离对象。您不需要创建单独的租户帐户。请参阅实施说明link:../s3/use-access-policies.html["S3存储分段和存储分段策略"]了解更多信息。
 
 * * 服务提供商用例： * 如果服务提供商正在使用 StorageGRID 系统，则网格的对象存储可能会被租用该存储的不同实体分隔。例如，可能存在公司 A ，公司 B ，公司 C 等的租户帐户。
 

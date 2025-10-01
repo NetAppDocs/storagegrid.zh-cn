@@ -37,7 +37,7 @@ E系列AutoSupport软件包包含存储硬件的详细信息、比StorageGRID系
 NOTE: 此操作步骤仅用于为E系列AutoSupport软件包配置StorageGRID代理服务器。有关E系列AutoSupport配置的更多详细信息，请参见 https://docs.netapp.com/us-en/e-series-family/index.html["NetApp E 系列和 SANtricity 文档"^]。
 
 .步骤
-. 在网格管理器中，选择 * 节点 * 。
+. 在网格管理器中，选择*节点*。
 . 从左侧的节点列表中，选择要配置的存储设备节点。
 . 选择 * SANtricity 系统管理器 * 。
 +
@@ -46,7 +46,7 @@ NOTE: 此操作步骤仅用于为E系列AutoSupport软件包配置StorageGRID代
 +
 image::../media/autosupport_santricity_home_page.png[AutoSupport SANtricity 主页]
 
-. 选择 * 支持 * > * 支持中心 * > * AutoSupport * 。
+. 选择*支持* > *支持中心* > *AutoSupport*。
 +
 此时将显示 AutoSupport 操作页面。
 

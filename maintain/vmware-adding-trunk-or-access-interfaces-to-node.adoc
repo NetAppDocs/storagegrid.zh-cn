@@ -14,7 +14,7 @@ summary: 安装 VM 节点后，您可以向其添加额外的中继或访问接�
 您可以在安装 VM 节点后向该节点添加中继或访问接口。添加的接口将显示在 VLAN 接口页面和 HA 组页面上。
 
 .开始之前
-* 您可以访问的说明link:../vmware/index.html["在VMware平台上安装StorageGRID"]。
+* 您可以访问以下说明link:../swnodes/index.html["在VMware平台上安装StorageGRID"]。
 * 您拥有管理节点和网关节点 VMware 虚拟机。
 * 您的网络子网未用作网格、管理员或客户端网络。
 * 您已获得 `Passwords.txt`文件。

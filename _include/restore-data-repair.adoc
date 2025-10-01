@@ -6,7 +6,7 @@
 
 == 查找存储节点的主机名
 
-. 登录到主管理节点：
+. 登录任意管理节点：
 +
 .. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
 .. 输入文件中列出的密码 `Passwords.txt`。
@@ -42,7 +42,7 @@ NOTE: 不能同时对多个节点运行 `repair-data`操作。要恢复多个节
 `repair-data start-replicated-node-repair --nodes SG-DC-SN3`
 
 
-NOTE: 还原对象数据时，如果StorageGRID 系统找不到复制的对象数据，将触发*Objects Lost*警报。可能会在整个系统的存储节点上触发警报。您应确定丢失的发生原因 以及是否可以恢复。请参阅。 link:../troubleshoot/investigating-lost-objects.html["调查丢失的对象"]
+NOTE: 当对象数据恢复时，如果StorageGRID系统无法找到复制的对象数据，则会触发“*对象丢失*”警报。整个系统的存储节点可能会触发警报。您应该确定损失的原因以及是否可以恢复。看link:../troubleshoot/investigating-potentially-lost-objects.html["调查可能丢失的物品"] 。
 
 --
 .纠删编码(EC)数据

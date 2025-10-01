@@ -29,7 +29,7 @@ summary: 您可以根据需要更改整个网格、每个站点和每个节点�
 
 下表总结了系统名称和显示名称在StorageGRID 用户界面和StorageGRID 文件中的显示位置。
 
-[cols="2a,2a,3a"]
+[cols="1a,1a,3a"]
 |===
 | 位置 | 系统名称 | 显示名称 
 
@@ -55,20 +55,11 @@ summary: 您可以根据需要更改整个网格、每个站点和每个节点�
 
 
  a| 
-节点的*NDES*>*Overview*选项卡
+*节点* > 节点的 *概览* 选项卡
  a| 
 始终显示
  a| 
 仅在重命名项目时显示
-
-
-
- a| 
-网格管理器中的原有页面(例如，*support*>*Grid Topology*)
- a| 
-如图所示
- a| 
-未显示
 
 
 
@@ -99,7 +90,7 @@ summary: 您可以根据需要更改整个网格、每个站点和每个节点�
 
 
  a| 
-`Passwords.txt`文件
+`Passwords.txt`恢复包中的文件
  a| 
 显示为 `Server Name`
  a| 

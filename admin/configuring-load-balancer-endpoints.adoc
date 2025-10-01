@@ -13,9 +13,6 @@ summary: 负载平衡器端点用于确定S3客户端在连接到网关和管理
 [role="lead"]
 负载平衡器端点用于确定S3客户端在连接到网关和管理节点上的StorageGRID负载平衡器时可以使用的端口和网络协议。您还可以使用端点访问网格管理器、租户管理器或这两者。
 
-
-TIP: Swift详细信息已从此版本的文档站点中删除。请参阅。 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["配置 S3 和 Swift 客户端连接"^]
-
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您拥有link:admin-group-permissions.html["root访问权限"]。
@@ -41,15 +38,15 @@ NOTE: 对端点证书所做的更改可能需要长达 15 分钟才能应用于�
 
 == 创建负载平衡器端点
 
-每个S3客户端负载平衡器端点指定一个端口、一个客户端类型(S3)和一个网络协议(HTTP或HTTPS)。管理接口负载平衡器端点指定端口、接口类型和不可信的客户端网络。
+每个 S3 客户端负载均衡器端点指定一个端口、一个客户端类型（S3）和一个网络协议（HTTP 或 HTTPS）。管理接口负载均衡器端点指定端口、接口类型和不受信任的客户端网络。
 
 
 
 === 访问向导
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * 负载平衡器端点 * 。
-. 要为S3或Swift客户端创建端点，请选择*S3或Swift client*选项卡。
+. 选择*配置* > *网络* > *负载均衡器端点*。
+. 要为 S3 客户端创建端点，请选择 *S3 客户端* 选项卡。
 . 要创建端点以访问网格管理器、租户管理器或这两者，请选择*管理接口*选项卡。
 . 选择 * 创建 * 。
 
@@ -64,7 +61,7 @@ NOTE: 对端点证书所做的更改可能需要长达 15 分钟才能应用于�
 
 [role="tabbed-block"]
 ====
-.S3或Swift客户端
+.S3 客户端
 --
 [cols="1a,3a"]
 |===
@@ -90,7 +87,7 @@ NOTE: 对端点证书所做的更改可能需要长达 15 分钟才能应用于�
  a| 
 客户端类型
  a| 
-要使用此端点的客户端应用程序类型，可以是 * S3 或 * Swift* 。
+必须为*S3*。
 
 
 
@@ -102,6 +99,15 @@ NOTE: 对端点证书所做的更改可能需要长达 15 分钟才能应用于�
 * 选择 * HTTPS * 可进行安全的 TLS 加密通信（建议）。您必须附加安全证书，然后才能保存此端点。
 * 选择 * HTTP * 可实现不太安全的未加密通信。对于非生产网格，请仅使用 HTTP 。
 
+
+
+
+ a| 
+启用缓存
+ a| 
+启用或禁用link:../admin/managing-load-balancing.html#considerations-for-load-balancer-caching["网关节点上的缓存"]用于此负载均衡器端点。
+
+如果出现缓存问题，请参阅link:../troubleshoot/troubleshooting-load-balancer-caching.html["排查负载均衡器缓存问题"]。
 
 |===
 --

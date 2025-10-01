@@ -1,0 +1,106 @@
+---
+permalink: swnodes/collecting-information-about-your-deployment-environment.html 
+sidebar: sidebar 
+keywords: how to collect information about your vmware deployment environment 
+summary: 在部署网格节点之前，您必须收集有关网络配置和 VMware 环境的信息。 
+---
+= 收集有关部署环境的信息（VMware）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在部署网格节点之前，您必须收集有关网络配置和 VMware 环境的信息。
+
+
+NOTE: 对所有节点执行一次安装比现在安装某些节点以及稍后安装某些节点更高效。
+
+
+
+== VMware 信息
+
+您必须访问部署环境并收集以下信息： VMware 环境；为网格网络，管理网络和客户端网络创建的网络；以及计划用于存储节点的存储卷类型。
+
+您必须收集有关 VMware 环境的信息，包括以下信息：
+
+* 具有完成部署所需的适当权限的 VMware vSphere 帐户的用户名和密码。
+* 每个StorageGRID节点虚拟机的主机、数据存储库和网络配置信息。
+
+
+
+NOTE: VMware Live vMotion 会导致虚拟机时钟时间跳转，任何类型的网格节点均不支持此功能。尽管时钟时间不正确，但极少会导致数据丢失或配置更新。
+
+
+
+== 网格网络信息
+
+您必须收集有关为 StorageGRID 网格网络（必需）创建的 VMware 网络的信息，包括：
+
+* 网络名称。
+* 用于分配静态或 DHCP IP 地址的方法。
++
+** 如果使用的是静态 IP 地址，则为每个网格节点提供所需的网络详细信息（ IP 地址，网关，网络掩码）。
+** 如果使用DHCP、则为网格网络上主管理节点的IP地址。有关详细信息、请参见 link:how-grid-nodes-discover-primary-admin-node.html["网格节点如何发现主管理节点"] 。
+
+
+
+
+
+
+== 管理网络信息
+
+对于要连接到可选 StorageGRID 管理网络的节点，您必须收集有关为此网络创建的 VMware 网络的信息，包括：
+
+* 网络名称。
+* 用于分配静态或 DHCP IP 地址的方法。
++
+** 如果使用的是静态 IP 地址，则为每个网格节点提供所需的网络详细信息（ IP 地址，网关，网络掩码）。
+** 如果使用DHCP、则为网格网络上主管理节点的IP地址。有关详细信息、请参见 link:how-grid-nodes-discover-primary-admin-node.html["网格节点如何发现主管理节点"] 。
+
+
+* 管理网络的外部子网列表（ ESL ）。
+
+
+
+
+== 客户端网络信息
+
+对于要连接到可选 StorageGRID 客户端网络的节点，您必须收集有关为此网络创建的 VMware 网络的信息，包括：
+
+* 网络名称。
+* 用于分配静态或 DHCP IP 地址的方法。
+* 如果使用的是静态 IP 地址，则为每个网格节点提供所需的网络详细信息（ IP 地址，网关，网络掩码）。
+
+
+
+
+== 有关其他接口的信息
+
+安装节点后，您可以选择在 vCenter 中为虚拟机添加中继或访问接口。例如，您可能希望将中继接口添加到管理节点或网关节点，以便可以使用 VLAN 接口隔离属于不同应用程序或租户的流量。或者，您可能希望添加一个访问接口以在高可用性（ HA ）组中使用。
+
+您添加的接口将显示在 "VLAN interfaces" 页面和网格管理器的 "HA Groups" 页面上。
+
+* 如果要添加中继接口，请为每个新的父接口配置一个或多个 VLAN 接口。请参阅。 link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
+* 如果添加访问接口，则必须将其直接添加到 HA 组。请参阅。 link:../admin/configure-high-availability-group.html["配置高可用性组"]
+
+
+
+
+== 虚拟存储节点的存储卷
+
+您必须收集基于虚拟机的存储节点的以下信息：
+
+* 您计划添加的存储卷(存储LUN)的数量和大小。请参见。link:storage-and-performance-requirements.html["存储和性能要求"]
+
+
+
+
+== 网格配置信息
+
+您必须收集信息才能配置网格：
+
+* 网格许可证
+* 网络时间协议（ NTP ）服务器 IP 地址
+* DNS服务器IP地址
+

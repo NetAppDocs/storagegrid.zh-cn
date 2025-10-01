@@ -16,12 +16,7 @@ summary: 您可以将一个或多个StorageGRID 节点从一台Linux主机迁移
 例如、您可能希望迁移节点以执行操作系统修补和重新启动。
 
 .开始之前
-* 您计划在StorageGRID 部署中加入迁移支持。
-+
-** link:../rhel/node-container-migration-requirements.html["Red Hat Enterprise Linux的节点容器迁移要求"]
-** link:../ubuntu/node-container-migration-requirements.html["Ubuntu或Debian的节点容器迁移要求"]
-
-
+* 您计划将StorageGRID部署包括迁移支持。看link:../swnodes/node-container-migration-requirements.html["节点容器迁移要求"] 。
 * 目标主机已准备好供StorageGRID 使用。
 * 共享存储用于所有每个节点的存储卷
 * 网络接口在主机之间具有一致的名称。
@@ -132,12 +127,7 @@ Checking for duplication of unique values... PASSED
 ----
 . 如果发生任何验证错误，请在启动迁移的节点之前解决这些错误。
 +
-有关故障排除信息，请参见适用于 Linux 操作系统的 StorageGRID 安装说明。
-
-+
-** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-
+有关故障排除信息，请参阅StorageGRIDlink:../swnodes/index.html["安装说明"]适用于您的 Linux 操作系统。
 
 
 

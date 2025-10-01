@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '11.9'
+  - version-number: '12.0'
     url: "/storagegrid"
+  - version-number: '11.9'
+    url: "/storagegrid-119"
   - version-number: '11.8'
     url: "/storagegrid-118"
   - version-number: '11.7'
@@ -23,7 +25,7 @@ settings:
   langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 11.9文档
+  - title: StorageGRID 12.0 软件
     url: "/index.html"
   - title: StorageGRID设备
     url: "/storagegrid-hardware.html"
@@ -39,11 +41,9 @@ sidebar:
   - title: 安装、升级和修补程序
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: 安装设备
+    - title: 安装基于设备的节点
       url: "/storagegrid-hardware.html"
-    - section: rhel
-    - section: ubuntu
-    - section: vmware
+    - section: swnodes
     - section: upgrade
     - title: 应用StorageGRID修补程序
       entries:
@@ -149,6 +149,30 @@ sidebar:
       - title: 节点维护过程
         pdf-filename: 节点过程
         url: "/maintain/grid-node-procedures.html"
+      - title: 移动 ADC 服务
+        url: "/maintain/move-adc-service.html"
+      - title: 转换为仅数据节点
+        url: "/maintain/convert-to-data-only-node.html"
+      - title: 重新启动、关闭和电源过程
+        entries:
+        - title: 执行滚动重新启动
+          url: "/maintain/rolling-reboot-procedure.html"
+        - title: 从任务选项卡重新启动节点
+          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+        - title: 从命令Shell重新启动节点
+          url: "/maintain/rebooting-grid-node-from-command-shell.html"
+        - title: Shut down node
+          url: "/maintain/shutting-down-grid-node.html"
+        - title: 关闭主机
+          url: "/maintain/powering-down-host.html"
+        - title: 关闭并启动所有节点
+          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+      - title: 端口重新映射过程
+        entries:
+        - title: 删除StorageGRID设备上的端口重新映射
+          url: "/maintain/removing-port-remaps.html"
+        - title: 删除裸机主机上的端口重新映射
+          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
       - title: 服务器管理器过程
         entries:
         - title: 查看 Server Manager 状态和版本
@@ -173,26 +197,6 @@ sidebar:
           url: "/maintain/using-donotstart-file.html"
         - title: 对 Server Manager 进行故障排除
           url: "/maintain/accessing-server-manager-log-file.html"
-      - title: 重新启动、关闭和电源过程
-        entries:
-        - title: 执行滚动重新启动
-          url: "/maintain/rolling-reboot-procedure.html"
-        - title: 从任务选项卡重新启动节点
-          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
-        - title: 从命令Shell重新启动节点
-          url: "/maintain/rebooting-grid-node-from-command-shell.html"
-        - title: Shut down node
-          url: "/maintain/shutting-down-grid-node.html"
-        - title: 关闭主机
-          url: "/maintain/powering-down-host.html"
-        - title: 关闭并启动所有节点
-          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
-      - title: 端口重新映射过程
-        entries:
-        - title: 删除端口重新映射
-          url: "/maintain/removing-port-remaps.html"
-        - title: 删除裸机主机上的端口重新映射
-          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
     - title: 网络过程
       entries:
       - title: 更新网格网络的子网
@@ -376,7 +380,7 @@ sidebar:
         url: "/maintain/monitoring-services-appliance-installation.html"
     - title: 技术支持如何恢复站点
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
-  - title: 启用StorageGRID
+  - title: StorageGRID解决方案和资源
     url: "/storagegrid-enable.html"
   - title: StorageGRID和BlueXP
     url: "/storagegrid-bluexp.html"

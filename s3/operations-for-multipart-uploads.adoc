@@ -30,9 +30,10 @@ summary: 本节介绍 StorageGRID 如何支持多部件上传操作。
 ** 在评估某个部件的 ILM 时， StorageGRID 会筛选该部件的大小，而不是对象的大小。这意味着、对象的某些部分可以存储在不满足对象整体ILM要求的位置。例如、如果规则指定所有10 GB或更大的对象存储在DC1、而所有较小的对象存储在DC2、则载入时、10部分多部分上传的每个1 GB部分都存储在DC2。但是、在为对象整体评估ILM时、对象的所有部分都会移至DC1。
 
 
-* 所有多部分上传操作都支持StorageGRIDlink:consistency-controls.html["一致性值"]。
+* 所有分段上传操作都支持StorageGRIDlink:consistency.html["一致性值"] 。
 * 使用多部分上传载入对象时、不会应用。link:../admin/what-object-segmentation-is.html["对象分段阈值(1 GiB)"]
 * 根据需要、您可以使用link:using-server-side-encryption.html["服务器端加密"]多部分上传。要使用SSE (带有StorageGRID管理的密钥的服务器端加密)、请仅在CreateMultipartUpload请求中包含 `x-amz-server-side-encryption`请求标头。要使用SSE-C (使用客户提供的密钥进行服务器端加密)、您可以在CreateMultipartUpload请求和后续每个UploadPart请求中指定相同的三个加密密钥请求标头。
+* 分段上传的对象包含在link:../tenant/what-is-branch-bucket.html["分支桶"]如果摄取是在基本存储桶的 Before 时间戳之前启动的，则无论上传何时完成。
 
 
 [cols="2a,3a"]

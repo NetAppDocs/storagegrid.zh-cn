@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: 如果您不想再使用此功能，可以禁用单点登录 \ （ sso\ ）。必须先禁用单点登录，然后才能禁用身份联合。 
 ---
-= 禁用单点登录
+= 禁用 SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,17 +19,15 @@ summary: 如果您不想再使用此功能，可以禁用单点登录 \ （ sso\
 
 
 .步骤
-. 选择 * 配置 * > * 访问控制 * > * 单点登录 * 。
+. 选择*配置* > *访问控制* > *单点登录*。
 +
 此时将显示 Single Sign-On 页面。
 
-. 选择 * 已禁用 * 选项。
-. 选择 * 保存 * 。
+. 选择*禁用 SSO*。
+. 选择 * 是 * 。
 +
 此时将显示一条警告消息，指示本地用户现在可以登录。
 
-. 选择 * 确定 * 。
-+
+
+
 下次登录到 StorageGRID 时，将显示 StorageGRID 登录页面，您必须输入本地或联合 StorageGRID 用户的用户名和密码。
-
-

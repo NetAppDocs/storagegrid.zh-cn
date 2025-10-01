@@ -23,7 +23,7 @@ OVWR
  a| 
 对象覆盖：记录一个事务，以便使用另一个对象覆盖一个对象。
  a| 
-S3和Swift客户端
+S3 客户端
  a| 
 link:ovwr-object-overwrite.html["OVWR ：对象覆盖"]
 
@@ -74,27 +74,5 @@ S3 元数据已更新：记录成功的事务以更新现有对象或存储分�
 S3 客户端
  a| 
 link:supd-s3-metadata-updated.html["SUPD ：已更新 S3 元数据"]
-
-
-
- a| 
-WDEL
- a| 
-Swift delete ：记录成功的事务以删除对象或容器。
- a| 
-Swift 客户端
- a| 
-link:wdel-swift-delete.html["WDEL ： Swift delete"]
-
-
-
- a| 
-WWPUT
- a| 
-Swift PUT ：记录成功的事务以创建新对象或容器。
- a| 
-Swift 客户端
- a| 
-link:wput-swift-put.html["WWPUT ： Swift PUT"]
 
 |===

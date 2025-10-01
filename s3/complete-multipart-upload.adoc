@@ -59,6 +59,8 @@ NOTE:  `ETag`返回的值不是数据的MD5和、而是遵循多部分对象的�
 
 不支持以下请求标头：
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 

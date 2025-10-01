@@ -27,8 +27,9 @@ NOTE: 为每种日志类型提供的详细信息仅供参考。这些日志可�
 
 == 访问日志
 
-要访问日志、您可以link:collecting-log-files-and-system-data.html["收集日志文件和系统数据"]从一个或多个节点将日志文件归档为一个日志文件。或者，如果主管理节点不可用或无法访问特定节点，您可以按如下所示访问每个网格节点的各个日志文件：
+要访问日志，您可以link:collecting-log-files-and-system-data.html["收集日志文件和系统数据"]来自一个或多个节点作为单个日志文件存档。或者，您可以按如下方式访问每个网格节点的单独日志文件：
 
+.步骤
 . 输入以下命令： `ssh admin@grid_node_IP`
 . 输入文件中列出的密码 `Passwords.txt`。
 . 输入以下命令切换到root： `su -`
@@ -41,13 +42,13 @@ NOTE: 为每种日志类型提供的详细信息仅供参考。这些日志可�
 
 将日志导出到系统日志服务器可提供以下功能：
 
-* 接收所有网格管理器和租户管理器请求以及S3和Swift请求的列表。
+* 除了 S3 请求之外，还接收所有网格管理器和租户管理器请求的列表。
 * 更好地了解返回错误的S3请求、而不会因审核日志记录方法而影响性能。
 * 访问易于解析的HTTP层请求和错误代码。
 * 更好地了解负载平衡器上的流量划分器阻止的请求。
 
 
-要导出日志，请参见link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]。
+要导出日志，请参阅link:../monitor/configure-log-management.html["配置日志管理和外部系统日志服务器"]。
 
 
 
@@ -72,6 +73,11 @@ StorageGRID 日志文件归档包含为每个类别描述的日志以及包含�
 
 | 捆绑包  a| 
 全局配置信息（捆绑包）。
+
+
+
+| 缓存服务  a| 
+缓存服务日志（仅在网关节点上）。
 
 
 
@@ -107,6 +113,11 @@ Cassandra 数据库信息和 Reaper 修复日志。
 
 | lambda-arbitrator  a| 
 与 S3 Select 代理请求相关的日志。
+
+
+
+| 泄漏  a| 
+来自 leakd 服务的日志。
 
 
 
@@ -153,7 +164,7 @@ MariaDB 数据库配置和相关日志。
 ** 这些日志消息的格式为 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
 
 
-* `endpoint-access.log.gz`：对负载平衡器端点的S3和Swift请求。
+* `endpoint-access.log.gz`：S3 请求负载均衡器端点。
 +
 ** 使用系统日志导出时、这些消息会以作为前处理 `endpoint:`。
 ** 这些日志消息的格式为 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
@@ -227,6 +238,6 @@ StorageGRID 容器命令的输出。包含系统信息，例如网络连接和�
 
 
 | synchron-recovery—软件包  a| 
-与在托管ADC服务的所有管理节点和存储节点之间保持最新恢复软件包的一致性相关。
+与维护托管 ADC 服务的所有管理节点和存储节点上最新恢复包的一致性有关。
 
 |===

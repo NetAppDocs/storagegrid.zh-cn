@@ -39,7 +39,7 @@ image::../media/nodes_page_network_traffic_graph.png[Prometheus 图]
 
 NOTE: 名称中包含 _private_ 的指标仅供内部使用，在 StorageGRID 版本之间可能会发生更改，恕不另行通知。
 
-* 支持*>*工具*>*诊断*页面和*支持*>*工具*>*指标*页面：这些页面主要供技术支持使用，提供了多个使用Prometheus指标值的工具和图表。
+* *支持* > *工具* > *诊断*页面和*支持* > *工具* > *指标*页面：这些页面主要供技术支持使用，提供了使用 Prometheus 指标值的多种工具和图表。
 +
 
 NOTE: 指标页面中的某些功能和菜单项有意不起作用，可能会发生更改。
@@ -65,8 +65,8 @@ storaggrid_administratively 关闭:: 由于预期原因，节点未连接到网�
 storagegrid_appliage_compute_controller_hardware_status:: 设备中计算控制器硬件的状态。
 storagegrid_appliation_failed_disks:: 对于设备中的存储控制器、不是最佳驱动器的数量。
 storagegrid_appliage_storage_controller_hardware_status:: 设备中存储控制器硬件的整体状态。
-storagegrid_content_bages_and_containers:: 此存储节点已知的 S3 存储分段和 Swift 容器总数。
-storaggrid_content_objects:: 此存储节点已知的 S3 和 Swift 数据对象总数。计数仅对通过S3与系统连接的客户端应用程序创建的数据对象有效。
+storagegrid_content_bages_and_containers:: 此存储节点已知的 S3 存储桶总数。
+storaggrid_content_objects:: 此存储节点已知的 S3 数据对象总数。计数仅对通过 S3 与系统交互的客户端应用程序创建的数据对象有效。
 storaggrid_content_objects_lost:: 此服务在 StorageGRID 系统中检测到缺失的对象总数。应采取措施确定丢失的发生原因 以及是否可以恢复。
 +
 --
@@ -135,11 +135,6 @@ storaggrid_storage_utilization metadata_allowed_bytes:: 每个存储节点的卷
 storaggrid_storage_utilization metadata_bytes:: 存储卷 0 上的对象元数据量，以字节为单位。
 storaggrid_storage_utilization 总空间字节:: 分配给所有对象存储的存储空间总量。
 storagegRid_storage_utilization_usable_space_bytes:: 剩余的对象存储空间总量。计算方法是将存储节点上所有对象存储的可用空间量相加。
-storagegrid_swif_data_transfers_bytes_ingested:: 自上次重置属性以来从 Swift 客户端载入到此存储节点的总数据量。
-已检索 storaggrid_swif_data_transfers_bytes_reRetrieved:: 自上次重置属性以来 Swift 客户端从此存储节点检索的总数据量。
-storaggrid_swif_operations_failed:: Swift 操作失败的总数（ HTTP 状态代码 4xx 和 5xx ），不包括因 Swift 授权失败而导致的操作。
-storagegrid_swif_operations_successful:: 成功的 Swift 操作总数（ HTTP 状态代码 2xx ）。
-storaggrid_swif_operations_unauthorized:: 授权失败导致的 Swift 操作失败的总数（ HTTP 状态代码 401 ， 403 ， 405 ）。
 storagegrid_tenant_usage_data_bytes:: 租户的所有对象的逻辑大小。
 storagegrid_tenant_usage_object_count:: 租户的对象数。
 storagegRid_tenant_usage_quota_bytes:: 可用于租户对象的最大逻辑空间量。如果未提供配额指标，则可用空间量不受限制。
@@ -151,6 +146,7 @@ storagegRid_tenant_usage_quota_bytes:: 可用于租户对象的最大逻辑空�
 
 [[obtain all-metrics]]要获取完整的指标列表、请使用网格管理API。
 
+.步骤
 . 在网格管理器的顶部，选择帮助图标，然后选择*API documents*。
 . 找到 * 指标 * 操作。
 . 执行此 `GET /grid/metric-names`操作。

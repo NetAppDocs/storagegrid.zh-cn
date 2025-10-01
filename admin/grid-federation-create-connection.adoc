@@ -32,7 +32,7 @@ image::../media/grid-federation-create-connection.png[在两个网格上创建�
 
 .步骤
 . 从任一网格上的主管理节点登录到网格管理器。
-. 选择*configuration*>*System*>*Grid Federation。
+. 选择*配置* > *系统* > *网格联合*。
 . 选择*添加连接*。
 . 输入连接的详细信息。
 +
@@ -119,7 +119,7 @@ CAUTION: 此文件包含机密(屏蔽为 `***`)和其他敏感详细信息，必
 
 .步骤
 . 从主管理节点登录到网格管理器。
-. 选择*configuration*>*System*>*Grid Federation。
+. 选择*配置* > *系统* > *网格联合*。
 . 选择*上传验证文件*以访问上传页面。
 . 选择*上传验证文件*。然后，浏览并选择从第一个网格下载的文件(`_connection-name_.grid-federation`)。
 +

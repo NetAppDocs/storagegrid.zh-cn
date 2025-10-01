@@ -21,13 +21,14 @@ summary: 客户端需要与网格节点进行通信才能载入和检索内容�
 
 * link:../admin/configuring-load-balancer-endpoints.html["负载平衡器端点"]用于允许对用户定义的端口进行访问。
 * 部署节点时重新映射端口。但是，您不应重新映射负载平衡器端点。请参见有关StorageGRID节点的端口重新映射的信息：
-+
-** link:../rhel/creating-node-configuration-files.html#port-remap-keys["在Red Hat Enterprise Linux上为StorageGRID重新映射端口密钥"]
-** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Ubuntu或Debian上StorageGRID的端口重新映射密钥"]
-** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["重新映射VMware上StorageGRID的端口"]
-** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["可选：重新映射设备的网络端口"^]
 
 
+
+NOTE: 对端口重新映射的支持已弃用，并将在未来的版本中删除。要删除重新映射的端口，请参阅link:../maintain/removing-port-remaps.html["删除StorageGRID设备上的端口重新映射"]或者link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
+
+* link:../swnodes/creating-node-configuration-files.html["在Red Hat Enterprise Linux上为StorageGRID重新映射端口密钥"]
+* link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["重新映射VMware上StorageGRID的端口"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["可选：重新映射设备的网络端口"^]
 
 
 
@@ -42,21 +43,6 @@ NOTE: 此列表不包括可能配置为link:../admin/configuring-load-balancer-e
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
 | 端口 | TCP 或 UDP | 协议 | 发件人 | 至 | 详细信息 
-
-
- a| 
-22
- a| 
-TCP
- a| 
-SSH
- a| 
-服务笔记本电脑
- a| 
-所有节点
- a| 
-要执行控制台步骤，需要 SSH 或控制台访问。您也可以选择使用端口 2022 ，而不是 22 。
-
 
 
  a| 
@@ -176,25 +162,6 @@ HTTP
 AWS
  a| 
 发送到使用 HTTP 的 AWS 目标的云存储池请求。配置云存储池时，网格管理员可以覆盖默认 HTTP 端口设置 80 。
-
-
-
- a| 
-111
- a| 
-TCP/UDP
- a| 
-rpcbind
- a| 
-NFS 客户端
- a| 
-管理节点
- a| 
-由基于 NFS 的审核导出（ portmap ）使用。
-
-* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
-
-*注：*对NFS的支持已弃用，将在未来版本中删除。
 
 
 
@@ -329,59 +296,6 @@ AWS
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-NFS 客户端
- a| 
-管理节点
- a| 
-由基于NFS的审核导出使用(`rpc.mountd`)。
-
-* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
-
-*注：*对NFS的支持已弃用，将在未来版本中删除。
-
-
-
- a| 
-2022
- a| 
-TCP
- a| 
-SSH
- a| 
-服务笔记本电脑
- a| 
-所有节点
- a| 
-要执行控制台步骤，需要 SSH 或控制台访问。您也可以选择使用端口 22 ，而不是 2022 。
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-NFS 客户端
- a| 
-管理节点
- a| 
-由基于 NFS 的审核导出（ NFS ）使用。
-
-* 注： * 只有在启用了基于 NFS 的审核导出时，才需要此端口。
-
-*注：*对NFS的支持已弃用，将在未来版本中删除。
-
-
-
- a| 
 5353
  a| 
 UDP
@@ -408,21 +322,6 @@ KMIP
 公里
  a| 
 从配置了节点加密的设备到密钥管理服务器（ KMS ）的密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）外部流量，除非在 StorageGRID 设备安装程序的 KMS 配置页面上指定了其他端口。
-
-
-
- a| 
-8022
- a| 
-TCP
- a| 
-SSH
- a| 
-服务笔记本电脑
- a| 
-所有节点
- a| 
-端口 8022 上的 SSH 允许访问设备和虚拟节点平台上的基本操作系统，以便进行支持和故障排除。此端口不用于基于 Linux 的（裸机）节点，并且不需要在网格节点之间或在正常操作期间访问。
 
 
 
@@ -521,21 +420,6 @@ S3 客户端
 
 
  a| 
-18083
- a| 
-TCP
- a| 
-HTTPS
- a| 
-Swift 客户端
- a| 
-存储节点
- a| 
-Swift 客户端流量直接发送到存储节点（ HTTPS ）。
-
-
-
- a| 
 18084
  a| 
 TCP
@@ -547,21 +431,6 @@ S3 客户端
 存储节点
  a| 
 直接发送到存储节点（ HTTP ）的 S3 客户端流量。
-
-
-
- a| 
-18085
- a| 
-TCP
- a| 
-HTTP
- a| 
-Swift 客户端
- a| 
-存储节点
- a| 
-Swift 客户端流量直接发送到存储节点（ HTTP ）。
 
 
 

@@ -2,7 +2,7 @@
 permalink: audit/audit-log-file-rotation.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, log file, audit.log, audit.log file, rotation, save, autosave, auto save, auto-save 
-summary: 审核日志文件保存到管理节点的/var/local/log目录中。活动的审核日志文件名为 audit.log 。 
+summary: 审计日志文件保存到管理节点的 /var/local/audit/export/ 目录。活动审计日志文件名为 audit.log。 
 ---
 = 审核日志文件轮换
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: 审核日志文件保存到管理节点的/var/local/log目录中。活
 
 
 [role="lead"]
-审核日志文件将保存到管理节点的目录中 `/var/local/log`。活动审核日志文件名为 `audit.log`。
+如果StorageGRID配置为 *管理节点/本地节点* 或 *管理节点和外部系统日志服务器*，则审计日志文件将保存到管理节点的 `/var/local/audit/export/`目录。活动审计日志文件被命名为 `audit.log`。
 
 
-NOTE: 您也可以更改审核日志的目标并将审核信息发送到外部系统日志服务器。配置外部系统日志服务器后，仍会生成并存储审核记录的本地日志。请参阅。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+NOTE: 或者，您可以更改审计日志的目标并将审计信息发送到外部系统日志服务器。当配置外部系统日志服务器时，将继续生成和存储审计记录的本地日志。请参阅link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"] 。
 
 每天保存一次活动 `audit.log`文件、并启动一个新 `audit.log`文件。保存文件的名称以格式指示保存时间 `_yyyy-mm-dd.txt_`。如果一天内创建了多个审核日志，则文件名将使用文件的保存日期，并附加一个数字，格式为 `_yyyy-mm-dd.txt.n_`。例如、 `2018-04-15.txt`和 `2018-04-15.txt.1`是在2018年4月15日创建和保存的第一个和第二个日志文件。
 
-一天后，保存的文件将被压缩并以格式重命名 `_yyyy-mm-dd.txt.gz_`，从而保留原始日期。随着时间的推移，这会导致为管理节点上的审核日志分配的存储被占用。脚本可监控审核日志空间占用情况、并根据需要删除日志文件以释放目录中的空间 `/var/local/log`。审核日志会根据创建日期进行删除，最早的日志会先删除。您可以在以下文件中监控脚本的操作： `/var/local/log/manage-audit.log`。
+一天后，保存的文件被压缩并重命名，格式为 `_yyyy-mm-dd.txt.gz_`，保留原始日期。随着时间的推移，分配给审计日志的管理节点存储空间将被消耗。脚本监控审计日志空间消耗，并根据需要删除日志文件以释放空间 `/var/local/audit/export/`目录。审计日志将根据其创建日期删除。最旧的日志将首先被删除。您可以在以下文件中监视脚本的操作： `/var/local/log/manage-audit.log` 。
 
 此示例显示活动 `audit.log`文件、前一天的文件(`2018-04-15.txt`和前一天的压缩文件(`2018-04-14.txt.gz`。
 

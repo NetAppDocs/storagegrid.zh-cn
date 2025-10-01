@@ -13,7 +13,7 @@ summary: 您可以通过查找S3 API专用的审核消息来确定审核日志�
 [role="lead"]
 您可以通过查找S3 API专用的审核消息来确定审核日志中的对象检索事务。
 
-下表列出了在检索事务期间生成的并非所有审核消息。仅包含跟踪检索事务所需的消息。
+下表并未列出检索事务期间生成的所有审计消息。仅包含跟踪检索事务所需的消息。
 
 
 
@@ -34,27 +34,6 @@ S3 GET
 CBID ， S3BK ， S3KY
  a| 
 link:sget-s3-get.html["SGET ： S3 GET"]
-
-|===
-
-
-== Swift 检索审核消息
-
-[cols="1a,1a,2a,1a,1a"]
-|===
-| 代码 | 名称 | 说明 | 跟踪 | 请参见 
-
-
- a| 
-wget
- a| 
-Swift GET
- a| 
-请求从容器中检索对象。
- a| 
-CBID ， WCON ， WOBJ
- a| 
-link:wget-swift-get.html["WGET ： Swift GET"]
 
 |===
 

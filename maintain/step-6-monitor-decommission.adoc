@@ -31,25 +31,25 @@ summary: '从 " 弃用站点 " 页面向导的第 6 步 \ （监控取消配置�
 每个网关节点或管理节点可能只需要几分钟或一小时即可删除；但是，存储节点可能需要数天或数周的时间。
 
 .步骤
-. 生成新的恢复软件包后，立即下载该文件。
+. 一旦生成新的恢复包，请下载该文件。
 +
-image::../media/decommission_site_step_6_recovery_package.png[站点取消配置步骤 6 恢复包]
+image::../media/decommission_site_step_6_recovery_package.png[站点退役第 6 步恢复包]
 
 +
 
-NOTE: 请尽快下载恢复包，以确保在停用操作步骤 期间出现问题时可以恢复网格。
+NOTE: 尽快下载恢复包，以确保在退役过程中出现问题时可以恢复电网。
 
 +
-.. 选择消息中的链接，或选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
+.. 选择消息中的链接，或选择*维护* > *系统* > *恢复包*。
 .. 下载 `.zip`文件。
 +
-请参阅的说明link:downloading-recovery-package.html["正在下载恢复包"]。
+请参阅说明link:downloading-recovery-package.html["下载恢复包"]。
 
 
 
 +
 
-NOTE: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+NOTE: 恢复包文件必须是安全的，因为它包含可用于从StorageGRID系统获取数据的加密密钥和密码。
 
 . 使用 " 数据移动 " 图表监控对象数据从该站点到其他站点的移动情况。
 +

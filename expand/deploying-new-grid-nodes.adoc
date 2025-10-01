@@ -22,7 +22,7 @@ summary: 在扩展中部署新网格节点的步骤与首次安装网格时使�
 您必须在 VMware vSphere 中为要添加到扩展中的每个 VMware 节点部署一个虚拟机。
 
 .步骤
-. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["将新节点部署为虚拟机"]并将其连接到一个或多个StorageGRID网络。
+. link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["将新节点部署为虚拟机"]并将其连接到一个或多个StorageGRID网络。
 +
 部署节点时，您可以选择重新映射节点端口或增加 CPU 或内存设置。
 
@@ -36,12 +36,7 @@ summary: 在扩展中部署新网格节点的步骤与首次安装网格时使�
 您可以在新的 Linux 主机或现有的 Linux 主机上部署网格节点。如果您需要更多的 Linux 主机来满足要添加到网格中的 StorageGRID 节点的 CPU ， RAM 和存储要求，请按照首次安装主机时准备主机的方式对其进行准备。然后，按照安装期间部署网格节点的方式部署扩展节点。
 
 .开始之前
-* 您已获得有关为您的 Linux 版本安装 StorageGRID 的说明，并已查看硬件和存储要求。
-+
-** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-
-
+* 您已获得针对您的 Linux 版本安装StorageGRID 的说明，并且您已查看link:../swnodes/index.html["硬件和存储要求"]。
 * 如果您计划在现有主机上部署新的网格节点，则已确认现有主机具有足够的 CPU ， RAM 和存储容量来容纳其他节点。
 * 您计划最大限度地减少故障域。例如，不应将所有网关节点部署在一个物理主机上。
 +
@@ -145,9 +140,6 @@ NOTE: 如果您需要一次部署多个设备节点、可以使用设备安装�
 
 . 从 StorageGRID 设备安装程序主页中，选择 * 开始安装 * 。
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[本图通过周围的文字进行了说明。]
-
-+
 当前状态将更改为"正在进行安装"、并显示"监视器安装"页面。
 
 . 如果扩展包含多个设备节点，请对每个设备重复上述步骤。
@@ -158,9 +150,6 @@ NOTE: 如果您需要一次部署多个设备存储节点，则可以使用 conf
 . 如果需要手动访问监控器安装页面，请从菜单栏中选择 * 监控器安装 * 。
 +
 "Monitor Installation" 页面将显示安装进度。
-
-+
-image::../media/monitor_installation_configure_storage.gif[此图通过周围文字进行了说明。]
 
 +
 蓝色状态栏指示当前正在进行的任务。绿色状态条表示已成功完成的任务。
@@ -191,8 +180,5 @@ NOTE: 安装程序可确保先前安装中完成的任务不会重新运行。�
 +
 
 NOTE: 等待您在此扩展中添加的所有节点都准备好进行批准，然后再转到网格管理器来批准这些节点。
-
-+
-image::../media/monitor_installation_install_sgws.gif[此图通过周围文字进行了说明。]
 
 

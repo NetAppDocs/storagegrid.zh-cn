@@ -13,6 +13,9 @@ summary: 在开始使用网格联盟时、请查看跨网格复制和StorageGRID
 [role="lead"]
 开始使用网格联合时，请查看和之间的相似之处和不同之link:grid-federation-what-is-cross-grid-replication.html["跨网格复制"]link:../tenant/understanding-cloudmirror-replication-service.html["StorageGRID CloudMirror 复制服务"]处。
 
+
+NOTE: 您不能在通过跨网格复制复制的存储桶上使用 CloudMirror，反之亦然。
+
 [cols="1a,3a,3a"]
 |===
 |  | 跨网格复制 | CloudMirror 复制服务 
@@ -25,7 +28,7 @@ summary: 在开始使用网格联盟时、请查看跨网格复制和StorageGRID
  a| 
 允许租户自动将对象从StorageGRID (源)中的存储分段复制到外部S3存储分段(目标)。
 
-CloudMirror 复制会在独立的 S3 基础架构中为对象创建一个独立副本。此独立副本不会用作备份、但通常会在云中进行进一步处理。
+CloudMirror 复制在独立的 S3 基础架构中创建对象的独立副本。此独立副本不用作备份，但通常在云中进一步处理。
 
 
 

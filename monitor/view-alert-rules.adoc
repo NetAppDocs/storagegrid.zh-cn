@@ -18,15 +18,14 @@ summary: 警报规则用于定义触发特定警报的条件。StorageGRID 包�
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您拥有link:../admin/admin-group-permissions.html["管理警报或root访问权限"]。
-* 您也可以观看以下视频： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["视频：警报概述"^]
+* 或者，您已经观看了视频：
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[视频：警报概述]
-
+.警报概述
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 
 
 .步骤
-. 选择 * 警报 * > * 规则 * 。
+. 选择*警报* > *规则*。
 +
 此时将显示 "Alert Rules" 页面。
 

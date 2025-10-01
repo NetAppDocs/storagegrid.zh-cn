@@ -21,7 +21,7 @@ summary: '如果租户尝试执行的非多部分PutObject操作超过S3大小�
 确定哪些租户使用大于5 GiB的对象、以便您可以向其发出通知。
 
 .步骤
-. 转到*configuration*>*Monitoring*>*Audit and syslog server*。
+. 转到*配置*>*监控*>*审计和系统日志服务器*。
 . 如果客户端写入正常、请访问审核日志：
 +
 .. 输入 `ssh admin@_primary_Admin_Node_IP_`
@@ -51,7 +51,7 @@ summary: '如果租户尝试执行的非多部分PutObject操作超过S3大小�
  a| 
 管理节点/本地节点
  a| 
-*** 管理节点(主节点和非主节点)： `/var/local/audit/export/audit.log`
+*** 管理节点（主要和非主要）： `/var/local/audit/export/audit.log`
 *** 所有节点： `/var/local/log/localaudit.log`在此模式下、文件通常为空或缺失。
 
 
@@ -65,7 +65,7 @@ summary: '如果租户尝试执行的非多部分PutObject操作超过S3大小�
 |===
 根据您的审核目标设置、输入： `cd /var/local/log`或 `/var/local/audit/export/`
 
-要了解更多信息，请参阅 link:../monitor/configure-audit-messages.html#select-audit-information-destinations["选择审核信息目标"]。
+要了解更多信息，请参阅link:../monitor/configure-log-management.html#select-log-location["选择日志位置"]。
 
 --
 .. 确定哪些租户正在使用大于5 GiB的对象。
@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . 如果客户端写入不正常、请使用警报中的租户ID来标识租户：
 +
-.. 转到*support*>*Tools*>*Logs*。收集警报中存储节点的应用程序日志。指定警报前后15分钟。
+.. 转到*支持* > *工具* > *日志收集*。收集警报中存储节点的应用程序日志。指定警报前后 15 分钟。请参阅link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"] 。
 .. 提取文件并转到 `bycast.log`：
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

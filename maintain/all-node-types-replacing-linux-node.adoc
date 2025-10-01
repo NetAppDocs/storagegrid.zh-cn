@@ -13,7 +13,7 @@ summary: 如果发生故障需要您部署一个或多个新的物理或虚拟�
 [role="lead"]
 如果发生故障需要您部署一个或多个新的物理或虚拟主机、或者在现有主机上重新安装Linux、请先部署并配置替代主机、然后才能恢复网格节点。对于所有类型的网格节点，此操作步骤 是网格节点恢复过程的一个步骤。
 
-"Linux"是指Red Hat®Enterprise Linux®、Ubuntu®或Debian®部署。有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
+“Linux”指的是 Red Hat® Enterprise Linux® (RHEL)、Ubuntu® 或 Debian® 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 此过程仅作为恢复基于软件的存储节点、主管理节点或非主管理节点或网关节点过程中的一个步骤来执行。无论您要恢复的网格节点类型如何，这些步骤都是相同的。
 

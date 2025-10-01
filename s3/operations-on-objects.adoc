@@ -15,7 +15,7 @@ summary: 本节介绍 StorageGRID 系统如何对对象实施 S3 REST API 操作
 
 以下条件适用于所有对象操作：
 
-* 对对象执行的所有操作均支持StorageGRIDlink:consistency-controls.html["一致性值"]、但以下操作除外：
+* StorageGRIDlink:consistency.html["一致性值"]所有对象操作均支持，但以下操作除外：
 +
 ** GetObjectAcl
 ** `OPTIONS /`
@@ -26,7 +26,6 @@ summary: 本节介绍 StorageGRID 系统如何对对象实施 S3 REST API 操作
 
 * 冲突的客户端请求（例如，两个客户端写入同一密钥）将以 " 最新成功 " 为基础进行解决。" 最新赢单 " 评估的时间取决于 StorageGRID 系统何时完成给定请求，而不是 S3 客户端何时开始操作。
 * StorageGRID 存储分段中的所有对象均归存储分段所有者所有，包括由匿名用户或其他帐户创建的对象。
-* 通过Swift加热到StorageGRID 系统的数据对象无法通过S3进行访问。
 
 
 下表介绍了 StorageGRID 如何实施 S3 REST API 对象操作。

@@ -2,10 +2,10 @@
 section: upgrade
 title: 升级 StorageGRID 软件
 entries:
-- title: 开始之前
+- title: 升级之前
   pdf-filename: 升级 StorageGRID 软件
   url: "/upgrade/index.html"
-- title: StorageGRID 11.9.
+- title: StorageGRID 12.0 中的新功能
   url: "/upgrade/whats-new.html"
 - title: 已删除或已弃用的功能
   url: "/upgrade/removed-or-deprecated-features.html"

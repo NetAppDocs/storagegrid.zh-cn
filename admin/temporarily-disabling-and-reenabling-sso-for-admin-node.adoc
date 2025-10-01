@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 如果单点登录 \ （ SSO\ ）系统发生故障，您可能无法登录到网格管理器。在这种情况下，您可以为一个管理节点临时禁用并重新启用 SSO 。要禁用并重新启用 SSO ，必须访问节点的命令 Shell 。 
 ---
-= 临时禁用并重新启用一个管理节点的单点登录
+= 暂时禁用并重新启用一个管理节点的 SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -52,7 +52,7 @@ TIP: 为一个管理节点禁用 SSO 不会影响网格中任何其他管理节�
 . 使用用户名 root 和本地 root 用户的密码登录。
 . 如果您因需要更正 SSO 配置而临时禁用 SSO ：
 +
-.. 选择 * 配置 * > * 访问控制 * > * 单点登录 * 。
+.. 选择*配置* > *访问控制* > *单点登录*。
 .. 更改不正确或过时的 SSO 设置。
 .. 选择 * 保存 * 。
 +

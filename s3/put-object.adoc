@@ -141,6 +141,8 @@ NOTE: ILM规则不能同时使用*用户定义的创建时间*作为参考时间
 
 不支持以下请求标头：
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

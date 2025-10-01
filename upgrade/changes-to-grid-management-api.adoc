@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID版本是使用网格管理API版本4的。版本4已弃用版本3；但是、版本1、2和3仍受支持。 
+summary: StorageGRID 12.0 使用网格管理 API 的第 4 版。版本 4 弃用了版本 3；但是，版本 1、2 和 3 仍然受支持。 
 ---
 = 对网格管理 API 进行的更改
 :allow-uri-read: 
@@ -11,42 +11,43 @@ summary: StorageGRID版本是使用网格管理API版本4的。版本4已弃用�
 
 
 [role="lead"]
-StorageGRID版本是使用网格管理API版本4的。版本4已弃用版本3；但是、版本1、2和3仍受支持。
+StorageGRID 12.0 使用网格管理 API 的第 4 版。版本 4 弃用了版本 3；但是，版本 1、2 和 3 仍然受支持。
 
 
-NOTE: 您可以继续在StorageGRID 11.9中使用已弃用的管理API版本；但是、在未来的StorageGRID版本中、将不再支持这些版本的API。升级到StorageGRID版本之后、您可以使用API停用已弃用的API `PUT /grid/config/management`。
+NOTE: 您可以继续使用StorageGRID 12.0 中已弃用的管理 API 版本；但是， StorageGRID的未来版本将不再支持这些版本的 API。升级到StorageGRID 12.0 后，您可以使用 `PUT /grid/config/management`API。
 
 要了解更多信息，请访问link:../admin/using-grid-management-api.html["使用网格管理 API"]。
 
 
 
-== 启用全局S3对象锁定后、请查看合规性设置
+== 分支存储桶的新端点
 
-启用全局S3对象锁定设置后、请查看现有租户的合规性设置。启用此设置时、每个租户的S3对象锁定设置取决于创建租户时的StorageGRID版本。
+已添加以下端点，以便您link:../tenant/what-is-branch-bucket.html["管理分支存储桶"]：
 
+`GET /org/containers/{branchBucketName}/branch`
 
-
-== 已删除原有mgmt-API请求
-
-已删除以下原有请求：
-
-`/grid/server-types`
-
-`/grid/ntp-roles`
+`PUT /org/containers/{branchBucketName}/branch`
 
 
 
-== 对API进行的更改 `GET /private/storage-usage`
+== Move ADC 的新专用终结点
 
-* 响应正文中添加了一个新属性，即 `usageCacheDuration`。此属性指定使用情况查找缓存保持有效的持续时间(以秒为单位)。根据租户存储配额和存储分段容量限制检查使用情况时、此值适用。
-* 此 `GET /api/v4/private/storage-usage`行为已得到更正、以便与模式中的嵌套匹配。
-* 这些更改仅适用于专用API。
+已添加以下私有端点，以便您link:../maintain/move-adc-service.html["移动 ADC 服务"]从一个存储节点到同一站点上的另一个存储节点：
+
+`/private/move-adc`
+
+`/private/move-adc/start`
+
+`/private/move-adc/retry`
 
 
 
+== 转换为仅数据节点的新私有端点
 
-== 对API进行的更改 `GET cross-grid-replication`
+已添加以下私有端点，以便您link:../maintain/convert-to-data-only-node.html["转换一个或多个组合存储节点"]不包含 ADC 服务到仅数据节点。
 
-org/containers/:name/cross-grid复制* get API不再需要root access (`manageAllContainers`)(`rootAccess`权限；但是，您必须属于具有Manage All Buc分 段)或View All Buc分 段(查看所有分段)(`viewAllContainers`权限的用户组。
+`/private/convert-to-data-only-node`
 
-org/containers/:name/cross-grid复制* put API保持不变，仍然需要root访问(`rootAccess`权限。
+`/private/convert-to-data-only-node/start`
+
+`/private/convert-to-data-only-node/retry`

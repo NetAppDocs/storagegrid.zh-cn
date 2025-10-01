@@ -1,32 +1,8 @@
 ---
 permalink: rhel/how-grid-nodes-discover-primary-admin-node.html 
-sidebar: sidebar 
-keywords: red hat linux primary admin node 
-summary: 网格节点与主管理节点进行通信以进行配置和管理。每个网格节点都必须知道网格网络上主管理节点的 IP 地址。 
+redirect: storagegrid/swnodes/how-grid-nodes-discover-primary-admin-node.html 
 ---
-= 网格节点如何发现主管理节点
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-网格节点与主管理节点进行通信以进行配置和管理。每个网格节点都必须知道网格网络上主管理节点的 IP 地址。
-
-为了确保网格节点可以访问主管理节点，您可以在部署此节点时执行以下任一操作：
-
-* 您可以使用 admin_ip 参数手动输入主管理节点的 IP 地址。
-* 您可以省略 admin_ip 参数，以使网格节点自动发现该值。当网格网络使用 DHCP 为主管理节点分配 IP 地址时，自动发现尤其有用。
-
-
-主管理节点的自动发现可通过多播域名系统(mDNS)来实现。主管理节点首次启动时，它会使用 mDNS 发布其 IP 地址。然后，同一子网上的其他节点可以查询 IP 地址并自动获取该地址。但是、由于多播IP流量通常不能在子网上路由、因此其他子网上的节点无法直接获取主管理节点的IP地址。
-
-[NOTE]
-====
-如果使用自动发现：
-
-* 必须在主管理节点未直接连接到的任何子网上至少包含一个网格节点的 admin_IP 设置。然后，此网格节点将发布子网中其他节点的主管理节点 IP 地址，以便使用 mDNS 进行发现。
-* 确保您的网络基础架构支持在子网内传递多播 IP 流量。
-
-
-====

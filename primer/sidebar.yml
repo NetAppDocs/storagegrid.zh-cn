@@ -20,8 +20,6 @@ entries:
     url: "/primer/what-storage-node-is.html"
   - title: 什么是网关节点
     url: "/primer/what-gateway-node-is.html"
-  - title: 什么是归档节点
-    url: "/primer/what-archive-node-is.html"
 - title: StorageGRID 如何管理数据
   entries:
   - title: 什么是对象

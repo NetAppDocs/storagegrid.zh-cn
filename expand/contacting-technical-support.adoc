@@ -16,12 +16,12 @@ summary: 如果在网格扩展过程中遇到无法解决的错误、或者网�
 在联系技术支持之前、请收集所需的日志文件以帮助进行故障排除。
 
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 连接到发生故障的扩展节点：
 +
 .. 输入以下命令：``ssh -p 8022 admin@_grid_node_IP_``
 +
-
-NOTE: 端口 8022 是基础操作系统的 SSH 端口，而端口 22 是运行 StorageGRID 的容器引擎的 SSH 端口。
+端口 8022 是基础操作系统的 SSH 端口，而端口 22 是运行 StorageGRID 的容器引擎的 SSH 端口。
 
 .. 输入文件中列出的密码 `Passwords.txt`。
 .. 输入以下命令切换到root： `su -`
@@ -57,4 +57,5 @@ Linux
 
 
 |===
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当你完成任务时。
 

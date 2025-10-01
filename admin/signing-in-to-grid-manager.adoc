@@ -25,7 +25,7 @@ summary: 您可以通过在支持的 Web 浏览器的地址栏中输入管理节
 
 === 使用SSO
 
-如果使用link:configuring-sso.html["已配置单点登录(SSO)"]，则登录步骤略有不同。
+如果link:how-sso-works.html["已配置单点登录(SSO)"]。
 
 
 
@@ -70,9 +70,6 @@ NOTE: SSO在受限的Grid Manager端口上不可用。必须使用端口 443 。
 --
 .. 输入网格管理器的用户名和密码。
 .. 选择 * 登录 * 。
-+
-image::../media/sign_in_grid_manager_no_sso.png[登录页面]
-
 
 
 --
@@ -81,23 +78,16 @@ image::../media/sign_in_grid_manager_no_sso.png[登录页面]
 ** 如果StorageGRID 正在使用SSO、而这是您首次在此浏览器上访问此URL：
 +
 ... 选择 * 登录 * 。您可以在帐户字段中保留0。
+... 在您组织的 SSO 登录页面上输入您的标准 SSO 凭据。
 +
-image::../media/sso_sign_in_first_time.png[如果启用了 SSO 且没有 cookie ，请登录屏幕]
+例如，如果StorageGRID正在使用 SSO 并且您之前访问过网格管理器或租户帐户：
 
-... 在组织的 SSO 登录页面上输入标准 SSO 凭据。例如：
 +
-image::../media/sso_organization_page.gif[SSO 的示例组织登录页面]
+.... 输入*0*(网格管理器的帐户ID)或选择*Grid Manager*(如果它出现在最近帐户列表中)。
+.... 选择 * 登录 * 。
+.... 在您组织的 SSO 登录页面上使用您的标准 SSO 凭据登录。
 
 
-
-** 如果StorageGRID 正在使用SSO、并且您之前已访问网格管理器或租户帐户：
-+
-... 输入*0*(网格管理器的帐户ID)或选择*Grid Manager*(如果它出现在最近帐户列表中)。
-+
-image::../media/sign_in_grid_manager_sso.png[如果启用了 SSO ，请从近期帐户列表中选择 Grid Manager]
-
-... 选择 * 登录 * 。
-... 在您组织的 SSO 登录页面上使用您的标准 SSO 凭据登录。
 
 
 
@@ -107,8 +97,6 @@ image::../media/sign_in_grid_manager_sso.png[如果启用了 SSO ，请从近期
 
 
 登录后、将显示网格管理器的主页、其中包括信息板。要了解所提供的信息，请参见link:../monitor/viewing-dashboard.html["查看和管理信息板"]。
-
-image::../media/grid_manager_dashboard.png[信息板]
 
 
 

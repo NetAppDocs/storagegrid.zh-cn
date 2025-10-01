@@ -5,7 +5,7 @@
 如果要使用 OpenLDAP 服务器进行身份联合，则必须在 OpenLDAP 服务器上配置特定设置。
 
 
-CAUTION: 对于非ActiveDirectory或Azure身份源、StorageGRID 不会自动阻止外部禁用的用户进行S3访问。要阻止S3访问、请删除此用户的任何S3密钥或从所有组中删除此用户。
+CAUTION: 对于非 Active Directory 或 Microsoft Entra ID 的身份源， StorageGRID不会自动阻止外部禁用的用户访问 S3。要阻止 S3 访问，请删除用户的所有 S3 密钥或从所有组中删除该用户。
 
 
 

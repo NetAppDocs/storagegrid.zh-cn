@@ -1,0 +1,26 @@
+---
+permalink: swnodes/adding-sites.html 
+sidebar: sidebar 
+keywords: how to add sites 
+summary: 安装 StorageGRID 时，必须至少创建一个站点。您可以创建其他站点来提高 StorageGRID 系统的可靠性和存储容量。 
+---
+= 添加站点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安装 StorageGRID 时，必须至少创建一个站点。您可以创建其他站点来提高 StorageGRID 系统的可靠性和存储容量。
+
+.步骤
+. 在 Sites 页面上，输入 * 站点名称 * 。
+. 要添加其他站点，请单击最后一个站点条目旁边的加号，然后在新的 * 站点名称 * 文本框中输入名称。
++
+根据需要为网格拓扑添加尽可能多的其他站点。您最多可以添加 16 个站点。
+
++
+image::../media/3_gmi_installer_sites_page.gif[此图通过周围文字进行了说明。]
+
+. 单击 * 下一步 * 。
+

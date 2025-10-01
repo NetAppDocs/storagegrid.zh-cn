@@ -1,0 +1,102 @@
+---
+permalink: admin/creating-enterprise-application-entra-id.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: 您使用 Entra ID 为系统中的每个管理节点创建一个企业应用程序。 
+---
+= 在 Entra ID 中创建企业应用程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您使用 Entra ID 为系统中的每个管理节点创建一个企业应用程序。
+
+.开始之前
+* 您已开始为StorageGRID配置单点登录，并选择 *Entra ID* 作为 SSO 类型。
+* 你有link:../admin/configure-sso.html#enter-sandbox-mode["进入沙盒模式"]在网格管理器中。
+* 您的系统中的每个管理节点都有*企业应用程序名称*。您可以从配置 SSO 页面上的管理节点详细信息表中复制这些值。
++
+
+NOTE: 您必须为 StorageGRID 系统中的每个管理节点创建一个企业级应用程序。为每个管理节点配备一个企业级应用程序可确保用户可以安全地登录和注销任何管理节点。
+
+* 您有在 Entra ID 中创建企业应用程序的经验。
+* 您有一个具有有效订阅的 Entra ID 帐户。
+* 您在 Entra ID 帐户中拥有以下角色之一：全局管理员、云应用程序管理员、应用程序管理员或服务主体的所有者。
+
+
+
+
+== 访问 Entra ID
+
+.步骤
+. 登录到 https://portal.azure.com["Azure 门户"^]。
+. 导航至 https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["进入 ID"^]。
+. 选择。 https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["企业级应用程序"^]
+
+
+
+
+== 创建企业级应用程序并保存 StorageGRID SSO 配置
+
+要在StorageGRID中保存 Entra ID 的 SSO 配置，您必须使用 Entra ID 为每个管理节点创建一个企业应用程序。您将从 Entra ID 复制联合元数据 URL，并将其粘贴到配置 SSO 页面上相应的 *联合元数据 URL* 字段中。
+
+.步骤
+. 对每个管理节点重复以下步骤。
++
+.. 在 Entra ID Enterprise 应用程序窗格中，选择 *新应用程序*。
+.. 选择 * 创建您自己的应用程序 * 。
+.. 对于名称，请输入从配置 SSO 页面上的管理节点详细信息表复制的*企业应用程序名称*。
+.. 保持选中 * 集成在库（非库）中找不到的任何其他应用程序 * 单选按钮。
+.. 选择 * 创建 * 。
+.. 选择 * 。 2.设置单点登录 * 框，或者选择左侧边距中的 * 单点登录 * 链接。
+.. 选择 * SAML * 框。
+.. 复制 * 应用程序联合元数据 URL* ，该 URL 可在 * 步骤 3 SAML 签名证书 * 下找到。
+.. 转到配置 SSO 页面，并将 URL 粘贴到与您使用的 *企业应用程序名称* 相对应的 *联合元数据 URL* 字段中。
+
+
+. 为每个管理节点粘贴联合元数据 URL 并对 SSO 配置进行所有其他必要的更改后，在配置 SSO 页面上选择 *保存*。
+
+
+
+
+== 下载每个管理节点的 SAML 元数据
+
+保存 SSO 配置后，您可以为 StorageGRID 系统中的每个管理节点下载 SAML 元数据文件。
+
+.步骤
+. 对每个管理节点重复上述步骤。
++
+.. 从管理节点登录到 StorageGRID 。
+.. 选择*配置* > *访问控制* > *单点登录*。
+.. 选择按钮以下载此管理节点的 SAML 元数据。
+.. 保存文件，然后将其上传到 Entra ID。
+
+
+
+
+
+
+== 将 SAML 元数据上传到每个企业级应用程序
+
+为每个StorageGRID管理节点下载 SAML 元数据文件后，在 Entra ID 中执行以下步骤：
+
+.步骤
+. 返回到 Azure 门户。
+. 对每个企业级应用程序重复以下步骤：
++
+
+NOTE: 您可能需要刷新 " 企业应用程序 " 页面才能查看先前在列表中添加的应用程序。
+
++
+.. 转到企业应用程序的属性页面。
+.. 将 * 需要分配 * 设置为 * 否 * （除非您要单独配置分配）。
+.. 转到单点登录页面。
+.. 完成 SAML 配置。
+.. 选择 * 上传元数据文件 * 按钮，然后选择为相应管理节点下载的 SAML 元数据文件。
+.. 加载文件后，选择 * 保存 * ，然后选择 * X * 以关闭窗格。此时将返回到使用 SAML 设置单点登录页面。
+
+
+. link:../admin/configure-sso.html#test-sso["测试每个应用程序"] 。
+

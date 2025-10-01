@@ -72,4 +72,4 @@ Content-Type: application/xml
 存储的每个对象版本都会对响应中的和 `DataBytes`值产生影响 `ObjectCount`。删除标记不会添加到总数中 `ObjectCount`。
 
 .相关信息
-link:consistency-controls.html["一致性值"]
+link:consistency.html["一致性"]

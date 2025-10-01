@@ -784,7 +784,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 .请求正文
-有关支持的JSON正文字段的详细信息，请参见link:bucket-and-group-access-policies.html["使用存储分段和组访问策略"]。
+有关支持的 JSON 主体字段的详细信息，请参阅link:use-access-policies.html["使用存储分段和组访问策略"]。
 
 
 

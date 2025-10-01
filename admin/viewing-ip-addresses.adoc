@@ -20,7 +20,7 @@ summary: 您可以查看 StorageGRID 系统中每个网格节点的 IP 地址。
 有关更改IP地址的信息，请参见link:../maintain/configuring-ip-addresses.html["配置 IP 地址"]。
 
 .步骤
-. 选择 * 节点 * > * 网格节点 _* > * 概述 * 。
+. 选择*节点* > *_grid node_* > *概览*。
 . 选择 IP 地址标题右侧的 * 显示更多 * 。
 +
 此网格节点的 IP 地址会在表中列出。

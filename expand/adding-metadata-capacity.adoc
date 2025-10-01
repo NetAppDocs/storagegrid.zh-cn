@@ -52,7 +52,7 @@ StorageGRID 会为每个存储节点的卷 0 上的对象元数据预留空间�
 *** 用于cassandr数据库的8 TB SSD或等效存储(rangedb/0)
 
 
-** 如果现有StorageGRID站点正在使用具有24 GB RAM、8核CPU以及3 TB或4 TB元数据存储的虚拟存储节点、则基于软件的纯元数据节点应使用类似的资源(24 GB RAM、8核CPU和4 TB元数据存储(rangedb/0)。
+** 如果现有的StorageGRID站点使用具有 24 GB RAM、8 核 CPU 和 3 TB 或 4TB 元数据存储的虚拟存储节点，则基于软件的仅元数据节点应使用类似的资源（24 GB RAM、8 核 CPU 和 4TB 元数据存储（rangedb/0））。
 
 
 * 添加新StorageGRID站点时、新站点的元数据总容量至少应与现有StorageGRID站点匹配、新站点资源应与现有StorageGRID站点的存储节点匹配。

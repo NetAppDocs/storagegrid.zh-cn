@@ -33,7 +33,7 @@ summary: 在恢复VMware上托管的故障StorageGRID 节点时、您需要删�
 . 如果发生故障的网格节点是存储节点，请确定用于数据存储的任何虚拟硬盘是否完好无损，并保留这些虚拟硬盘以重新连接到已恢复的网格节点。
 . 关闭虚拟机。
 . 选择 * 操作 * > * 所有 vCenter 操作 * > * 从磁盘中删除 * 以删除虚拟机。
-. 将新虚拟机部署为替代节点，并将其连接到一个或多个 StorageGRID 网络。有关说明，请参阅link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["将StorageGRID 节点部署为虚拟机"]。
+. 部署一个新的虚拟机作为替换节点，并将其连接到一个或多个StorageGRID网络。有关说明，请参阅link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["将StorageGRID 节点部署为虚拟机"]。
 +
 部署节点时，您可以选择重新映射节点端口或增加 CPU 或内存设置。
 

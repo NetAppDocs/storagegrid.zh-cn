@@ -13,9 +13,10 @@ summary: 您可以运行一个脚本来为每个网格节点配置不同的DNS�
 [role="lead"]
 您可以运行一个脚本来为每个网格节点配置不同的DNS、而不是为整个部署全局配置DNS。
 
-通常，您应使用网格管理器上的 * 维护 * > * 网络 * > * DNS 服务器 * 选项来配置 DNS 服务器。只有在需要为不同网格节点使用不同 DNS 服务器时，才可使用以下脚本。
+一般来说，您应该使用网格管理器上的 *维护* > *网络* > *DNS 服务器* 选项来配置 DNS 服务器。仅当您需要为不同的网格节点使用不同的 DNS 服务器时才使用以下脚本。
 
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 登录到主管理节点：
 +
 .. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
@@ -77,4 +78,5 @@ Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
 . [[Close_cmd_shell]]关闭服务器上的命令shell： `exit`
 . 对于每个网格节点，重复执行到中的步骤<<log_in_to_node,登录到节点>><<close_cmd_shell,关闭命令 Shell>>。
 . 如果不再需要对其他服务器进行无密码访问，请从 SSH 代理中删除私钥。输入： `ssh-add -D`
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当您完成修改 DNS 配置后。
 

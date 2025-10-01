@@ -27,8 +27,8 @@ indexpage:
       url: "../monitor/using-snmp-monitoring.html"
   - title: 使用审核消息和其他日志
     links:
-    - title: 配置审核消息
-      url: "../monitor/configure-audit-messages.html"
+    - title: 配置日志管理
+      url: "../monitor/configure-log-management.html"
     - title: 使用外部系统日志服务器
       url: "../monitor/considerations-for-external-syslog-server.html"
     - title: 查看审核日志
@@ -39,6 +39,8 @@ indexpage:
     links:
     - title: 查看支持指标
       url: "../monitor/reviewing-support-metrics.html"
+    - title: 更改 I/O 优先级
+      url: "../monitor/manage-io-prioritization.html"
     - title: Run diagnostics
       url: "../monitor/running-diagnostics.html"
     - title: 对常见问题进行故障排除

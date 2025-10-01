@@ -16,12 +16,16 @@ summary: 按照以下说明将 StorageGRID 系统升级到新版本。
 执行升级时、StorageGRID系统中的所有节点都会升级。
 
 
+CAUTION: 如果您急需扩展存储以增加容量（如果您的存储几乎已满），请不要开始升级。及时完成升级程序。如果需要恢复，请联系技术支持。
 
-== 开始之前
 
-查看这些主题、了解StorageGRID 11.9中的新增功能和增强功能、确定是否已弃用或删除任何功能、以及了解StorageGRID API的变更。
 
-* link:whats-new.html["StorageGRID 11.9."]
+== 升级之前
+
+查看这些主题以了解StorageGRID 12.0 中的新功能和增强功能，确定是否有任何功能已被弃用或删除，并了解StorageGRID API 的变化。
+
+* link:how-your-system-is-affected-during-upgrade.html["升级期间对系统的影响"]
+* link:whats-new.html["StorageGRID 12.0 中的新功能"]
 * link:removed-or-deprecated-features.html["已删除或已弃用的功能"]
 * link:changes-to-grid-management-api.html["对网格管理 API 进行的更改"]
 * link:changes-to-tenant-management-api.html["对租户管理 API 进行的更改"]

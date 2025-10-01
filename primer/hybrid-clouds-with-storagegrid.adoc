@@ -31,7 +31,7 @@ NOTE: 不支持将云存储池与 FabricPool 结合使用，因为从云存储�
 通过 S3 平台服务，您可以将远程服务用作对象复制，事件通知或搜索集成的端点。平台服务独立于网格的 ILM 规则运行，并可为各个 S3 存储分段启用。支持以下服务：
 
 * CloudMirror 复制服务会自动将指定对象镜像到目标 S3 存储分段，该存储分段可以位于 Amazon S3 或第二个 StorageGRID 系统上。
-* 事件通知服务会将有关指定操作的消息发送到支持接收简单通知服务(Simple Notification Service、Amazon SNS)事件的外部端点。
+* 事件通知服务将有关指定操作的消息发送到支持接收简单通知服务 (Amazon SNS) 事件的外部端点。
 * 搜索集成服务会将对象元数据发送到外部 Elasticsearch 服务，从而可以使用第三方工具搜索，可视化和分析元数据。
 
 
@@ -43,7 +43,7 @@ NOTE: 不支持将云存储池与 FabricPool 结合使用，因为从云存储�
 
 您可以使用 FabricPool 将数据分层到 StorageGRID ，从而降低 ONTAP 存储的成本。FabricPool 支持将数据自动分层到内部或外部的低成本对象存储层。
 
-与手动分层解决方案不同， FabricPool 可通过自动化数据分层来降低存储成本，从而降低总拥有成本。它通过分层到公有 和包括 StorageGRID 在内的私有云，提供云经济的优势。
+与手动分层解决方案不同， FabricPool通过自动化数据分层来降低存储成本，从而降低总体拥有成本。它通过分层到公共云和私有云（包括StorageGRID）来提供云经济的优势。
 
 .相关信息
 * link:../ilm/what-cloud-storage-pool-is.html["什么是云存储池？"]

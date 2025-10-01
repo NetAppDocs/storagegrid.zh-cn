@@ -38,19 +38,19 @@ CAUTION: 确保每个站点至少有两个节点可以访问至少四个外部 N
 
 . 如果添加了网关节点：
 +
-** 如果将高可用性（ HA ）组用于客户端连接，则可以选择将网关节点添加到 HA 组。选择 * 配置 * > * 网络 * > * 高可用性组 * 以查看现有 HA 组列表并添加新节点。请参阅。 link:../admin/configure-high-availability-group.html["配置高可用性组"]
+** 如果客户端连接使用高可用性 (HA) 组，则可以选择将网关节点添加到 HA 组。选择“*配置*”>“*网络*”>“*高可用性组*”来查看现有 HA 组的列表并添加新节点。看link:../admin/configure-high-availability-group.html["配置高可用性组"] 。
 
 
 . 如果添加了管理节点：
 +
-.. 如果为 StorageGRID 系统启用了单点登录（ Single Sign-On ， SSO ），请为新管理节点创建依赖方信任。除非创建此依赖方信任、否则无法登录到此节点。请参阅。 link:../admin/configuring-sso.html["配置单点登录"]
-.. 如果您计划在管理节点上使用负载平衡器服务、则可以选择将新的管理节点添加到HA组。选择 * 配置 * > * 网络 * > * 高可用性组 * 以查看现有 HA 组列表并添加新节点。请参阅。 link:../admin/configure-high-availability-group.html["配置高可用性组"]
+.. 如果您的StorageGRID系统启用了单点登录 (SSO)，请为新的管理节点创建依赖方信任。在创建此依赖方信任之前，您无法登录该节点。看link:../admin/configure-sso.html["配置单点登录"] 。
+.. 如果您计划在管理节点上使用负载均衡器服务，则可以选择将新的管理节点添加到 HA 组。选择“*配置*”>“*网络*”>“*高可用性组*”来查看现有 HA 组的列表并添加新节点。看link:../admin/configure-high-availability-group.html["配置高可用性组"] 。
 .. 如果要使每个管理节点上的属性和审核信息保持一致，也可以将管理节点数据库从主管理节点复制到扩展管理节点。请参阅。 link:copying-admin-node-database.html["复制管理节点数据库"]
 .. 如果要使每个管理节点上的历史指标保持一致，也可以将 Prometheus 数据库从主管理节点复制到扩展管理节点。请参阅。 link:copying-prometheus-metrics.html["复制 Prometheus 指标"]
 .. 如果要使每个管理节点上的历史日志信息保持一致，也可以将现有审核日志从主管理节点复制到扩展管理节点。请参阅。 link:copying-audit-logs.html["复制审核日志"]
 
 
-. 要检查是否使用不可信客户端网络添加了扩展节点，或更改节点的客户端网络是不可信还是可信，请转至*configuration*>*Security*>*Firewall control*。
+. 要检查扩展节点是否添加了不受信任的客户端网络，或者要更改节点的客户端网络是否不受信任或受信任，请转到*配置*>*安全*>*防火墙控制*。
 +
 如果扩展节点上的客户端网络不可信，则必须使用负载平衡器端点与客户端网络上的节点建立连接。请参阅link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"]和link:../admin/manage-firewall-controls.html["管理防火墙控制"]。
 

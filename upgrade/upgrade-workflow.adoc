@@ -21,9 +21,9 @@ summary: 开始升级之前，请查看常规工作流。StorageGRID 升级页�
 [role="quick-margin-para"]
 如果需要、从主管理节点访问StorageGRID 升级页面并上传升级文件和修补程序文件。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]下载恢复软件包
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]下载恢复包
 [role="quick-margin-para"]
-开始升级之前、请下载当前的恢复软件包。
+在开始升级之前下载当前的恢复包。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]运行升级预检
 [role="quick-margin-para"]
@@ -33,9 +33,9 @@ summary: 开始升级之前，请查看常规工作流。StorageGRID 升级页�
 [role="quick-margin-para"]
 开始升级时、将再次运行预检、并自动升级主管理节点。升级主管理节点时、您无法访问网格管理器。审核日志也将不可用。此升级可能需要长达 30 分钟的时间。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]下载恢复软件包
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]下载恢复包
 [role="quick-margin-para"]
-升级主管理节点后、下载新的恢复软件包。
+主管理节点升级后，下载新的恢复包。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]批准节点
 [role="quick-margin-para"]

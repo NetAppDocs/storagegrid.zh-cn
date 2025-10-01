@@ -36,12 +36,13 @@ NOTE: 如果现有 DNS 服务器无法通过新 IP 地址访问网格，请在�
 
 +
 
-NOTE: 如果为 StorageGRID 系统启用了 SSO ，并且任何依赖方信任均使用管理节点 IP 地址（而不是建议的完全限定域名）进行配置，请准备在 Active Directory 联合身份验证服务（ AD FS ）中更新或重新配置这些依赖方信任 更改 IP 地址后立即执行。请参阅。 link:../admin/configuring-sso.html["配置单点登录"]
+NOTE: 如果您的StorageGRID系统启用了 SSO，并且使用管理节点 IP 地址（而不是建议的完全限定域名）配置了任何依赖方信任，请准备在更改 IP 地址后立即在 Active Directory 联合身份验证服务 (AD FS) 中更新或重新配置这些依赖方信任。看link:../admin/configure-sso.html["配置单点登录"] 。
 
 +
 
 NOTE: 如有必要，请为新 IP 地址添加新子网。
 
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 登录到主管理节点：
 +
 .. 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
@@ -130,12 +131,13 @@ NOTE: 必须关闭整个网格、以使所有节点同时关闭。
 .. 如果添加了新的 DNS 服务器，请删除旧的 DNS 服务器值。
 
 
-. 从网格管理器下载新的恢复软件包。
+. 从网格管理器下载新的恢复包。
 +
-.. 选择 * 维护 * > * 系统 * > * 恢复软件包 * 。
+.. 选择*维护* > *系统* > *恢复包*。
 .. 输入配置密码短语。
 
 
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当您完成更改 IP 地址后。
 
 
 .相关信息

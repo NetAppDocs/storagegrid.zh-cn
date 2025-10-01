@@ -1,0 +1,33 @@
+---
+permalink: s3/example-session-policies.html 
+sidebar: sidebar 
+keywords: session policy example 
+summary: 使用本节中的示例来构建StorageGRID会话策略。 
+---
+= 会话策略示例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用以下示例构建StorageGRID会话策略。
+
+
+
+== 示例：设置允许对象检索的会话策略
+
+在此示例中，会话的主体只允许从 bucket1 中检索对象。除StorageGRID特定操作（例如使用link:use-access-policies/#use-putoverwriteobject-permission["S3 ： PutOverwriteObject"]允许。调用 AssumeRole API 时，会话策略可以作为 JSON 文件提供。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:GetObject",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::bucket1/*"
+    }
+  ]
+}
+----

@@ -17,7 +17,7 @@ StorageGRID 系统的基本组件是网格节点。节点包含服务，这些�
 
 == 网格节点的类型
 
-StorageGRID 系统使用四种类型的网格节点：
+StorageGRID系统使用三种类型的网格节点：
 
 管理节点:: 提供系统配置、监控和日志记录等管理服务。登录到网格管理器后，您将连接到管理节点。每个网格都必须有一个主管理节点，并且可能有额外的非主管理节点，以实现冗余。您可以连接到任何管理节点，每个管理节点都会显示一个类似的 StorageGRID 系统视图。但是，必须使用主管理节点执行维护过程。
 +
@@ -30,6 +30,8 @@ StorageGRID 系统使用四种类型的网格节点：
 存储节点:: 管理和存储对象数据和元数据。StorageGRID系统中的每个站点必须至少具有三个存储节点。
 +
 --
+在新存储节点的初始安装期间，您可以指定它仅用于link:../primer/what-storage-node-is.html#types-of-storage-nodes["存储元数据"]。
+
 请参见 link:what-storage-node-is.html["什么是存储节点？"]
 
 --
@@ -45,7 +47,7 @@ StorageGRID 系统使用四种类型的网格节点：
 
 == 硬件和软件节点
 
-StorageGRID节点可以部署为StorageGRID设备节点、也可以部署为基于软件的节点。
+StorageGRID节点可以部署为StorageGRID设备节点或基于软件的节点。每个系统的最大节点数（包括所有节点类型）为 220。
 
 
 
@@ -63,16 +65,9 @@ StorageGRID 硬件设备经过专门设计，可在 StorageGRID 系统中使用�
 
 === 基于软件的节点
 
-基于软件的网格节点可以部署为VMware虚拟机、也可以部署在Linux主机上的容器引擎中。
-
-* VMware vSphere中的虚拟机(VM)：请参阅link:../vmware/index.html["在VMware上安装StorageGRID"]。
-* 在Red Hat Enterprise Linux上的容器引擎中：请参阅link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]。
-* 在Ubuntu或Debian上的容器引擎中：请参阅link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]。
-
+基于软件的网格节点可以部署为 VMware 虚拟机或 Linux 主机上的容器引擎内。看link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"] 。
 
 使用 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]确定支持的版本。
-
-在首次安装基于软件的新存储节点期间，您可以指定该节点仅用于link:../primer/what-storage-node-is.html#types-of-storage-nodes["存储元数据"]。
 
 
 
@@ -109,6 +104,42 @@ AMS (审计管理系统)
 监控所有已审核的系统事件和事务并将其记录到文本日志文件中。
  a| 
 管理节点
+
+
+
+ a| 
+阿帕奇 Tomcat
+ a| 
+基于 Java 的应用程序的 Web 服务器。
+ a| 
+管理节点
+
+
+
+ a| 
+Avahi 守护进程
+ a| 
+处理 mDNS，用于本地网络内的名称解析和服务发现。
+ a| 
+所有节点
+
+
+
+ a| 
+缓存服务
+ a| 
+在负载均衡器（网关）节点上运行并管理对象内容的本地缓存。
+ a| 
+网关节点
+
+
+
+ a| 
+Cassandra
+ a| 
+管理对象元数据的分布式数据库。
+ a| 
+存储节点（仅数据除外）
 
 
 
@@ -187,7 +218,7 @@ Grafana
  a| 
 身份（ idnt ）
  a| 
-从 LDAP 和 Active Directory 联合用户身份。
+管理本地用户和组、身份验证并联合来自 LDAP 和 Active Directory 的用户身份。
  a| 
 使用ADC服务的存储节点
 
@@ -239,9 +270,9 @@ nginx
 
 
  a| 
-nginx 网关
+nginx-gw 负载均衡器
  a| 
-为负载平衡器服务供电。
+提供从客户端到存储节点的S3流量的负载平衡。可以通过负载平衡器端点配置页面配置负载平衡器服务。此服务也称为 nginx 网关服务。
  a| 
 管理节点和网关节点
 
@@ -253,6 +284,24 @@ NMS (网络管理系统)
 为通过网格管理器显示的监控，报告和配置选项提供电源。
  a| 
 管理节点
+
+
+
+ a| 
+节点导出器（Prometheus 数据收集）
+ a| 
+发布 Prometheus 时间序列指标收集的系统级统计数据。
+ a| 
+所有节点
+
+
+
+ a| 
+NTP
+ a| 
+网络时间协议 (NTP) 服务。
+ a| 
+所有节点
 
 
 
@@ -293,7 +342,70 @@ SSM (服务器状态监控器)
 
 
  a| 
-跟踪收集器
+服务器管理器
+ a| 
+管理StorageGRID服务。
+ a| 
+所有节点
+
+
+
+ a| 
+SNMP代理
+ a| 
+响应 SNMP 请求。
+ a| 
+管理节点
+
+
+
+ a| 
+SNMP端口管理服务
+ a| 
+处理 SNMP 端口的动态管理。
+ a| 
+所有节点
+
+
+
+ a| 
+SSH（安全外壳）
+ a| 
+处理安全访问和远程系统管理。
+ a| 
+所有节点
+
+
+
+ a| 
+SSM（系统状态监视器）
+ a| 
+监控硬件状况并向 NMS 服务报告。
+ a| 
+所有节点
+
+
+
+ a| 
+统计
+ a| 
+记录与 S3 存储桶相关的其他指标。
+ a| 
+存储节点
+
+
+
+ a| 
+追踪代理（jaeger-agent）
+ a| 
+接收并处理跟踪收集器（jaeger-collector）提交的跟踪信息。
+ a| 
+所有节点
+
+
+
+ a| 
+跟踪收集器（jaeger-collector）
  a| 
 执行跟踪收集以收集信息以供技术支持使用。跟踪收集器服务使用开源Jaeger软件。
  a| 

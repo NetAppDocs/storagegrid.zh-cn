@@ -13,6 +13,8 @@ summary: 审核共享包含活动的 audit.log 文件和任何压缩的审核日
 [role="lead"]
 审核共享包含活动 `audit.log`文件和任何压缩的审核日志文件。您可以直接从管理节点的命令行访问审核日志文件。
 
+这 `audit.log`除非您为 *管理节点/本地节点* 或 *管理节点和外部系统日志服务器* 配置StorageGRID ，否则文件保持为空。有关详细信息，请参阅link:../monitor/configure-log-management.html#select-log-location["选择日志位置"] 。
+
 .开始之前
 * 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
 * 您必须拥有该 `Passwords.txt`文件。
@@ -33,7 +35,7 @@ summary: 审核共享包含活动的 audit.log 文件和任何压缩的审核日
 
 . 转到包含审核日志文件的目录：
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . 根据需要查看当前审核日志文件或已保存的审核日志文件。
 

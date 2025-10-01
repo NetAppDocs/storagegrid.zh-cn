@@ -51,9 +51,7 @@ summary: 使用以下准则了解 StorageGRID 架构和网络拓扑，并了解�
 
 
 .安装基于软件的节点
-* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-* link:../vmware/index.html["在VMware上安装StorageGRID"]
+* link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"]
 
 
 .配置和管理 StorageGRID 软件

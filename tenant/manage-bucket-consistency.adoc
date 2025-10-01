@@ -63,7 +63,7 @@ NOTE: 如果更改存储分段的一致性、则只有在更改后被加载的�
 * link:deleting-s3-bucket-objects.html["后台空分段删除"]
 * link:enabling-or-disabling-last-access-time-updates.html["上次访问时间"]
 * link:../s3/create-s3-lifecycle-configuration.html["分段生命周期"]
-* link:../s3/bucket-and-group-access-policies.html["存储分段策略"]
+* link:../s3/use-access-policies.html["存储分段策略"]
 * link:../s3/operations-on-buckets.html["存储分段标记"]
 * link:changing-bucket-versioning.html["存储分段版本控制"]
 * link:using-s3-object-lock.html["S3 对象锁定"]
@@ -76,7 +76,7 @@ NOTE: 分段版本控制、S3对象锁定和分段加密的一致性值不能设
 以下存储分段设置不会使用较强的一致性、因此更改可用性较高。对这些设置所做的更改可能需要一段时间才能生效。
 
 * link:considerations-for-platform-services.html["平台服务配置：通知、复制或搜索集成"]
-* link:configuring-cross-origin-resource-sharing-cors.html["CORS配置"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["为存储桶和对象配置StorageGRID CORS"]
 * <<change-bucket-consistency,更改存储分段一致性>>
 
 

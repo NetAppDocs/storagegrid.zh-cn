@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: 关于 bycast.log
     url: "/monitor/about-bycast-log.html"
-- title: 配置审核消息和日志目标
+- title: 配置日志管理和外部系统日志服务器
   entries:
   - title: 外部系统日志服务器的注意事项
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: 配置审核消息和外部系统日志服务器
-    url: "/monitor/configure-audit-messages.html"
+  - title: 配置日志管理
+    url: "/monitor/configure-log-management.html"
 - title: 使用 SNMP 监控
   entries:
   - title: SNMP监控
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: 收集其他 StorageGRID 数据
   entries:
-  - title: 使用图表和图形
-    url: "/monitor/using-charts-and-reports.html"
-  - title: 使用文本报告
-    url: "/monitor/types-of-text-reports.html"
   - title: 监控 PUT 和 GET 性能
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: 监控对象验证操作
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: 监控事件
-    url: "/monitor/monitoring-events.html"
   - title: 查看审核消息
     url: "/monitor/reviewing-audit-messages.html"
   - title: 收集日志文件和系统数据
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: 手动触发AutoSupport软件包
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: 查看网格拓扑树
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: 查看支持指标
     url: "/monitor/reviewing-support-metrics.html"
+  - title: 更改 I/O 优先级
+    url: "/monitor/manage-io-prioritization.html"
   - title: Run diagnostics
     url: "/monitor/running-diagnostics.html"
   - title: 创建自定义监控应用程序

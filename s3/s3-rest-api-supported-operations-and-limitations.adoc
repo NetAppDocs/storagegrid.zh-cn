@@ -44,13 +44,6 @@ Authorization
 * 在中提供实际有效负载校验和值时 `x-amz-content-sha256`，该值将被接受而不进行验证，就像为标头提供了该值一样 `UNSIGNED-PAYLOAD`。如果您提供的 `x-amz-content-sha256`标头值表示 `aws-chunked`流式传输(例如、STAVAMMA-AWS4-HMAC-SHA256-payload)、则不会根据区块数据验证区块签名。
 
 
-
-
- a| 
-X-AMZ-securation-token
- a| 
-未实施。返回。 `XNotImplemented`
-
 |===
 
 

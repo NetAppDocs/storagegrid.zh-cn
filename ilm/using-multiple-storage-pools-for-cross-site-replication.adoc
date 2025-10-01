@@ -20,7 +20,7 @@ summary: 如果您的StorageGRID 部署包含多个站点、则可以对已正�
 
 
 
-CAUTION: 在为StorageGRID部署配置站点丢失保护时，还必须考虑和的影响link:data-protection-options-for-ingest.html["加热选项"]link:../s3/consistency-controls.html["一致性"]。
+CAUTION: 在配置StorageGRID部署以进行站点丢失保护时，还必须考虑以下因素的影响link:data-protection-options-for-ingest.html["加热选项"]和link:../s3/consistency.html["一致性"]。
 
 
 

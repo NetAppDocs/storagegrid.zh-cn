@@ -30,7 +30,7 @@ summary: 审核消息可帮助您更好地了解 StorageGRID 系统的详细操�
 * StorageGRID默认为本地节点审核目标。
 * 可能会将网格管理器和租户管理器审核日志条目发送到存储节点。
 * 您也可以更改审核日志的目标并将审核信息发送到外部系统日志服务器。配置外部系统日志服务器后，仍会生成并存储审核记录的本地日志。
-* link:../monitor/configure-audit-messages.html["了解如何配置审核消息和日志目标"](英文)
+* link:../monitor/configure-log-management.html["了解有关配置日志管理的信息"] 。
 
 
 有关审核日志文件、审核消息格式、审核消息类型以及可用于分析审核消息的工具的详细信息，请参见link:../audit/index.html["查看审核日志"]。

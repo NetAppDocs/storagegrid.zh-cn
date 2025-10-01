@@ -67,7 +67,7 @@
 
 
  a| 
-此节点所属网格的主管理节点的网格网络 IPv4 地址。使用为 node_type = VM_Admin_Node 且 admin_role = Primary 的网格节点的 grid_network_IP 指定的相同值。如果省略此参数，则节点将尝试使用 mDNS 发现主管理节点。
+您要用于安装基于 Linux 的节点的管理节点的网格网络 IPv4 地址。对于恢复，如果可用，请使用主管理节点的 IP；否则，使用非主管理节点的 IP。如果省略此参数，节点将尝试使用 mDNS 发现主管理节点。
 
 link:how-grid-nodes-discover-primary-admin-node.html["网格节点如何发现主管理节点"]
 
@@ -277,11 +277,7 @@ interface (这是唯一支持的值。)
 
 * 最佳实践： * 在需要混杂模式的网络中，请改用 admin_network_target_type_interface_clone_MAC 密钥。
 
-有关 MAC 克隆的详细信息，请参见：
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC地址克隆的注意事项和建议(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆（ Ubuntu 或 Debian ）的注意事项和建议"]
-
+有关 Linux 的 MAC 克隆的更多详细信息，请参阅link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆的注意事项和建议"]
  a| 
 最佳实践
 
@@ -639,11 +635,7 @@ StorageGRID 节点用于客户端网络访问的主机设备的名称。仅支�
 
 * 最佳实践： * 在需要混杂模式的网络中，请改用 client_network_target_type_interface_clone_MAC 密钥。
 
-有关 MAC 克隆的详细信息，请参见：
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC地址克隆的注意事项和建议(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆（ Ubuntu 或 Debian ）的注意事项和建议"]
-
+有关 Linux 的 MAC 克隆的更多详细信息，请参阅link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆的注意事项和建议"]
  a| 
 最佳实践
 
@@ -834,11 +826,7 @@ interface (这是唯一支持的值。)
 
 * 最佳实践： * 在需要混杂模式的网络中，请改用 grid_network_target_type_interface_clone_MAC 密钥。
 
-有关 MAC 克隆的详细信息，请参见：
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC地址克隆的注意事项和建议(Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆（ Ubuntu 或 Debian ）的注意事项和建议"]
-
+有关 Linux 的 MAC 克隆的更多详细信息，请参阅link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC 地址克隆的注意事项和建议"]
  a| 
 最佳实践
 
@@ -980,6 +968,9 @@ interface (这是唯一支持的值。)
 
 
 === 端口重新映射密钥
+
+
+NOTE: 对端口重新映射的支持已弃用，并将在未来的版本中删除。要删除重新映射的端口，请参阅link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
 
 
 

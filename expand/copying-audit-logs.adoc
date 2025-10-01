@@ -1,8 +1,8 @@
 ---
-permalink: expand/copying-audit-logs.html 
 sidebar: sidebar 
+permalink: expand/copying-audit-logs.html 
 keywords: copy audit log, Admin Node expansion, 
-summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅会记录在加入系统后发生的事件和操作。根据需要，您可以将审核日志从先前安装的管理节点复制到新的扩展管理节点，使其与 StorageGRID 系统的其余部分保持同步。 
+summary: 当您通过扩展程序添加新的管理节点时，其 AMS 服务仅记录其加入系统后发生的事件和操作。根据需要，您可以将审计日志从先前安装的管理节点复制到新的扩展管理节点，以便它与StorageGRID系统的其余部分同步。 
 ---
 = 复制审核日志
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅�
 
 
 [role="lead"]
-通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅会记录在加入系统后发生的事件和操作。根据需要，您可以将审核日志从先前安装的管理节点复制到新的扩展管理节点，使其与 StorageGRID 系统的其余部分保持同步。
+当您通过扩展程序添加新的管理节点时，其 AMS 服务仅记录其加入系统后发生的事件和操作。根据需要，您可以将审计日志从先前安装的管理节点复制到新的扩展管理节点，以便它与StorageGRID系统的其余部分同步。
 
 .开始之前
 * 您已完成添加管理节点所需的扩展步骤。
@@ -23,13 +23,13 @@ summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅�
 
 [NOTE]
 ====
-默认情况下，审核信息会发送到管理节点上的审核日志。如果符合以下任一条件，则可以跳过这些步骤：
+默认情况下，审计信息将发送到 `localaudit`登录每个节点。要使用此过程，您必须将管理节点配置为审计目标，如下所示：
 
-* 您配置了外部系统日志服务器，审核日志现在将发送到系统日志服务器，而不是管理节点。
-* 您明确指定仅应将审核消息保存在生成这些消息的本地节点上。
+* 您将 *管理节点/本地节点* 配置为日志目标。
+* 您已将*管理节点和外部系统日志服务器*配置为日志目标。
 
 
-有关详细信息、请参见。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+参考link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"]了解详情。
 
 ====
 .步骤
@@ -47,9 +47,9 @@ summary: 通过扩展操作步骤 添加新管理节点时，其 AMS 服务仅�
 . 停止AMS服务以防止其创建新文件： `service ams stop`
 . 导航到审核导出目录：
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
-. 重命名源 `audit.log`文件、以确保它不会覆盖要将其复制到的扩展管理节点上的文件：
+. 重命名源 `audit.log`文件以确保它不会覆盖您要将其复制到的扩展管理节点上的文件：
 +
 [listing]
 ----
@@ -58,7 +58,7 @@ mv audit.log _new_name_.txt
 ----
 . 将所有审核日志文件复制到扩展管理节点上的目标位置：
 +
-`scp -p * _IP_address_:/var/local/log`
+`scp -p * _IP_address_:/var/local/audit/export/`
 
 . 如果系统提示您输入的密码短语 `/root/.ssh/id_rsa`，请输入文件中列出的主管理节点的SSH访问密码 `Passwords.txt`。
 . 还原原始 `audit.log`文件：
@@ -86,7 +86,7 @@ mv audit.log _new_name_.txt
 
 . 更新审核日志文件的用户和组设置：
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 +
 `chown ams-user:bycast *`

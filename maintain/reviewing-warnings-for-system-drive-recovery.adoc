@@ -13,23 +13,20 @@ summary: 在恢复存储节点的故障系统驱动器之前、请查看有关�
 [role="lead"]
 在恢复存储节点的故障系统驱动器之前、请查看常规link:warnings-and-considerations-for-grid-node-recovery.html["有关网格节点恢复的警告和注意事项"]警告和以下特定警告。
 
-存储节点具有包含对象元数据的 Cassandra 数据库。在以下情况下，可能会重建 Cassandra 数据库：
+存储节点有一个包含对象元数据的 Cassandra 数据库。如果出现以下情况，则可能需要重建 Cassandra 数据库：
 
-* 存储节点脱机超过 15 天后将恢复联机。
-* 存储卷出现故障并已恢复。
+* 存储卷发生故障并已恢复。
 * 系统驱动器和一个或多个存储卷发生故障并已恢复。
 
 
-重建 Cassandra 后，系统将使用其他存储节点中的信息。如果脱机的存储节点过多，则某些 Cassandra 数据可能不可用。如果 Cassandra 最近已重建，则 Cassandra 数据可能尚未在网格中保持一致。如果在存储节点过多脱机时重建 Cassandra ，或者在彼此 15 天内重建两个或多个存储节点，则可能会发生数据丢失。
+当 Cassandra 重建时，系统使用来自其他存储节点的信息。如果 Cassandra 最近重建，Cassandra 数据可能在整个网格中尚不一致。如果太多存储节点处于离线状态：
+
+* 某些 Cassandra 数据可能不可用。
+* 可能会发生数据丢失。
 
 
-CAUTION: 如果多个存储节点出现故障（或脱机），请联系技术支持。请勿执行以下恢复操作步骤。可能发生数据丢失。
 
-
-CAUTION: 如果这是在存储节点发生故障或恢复后不到 15 天内第二个存储节点发生故障，请联系技术支持。在 15 天内在两个或多个存储节点上重建 Cassandra 可能会导致数据丢失。
-
-
-NOTE: 如果一个站点上的多个存储节点出现故障，则可能需要一个站点恢复操作步骤 。请参阅。 link:how-site-recovery-is-performed-by-technical-support.html["技术支持如何恢复站点"]
+CAUTION: 如果多个存储节点出现故障（或离线），请联系技术支持。不要执行以下恢复过程。可能会发生数据丢失。有关详细信息，请参阅link:how-site-recovery-is-performed-by-technical-support.html["技术支持如何恢复站点"] 。
 
 
 CAUTION: 如果此存储节点处于只读维护模式，以便允许存储卷出现故障的另一个存储节点检索对象，请先在存储卷出现故障的存储节点上恢复卷，然后再恢复此故障存储节点。请参阅的说明link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["从系统驱动器完好无损的存储卷故障中恢复"]。

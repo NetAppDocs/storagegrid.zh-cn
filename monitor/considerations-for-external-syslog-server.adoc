@@ -42,7 +42,7 @@ NOTE: 为了在外部系统日志服务器发生故障时最大限度地恢复�
 
 == 如何配置外部系统日志服务器
 
-要了解如何配置外部系统日志服务器，请参见link:../monitor/configure-audit-messages.html["配置审核消息和外部系统日志服务器"]。
+要了解如何配置外部 syslog 服务器，请参阅link:../monitor/configure-log-management.html["配置日志管理和外部系统日志服务器"]。
 
 如果您计划配置使用TLS或RELP/TLS协议、则必须具有以下证书：
 

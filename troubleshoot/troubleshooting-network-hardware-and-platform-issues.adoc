@@ -85,6 +85,7 @@ TLS handshake failed
 MTU 设置的差异可能表明，某些（但并非所有） eth0 网络配置了巨型帧。如果 MTU 大小不匹配大于 1000 ，则可能会出现发生原因 网络性能问题。
 
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 列出所有节点上 eth0 的 MTU 设置。
 +
 ** 使用网格管理器中提供的查询。
@@ -148,6 +149,7 @@ MTU 设置的差异可能表明，某些（但并非所有） eth0 网络配置�
 |===
 
 
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当你完成任务时。
 
 
 
@@ -257,12 +259,12 @@ NOTE: link:../maintain/configuring-ntp-servers.html["指定外部NTP源"]对于�
 
 === MAC 地址克隆
 
-在某些情况下，可以使用 MAC 地址克隆来解决网络问题。如果使用的是虚拟主机，请在节点配置文件中将每个网络的 MAC 地址克隆密钥值设置为 "true" 。此设置会使 StorageGRID 容器的 MAC 地址使用主机的 MAC 地址。要创建节点配置文件，请参见或的说明link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"]link:../ubuntu/creating-node-configuration-files.html["Ubuntu 或 Debian"]。
+在某些情况下，可以通过使用 MAC 地址克隆来解决网络问题。如果您使用虚拟主机，请在节点配置文件中将每个网络的 MAC 地址克隆键的值设置为“true”。此设置会导致StorageGRID容器的 MAC 地址使用主机的 MAC 地址。请参阅说明link:../swnodes/creating-node-configuration-files.html["创建节点配置文件"]。
 
 
 NOTE: 创建单独的虚拟网络接口，以供 Linux 主机操作系统使用。如果发生原因 虚拟机管理程序未启用混杂模式，则对 Linux 主机操作系统和 StorageGRID 容器使用相同的网络接口可能会使主机操作系统无法访问。
 
-有关启用MAC克隆的详细信息，请参阅或的说明link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu 或 Debian"]。
+欲了解更多信息，请参阅link:../swnodes/configuring-host-network.html["启用 MAC 克隆"]。
 
 
 
@@ -270,7 +272,7 @@ NOTE: 创建单独的虚拟网络接口，以供 Linux 主机操作系统使用�
 
 如果您不想使用MAC地址克隆、而是希望允许所有接口接收和传输非虚拟机管理程序分配的MAC地址的数据、 确保将虚拟交换机和端口组级别的安全属性设置为*接受*(用于Pro味 式、MAC地址更改和伪传输)。虚拟交换机上设置的值可以被端口组级别的值覆盖，因此请确保这两个位置的设置相同。
 
-有关使用“Pro味 噌模式”的详细信息，请参阅或的说明link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu 或 Debian"]。
+有关使用混杂模式的更多信息，请参阅link:../swnodes/configuring-host-network.html["如何配置主机网络"]。
 
 
 

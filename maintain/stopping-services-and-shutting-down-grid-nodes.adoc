@@ -118,10 +118,10 @@ NOTE: 如果您发出 `service servermanager stop`命令以停止设备存储节
 
 
 .相关信息
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112和SG6160存储设备"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000存储设备"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG工具"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700存储设备"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110和SG1100服务设备"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100和SG1000服务设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112和SG6160存储设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000存储设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG工具"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700存储设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110和SG1100服务设备"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100和SG1000服务设备"^]
 

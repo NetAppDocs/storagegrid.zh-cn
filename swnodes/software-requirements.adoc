@@ -1,0 +1,152 @@
+---
+permalink: swnodes/software-requirements.html 
+sidebar: sidebar 
+keywords: software requirements 
+summary: 您可以使用虚拟机托管任何类型的StorageGRID节点。每个网格节点需要一个虚拟机。 
+---
+= 软件要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虚拟机托管任何类型的StorageGRID节点。每个网格节点需要一个虚拟机。
+
+[role="tabbed-block"]
+====
+.RHEL
+--
+要在 RHEL 上安装StorageGRID ，您必须安装一些第三方软件包。某些受支持的 Linux 发行版默认不包含这些软件包。  StorageGRID安装所测试的软件包版本包括本页列出的版本。
+
+如果您选择的Linux分发版和容器运行时安装选项需要这些软件包中的任何一个，并且Linux分发版不会自动安装这些软件包，请安装此处列出的其中一个版本(如果您的供应商或Linux分发版的支持供应商提供了这些版本)。否则、请使用供应商提供的默认软件包版本。
+
+所有安装选项都需要使用Podman或Docker。请勿同时安装这两个软件包。仅安装安装选项所需的软件包。
+
+
+NOTE: 不再支持将Docker用作纯软件部署的容器引擎。在未来版本中、Docker将被另一个容器引擎取代。
+
+*测试的 Python 版本*
+
+* 3.5.2.2.
+* 3.6.8-2.
+* 3.6.8-38.
+* 3.6.9-1.
+* 3.7.3-1.
+* 3.8.10-0
+* 3.9.2-1.
+* 3.9.10-2.
+* 3.9.16-1.
+* 3.10.6-1.
+* 3.11.2-6.
+
+
+*已测试的 Podman 版本*
+
+* 3.2.3-0
+* 3.4.4+DS1.
+* 4.1.1-7.
+* 4.2.0-11.
+* 4.3.1+DS1-8+B1
+* 4.4.1-8.
+* 4.4.1-12.
+
+
+*测试的 Docker 版本*
+
+
+IMPORTANT: Docker支持已弃用、将在未来版本中删除。
+
+* Docker CE 20.10.7.
+* Docker CE 20.10.20-3
+* Docker -CE 23.0.6-1
+* Docker -CE 24.0.2-1
+* Docker -CE 24.0.4-1
+* Docker -CE 24.0.5-1
+* Docker -CE 24.0.7-1
+* 1.5-2
+
+
+--
+.Ubuntu 和 Debian
+--
+要在Ubuntu或Debian上安装StorageGRID、您必须安装某些第三方软件包。默认情况下、某些受支持的Linux分发版不包含这些软件包。测试StorageGRID安装的软件包版本包括此页面上列出的软件包版本。
+
+如果您选择的Linux分发版和容器运行时安装选项需要这些软件包中的任何一个，并且Linux分发版不会自动安装这些软件包，请安装此处列出的其中一个版本(如果您的供应商或Linux分发版的支持供应商提供了这些版本)。否则、请使用供应商提供的默认软件包版本。
+
+所有安装选项都需要使用Podman或Docker。请勿同时安装这两个软件包。仅安装安装选项所需的软件包。
+
+
+NOTE: 不再支持将Docker用作纯软件部署的容器引擎。在未来版本中、Docker将被另一个容器引擎取代。
+
+*测试的 Python 版本*
+
+* 3.5.2.2.
+* 3.6.8-2.
+* 3.6.8-38.
+* 3.6.9-1.
+* 3.7.3-1.
+* 3.8.10-0
+* 3.9.2-1.
+* 3.9.10-2.
+* 3.9.16-1.
+* 3.10.6-1.
+* 3.11.2-6.
+
+
+*已测试的 Podman 版本*
+
+* 3.2.3-0
+* 3.4.4+DS1.
+* 4.1.1-7.
+* 4.2.0-11.
+* 4.3.1+DS1-8+B1
+* 4.4.1-8.
+* 4.4.1-12.
+
+
+*测试的 Docker 版本*
+
+
+IMPORTANT: Docker支持已弃用、将在未来版本中删除。
+
+* Docker CE 20.10.7.
+* Docker CE 20.10.20-3
+* Docker -CE 23.0.6-1
+* Docker -CE 24.0.2-1
+* Docker -CE 24.0.4-1
+* Docker -CE 24.0.5-1
+* Docker -CE 24.0.7-1
+* 1.5-2
+
+
+--
+.VMware
+--
+*VMware vSphere 虚拟机管理程序*
+
+您必须在已准备好的物理服务器上安装 VMware vSphere 虚拟机管理程序。在安装 VMware 软件之前，必须正确配置硬件（包括固件版本和 BIOS 设置）。
+
+* 根据需要在虚拟机管理程序中配置网络，以支持要安装的 StorageGRID 系统的网络连接。
++
+link:../network/index.html["网络连接准则"]
+
+* 确保数据存储库足够大，足以容纳托管网格节点所需的虚拟机和虚拟磁盘。
+* 如果创建多个数据存储库，请为每个数据存储库命名，以便在创建虚拟机时轻松确定要用于每个网格节点的数据存储库。
+
+
+*ESX 主机配置要求*
+
+
+CAUTION: 您必须在每个 ESX 主机上正确配置网络时间协议（ NTP ）。如果主机时间不正确，可能会产生负面影响，包括数据丢失。
+
+*VMware 配置要求*
+
+在部署StorageGRID节点之前、您必须安装和配置VMware vSphere和vCenter。
+
+有关受支持的VMware vSphere Hypervisor(虚拟机管理程序)和VMware vCenter Server软件版本，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具"^]。
+
+有关安装这些 VMware 产品所需的步骤，请参见 VMware 文档。
+
+--
+====

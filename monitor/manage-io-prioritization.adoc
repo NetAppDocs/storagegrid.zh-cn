@@ -1,0 +1,33 @@
+---
+permalink: monitor/manage-io-prioritization.html 
+sidebar: sidebar 
+keywords: ec repair priority, ec purge priority 
+summary: '输入/输出 (I/O) 优先级允许您更改网格上 I/O 操作的相对优先级。' 
+---
+= 更改 I/O 优先级
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+输入/输出 (I/O) 优先级允许您更改网格上 I/O 操作的相对优先级。
+
+默认情况下，客户端 PUT 和 GET I/O 流量比清除擦除编码 (EC) 数据和 EC 修复等后台活动具有最高优先级。通过提高清除擦除编码 (EC) 数据和 EC 修复活动的优先级，这些任务可能会更快地完成。  I/O 优先级变化的有效性受到客户端请求率、网络流量波动和其他正在进行的网络任务的影响。
+
+.开始之前
+* 查看 I/O 优先级页面，确定哪些选项可能会影响您的网格。
+* 评估正在进行的客户端流量是否可以安全地处理更长的等待时间或客户端超时。
+* 准备好监控优先级变化的影响并根据需要进行调整。这些变化实施得很快，但其效果可能需要几个小时才能显现。
+
+
+.步骤
+. 选择*支持* > *I/O 优先级*。
+. （可选）将清除 EC 数据的后台操作的 EC 清除和修复优先级从其默认值更改。
++
+
+NOTE: 对于具有基于 RAID 的节点的网格，使用默认的低 EC 清除和修复优先级。
+
+. 选择 * 保存 * 。
+. 监控link:../monitor/commonly-used-prometheus-metrics.html#where-are-prometheus-metrics-used["指标"]评估优先级变化的影响。
+

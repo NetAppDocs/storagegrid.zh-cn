@@ -4,7 +4,7 @@
 
 . 从验证软件包中提取项目：
 +
-`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
 
 . 确保已提取这些项目：
 +

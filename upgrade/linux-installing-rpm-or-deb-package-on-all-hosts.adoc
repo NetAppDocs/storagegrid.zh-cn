@@ -36,8 +36,8 @@ StorageGRID 软件版本采用以下格式： 11._x.y_ 。StorageGRID 修补程�
 ** 最新版本的升级归档文件(这是标记为*vmware、SG1000或SG100主管理节点*的部分中的文件)。虽然在执行升级之前不需要此文件、但现在下载它可以节省时间。
 ** 或格式的RPM或 `.zip`DEB归档文件 `.tgz`。如果您在服务笔记本电脑上运行Windows、请选择此 `.zip`文件。
 +
-*** Red Hat Enterprise Linux
-`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` ++
+*** RHEL +
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` +
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz`
 *** Ubuntu或Debian +
 `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip`
@@ -57,6 +57,12 @@ StorageGRID 软件版本采用以下格式： 11._x.y_ 。StorageGRID 修补程�
 
 
 
+. 代码签名验证在 Linux 节点上是手动的。或者，验证安装档案：
++
+.. 下载StorageGRID代码签名验证包。此软件包的文件名使用格式 `StorageGRID_<version-number>_Code_Signature_Verification_Package.tar.gz`，其中 `<version-number>`是StorageGRID软件版本。
+.. 按照步骤link:../swnodes/download-files-verify.html["手动验证安装文件"]。
+
+
 
 
 
@@ -69,12 +75,7 @@ StorageGRID 软件版本采用以下格式： 11._x.y_ 。StorageGRID 修补程�
 . 从安装文件中提取 RPM 或 Deb 软件包。
 . 在所有 Linux 主机上安装 RPM 或 Deb 软件包。
 +
-请参见安装说明中的StorageGRID 主机服务安装步骤：
-
-+
-** link:../rhel/installing-storagegrid-webscale-host-service.html["Red Hat Enterprise Linux：安装StorageGRID主机服务"]
-** link:../ubuntu/installing-storagegrid-webscale-host-services.html["Ubuntu或Debian：安装StorageGRID 主机服务"]
-
+请参阅安装 Linux StorageGRID主机服务的步骤link:../swnodes/installing-storagegrid-webscale-host-services.html["安装 StorageGRID 主机服务"]。
 
 +
 新软件包将作为附加软件包进行安装。
@@ -93,7 +94,7 @@ StorageGRID 软件版本采用以下格式： 11._x.y_ 。StorageGRID 修补程�
 
 [role="tabbed-block"]
 ====
-.Red Hat
+.RHEL
 --
 . 捕获已安装的StorageGRID软件包的列表： `dnf list | grep -i storagegrid`。
 +

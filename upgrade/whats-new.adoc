@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: 此版本的 StorageGRID 引入了以下功能。 
+keywords: what is new in StorageGRID 12.0 
+summary: 此版本的StorageGRID 引入了以下特性和功能变更。 
 ---
-= StorageGRID 11.9.
+= StorageGRID 12.0 中的新功能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,160 +15,94 @@ summary: 此版本的 StorageGRID 引入了以下功能。
 
 
 
-== 可扩展性
+== 设备
 
+* 存储容量和成本效率大幅提升。
+* 自动驱动器固件升级可增强系统可靠性并减少维护开销。
 
 
-=== 纯数据存储节点
 
-要实现更精细的扩展，您现在可以安装link:../primer/what-storage-node-is.html#types-of-storage-nodes["纯数据存储节点"]。如果元数据处理并不重要、您可以经济高效地优化基础架构。这种灵活性有助于适应不同的工作负载和增长模式。
 
+== 人工智能（AI）和机器学习（ML）
 
+* link:../tenant/what-is-branch-bucket.html["分支桶"]允许存储桶的时间点版本，以促进更快的勒索软件恢复和隔离数据集以进行测试和实验。
+* S3 缓存层增强了 AI/ML 训练的性能。
 
-== Cloud Storage Pool增强功能
 
 
 
-=== IAM角色无处不在
+== 容量
 
-StorageGRID现在支持使用的短期凭据link:../ilm/creating-cloud-storage-pool.html["适用于云存储池的Amazon S3中任意位置的IAM角色"]。
+StorageGRID现在支持一万亿个对象，是之前限制的两倍多。请参阅 https://fusion.netapp.com/["NetApp Fusion工具"^]确定StorageGRID 的大小并进行设计。
 
-如果使用长期凭据访问S3存储分段、则会在这些凭据泄露时带来安全风险。短期凭据的使用寿命有限、从而降低了未经授权访问的风险。
 
 
+== Cassandra 更新
 
-=== S3对象锁定分段
+StorageGRID现在使用较新版本的 Cassandra 进行元数据存储。此版本的 Cassandra 更有效地利用磁盘空间来存储更多元数据。
 
-您现在可以了link:../ilm/creating-cloud-storage-pool.html["使用Amazon S3端点配置云存储池"]。S3对象锁定有助于防止意外或恶意删除对象。如果您将数据从StorageGRID分层到Amazon S3、则在两个系统上启用对象锁定可增强整个数据生命周期内的数据保护。
+您先请link:../upgrade/index.html["从StorageGRID 11.9 升级到 12.0"]，元数据格式更新将在后台进行一到三天。在此期间，涉及元数据流的某些维护程序（例如扩展）将被禁用。
 
+请参阅link:../upgrade/performing-upgrade.html#upgrade-other-nodes["升级其他节点"] 。
 
 
-== 多租户
 
+== 联邦
 
+* 您现在可以link:../admin/managing-users.html#import-federated-users["导入最多 100 个联合用户"]进入StorageGRID。
+* 您现在可以link:../ilm/configuring-regions-optional-and-s3-only.html["修改默认区域"]用于 S3 存储桶。此功能为管理数据区域设置和合规性提供了更大的灵活性。
+* 您现在可以在启用 S3 对象锁定的情况下配置存储桶之间的跨网格复制。请参阅link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["使用 S3 对象锁进行跨网格复制"] 。
++
+NetApp建议仅在StorageGRID 12.0 源存储桶和目标存储桶之间使用此功能。但是，禁用 S3 对象锁的StorageGRID 11.9 源存储桶与启用 S3 对象锁的StorageGRID 12.0 目标存储桶之间支持此功能。
 
-=== 存储分段限制
 
-通过link:../tenant/creating-s3-bucket.html["设置S3存储分段的限制"]，您可以防止租户独占容量。此外、不受控制的增长可能导致意外成本。通过定义限制、您可以更好地估计租户存储支出。
 
 
 
-=== 每个租户5、000个分段
+== 易管理性
 
-为了提高可扩展性，StorageGRID现在支持的最高扩展到link:../s3/operations-on-buckets.html["每个租户5、000个S3存储分段"]。每个网格最多可以包含100、000个分段。
+* 改进link:../maintain/decommission-procedure.html["退役程序"]减少时间和复杂性，提高运营效率。
+* 当网格具有三个或更多站点时，强全局一致性的改进行为为客户端请求提供了站点故障容忍度。
++
+** 新安装的StorageGRID 12.0 及更高版本将默认使用 Quorum 语义link:../s3/consistency.html["强全局一致性"]已设置。
+** 如果从StorageGRID 11.9 升级到StorageGRID 12.0，升级后的网格将保留以前的行为以实现强大的全局一致性。
 
-要支持5、000个存储分段、网格中的每个存储节点必须至少具有64 GB RAM。
 
 
 
-== 改进了S3对象锁定
 
-每租户配置功能可在灵活性和数据安全性之间实现适当的平衡。现在、您可以将每个租户的保留设置配置为：
+NOTE: 如果您需要恢复到以前的行为以实现强全局一致性，请参阅 https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["配置StorageGRID Quorum 语义以实现强全局一致性"^]以获取说明。
 
-* 允许或禁止兼容模式
-* 设置最长保留期限
-
-
-请参阅：
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["使用 S3 对象锁定管理对象"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["网格管理员如何控制对象保留"]
-* link:../admin/creating-tenant-account.html["创建租户帐户"]
-
-
-
-
-== S3兼容性
-
-
-
-=== X-AMZ-Checksum和SHA256校验和
-
-* 现在、S3 REST API支持链接：.S3 / operations-on-objects.html[`x-amz-checksum-sha256`校验和]。
-* StorageGRID现在为Put、GET和HEAD操作提供SHA-256校验和支持。这些校验和可增强数据完整性。
-
-
-
-
-=== 对S3协议支持进行的更改
-
-* 增加了对Amazon S3装载点的支持、使应用程序可以像本地文件系统一样直接连接到S3存储分段。现在、您可以在更多应用程序和用例中使用StorageGRID。
-* 在添加对mountpoint的支持时，StorageGRID 11包含link:../s3/index.html#updates-to-rest-api-support["对S3协议支持进行了其他更改"]。
-
-
-
-
-== 维护和可支持性
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"]现在、可以自动为传统设备创建硬件故障情形。
-
-
-
-=== 扩展了节点克隆操作
-
-节点克隆可用性已得到扩展、可支持更大的存储节点。
-
-
-
-=== 改进了对过期删除标记的ILM处理
-
-现在、时间段为天的ILM加载时间规则也会删除过期的对象删除标记。只有在经过一段时间且当前删除程序已过期(没有非当前版本)时、删除标记才会被删除。
-
-请参阅link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]和link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["分段生命周期优先于ILM策略的示例"]。
-
-
-
-=== 改进了节点停用
-
-为了平稳高效地过渡到StorageGRID下一代硬件、我们对其进行了改进。link:../maintain/grid-node-decommissioning.html["节点停用"]
-
-
-
-=== 负载平衡器端点的系统日志
-
-负载平衡器端点访问日志包含故障排除信息、例如HTTP状态代码。StorageGRID现在支持link:../monitor/configure-audit-messages.html["将这些日志导出到外部系统日志服务器"]。此增强功能可实现更高效的日志管理、并可与现有监控和警报系统集成。
-
-
-
-=== 维护和可支持性方面的其他增强功能
-
-* 指标UI更新
-* 新的操作系统限制条件
-* 支持新的第三方组件
+* 启动日志上传功能link:../admin/configure-autosupport-grid-manager.html["AutoSupport"]有助于增强支持响应能力。
+* 减少 https://docs.netapp.com/us-en/storagegrid-appliances/index.html["appliance"^]重启时间最大限度地减少了停机时间，从而提高了整体系统可用性。
+* link:../maintain/move-adc-service.html["移动 ADC 服务的能力"]到另一个存储节点增加了管理托管 ADC 服务的存储节点的灵活性和弹性。您可以在停用存储节点或将存储节点转换为仅数据节点之前移动 ADC 服务。
+* 为了最大化数据存储容量，您可以link:../maintain/convert-to-data-only-node.html["将存储节点转换为仅数据节点"]，这会导致该节点上的元数据迁移到组合或仅元数据的存储节点。
+* 任何管理节点都能够link:../maintain/selecting-node-recovery-procedure.html["恢复任何其他节点"]（主管理节点除外）增强了系统恢复和容错能力，提高了整体可靠性。
+* 用户现在可以使用 S3 bucket 来link:../monitor/configure-log-management.html#use-a-bucket["长期存储审计日志"]。
 
 
 
 
 == 安全性
 
-
-
-=== SSH访问密钥轮换
-
-网格管理员现在可以link:../admin/change-ssh-access-passwords.html["更新和轮换SSH密钥"]。能够轮换SSH密钥是一项安全最佳实践、也是一种主动防御机制。
-
-
-
-=== root登录警报
-
-当未知实体以root身份登录到网格管理器时，link:../monitor/alerts-reference.html["此时将触发警报"]。监控root SSH登录是保护基础架构的一个主动步骤。
+* 更强大的数据加密和完整性保护提供了更高的安全性和性能。
+* 提高存储密码的安全性可降低未经授权访问的风险。
+* link:../admin/manage-external-ssh-access.html["SSH 默认被阻止"]在允许受控访问的同时增强安全性。
 
 
 
-== Grid Manager增强功能
+
+== 租户组
+
+* 您现在可以link:../tenant/manage-groups.html["配置新的 S3 信任策略"]支持 AssumeRole API。  AssumeRole 功能提供短期凭证，以增强安全性和灵活的访问控制。
+* 每个存储桶的对象计数配额允许更好地控制和管理存储资源。
 
 
 
-=== 已移动纠删编码配置文件页面
 
-纠删编码配置文件页面现在位于*configuration*>*System*>*Erasure coding*。它以前位于ILM菜单中。
+== 用户接口
 
+* 网格管理器和租户管理器的用户菜单中提供了深色主题和系统主题设置。
+* 审计和系统日志服务器页面已重命名link:../monitor/configure-log-management.html["日志管理"]，已重构，并增加了将日志存储在系统存储桶中以用于备份的功能。
+* 旧版网格拓扑页面已被删除。在过去的几个StorageGRID版本中，该页面提供的操作和指标已迁移到网格管理器中的其他页面，特别是link:../monitor/viewing-nodes-page.html["节点页面"]。
 
-
-=== 搜索增强功能
-
-link:../primer/exploring-grid-manager.html#search-field["网格管理器中的搜索字段"]现在、包含更好的匹配逻辑、使您可以通过搜索常见缩写和按页面中某些设置的名称来查找页面。您还可以搜索更多类型的项目、例如节点、用户和租户帐户。

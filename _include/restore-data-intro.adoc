@@ -8,8 +8,8 @@
 
 请尽可能使用网格管理器中的*卷还原*页面还原对象数据。
 
-* 如果卷列在*Maintenance >* Volume Restore*>* Node to restore *中，请使用还原对象数据。link:../maintain/restoring-volume.html["网格管理器中的卷还原页面"]
-* 如果卷未列在*维护*>*卷还原*>*要还原的节点*中、请按照以下步骤使用脚本还原对象数据。 `repair-data`
+* 如果卷列在“*维护* > *卷恢复* > *要恢复的节点*”中，请使用link:../maintain/restoring-volume.html["网格管理器中的卷还原页面"]。
+* 如果卷未在“*维护* > *卷恢复* > *要恢复的节点*”中列出，请按照以下步骤使用 `repair-data`脚本来恢复对象数据。
 +
 如果已恢复的存储节点包含的卷数少于要替换的节点数、则必须使用 `repair-data`脚本。
 
@@ -23,7 +23,7 @@ NOTE: 修复数据脚本已弃用、将在未来版本中删除。如果可能�
 == 使用 `repair-data`脚本还原对象数据
 
 .开始之前
-* 您已在网格管理器的*N节点*>*Overview*选项卡上确认已恢复的存储节点的连接状态为*conny*。image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]
+* 您已确认恢复的存储节点的连接状态为*已连接*image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]在网格管理器中的 *节点* > *概览* 选项卡上。
 
 
 .关于此任务

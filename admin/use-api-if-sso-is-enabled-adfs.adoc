@@ -11,7 +11,7 @@ summary: 如果您已配置并启用单点登录（ SSO ），并且使用 Activ
 
 
 [role="lead"]
-如果您有link:../admin/configuring-sso.html["已配置并启用单点登录（ SSO ）"]、并且使用Active Directory作为SSO提供程序、则必须发出一系列API请求以获取对网格管理API或租户管理API有效的身份验证令牌。
+如果你有link:../admin/how-sso-works.html["已配置并启用单点登录（ SSO ）"]并且您使用 Active Directory 作为 SSO 提供程序，则必须发出一系列 API 请求以获取对网格管理 API 或租户管理 API 有效的身份验证令牌。
 
 
 
@@ -27,7 +27,7 @@ summary: 如果您已配置并启用单点登录（ SSO ），并且使用 Activ
 .关于此任务
 要获取身份验证令牌，可以使用以下示例之一：
 
-*  `storagegrid-ssoauth.py`Python脚本、位于Red Hat Enterprise Linux、 `./debs`Ubuntu或Debian以及 `./vsphere`VMware的StorageGRID安装文件目录中(`./rpms`。
+* 这 `storagegrid-ssoauth.py`Python 脚本，位于StorageGRID安装文件目录中(`./rpms`对于 RHEL， `./debs`适用于 Ubuntu 或 Debian，以及 `./vsphere`对于 VMware)。
 * cURL 请求的示例工作流。
 +
 如果执行速度过慢，则卷曲工作流可能会超时。您可能会看到以下错误： `A valid SubjectConfirmation was not found on this Response`。

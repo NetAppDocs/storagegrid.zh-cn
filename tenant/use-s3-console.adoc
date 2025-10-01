@@ -37,12 +37,12 @@ S3控制台可为大多数常见情形提供更好的用户体验。它并不能
 .开始之前
 * 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 如果您要管理对象、则属于具有root访问权限的用户组。或者、您属于具有"使用S3控制台"选项卡权限以及"查看所有分段"或"管理所有分段"权限的用户组。请参阅。 link:tenant-management-permissions.html["租户管理权限"]
-* 已为此用户配置S3组或存储分段策略。请参阅。 link:../s3/bucket-and-group-access-policies.html["使用存储分段和组访问策略"]
+* 已为用户配置 S3 组或存储桶策略。看link:../s3/use-access-policies.html["使用存储分段和组访问策略"] 。
 * 您知道用户的访问密钥 ID 和机密访问密钥。(可选)您有一个 `.csv`包含此信息的文件。请参见link:creating-your-own-s3-access-keys.html["创建访问密钥的说明"]。
 
 
 .步骤
-. 选择*storage*>*Buckets*>*_bketname_*。
+. 选择 *存储* > *存储桶* > *_存储桶名称_*。
 . 选择S3控制台选项卡。
 . 将访问密钥ID和机密访问密钥粘贴到字段中。否则，请选择*上传访问密钥*并选择您的 `.csv`文件。
 . 选择 * 登录 * 。

@@ -34,8 +34,8 @@ entries:
       entries:
       - title: Active Directory
         url: "/admin/use-api-if-sso-is-enabled-adfs.html"
-      - title: Azure
-        url: "/admin/use-api-if-sso-is-enabled-azure.html"
+      - title: 进入 ID
+        url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
       - title: PingFederate
         url: "/admin/use-api-if-sso-is-enabled-ping.html"
     - title: 使用 API 停用功能
@@ -61,23 +61,23 @@ entries:
     url: "/admin/managing-users.html"
   - title: 使用单点登录（ SSO ）
     entries:
-    - title: 配置单点登录
-      url: "/admin/configuring-sso.html"
-    - title: 单点登录的要求
+    - title: SSO 的工作原理
+      url: "/admin/how-sso-works.html"
+    - title: SSO 的要求
       url: "/admin/requirements-for-sso.html"
     - title: 确认联合用户可以登录
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: 使用沙盒模式
-      url: "/admin/using-sandbox-mode.html"
+    - title: 配置 SSO
+      url: "/admin/configure-sso.html"
     - title: 在 AD FS 中创建依赖方信任
       url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: 在 Azure 中创建企业级应用程序
-      url: "/admin/creating-enterprise-application-azure.html"
+    - title: 在 Entra ID 中创建企业应用程序
+      url: "/admin/creating-enterprise-application-entra-id.html"
     - title: 在 PingFederate 中创建 SP 连接
       url: "/admin/creating-sp-connection-ping.html"
-    - title: 禁用单点登录
+    - title: 禁用 SSO
       url: "/admin/disabling-single-sign-on.html"
-    - title: 临时禁用并重新启用一个管理节点的单点登录
+    - title: 暂时禁用并重新启用一个管理节点的 SSO
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
 - title: 使用网格联盟
   entries:
@@ -132,6 +132,8 @@ entries:
       url: "/admin/changing-network-options-object-encryption.html"
     - title: 更改接口安全设置
       url: "/admin/changing-browser-session-timeout-interface.html"
+    - title: 管理外部 SSH 访问
+      url: "/admin/manage-external-ssh-access.html"
   - title: 配置密钥管理服务器
     entries:
     - title: 什么是密钥管理服务器
@@ -226,14 +228,16 @@ entries:
 - title: 管理网络和连接
   entries:
   - title: 配置网络设置
-    url: "/admin/configuring-network-settings.html"
     pdf-filename: 管理网络和连接
+    url: "/admin/configuring-network-settings.html"
   - title: StorageGRID 网络准则
     url: "/admin/guidelines-for-storagegrid-networks.html"
   - title: 查看 IP 地址
     url: "/admin/viewing-ip-addresses.html"
   - title: 配置 VLAN 接口
     url: "/admin/configure-vlan-interfaces.html"
+  - title: 为管理接口启用 CORS
+    url: "/admin/enable-cross-origin-resource-sharing-for-management-interface.html"
   - title: 管理流量分类策略
     entries:
     - title: 什么是流量分类策略
@@ -268,10 +272,8 @@ entries:
     url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: 管理存储节点
   entries:
-  - title: 存储节点管理
-    pdf-filename: 管理存储节点
-    url: "/admin/managing-storage-nodes.html"
   - title: 使用存储选项
+    pdf-filename: 管理存储节点
     entries:
     - title: 什么是对象分段
       url: "/admin/what-object-segmentation-is.html"
@@ -291,5 +293,3 @@ entries:
     url: "/admin/using-multiple-admin-nodes.html"
   - title: 确定主管理节点
     url: "/admin/identifying-primary-admin-node.html"
-  - title: 查看通知状态和队列
-    url: "/admin/viewing-notification-status-and-queues.html"

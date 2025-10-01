@@ -14,11 +14,7 @@ summary: 您可以使用此操作步骤 添加或更新网格、站点和节点�
 您可以使用此操作步骤 添加或更新网格、站点和节点所使用的显示名称。您可以同时重命名单个项目、多个项目甚至所有项目。定义或更新显示名称不会以任何方式影响StorageGRID 操作。
 
 .开始之前
-* 在*主管理节点*中，您使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
-+
-
-NOTE: 您可以从非主管理节点添加或更新显示名称、但必须登录到主管理节点才能下载恢复软件包。
-
+* 从任何管理节点，您都可以使用link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您拥有link:../admin/admin-group-permissions.html["维护或root访问权限"]。
 * 您具有配置密码短语。
 * 您了解显示名称的要求和最佳实践。请参阅。 link:../maintain/rename-grid-site-node-overview.html["重命名网格、站点和节点"]
@@ -39,7 +35,7 @@ NOTE: 您可以从非主管理节点添加或更新显示名称、但必须登�
 要开始、请选择要重命名的项目。
 
 .步骤
-. 选择*维护*>*任务*>*重命名网格、站点和节点*。
+. 选择*维护* > *任务* > *重命名网格、站点和节点*。
 . 在*选择名称*步骤中，选择要重命名的项目。
 +
 [cols="1a,2a"]
@@ -165,13 +161,13 @@ image::../media/rename-bulk-rename-tool-after.png[之后批量重命名工具]
 ====
 
 
-=== [[download-recovery package]]下载恢复软件包
+=== [[download-recovery-package]]下载恢复包
 
-重命名项目后、下载并保存新的恢复软件包。您重命名的项目的新显示名称将包括在文件中 `Passwords.txt`。
+完成重命名项目后，下载并保存新的恢复包。您重命名的项目的新显示名称包含在 `Passwords.txt`文件。
 
 .步骤
 . 输入配置密码短语。
-. 选择*下载恢复软件包*。
+. 选择 * 下载恢复包 * 。
 +
 下载将立即开始。
 
@@ -179,7 +175,7 @@ image::../media/rename-bulk-rename-tool-after.png[之后批量重命名工具]
 . 将文件复制 `sgws-recovery-package-_id-revision_.zip`到两个安全、独立的位置。
 +
 
-CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 StorageGRID 系统获取数据的加密密钥和密码。
+CAUTION: 恢复包文件必须是安全的，因为它包含可用于从StorageGRID系统获取数据的加密密钥和密码。
 
 . 选择*完成*以返回到第一步。
 
@@ -191,7 +187,7 @@ CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 Storage
 您可以将重命名的网格、站点或节点还原回其原始系统名称。将项目还原回其系统名称后，网格管理器页面和其他StorageGRID 位置将不再显示该项目的*Display name*。仅显示项目的系统名称。
 
 .步骤
-. 选择*维护*>*任务*>*重命名网格、站点和节点*。
+. 选择*维护* > *任务* > *重命名网格、站点和节点*。
 . 在*选择名称*步骤中，选择要恢复为系统名称的任何项目。
 . 选择 * 继续 * 。
 . 对于*PROPIN NEW NAMES*步骤，将显示名称分别或批量还原回系统名称。
@@ -229,7 +225,7 @@ CAUTION: 恢复包文件必须受到保护，因为它包含可用于从 Storage
 
 --
 ====
-. <<download-recovery-package,下载并保存新的恢复软件包>>(英文)
+. <<download-recovery-package,下载并保存新的恢复包>> 。
 +
 您还原的项目的显示名称不再包含在文件中 `Passwords.txt`。
 

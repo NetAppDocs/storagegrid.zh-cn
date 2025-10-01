@@ -39,14 +39,12 @@ entries:
     entries:
     - title: 创建S3组
       url: "/tenant/creating-groups-for-s3-tenant.html"
-    - title: 创建Swift组
-      url: "/tenant/creating-groups-for-swift-tenant.html"
     - title: 租户管理权限
       url: "/tenant/tenant-management-permissions.html"
     - title: 管理组
       url: "/tenant/manage-groups.html"
-  - title: 管理本地用户
-    url: "/tenant/managing-local-users.html"
+  - title: 管理用户
+    url: "/tenant/manage-users.html"
 - title: 管理 S3 访问密钥
   entries:
   - title: 租户访问密钥
@@ -70,6 +68,10 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: 查看存储分段详细信息
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: 什么是分支桶
+    url: "/tenant/what-is-branch-bucket.html"
+  - title: 管理分支存储桶
+    url: "/tenant/manage-branch-buckets.html"
   - title: 将ILM策略标记应用于存储分段
     url: "/tenant/ilm-policy-tags.html"
   - title: 管理存储分段策略
@@ -84,8 +86,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: 更新S3对象锁定默认保留
     url: "/tenant/update-default-retention-settings.html"
-  - title: 配置跨源资源共享（ CORS ）
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: 为存储桶和对象配置 CORS
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
   - title: 删除存储分段中的对象
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: 删除存储分段

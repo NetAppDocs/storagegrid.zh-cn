@@ -14,12 +14,7 @@ summary: 安装 Linux 节点后，您可以向该节点添加额外的中继或�
 安装 Linux 节点后，您可以向该节点添加额外的中继或访问接口。添加的接口将显示在 VLAN 接口页面和 HA 组页面上。
 
 .开始之前
-* 您可以访问有关在 Linux 平台上安装 StorageGRID 的说明。
-+
-** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-
-
+* 您可以访问link:../swnodes/index.html["StorageGRID安装说明"]在您的 Linux 平台上。
 * 您已获得 `Passwords.txt`文件。
 * 您拥有 link:../admin/admin-group-permissions.html["特定访问权限"]。
 

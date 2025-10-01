@@ -14,7 +14,7 @@ summary: 您可以创建存储池来确定 StorageGRID 系统存储对象数据�
 您可以创建存储池来确定 StorageGRID 系统存储对象数据的位置以及使用的存储类型。每个存储池包括一个或多个站点以及一个或多个存储级别。
 
 
-NOTE: 在新网格上安装StorageGRID 11.9时、系统会自动为每个站点创建存储池。但是、如果您最初安装的是StorageGRID 11.5或更早版本、则不会自动为每个站点创建存储池。
+NOTE: 在新网格上安装StorageGRID 12.0 时，会自动为每个站点创建存储池。但是，如果您最初安装了StorageGRID 11.6 或更早版本，则不会自动为每个站点创建存储池。
 
 如果要创建云存储池以将对象数据存储在StorageGRID系统之外，请参见link:what-cloud-storage-pool-is.html["有关使用云存储池的信息"]。
 

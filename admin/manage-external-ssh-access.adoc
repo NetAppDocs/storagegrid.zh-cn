@@ -1,0 +1,34 @@
+---
+permalink: admin/manage-external-ssh-access.html 
+sidebar: sidebar 
+keywords: security, external, ssh, access 
+summary: 通过阻止或允许外部 SSH 访问来管理 SSH 保护。 
+---
+= 管理外部 SSH 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过阻止或允许外部访问来管理进入网格的入站流量的 SSH 访问。管理 SSH 外部访问不会影响网格中节点之间的流量。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有 link:admin-group-permissions.html["root访问权限"]。
+
+
+.关于此任务
+为了增强系统安全性，默认情况下会阻止外部 SSH 访问。如果您需要执行需要入站 SSH 访问的任务（例如故障排除），请暂时允许外部访问。完成任务后，阻止外部访问。
+
+.步骤
+. 选择*配置* > *安全* > *安全设置*。
+. 选择“*阻止 SSH*”选项卡。
+. 使用*阻止入站 SSH 访问*选项来管理外部 SSH 访问：
++
+.. 选中复选框以阻止访问（默认）。
+.. 取消选中复选框以允许访问。
+
+
+. 选择 * 保存 * 。
+

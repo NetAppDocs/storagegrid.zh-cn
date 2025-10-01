@@ -1,51 +1,8 @@
 ---
 permalink: ubuntu/navigating-to-grid-manager.html 
-sidebar: sidebar 
-keywords: how to navigate to Grid Manager 
-summary: 您可以使用网格管理器定义配置 StorageGRID 系统所需的所有信息。 
+redirect: storagegrid/swnodes/navigating-to-grid-manager.html 
 ---
-= 导航到网格管理器
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-您可以使用网格管理器定义配置 StorageGRID 系统所需的所有信息。
-
-.开始之前
-必须部署主管理节点，并且已完成初始启动序列。
-
-.步骤
-. 打开Web浏览器并导航到：
-+
-`https://_primary_admin_node_ip_`
-
-+
-或者，您也可以通过端口 8443 访问网格管理器：
-
-+
-`https://_primary_admin_node_ip_:8443`
-
-+
-根据您的网络配置，您可以使用网格网络或管理网络上的主管理节点 IP 的 IP 地址。
-
-. 根据需要管理临时安装程序密码：
-+
-** 如果已使用以下方法之一设置密码、请输入密码以继续。
-+
-*** 用户在先前访问安装程序时设置了密码
-*** 密码是从的节点配置文件中自动导入的 `/etc/storagegrid/nodes/_<node_name>_.conf`
-
-
-** 如果尚未设置密码、则可以选择设置密码以保护StorageGRID安装程序。
-
-
-. 选择*安装StorageGRID 系统*。
-+
-此时将显示用于配置 StorageGRID 系统的页面。
-
-+
-image::../media/gmi_installer_first_screen.gif[此图通过周围文字进行了说明。]
 
 

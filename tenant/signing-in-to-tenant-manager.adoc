@@ -53,13 +53,7 @@ summary: 您可以通过在支持的 Web 浏览器的地址栏中输入租户的
 如果StorageGRID 未使用SSO、则会显示以下屏幕之一：
 
 ** 网格管理器登录页面。选择*租户登录*链接。
-+
-image::../media/tenant_login_link.png[网格管理器登录页面上的租户登录链接]
-
-** 租户管理器登录页面。“*帐户*”字段可能已完成，如下所示。
-+
-image::../media/tenant_user_sign_in.png[租户管理器登录页面]
-
+** 租户管理器登录页面。  *帐户*字段可能已经填写完毕。
 +
 ... 如果未显示租户的 20 位帐户 ID ，请选择最近帐户列表中显示的租户帐户名称，或者输入帐户 ID 。
 ... 输入用户名和密码。
@@ -77,17 +71,11 @@ image::../media/tenant_user_sign_in.png[租户管理器登录页面]
 --
 如果StorageGRID 正在使用SSO、则会显示以下屏幕之一：
 
-** 您组织的SSO页面。例如：
-+
-image::../media/sso_organization_page.gif[SSO 的示例组织登录页面]
-
+** 您组织的 SSO 页面。
 +
 输入您的标准SSO凭据，然后选择*登录*。
 
 ** 租户管理器 SSO 登录页面。
-+
-image::../media/sign_in_sso.png[如果启用了 SSO ，请登录到租户帐户]
-
 +
 ... 如果未显示租户的 20 位帐户 ID ，请选择最近帐户列表中显示的租户帐户名称，或者输入帐户 ID 。
 ... 选择 * 登录 * 。

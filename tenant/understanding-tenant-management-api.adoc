@@ -44,7 +44,7 @@ summary: 您可以使用租户管理 REST API 执行系统管理任务，而不�
 NOTE: 如果为 StorageGRID 系统启用了单点登录（ SSO ），则必须执行不同的步骤进行身份验证。请参见link:../admin/using-grid-management-api.html["有关使用网格管理 API 的说明"]。
 
 * *config*：与租户管理API的产品版本和版本相关的操作。您可以列出该版本支持的产品版本和主要 API 版本。
-* *容器*：对S3存储分段或Swift容器执行操作。
+* *容器*：对 S3 存储桶的操作。
 * *DEactive-Features *：用于查看可能已停用的功能的操作。
 * *端点*：用于管理端点的操作。通过端点， S3 存储分段可以使用外部服务进行 StorageGRID CloudMirror 复制，通知或搜索集成。
 * *网格联合连接*：对网格联合连接和跨网格复制的操作。

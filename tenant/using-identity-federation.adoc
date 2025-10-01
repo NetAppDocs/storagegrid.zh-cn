@@ -17,15 +17,15 @@ summary: 使用身份联合可以加快租户组和用户的设置速度，并�
 
 == 为租户管理器配置身份联合
 
-如果您希望在 Active Directory ， Azure Active Directory （ Azure AD ）， OpenLDAP 或 Oracle Directory Server 等其他系统中管理租户组和用户，则可以为租户管理器配置身份联合。
+如果您希望在另一个系统（例如 Active Directory、Microsoft Entra ID、OpenLDAP 或 Oracle Directory Server）中管理租户组和用户，则可以为租户管理器配置身份联合。
 
 .开始之前
-* 您已使用登录到租户管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您已使用link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您属于具有的用户组link:tenant-management-permissions.html["root访问权限"]。
-* 您正在使用 Active Directory ， Azure AD ， OpenLDAP 或 Oracle Directory Server 作为身份提供程序。
+* 您正在使用 Active Directory、Microsoft Entra ID、OpenLDAP 或 Oracle Directory Server 作为身份提供者。
 +
 
-NOTE: 如果要使用未列出的 LDAP v3 服务，请联系技术支持。
+NOTE: 如果您想使用未列出的 LDAP v3 服务，请联系技术支持。
 
 * 如果您计划使用 OpenLDAP ，则必须配置 OpenLDAP 服务器。请参阅。 <<配置 OpenLDAP 服务器的准则>>
 * 如果您计划使用传输层安全（ Transport Layer Security ， TLS ）与 LDAP 服务器进行通信，则身份提供程序必须使用 TLS 1.2 或 1.3 。请参阅。 link:../admin/supported-ciphers-for-outgoing-tls-connections.html["支持传出 TLS 连接的密码"]
@@ -43,7 +43,7 @@ image::../media/tenant_shares_identity_federation.png[租户共享身份联合]
 在配置"标识联盟"时、您可以提供StorageGRID 连接到LDAP服务所需的值。
 
 .步骤
-. 选择 * 访问管理 * > * 身份联合 * 。
+. 选择*访问管理* > *身份联合*。
 . 选择 * 启用身份联合 * 。
 . 在 LDAP 服务类型部分中，选择要配置的 LDAP 服务类型。
 +
@@ -54,10 +54,10 @@ image::../media/ldap_service_type.png[显示 LDAP 服务类型选项的身份联
 
 . 如果选择了 * 其他 * ，请填写 LDAP 属性部分中的字段。否则，请继续执行下一步。
 +
-** * 用户唯一名称 * ：包含 LDAP 用户唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `uid`此属性相当于 `sAMAccountName`。如果要配置Oracle Directory Server，请输入 `uid`。
-** * 用户 UID* ：包含 LDAP 用户的永久唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `entryUUID`此属性相当于 `objectGUID`。如果要配置Oracle Directory Server，请输入 `nsuniqueid`。每个用户在指定属性中的值都必须是一个 32 位十六进制数字，采用 16 字节或字符串格式，其中会忽略连字符。
-** * 组唯一名称 * ：包含 LDAP 组唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `cn`此属性相当于 `sAMAccountName`。如果要配置Oracle Directory Server，请输入 `cn`。
-** * 组 UID* ：包含 LDAP 组的永久唯一标识符的属性的名称。对于Active Directory和OpenLDAP、 `entryUUID`此属性相当于 `objectGUID`。如果要配置Oracle Directory Server，请输入 `nsuniqueid`。每个组在指定属性中的值必须是一个 32 位十六进制数字，采用 16 字节或字符串格式，其中会忽略连字符。
+** *用户唯一名称*：包含 LDAP 用户唯一标识符的属性名称。此属性相当于 `sAMAccountName`对于 Active Directory 和 `uid`对于 OpenLDAP。如果您正在配置 Oracle Directory Server，请输入 `uid`。
+** *用户 UUID*：包含 LDAP 用户的永久唯一标识符的属性名称。此属性相当于 `objectGUID`对于 Active Directory 和 `entryUUID`对于 OpenLDAP。如果您正在配置 Oracle Directory Server，请输入 `nsuniqueid`。每个用户的指定属性值必须是 16 字节或字符串格式的 32 位十六进制数，其中连字符将被忽略。
+** *组唯一名称*：包含 LDAP 组唯一标识符的属性的名称。此属性相当于 `sAMAccountName`对于 Active Directory 和 `cn`对于 OpenLDAP。如果您正在配置 Oracle Directory Server，请输入 `cn`。
+** *组 UUID*：包含 LDAP 组的永久唯一标识符的属性的名称。此属性相当于 `objectGUID`对于 Active Directory 和 `entryUUID`对于 OpenLDAP。如果您正在配置 Oracle Directory Server，请输入 `nsuniqueid`。每个组的指定属性的值必须是 16 字节或字符串格式的 32 位十六进制数，其中连字符将被忽略。
 
 
 . 对于所有 LDAP 服务类型，请在配置 LDAP 服务器部分中输入所需的 LDAP 服务器和网络连接信息。
@@ -81,7 +81,7 @@ NOTE: STARTTLS 的默认端口为 389 ， LDAPS 的默认端口为 636 。但是
 *** `cn`
 *** `memberOf`或 `isMemberOf`
 *** *Active Directory*： `objectSid`、 `primaryGroupID`、 `userAccountControl`和 `userPrincipalName`
-*** *Azer*: `accountEnabled`和 `userPrincipalName`
+*** *入口ID*: `accountEnabled`和 `userPrincipalName`
 
 
 ** * 密码 * ：与用户名关联的密码。
@@ -107,8 +107,8 @@ NOTE: 用户唯一名称 * 值在其所属的 * 用户基础 DN* 中必须是唯
 输入以下模式之一：
 
 +
-*** *UserPrincipalName模式(Active Directory和Azure)*： `[USERNAME]@_example_.com`
-*** *低级登录名称模式(Active Directory和Azure)*： `_example_\[USERNAME]`
+*** *UserPrincipalName 模式（AD 和 Entra ID）*： `[USERNAME]@_example_.com`
+*** *下级登录名称模式（AD 和 Entra ID）*： `_example_\[USERNAME]`
 *** *可分辨名称模式*： `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
 +
 与写入的内容完全相同，请包含 * 。
@@ -119,12 +119,12 @@ NOTE: 用户唯一名称 * 值在其所属的 * 用户基础 DN* 中必须是唯
 
 . 在传输层安全（ TLS ）部分中，选择一个安全设置。
 +
-** * 使用 STARTTLS * ：使用 STARTTLS 确保与 LDAP 服务器的通信安全。这是建议的 Active Directory ， OpenLDAP 或其他选项，但 Azure 不支持此选项。
-** * 使用 LDAPS* ： LDAPS （基于 SSL 的 LDAP ）选项使用 TLS 与 LDAP 服务器建立连接。您必须为 Azure 选择此选项。
-** * 请勿使用 TLS* ： StorageGRID 系统与 LDAP 服务器之间的网络流量将不会受到保护。Azure 不支持此选项。
+** *使用 STARTTLS*：使用 STARTTLS 确保与 LDAP 服务器的通信安全。这是 Active Directory、OpenLDAP 或其他的推荐选项，但 Microsoft Entra ID 不支持此选项。
+** *使用 LDAPS*：LDAPS（通过 SSL 的 LDAP）选项使用 TLS 建立与 LDAP 服务器的连接。您必须为 Microsoft Entra ID 选择此选项。
+** *不要使用 TLS*： StorageGRID系统和 LDAP 服务器之间的网络流量将不安全。  Microsoft Entra ID 不支持此选项。
 +
 
-NOTE: 如果 Active Directory 服务器强制实施 LDAP 签名，则不支持使用 * 不使用 TLS* 选项。您必须使用 STARTTLS 或 LDAPS 。
+NOTE: 如果您的 Active Directory 服务器强制执行 LDAP 签名，则不支持使用 *不使用 TLS* 选项。您必须使用 STARTTLS 或 LDAPS。
 
 
 
@@ -147,7 +147,7 @@ NOTE: 如果 Active Directory 服务器强制实施 LDAP 签名，则不支持�
 
 .步骤
 . 选择 * 测试连接 * 。
-. 如果未提供绑定用户名格式：
+. 如果您没有提供绑定用户名格式：
 +
 ** 如果连接设置有效、则会显示"Test connection sule"(测试连接成功)消息。选择 * 保存 * 以保存配置。
 ** 如果连接设置无效、则会显示"无法建立测试连接"消息。选择 * 关闭 * 。然后，解决所有问题并重新测试连接。
@@ -189,15 +189,15 @@ NOTE: 如果存在正在同步身份源中的联合组和用户的问题描述 �
 
 == 禁用身份联合
 
-您可以临时或永久禁用组和用户的身份联合。禁用身份联合后， StorageGRID 与身份源之间不会进行通信。但是，您配置的任何设置都将保留下来，以便将来可以轻松地重新启用身份联合。
+您可以暂时或永久禁用群组和用户的身份联合。当身份联合被禁用时， StorageGRID和身份源之间就没有通信。但是，您配置的任何设置都会保留，以便您将来可以轻松地重新启用身份联合。
 
 .关于此任务
 在禁用身份联合之前，您应注意以下事项：
 
 * 联合用户将无法登录。
 * 当前已登录的联合用户将保留对 StorageGRID 系统的访问权限，直到其会话到期为止，但在其会话到期后将无法登录。
-* StorageGRID系统与身份源之间不会进行同步、并且不会针对未同步的帐户发出警报。
-* 如果单点登录(SSO)设置为*Enabled"或*Sandbox Mode*，则*启用身份联合*复选框将被禁用。在禁用身份联合之前，单点登录页面上的 SSO 状态必须为 * 已禁用 * 。请参阅。 link:../admin/disabling-single-sign-on.html["禁用单点登录"]
+* StorageGRID系统和身份源之间不会发生同步，并且不会对尚未同步的帐户发出警报。
+* 如果单点登录 (SSO) 状态为 *已启用* 或 *沙盒模式*，则 *启用身份联合* 复选框将被禁用。在禁用身份联合之前，单点登录页面上的 SSO 状态必须为 *已禁用*。看link:../admin/disabling-single-sign-on.html["禁用单点登录"] 。
 
 
 .步骤
@@ -212,7 +212,7 @@ NOTE: 如果存在正在同步身份源中的联合组和用户的问题描述 �
 如果要使用 OpenLDAP 服务器进行身份联合，则必须在 OpenLDAP 服务器上配置特定设置。
 
 
-CAUTION: 对于非ActiveDirectory或Azure身份源、StorageGRID 不会自动阻止外部禁用的用户进行S3访问。要阻止S3访问、请删除此用户的任何S3密钥或从所有组中删除此用户。
+CAUTION: 对于非 Active Directory 或 Microsoft Entra ID 的身份源， StorageGRID不会自动阻止外部禁用的用户访问 S3。要阻止 S3 访问，请删除用户的所有 S3 密钥或从所有组中删除该用户。
 
 
 

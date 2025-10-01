@@ -30,7 +30,7 @@ summary: 您必须使 StorageGRID 系统和相关服务保持最新，以抵御�
 
 == 升级到外部服务
 
-外部服务可能存在间接影响 StorageGRID 的漏洞。您应确保 StorageGRID 所依赖的服务保持最新。这些服务包括 LDAP ， KMS （或 KMIP 服务器）， DNS 和 NTP 。
+外部服务可能存在间接影响StorageGRID 的漏洞。确保StorageGRID所依赖的服务保持最新。这些服务包括 LDAP、KMS（或 KMIP 服务器）、DNS 和 NTP。
 
 有关支持的版本列表，请参见 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具"^]。
 

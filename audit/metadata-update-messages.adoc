@@ -44,7 +44,7 @@ link:supd-s3-metadata-updated.html["SUPD ：已更新 S3 元数据"]
 
 === SUPD ： S3 元数据更新
 
-S3客户端请求(SUPD)更新(`x-amz-meta-\*`S3对象(S3KY/)的指定元数据。在此示例中，请求标头包含在字段 HTRH 中，因为它已配置为审核协议标头（ "* 配置 ">"* 监控 "">"* 审核和系统日志服务器 "* ）。请参阅。 link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
+S3客户端发出请求（SUPD）来更新指定的元数据(`x-amz-meta-\*`) 用于 S3 对象 (S3KY)。在此示例中，请求标头包含在字段 HTRH 中，因为它已配置为审计协议标头（*配置* > *监控* > *审计和系统日志服务器*）。看link:../monitor/configure-log-management.html["配置日志管理和外部系统日志服务器"] 。
 
 [listing]
 ----

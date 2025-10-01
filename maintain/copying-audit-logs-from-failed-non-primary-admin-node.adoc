@@ -34,7 +34,7 @@ NOTE: 如果现在无法在故障管理节点上访问审核日志、您可以�
 . 停止AMS服务以防止其创建新日志文件：``service ams stop``
 . 导航到审核导出目录：
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 . 将源audit.log文件重命名为唯一编号的文件名。例如，将audit.log文件重命名为 `2023-10-25.txt.1`。
 +

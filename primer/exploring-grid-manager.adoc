@@ -46,8 +46,8 @@ image::../media/grid_manager_dashboard_and_menu.png[网格管理器中的信息�
 
 通过帮助菜单、您image:../media/icon-help-menu-bar.png["菜单栏上的帮助图标"]可以访问：
 
-* link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]和link:../admin/use-s3-setup-wizard.html["S3设置"]向导
-* 当前版本的StorageGRID文档中心
+* 这link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]和link:../admin/use-s3-setup-wizard.html["S3设置"]巫师
+* 当前版本的StorageGRID文档站点
 * link:../admin/using-grid-management-api.html["API文档"]
 * 有关当前安装的StorageGRID版本的信息
 
@@ -71,11 +71,7 @@ image::../media/grid_manager_dashboard_and_menu.png[网格管理器中的信息�
 
 == 节点页面
 
-link:../monitor/viewing-nodes-page.html["节点页面"]显示有关整个网格、网格中的每个站点以及站点中每个节点的信息。
-
-节点主页显示整个网格的组合指标。要查看特定站点或节点的信息，请选择站点或节点。
-
-image::../media/nodes_page.png[节点页面主页]
+这link:../monitor/viewing-nodes-page.html["节点页面"]显示有关整个网格、网格中每个站点以及站点上每个节点的信息。要查看特定站点或节点的信息，请选择该站点或节点。
 
 
 
@@ -84,8 +80,6 @@ image::../media/nodes_page.png[节点页面主页]
 link:../admin/managing-tenants.html["租户页面"]允许您link:../tenant/index.html["创建并监控存储租户帐户"]为StorageGRID系统设置。您必须至少创建一个租户帐户，以指定谁可以存储和检索对象以及这些对象可以使用哪些功能。
 
 " 租户 " 页面还提供每个租户的使用情况详细信息，包括已用存储容量和对象数量。如果在创建租户时设置了配额，则可以查看已使用的配额量。
-
-image::../media/tenants_page.png[租户菜单和页面]
 
 
 
@@ -117,10 +111,11 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 网络任务包括：
 
 * link:../admin/managing-high-availability-groups.html["管理高可用性组"]
-* link:../admin/managing-load-balancing.html["管理负载平衡器端点"]
-* link:../admin/configuring-s3-api-endpoint-domain-names.html["正在配置S3端点域名"]
+* link:../admin/managing-load-balancing.html["管理负载均衡器端点"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
 * link:../admin/managing-traffic-classification-policies.html["管理流量分类策略"]
-* link:../admin/configure-vlan-interfaces.html["正在配置VLAN接口"]
+* link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
+* link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["为管理接口启用StorageGRID CORS"]
 
 
 
@@ -132,8 +127,8 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * link:../admin/using-storagegrid-security-certificates.html["管理安全证书"]
 * link:../admin/manage-firewall-controls.html["管理内部防火墙控制"]
 * link:../admin/kms-configuring.html["配置密钥管理服务器"]
-* 配置安全设置，包括link:../admin/manage-tls-ssh-policy.html["TLS和SSH策略"]、link:../admin/changing-network-options-object-encryption.html["网络和对象安全选项"]和link:../admin/changing-browser-session-timeout-interface.html["接口安全设置"]。
-* 配置或的设置link:../admin/configuring-storage-proxy-settings.html["存储代理"]link:../admin/configuring-admin-proxy-settings.html["管理员代理"]
+* 配置安全设置，包括link:../admin/manage-tls-ssh-policy.html["TLS和SSH策略"]，link:../admin/changing-network-options-object-encryption.html["网络和对象安全选项"] ，link:../admin/changing-browser-session-timeout-interface.html["接口安全设置"] ， 和link:../admin/manage-external-ssh-access.html["SSH 访问选项"]
+* 配置设置link:../admin/configuring-storage-proxy-settings.html["存储代理"]或link:../admin/configuring-admin-proxy-settings.html["管理员代理"]
 
 
 
@@ -142,11 +137,12 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 系统任务包括：
 
-* 用于link:../admin/grid-federation-overview.html["网格联盟"]克隆租户帐户信息并在两个StorageGRID系统之间复制对象数据。
-* (可选)启用link:../admin/configuring-stored-object-compression.html["压缩存储的对象"]选项。
-* link:../ilm/managing-objects-with-s3-object-lock.html["管理S3对象锁定"]
-* 了解和等存储选项link:../admin/what-object-segmentation-is.html["对象分段"]link:../admin/what-storage-volume-watermarks-are.html["存储卷水印"]。
-* link:../ilm/manage-erasure-coding-profiles.html["管理纠删编码配置文件"](英文)
+* 使用link:../admin/grid-federation-overview.html["网格联盟"]克隆租户帐户信息并在两个StorageGRID系统之间复制对象数据
+* （可选）启用link:../admin/configuring-stored-object-compression.html["压缩存储的对象"]选项
+* 或者，配置link:../s3/consistency.html["默认桶一致性设置"]
+* link:../ilm/managing-objects-with-s3-object-lock.html["管理 S3 对象锁定"]
+* 了解存储设置，例如link:../admin/what-storage-volume-watermarks-are.html["存储卷水印"]
+* link:../ilm/manage-erasure-coding-profiles.html["管理纠删编码配置文件"]
 
 
 
@@ -155,8 +151,8 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 监控任务包括：
 
-* link:../monitor/configure-audit-messages.html["配置审核消息和日志目标"]
-* link:../monitor/using-snmp-monitoring.html["使用SNMP监控"]
+* link:../monitor/configure-log-management.html["配置日志管理"]
+* link:../monitor/using-snmp-monitoring.html["使用 SNMP 监控"]
 
 
 
@@ -167,9 +163,9 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 * link:../admin/managing-admin-groups.html["管理管理组"]
 * link:../admin/managing-users.html["管理管理员用户"]
-* 更改link:../admin/changing-provisioning-passphrase.html["配置密码短语"]或link:../admin/change-node-console-password.html["节点控制台密码"]
+* 更改link:../admin/changing-provisioning-passphrase.html["配置密码短语"]或者link:../admin/change-node-console-password.html["节点控制台密码"]
 * link:../admin/using-identity-federation.html["使用身份联合"]
-* link:../admin/configuring-sso.html["正在配置SSO"]
+* link:../admin/how-sso-works.html["配置 SSO"]
 
 
 
@@ -189,7 +185,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * link:../maintain/warnings-and-considerations-for-grid-node-recovery.html["网格节点恢复过程"]以更换故障节点并还原数据
 * link:../maintain/rename-grid-site-node-overview.html["重命名过程"]更改网格、站点和节点的显示名称
 * link:../troubleshoot/verifying-object-integrity.html["对象存在性检查操作"]验证对象数据是否存在(尽管不是正确的)
-* 执行link:../maintain/rolling-reboot-procedure.html["滚动重新启动"]以重新启动多个网格节点
+* 执行link:../maintain/rolling-reboot-procedure.html["滚动重新启动"]重新启动多个网格节点
 * link:../maintain/restoring-volume.html["卷还原操作"]
 
 
@@ -199,8 +195,8 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 您可以执行的系统维护任务包括：
 
-* link:../admin/viewing-storagegrid-license-information.html["查看StorageGRID 许可证信息"]或link:../admin/updating-storagegrid-license-information.html["正在更新许可证信息"]
-* 生成并下载link:../maintain/downloading-recovery-package.html["恢复软件包"]
+* link:../admin/viewing-storagegrid-license-information.html["查看 StorageGRID 许可证信息"]或者link:../admin/updating-storagegrid-license-information.html["更新许可证信息"]
+* 生成并下载link:../maintain/downloading-recovery-package.html["恢复包"]
 * 在选定设备上执行StorageGRID 软件更新、包括软件升级、修补程序以及SANtricity OS软件更新
 +
 ** link:../upgrade/index.html["升级操作步骤"]
@@ -217,8 +213,8 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 您可以执行的网络维护任务包括：
 
-* link:../maintain/configuring-dns-servers.html["配置DNS服务器"]
-* link:../maintain/updating-subnets-for-grid-network.html["正在更新网格网络子网"]
+* link:../maintain/configuring-dns-servers.html["配置 DNS 服务器"]
+* link:../maintain/updating-subnets-for-grid-network.html["更新网格网络子网"]
 * link:../maintain/configuring-ntp-servers.html["管理NTP服务器"]
 
 
@@ -236,7 +232,6 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 * link:../admin/configure-autosupport-grid-manager.html["配置 AutoSupport"]
 * link:../monitor/running-diagnostics.html["Run diagnostics"] 网格的当前状态
-* link:../monitor/viewing-grid-topology-tree.html["访问网格拓扑树"]可查看有关网格节点、服务和属性的详细信息
 * link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]
 * link:../monitor/reviewing-support-metrics.html["查看支持指标"]
 +
@@ -247,17 +242,13 @@ NOTE: * 指标 * 选项中提供的工具供技术支持使用。这些工具中
 
 
 
-=== 警报（原有）
-
-有关原有警报的信息已从此版本的文档中删除。请参阅 https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["管理警报和警报(StorageGRID 11.8文档)"^]。
-
-
-
 === 其他
 
 从支持菜单的其他部分、您可以：
 
+* 配置link:../monitor/manage-io-prioritization.html["I/O 优先级"]
+* 配置link:../admin/configure-autosupport-grid-manager.html["AutoSupport电子邮件设置（旧版）"]
 * 管理link:../admin/manage-link-costs.html["链路成本"]
-* 查看link:../admin/viewing-notification-status-and-queues.html["网络管理系统（ NMS ）"]条目
+* 查看节点服务ID
 * 管理link:../admin/what-storage-volume-watermarks-are.html["存储水印"]
 

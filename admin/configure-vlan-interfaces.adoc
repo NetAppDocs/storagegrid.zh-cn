@@ -26,12 +26,14 @@ summary: 您可以在管理节点和网关节点上创建虚拟 LAN 接口（ VL
 * 如果需要添加中继接口，请参见以下内容了解详细信息：
 +
 ** *VMware (安装节点后)*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware ：向节点添加中继或访问接口"]
-** *RHEL (安装节点之前)*：link:../rhel/creating-node-configuration-files.html["创建节点配置文件"]
-** *Ubuntu或Debian (安装节点之前)*：link:../ubuntu/creating-node-configuration-files.html["创建节点配置文件"]
-** *RHEL、Ubuntu或Debian (安装节点后)*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：向节点添加中继或访问接口"]
+** *Linux（安装节点之前）*：link:../swnodes/creating-node-configuration-files.html["创建节点配置文件"]
+** *Linux（安装节点后）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["向节点添加中继或访问接口"]
 
 
 
+
+
+NOTE: “Linux”指的是 RHEL、Ubuntu 或 Debian 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 
 
@@ -54,7 +56,7 @@ summary: 您可以在管理节点和网关节点上创建虚拟 LAN 接口（ VL
 === 访问向导
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * VLAN 接口 * 。
+. 选择*配置* > *网络* > *VLAN 接口*。
 . 选择 * 创建 * 。
 
 
@@ -101,7 +103,7 @@ image::../media/vlan-create-parent-interfaces.png[VLAN 创建向导的父接口]
 
 
 . 选择 * 保存 * 。
-. 等待 5 分钟，使新接口显示为 " 高可用性组 " 页面上的一个选项，并在节点的 * 网络接口 * 表中列出（ * 节点 * > * 父接口节点 _* > * 网络 * ）。
+. 等待最多 5 分钟，新的接口才会作为选择出现在“高可用性组”页面上，并列在节点的 *网络接口* 表中（*节点* > *_父接口节点_* > *网络*）。
 
 
 
@@ -126,7 +128,7 @@ image::../media/vlan-create-parent-interfaces.png[VLAN 创建向导的父接口]
 
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * VLAN 接口 * 。
+. 选择*配置* > *网络* > *VLAN 接口*。
 . 选中要编辑的VLAN接口对应的复选框。然后，选择 * 操作 * > * 编辑 * 。
 . 也可以更新 VLAN ID 或问题描述 。然后，选择 * 继续 * 。
 +
@@ -153,7 +155,7 @@ image::../media/vlan-create-parent-interfaces.png[VLAN 创建向导的父接口]
 
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * VLAN 接口 * 。
+. 选择*配置* > *网络* > *VLAN 接口*。
 . 选中要删除的每个VLAN接口对应的复选框。然后，选择 * 操作 * > * 删除 * 。
 . 选择 * 是 * 确认您的选择。
 +

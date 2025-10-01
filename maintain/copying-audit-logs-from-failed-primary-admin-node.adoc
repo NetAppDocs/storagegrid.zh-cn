@@ -22,7 +22,7 @@ summary: 如果您能够从出现故障的主管理节点复制审核日志，�
 NOTE: 如果现在无法在故障管理节点上访问审核日志、您可以稍后访问这些日志、例如、在主机恢复之后。
 
 .步骤
-. 如果可能，请登录到出现故障的管理节点。否则，请登录到主管理节点或其他管理节点（如果有）。
+. 如果可能，请登录到发生故障的主管理节点。否则，登录到任何可用的管理节点。
 +
 .. 输入以下命令： `ssh admin@_grid_node_IP_`
 .. 输入文件中列出的密码 `Passwords.txt`。
@@ -36,14 +36,28 @@ NOTE: 如果现在无法在故障管理节点上访问审核日志、您可以�
 . 停止AMS服务以防止其创建新日志文件：``service ams stop``
 . 导航到审核导出目录：
 +
-`cd /var/local/log`
+`cd /var/local/audit/export`
 
-. 将源文件重命名 `audit.log`为唯一编号的文件名。例如，将audit.log文件重命名为 `2023-10-25.txt.1`。
++
+（或者 `cd /var/local/log`在早期系统上）
+
+. 将源日志文件重命名为唯一编号的文件名。
++
+[NOTE]
+====
+** 如果日志文件位于 `/var/local/audit/export`目录，其名称是 `audit.log`。
+** 如果日志文件位于 `/var/local/log`目录，其名称是 `localaudit.log`。
+
+
+====
++
+例如，重命名 `localaudit.log`文件到 `2025-10-22.txt.1`。
+
 +
 [listing]
 ----
 ls -l
-mv audit.log 2023-10-25.txt.1
+mv localaudit.log 2025-10-22.txt.1
 ----
 . 重新启动AMS服务： `service ams start`
 . 创建目录以将所有审核日志文件复制到单独网格节点上的临时位置： `ssh admin@_grid_node_IP_ mkdir -p /var/local/tmp/saved-audit-logs`

@@ -99,13 +99,13 @@ CAUTION: 在包含基于软件的纯元数据节点的网格中停用存储节�
 
 CAUTION: 请勿在停用操作步骤 启动后使存储节点脱机。更改状态可能会导致某些内容未复制到其他位置。
 
-. 新恢复软件包发布后，请选择横幅中的恢复软件包链接或选择*Maintenance (维护)*>*System*(系统)>*Recovery package*(恢复软件包)以访问恢复软件包页面。然后、下载 `.zip`文件。
+. 一旦新的恢复包可用，请选择横幅中的恢复包链接或选择*维护*>*系统*>*恢复包*以访问恢复包页面。然后，下载 `.zip`文件。
 +
-请参阅。 link:downloading-recovery-package.html["正在下载恢复包"]
+看link:downloading-recovery-package.html["下载恢复包"] 。
 
 +
 
-NOTE: 请尽快下载恢复包，以确保在停用操作步骤 期间出现问题时可以恢复网格。
+NOTE: 尽快下载恢复包，以确保在退役过程中出现问题时可以恢复电网。
 
 . 定期监控 " 停用节点 " 页面，以确保所有选定节点均已成功停用。
 +
@@ -122,7 +122,7 @@ TIP: 存储节点停用可能需要数天或数周时间。
 
 . 按照适用于您的平台的步骤进行操作。例如：
 +
-** * Linux * ：您可能需要断开卷的连接并删除在安装期间创建的节点配置文件。请参阅link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]和link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]。
+** *Linux*：您可能想要分离卷并删除在安装期间创建的节点配置文件。看link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"] 。
 ** *VMware*：您可能希望使用vCenter的"从磁盘删除"选项来删除虚拟机。您可能还需要删除独立于虚拟机的任何数据磁盘。
 ** * StorageGRID 设备 * ：设备节点会自动恢复为未部署状态，您可以在此状态下访问 StorageGRID 设备安装程序。您可以关闭设备电源或将其添加到另一个 StorageGRID 系统。
 

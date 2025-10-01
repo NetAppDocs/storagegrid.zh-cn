@@ -13,19 +13,24 @@ summary: 您可以配置高可用性 \ （ HA\ ）组，以提供对管理节点
 [role="lead"]
 您可以配置高可用性（ High Availability ， HA ）组，以提供对管理节点或网关节点上服务的高可用性访问。
 
+
+NOTE: StorageGRID系统最多可以有 255 个 HA 组。
+
 .开始之前
 * 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 * 您拥有link:admin-group-permissions.html["root访问权限"]。
 * 如果您计划在 HA 组中使用 VLAN 接口，则已创建 VLAN 接口。请参阅。 link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
 * 如果您计划对 HA 组中的节点使用访问接口，则已创建此接口：
 +
-** *Red Hat Enterprise Linux (安装节点之前)*：link:../rhel/creating-node-configuration-files.html["创建节点配置文件"]
-** *Ubuntu或Debian (安装节点之前)*：link:../ubuntu/creating-node-configuration-files.html["创建节点配置文件"]
-** *Linux (安装节点后)*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：向节点添加中继或访问接口"]
-** *VMware (安装节点后)*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware ：向节点添加中继或访问接口"]
+** *Linux（安装节点之前）*：link:../swnodes/creating-node-configuration-files.html["创建节点配置文件"]
+** *Linux（安装节点后）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["向节点添加中继或访问接口"]
+** *VMware（安装节点后）*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["向节点添加中继或访问接口"]
 
 
 
+
+
+NOTE: “Linux”指的是 RHEL、Ubuntu 或 Debian 部署。有关受支持版本的列表，请参阅 https://imt.netapp.com/matrix/#welcome["NetApp 互操作性表工具（ IMT ）"^]。
 
 
 
@@ -40,7 +45,7 @@ summary: 您可以配置高可用性 \ （ HA\ ）组，以提供对管理节点
 === 访问向导
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * 高可用性组 * 。
+. 选择*配置* > *网络* > *高可用性组*。
 . 选择 * 创建 * 。
 
 
@@ -154,7 +159,7 @@ image::../media/ha_group_select_virtual_ips.png[HA 组输入 VIP]
 例如，如果要删除与站点或节点停用操作步骤 中选定接口关联的节点，则可能需要编辑 HA 组。
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * 高可用性组 * 。
+. 选择*配置* > *网络* > *高可用性组*。
 +
 " 高可用性组 " 页面显示所有现有的 HA 组。
 
@@ -199,10 +204,10 @@ TIP: 如果HA组绑定到负载平衡器端点、则无法删除该HA组。要�
 要防止客户端中断、请在删除HA组之前更新任何受影响的S3客户端应用程序。更新每个客户端以使用其他 IP 地址进行连接，例如，安装期间为接口配置的不同 HA 组的虚拟 IP 地址或 IP 地址。
 
 .步骤
-. 选择 * 配置 * > * 网络 * > * 高可用性组 * 。
+. 选择*配置* > *网络* > *高可用性组*。
 . 查看要删除的每个HA组的*负载平衡器端点*列。如果列出了任何负载平衡器端点：
 +
-.. 转到*configuration*>*Network*>*负载平衡器端点*。
+.. 转到*配置* > *网络* > *负载均衡器端点*。
 .. 选中此端点对应的复选框。
 .. 选择 * 操作 * > * 编辑端点绑定模式 * 。
 .. 更新绑定模式以删除HA组。

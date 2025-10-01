@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
 summary: 如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。您必须在每个管理节点和网关节点上运行一个脚本，该节点的重新映射端口相互冲突，以删除该节点的所有端口重新映射。 
 ---
-= 删除端口重新映射
+= 删除StorageGRID设备上的端口重新映射
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ NOTE: 如果端口重新映射提供了客户端访问、请重新配置客户�
 NOTE: 对于在裸机主机上部署为容器的 StorageGRID 系统，此操作步骤 不起作用。请参阅的说明link:removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
 
 .步骤
+. 默认情况下，外部 SSH 访问是被阻止的。如果需要，link:../admin/manage-external-ssh-access.html["暂时允许访问"] 。
 . 登录到此节点。
 +
 .. 输入以下命令： `ssh -p 8022 admin@node_IP`
@@ -43,4 +44,5 @@ NOTE: 对于在裸机主机上部署为容器的 StorageGRID 系统，此操作�
 . 重新启动节点： `reboot`
 . 从命令Shell中注销： `exit`
 . 对具有冲突重新映射端口的每个管理节点和网关节点重复上述步骤。
+. 如果您允许外部 SSH 访问，link:../admin/manage-external-ssh-access.html["阻止访问"]当您完成删除端口重新映射后。
 

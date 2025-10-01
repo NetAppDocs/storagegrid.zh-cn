@@ -22,11 +22,10 @@ NOTE: NetApp 建议您在网格节点之间启用 Internet 控制消息协议（
 
 == 基于 Linux 的节点的准则
 
-如果企业网络策略限制对其中任何端口的访问，则可以在部署时使用部署配置参数重新映射端口。有关端口重新映射和部署配置参数的详细信息，请参见：
+如果企业网络策略限制对任何这些端口的访问，您可以在部署时使用部署配置参数重新映射端口。有关端口重新映射和部署配置参数的更多信息，请参阅link:../swnodes/index.html["在基于软件的节点上安装StorageGRID"]。
 
-* link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-* link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
 
+NOTE: 对端口重新映射的支持已弃用，并将在未来的版本中删除。要删除重新映射的端口，请参阅link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
 
 
 
@@ -34,13 +33,19 @@ NOTE: NetApp 建议您在网格节点之间启用 Internet 控制消息协议（
 
 只有在需要定义 VMware 网络外部的防火墙限制时，才配置以下端口。
 
-如果企业网络策略限制对其中任何端口的访问，则可以在使用 VMware vSphere Web Client 部署节点时重新映射端口，也可以在自动部署网格节点时使用配置文件设置重新映射端口。有关端口重新映射和部署配置参数的详细信息，请参见link:../vmware/index.html["在VMware上安装StorageGRID"]。
+如果企业网络策略限制对任何这些端口的访问，您可以在使用 VMware vSphere Web Client 部署节点时重新映射端口，或者在自动化网格节点部署时使用配置文件设置重新映射端口。有关端口重新映射和部署配置参数的更多信息，请参阅link:../swnodes/index.html["在 VMware 上安装StorageGRID"]。
+
+
+NOTE: 对端口重新映射的支持已弃用，并将在未来的版本中删除。要删除重新映射的端口，请参阅link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["删除裸机主机上的端口重新映射"]。
 
 
 
 == 设备节点准则
 
 如果企业网络策略限制对其中任何端口的访问，则可以使用 StorageGRID 设备安装程序重新映射端口。请参阅。 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["可选：重新映射设备的网络端口"^]
+
+
+NOTE: 对端口重新映射的支持已弃用，并将在未来的版本中删除。要删除重新映射的端口，请参阅link:../maintain/removing-port-remaps.html["删除StorageGRID设备上的端口重新映射"]。
 
 
 
@@ -151,7 +156,7 @@ TCP
  a| 
 存储节点
  a| 
-与 S3 和 Swift 相关的内部流量。
+与 S3 相关的内部流量。
 
 
 
@@ -425,19 +430,6 @@ TCP
 存储节点
  a| 
 与 S3 相关的内部流量。
-
-
-
- a| 
-18083
- a| 
-TCP
- a| 
-所有节点
- a| 
-存储节点
- a| 
-与 Swift 相关的内部流量。
 
 
 

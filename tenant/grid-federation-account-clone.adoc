@@ -44,7 +44,7 @@ image::../media/grid-federation-account-clone-workflow-tm.png[租户的帐户克
 
 
 [role="quick-margin-list"]
-* 如果您不使用身份联合，请选择，link:creating-groups-for-s3-tenant.html["创建新的本地组"]然后选择link:managing-local-users.html["创建本地用户"]。
+* 如果您不使用身份联合，link:creating-groups-for-s3-tenant.html["创建新的本地组"]进而link:manage-users.html["创建本地用户"]。
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]创建S3访问密钥
@@ -78,9 +78,9 @@ NOTE: 在源网格上创建本地组时选择的任何用户、在将组克隆�
 
 === 克隆在源网格上创建的本地用户
 
-在源网格上创建新的本地用户时、StorageGRID 会自动将该用户克隆到目标网格。原始用户及其克隆具有相同的全名、用户名和*deny access*设置。这两个用户也属于相同的组。有关说明，请参阅link:managing-local-users.html["管理本地用户"]。
+当您在源网格上创建新的本地用户时， StorageGRID会自动将该用户克隆到目标网格。原始用户及其克隆用户具有相同的全名、用户名和*拒绝访问*设置。两个用户也属于同一组。有关说明，请参阅link:manage-users.html["管理用户"]。
 
-出于安全原因、本地用户密码不会克隆到目标网格。如果本地用户需要访问目标网格上的租户管理器、租户帐户的root用户必须在目标网格上为该用户添加密码。有关说明，请参阅link:managing-local-users.html["管理本地用户"]。
+出于安全原因，本地用户密码不会被克隆到目标网格。如果本地用户需要访问目标网格上的租户管理器，则租户帐户的根用户必须在目标网格上为该用户添加密码。有关说明，请参阅link:manage-users.html["管理用户"]。
 
 image::../media/grid-federation-local-user-clone.png[显示本地用户已从源网格克隆到目标网格的图像]
 

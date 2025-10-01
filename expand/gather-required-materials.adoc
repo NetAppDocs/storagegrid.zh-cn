@@ -44,7 +44,7 @@ StorageGRID 安装归档
  a| 
 `Passwords.txt`文件
  a| 
-包含访问命令行上的网格节点所需的密码。包含在恢复包中。
+包含在命令行上访问网格节点所需的密码。包含在恢复包中。
 
 
 
@@ -60,13 +60,7 @@ StorageGRID 文档
  a| 
 * link:../admin/index.html["管理 StorageGRID"]
 * link:../release-notes/index.html["发行说明"]
-* 适用于您的平台的安装说明
-+
-** link:../rhel/index.html["在Red Hat Enterprise Linux上安装StorageGRID"]
-** link:../ubuntu/index.html["在Ubuntu或Debian上安装StorageGRID"]
-** link:../vmware/index.html["在VMware上安装StorageGRID"]
-
-
+* link:../swnodes/index.html["适用于您的平台的安装说明"]
 
 
 
@@ -106,7 +100,7 @@ StorageGRID 文档
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -134,7 +128,7 @@ OpenStack/ 其他虚拟机管理程序
 +
 步骤中为每个平台列出的路径与归档文件安装的顶级目录相对。
 
-. 如果要扩展Red Hat Enterprise Linux系统、请选择相应的文件。
+. 如果您正在扩展 RHEL 系统，请选择适当的文件。
 
 
 [cols="1a,1a"]
@@ -393,6 +387,9 @@ StorageGRID 的 API 架构。
 . 如果要扩展基于 StorageGRID 设备的系统，请选择相应的文件。
 
 
+
+NOTE: 对于设备安装，仅当您需要避免网络流量时才需要这些文件。设备可以从您执行恢复过程的管理节点下载所需的文件。
+
 [cols="1a,1a"]
 |===
 | 路径和文件名 | 说明 
@@ -408,9 +405,6 @@ StorageGRID 的 API 架构。
 images-version-SHA.deb`。
 
 |===
-
-NOTE: 对于设备安装，只有在需要避免网络流量时，才需要这些文件。设备可以从主管理节点下载所需文件。
-
 
 
 == 验证硬件和网络连接

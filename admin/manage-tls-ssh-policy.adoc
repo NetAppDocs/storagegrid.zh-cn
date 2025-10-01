@@ -28,56 +28,80 @@ NOTE: 某些StorageGRID 服务尚未更新、无法在这些策略中使用这�
 == 选择一个安全策略
 
 .步骤
-. 选择*configuration*>*Security*>*Security settings。
+. 选择*配置* > *安全* > *安全设置*。
 +
 TLS和SSH策略*选项卡显示可用策略。当前活动的策略会在策略磁贴上标记为绿色复选标记。
 
 +
 image::../media/securitysettings_tls_ssh_policies_current.png[TLS和SSH策略]
 
-. 查看图块、了解可用策略。
+. 查看标签以了解可用的策略。
 +
-[cols="1a,2a"]
-|===
-| 策略 | 说明 
+[role="tabbed-block"]
+====
+.现代兼容性(默认)
+--
+如果您需要强加密并且没有特殊要求，请使用默认策略。此策略与大多数 TLS 和 SSH 客户端兼容。
+
+--
+.传统兼容性
+--
+如果您需要为旧客户端提供额外的兼容性选项，请使用旧版兼容性策略。此策略中的附加选项可能会使其安全性低于现代兼容性策略。
+
+--
+.通用标准
+--
+如果您需要通用标准认证，请使用通用标准政策。
+
+--
+.FIPS严格
+--
+如果您需要通用标准认证，并且需要使用NetApp加密安全模块 (NCSM) 3.0.8 或NetApp StorageGRID内核加密 API 6.1.129-1-ntap1-amd64 模块将外部客户端连接到负载平衡器端点、租户管理器和网格管理器，请使用 FIPS 严格策略。使用此策略可能会降低性能。
+
+NCSM 3.0.8 和NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 模块用于以下操作：
+
+** 全国运动医学委员会
++
+*** 以下服务之间的 TLS 连接：ADC、AMS、CMN、DDS、LDR、SSM、NMS、mgmt-api、nginx、nginx-gw 和 cache-svc
+*** 客户端和 nginx-gw 服务（负载均衡器端点）之间的 TLS 连接
+*** 客户端和 LDR 服务之间的 TLS 连接
+*** SSE-S3、SSE-C 和存储对象加密设置的对象内容加密
+*** SSH 连接
 
 
- a| 
-现代兼容性(默认)
- a| 
-如果需要强加密、则使用默认策略、除非您有特殊要求。此策略与大多数TLS和SSH客户端兼容。
++
+欲了解更多信息，请参阅 NIST 加密算法验证程序link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["证书编号 #4838"^]。
+
+** NetApp StorageGRID内核加密 API 模块
++
+NetApp StorageGRID Kernel Crypto API 模块仅存在于 VM 和StorageGRID设备平台上。
+
++
+*** 熵收集
+*** 节点加密
+
+
++
+欲了解更多信息，请参阅 NIST 加密算法验证程序link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["证书 #A6242 至 #A6257"^]和link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["熵证书#E223"^]。
 
 
 
- a| 
-传统兼容性
- a| 
-如果需要为旧客户端提供其他兼容性选项、请使用此策略。此策略中的其他选项可能会使其不如现代兼容性策略安全。
+*注意*：选择此政策后，link:../maintain/rolling-reboot-procedure.html["执行滚动重启"]所有节点均激活 NCSM。使用*维护* > *滚动重启*来启动和监控重启。
 
-
-
- a| 
-通用标准
- a| 
-如果您需要通用标准认证、请使用此策略。
-
-
-
- a| 
-FIPS严格
- a| 
-如果您需要通用标准认证、并且需要使用NetApp加密安全模块3.0.8将外部客户端连接到负载平衡器端点、租户管理器和网格管理器、请使用此策略。使用此策略可能会降低性能。
-
-*注意*：选择此策略后，所有节点都必须link:../maintain/rolling-reboot-procedure.html["已滚动重新启动"]激活NetApp加密安全模块。使用*Maintenance (维护)*>*rolling reboot (滚动重新启动)*启动并监控重新启动。
-
-
-
- a| 
-自定义
- a| 
+--
+.自定义
+--
 如果需要应用您自己的用户名或用户名、请创建自定义策略。
 
-|===
+或者，如果您的StorageGRID具有 FIPS 140 加密要求，请启用 FIPS 模式功能以使用 NCSM 3.0.8 和NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 模块：
+
+.. 设置 `fipsMode`参数 `true`。
+.. 当出现提示时，link:../maintain/rolling-reboot-procedure.html["执行滚动重启"]所有节点都激活加密模块。使用*维护* > *滚动重启*来启动和监控重启。
+.. 选择“*支持*”>“*诊断*”以查看活动的 FIPS 模块版本。
+
+
+--
+====
 . 要查看有关每个策略的加密、协议和算法的详细信息，请选择*查看详细信息*。
 . 要更改当前策略，请选择*使用策略*。
 +

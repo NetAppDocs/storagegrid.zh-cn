@@ -23,7 +23,7 @@ summary: 您必须在网格管理器中创建一个租户帐户以供 FabricPool
 
 
 .步骤
-. 选择 * 租户 * 。
+. 选择*租户*。
 . 选择 * 创建 * 。
 . 对于输入详细信息步骤、请输入以下信息。
 +
@@ -73,7 +73,7 @@ FabricPool 租户通常不需要使用S3 Select。
 .. (可选)选择*使用网格联合连接*以允许租户使用link:../admin/grid-federation-overview.html["网格联合连接"]进行帐户克隆和跨网格复制。然后、选择要使用的网格联合连接。
 
 
-. 在“定义root访问权限”步骤中，根据您的StorageGRID系统是使用link:../admin/using-identity-federation.html["身份联合"]、，link:../admin/configuring-sso.html["单点登录(SSO)"]还是同时使用这两者，指定哪个用户将拥有租户帐户的初始root访问权限。
+. 对于定义根访问权限步骤，根据您的StorageGRID系统是否使用link:../admin/using-identity-federation.html["身份联合"]，link:../admin/how-sso-works.html["单点登录(SSO)"] ，或两者兼而有之。
 +
 [cols="1a,2a"]
 |===

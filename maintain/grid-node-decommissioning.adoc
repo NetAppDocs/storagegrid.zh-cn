@@ -37,7 +37,7 @@ TIP: 如果要将旧设备更换为新设备、请考虑 https://docs.netapp.com
 
 您可以停用已连接的网格节点或已断开连接的网格节点。
 
-停用已连接节点:: 通常，只有在网格节点连接到StorageGRID系统且所有节点均正常运行时(*nones*页面和*Decommmission Noes*页面上有绿色图标)，才应停用网格节点。
+停用已连接节点:: 一般来说，只有当网格节点连接到StorageGRID系统并且所有节点都处于正常状态（在 *节点* 页面和 *退役节点* 页面上有绿色图标）时，才应该退役网格节点。
 +
 --
 有关说明，请参阅link:decommissioning-connected-grid-nodes.html["停用已连接的网格节点"]。

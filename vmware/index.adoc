@@ -1,49 +1,8 @@
 ---
 permalink: vmware/index.html 
-sidebar: sidebar 
-keywords: vmware 
-summary: 请按照以下简要步骤安装VMware StorageGRID节点。 
+redirect: storagegrid/swnodes/index.html 
 ---
-= 在VMware上安装StorageGRID的快速入门
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-请按照以下简要步骤安装VMware StorageGRID节点。
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]准备
-[role="quick-margin-list"]
-* 了解 link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID 架构和网络拓扑"]。
-* 了解的具体信息link:../network/index.html["StorageGRID 网络连接"]。
-* 收集并准备link:required-materials.html["所需信息和材料"]。
-* 安装和配置link:software-requirements.html["VMware vSphere虚拟机管理程序、vCenter和ESX主机"]。
-* 准备所需的link:cpu-and-ram-requirements.html["CPU和RAM"]。
-* 为提供link:storage-and-performance-requirements.html["存储和性能要求"]。
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]部署
-[role="quick-margin-para"]
-部署网格节点。部署网格节点时，它们会作为 StorageGRID 系统的一部分创建并连接到一个或多个网络。
-
-[role="quick-margin-list"]
-* 在步骤1中准备的服务器上使用VMware vSphere Web Client、一个vmdk文件和一组.VF文件模板link:collecting-information-about-your-deployment-environment.html["将基于软件的节点部署为虚拟机(VM)"]。
-* 要部署StorageGRID设备节点，请执行 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["硬件安装快速入门"^]。
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]配置
-[role="quick-margin-para"]
-部署完所有节点后，使用网格管理器link:navigating-to-grid-manager.html["配置网格并完成安装"]。
-
-
-
-== 自动安装
-
-为了节省时间并保持一致性、您可以自动部署和配置网格节点以及配置StorageGRID系统。
-
-* link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-grid-node-deployment["使用VMware vSphere自动部署网格节点"](英文)
-* 在部署网格节点后、link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-the-configuration-of-storagegrid["自动配置StorageGRID系统"]使用安装归档文件中提供的Python配置脚本。
-* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["自动安装和配置设备网格节点"^]
-* 如果您是StorageGRID部署的高级开发人员，请使用自动安装网格节点link:overview-of-installation-rest-api.html["安装REST API"]。
 

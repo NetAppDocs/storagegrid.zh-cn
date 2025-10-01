@@ -14,7 +14,7 @@ summary: 您可以使用 StorageGRID 日志对问题进行故障排除。
 您可以使用 StorageGRID 日志对问题进行故障排除。
 
 
-NOTE: 如果要将日志发送到外部系统日志服务器或更改审核信息的目标(如 `bycast.log`和) `nms.log`，请参见link:../monitor/configure-audit-messages.html#["配置审核消息和日志目标"]。
+NOTE: 如果您想要将日志发送到外部系统日志服务器或更改审计信息的目的地，例如 `bycast.log`和 `nms.log`， 看link:../monitor/configure-log-management.html["配置日志管理"]。
 
 
 
@@ -26,14 +26,14 @@ NOTE: 如果要将日志发送到外部系统日志服务器或更改审核信�
 
 
 | /var/local/log/bycast.log  a| 
-主 StorageGRID 故障排除文件。选择 * 支持 * > * 工具 * > * 网格拓扑 * 。然后选择 * 站点 _* > * 节点 _* > * SSM* > * 事件 * 。
+主要的StorageGRID故障排除文件。
  a| 
 所有节点
 
 
 
 | /var/local/log/bycast-err.log  a| 
-包含的子集 `bycast.log`(严重性为错误和严重的消息)。系统中也会显示严重消息。选择 * 支持 * > * 工具 * > * 网格拓扑 * 。然后选择 * 站点 _* > * 节点 _* > * SSM* > * 事件 * 。
+包含一个子集 `bycast.log`（严重性为 ERROR 和 CRITICAL 的消息）。系统中也会显示严重消息。
  a| 
 所有节点
 
@@ -188,6 +188,13 @@ Server Manager 图形用户界面的日志文件。
 | /var/local/log/ams.errlog  a| 
  a| 
 管理节点
+
+
+
+| /var/local/log/cache-svc.log + /var/local/log/cache-svc.errlog  a| 
+缓存服务日志。
+ a| 
+网关节点
 
 
 

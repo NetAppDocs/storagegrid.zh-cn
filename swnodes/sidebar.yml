@@ -1,0 +1,95 @@
+---
+section: swnodes
+title: 安装基于软件的节点
+entries:
+- title: 快速入门
+  pdf-filename: 在基于软件的节点上安装StorageGRID
+  url: "/swnodes/index.html"
+- title: 规划和准备在基于软件的节点上进行安装
+  entries:
+  - title: 所需信息和材料
+    url: "/swnodes/required-materials.html"
+  - title: 下载并提取 StorageGRID 安装文件
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 手动验证安装文件
+    url: "/swnodes/download-files-verify.html"
+  - title: 软件要求
+    url: "/swnodes/software-requirements.html"
+  - title: CPU 和 RAM 要求
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: 存储和性能要求
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: 节点容器迁移要求（Linux）
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: 准备主机（Linux）
+    entries:
+    - title: 主机范围设置的更改方式
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: 安装 Linux
+      url: "/swnodes/installing-linux.html"
+    - title: AppArmor 配置文件安装（仅限 Ubuntu 和 Debian）
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: 配置主机网络
+      url: "/swnodes/configuring-host-network.html"
+    - title: 配置主机存储
+      url: "/swnodes/configuring-host-storage.html"
+    - title: 配置容器引擎存储卷
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: 安装 StorageGRID 主机服务
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+- title: 自动安装
+  entries:
+  - title: 自动安装（Linux）
+    url: "/swnodes/automating-installation-linux.html"
+  - title: 自动安装（VMware）
+    url: "/swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+- title: 部署虚拟网格节点
+  entries:
+  - title: 收集有关部署环境的信息（VMware）
+    url: "/swnodes/collecting-information-about-your-deployment-environment.html"
+  - title: 创建用于部署的节点配置文件（Linux）
+    url: "/swnodes/creating-node-configuration-files.html"
+  - title: 网格节点如何发现主管理节点
+    url: "/swnodes/how-grid-nodes-discover-primary-admin-node.html"
+  - title: 将StorageGRID节点部署为虚拟机 (VMware)
+    url: "/swnodes/deploying-storagegrid-node-as-virtual-machine.html"
+  - title: 节点配置文件示例（Linux）
+    url: "/swnodes/example-node-configuration-files.html"
+  - title: 验证StorageGRID配置 (Linux)
+    url: "/swnodes/validating-storagegrid-configuration.html"
+  - title: 启动StorageGRID主机服务 (Linux)
+    url: "/swnodes/starting-storagegrid-host-service.html"
+- title: 配置网格并完成安装
+  entries:
+  - title: 导航到网格管理器
+    url: "/swnodes/navigating-to-grid-manager.html"
+  - title: 指定许可证信息
+    url: "/swnodes/specifying-storagegrid-license-information.html"
+  - title: 添加站点
+    url: "/swnodes/adding-sites.html"
+  - title: 指定网格网络子网
+    url: "/swnodes/specifying-grid-network-subnets.html"
+  - title: 批准待定网格节点
+    url: "/swnodes/approving-pending-grid-nodes.html"
+  - title: 指定NTP服务器信息
+    url: "/swnodes/specifying-network-time-protocol-server-information.html"
+  - title: 指定DNS服务器信息
+    url: "/swnodes/specifying-domain-name-system-server-information.html"
+  - title: 指定系统密码
+    url: "/swnodes/specifying-storagegrid-system-passwords.html"
+  - title: 检查配置并完成安装
+    url: "/swnodes/reviewing-your-configuration-and-completing-installation.html"
+  - title: 安装后准则
+    url: "/swnodes/post-installation-guidelines.html"
+- title: 安装REST API
+  url: "/swnodes/overview-of-installation-rest-api.html"
+- title: 下一步行动
+  url: "/swnodes/where-to-go-next.html"
+- title: 对安装问题进行故障排除
+  url: "/swnodes/troubleshooting-installation-issues.html"
+- title: 脚本示例
+  entries:
+  - title: 示例 /etc/sysconfig/network-scripts (RHEL)
+    url: "/swnodes/example-etc-sysconfig-network-scripts.html"
+  - title: 示例 /etc/network/interfaces（Ubuntu 或 Debian）
+    url: "/swnodes/example-etc-network-interfaces.html"

@@ -1,7 +1,7 @@
 ---
 permalink: audit/client-read-audit-messages.html 
 sidebar: sidebar 
-keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3, swift 
+keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: 当S3客户端应用程序请求检索对象时、系统会记录客户端读取审核消息。 
 ---
 = 客户端读取审核消息
@@ -50,27 +50,5 @@ S3 head ：记录成功的事务以检查是否存在对象或存储分段。
 S3 客户端
  a| 
 link:shea-s3-head.html["Shea ： S3 机头"]
-
-
-
- a| 
-wget
- a| 
-Swift get ：记录成功的事务以检索对象或列出容器中的对象。
- a| 
-Swift 客户端
- a| 
-link:wget-swift-get.html["WGET ： Swift GET"]
-
-
-
- a| 
-WHEA
- a| 
-Swift head ：记录成功的事务以检查是否存在对象或容器。
- a| 
-Swift 客户端
- a| 
-link:whea-swift-head.html["WHEA ： Swift head"]
 
 |===
