@@ -9378,7 +9378,6 @@
   <block id="71146ab38c96d993610bb6bd368a05ee" category="list-text">查看此消息并选择 * 删除 HA 组 * 以确认您的选择。</block>
   <block id="22428c8a702ba8e76abe7f39f4380daf" category="paragraph">选定的所有 HA 组都将被删除。高可用性组页面上会显示一个绿色的成功横幅。</block>
   <block id="04b9586e37ab00800fcbe1348820076c" category="summary">您可以在管理节点和网关节点上创建虚拟 LAN 接口（ VLAN\ ），并在 HA 组和负载平衡器端点上使用这些接口隔离和分区流量，以提高安全性，灵活性和性能。</block>
-  <block id="0a51f84e6be43565f49734e391d586d6" category="paragraph">您可以在管理节点和网关节点上创建虚拟 LAN （ VLAN ）接口，并在 HA 组和负载平衡器端点中使用这些接口隔离和分区流量，以提高安全性，灵活性和性能。</block>
   <block id="065bd625c8d55e9a1a4e451b54286127" category="section-title">VLAN 接口注意事项</block>
   <block id="8980ad0ec123fa8838f8dab8a28ab627" category="list-text">您可以通过输入 VLAN ID 并在一个或多个节点上选择父接口来创建 VLAN 接口。</block>
   <block id="617058e2da7d9e2f9df95e8cd36cc44b" category="list-text">必须在交换机上将父接口配置为中继接口。</block>
@@ -22038,4 +22037,5 @@
   <block id="7b63e3ab012c50052cf80c91528ad009" category="sidebar">使用NetApp Console 进行StorageGRID管理</block>
   <block id="2532828f944a69834b500cafd1abc57b" category="sidebar">StorageGRID和NetApp控制台</block>
   <block id="84356a318e373152abb8356cb6571110" category="paragraph">前往<block ref="7a14d844a19b1e8c58704b344e72aa26" category="inline-link-rx"></block>了解如何使用 Grid Manager 从NetApp Console 管理您的StorageGRID系统，以及如何使用NetApp Console 的数据服务进行备份、数据分层等。</block>
+  <block id="81ce9dc59c1c54b68aa70011e5f00f58" category="paragraph">在管理节点和网关节点上创建虚拟 LAN (VLAN) 接口，并在 HA 组和负载均衡器端点中使用它们来隔离和分区流量，从而实现安全性、灵活性和性能。HA 组中选定的节点可以使用 VLAN 接口共享最多 10 个虚拟 IP 地址，这样，如果一个节点出现故障，另一个节点将接管往返于虚拟 IP 地址的流量。</block>
 </blocks>
