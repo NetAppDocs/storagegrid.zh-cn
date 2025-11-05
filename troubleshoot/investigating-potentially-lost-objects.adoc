@@ -2,7 +2,7 @@
 permalink: troubleshoot/investigating-potentially-lost-objects.html 
 sidebar: sidebar 
 keywords: lost objects, investigating, objects 
-summary: 当触发“物体可能丢失”警报时，您必须立即进行调查。收集受影响对象的信息并联系技术支持。 
+summary: 当触发“物品可能丢失”警报时，必须立即展开调查。收集受影响对象的信息并联系技术支持。 
 ---
 = 调查可能丢失的物品
 :allow-uri-read: 
