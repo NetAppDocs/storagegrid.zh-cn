@@ -2105,7 +2105,6 @@
   <block id="9739ca1b43dc3eb1bf403302d16e652a" category="summary">要从主管理节点故障中恢复，您必须完成一组特定的任务。主管理节点托管网格的配置管理节点（ CMN\ ）服务。</block>
   <block id="dbf9e9e8d97f01254fe445247d4ba1f2" category="paragraph">要从主管理节点故障中恢复，您必须完成一组特定的任务。主管理节点托管网格的配置管理节点（ CMN ）服务。</block>
   <block id="1285318d9f6efe981fca22e001181767" category="admonition">您必须立即修复或更换发生故障的主管理节点、否则网格可能无法再装载新对象。确切的时间段取决于对象载入率：如果您需要更准确地评估网格的时间范围，请联系技术支持。</block>
-  <block id="a1caef46d9af82694990b9141842d9f0" category="paragraph">主管理节点上的配置管理节点（ CMN ）服务负责为网格发出对象标识符块。这些标识符将在载入对象时分配给对象。除非存在可用标识符、否则无法加载新对象。由于网格中缓存了大约一个月的标识符，因此在 CMN 不可用时，对象载入可以继续。但是，在缓存的标识符用尽后，无法添加任何新对象。</block>
   <block id="004d2ede21cf7c5c3cfdb8f72deb09b5" category="paragraph">按照以下简要步骤恢复主管理节点：</block>
   <block id="57ef3f7cd9adc0466dee9577a57ea964" category="list-text"><block ref="57ef3f7cd9adc0466dee9577a57ea964" category="inline-link-macro-rx"></block></block>
   <block id="96ca4685ac3f991c63ae23e1205f8866" category="inline-link-macro">更换主管理节点</block>
@@ -2789,7 +2788,6 @@
   <block id="75256dc2217cea6e96c618fa5dbad995" category="paragraph"><block ref="75256dc2217cea6e96c618fa5dbad995" category="inline-link-macro-rx"></block></block>
   <block id="506af64ddefe0be5343e12c4743e0c53" category="paragraph">归档节点</block>
   <block id="a4efcf63c48ad26b79e1f7e1c086faca" category="paragraph"><block ref="a4efcf63c48ad26b79e1f7e1c086faca" category="inline-link-rx"></block></block>
-  <block id="00c1cd70f7f84686fd28aee03e858b11" category="admonition">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须先恢复该节点。首先恢复主管理节点可防止其他节点在等待与主管理节点联系时暂停恢复。</block>
   <block id="088c7ab0395a10f8b47dcd428498cf38" category="summary">您必须在网格管理器中选择启动恢复，才能将设备存储节点配置为故障节点的替代节点。</block>
   <block id="7f62478a62e82f6c912d5702a58f0879" category="list-text">您已部署恢复设备存储节点。</block>
   <block id="ca207ce1f030464ac7da0fb2e2f01286" category="list-text">您知道已进行过数据检索的任何修复作业的开始日期。</block>
@@ -21089,7 +21087,6 @@
   <block id="28b7a321b3123816e35c77f8cd6767eb" category="admonition">如果整个StorageGRID站点出现故障，请联系技术支持。技术支持将与您合作制定并执行站点恢复计划，以最大限度地恢复数据量并满足您的业务目标。请参阅<block ref="ae69a49f8134b8abb47c1037e68b19d1" category="inline-link-macro-rx"></block> 。</block>
   <block id="c392940ddd7d3b2cceb3c4b778cb907f" category="list-text">如果您正在恢复主管理节点以外的网格节点，则正在恢复的网格节点与管理恢复过程的管理节点之间存在连接。</block>
   <block id="abb31c1b47e6e09e92f4fb0c38ee3e3f" category="list-text">如果要恢复设备存储节点，则必须在设备安装期间指定与原始设备相同的存储类型（组合、仅元数据或仅数据）。如果指定不同的存储类型，恢复将失败，并且需要使用指定的正确存储类型重新安装设备。</block>
-  <block id="356036533106792d2e06062ab4964ce5" category="paragraph">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须首先恢复该节点。</block>
   <block id="0d35505d87270c122aca2396ad135dc0" category="paragraph">或者，您可以更改审计日志的目标并将审计信息发送到外部系统日志服务器。当配置外部系统日志服务器时，将继续生成和存储审计记录的本地日志。看<block ref="379ad7a89261e8c0c76745417c403d10" category="inline-link-macro-rx"></block> 。</block>
   <block id="90a01585af8b586fb3a0e8fde1979fd0" category="list-text">选择*配置* &gt; *监控* &gt; *SNMP 代理*。</block>
   <block id="bf733d8a933c1601697f364223fc7ecb" category="cell">使用权</block>
@@ -22043,4 +22040,6 @@
   <block id="98e1d466d5f37e58e2ae4e3c58299a51" category="paragraph">*注意*：配置此端口是可选的。</block>
   <block id="87f9cb28642b4d1ffb366ab3e3b6b59e" category="summary">当触发“物品可能丢失”警报时，必须立即展开调查。收集受影响对象的信息并联系技术支持。</block>
   <block id="7371844c6eff096f18ebef4032592b0b" category="list-text">使用安全外壳协议 (SSH) 登录到管理节点：</block>
+  <block id="ee2282790885ca79658ddbbe8d57d525" category="admonition">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管着主管理节点，并且不存在非主管理节点，则必须先恢复主管理节点。首先恢复主管理节点可防止其他节点恢复因等待联系主管理节点而停止。</block>
+  <block id="78475d2794bf2b401e61b8c0ae9a9951" category="paragraph">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管着主管理节点，并且不存在非主管理节点，则必须先恢复主管理节点。</block>
 </blocks>
