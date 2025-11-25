@@ -22042,4 +22042,6 @@
   <block id="7371844c6eff096f18ebef4032592b0b" category="list-text">使用安全外壳协议 (SSH) 登录到管理节点：</block>
   <block id="00c1cd70f7f84686fd28aee03e858b11" category="admonition">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须首先恢复该节点。首先恢复主管理节点可防止其他节点恢复因等待联系主管理节点而停止。</block>
   <block id="356036533106792d2e06062ab4964ce5" category="paragraph">如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须首先恢复该节点。</block>
+  <block id="d3ec926d6ad808f78c39c93cef09a0c1" category="section-title">API 许可证</block>
+  <block id="5d2b6671a58557cf8f6428546905646e" category="paragraph">本文档不授予对StorageGRID S3 REST API 的任何许可或其他权利。使用或访问StorageGRID S3 REST API 需要与NetApp签订单独的许可协议，并且受该协议约束。</block>
 </blocks>
