@@ -2,7 +2,7 @@
 permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
 sidebar: sidebar 
 keywords: how to troubleshoot the Low object data storage alert 
-summary: 对象数据存储空间 * 不足警报可监控每个存储节点上可用于存储对象数据的空间量。 
+summary: “低对象数据存储”警报监控每个存储节点上可用于存储对象数据的空间大小。 
 ---
 = 对对象数据存储不足警报进行故障排除
 :allow-uri-read: 
