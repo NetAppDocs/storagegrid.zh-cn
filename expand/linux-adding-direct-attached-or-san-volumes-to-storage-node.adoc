@@ -1,12 +1,11 @@
 ---
 permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
 sidebar: sidebar 
-keywords: expansion, Linux, add storage volumes 
+keywords: expansion, Linux, add storage volumes, StorageGRID 
 summary: 如果某个存储节点包含的存储卷少于 48 个，则可以通过添加新的块存储设备，使其对 Linux 主机可见，并将新的块设备映射添加到用于该存储节点的 StorageGRID 配置文件来增加其容量。 
 ---
-= Linux ：将直连卷或 SAN 卷添加到存储节点
+= 在StorageGRID中向 Linux 存储节点添加直连卷或 SAN 卷
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

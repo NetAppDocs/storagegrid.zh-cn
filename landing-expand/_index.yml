@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: 扩展网格
+  title: 扩展StorageGRID系统的容量或功能
   summary: 您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。
   keywords: expand grid, add volume, add node, add site
   lead: 您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。

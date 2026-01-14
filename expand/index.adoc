@@ -1,17 +1,17 @@
 ---
 permalink: expand/index.html 
 sidebar: sidebar 
-keywords: expand grid 
+keywords: expand grid, StorageGRID 
 summary: 您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。 
 ---
-= 扩展类型
+= 了解如何扩展您的StorageGRID系统
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以在不中断系统操作的情况下扩展StorageGRID系统的容量或功能。
+了解如何扩展StorageGRID系统，以在不中断运行的情况下增加容量或功能。您可以向现有存储节点添加存储卷，向现有站点添加新的网格节点，或者添加新站点。
 
 在扩展网格节点之前，您必须确认没有处于活动状态的数据修复作业。如果任何修复失败，则必须重新启动它们并让它们完成，然后再执行退役或扩展程序。请参阅link:../maintain/checking-data-repair-jobs.html["检查数据修复作业"] 。
 

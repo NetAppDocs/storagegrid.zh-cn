@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
-keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity, StorageGRID 
 summary: 您可以扩展低于最大支持卷数的存储节点的存储容量。您可能需要将存储卷添加到多个存储节点以满足复制或擦除编码副本的 ILM 要求。 
 ---
-= 将存储卷添加到存储节点
+= 向StorageGRID系统添加存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

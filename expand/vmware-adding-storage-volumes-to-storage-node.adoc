@@ -1,10 +1,10 @@
 ---
 permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
 sidebar: sidebar 
-keywords: expand, expansion, storage node, add storage volumes, VMware 
+keywords: expand, expansion, storage node, add storage volumes, VMware, StorageGRID 
 summary: 如果存储节点包含的存储卷少于 16 个，则可以使用 VMware vSphere 添加卷来增加其容量。 
 ---
-= 将存储卷添加到 VMware 存储节点
+= 在StorageGRID中向 VMware 存储节点添加存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

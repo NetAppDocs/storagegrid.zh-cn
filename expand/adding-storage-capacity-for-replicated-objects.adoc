@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-replicated-objects.html 
 sidebar: sidebar 
-keywords: replication, replicated, copies, capacity, storage nodes, expand, expansion 
+keywords: replication, replicated, copies, capacity, storage nodes, expand, expansion, StorageGRID 
 summary: 如果您的部署的信息生命周期管理 \ （ ILM ）策略包含创建对象的复制副本的规则，则必须考虑要添加的存储容量以及要添加新存储卷或存储节点的位置。 
 ---
-= 为复制的对象添加存储容量
+= StorageGRID中复制数据的扩展规划
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

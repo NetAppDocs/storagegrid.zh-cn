@@ -1,10 +1,10 @@
 ---
 permalink: expand/deploying-new-grid-nodes.html 
 sidebar: sidebar 
-keywords: expansion, add nodes 
+keywords: expansion, add nodes, StorageGRID 
 summary: 在扩展中部署新网格节点的步骤与首次安装网格时使用的步骤相同。您必须先部署所有新的网格节点，然后才能执行扩展。 
 ---
-= 部署新的网格节点
+= 在StorageGRID中部署新的网格节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

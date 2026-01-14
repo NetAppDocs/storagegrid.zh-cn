@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: expand/copying-audit-logs.html 
-keywords: copy audit log, Admin Node expansion, 
+keywords: copy audit log, Admin Node expansion, StorageGRID 
 summary: 当您通过扩展程序添加新的管理节点时，其 AMS 服务仅记录其加入系统后发生的事件和操作。根据需要，您可以将审计日志从先前安装的管理节点复制到新的扩展管理节点，以便它与StorageGRID系统的其余部分同步。 
 ---
-= 复制审核日志
+= 将审计日志复制到StorageGRID中的新管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

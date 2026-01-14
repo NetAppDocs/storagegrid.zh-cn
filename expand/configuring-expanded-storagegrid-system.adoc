@@ -1,10 +1,10 @@
 ---
 permalink: expand/configuring-expanded-storagegrid-system.html 
 sidebar: sidebar 
-keywords: expansion, configuration 
+keywords: expansion, configuration, StorageGRID 
 summary: 完成扩展后，您必须执行其他集成和配置步骤。 
 ---
-= 扩展后的配置步骤
+= 在StorageGRID中配置新添加的节点和站点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

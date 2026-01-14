@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-new-site.html 
 sidebar: sidebar 
-keywords: expand, expansion, new site, add site, guidelines 
+keywords: expand, expansion, new site, add site, guidelines, StorageGRID 
 summary: 您可以通过添加新站点来扩展 StorageGRID 系统。 
 ---
-= 添加新站点
+= StorageGRID添加新站点的指南
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

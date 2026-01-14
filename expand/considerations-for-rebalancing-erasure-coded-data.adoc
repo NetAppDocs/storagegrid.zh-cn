@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: 如果要执行扩展以添加存储节点、并且使用ILM规则来纠删代码数据、则在无法为所使用的纠删编码方案添加足够多的存储节点时、可能需要执行EC重新平衡操作步骤。 
 ---
-= 重新平衡经过纠删编码的数据的注意事项
+= 了解StorageGRID扩展后的 EC 重新平衡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

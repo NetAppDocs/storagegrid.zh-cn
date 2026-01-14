@@ -14222,7 +14222,6 @@
   <block id="89b51dc0d610503234c14fdfc0be323b" category="list-text">要确定哪些分段具有最大的SPUT对象大小、请同时使用<block ref="7524fcb0d721bdda666da6924d7673e8" prefix=" " category="inline-code"></block>和<block ref="406381251d2d4637ebfac7f24cc49c6f" prefix=" " category="inline-code"></block>选项：</block>
   <block id="b9e39f67b1a7712a4a86ca9c12acee18" category="paragraph"><block ref="7a3901d9ab20d4c83c0cbd6b20be4f30" prefix="" category="inline-code"></block></block>
   <block id="5208ea2d7fef4547592b83bcd81c2e37" category="summary">您可以通过向现有站点添加新的网格节点来为 StorageGRID 系统添加冗余或其他功能。</block>
-  <block id="6528e12a81667c9d5b35b16ec0e912e9" category="doc">添加网格节点以向系统添加功能</block>
   <block id="2bf9e1a6f3726dcb54f4b80fc1f3131b" category="paragraph">例如、您可以选择添加要在高可用性(HA)组中使用的网关节点、也可以在远程站点添加管理节点以允许使用本地节点进行监控。</block>
   <block id="ad0b24a1cac115f79fa6a6f259f8e973" category="paragraph">您可以通过单个扩展操作向一个或多个现有站点添加以下一种或多种类型的节点：</block>
   <block id="4725a4744390b735ea1bb4e3fc99b686" category="list-text">存储节点</block>
@@ -14234,20 +14233,15 @@
   <block id="4c94a8db2c4d5bdbc6c84b8d46b9e53e" category="inline-link-macro">更改新节点的安全设置</block>
   <block id="831fdc8afe70fe56c43e48c6ed28b690" category="inline-link-macro">配置负载平衡器端点</block>
   <block id="dc661bb28d5cb4088f7b09896d09208d" category="summary">按照此操作步骤向现有站点添加网格节点或添加新站点。一次只能执行一种类型的扩展。</block>
-  <block id="7852bcc4c709f1891c1a24a5a293ea63" category="doc">向现有站点添加网格节点或添加新站点</block>
   <block id="9f5c6ca03b6cb39cb095e9069ef19cad" category="inline-link-macro">root访问权限或维护权限</block>
   <block id="c85466be132b0fbee41aba6763ed2db4" category="list-text">您拥有<block ref="c26e67b841a05655231a7cc2c91608b0" category="inline-link-macro-rx"></block>。</block>
   <block id="343020cf54d6c5a811a7aa92964282ca" category="list-text">网格中的所有现有节点在所有站点上均已启动且正在运行。</block>
   <block id="71800a65452dda3f0944473254f7c571" category="list-text">先前的任何扩展，升级，停用或恢复过程均已完成。</block>
   <block id="44a1bd322bfde5ba803010fe7ddfcf3b" category="admonition">如果正在进行另一个扩展，升级，恢复或活动的停用操作步骤 ，则系统将阻止您启动扩展。但是，如有必要，您可以暂停已停用的操作步骤 以启动扩展。</block>
   <block id="d564e82bac1bfa514936d298219964f1" category="inline-link-macro">更新网格网络的子网</block>
-  <block id="61f027e29d7e8ea4620cf91a320512bf" category="list-text"><block ref="f37c57e0a4668a06e9305b573ac4833b" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="4b62501777a6a2c97d3899d7f9c38f36" category="inline-link-macro">部署新的网格节点</block>
-  <block id="b037c512cde9fb4b29997e428093451a" category="list-text"><block ref="e65ac8c7eb32160491632b34432f3e08" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="17161eae50048ebf2d4cebbb8264f0df" category="inline-link-macro">执行扩展</block>
-  <block id="b5a61584360192a4ef8677e83570a467" category="list-text"><block ref="cdd78ec19ad7198531688ed80e921d7d" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="25e9e8162917edfeb8c4df19595bc3e5" category="summary">要确保为对象元数据提供足够的可用空间，您可能需要执行扩展操作步骤 以在每个站点添加新的存储节点。</block>
-  <block id="b48dd0969f81829e7a0bae827dd51ee0" category="doc">添加元数据容量</block>
   <block id="092c7b17a505490b79a6ff4583d6024e" category="paragraph">StorageGRID 会为每个存储节点的卷 0 上的对象元数据预留空间。每个站点维护三个所有对象元数据副本，这些副本均匀分布在所有存储节点上。</block>
   <block id="69ecc086eb4442a00ffc8b08234b70f6" category="paragraph">您可以使用网格管理器监控存储节点的元数据容量，并估计元数据容量的使用速度。此外，当已用元数据空间达到特定阈值时，系统会为存储节点触发 * 低元数据存储 * 警报。</block>
   <block id="609d3242cdffe4daba086b8a2a57d4ce" category="paragraph">请注意，根据网格的使用方式，网格的对象元数据容量消耗速度可能比其对象存储容量更快。例如，如果您通常要载入大量小对象或向对象添加大量用户元数据或标记，则即使仍有足够的对象存储容量，您可能需要添加存储节点以增加元数据容量。</block>
@@ -14271,7 +14265,6 @@
   <block id="56dff3262bce4f6060e9fdb635a6996b" category="paragraph">图的右侧显示了在向站点添加两个存储节点后如何重新分配现有元数据。每个节点上的元数据数量已减少，不再触发 * 元数据存储不足 * 警报，并且可用于元数据的空间已增加。</block>
   <block id="1c5ea2c9fd4485ca5f48b4fd7264bf50" category="image-alt">添加两个存储节点后重新分配的元数据示意图</block>
   <block id="e3bac49a9bd5fdea64876d0df82f1f0d" category="summary">您可以通过添加新站点来扩展 StorageGRID 系统。</block>
-  <block id="d5c1c7066b600a270df7e3315c54e788" category="doc">添加新站点</block>
   <block id="6f6794e09f69599d1af27df958e459fa" category="section-title">添加站点的准则</block>
   <block id="57604405d9ce8a275be30384a9daa747" category="paragraph">在添加站点之前，请查看以下要求和限制：</block>
   <block id="18218b99c9be21c16cb979cf2e40a659" category="list-text">每个扩展操作只能添加一个站点。</block>
@@ -14297,7 +14290,6 @@
   <block id="81f8120b5a1cdbbad82c371e24d5f3c0" category="inline-link-macro">重新平衡经过纠删编码的数据的注意事项</block>
   <block id="4ede0449ea951d01a12af7b795e92a95" category="paragraph">要更好地了解导致此建议的因素或为您的站点制定更精确的计划，请参见<block ref="7d25f358497317f659c2db22c4c6c293" category="inline-link-macro-rx"></block>。有关针对您的情况进行优化的自定义建议、请联系您的NetApp专业服务顾问。</block>
   <block id="1866752605f992dfd684eef9e628040a" category="summary">如果您的部署的信息生命周期管理 \ （ ILM ）策略包含创建对象的复制副本的规则，则必须考虑要添加的存储容量以及要添加新存储卷或存储节点的位置。</block>
-  <block id="e8ccf8c79e9f5487f6b2bf00aa54fd54" category="doc">为复制的对象添加存储容量</block>
   <block id="9a474ffb92665e66f03b21fe04f8e6d3" category="paragraph">如果您的部署的信息生命周期管理（ ILM ）策略包含一条规则，用于创建对象的复制副本，则必须考虑要添加的存储容量以及要添加新存储卷或存储节点的位置。</block>
   <block id="af1fd265f139aea36f56248a2ac62442" category="inline-link-macro">添加存储</block>
   <block id="fe2305d334b4447bc488c4506311b3c0" category="inline-link-macro">什么是复制</block>
@@ -14419,7 +14411,6 @@
   <block id="e5a8612b723c1b44ddab7c8d79f391dc" category="section-title">EC 重新平衡操作步骤 如何与 ILM 交互</block>
   <block id="8a00f7818badcb8f795456c02c340e63" category="paragraph">在运行 EC 重新平衡操作步骤 时，请避免进行可能会更改现有纠删编码对象位置的 ILM 更改。例如、不要开始使用具有不同纠删编码配置文件的ILM规则。如果需要进行此类ILM更改、则应终止EC重新平衡操作步骤。</block>
   <block id="fa8a7b6f5346b8b3a6db96da822d76e4" category="summary">如果在网格扩展过程中遇到无法解决的错误、或者网格任务失败、请收集日志文件并联系技术支持。</block>
-  <block id="8224dffadb32a60e7a9bbd796e22ca8f" category="doc">排除扩展故障</block>
   <block id="3576e9157b748218966d1ca9bbe16fc9" category="paragraph">在联系技术支持之前、请收集所需的日志文件以帮助进行故障排除。</block>
   <block id="037734372ecabb81e574fed23c2d4989" category="list-text">连接到发生故障的扩展节点：</block>
   <block id="15dc17fbf38a4fc8a84e3efc54e86df8" category="list-text">输入以下命令：<block ref="4aa1641988017375873399307925b55e" prefix="" category="inline-code"></block></block>
@@ -14873,7 +14864,6 @@
   <block id="0b1ca2f2b5a07a22c9a3c2970087f5d7" category="list-text">输入 * 配置密码短语 * 。</block>
   <block id="1fa9302191952afe439d2b30d4b91c23" category="paragraph">您指定的子网将自动为 StorageGRID 系统配置。</block>
   <block id="3657ebc204091c64d3ff02624d49eb1d" category="summary">添加新存储节点的扩展操作完成后， StorageGRID 系统应自动开始使用新存储节点。您必须使用 StorageGRID 系统验证新存储节点是否处于活动状态。</block>
-  <block id="aae3935209aaa82bb7e0cfb0954cdfb0" category="doc">验证存储节点是否处于活动状态</block>
   <block id="b372d526b93e8b57f9c7f19633288356" category="list-text">将光标置于*已用存储-对象数据*图形上方可查看*已用*的值，即已用于对象数据的总可用空间量。</block>
   <block id="11aed68e02a00262e86b22e6fe8e59ab" category="list-text">将光标移至图形右侧时，请验证 * 已用 * 的值是否正在增加。</block>
   <block id="e6050c9475e86115a8d66d604cc71dce" category="list-text">如有必要，请安装新的存储硬件并创建新的 VMware 数据存储库。</block>
@@ -19999,9 +19989,6 @@
   <block id="6de1afa3cf1550ab26dedcd5f261ba67" category="sidebar">审核消息类别</block>
   <block id="afc29737a400dada15106eef4528477c" category="sidebar">审核消息参考</block>
   <block id="0f3aa4e9ff7d459390158f9cedb9e457" category="sidebar">扩展StorageGRID 系统</block>
-  <block id="1e457a35700bbcc73d0f435962627d65" category="sidebar">规划 StorageGRID 扩展</block>
-  <block id="36ba8d44f59ba6f6841e013a4c2dfcbd" category="sidebar">添加存储容量</block>
-  <block id="42fd950f7a09417fc726b6bf75ad3aca" category="sidebar">添加冗余或新功能</block>
   <block id="c7bd4660cee75e951017a29e033c9544" category="sidebar">配置扩展系统</block>
   <block id="cc56a49e35aeb7f396fbb9e0c04c4216" category="sidebar">访问并完成向导</block>
   <block id="38d35cd42f1d10729ce8519c163363eb" category="sidebar">手动配置StorageGRID</block>
@@ -20785,7 +20772,6 @@
   <block id="1ebe935e22e860bc5e80d666b09d4ebb" category="list-text">选择*维护* &gt; *系统* &gt; *恢复包*。</block>
   <block id="c568a3c0927aaccf02811b15209e3b60" category="admonition">恢复包文件必须是安全的，因为它包含可用于从StorageGRID系统获取数据的加密密钥和密码。它还用于恢复主管理节点。</block>
   <block id="9708fdcd1e4b7e2bd1cb2a214f24dc7a" category="list-text">选择“*节点*”&gt;“*扩展存储节点*”&gt;“*存储*”。</block>
-  <block id="69ac9ed73518230da9135a11a969b146" category="doc">将存储卷添加到 VMware 存储节点</block>
   <block id="78b02d4a8da88b902c937fc9bd890210" category="inline-link-macro">为 VMware 部署安装StorageGRID的说明</block>
   <block id="5e82b58babd05946df8a7895bed2696d" category="list-text">您可以访问<block ref="b2e1324cb31f62f32d385cd5bbc13ad0" category="inline-link-macro-rx"></block>。</block>
   <block id="f2ac7d76cc8e5340b9a3f767e975f7ef" category="paragraph">默认情况下，所有存储桶均在<block ref="c800b6d9163b0db7d28f86c1470a9542" prefix=" " category="inline-code"></block>地区。如果默认区域配置为<block ref="c800b6d9163b0db7d28f86c1470a9542" prefix=" " category="inline-code"></block>，该其他区域最初是在下拉菜单中选择的。</block>
@@ -22045,4 +22031,52 @@
   <block id="115da73ba09231ed44a359e7dc28a03b" category="admonition">尽管StorageGRID负载均衡器服务是推荐的负载均衡机制，但您可能希望集成第三方负载均衡器。如需了解更多信息，请联系您的NetApp客户代表或参考以下内容：<block ref="07dd3eb8db144aafaae9ca336914c57b" category="inline-link-rx"></block>。</block>
   <block id="800c173937521899b70a4ab5d735d3d7" category="paragraph">有关具体变更内容，请参阅…… <block ref="b78e17cf58c4e309929c8d6a69594c7d" category="inline-link-macro-rx"></block>。</block>
   <block id="f2c4673c5ae939756c3d43f049c774fc" category="summary">“低对象数据存储”警报监控每个存储节点上可用于存储对象数据的空间大小。</block>
+  <block id="6ab42ada4329eadfc2772d9809b0b425" category="doc">StorageGRID中添加网格节点的指南</block>
+  <block id="4aa734d9f778871efa0e9454b2df1549" category="doc">向StorageGRID添加网格节点或新站点的工作流程概述</block>
+  <block id="52a9c6a4ff63ce699776bcb2c04824a5" category="inline-link-macro">更新网格网络的子网</block>
+  <block id="acc2f4b89ad9d6e2f56120d5900e81a3" category="list-text"><block ref="814f224bd9033b78570b41ffddccbae5" category="inline-link-macro-rx"></block>。</block>
+  <block id="ad9b8ef810c62b5581c7cbf4f37f70dd" category="inline-link-macro">部署新的网格节点</block>
+  <block id="0e5d3f34fc9491956f160b3fd5c46e02" category="list-text"><block ref="1c86124a85ce63916457893ae360583c" category="inline-link-macro-rx"></block>。</block>
+  <block id="ebb7096432347f548732ae03e81e9321" category="doc">StorageGRID元数据容量添加指南</block>
+  <block id="1452c54ebe0a6670f32f620d235b0d66" category="doc">StorageGRID添加新站点的指南</block>
+  <block id="a92eb4063886fa5b0336638fd97b48a7" category="doc">StorageGRID中纠删码（EC）数据的扩展规划</block>
+  <block id="376a349ac020131c458e70b9eb49d70c" category="doc">StorageGRID中复制数据的扩展规划</block>
+  <block id="a9427208270c2b873e792bed949c40c0" category="doc">向StorageGRID系统添加存储卷</block>
+  <block id="99c3684d73f3b331c7f8abaad7cdb502" category="doc">在StorageGRID中配置新添加的节点和站点</block>
+  <block id="ed7cae6690c0c4858440134289804708" category="doc">了解StorageGRID扩展后的 EC 重新平衡</block>
+  <block id="791ff8473704f0651e1632e7b65e739f" category="doc">排查StorageGRID中的扩展错误</block>
+  <block id="b6eeb3cce2a267d43988d2bf62d721f6" category="doc">将管理节点数据库复制到StorageGRID中的新管理节点</block>
+  <block id="8ab7d09b063c33dde91041b71a224070" category="doc">将审计日志复制到StorageGRID中的新管理节点</block>
+  <block id="6d53b27891a16e40a98b898324278880" category="doc">将 Prometheus 指标复制到StorageGRID中的新管理节点</block>
+  <block id="0d4846b98d54c8f2d72164d7f2c990c6" category="doc">在StorageGRID中部署新的网格节点</block>
+  <block id="97cd904b981df2ee5bb49526ca4a553b" category="doc">准备扩展您的StorageGRID系统</block>
+  <block id="aca238deb1a68ba7d0777f5b3a9e9bca" category="doc">StorageGRID中添加对象容量的指南</block>
+  <block id="1da01eccb1d8e4aa22d1418a03b0f73f" category="doc">了解如何扩展您的StorageGRID系统</block>
+  <block id="31885bbe92ca3fae0d7571503dc583ff" category="paragraph">了解如何扩展StorageGRID系统，以在不中断运行的情况下增加容量或功能。您可以向现有存储节点添加存储卷，向现有站点添加新的网格节点，或者添加新站点。</block>
+  <block id="7ce2db6675df4418720a3fa1039e5dc7" category="doc">在StorageGRID中向 Linux 存储节点添加直连卷或 SAN 卷</block>
+  <block id="a460411bfa128d773502789441299d2c" category="doc">执行StorageGRID扩展</block>
+  <block id="15ce1a9812d0e58f502faa70f1e34317" category="doc">在向StorageGRID系统添加节点后，重新平衡纠删码数据。</block>
+  <block id="5e67742be133db8cda9d29e559ded5d0" category="doc">在StorageGRID中添加或更新网格网络子网以进行扩展</block>
+  <block id="4542875aec1e1e6a7e6410d2b9c1572f" category="doc">在StorageGRID扩展后，验证存储节点是否处于活动状态。</block>
+  <block id="d7b9587472ee4560e06c93c6fd9a2196" category="doc">在StorageGRID中向 VMware 存储节点添加存储卷</block>
+  <block id="800c405298b37fda216884bd4debe0e2" category="sidebar">扩展StorageGRID系统的容量或功能</block>
+  <block id="857181ae00dedddaee408195c79ebfcc" category="sidebar">展开网格</block>
+  <block id="3b457f25d61c3797b404a7ae6ad6077a" category="sidebar">了解扩建事宜</block>
+  <block id="8cfa3ba172fe9cccceb586ab3a874258" category="sidebar">扩张计划</block>
+  <block id="54a21b9b68e61d77c932e0139bee64d8" category="sidebar">复制数据的扩展规划</block>
+  <block id="cc26fd735cff28b2db143c44c02317fd" category="sidebar">擦除编码数据的扩展规划</block>
+  <block id="b47335e014fe17e88176b2e5e9883d81" category="sidebar">了解扩展后的纠删码重新平衡机制</block>
+  <block id="a7c9aef1599a04523bfabc2889bc3ea4" category="sidebar">扩展指南</block>
+  <block id="2ca63b531490bf0330fef37473e7ab22" category="sidebar">添加元数据容量的指南</block>
+  <block id="df35fd67a43cd27957268e82e44873c8" category="sidebar">添加网格节点的指南</block>
+  <block id="800d3dd5b54772588452558135a413d8" category="sidebar">添加新站点的指南</block>
+  <block id="25e70f0f5be238f980e91eed124e569b" category="sidebar">做好扩张准备</block>
+  <block id="a630a4cb0c45889f878567c92eac06e1" category="sidebar">工作流程概要</block>
+  <block id="6f66e24169e1bfd909ef7017d6c9f853" category="sidebar">向网格网络添加或更新子网</block>
+  <block id="f9d6292eb1a54624be47aa11a66bc4c8" category="sidebar">为 VMware 添加存储卷</block>
+  <block id="eddb8bff2e2034fe7effc402e2eac054" category="sidebar">为 Linux 添加直连卷或 SAN 卷</block>
+  <block id="0e7b171ef24f94ac1c78b6edf72ecd49" category="sidebar">配置新添加的节点和站点</block>
+  <block id="7a7a963110f9ae62cce544133ba8e7ce" category="sidebar">验证存储节点是否处于活动状态</block>
+  <block id="84937182b41664790a3d510e3937a6aa" category="sidebar">重新平衡擦除编码数据</block>
+  <block id="79b23afb97ee05790731fc38c8f128a0" category="sidebar">排查扩展错误</block>
 </blocks>
