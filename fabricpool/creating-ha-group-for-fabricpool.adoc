@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-ha-group-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+keywords: fabricPool, StorageGRID, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
 summary: 在配置 StorageGRID 以与 FabricPool 结合使用时，您可以选择创建一个或多个高可用性（ HA ）组。HA组是一组节点、每个节点都包含StorageGRID 负载平衡器服务。HA组可以包含网关节点、管理节点或同时包含这两者。 
 ---
-= 为 FabricPool 创建高可用性（ HA ）组
+= 在 StorageGRID 中为 FabricPool 创建高可用性 (HA) 组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

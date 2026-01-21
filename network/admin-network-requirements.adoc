@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network requirements, guidelines for admin network, aesl 
 summary: 管理网络是可选的。如果您计划配置管理网络，请遵循以下要求和准则。 
 ---
-= 管理网络要求
+= StorageGRID 的管理网络要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

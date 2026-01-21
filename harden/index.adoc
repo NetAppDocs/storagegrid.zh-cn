@@ -1,10 +1,10 @@
 ---
 permalink: harden/index.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, system, security 
+keywords: StorageGRID, hardening guidelines, system, security 
 summary: 系统强化是指尽可能消除 StorageGRID 系统中的安全风险的过程。 
 ---
-= 系统强化的一般注意事项
+= 了解 StorageGRID 的系统加固
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

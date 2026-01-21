@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: 您必须了解在节点部署和网格配置期间如何使用网格网络以及可选的管理和客户端网络。 
 ---
-= 网络安装和配置
+= StorageGRID 的网络安装和配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

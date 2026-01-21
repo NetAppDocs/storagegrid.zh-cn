@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking requirements, storagegrid networks 
 summary: 所有 StorageGRID 部署都必须能够支持以下连接。 
 ---
-= 一般网络连接要求
+= StorageGRID 的一般网络要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

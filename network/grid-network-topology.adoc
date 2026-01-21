@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network topology 
 summary: 最简单的网络拓扑只能通过配置网格网络来创建。 
 ---
-= 网格网络拓扑
+= StorageGRID 的网格网络拓扑
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

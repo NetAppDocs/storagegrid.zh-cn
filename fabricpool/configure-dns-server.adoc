@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-dns-server.html 
 sidebar: sidebar 
-keywords: dns, vip, virtual ip, fqdn, server name 
+keywords: fabricPool, StorageGRID, dns, vip, virtual ip, fqdn, server name 
 summary: 配置高可用性组、负载平衡器端点和S3域名后、您必须确保DNS包含StorageGRID 的必要条目。 
 ---
-= 配置DNS服务器
+= 使用 FabricPool 为 StorageGRID 配置 DNS 服务器条目
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

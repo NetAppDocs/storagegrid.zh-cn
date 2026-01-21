@@ -1,7 +1,7 @@
 ---
 permalink: fabricpool/remove-fabricpool-data.html 
 sidebar: sidebar 
-keywords: fabricPool, ontap, remove data from storagegrid 
+keywords: fabricPool, StorageGRID, ontap, remove data 
 summary: 如果您需要删除当前存储在StorageGRID中的FabricPool数据、请按照以下步骤操作。 
 ---
 = 从StorageGRID中删除FabricPool数据

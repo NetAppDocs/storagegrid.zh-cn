@@ -1,10 +1,10 @@
 ---
 permalink: primer/how-storagegrid-manages-data.html 
 sidebar: sidebar 
-keywords: how storagegrid manages data, what an object is, how object data is protected 
+keywords: StorageGRID, how storagegrid manages data, what an object is, how object data is protected 
 summary: 对于对象存储，存储单元是对象，而不是文件或块。与文件系统或块存储的树状层次结构不同，对象存储以非结构化的平面布局对数据进行组织。 
 ---
-= 什么是对象
+= 什么是 StorageGRID 对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

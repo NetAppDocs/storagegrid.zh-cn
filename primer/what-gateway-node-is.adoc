@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: 网关节点提供一个专用负载平衡接口、S3客户端应用程序可以使用此接口连接到StorageGRID。负载平衡通过在多个存储节点之间分布工作负载、最大限度地提高速度和连接容量。网关节点是可选的。 
 ---
-= 什么是网关节点？
+= 什么是 StorageGRID 网关节点？
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network topology, using admin network 
 summary: 可以选择使用管理网络。使用管理网络和网格网络的一种方法是，为每个节点配置可路由的网格网络和有限制的管理网络。 
 ---
-= 管理网络拓扑
+= StorageGRID 的管理网络拓扑
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

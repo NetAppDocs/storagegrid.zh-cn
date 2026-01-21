@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-load-balancer-endpoint-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, load balancer, endpoint, load balancing, create, creating, certificate 
+keywords: fabricPool, StorageGRID, load balancer, endpoint, load balancing, create, creating, certificate 
 summary: 'StorageGRID 使用负载平衡器管理客户端应用程序(如FabricPool)的工作负载。负载平衡可最大限度地提高多个存储节点的速度和连接容量。' 
 ---
-= 为 FabricPool 创建负载平衡器端点
+= 在 StorageGRID 中为 FabricPool 创建负载平衡器端点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

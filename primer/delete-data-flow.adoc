@@ -1,10 +1,10 @@
 ---
 permalink: primer/delete-data-flow.html 
 sidebar: sidebar 
-keywords: object, delete, deletion, object lock, bucket lifecycle, expiration, ilm, placement instruction 
+keywords: StorageGRID, object, delete, deletion, object lock, bucket lifecycle, expiration, ilm, placement instruction 
 summary: 当客户端或租户执行删除操作或对象生命周期到期时、所有对象副本都会从StorageGRID 系统中删除、从而触发自动删除。已定义用于删除对象的数据流。 
 ---
-= 删除数据流
+= StorageGRID 如何处理对象删除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

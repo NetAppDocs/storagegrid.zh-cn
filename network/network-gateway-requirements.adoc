@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: 对于网络网关或路由器，请遵循以下要求和准则。 
 ---
-= 网络网关要求
+= StorageGRID 的网络网关要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

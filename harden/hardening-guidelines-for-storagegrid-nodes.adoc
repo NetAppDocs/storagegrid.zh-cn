@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
 sidebar: sidebar 
-keywords: hardening guidelines, nodes, security 
+keywords: StorageGRID, hardening guidelines, nodes, security 
 summary: StorageGRID 节点可以部署在 VMware 虚拟机上， Linux 主机上的容器引擎中或作为专用硬件设备。每种类型的平台和每种类型的节点都有自己的一组强化最佳实践。 
 ---
 = StorageGRID 节点的强化准则

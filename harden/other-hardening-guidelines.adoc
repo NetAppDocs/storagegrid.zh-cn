@@ -1,10 +1,10 @@
 ---
 permalink: harden/other-hardening-guidelines.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, security 
+keywords: StorageGRID, hardening guidelines, security 
 summary: 除了遵循 StorageGRID 网络和节点的强化准则之外，您还应遵循 StorageGRID 系统其他方面的强化准则。 
 ---
-= 其他强化准则
+= StorageGRID 中日志、密码和审核消息的加固准则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

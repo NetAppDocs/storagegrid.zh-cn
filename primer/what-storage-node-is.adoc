@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-storage-node-is.html 
 sidebar: sidebar 
-keywords: what is a storage node, how many storage nodes 
+keywords: StorageGRID, what is a storage node, how many storage nodes 
 summary: 存储节点可管理和存储对象数据和元数据。存储节点包括在磁盘上存储、移动、验证和检索对象数据和元数据所需的服务和流程。 
 ---
-= 什么是存储节点？
+= 什么是 StorageGRID 存储节点？
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

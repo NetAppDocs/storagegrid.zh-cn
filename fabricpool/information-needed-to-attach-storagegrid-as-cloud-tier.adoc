@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: StorageGRID, fabricPool, ONTAP System Manager, ONTAP CLI, port, FQDN, object store name 
 summary: 在将StorageGRID 附加为FabricPool 的云层之前、您必须在StorageGRID 中执行配置步骤并获取特定值。 
 ---
-= 将 StorageGRID 附加为云层所需的信息
+= 将 StorageGRID 作为 FabricPool 云层连接所需的信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

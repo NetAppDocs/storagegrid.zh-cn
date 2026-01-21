@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, external communications, ports, TCP, UDP, client communications 
 summary: 客户端需要与网格节点进行通信才能载入和检索内容。使用的端口取决于所选的对象存储协议。这些端口需要可供客户端访问。 
 ---
-= 外部通信
+= StorageGRID 的外部通信
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

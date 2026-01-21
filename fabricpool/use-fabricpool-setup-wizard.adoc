@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/use-fabricpool-setup-wizard.html 
 sidebar: sidebar 
-keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+keywords: fabricPool, StorageGRID, FabricPool setup wizard, ontap system manager 
 summary: 您可以使用FabricPool 设置向导将StorageGRID 配置为FabricPool 云层的对象存储系统。完成设置向导后、您可以在ONTAP 系统管理器中输入所需的详细信息。 
 ---
-= 使用FabricPool 设置向导：注意事项和要求
+= 了解 StorageGRID FabricPool 设置向导
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

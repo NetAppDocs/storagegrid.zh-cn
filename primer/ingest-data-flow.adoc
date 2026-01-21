@@ -1,10 +1,10 @@
 ---
 permalink: primer/ingest-data-flow.html 
 sidebar: sidebar 
-keywords: object data, ingest 
+keywords: StorageGRID, object data, ingest 
 summary: 载入或保存操作由客户端和 StorageGRID 系统之间定义的数据流组成。 
 ---
-= 载入数据流
+= StorageGRID 如何处理对象摄取
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

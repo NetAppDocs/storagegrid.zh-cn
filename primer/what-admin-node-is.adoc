@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-admin-node-is.html 
 sidebar: sidebar 
-keywords: admin nodes 
+keywords: StorageGRID, admin nodes 
 summary: 管理节点可提供系统配置，监控和日志记录等管理服务。管理节点还可用于对S3客户端流量进行负载平衡。每个网格都必须有一个主管理节点，并且可能有任意数量的非主管理节点，以实现冗余。 
 ---
-= 什么是管理节点？
+= 什么是 StorageGRID 管理节点？
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

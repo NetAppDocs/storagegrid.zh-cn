@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network, networking, ethernet, subnet, routing 
 summary: 使用以下准则了解 StorageGRID 架构和网络拓扑，并了解网络配置和配置的要求。 
 ---
-= 网络连接准则
+= StorageGRID 网络准则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

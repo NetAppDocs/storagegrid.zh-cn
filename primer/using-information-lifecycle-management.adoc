@@ -1,10 +1,10 @@
 ---
 permalink: primer/using-information-lifecycle-management.html 
 sidebar: sidebar 
-keywords: what is information lifecycle management, how to use ilm 
+keywords: StorageGRID, what is information lifecycle management, how to use ilm 
 summary: '您可以使用信息生命周期管理\(ILM)控制StorageGRID 系统中所有对象的放置、持续时间和加载行为。ILM 规则可确定 StorageGRID 在一段时间内如何存储对象。您可以配置一个或多个 ILM 规则，然后将其添加到 ILM 策略中。' 
 ---
-= 信息生命周期管理
+= StorageGRID 中的信息生命周期管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

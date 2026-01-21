@@ -1,10 +1,10 @@
 ---
 permalink: primer/copy-management.html 
 sidebar: sidebar 
-keywords: object data, ilm policy, ilm rules, replicated copy, replication, erasure-coded copy, ec, cloud storage pool 
+keywords: StorageGRID, object data, ilm policy, ilm rules, replicated copy, replication, erasure-coded copy, ec, cloud storage pool 
 summary: 对象数据由活动 ILM 策略及其 ILM 规则管理。ILM规则会创建复制或删除编码的副本、以防止对象数据丢失。 
 ---
-= 副本管理
+= StorageGRID 如何管理对象副本
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

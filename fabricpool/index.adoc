@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure storagegrid for fabricpool, using fabricpool with storagegrid, 
 summary: 如果您使用NetApp ONTAP 软件、则可以使用NetApp FabricPool 将非活动数据分层到NetApp StorageGRID 对象存储系统。 
 ---
-= 为 FabricPool 配置 StorageGRID
+= 使用 StorageGRID 与 FabricPool 的配置工作流程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

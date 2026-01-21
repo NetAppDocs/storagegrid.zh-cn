@@ -2,8 +2,8 @@
 section: network
 title: 网络连接准则
 entries:
-- title: StorageGRID 网络连接
-  pdf-filename: StorageGRID 网络连接准则
+- title: 网络连接准则
+  pdf-filename: StorageGRID 网络准则
   url: "/network/index.html"
 - title: StorageGRID 网络类型
   url: "/network/storagegrid-network-types.html"
@@ -27,7 +27,7 @@ entries:
     url: "/network/linux-deployments.html"
   - title: 用于平台服务和云存储池的网络和端口
     url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
-  - title: 设备节点
+  - title: 设备网络配置
     url: "/network/appliance-nodes.html"
 - title: 网络安装和配置
   url: "/network/network-installation-and-provisioning.html"

@@ -1,10 +1,10 @@
 ---
 permalink: primer/exploring-grid-manager.html 
 sidebar: sidebar 
-keywords: what is the grid manager, grid manager dashboard 
+keywords: StorageGRID, what is the grid manager, grid manager dashboard 
 summary: 网格管理器是一个基于浏览器的图形界面，可用于配置，管理和监控 StorageGRID 系统。 
 ---
-= 了解网格管理器
+= 浏览 StorageGRID 网格管理器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

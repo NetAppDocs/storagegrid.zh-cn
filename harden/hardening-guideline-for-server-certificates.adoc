@@ -1,10 +1,10 @@
 ---
 permalink: harden/hardening-guideline-for-server-certificates.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, certificates 
+keywords: StorageGRID, hardening guidelines, certificates 
 summary: 您应替换在安装期间创建的默认证书、并为TLS和SSH连接选择适当的安全策略。 
 ---
-= TLS和SSH强化准则
+= StorageGRID 中 TLS 和 SSH 的强化准则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,15 +1,15 @@
 ---
 section: fabricpool
-title: 为 FabricPool 配置 StorageGRID
+title: StorageGRID 与 FabricPool
 entries:
-- title: 快速入门
-  pdf-filename: 为 FabricPool 配置 StorageGRID
+- title: 配置工作流
+  pdf-filename: StorageGRID 与 FabricPool
   url: "/fabricpool/index.html"
-- title: 将 StorageGRID 附加为云层所需的信息
+- title: FabricPool 云层信息
   url: "/fabricpool/information-needed-to-attach-storagegrid-as-cloud-tier.html"
 - title: 使用FabricPool 设置向导
   entries:
-  - title: 注意事项和要求
+  - title: 设置向导概述
     url: "/fabricpool/use-fabricpool-setup-wizard.html"
   - title: 访问并完成向导
     url: "/fabricpool/use-fabricpool-setup-wizard-steps.html"
@@ -27,19 +27,19 @@ entries:
     url: "/fabricpool/using-storagegrid-ilm-with-fabricpool-data.html"
   - title: 创建流量分类策略
     url: "/fabricpool/creating-traffic-classification-policy-for-fabricpool.html"
-- title: 配置ONTAP 系统管理器
+- title: 为 StorageGRID 配置 ONTAP
   url: "/fabricpool/configure-ontap.html"
-- title: 配置 DNS 服务器
+- title: 配置 DNS 服务器条目
   url: "/fabricpool/configure-dns-server.html"
 - title: 适用于FabricPool 的StorageGRID 最佳实践
   entries:
   - title: HA 组的最佳实践
     url: "/fabricpool/best-practices-for-high-availability-groups.html"
-  - title: FabricPool 负载平衡最佳实践
+  - title: 负载平衡的最佳实践
     url: "/fabricpool/best-practices-for-load-balancing.html"
   - title: ILM最佳实践
     url: "/fabricpool/best-practices-ilm.html"
-  - title: 其他最佳实践
+  - title: 全局设置的最佳实践
     url: "/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html"
 - title: 从StorageGRID中删除FabricPool数据
   url: "/fabricpool/remove-fabricpool-data.html"

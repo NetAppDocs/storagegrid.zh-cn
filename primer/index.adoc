@@ -1,7 +1,7 @@
 ---
 permalink: primer/index.html 
 sidebar: sidebar 
-keywords: grid primer, what is storagegrid, storagegrid basics 
+keywords: StorageGRID, grid primer, what is storagegrid, storagegrid basics 
 summary: NetApp StorageGRID 是一款软件定义的对象存储套件、支持公共、私有和混合多云环境中的各种用例。StorageGRID 为Amazon S3 API提供本机支持、并提供行业领先的创新技术、例如自动化生命周期管理、以便长期经济高效地存储、保护和保留非结构化数据。 
 ---
 = 什么是 StorageGRID ？

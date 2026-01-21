@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking for appliance, port bond mode 
 summary: 您可以将 StorageGRID 设备上的网络端口配置为使用符合吞吐量，冗余和故障转移要求的端口绑定模式。 
 ---
-= 设备节点
+= StorageGRID 设备节点的网络配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

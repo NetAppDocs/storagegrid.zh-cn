@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
 summary: StorageGRID 内部防火墙仅允许传入网格网络上的特定端口，但端口 22 ， 80 ， 123 和 443 除外 \ （请参见有关外部通信的信息 \ ）。负载平衡器端点定义的端口也接受连接。 
 ---
-= 内部网格节点通信
+= StorageGRID 的内部网格节点通信
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

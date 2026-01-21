@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-ontap.html 
 sidebar: sidebar 
-keywords: fabricPool, system manager, ONTAP CLI, add cloud tier 
+keywords: fabricPool, StorageGRID, system manager, ONTAP CLI, add cloud tier 
 summary: 获取所需的StorageGRID 信息后、您可以转到ONTAP 将StorageGRID 添加为云层。 
 ---
-= 配置ONTAP 系统管理器
+= 配置 ONTAP System Manager 以将 StorageGRID 添加为 FabricPool 云层
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

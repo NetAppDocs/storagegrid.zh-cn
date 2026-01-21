@@ -1,10 +1,10 @@
 ---
 permalink: harden/hardening-guidelines-for-software-upgrades.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, upgrades 
+keywords: StorageGRID, hardening guidelines, upgrades 
 summary: 您必须使 StorageGRID 系统和相关服务保持最新，以抵御攻击。 
 ---
-= 软件升级的强化准则
+= StorageGRID 软件升级的强化准则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

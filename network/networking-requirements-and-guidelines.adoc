@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, networking requirements, network requirements, nat 
 summary: 您必须验证当前的网络基础架构和配置是否可以支持计划的 StorageGRID 网络设计。 
 ---
-= 网络要求
+= StorageGRID 的网络要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

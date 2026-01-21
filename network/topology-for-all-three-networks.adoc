@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network topology for storagegrid 
 summary: 您可以将所有这三个网络配置为一个网络拓扑，其中包括专用网格网络，特定于特定于站点的受限制管理网络和开放式客户端网络。如果需要，使用负载平衡器端点和不可信的客户端网络可以提供额外的安全性。 
 ---
-= 所有这三个网络的拓扑结构
+= 所有三个 StorageGRID 网络的网络拓扑
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

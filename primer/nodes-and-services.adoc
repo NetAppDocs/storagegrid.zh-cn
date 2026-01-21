@@ -1,10 +1,10 @@
 ---
 permalink: primer/nodes-and-services.html 
 sidebar: sidebar 
-keywords: services, grid nodes, primary admin, storage, gateway 
+keywords: StorageGRID, services, grid nodes, primary admin, storage, gateway 
 summary: StorageGRID 系统的基本组件是网格节点。节点包含服务，这些服务是为网格节点提供一组功能的软件模块。 
 ---
-= 网格节点和服务
+= StorageGRID 网格节点和服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

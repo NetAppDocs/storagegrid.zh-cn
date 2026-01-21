@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking after installation, dhcp networking 
 summary: 完成网格节点部署和配置后，请按照以下准则更改 DHCP 地址和网络配置。 
 ---
-= 安装后准则
+= StorageGRID 安装后指南
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

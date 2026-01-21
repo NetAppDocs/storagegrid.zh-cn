@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client network topology 
 summary: '可以选择使用客户端网络。使用客户端网络可以将客户端网络流量(例如S3\)与网格内部流量分隔开、从而提高网格网络的安全性。如果未配置管理网络，则可通过客户端网络或网格网络处理管理流量。' 
 ---
-= 客户端网络拓扑
+= StorageGRID 的客户端网络拓扑
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
