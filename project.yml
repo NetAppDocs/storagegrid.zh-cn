@@ -28,7 +28,7 @@ sidebar:
   - title: StorageGRID 12.0 软件
     url: "/index.html"
   - title: StorageGRID设备
-    url: "/storagegrid-hardware.html"
+    url: "/swnodes/storagegrid-hardware.html"
   - title: 发行说明
     url: "/release-notes/index.html"
   - title: 开始使用
@@ -41,8 +41,6 @@ sidebar:
   - title: 安装、升级和修补程序
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: 安装基于设备的节点
-      url: "/storagegrid-hardware.html"
     - section: swnodes
     - section: upgrade
     - title: 应用StorageGRID修补程序

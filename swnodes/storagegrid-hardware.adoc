@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: storagegrid-hardware.html 
+permalink: swnodes/storagegrid-hardware.html 
 keywords: storagegrid, software, grid 
 summary: 了解如何安装、配置和使用StorageGRID设备硬件。 
 ---
