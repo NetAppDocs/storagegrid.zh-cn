@@ -62,9 +62,9 @@ entries:
     - title: 验证StorageGRID配置 (Linux)
       url: "/swnodes/validating-storagegrid-configuration.html"
     - title: 启动StorageGRID主机服务 (Linux)
-      url: "/swnodes/storagegrid-host-service.html"
+      url: "/swnodes/starting-storagegrid-host-service.html"
   - title: 对安装问题进行故障排除
-    url: "/swnodes/installation-issues.html"
+    url: "/swnodes/troubleshooting-installation-issues.html"
   - title: 脚本示例
     entries:
     - title: 示例 /etc/sysconfig/network-scripts (RHEL)
