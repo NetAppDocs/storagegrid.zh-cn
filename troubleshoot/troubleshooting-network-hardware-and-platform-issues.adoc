@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot network, how to troubleshoot hardware, how to troubleshoot platform 
 summary: 您可以执行多项任务来帮助确定与 StorageGRID 网络，硬件和平台问题相关的问题的根源。 
 ---
-= 对网络，硬件和平台问题进行故障排除
+= 对 StorageGRID 中的网络、硬件和平台问题进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

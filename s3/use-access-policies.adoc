@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket access policies, group access policies, session policies 
 summary:  
 ---
-= 使用访问策略
+= StorageGRID 如何使用 AWS 策略来控制对 S3 存储桶和对象的访问
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

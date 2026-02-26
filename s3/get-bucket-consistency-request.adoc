@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket consistency 
 summary: 通过GET分段一致性请求、您可以确定应用于特定分段的一致性。 
 ---
-= 获取存储分段一致性
+= 使用 GET Bucket 一致性请求检索 StorageGRID 中的存储桶一致性级别
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

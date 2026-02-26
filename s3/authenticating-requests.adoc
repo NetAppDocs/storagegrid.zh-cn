@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: authenticate requests, authenticating, requests 
 summary: StorageGRID 系统支持使用 S3 API 对对象进行身份验证和匿名访问。 
 ---
-= 对请求进行身份验证
+= StorageGRID S3 REST API 如何验证请求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

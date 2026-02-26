@@ -4,9 +4,8 @@ sidebar: sidebar
 keywords: operations, buckets, custom, storagegrid bucket operations 
 summary: StorageGRID系统支持添加到S3 REST API中的自定义操作。 
 ---
-= StorageGRID自定义操作
+= StorageGRID 中支持的自定义存储桶操作
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

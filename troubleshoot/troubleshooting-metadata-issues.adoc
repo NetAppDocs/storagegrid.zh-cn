@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot metadata issues 
 summary: '如果发生元数据问题、警报将通知您问题的根源以及建议采取的措施。尤其是、如果触发了"元数据存储不足"警报、则必须添加新的存储节点。' 
 ---
-= 对元数据问题进行故障排除
+= 对 StorageGRID 中的元数据问题进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

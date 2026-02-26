@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, add object, put, PutObject request 
 summary: 您可以使用S3 PutObject请求将对象添加到分段。 
 ---
-= PutObject
+= 使用 S3 PutObject 请求将对象添加到 StorageGRID 中的存储桶
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

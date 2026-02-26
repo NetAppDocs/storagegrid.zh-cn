@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use S3 Select, S3 Select 
 summary: StorageGRID支持SelectObjectContent命令的以下Amazon S3 Select子句、数据类型、运算符和保留关键字。 
 ---
-= 使用 S3 Select
+= StorageGRID 中支持的 Amazon S3 Select 操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

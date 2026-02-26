@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: about s3, s3 rest api, s3 overview 
 summary: StorageGRID 支持简单存储服务 \ （ S3\ ） API ，该 API 作为一组表示状态传输 \ （ REST \ ） Web 服务实施。 
 ---
-= S3 REST API支持的版本和更新
+= StorageGRID S3 REST API 支持的版本和更新
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: group policy examples 
 summary: 使用本节中的示例为组构建StorageGRID 访问策略。 
 ---
-= 组策略示例
+= StorageGRID S3 REST API 组策略示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

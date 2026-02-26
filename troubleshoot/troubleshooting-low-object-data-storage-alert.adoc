@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the Low object data storage alert 
 summary: “低对象数据存储”警报监控每个存储节点上可用于存储对象数据的空间大小。 
 ---
-= 对对象数据存储不足警报进行故障排除
+= 解决 StorageGRID 中的低对象数据存储警报
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: server side encryption, encryption, operations on objects, objects 
 summary: 服务器端加密可用于保护空闲对象数据。StorageGRID 会在写入对象时对数据进行加密，并在您访问对象时对数据进行解密。 
 ---
-= 使用服务器端加密
+= StorageGRID 如何使用服务器端加密
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

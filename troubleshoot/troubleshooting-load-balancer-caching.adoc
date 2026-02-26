@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot load balancer caching 
 summary: 了解负载均衡器缓存可能存在的问题以及如何解决这些问题。 
 ---
-= 排查负载均衡器缓存问题
+= 了解 StorageGRID 中的负载均衡器缓存问题
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

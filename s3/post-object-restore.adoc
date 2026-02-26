@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: post, RestoreObject, object 
 summary: 您可以使用S3 RestorEObject请求还原存储在云存储池中的对象。 
 ---
-= RestorEObject
+= 使用 S3 RestoreObject 请求在 StorageGRID 中还原对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

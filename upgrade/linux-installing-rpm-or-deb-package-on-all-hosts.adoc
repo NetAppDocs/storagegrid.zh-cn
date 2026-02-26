@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, linux, rpm, deb, 
 summary: 如果在Linux主机上部署了任何StorageGRID节点、请在开始升级之前在每个主机上安装一个额外的RPM或DEB软件包。 
 ---
-= Linux：在所有主机上下载并安装RPM或DEB软件包
+= 在所有 Linux 主机上下载并安装 StorageGRID 的 RPM 或 DEB 软件包
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

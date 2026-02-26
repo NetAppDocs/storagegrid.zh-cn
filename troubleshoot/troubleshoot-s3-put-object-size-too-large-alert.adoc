@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
 summary: '如果租户尝试执行的非多部分PutObject操作超过S3大小限制5 GiB、则会触发"S3 Put Object Size Too Lize"警报。' 
 ---
-= 对S3放置对象大小太大警报进行故障排除
+= 解决 StorageGRID 中的 S3 PUT 对象大小过大警报
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

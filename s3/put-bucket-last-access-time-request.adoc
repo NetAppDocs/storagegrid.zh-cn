@@ -2,9 +2,9 @@
 permalink: s3/put-bucket-last-access-time-request.html 
 sidebar: sidebar 
 keywords: S3 REST API, S3 operations, put bucket last access time request 
-summary: 通过获取分段上次访问时间请求，您可以确定是为单个分段启用还是禁用了上次访问时间更新。 
+summary: PUT Bucket 上次访问时间请求允许您启用或禁用单个存储桶的上次访问时间更新。 
 ---
-= PUT 分段上次访问时间
+= 使用 PUT Bucket 上次访问时间请求在 StorageGRID 中启用和禁用上次访问时间更新
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

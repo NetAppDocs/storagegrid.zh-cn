@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET storage usage request 
 summary: '" 获取存储使用量 " 请求会告知您帐户正在使用的存储总量以及与帐户关联的每个存储分段的存储总量。' 
 ---
-= 获取存储使用情况请求
+= 使用 GET Storage Usage 请求检索 StorageGRID 中的帐户和存储桶存储使用情况
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

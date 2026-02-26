@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot lost object data, how to troubleshoot missing object data 
 summary: 可以出于多种原因检索对象，包括从客户端应用程序读取请求，对复制的对象数据进行后台验证， ILM 重新评估以及在存储节点恢复期间还原对象数据。 
 ---
-= 对丢失和丢失的对象数据进行故障排除
+= 了解 StorageGRID 中丢失和缺失的对象数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

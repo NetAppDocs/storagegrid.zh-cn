@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure S3 object lock, object lock, default bucket retention, governance, compliance, retain-until-date, legal hold 
 summary: 如果为StorageGRID 系统启用了全局S3对象锁定设置、则可以在启用S3对象锁定的情况下创建分段。您可以为每个存储分段指定默认保留、也可以为每个对象版本指定保留设置。 
 ---
-= 使用S3 REST API配置S3对象锁定
+= 使用 S3 REST API 配置 StorageGRID S3 对象锁定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

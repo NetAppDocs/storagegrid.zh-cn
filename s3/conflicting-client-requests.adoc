@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: conflicting client requests 
 summary: '冲突的客户端请求（例如，两个客户端写入同一密钥）将以 " 最新成功 " 为基础进行解决。' 
 ---
-= 客户端请求冲突
+= StorageGRID S3 REST API 如何解决冲突的客户端请求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

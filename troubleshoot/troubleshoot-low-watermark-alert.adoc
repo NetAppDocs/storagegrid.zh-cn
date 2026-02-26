@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot low soft read-only watermark override alert, optimized watermarks 
 summary: '如果对存储卷水印使用自定义值，则可能需要解决 " 只读水印覆盖不足 " 警报。如果可能，您应更新系统以开始使用优化值。' 
 ---
-= 对低只读水印覆盖警报进行故障排除
+= 解决 StorageGRID 中的水印覆盖警报
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

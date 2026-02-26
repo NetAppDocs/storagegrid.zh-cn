@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit log, auditing bucket and object operations, S3 audit messages 
 summary: 审核消息由 StorageGRID 服务生成并存储在文本日志文件中。您可以在审核日志中查看特定于S3的审核消息、以获取有关分段和对象操作的详细信息。 
 ---
-= 审核日志中跟踪的 S3 操作
+= StorageGRID 审核日志中跟踪的 S3 操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT bucket consistency request 
 summary: '通过"放置分段一致性请求"、您可以指定要应用于对分段执行的操作的一致性。' 
 ---
-= PUT 存储分段一致性
+= 使用 PUT Bucket 一致性请求在 StorageGRID 中指定一致性级别
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

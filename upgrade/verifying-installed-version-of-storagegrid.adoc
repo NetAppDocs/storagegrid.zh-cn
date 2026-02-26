@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, version, current version, previous version 
 summary: 在开始升级之前、请确认当前安装的是先前版本的StorageGRID、并应用了最新的可用修补程序。 
 ---
-= 验证已安装的 StorageGRID 版本
+= 升级前验证已安装的 StorageGRID 版本
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

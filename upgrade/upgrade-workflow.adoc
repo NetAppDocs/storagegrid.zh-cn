@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade workflow 
 summary: 开始升级之前，请查看常规工作流。StorageGRID 升级页面将指导您完成升级步骤。 
 ---
-= 升级快速入门
+= StorageGRID 升级快速入门
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

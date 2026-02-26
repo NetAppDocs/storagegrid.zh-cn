@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: StorageGRID系统最多支持为每个S3租户帐户配置5、000个分段。 
 ---
-= 对存储分段执行的操作
+= StorageGRID 中的 S3 存储桶操作和实施详细信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

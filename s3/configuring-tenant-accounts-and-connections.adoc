@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: aws cli, test s3 client connection 
 summary: '您可以使用Amazon Web Services命令行界面(AWS CLI)测试与系统的连接、并验证是否可以读取和写入对象。' 
 ---
-= 测试S3 REST API配置
+= 测试 StorageGRID S3 REST API 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

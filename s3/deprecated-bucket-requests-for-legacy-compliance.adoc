@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests 
 summary: 您可能需要使用 StorageGRID S3 REST API 来管理使用原有合规性功能创建的分段。 
 ---
-= 已弃用旧合规性存储分段请求
+= 旧版 StorageGRID 合规性的已弃用存储桶请求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

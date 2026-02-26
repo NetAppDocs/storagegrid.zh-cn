@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: implement s3 rest api 
 summary: 在实施用于 StorageGRID 的 S3 REST API 时，应遵循以下建议。 
 ---
-= 实施 S3 REST API 的建议
+= 使用 StorageGRID 实施 S3 REST API 的建议
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: operations, multipart uploads, uploads, rest API 
 summary: 本节介绍 StorageGRID 如何支持多部件上传操作。 
 ---
-= 多部分上传操作
+= StorageGRID 中支持的分段上传操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

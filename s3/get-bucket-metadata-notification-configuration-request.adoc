@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket metadata notification configuration 
 summary: 使用获取分段元数据通知配置请求，您可以检索用于为各个分段配置搜索集成的配置 XML 。 
 ---
-= 获取存储分段元数据通知配置
+= 使用 GET Bucket 元数据通知配置请求在 StorageGRID 中配置搜索集成
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

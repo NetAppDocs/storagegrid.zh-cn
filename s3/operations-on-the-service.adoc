@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: listbuckets, get service, operations on the service 
 summary: StorageGRID 系统支持对服务执行操作。 
 ---
-= 对服务执行的操作
+= StorageGRID 中支持的服务操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

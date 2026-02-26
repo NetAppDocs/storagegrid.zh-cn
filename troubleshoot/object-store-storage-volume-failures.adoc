@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: 存储节点上的底层存储分为多个对象存储。对象存储也称为存储卷。 
 ---
-= 对象存储（存储卷）故障
+= 了解 StorageGRID 中存储卷的对象存储故障
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

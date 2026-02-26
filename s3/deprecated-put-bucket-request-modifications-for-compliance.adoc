@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
 summary: SGCompliance XML 元素已弃用。以前、您可以将此StorageGRID自定义元素包含在CreateBuckets请求的可选XML请求正文中、以创建兼容分段。 
 ---
-= 已弃用：为合规性修改CreateBucket
+= StorageGRID 中已弃用的 SGCompliance 元素
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

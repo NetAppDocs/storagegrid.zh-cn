@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: 根据问题，您可能需要确认对象数据的存储位置。例如，您可能需要验证 ILM 策略是否按预期执行，以及对象数据是否按预期存储。 
 ---
-= 确认对象数据位置
+= 确认 StorageGRID 中的对象数据位置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

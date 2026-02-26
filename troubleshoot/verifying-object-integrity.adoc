@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to verify object integrity, object existence check, background verification 
 summary: StorageGRID 系统会验证存储节点上对象数据的完整性，并检查是否存在损坏和缺失的对象。 
 ---
-= 验证对象完整性
+= 验证 StorageGRID 中对象数据的完整性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

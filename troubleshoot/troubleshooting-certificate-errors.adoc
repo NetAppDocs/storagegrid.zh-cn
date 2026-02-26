@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot certificate errors 
 summary: 如果在尝试使用Web浏览器、S3客户端或外部监控工具连接到StorageGRID时发现安全或证书问题、则应检查此证书。 
 ---
-= 对证书错误进行故障排除
+= 对 StorageGRID 中的证书错误进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

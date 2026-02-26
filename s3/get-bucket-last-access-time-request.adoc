@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET last access time request 
 summary: 通过获取分段上次访问时间请求，您可以确定是为单个分段启用还是禁用了上次访问时间更新。 
 ---
-= 获取存储分段上次访问时间
+= 使用 GET Bucket 上次访问时间请求检索 StorageGRID 中的存储桶上次访问时间状态
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

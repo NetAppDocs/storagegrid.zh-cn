@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
 summary: 已弃用Put Bucket. Compliance请求。但是，您可以继续使用此请求修改现有旧版合规存储分段的合规性设置。 
 ---
-= 已弃用：Put Bucket. Compliance请求
+= StorageGRID 中已弃用的 PUT Bucket compliance 请求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

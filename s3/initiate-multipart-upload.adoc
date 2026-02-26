@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
 summary: CreateMultipartUpload操作会为对象启动多部分上传、并返回上传ID。 
 ---
-= CreateMultipartUpload
+= StorageGRID 中的 S3 CreateMultipartUpload 请求标头和选项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

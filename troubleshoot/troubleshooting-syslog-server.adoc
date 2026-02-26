@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the external syslog server 
 summary: 下表介绍了可能与外部系统日志服务器相关的错误消息、并列出了更正操作。 
 ---
-= 对外部系统日志服务器进行故障排除
+= 对 StorageGRID 外部系统日志服务器错误消息进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

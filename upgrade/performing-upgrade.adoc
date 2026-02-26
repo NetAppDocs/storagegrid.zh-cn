@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, how to perform a software upgrade 
 summary: 您可以升级到StorageGRID 12.0 并同时应用该版本的最新修补程序。  StorageGRID升级页面提供了推荐的升级路径并直接链接到正确的下载页面。 
 ---
-= 执行升级
+= 执行 StorageGRID 升级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

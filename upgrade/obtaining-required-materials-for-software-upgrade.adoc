@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
 summary: 开始软件升级之前、请获取所有必需的材料。 
 ---
-= 获取软件升级所需的材料
+= 获取 StorageGRID 软件升级所需的材料
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

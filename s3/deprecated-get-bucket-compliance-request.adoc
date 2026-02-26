@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated GET compliance requests 
 summary: 获取存储分段合规性请求已弃用。但是，您可以继续使用此请求来确定当前对现有旧版合规存储分段有效的合规性设置。 
 ---
-= 已弃用：获取存储分段合规性请求
+= StorageGRID 中已弃用的 GET Bucket compliance 请求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

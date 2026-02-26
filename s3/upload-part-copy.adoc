@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
 summary: UploadPartCopy操作通过从现有对象作为数据源复制数据来上传部分对象。 
 ---
-= 上传PartCopy
+= 使用 S3 UploadPartCopy 操作在 StorageGRID 中上传对象的一部分
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

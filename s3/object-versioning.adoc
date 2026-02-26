@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object version, object versioning 
 summary: 如果要保留对象的多个版本、可以设置分段的版本控制状态。为分段启用版本控制有助于防止意外删除对象、并可用于检索和还原对象的早期版本。 
 ---
-= 对象版本控制
+= StorageGRID 如何使用对象版本控制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

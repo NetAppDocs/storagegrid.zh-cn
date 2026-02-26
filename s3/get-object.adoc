@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: get object 
 summary: 您可以使用 S3 GET 对象请求从 S3 存储分段检索对象。 
 ---
-= GetObject
+= 使用 GetObject 请求从 StorageGRID 中的存储桶检索对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

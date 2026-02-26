@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket policy examples 
 summary: 使用本节中的示例为分段构建StorageGRID 访问策略。 
 ---
-= 存储分段策略示例
+= StorageGRID S3 REST API 存储桶策略示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

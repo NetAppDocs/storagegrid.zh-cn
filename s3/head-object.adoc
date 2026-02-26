@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: HeadObject 
 summary: 您可以使用S3 HeadObject请求从对象中检索元数据、而无需返回对象本身。 
 ---
-= HeadObject
+= 使用 S3 HeadObject 请求从 StorageGRID 中的对象检索元数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

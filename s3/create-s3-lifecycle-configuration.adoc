@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 lifecycle, object deletion, bucket 
 summary: 您可以创建 S3 生命周期配置，以控制何时从 StorageGRID 系统中删除特定对象。 
 ---
-= 创建 S3 生命周期配置
+= 了解 StorageGRID 的 S3 生命周期配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: 本节介绍 StorageGRID 系统如何对对象实施 S3 REST API 操作。 
 ---
-= 对对象执行的操作
+= StorageGRID 如何实现对象的 S3 REST API 操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

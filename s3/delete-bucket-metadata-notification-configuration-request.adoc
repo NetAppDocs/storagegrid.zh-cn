@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, DELETE Bucket metadata notification configuration request 
 summary: 通过删除存储分段元数据通知配置请求，您可以通过删除配置 XML 来禁用各个存储分段的搜索集成服务。 
 ---
-= 删除存储分段元数据通知配置
+= 使用 StorageGRID 中的 DELETE Bucket 元数据通知配置请求禁用搜索集成服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

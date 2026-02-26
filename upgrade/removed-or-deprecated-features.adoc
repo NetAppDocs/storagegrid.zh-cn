@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: 此版本删除或弃用了某些特性和功能。查看这些项目，了解在升级之前是需要更新客户端应用程序还是修改配置。 
 ---
-= 删除或弃用的特性和功能
+= StorageGRID 中已删除或弃用的功能和特性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

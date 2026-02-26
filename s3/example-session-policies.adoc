@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: session policy example 
 summary: 使用本节中的示例来构建StorageGRID会话策略。 
 ---
-= 会话策略示例
+= StorageGRID S3 REST API 会话策略示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
