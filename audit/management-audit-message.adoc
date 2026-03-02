@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, management, user request, user requests 
 summary: '" 管理 " 类别可将用户请求记录到管理 API 。' 
 ---
-= 管理审核消息
+= StorageGRID 管理审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

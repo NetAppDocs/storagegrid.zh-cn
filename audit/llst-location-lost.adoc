@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, LLST, Location Lost 
 summary: '每当找不到对象副本(已复制或已删除编码)的位置时、都会生成此消息。' 
 ---
-= LLST ：位置丢失
+= StorageGRID 中丢失对象副本位置的 LLST 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

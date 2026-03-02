@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GNUR, GNDS Unregistration 
 summary: 如果某个服务已从 StorageGRID 系统中取消注册有关自身的信息，则 CMN 服务将生成此审核消息。 
 ---
-= GN-R ： GNDS 注销
+= StorageGRID 中 GNDS 注销的 GNUR 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

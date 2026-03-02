@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-explain, audit explain, translate audit messages, translate messages, translate audit message, translate message 
 summary: 您可以使用audy-解释 工具将审核日志中的审核消息转换为易于阅读的格式。 
 ---
-= 使用审核解释工具
+= 使用 audit-explain 工具翻译 StorageGRID 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

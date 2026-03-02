@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message examples, audit.log, atyp, sput, s3 put 
 summary: 您可以在每个审核消息中找到详细信息。所有审核消息都使用相同的格式。 
 ---
-= 审核消息示例
+= StorageGRID 审核消息格式和示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

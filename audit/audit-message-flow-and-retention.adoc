@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, flow, retention 
 summary: 所有 StorageGRID 服务都会在系统正常运行期间生成审核消息。您应了解这些审核消息如何在 StorageGRID 系统中移动到 audit.log 文件。 
 ---
-= 审核消息流和保留
+= 审核消息如何通过 StorageGRID 系统移动到 audit.log 文件以进行保留
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

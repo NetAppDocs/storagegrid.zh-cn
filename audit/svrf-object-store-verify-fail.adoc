@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRF, Object Store Verify Fail 
 summary: 每当内容块验证过程失败时，都会发出此消息。每次从磁盘读取或写入复制的对象数据时，都会执行多项验证和完整性检查，以确保发送给请求用户的数据与最初载入系统的数据完全相同。如果其中任何一项检查失败，系统会自动隔离损坏的复制对象数据，以防止再次检索该数据。 
 ---
-= SVRF ：对象存储验证失败
+= StorageGRID 中对象存储验证失败的 SVRF 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -13254,7 +13254,6 @@
   <block id="8232222668b75bf8df1c6efee33845d5" category="section-title">审核消息的时间</block>
   <block id="840fdff90357d8176c08c5555b95375d" category="paragraph">由于网格节点之间的时间差异，对象大小和网络延迟等因素，不同服务生成的审核消息的顺序可能与本节示例中所示的顺序不同。</block>
   <block id="a55807ad3c4b6a709492f40b0aa4f58d" category="summary">以下各节列出了系统返回的审核消息的详细说明。每个审核消息首先列在一个表中，该表按相关消息所代表的活动类别对相关消息进行分组。这些分组对于了解要审核的活动类型以及选择所需的审核消息筛选类型都很有用。</block>
-  <block id="ae88731080a7d306d96e8a11f3c448f2" category="doc">审核消息说明</block>
   <block id="1fa82f0d9cfdc444ea3c588aa0e5af12" category="paragraph">审核消息也会按其四个字符的代码的字母顺序列出。通过此字母列表、您可以查找有关特定消息的信息。</block>
   <block id="55707b5bb81de0dd32c15ec80cc1b3c9" category="paragraph">本章中使用的四字符代码是在审核消息中找到的ATYP值，如以下示例消息所示：</block>
   <block id="3bf95038033062d72428b0314e78d78c" category="summary">当存储分段进入或退出只读模式时、LDR服务会生成此审核消息。例如、存储分段在被空时进入只读模式。</block>
@@ -22188,4 +22187,67 @@
   <block id="d855d3845ee683616ae84298029dfdd4" category="doc">对 StorageGRID 升级问题进行故障排除</block>
   <block id="172df2082cc77642f3d62e66373dd8b9" category="doc">StorageGRID 升级快速入门</block>
   <block id="2919373b1b1c527fda8b22f79683e00a" category="doc">升级前验证已安装的 StorageGRID 版本</block>
+  <block id="bad71a65bc75e8ef834ee7361effa4de" category="doc">从 StorageGRID 管理节点命令行访问审核日志文件</block>
+  <block id="4aa5635c08bc966c8122c4f8241b252f" category="doc">了解 StorageGRID 中审计日志文件的格式</block>
+  <block id="2ea38890fcd15843f390a9bcb1f1c998" category="doc">了解 StorageGRID 中的审核日志文件轮换</block>
+  <block id="ce4cfad23c7ea4126a2c947ad7a6c1f9" category="doc">StorageGRID 审核消息格式和示例</block>
+  <block id="1e1ee426582ad070b1faf5d7429b2692" category="doc">审核消息如何通过 StorageGRID 系统移动到 audit.log 文件以进行保留</block>
+  <block id="ca45d9810dc056779a967342e0774fb3" category="doc">了解 StorageGRID 审核消息的结构</block>
+  <block id="9daab6153bedf495948cf07aa7928d52" category="doc">在 StorageGRID 中生成审核消息时</block>
+  <block id="e4efdabc448b411e21db46872eb294db" category="doc">了解 StorageGRID 中的审计消息类型和代码</block>
+  <block id="a7290bce32812cc2978ae05744245b89" category="doc">StorageGRID 中存储桶只读请求的 BROR 审核消息</block>
+  <block id="b525957e7034d38b7da1d79f2ea81e6b" category="doc">StorageGRID 中对象接收开始的 CBRB 审核消息</block>
+  <block id="993ced4d9dd78858a9cd305ae6ac35bd" category="doc">StorageGRID 中对象接收结束的 CBRE 审核消息</block>
+  <block id="2ef5ece98e4e322bc4961341076d617d" category="doc">StorageGRID 中对象发送开始的 CBSB 审核消息</block>
+  <block id="d4fc25a82f433f8436277db291dc9a8a" category="doc">StorageGRID 中对象发送结束的 CBSE 审核消息</block>
+  <block id="0dd1a7a45f405e809e010645c0f0dbb0" category="doc">StorageGRID 中跨网格复制请求的 CGRR 审核消息</block>
+  <block id="fe1241442edb181949ce020695dca6f9" category="doc">StorageGRID 中客户端读取操作的审核消息</block>
+  <block id="2f86b8362fd192426401ee01001dc7b0" category="doc">StorageGRID 中客户端写入操作的审核消息</block>
+  <block id="737459ed47ac588f8f80ba7fc0497f0a" category="doc">StorageGRID 审核消息中的常见元素</block>
+  <block id="90380d09777e197ffd0736dcc58be30e" category="doc">StorageGRID 审核消息中的数据类型</block>
+  <block id="74ea34238f22cbad91b3d92f0968f53a" category="doc">StorageGRID 中空存储桶对象删除的 EBDL 审核消息</block>
+  <block id="cff7f2c3ec9dd03e2559677e4a753bff" category="doc">StorageGRID 中空存储桶请求的 EBKR 审核消息</block>
+  <block id="ef2ec052d21adffcaea375522fa26260" category="doc">StorageGRID 中缺失纠删码数据的 ECMC 审计消息</block>
+  <block id="853bd1c5817bb5a04da3bb90c698e17a" category="doc">StorageGRID 中损坏的纠删编码数据的 ECOC 审核消息</block>
+  <block id="3ce43e34425fca3bce3d926cfb135a72" category="doc">StorageGRID 中安全身份验证失败的 ETAF 审核消息</block>
+  <block id="d6dd6db6cfc2c9e7a98047e5b7270f0f" category="doc">StorageGRID 审核消息中的事件特定数据</block>
+  <block id="0ac038512916cc95b556119b0a4cdcc3" category="doc">StorageGRID 中 GNDS 注册的 GNRG 审核消息</block>
+  <block id="be06203e1247027592db718fb510f38f" category="doc">StorageGRID 中 GNDS 注销的 GNUR 审核消息</block>
+  <block id="cc75e38248434295f7867a1ac212c30f" category="doc">StorageGRID 中已结束网格任务的 GTED 审核消息</block>
+  <block id="d6a92c974b1438cf014c1dd498d14976" category="doc">StorageGRID 中已启动网格任务的 GTST 审核消息</block>
+  <block id="7ea0f5176fd187ba1feb10e4af6a74af" category="doc">StorageGRID 中已提交网格任务的 GTSU 审核消息</block>
+  <block id="889552931f154f17e7cd5a93f36df36a" category="doc">StorageGRID 中 ILM 启动删除的 IDEL 审核消息</block>
+  <block id="9411f2f05188836ba7fdaf10711d26f1" category="doc">StorageGRID ILM 审核消息</block>
+  <block id="e2ad36dd8405d83415e48cc5ad176f09" category="doc">StorageGRID 中覆盖对象清理的 LKCU 审核消息</block>
+  <block id="a35a0013a58f83e7332da6c1ef4515fd" category="doc">StorageGRID 中泄漏对象清理的 LKDM 审计消息</block>
+  <block id="05d8c27da80379e5de6737b8ae66f043" category="doc">StorageGRID 中丢失对象副本位置的 LLST 审核消息</block>
+  <block id="a9ce1b7b699086f02e1544fde9696ec1" category="doc">StorageGRID 管理审核消息</block>
+  <block id="594f329ee7e6395a04117096d55606d8" category="doc">StorageGRID 中 S3 对象元数据更新的审核消息</block>
+  <block id="2ebee7451d3a4d717540842d46ba002a" category="doc">StorageGRID 中管理 API 请求的 MGAU 审核消息</block>
+  <block id="4247e0e5c8674b46c8ed294c61554c34" category="doc">StorageGRID 中对象删除事务的审核消息</block>
+  <block id="b687a78af5552770a8c7ad777d6dcaf6" category="doc">StorageGRID 中对象摄取事务的审核消息</block>
+  <block id="3e269b969dbf5738d2638b755535405c" category="doc">StorageGRID 中对象检索事务的审核消息</block>
+  <block id="fead8836a75730522daa29de113f7907" category="doc">StorageGRID 中对象存储事件的审核消息</block>
+  <block id="edb01d45c092186cc08f13a0ac083602" category="doc">StorageGRID 中系统检测到丢失对象的 OLST 审核消息</block>
+  <block id="c19206ca9e6755445b572c20a68e0b32" category="doc">StorageGRID 中满足 ILM 规则的 ORLM 审核消息</block>
+  <block id="c5b5794737030f96990f1e226b67ead3" category="doc">StorageGRID 中对象覆写的 OVWR 审核消息</block>
+  <block id="d707b736a5bb04394bbc1fb14a906a69" category="doc">StorageGRID 中 S3 Select 请求的 S3SL 审核消息</block>
+  <block id="d5fc87bff0dc8aa521620a4f4c8a0a2c" category="doc">StorageGRID 中安全审核禁用的 SADD 审核消息</block>
+  <block id="914a7184b42ec21e8107a27082014f0b" category="doc">StorageGRID 中启用安全审核的 SADE 审核消息</block>
+  <block id="f7a3b9f2103c40fe4a54ab3d952c82be" category="doc">StorageGRID 中对象存储提交的 SCMT 审核消息</block>
+  <block id="a29894f8c655b9f324ea69beffb1ad90" category="doc">StorageGRID 中 S3 DELETE 事务的 SDEL 审核消息</block>
+  <block id="4c1e87f1dc1790aff9de83f8a3f0d20c" category="doc">StorageGRID 中 S3 GET 事务的 SGET 审核消息</block>
+  <block id="24e6a1cd6430e63b6401749240b8707d" category="doc">StorageGRID 中 S3 HEAD 操作的 SHEA 审核消息</block>
+  <block id="8376b1a7cce9741d939bd560d24a6be4" category="doc">StorageGRID 中 S3 POST 事务的 SPOS 审计消息</block>
+  <block id="9b0e2bfcdfa29cf0dc7e428123056d12" category="doc">StorageGRID 中 S3 PUT 事务的 SPUT 审核消息</block>
+  <block id="831dcf3255aa923ab098c84dba5c09bb" category="doc">StorageGRID 中对象存储删除的 SREM 审核消息</block>
+  <block id="7c1ec052202fedb5a9d8c7ebe5adf11c" category="doc">StorageGRID 中 S3 元数据更新的 SUPD 审核消息</block>
+  <block id="2d22bd2316d071422327e26a4c01ac24" category="doc">StorageGRID 中对象存储验证失败的 SVRF 审核消息</block>
+  <block id="e4c4123786bfcf3c97224a144ac21e60" category="doc">StorageGRID 中未知对象存储内容的 SVRU 审核消息</block>
+  <block id="cedfdd6d2f438bd5f5aa0b9201cf53d6" category="doc">StorageGRID 中正常节点停止的 SYSD 审核消息</block>
+  <block id="2bdbd282555f9ba756bc98a2a11f0098" category="doc">StorageGRID 中节点停止的 SYST 审核消息</block>
+  <block id="42ae8acd0841d00dbdaf2573224f09e1" category="doc">StorageGRID 中系统事件的审核消息</block>
+  <block id="8a22c21079273856d5d0254e007b482b" category="doc">节点的 SYSU 审核消息在 StorageGRID 中开始</block>
+  <block id="229f88740e16b4b58ce15dcccdf9517d" category="doc">使用 audit-explain 工具翻译 StorageGRID 审核消息</block>
+  <block id="7ea557961e2f5fa9e34f48380a976af5" category="doc">使用 audit-sum 工具汇总 StorageGRID 审核消息</block>
 </blocks>

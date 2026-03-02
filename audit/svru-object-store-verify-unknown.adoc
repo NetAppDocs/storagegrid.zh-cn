@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
 summary: LDR 服务的存储组件会持续扫描对象存储中复制的对象数据的所有副本。如果在对象存储中检测到复制的对象数据的未知或意外副本并将其移动到隔离目录，则会发出此消息。 
 ---
-= SVRU ：对象存储验证未知
+= StorageGRID 中未知对象存储内容的 SVRU 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

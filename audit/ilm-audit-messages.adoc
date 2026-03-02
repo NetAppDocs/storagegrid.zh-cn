@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit messages, ILM, IDEL, LKCU, ORLM 
 summary: 属于ILM审核类别的审核消息用于与信息生命周期操作相关的事件。 
 ---
-= ILM审核消息
+= StorageGRID ILM 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

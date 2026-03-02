@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
 summary: 当S3客户端应用程序请求创建或修改对象时、系统会记录客户端写入审核消息。 
 ---
-= 客户端写入审核消息
+= StorageGRID 中客户端写入操作的审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

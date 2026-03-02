@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTST, Grid Task Started 
 summary: '此审核消息指示 CMN 服务已开始处理指定的网格任务。对于由内部网格任务提交服务启动并选择自动激活的网格任务，审核消息会紧跟在网格任务提交消息之后。对于提交到 "Pending" 表中的网格任务，用户启动网格任务时会生成此消息。' 
 ---
-= GTST ：已启动网格任务
+= StorageGRID 中已启动网格任务的 GTST 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

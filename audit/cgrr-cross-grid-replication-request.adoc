@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cgrr, cross-grid replication request, audit message, 
 summary: 当StorageGRID 尝试跨网格复制操作在网格联盟连接中的分段之间复制对象时、将生成此消息。 
 ---
-= CGRR：跨网格复制请求
+= StorageGRID 中跨网格复制请求的 CGRR 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

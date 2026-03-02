@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object retrieve, transactions, SGET, WGET 
 summary: 您可以通过查找S3 API专用的审核消息来确定审核日志中的对象检索事务。 
 ---
-= 对象检索事务
+= StorageGRID 中对象检索事务的审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

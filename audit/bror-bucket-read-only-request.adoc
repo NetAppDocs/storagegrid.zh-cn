@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bror, bucket read only request, empty bucket, audit message, 
 summary: 当存储分段进入或退出只读模式时、LDR服务会生成此审核消息。例如、存储分段在被空时进入只读模式。 
 ---
-= BROR：存储分段只读请求
+= StorageGRID 中存储桶只读请求的 BROR 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

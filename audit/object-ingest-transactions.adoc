@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
 summary: 您可以通过查找S3 API专用的审核消息来在审核日志中确定客户端加载事务。 
 ---
-= 对象载入事务
+= StorageGRID 中对象摄取事务的审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

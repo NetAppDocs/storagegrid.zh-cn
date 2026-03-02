@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
 summary: 'ILM扫描程序删除了存储分段中正在删除所有对象的对象(执行空存储分段操作)。' 
 ---
-= EBDL：清空存储分段删除
+= StorageGRID 中空存储桶对象删除的 EBDL 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

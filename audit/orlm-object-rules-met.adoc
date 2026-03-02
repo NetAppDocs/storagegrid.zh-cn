@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, ORLM, Object Rules Met, ilm rule 
 summary: 如果对象已按照 ILM 规则的指定成功存储和复制，则会生成此消息。 
 ---
-= ORLM ：符合对象规则
+= StorageGRID 中满足 ILM 规则的 ORLM 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

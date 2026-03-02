@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SDEL, S3 DELETE 
 summary: 当 S3 客户端发出删除事务时，系统会请求删除指定的对象或存储分段。如果事务成功，服务器将发出此消息。 
 ---
-= SDEL ： S3 delete
+= StorageGRID 中 S3 DELETE 事务的 SDEL 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

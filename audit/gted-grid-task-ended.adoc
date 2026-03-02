@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTED, Grid Task Ended 
 summary: 此审核消息表示 CMN 服务已完成指定网格任务的处理，并已将此任务移至历史表。如果结果为 SUC ， ABRT 或 Rolf ，则会显示相应的 Grid Task Started 审核消息。其他结果表明，此网格任务的处理从未开始。 
 ---
-= GTed ：网格任务已结束
+= StorageGRID 中已结束网格任务的 GTED 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

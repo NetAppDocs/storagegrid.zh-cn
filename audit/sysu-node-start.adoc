@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSU, Node Start 
 summary: 重新启动服务时，系统会生成此消息，以指示上次关闭是清理 \ （已命令 \ ）还是无序 \ （意外 \ ）。 
 ---
-= SYSU ：节点启动
+= 节点的 SYSU 审核消息在 StorageGRID 中开始
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, event, shea, s3 head 
 summary: 审核日志中的每个审核消息都会记录特定于系统事件的数据。 
 ---
-= 事件专用数据
+= StorageGRID 审核消息中的事件特定数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

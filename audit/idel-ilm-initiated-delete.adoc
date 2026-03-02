@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, IDEL, ILM Initiated Delete 
 summary: ILM 开始删除对象时会生成此消息。 
 ---
-= idel ： ILM 已启动删除
+= StorageGRID 中 ILM 启动删除的 IDEL 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

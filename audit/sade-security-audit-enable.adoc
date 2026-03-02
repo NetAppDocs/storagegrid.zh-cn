@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
 summary: 此消息表示发起服务 \ （节点 ID\ ）已还原审核消息日志记录；正在再次收集和传送审核消息。 
 ---
-= Sade ：启用安全审核
+= StorageGRID 中启用安全审核的 SADE 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

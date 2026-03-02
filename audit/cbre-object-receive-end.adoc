@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBRE, Object Receive End 
 summary: 内容块从一个节点传输到另一个节点完成后，此消息将由目标实体发出。 
 ---
-= CBRE ：对象接收结束
+= StorageGRID 中对象接收结束的 CBRE 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

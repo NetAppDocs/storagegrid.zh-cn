@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
 summary: '此消息指示用户发送了打开或关闭空存储分段的请求(即删除存储分段对象或停止删除对象)。' 
 ---
-= EBKR：空分段请求
+= StorageGRID 中空存储桶请求的 EBKR 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

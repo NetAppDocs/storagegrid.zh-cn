@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, data, types, UI32, UI64, FC32, IPAD, CSTR, IPAD 
 summary: 使用不同的数据类型将信息存储在审核消息中。 
 ---
-= 数据类型
+= StorageGRID 审核消息中的数据类型
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

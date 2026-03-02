@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-sum, audit sum, write, read, head, delete, minimum time, maximum time, average time, minimum size, maximum size, average size 
 summary: 您可以使用 audit-sum 工具对写入，读取，标题和删除审核消息进行计数，并查看每种操作类型的最短，最长和平均时间 \ （或大小 \ ）。 
 ---
-= 使用 audit-sum 工具
+= 使用 audit-sum 工具汇总 StorageGRID 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

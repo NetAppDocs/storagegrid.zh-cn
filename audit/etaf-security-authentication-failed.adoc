@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
 summary: 如果尝试使用传输层安全 \ （ tls\ ）进行连接失败，则会生成此消息。 
 ---
-= ETAF ：安全身份验证失败
+= StorageGRID 中安全身份验证失败的 ETAF 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

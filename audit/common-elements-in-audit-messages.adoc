@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message, common elements, AMID, ANID, ASES, ASQN, ATID, ATIM, ATYP, AVER, RSLT 
 summary: 所有审核消息都包含通用要素。 
 ---
-= 审核消息中的常见元素
+= StorageGRID 审核消息中的常见元素
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

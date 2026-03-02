@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADD, Security Audit Disable 
 summary: 此消息指示发起服务 \ （节点 ID\ ）已关闭审核消息日志记录；不再收集或传送审核消息。 
 ---
-= Sadd ：禁用安全审核
+= StorageGRID 中安全审核禁用的 SADD 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

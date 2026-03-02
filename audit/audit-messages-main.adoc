@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message 
 summary: 以下各节列出了系统返回的审核消息的详细说明。每个审核消息首先列在一个表中，该表按相关消息所代表的活动类别对相关消息进行分组。这些分组对于了解要审核的活动类型以及选择所需的审核消息筛选类型都很有用。 
 ---
-= 审核消息说明
+= 了解 StorageGRID 中的审计消息类型和代码
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log, log file, access, accessing 
 summary: 审核共享包含活动的 audit.log 文件和任何压缩的审核日志文件。您可以直接从管理节点的命令行访问审核日志文件。 
 ---
-= 访问审核日志文件
+= 从 StorageGRID 管理节点命令行访问审核日志文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

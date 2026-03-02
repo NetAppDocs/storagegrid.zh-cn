@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
 summary: '属于系统审核类别的审核消息用于与审核系统本身、网格节点状态、系统范围任务活动\(网格任务\)以及服务备份操作相关的事件。' 
 ---
-= 系统审核消息
+= StorageGRID 中系统事件的审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

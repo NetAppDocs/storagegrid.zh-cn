@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
 summary: 每次载入，检索或删除对象时都会生成审核消息。您可以通过查找S3 API专用的审核消息在审核日志中确定这些事务。 
 ---
-= 何时生成审核消息？
+= 在 StorageGRID 中生成审核消息时
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSD, Node Stop 
 summary: 如果服务正常停止，则会生成此消息以指示已请求关闭。通常、只有在后续重新启动后才会发送此消息、因为在关闭前不会清除审核消息队列。如果服务未重新启动，请查找在关闭序列开始时发送的 SYST 消息。 
 ---
-= SYSD ：节点停止
+= StorageGRID 中正常节点停止的 SYSD 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

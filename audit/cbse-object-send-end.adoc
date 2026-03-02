@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBSE, Object Send End 
 summary: 在将内容块从一个节点传输到另一个节点后，源实体会发出此消息。 
 ---
-= CBSE ：对象发送结束
+= StorageGRID 中对象发送结束的 CBSE 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

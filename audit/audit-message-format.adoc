@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message formats, message format 
 summary: 在 StorageGRID 系统中交换的审核消息包括所有消息通用的标准信息以及描述所报告事件或活动的特定内容。 
 ---
-= 审核消息格式
+= 了解 StorageGRID 审核消息的结构
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

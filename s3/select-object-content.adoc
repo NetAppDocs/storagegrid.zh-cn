@@ -40,7 +40,7 @@ summary: 您可以使用 S3 SelectObjectContent 请求根据简单的 SQL 语句
 
 == CSV请求语法示例
 
-[source, asciidoc]
+[source, cli]
 ----
 POST /{Key+}?select&select-type=2 HTTP/1.1
 Host: Bucket.s3.abc-company.com
@@ -83,7 +83,7 @@ x-amz-expected-bucket-owner: ExpectedBucketOwner
 
 == 镶木地板请求语法示例
 
-[source, asciidoc]
+[source, cli]
 ----
 POST /{Key+}?select&select-type=2 HTTP/1.1
 Host: Bucket.s3.abc-company.com

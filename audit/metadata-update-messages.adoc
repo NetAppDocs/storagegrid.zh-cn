@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, Metadata update, S3 metadata update, SUPD 
 summary: S3 客户端更新对象的元数据时会生成审核消息。 
 ---
-= 元数据更新消息
+= StorageGRID 中 S3 对象元数据更新的审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

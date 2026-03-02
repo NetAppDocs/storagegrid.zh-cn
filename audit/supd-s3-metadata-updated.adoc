@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SUPD, S3 Metadata Updated 
 summary: 当 S3 客户端更新所载入对象的元数据时， S3 API 会生成此消息。如果元数据更新成功，则服务器会发出此消息。 
 ---
-= SUPD ：已更新 S3 元数据
+= StorageGRID 中 S3 元数据更新的 SUPD 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

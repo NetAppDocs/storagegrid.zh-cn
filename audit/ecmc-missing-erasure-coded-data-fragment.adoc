@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
 summary: 此审核消息指示系统检测到缺少经过纠删编码的数据片段。 
 ---
-= ECMC：缺少经过Erasure编码的数据片段
+= StorageGRID 中缺失纠删码数据的 ECMC 审计消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

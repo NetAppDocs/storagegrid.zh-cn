@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: 此审核消息指示系统检测到经过纠删编码的数据片段已损坏。 
 ---
-= EECO：经过Erasure编码的数据片段已损坏
+= StorageGRID 中损坏的纠删编码数据的 ECOC 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

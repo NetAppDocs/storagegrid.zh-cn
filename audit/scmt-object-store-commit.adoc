@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SCMT, Object Store Commit 
 summary: 在提交网格内容之前，此内容不可用或无法识别为已存储内容（表示此内容已永久存储）。持久存储的内容已完全写入磁盘，并已通过相关的完整性检查。将内容块提交到存储时会发出此消息。 
 ---
-= SCMT ：对象存储提交
+= StorageGRID 中对象存储提交的 SCMT 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
