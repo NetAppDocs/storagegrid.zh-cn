@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
 summary: 在创建ILM规则时、您可以指定以下三个选项之一来保护对象：双重提交、严格或平衡。 
 ---
-= 加热选项
+= StorageGRID 中的 ILM 摄取选项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

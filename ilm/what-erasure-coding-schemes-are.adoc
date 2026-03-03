@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: 纠删编码方案可控制为每个对象创建的数据片段数量和奇偶校验片段数量。 
 ---
-= 什么是纠删编码方案？
+= 了解 StorageGRID 中的纠删编码方案
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

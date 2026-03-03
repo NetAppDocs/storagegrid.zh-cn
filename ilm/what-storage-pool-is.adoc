@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage pool 
 summary: 存储池是存储节点的逻辑分组。 
 ---
-= 什么是存储池？
+= 了解 StorageGRID 中的存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
 summary: 'ILM策略中的信息生命周期管理(ILM)规则指示StorageGRID如何创建和分发对象数据副本以及如何随着时间的推移管理这些副本。' 
 ---
-= 使用 ILM 管理对象
+= 使用 ILM 在 StorageGRID 中管理对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

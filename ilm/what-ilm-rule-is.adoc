@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is information lifecycle rule, ilm rule 
 summary: 要管理对象，您需要创建一组信息生命周期管理 \ （ ILM ）规则并将其组织到 ILM 策略中。 
 ---
-= 使用ILM规则管理对象
+= 了解 StorageGRID 中的 ILM 规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

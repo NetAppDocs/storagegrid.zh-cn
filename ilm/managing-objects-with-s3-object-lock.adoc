@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 object lock, manage objects with object lock 
 summary: 作为网格管理员，您可以为 StorageGRID 系统启用 S3 对象锁定，并实施合规的 ILM 策略，以确保特定 S3 存储分段中的对象在指定时间内不会被删除或覆盖。 
 ---
-= 使用 S3 对象锁定管理对象
+= S3 对象锁定如何保护 StorageGRID 中的对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

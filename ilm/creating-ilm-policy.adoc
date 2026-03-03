@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create ILM policy 
 summary: 创建一个或多个ILM策略以满足您的服务质量要求。 
 ---
-= 创建ILM策略
+= 在 StorageGRID 中创建 ILM 策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

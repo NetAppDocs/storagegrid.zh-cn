@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove cloud storage pool 
 summary: 如果云存储池未在ILM规则中使用并且不包含对象数据、则可以将其删除。 
 ---
-= 删除云存储池
+= 删除 StorageGRID 中的云存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

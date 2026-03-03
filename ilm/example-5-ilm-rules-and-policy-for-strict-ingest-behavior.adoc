@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
 summary: 您可以在规则中使用位置筛选器和严格的载入行为来防止对象保存在特定数据中心位置。 
 ---
-= 示例 5 ：用于严格载入行为的 ILM 规则和策略
+= StorageGRID 中严格摄取行为的 ILM 规则和策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

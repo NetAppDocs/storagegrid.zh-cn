@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool 
 summary: 通过云存储池，您可以使用 ILM 将对象数据移动到 StorageGRID 系统之外。例如、您可能希望将不常访问的对象移动到成本较低的云存储、例如Amazon S3 Glacier, S3 Glacier, S3 Glacier, Google Cloud或Microsoft Azure Blob存储中的Archive访问层。或者，您可能希望维护 StorageGRID 对象的云备份以增强灾难恢复能力。 
 ---
-= 什么是云存储池？
+= 了解 StorageGRID 中的云存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

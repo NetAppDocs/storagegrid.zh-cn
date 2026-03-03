@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use cloud storage pool, benefits of cloud storage pools 
 summary: 使用云存储池、您可以将数据备份或分层到外部位置。此外、您还可以将数据备份或分层到多个云。 
 ---
-= 何时使用云存储池
+= StorageGRID 中的云存储池用例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

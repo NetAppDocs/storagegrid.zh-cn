@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: 在定义 ILM 策略以满足对象保护和保留要求时，您可以使用以下示例规则和策略作为起点。 
 ---
-= 示例 1 ：对象存储的 ILM 规则和策略
+= StorageGRID 中基本对象保护和保留的 ILM 规则和策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

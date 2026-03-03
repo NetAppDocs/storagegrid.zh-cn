@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: simulate ilm policy 
 summary: ILM策略模拟示例提供了为您的环境构建和修改模拟的准则。 
 ---
-= ILM策略模拟示例
+= StorageGRID 中的 ILM 策略模拟示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

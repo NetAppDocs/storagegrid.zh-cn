@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM rule step 1, define basics 
 summary: '通过创建ILM规则向导的第1步\(输入详细信息\)、您可以输入规则的名称和问题描述 、并为规则定义筛选器。' 
 ---
-= 第1步(共3步)：输入详细信息
+= 输入 StorageGRID ILM 规则的详细信息和筛选器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

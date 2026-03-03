@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: lifecycle of cloud storage pool object 
 summary: 在实施云存储池之前，请查看存储在每种类型的云存储池中的对象的生命周期。 
 ---
-= 云存储池对象的生命周期
+= StorageGRID 中云存储池对象的生命周期
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

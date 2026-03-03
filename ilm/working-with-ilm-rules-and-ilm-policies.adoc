@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove ilm rule, edit ilm rule, clone ilm rule, ilm queue 
 summary: 随着存储要求的变化、您可能需要设置不同的策略、或者修改与该策略关联的ILM规则。您可以查看ILM指标来确定系统性能。 
 ---
-= 使用ILM策略和ILM规则
+= 在 StorageGRID 中使用 ILM 策略和 ILM 规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

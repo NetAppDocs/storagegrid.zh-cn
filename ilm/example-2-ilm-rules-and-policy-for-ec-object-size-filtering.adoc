@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object size for erasure coding, example ILM rule, information lifecycle rule examples, 1 MB 
 summary: 您可以使用以下示例规则和策略作为起点来定义一个 ILM 策略，该策略按对象大小进行筛选以满足建议的 EC 要求。 
 ---
-= 示例 2 ：用于 EC 对象大小筛选的 ILM 规则和策略
+= StorageGRID 中用于 EC 对象大小过滤的 ILM 规则和策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: 如果一个站点上的一个数据中心站点或多个存储节点不可用，您可能需要帮助 S3 租户用户对 S3 对象锁定或原有合规性配置进行更改。 
 ---
-= 解决更新 S3 对象锁定或原有合规性配置时出现的一致性错误
+= 解决在 StorageGRID 中更新 S3 Object Lock 或旧版合规性设置时的一致性错误
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

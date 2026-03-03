@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable s3 object lock, object lock 
 summary: 如果 S3 租户帐户在保存对象数据时需要遵守法规要求，则必须为整个 StorageGRID 系统启用 S3 对象锁定。启用全局 S3 对象锁定设置后，任何 S3 租户用户都可以使用 S3 对象锁定创建和管理存储分段和对象。 
 ---
-= 全局启用 S3 对象锁定
+= 在 StorageGRID 中全局启用 S3 Object Lock
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

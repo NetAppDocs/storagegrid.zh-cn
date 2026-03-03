@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool guidelines 
 summary: 配置和使用存储池、通过在多个站点之间分布数据来防止数据丢失。复制的副本和经过删除编码的副本需要不同的存储池配置。 
 ---
-= 创建存储池的准则
+= StorageGRID 中的存储池配置准则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

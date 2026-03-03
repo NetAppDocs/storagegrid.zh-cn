@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create cloud storage pool 
 summary: 云存储池指定一个外部Amazon S3存储分段或其他与S3兼容的提供程序或Azure Blb存储容器。 
 ---
-= 创建云存储池
+= 在 StorageGRID 中创建云存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

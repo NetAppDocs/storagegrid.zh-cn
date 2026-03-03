@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy,S3 Object Lock 
 summary: 在定义 ILM 策略以满足启用了 S3 对象锁定的存储分段中对象的对象保护和保留要求时，您可以在此示例中使用 S3 存储分段， ILM 规则和 ILM 策略作为起点。 
 ---
-= 示例 7 ： S3 对象锁定的兼容 ILM 策略
+= StorageGRID 中 S3 Object Lock 的合规 ILM 策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

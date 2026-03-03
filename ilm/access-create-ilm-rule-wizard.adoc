@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create ILM rule, information lifecycle rule 
 summary: 您可以使用创建 ILM 规则向导创建 ILM 规则。 
 ---
-= 访问创建ILM规则向导
+= 访问 StorageGRID 中的创建 ILM 规则向导
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

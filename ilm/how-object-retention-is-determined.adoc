@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how object retention is determined 
 summary: StorageGRID 为网格管理员和单个租户用户提供了指定对象存储时间的选项。通常，租户用户提供的任何保留指令优先于网格管理员提供的保留指令。 
 ---
-= 如何确定对象保留
+= StorageGRID 如何确定对象保留
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

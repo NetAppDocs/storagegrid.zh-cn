@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
 summary: 了解在载入时保护数据的三个选项中每一个选项（平衡，严格或双提交）的优缺点有助于您确定要为 ILM 规则选择哪个选项。 
 ---
-= 加热选项的优点、缺点和限制
+= StorageGRID 中 ILM 摄取选项的优势、劣势和限制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

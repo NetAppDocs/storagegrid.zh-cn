@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify ilm policy, object metadata lookup 
 summary: 激活ILM策略后、将代表性测试对象插入StorageGRID系统、然后执行对象元数据查找以确认副本是否按预期创建并放置在正确的位置。 
 ---
-= 使用对象元数据查找验证 ILM 策略
+= 使用 StorageGRID 中的对象元数据查找验证 ILM 策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 3, define ingest behavior 
 summary: '通过创建ILM规则向导的第3步\(选择导出行为\)、您可以选择在导出时如何保护通过此规则筛选的对象。' 
 ---
-= 第3步(共3步)：选择加数据行为
+= 选择 StorageGRID ILM 规则的接收行为
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

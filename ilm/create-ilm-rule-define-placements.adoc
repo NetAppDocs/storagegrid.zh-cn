@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 2, define placements 
 summary: '通过创建ILM规则向导的定义放置位置步骤、您可以定义放置说明、这些放置说明可确定对象的存储时长、副本类型\(已复制或已删除编码\)、存储位置以及副本数量。' 
 ---
-= 第 2 步，共 3 步：定义放置位置
+= 定义 StorageGRID ILM 规则的放置说明
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

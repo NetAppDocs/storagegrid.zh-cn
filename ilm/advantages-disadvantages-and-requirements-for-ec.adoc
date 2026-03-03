@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: 在决定是使用复制还是纠删编码来保护对象数据不会丢失之前，您应了解纠删编码的优点，缺点和要求。 
 ---
-= 纠删编码的优势，劣势和要求
+= StorageGRID 中纠删编码的优势、劣势和要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

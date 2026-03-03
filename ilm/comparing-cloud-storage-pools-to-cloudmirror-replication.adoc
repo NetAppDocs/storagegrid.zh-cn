@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pools, cloudmirror replication 
 summary: 在开始使用云存储池时，了解云存储池与 StorageGRID CloudMirror 复制服务之间的相似之处和不同之处可能会很有帮助。 
 ---
-= 比较云存储池和 CloudMirror 复制
+= StorageGRID 中的云存储池和 CloudMirror 复制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: last access time, ilm rule reference time 
 summary: 您可以在ILM规则中使用上次访问时间作为参考时间。例如，您可能希望将过去三个月查看过的对象保留在本地存储节点上，同时将最近未查看过的对象移动到异地位置。如果您希望ILM规则仅应用于上次在特定日期访问的对象、也可以使用上次访问时间作为高级筛选器。 
 ---
-= 在ILM规则中使用上次访问时间
+= 在 StorageGRID ILM 规则中使用上次访问时间
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

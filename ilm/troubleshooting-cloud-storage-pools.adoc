@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pool, troubleshoot 
 summary: 使用这些故障排除步骤可帮助解决在创建、编辑或删除云存储池时可能遇到的错误。 
 ---
-= 对云存储池进行故障排除
+= 对 StorageGRID 中的云存储池进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename erasure-coding profile, ec profile 
 summary: 您可以查看纠删编码配置文件的详细信息、并根据需要重命名配置文件。如果纠删编码配置文件当前未在任何ILM规则中使用、则可以停用该配置文件。 
 ---
-= 管理纠删编码配置文件
+= 在 StorageGRID 中管理纠删编码配置文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: 在创建 ILM 策略之前，您必须创建一个默认规则，以便将其他规则不匹配的任何对象放置在此策略中。默认规则不能使用任何筛选器。它必须应用于所有租户，所有分段和所有对象版本。 
 ---
-= 创建默认 ILM 规则
+= 在 StorageGRID 中创建默认 ILM 规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

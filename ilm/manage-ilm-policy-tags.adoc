@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy tag 
 summary: 您可以查看ILM策略标记详细信息、编辑标记或删除标记。 
 ---
-= 管理ILM策略标记
+= 管理 StorageGRID 中的 ILM 策略标签
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

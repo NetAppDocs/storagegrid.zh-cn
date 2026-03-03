@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool, considerations for a cloud storage pool 
 summary: 如果您计划使用云存储池将对象移出 StorageGRID 系统，则必须查看配置和使用云存储池的注意事项。 
 ---
-= 云存储池注意事项
+= StorageGRID 中的云存储池要求和限制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

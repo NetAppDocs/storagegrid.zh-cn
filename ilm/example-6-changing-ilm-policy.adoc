@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: change ILM policy, example ILM policy, information lifecycle policy example 
 summary: 如果需要更改数据保护或添加新站点、则可以创建并激活新的ILM策略。 
 ---
-= 示例6：更改ILM策略
+= 更改 ILM 策略如何影响 StorageGRID 性能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

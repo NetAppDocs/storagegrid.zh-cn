@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit cloud storage pool 
 summary: 您可以编辑云存储池以更改其名称，服务端点或其他详细信息；但是，您不能更改云存储池的 S3 存储分段或 Azure 容器。 
 ---
-= 编辑云存储池
+= 在 StorageGRID 中编辑云存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

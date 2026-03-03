@@ -403,7 +403,6 @@
   <block id="93cba07454f06a4a960172bbd6e2a435" category="paragraph">是</block>
   <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="paragraph">否</block>
   <block id="972d54114213c953c594526afe1b9b8c" category="summary">如果云存储池未在ILM规则中使用并且不包含对象数据、则可以将其删除。</block>
-  <block id="b5528ea1dfeb36e261092a64d71cb824" category="doc">删除云存储池</block>
   <block id="e075da5c0140a1017e7f010a14c41f86" category="section-title">如果需要、请使用ILM移动对象数据</block>
   <block id="d0e7a654b97ee0bfb2f2860064e947cd" category="paragraph">如果要删除的云存储池包含对象数据、则必须使用ILM将数据移动到其他位置。例如、您可以将数据移动到网格上的存储节点或其他云存储池。</block>
   <block id="005e87e7e00e9838b5d7a315013e7b11" category="list-text">查看表中的ILM使用情况列、确定是否可以删除云存储池。</block>
@@ -428,7 +427,6 @@
   <block id="a994984362019a885d98d94b8dd83465" category="admonition">创建云存储池时， StorageGRID 会将标记文件写入存储分段或容器，以将其标识为云存储池。不要删除名为的文件<block ref="c4683c317ae318192c26b4511a6e85e9" prefix=" " category="inline-code"></block>。</block>
   <block id="721b50660cca19390c2168e584c22870" category="list-text">如果ILM使用情况列指示未使用云存储池、请选中此复选框。</block>
   <block id="104d4552bc5d0f16e17682f94d234b77" category="summary">您可以删除未使用的存储池。</block>
-  <block id="17c45039bb58f6b15b95472e29ea8a3b" category="doc">删除存储池</block>
   <block id="24212c43395a605fe7909e57875a19a6" category="list-text">查看表中的ILM使用情况列、确定是否可以删除存储池。</block>
   <block id="b6de7e42ee88536f31a89a7eb36146cb" category="paragraph">如果存储池正在ILM规则或纠删编码配置文件中使用、则不能将其删除。根据需要选择*_storage pool name_*&gt;*ILM usage*以确定存储池的使用位置。</block>
   <block id="81bce3c739bd8486496c59499bd4f549" category="list-text">如果未使用要删除的存储池、请选中此复选框。</block>
@@ -457,7 +455,6 @@
   <block id="68c667f0ce4a6f376dfff8a750bd7d7d" category="list-text"><block ref="68c667f0ce4a6f376dfff8a750bd7d7d" category="inline-link-macro-rx"></block></block>
   <block id="d5d1fe1bfcfceb4aec63f337ebb9fdda" category="list-text"><block ref="d5d1fe1bfcfceb4aec63f337ebb9fdda" category="inline-link-macro-rx"></block></block>
   <block id="0267cfc66e0f5ef99770546a5cea3ab3" category="summary">如果一个站点上的一个数据中心站点或多个存储节点不可用，您可能需要帮助 S3 租户用户对 S3 对象锁定或原有合规性配置进行更改。</block>
-  <block id="7bb893c94b067306059c4deb18c2222e" category="doc">解决更新 S3 对象锁定或原有合规性配置时出现的一致性错误</block>
   <block id="dd84f19e97717783903e53c6806ac44e" category="paragraph">启用了 S3 对象锁定（或原有合规性）的存储分段的租户用户可以更改某些设置。例如，使用 S3 对象锁定的租户用户可能需要将对象版本置于合法保留状态。</block>
   <block id="e9f00df5b1c207be6719fb59b3425f52" category="paragraph">当租户用户更新 S3 存储分段或对象版本的设置时， StorageGRID 会尝试立即更新整个网格中的存储分段或对象元数据。如果由于数据中心站点或多个存储节点不可用而导致系统无法更新元数据、则系统将返回错误：</block>
   <block id="fb87634d305d47015e4b4e30e8639cc3" category="paragraph">要解决此错误，请执行以下步骤：</block>
@@ -614,7 +611,6 @@
   <block id="ecc40d7f5e44c2a80f2f2e7d9ae3c479" category="paragraph">如果一个站点丢失、数据仍可恢复：</block>
   <block id="336a7274ec57db19e6b671d32518b890" category="image-alt">纠删编码4+2 EC方案1站点丢失</block>
   <block id="e61020bb4231f4b250c715a549c31829" category="summary">激活ILM策略后、将代表性测试对象插入StorageGRID系统、然后执行对象元数据查找以确认副本是否按预期创建并放置在正确的位置。</block>
-  <block id="5eef71ccf71aa09d40fcf35c74b2695d" category="doc">使用对象元数据查找验证 ILM 策略</block>
   <block id="fa46df3e63cca067413b8887edcd40f1" category="list-text">正在载入对象。</block>
   <block id="79081749efd4670ccc6546f8b184262d" category="list-text">选择 * ILM * &gt; * 对象元数据查找 * 。</block>
   <block id="0f4d26407e8b1988ed7d825b055797d9" category="list-text">在 * 标识符 * 字段中键入对象的标识符。您可以输入UUID、CBID或S3存储分段/对象密钥。</block>
@@ -699,7 +695,6 @@
   <block id="b9b8316515228b7874ae8af4a03c4ca6" category="paragraph">低成本存储。</block>
   <block id="aa27f980eb9b1b4dcca1452ed257d1e7" category="paragraph">*注意*：FabricPool 数据无法分层到云存储池。</block>
   <block id="35c5625b647a229df6cdfadd6d42e262" category="summary">纠删编码是StorageGRID 用于存储对象数据的两种方法之一。如果对象与使用纠删编码的ILM规则匹配、则这些对象会划分为数据片段、并计算额外的奇偶校验片段、每个片段会存储在不同的存储节点上。</block>
-  <block id="7933c0c335da9b791bffd081ec9935ad" category="doc">什么是纠删编码？</block>
   <block id="c187a5dd8511203c11eb697f217d6589" category="paragraph">纠删编码是StorageGRID用于存储对象数据的两种方法之一(复制是另一种方法)。如果对象与使用纠删编码的ILM规则匹配、则这些对象会划分为数据片段、并计算额外的奇偶校验片段、每个片段会存储在不同的存储节点上。</block>
   <block id="77c1e4cfdd8dc16b07744185c48a19c9" category="paragraph">访问某个对象时，系统会使用存储的片段重新组合该对象。如果数据或奇偶校验片段损坏或丢失，则纠删编码算法可以使用剩余数据和奇偶校验片段的子集重新创建该片段。</block>
   <block id="c6690fb91d66ef82aab5b206a71df9ef" category="inline-link-macro">重命名纠删编码配置文件</block>
@@ -719,7 +714,6 @@
   <block id="8858bba9e2a1a4503a49bf165ccee621" category="list-text"><block ref="8858bba9e2a1a4503a49bf165ccee621" category="inline-link-macro-rx"></block></block>
   <block id="5ac2dc766c09ee25875a3ad1be2f9ca2" category="list-text"><block ref="5ac2dc766c09ee25875a3ad1be2f9ca2" category="inline-link-macro-rx"></block></block>
   <block id="e548b847e8f6cb845bfb6b34e157810b" category="summary">纠删编码方案可控制为每个对象创建的数据片段数量和奇偶校验片段数量。</block>
-  <block id="6937eec67c5143b9c207d37aac20f72e" category="doc">什么是纠删编码方案？</block>
   <block id="f25cf6b700d854adb5c0d975b0a84bfc" category="paragraph">创建或编辑ILM规则时、您可以选择可用的纠删编码方案。StorageGRID会根据您计划使用的存储池中的存储节点和站点数量自动创建纠删编码方案。</block>
   <block id="7e7397a7b79323762c61941fc0e6b5f9" category="section-title">数据保护</block>
   <block id="df17d524fb745e29888c34cc68e468f4" category="paragraph">StorageGRID 系统使用 Reed-Solomon 纠删编码算法。该算法会将对象分区为<block ref="8ce4b16b22b58894aa86c421e8759df3" prefix=" " category="inline-code"></block>数据片段并计算奇偶校验片段<block ref="6f8f57715090da2632453988d9a1501b" prefix=" " category="inline-code"></block>。</block>
@@ -844,7 +838,6 @@
   <block id="5fc9dd8aaf41b678315a3e049383a4c8" category="inline-link-macro">什么是云存储池</block>
   <block id="efb0862d6d18f6dd32faee7306e512b0" category="list-text"><block ref="efb0862d6d18f6dd32faee7306e512b0" category="inline-link-macro-rx"></block></block>
   <block id="f1c93c7fd403bff7cff71b56a99c3d78" category="summary">复制是StorageGRID 用于存储对象数据的两种方法之一。如果对象与使用复制的ILM规则匹配、则系统会为对象数据创建精确副本、并将这些副本存储在存储节点上。</block>
-  <block id="83288ff36cb7284d5fc9018f110b7187" category="doc">什么是复制？</block>
   <block id="283a55721e5f5738303d390889abb861" category="paragraph">复制是StorageGRID用于存储对象数据的两种方法之一(纠删编码是另一种方法)。如果对象与使用复制的ILM规则匹配、则系统会为对象数据创建精确副本、并将这些副本存储在存储节点上。</block>
   <block id="d9138f44d81ff3f00ba90ac14a719d98" category="paragraph">在配置创建复制副本的 ILM 规则时，您可以指定应创建多少个副本，这些副本应放置在何处以及应将这些副本存储在每个位置的时间长度。</block>
   <block id="99b4704fada9aa3b0ac4dd8042aa6913" category="paragraph">在以下示例中， ILM 规则指定将每个对象的两个复制副本放置在包含三个存储节点的存储池中。</block>
@@ -856,7 +849,6 @@
   <block id="afa1dcb0ce8cafce10c6dc986a1a7564" category="inline-link-macro">通过复制和纠删编码实现站点丢失保护</block>
   <block id="f8ec125e5b71ba58a7345bf490443f53" category="list-text"><block ref="f8ec125e5b71ba58a7345bf490443f53" category="inline-link-macro-rx"></block></block>
   <block id="d4adce43cb6d024919c84b45eda09b58" category="summary">存储池是存储节点的逻辑分组。</block>
-  <block id="1a5bd741681ee203793538ecb69ca780" category="doc">什么是存储池？</block>
   <block id="3f590b4e34332f94ffa237894a7a261f" category="paragraph">安装StorageGRID 时、系统会自动为每个站点创建一个存储池。您可以根据存储需求配置其他存储池。</block>
   <block id="df581fdea1ff8e894eb21f92cb0136d9" category="paragraph">存储池具有两个属性：</block>
   <block id="e9d050fffe074a25547c4050be295fb2" category="list-text">* 存储级别 * ：对于存储节点，是指后备存储的相对性能。</block>
@@ -894,7 +886,6 @@
   <block id="46dd5ebc13fa6bdb65157a26d11fa557" category="summary">作为网格管理员，您必须与租户用户密切协调，以确保对象受到保护，并满足其保留要求。</block>
   <block id="7b3c5de61fa3e3f4aab7a622a0cb76fe" category="doc">S3对象锁定任务</block>
   <block id="85ca3cd9313c4af6e904db4a1028a555" category="summary">随着存储要求的变化、您可能需要设置不同的策略、或者修改与该策略关联的ILM规则。您可以查看ILM指标来确定系统性能。</block>
-  <block id="01471bf5a3d22e10e47fc44dfdf1a547" category="doc">使用ILM策略和ILM规则</block>
   <block id="7a74540db0adbac5f6eca36be1589fa0" category="paragraph">随着存储要求的变化、您可能需要制定其他策略或修改与策略关联的ILM规则。您可以查看ILM指标来确定系统性能。</block>
   <block id="f7c8f04ffeaf64f4ae58f2521c62881f" category="section-title">查看ILM策略</block>
   <block id="ba15434255c905c9f942162dff82ffa8" category="paragraph">要查看活动和非活动ILM策略以及策略激活历史记录、请执行以下操作：</block>
@@ -15475,7 +15466,6 @@
   <block id="d6ec8a69c45d301959a0f8590bdf1241" category="paragraph">按照中的建议帮助保护对象数据免受勒索软件攻击<block ref="45c0f7ef20285fd7beb4c854421470bd" category="inline-link-rx"></block>。</block>
   <block id="761614be45e969067354a62d6f2be2e3" category="summary">在安装和配置 StorageGRID 时，您可以使用这些准则来帮助您实现任何规定的安全目标，以确保信息系统的机密性，完整性和可用性。</block>
   <block id="a8fbb963c60f039c1802755757c90141" category="summary">您可以使用创建 ILM 规则向导创建 ILM 规则。</block>
-  <block id="01c54d069c530485397213983914c0b6" category="doc">访问创建ILM规则向导</block>
   <block id="a7a090e231fee44e67c1429d70dcd8a0" category="paragraph">您可以通过 ILM 规则管理对象数据随时间的放置。要创建ILM规则、请使用创建ILM规则向导。</block>
   <block id="6ec771dc0810d2f107cf69dd84361672" category="inline-link-macro">有关创建默认ILM规则的说明</block>
   <block id="a407e6b50ae425b8f8ce9486303b69d5" category="admonition">如果要为策略创建默认ILM规则、请改用。<block ref="15603eb16c7b72b840daa9c00e285c03" category="inline-link-macro-rx"></block></block>
@@ -16279,7 +16269,6 @@
   <block id="bb14f0e71d7c2b303b767d438085a098" category="list-text">属于 PARIS 租户且 S3 存储分段区域设置为 EU-west-3 的任何对象均按第一个规则匹配，并存储在 PARIS 数据中心。由于第一个规则使用严格的载入，因此这些对象永远不会存储在美国数据中心。如果巴黎数据中心的存储节点不可用、则加载将失败。</block>
   <block id="47b75ffb5279572939c5622a4d81ece0" category="list-text">第二个规则将匹配所有其他对象、包括属于PARIS租户且未将S3存储分段区域设置为EU-WEI-3的对象。每个对象的一份副本保存在每个数据中心。但是，由于第二条规则使用平衡载入，因此，如果一个数据中心不可用，则会在任何可用位置保存两个临时副本。</block>
   <block id="eb5148d9a1c5d61f2a2577aa407bfb74" category="summary">如果需要更改数据保护或添加新站点、则可以创建并激活新的ILM策略。</block>
-  <block id="791d322647501abb8f656f3c1ec724d1" category="doc">示例6：更改ILM策略</block>
   <block id="0bc7c9f31bf6fc184733fc1c41cf440e" category="paragraph">在更改策略之前，您必须了解 ILM 放置的更改如何临时影响 StorageGRID 系统的整体性能。</block>
   <block id="628477188c8d94d9a7cec6992335f015" category="inline-link-macro">创建策略</block>
   <block id="0865f35e1de92285939e3d9b7f5820ac" category="inline-link-macro">模拟</block>
@@ -22250,4 +22239,60 @@
   <block id="8a22c21079273856d5d0254e007b482b" category="doc">节点的 SYSU 审核消息在 StorageGRID 中开始</block>
   <block id="229f88740e16b4b58ce15dcccdf9517d" category="doc">使用 audit-explain 工具翻译 StorageGRID 审核消息</block>
   <block id="7ea557961e2f5fa9e34f48380a976af5" category="doc">使用 audit-sum 工具汇总 StorageGRID 审核消息</block>
+  <block id="425faf9eb350d08bb497cdaf749e61d4" category="doc">访问 StorageGRID 中的创建 ILM 规则向导</block>
+  <block id="1232637ee53cab80f6763c97f99b617e" category="doc">StorageGRID 中纠删编码的优势、劣势和要求</block>
+  <block id="e87d1f7347bc3418fd0bcd064cf80156" category="doc">StorageGRID 中 ILM 摄取选项的优势、劣势和限制</block>
+  <block id="ddcc5e7e93523ff4d17aa1c876964f4e" category="doc">StorageGRID 中的云存储池和 CloudMirror 复制</block>
+  <block id="e4e3013ee8f09c25ab14d3e4fbbec3f1" category="doc">StorageGRID 中的云存储池要求和限制</block>
+  <block id="f79e43faf5d3245a5204f659130003af" category="doc">定义 StorageGRID ILM 规则的放置说明</block>
+  <block id="6b699084a05fbc030bdb64e52397ab53" category="doc">输入 StorageGRID ILM 规则的详细信息和筛选器</block>
+  <block id="621715d84422c87ca4e76e476242c8d8" category="doc">选择 StorageGRID ILM 规则的接收行为</block>
+  <block id="99334e700c32ddf24c17dbef1354755b" category="doc">在 StorageGRID 中创建和分配存储等级</block>
+  <block id="c1699e119e6a9020b2a0a624e83a1e17" category="doc">在 StorageGRID 中创建云存储池</block>
+  <block id="680a85da1812c43e6d697afedcc34d6f" category="doc">在 StorageGRID 中创建默认 ILM 规则</block>
+  <block id="ed6b827fd3330a6abcf9717fa4ebbba1" category="doc">在 StorageGRID 中创建 ILM 策略</block>
+  <block id="0f12b9117350d4bfc2ae9cce7ae21dd4" category="doc">在 StorageGRID 中创建存储池</block>
+  <block id="438947c15ea190b9728a150f65eda463" category="doc">StorageGRID 中的 ILM 摄取选项</block>
+  <block id="d4efe658b60a880b72c55021199ad812" category="doc">在 StorageGRID 中编辑云存储池</block>
+  <block id="8975909867252901361b79b7eedd1d1e" category="doc">在 StorageGRID 中编辑存储池</block>
+  <block id="e0e17e1bc9d2536a448343c63dc34755" category="doc">在 StorageGRID 中全局启用 S3 Object Lock</block>
+  <block id="c18f758f892bb8417c902222fbf61fb1" category="doc">StorageGRID 中基本对象保护和保留的 ILM 规则和策略</block>
+  <block id="2b6bfe56591157ffdbbc537195ab207e" category="doc">StorageGRID 中用于 EC 对象大小过滤的 ILM 规则和策略</block>
+  <block id="66abfa99610428209030187a7899859e" category="doc">用于在 StorageGRID 中保护映像文件的 ILM 规则和策略</block>
+  <block id="fe7cebabe8dadabac8f19adb27c47a26" category="doc">StorageGRID 中非当前 S3 对象版本的 ILM 规则和策略</block>
+  <block id="8c2bb63cc61fd752b3992f3c9d46e1ba" category="doc">StorageGRID 中严格摄取行为的 ILM 规则和策略</block>
+  <block id="58b88dc92b4ee7390cc35ae5cffb6500" category="doc">更改 ILM 策略如何影响 StorageGRID 性能</block>
+  <block id="d4999477ed581fba5a214b70f9441beb" category="doc">StorageGRID 中 S3 Object Lock 的合规 ILM 策略</block>
+  <block id="cb96cc467ad90c9150f384fb8e1d5aae" category="doc">S3 存储桶生命周期和 ILM 策略在 StorageGRID 中如何交互</block>
+  <block id="3084c30fe5025b80f58230ff2386a442" category="doc">StorageGRID 中的存储池配置准则</block>
+  <block id="249cb4d8002e9f348959b7dae0a7b18b" category="doc">ILM 如何在 StorageGRID 中对象的整个生命周期内运行</block>
+  <block id="b498583ce058688a659593ef3585b578" category="doc">StorageGRID 如何确定对象保留</block>
+  <block id="776c76b7fbf209ab5c33fa013a22dbce" category="doc">StorageGRID 如何删除对象</block>
+  <block id="d29051f06d0e35aea20b3e927d1bb131" category="doc">了解 StorageGRID 中的 ILM 策略</block>
+  <block id="5d9cac8ac37d608aef8f918512936b33" category="doc">使用 ILM 在 StorageGRID 中管理对象</block>
+  <block id="4c0551679190b0b60f40803bc4d720d1" category="doc">StorageGRID 中云存储池对象的生命周期</block>
+  <block id="d7fa5fa7013bfdce186cc4b4101b68f3" category="doc">在 StorageGRID 中管理纠删编码配置文件</block>
+  <block id="468cadd63a4b4fabebc4f7d258c6769c" category="doc">管理 StorageGRID 中的 ILM 策略标签</block>
+  <block id="8eff84c88821d91296043735f22b286d" category="doc">S3 对象锁定如何保护 StorageGRID 中的对象</block>
+  <block id="6a93dba192c8d59863c613147bf5fe68" category="doc">删除 StorageGRID 中的云存储池</block>
+  <block id="84af96422ba24754e74854a00a21ebbe" category="doc">删除 StorageGRID 中的存储池</block>
+  <block id="17d6fa4cb238d3a04c341c96acf3eafa" category="doc">StorageGRID 中的 S3 对象锁定要求</block>
+  <block id="34bdd5f7b7fad7f1a98f20b0c083aa35" category="doc">解决在 StorageGRID 中更新 S3 Object Lock 或旧版合规性设置时的一致性错误</block>
+  <block id="25effcaf3bff942eebdfbdee0bf54efa" category="doc">StorageGRID 中的 ILM 策略模拟示例</block>
+  <block id="64d1550dd357d22896cb285eeaf0fe52" category="doc">对 StorageGRID 中的云存储池进行故障排除</block>
+  <block id="bbbc652c88789880ae04efd4d379b063" category="doc">在 StorageGRID ILM 规则中使用上次访问时间</block>
+  <block id="52549cf299626b4c1d8fc22ab29d94a2" category="doc">利用 StorageGRID 中的存储池进行站点丢失保护</block>
+  <block id="8351278348a22da18f8c6717067c5e63" category="doc">使用 StorageGRID 中的对象元数据查找验证 ILM 策略</block>
+  <block id="2ae00a6b0d3fa611dc8ccbdc2cd51489" category="doc">在 StorageGRID 中查看云存储池详细信息</block>
+  <block id="998c558975c5e28f5bab0539ea52e5e7" category="doc">在 StorageGRID 中查看存储池详细信息</block>
+  <block id="337d8e163e440e9075744bc5a4079cac" category="doc">了解 StorageGRID 中的云存储池</block>
+  <block id="5d3ce1641ac49615927bf9529145577b" category="doc">了解 StorageGRID 中的纠删编码</block>
+  <block id="c3775be5e196c39186e6d9e40b37b2f0" category="doc">了解 StorageGRID 中的纠删编码方案</block>
+  <block id="12275c0e87b254d0919f73755959bd3f" category="doc">了解 StorageGRID 中的 ILM 规则</block>
+  <block id="4ef4fd71ec7c2e41d2dc72275add9d2f" category="doc">了解 StorageGRID 中的复制</block>
+  <block id="3efc6bfedb9e022ba306d6aac9e2a456" category="doc">了解 StorageGRID 中的存储池</block>
+  <block id="1985a167f67614d1d3a4c73366bb92ee" category="doc">StorageGRID 中的云存储池用例</block>
+  <block id="a307b7d1f2648169e6ac8c99b4fadaf5" category="doc">StorageGRID 中单副本复制的风险</block>
+  <block id="a88335c9369286a12081db287b76b267" category="doc">StorageGRID 中的 S3 Object Lock 工作流</block>
+  <block id="3d0e0d08c39e8e202db48950a54c6a97" category="doc">在 StorageGRID 中使用 ILM 策略和 ILM 规则</block>
 </blocks>

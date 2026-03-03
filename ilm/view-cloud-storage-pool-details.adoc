@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: view cloud storage pool 
 summary: 您可以查看云存储池的详细信息以确定其使用位置以及包含哪些节点和存储级别。 
 ---
-= 查看云存储池详细信息
+= 在 StorageGRID 中查看云存储池详细信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

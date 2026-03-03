@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: requirements, s3 object lock, compliant ilm rule, compliant ilm policy 
 summary: 您必须查看启用全局 S3 对象锁定设置的要求，创建合规 ILM 规则和 ILM 策略的要求以及 StorageGRID 对使用 S3 对象锁定的分段和对象所施加的限制。 
 ---
-= S3 对象锁定的要求
+= StorageGRID 中的 S3 对象锁定要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

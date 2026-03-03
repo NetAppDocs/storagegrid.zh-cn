@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create storage pool 
 summary: 您可以创建存储池来确定 StorageGRID 系统存储对象数据的位置以及使用的存储类型。每个存储池包括一个或多个站点以及一个或多个存储级别。 
 ---
-= 创建存储池
+= 在 StorageGRID 中创建存储池
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
