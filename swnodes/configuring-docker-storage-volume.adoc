@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure container engine storage volume, Docker, Podman 
 summary: 在安装 Docker 或 Podman 容器引擎之前，您可能需要格式化存储卷并挂载它。 
 ---
-= 配置容器引擎存储卷（Linux）
+= 在 Linux 上为 StorageGRID 配置容器引擎存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

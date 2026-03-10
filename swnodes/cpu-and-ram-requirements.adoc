@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cpu, ram, cpu cores 
 summary: 在安装 StorageGRID 软件之前，请验证并配置硬件，使其可以支持 StorageGRID 系统。 
 ---
-= CPU 和 RAM 要求
+= StorageGRID 的 CPU 和 RAM 要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure the host network 
 summary: 在主机上完成 Linux 安装后，您可能需要执行一些额外的配置，以便在每个主机上准备一组适合映射到稍后要部署的 StorageGRID 节点的网络接口。 
 ---
-= 配置主机网络（Linux）
+= 为 Linux 部署配置 StorageGRID 主机网络
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

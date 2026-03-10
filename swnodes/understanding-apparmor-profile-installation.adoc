@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install AppArmor profile 
 summary: 如果您在自行部署的 Ubuntu 环境中运行并使用了必需的 AppArmor-Access Control 系统，则与在基础系统上安装的软件包关联的 StorageGRID 配置文件可能会被随一起安装的相应软件包阻止。 
 ---
-= 了解 AppArmor 配置文件安装（Ubuntu 和 Debian）
+= 了解 Ubuntu 和 Debian 上的 AppArmor 配置文件用于 StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

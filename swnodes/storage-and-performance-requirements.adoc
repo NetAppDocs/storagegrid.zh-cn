@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage requirements, performance requirements, host storage, host volumes, netapp ontap, fabricpool 
 summary: 您必须了解 StorageGRID 节点的存储要求，以便提供足够的空间来支持初始配置和未来的存储扩展。 
 ---
-= 存储和性能要求
+= StorageGRID 的存储和性能要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

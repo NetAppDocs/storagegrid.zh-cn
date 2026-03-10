@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install on ubuntu, how to install on debian, how to install on red hat linux, how to install on rhel 
 summary: '在裸机系统上、StorageGRID会对主机范围的设置进行一些更改 `sysctl`。' 
 ---
-= 安装过程中主机范围的设置如何变化（Linux）
+= StorageGRID 如何更改主机范围的设置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

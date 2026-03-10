@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: software requirements 
 summary: 您可以使用虚拟机托管任何类型的StorageGRID节点。每个网格节点需要一个虚拟机。 
 ---
-= 软件要求
+= StorageGRID 的软件要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

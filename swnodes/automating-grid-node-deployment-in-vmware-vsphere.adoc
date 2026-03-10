@@ -2,9 +2,9 @@
 permalink: swnodes/automating-grid-node-deployment-in-vmware-vsphere.html 
 sidebar: sidebar 
 keywords: how to automate installation 
-summary: 您可以使用VMware OVF工具自动部署网格节点。您还可以自动配置 StorageGRID 。 
+summary: 您可以使用 VMware OVF Tool 自动部署 StorageGRID 中的网格节点。您还可以自动配置 StorageGRID。 
 ---
-= 自动化安装（ VMware ）
+= 使用 VMware vSphere 自动部署 StorageGRID 中的网格节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

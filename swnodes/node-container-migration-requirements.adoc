@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to migrate a node 
 summary: 通过节点迁移功能，您可以手动将节点从一台主机移动到另一台主机。通常，两台主机位于同一物理数据中心。 
 ---
-= 节点容器迁移要求（Linux）
+= Linux 的 StorageGRID 节点容器迁移要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

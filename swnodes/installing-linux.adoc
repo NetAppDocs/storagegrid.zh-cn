@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install Linux 
 summary: 您必须在所有 Linux 网格主机上安装StorageGRID 。要获取受支持版本的列表，请使用NetApp互操作性表工具。 
 ---
-= 安装 Linux
+= 在 Linux 网格主机上安装 StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

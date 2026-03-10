@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to aggregate red hat linux interface, how to aggregate rhel interface, LACP bond, network scripts 
 summary: 您可以使用示例文件将四个 Linux 物理接口聚合到一个 LACP 绑定中，然后建立三个 VLAN 接口，将此绑定分包为 StorageGRID 网格，管理和客户端网络接口。 
 ---
-= 示例 /etc/sysconfig/network-scripts (RHEL)
+= 在 RHEL 上将四个物理接口整合为一个绑定的 StorageGRID 示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

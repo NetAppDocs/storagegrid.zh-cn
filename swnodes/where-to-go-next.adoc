@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: after installation 
 summary: 完成安装后、执行所需的集成和配置任务。您可以根据需要执行可选任务。 
 ---
-= 下一步行动
+= 了解安装 StorageGRID 后所需的和可选的步骤
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

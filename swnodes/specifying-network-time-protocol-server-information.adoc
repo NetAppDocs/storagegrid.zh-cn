@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Network Time Protocol server information 
 summary: 您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。 
 ---
-= 指定网络时间协议服务器信息
+= 为 StorageGRID 指定网络时间协议服务器信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

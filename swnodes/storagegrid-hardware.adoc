@@ -4,7 +4,7 @@ permalink: swnodes/storagegrid-hardware.html
 keywords: storagegrid, software, grid 
 summary: 了解如何安装、配置和使用StorageGRID设备硬件。 
 ---
-= StorageGRID设备
+= 了解 StorageGRID 设备硬件
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

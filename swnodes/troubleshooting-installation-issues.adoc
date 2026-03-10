@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot ubuntu or debian installation 
 summary: 如果在安装 StorageGRID 系统时出现任何问题，您可以访问安装日志文件。技术支持可能还需要使用安装日志文件来解决问题。 
 ---
-= 对安装问题进行故障排除
+= 对 StorageGRID 安装问题进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

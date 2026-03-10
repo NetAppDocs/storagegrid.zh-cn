@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install StorageGRID host services 
 summary: 您可以使用适合您的操作系统类型的StorageGRID包来安装StorageGRID主机服务。 
 ---
-= 安装StorageGRID主机服务 (Linux)
+= 在 Linux 上安装 StorageGRID 主机服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

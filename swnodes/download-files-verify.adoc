@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation files, how to verify files 
 summary: 如有必要、您可以手动验证StorageGRID安装归档文件中的文件。 
 ---
-= 手动验证安装文件(可选)
+= 验证 StorageGRID 安装文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

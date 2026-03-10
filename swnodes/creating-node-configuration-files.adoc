@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: 节点配置文件是一个小型文本文件，用于提供 StorageGRID 主机服务启动节点并将其连接到适当的网络和块存储资源所需的信息。节点配置文件用于虚拟节点，不用于设备节点。 
 ---
-= 为 Linux 部署创建节点配置文件
+= 为 Linux 部署创建 StorageGRID 节点配置文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

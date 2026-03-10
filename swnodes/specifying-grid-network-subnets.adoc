@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Grid Network subnets 
 summary: 您必须指定网格网络上使用的子网。 
 ---
-= 指定网格网络子网
+= 为 StorageGRID 指定网格网络子网
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

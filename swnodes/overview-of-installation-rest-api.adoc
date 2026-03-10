@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation REST API 
 summary: StorageGRID 提供了用于执行安装任务的 StorageGRID 安装 API 。 
 ---
-= 安装REST API
+= 了解 StorageGRID 安装 REST API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

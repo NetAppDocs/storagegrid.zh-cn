@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to validate StorageGRID configuration 
 summary: 在 /etc/storagegrid/nodes 中为每个 StorageGRID 节点创建配置文件后，您必须验证这些文件的内容。 
 ---
-= 验证StorageGRID配置 (Linux)
+= 在 Linux 上验证 StorageGRID 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -7017,7 +7017,6 @@
   <block id="e7199d6d21d0a283583e021d10d107a7" category="summary">节点配置文件是一个小型文本文件，用于提供 StorageGRID 主机服务启动节点并将其连接到适当的网络和块存储资源所需的信息。节点配置文件用于虚拟节点，不用于设备节点。</block>
   <block id="b908401ad21f4d9a3afd6c30214c6393" category="paragraph">节点配置文件是一个小型文本文件，用于提供 StorageGRID 主机服务启动节点并将其连接到适当的网络和块存储资源所需的信息。节点配置文件用于虚拟节点、而不用于设备节点。</block>
   <block id="37b96301eac9e5dd0b2922c0253abd5b" category="summary">如有必要、您可以手动验证StorageGRID安装归档文件中的文件。</block>
-  <block id="ec7a2f39270e1129078e11bf41452ed4" category="doc">手动验证安装文件(可选)</block>
   <block id="c2195747be6fcb1ef79056003c5cef33" category="inline-link-macro">已下载验证软件包</block>
   <block id="c583e9ad2eb4c10fcd425ca0e5ad8380" category="inline-link-macro">完成其余步骤</block>
   <block id="72afa16d17c5e4e8efa1eb271f37828f" category="summary">您必须下载 StorageGRID 安装归档并提取所需文件。您也可以手动验证安装包中的文件。</block>
@@ -7192,7 +7191,6 @@
   <block id="d120112d443c2317cccbbb5967331bed" category="inline-link-macro">有关管理 StorageGRID 的说明</block>
   <block id="d643167e931cac953bcb7be9f3e4c19b" category="list-text"><block ref="d643167e931cac953bcb7be9f3e4c19b" category="inline-link-macro-rx"></block></block>
   <block id="20a07445e493604d7e785be995bbd270" category="summary">您必须仔细查看输入的配置信息，以确保安装成功完成。</block>
-  <block id="9d6fe38c7ad959d5754500d24c1a8ecc" category="doc">查看您的配置并完成安装</block>
   <block id="39b63e803f4622c2710f777e90434531" category="list-text">查看 * 摘要 * 页面。</block>
   <block id="08000e8c53acc4995c5cdb96bd31ada5" category="list-text">验证所有网格配置信息是否正确。使用摘要页面上的修改链接返回并更正任何错误。</block>
   <block id="f19e5d93360a2cdbfe64b6c513e8d263" category="list-text">单击 * 安装 * 。</block>
@@ -7248,7 +7246,6 @@
   <block id="aa44d80d0b1b586b69d29141b9c51bc4" category="list-text">您必须为NTP、DNS、LDAP或通过网格网络网关访问的其他外部服务器手动添加任何子网。</block>
   <block id="cdc0f2546642f2b7d996ad995971c289" category="image-alt">指定子网</block>
   <block id="683bd1c68c25fd315ddae3626d2754c2" category="summary">您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。</block>
-  <block id="722478157037bbf54f0085305051ee00" category="doc">指定网络时间协议服务器信息</block>
   <block id="9a4375a5e5b05719430782253d306c47" category="paragraph">您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。</block>
   <block id="7a30646f1ecdc7ac8e119e103d88b005" category="paragraph">您必须为 NTP 服务器指定 IPv4 地址。</block>
   <block id="db37ebcb1facc0e0edc8dcfddd35d847" category="paragraph">您必须指定外部 NTP 服务器。指定的 NTP 服务器必须使用 NTP 协议。</block>
@@ -19442,7 +19439,6 @@
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="section-title">安全性</block>
   <block id="34804056c19a7a14faf519fd7b87a014" category="admonition">对于 VMware 节点，您可以在此处更改名称，但此操作不会更改 vSphere 中虚拟机的名称。</block>
   <block id="82f1cd5b44b90505365fd1444a693302" category="summary">您可以使用VMware OVF工具自动部署网格节点。您还可以自动配置 StorageGRID 。</block>
-  <block id="f3bb104ef19108958e02d529ad03b5bf" category="doc">自动化安装（ VMware ）</block>
   <block id="0b268c770cf7ce78d156f647ef965698" category="section-title">自动部署网格节点</block>
   <block id="f254cc51ba73f34296e65abf47820945" category="paragraph">使用VMware OVF工具自动部署网格节点。</block>
   <block id="5bada68f21c8b026f304c77f863c7c1b" category="list-text">您可以访问使用 Bash 3.2 或更高版本的 Linux/Unix 系统。</block>
@@ -21378,8 +21374,6 @@
   <block id="7a4f669ff4b9f9df5860c2049386e61b" category="paragraph">前往<block ref="f382e11c205630073ea43ce3c4862094" category="inline-link-rx"></block>了解如何在StorageGRID环境中测试和启用应用程序。</block>
   <block id="e39a34400f316c8f4cf8792114dc2d4a" category="list-text">您已安装并正确配置 VMware OVF Tool。</block>
   <block id="7449247ffcf965bdf264f6020225b2a1" category="admonition">存储修改后的密码部分的管理密码和配置密码<block ref="3b39322b4d4c4cc0e164289cecbf36f4" prefix=" " category="inline-code"></block>配置文件保存在安全的位置。安装、扩展和维护过程都需要这些密码。您还应该备份修改后的<block ref="3b39322b4d4c4cc0e164289cecbf36f4" prefix=" " category="inline-code"></block>配置文件并将其存储在安全的位置。</block>
-  <block id="fbe5e801a35fa348ac5a003f072ab2ae" category="summary">您可以自动化StorageGRID主机服务的 Linux 安装和网格节点的配置。</block>
-  <block id="afdd48437327fb5c5e4c2a1fe991e356" category="doc">自动化安装（Linux）</block>
   <block id="2b1ec408636e59c079669f09dad5eefe" category="paragraph">StorageGRID主机服务打包在 DEB（Ubuntu 或 Debian）或 RPM（RHEL）中，并由您可以提前（或以编程方式）准备的配置文件驱动，以实现自动安装。如果您已经使用标准编排框架来安装和配置您的 Linux 部署，那么将StorageGRID添加到您的剧本或配方中应该很简单。</block>
   <block id="c47c9bae27ae0f99a83b21aabf436f8f" category="paragraph">对于 RHEL，提供的安装任务<block ref="246505b505138f658276e7c599a90f2c" prefix=" " category="inline-code"></block>角色示例使用<block ref="c0d077c1b0c03e138e0371a2eebfe4eb" prefix=" " category="inline-code"></block>模块从本地 RPM 文件或远程 Yum 存储库执行安装。如果模块不可用或不受支持，您可能需要编辑以下文件中的相应 Ansible 任务以使用<block ref="1de0b4f0d139f781b3b4de87edb4de70" prefix=" " category="inline-code"></block>或者<block ref="ec22783eb091a327c93812f10c641f7a" prefix=" " category="inline-code"></block>模块：</block>
   <block id="a0f7337222f86d570519e609d7af5207" category="paragraph">对于 Ubuntu 或 Debian，提供的安装任务<block ref="246505b505138f658276e7c599a90f2c" prefix=" " category="inline-code"></block>角色示例使用<block ref="e998151f1e685dbecb78831b3636cd50" prefix=" " category="inline-code"></block>模块从本地 DEB 文件或远程 apt 存储库执行安装。如果模块不可用或不受支持，您可能需要编辑以下文件中的相应 Ansible 任务以使用<block ref="e998151f1e685dbecb78831b3636cd50" prefix=" " category="inline-code"></block>模块：</block>
@@ -21387,7 +21381,6 @@
   <block id="e9d5160195ebef429e9f66cb88afaf1c" category="list-text"><block ref="ea898a9f220c4adac1af920738275e8a" prefix="" category="inline-code"></block></block>
   <block id="8693b53dee76e3c74a7f2a23365ae09f" category="doc">收集有关部署环境的信息（VMware）</block>
   <block id="76d3d48cd44591eba0260719384e857c" category="summary">在安装 Docker 或 Podman 容器引擎之前，您可能需要格式化存储卷并挂载它。</block>
-  <block id="9b9294611992a2e579e0dfbe2fea4d01" category="doc">配置容器引擎存储卷（Linux）</block>
   <block id="37bd7b5c1a7a9f20e33f4f54c517077d" category="paragraph">如果您计划将根卷用于 Docker 或 Podman 存储卷，并且主机分区上有足够的可用空间，则可以跳过以下步骤：</block>
   <block id="c6e49a2b1e3c197204bfa5308d76595d" category="list-text">Podman：<block ref="9c49dcee339bef59726604881a096f3f" prefix=" " category="inline-code"></block></block>
   <block id="540d19834dd130318772505f009749af" category="list-text">Docker：<block ref="2e1a4e3f55001820560b237188c70bc3" prefix=" " category="inline-code"></block></block>
@@ -21398,7 +21391,6 @@
   <block id="8ae7850d8cfa9f7bbb913f8f65952b18" category="list-text">在为 Ubuntu 或 Debian 安装StorageGRID之前，您必须安装 Docker。</block>
   <block id="7123b490c17193c81695b7a65c547048" category="list-text">如果您选择使用 Docker 容器引擎，请按照以下步骤安装 Docker。否则，<block ref="24aed688cd6508f7c4709c9561358d9d" category="inline-xref-macro-rx"></block> 。</block>
   <block id="7b95acf6880de2b9ef9d6b60e002489e" category="paragraph">StorageGRID系统作为容器集合运行。如果您选择使用 Podman 容器引擎，请按照以下步骤安装 Podman。否则，<block ref="206ea472e2096d76632ab375def95946" category="inline-xref-macro-rx"></block> 。</block>
-  <block id="fce12d0b64f1c0b57866b379fda1dca5" category="doc">配置主机网络（Linux）</block>
   <block id="3947e4ca56888e1ae64a34475e88f558" category="list-text">如果您正在使用虚拟主机，则您已阅读<block ref="64e98663126d56a1ab4e0d8dffd7ede5" category="inline-xref-macro-rx"></block>在配置主机网络之前。</block>
   <block id="3b6979bbb72912862cd389a10c4726e4" category="paragraph-title">[[mac_address_cloning]]</block>
   <block id="4d53816e7bf35e9c0cd0c412e14bcc4d" category="image-alt">安装VLAN图</block>
@@ -21409,9 +21401,7 @@
   <block id="371e7dd72a83a48ed9da201f1d18cdb7" category="inline-link-macro">RHEL 的示例 /etc/sysconfig/network-scripts</block>
   <block id="92c1e21450e945591372822dd73e520c" category="list-text"><block ref="92c1e21450e945591372822dd73e520c" category="inline-link-macro-rx"></block></block>
   <block id="3c3b146be865c421185c7e0a80f2ef8b" category="summary">您必须为每个 Linux 主机分配块存储卷。</block>
-  <block id="c1f194ba2dedf897978ae9d28aef3682" category="doc">配置主机存储（Linux）</block>
   <block id="15961b19cec95b8b15d7735f4bdddf54" category="paragraph">（仅限 RHEL、Debian 和 Ubuntu）对于生产部署，您不应在同一物理存储硬件或虚拟主机上运行多个存储节点。单个StorageGRID部署中的每个存储节点都应位于其自己的隔离故障域中。如果确保单个硬件故障仅影响单个存储节点，则可以最大限度地提高对象数据的持久性和可用性。</block>
-  <block id="7b7a25e1456cbc930d8589c293b229c7" category="doc">为 Linux 部署创建节点配置文件</block>
   <block id="1cc98231538b6e90860ed662772ece29" category="doc">将StorageGRID节点部署为虚拟机 (VMware)</block>
   <block id="75a51250bab1ffa1f70ed65c3e92a242" category="paragraph">你有<block ref="fab4c3645620c0056700cc7caa1686cf" category="inline-link-macro-rx"></block>从<block ref="3bdb53fde48432d306823cbadbeb2429" category="inline-link-rx"></block>。</block>
   <block id="87822f6e21070923e5fade063d0e60c7" category="list-text"><block ref="e70d41312a29a0e89823cbfdacf819c5" category="inline-link-macro-rx"></block>从安装档案中提取并选择适当的文件。</block>
@@ -21419,10 +21409,8 @@
   <block id="9407bb45f12477aa168144cf12268d94" category="list-text">在 *安装StorageGRID* 列中，选择适合您基于软件的节点类型的 .tgz 或 .zip 安装存档：RHEL、Ubuntu 或 Debian 或 VMware。</block>
   <block id="3f2e8356135037aea0df095f4cbef564" category="list-text">[[download-verification-package]]代码签名验证在 Linux 节点上是手动的。或者，如果您需要验证安装档案：</block>
   <block id="cd00d18c9f61a87dd2822c1f79d76ef4" category="list-text">按照步骤<block ref="879e5f469f72b4395a8996308359cd83" category="inline-link-macro-rx"></block>。</block>
-  <block id="5a0064ab23b612eacd2775e10428e8ab" category="doc">示例 /etc/network/interfaces（Ubuntu 和 Debian）</block>
   <block id="3611a3ce7f827369d923d42ea8e24a48" category="doc">示例 /etc/sysconfig/network-scripts (RHEL)</block>
   <block id="80954c7d37e239944ac5ecf8c7414b68" category="doc">节点配置文件示例（Linux）</block>
-  <block id="c0d9d083361c1af6e0084e7f1c435d40" category="doc">安装过程中主机范围的设置如何变化（Linux）</block>
   <block id="bf9a1ea524151df8c6f2a30e532fe0e1" category="summary">按照这些高级步骤安装 Linux 或 VMware StorageGRID节点。</block>
   <block id="8b83bed2712a898861d6360f3c437aef" category="doc">在基于软件的节点上安装StorageGRID 的快速入门</block>
   <block id="1e521c99fb1d71b035920fc87eee0a48" category="list-text">（仅限 VMware）安装和配置<block ref="1bfa1c6f416de02dc69cc0ba1aec3810" category="inline-link-macro-rx"></block>。</block>
@@ -21444,7 +21432,6 @@
   <block id="1b85de7e1f604280afce9becf0e345da" category="list-text">安装 Ubuntu 时，您必须选择*标准系统实用程序*。建议选择 *OpenSSH 服务器* 以启用对 Ubuntu 主机的 ssh 访问。所有其他选项可以保持清除状态。</block>
   <block id="d6d8e01039f800b6b0dc5453e221daf0" category="list-text">确保所有主机都可以访问软件包存储库，包括 RHEL 的 Extras 频道。</block>
   <block id="4d0f711b595877ba011ae20b4f1560d1" category="summary">您可以使用适合您的操作系统类型的StorageGRID包来安装StorageGRID主机服务。</block>
-  <block id="ef0c038d8c7232f8fe14fa4d15d220d4" category="doc">安装StorageGRID主机服务 (Linux)</block>
   <block id="a3abeb335e61d886d347f3d3d809117d" category="paragraph">您可以使用StorageGRID DEB 包为 Ubuntu 或 Debian 安装StorageGRID主机服务。</block>
   <block id="c53353641383d32b1ce143b8a355af96" category="admonition">在安装StorageGRID包之前，必须先安装 Python 3。这<block ref="0b43ee56627a05f32a2703a442a749d7" prefix=" " category="inline-code"></block>直到您完成此操作后，命令才会失败。</block>
   <block id="9a65f5a68ba75e24d93b99c5be25f5d3" category="list-text">对于 Linux，密码会自动从节点配置文件导入<block ref="8a9fd938a9a10d48912034b172c4eeab" prefix=" " category="inline-code"></block></block>
@@ -21487,7 +21474,6 @@
   <block id="802f7e2e2931341855944492175ed074" category="list-text">每个存储卷应为 4 TB 或更大。</block>
   <block id="c4a6cb3032dad3689133693bb07cecf9" category="paragraph">*虚拟机资源预留需要调整*</block>
   <block id="4586e1135831a599cb59c5e350876cf9" category="paragraph">*临时安装密码已禁用*</block>
-  <block id="3bbcd1479caabab18123d22f3827aad9" category="doc">了解 AppArmor 配置文件安装（Ubuntu 和 Debian）</block>
   <block id="aa37e18b1283bb19bb0881bcd17db173" category="doc">验证StorageGRID配置 (Linux)</block>
   <block id="55e5422485eb088cfcc25b190b06c5ec" category="list-text">（仅限 VMware）配置 VMware vSphere Hypervisor 以实现自动重启。</block>
   <block id="dc10c56adce8d419326931c811d7a34c" category="inline-link-macro">为管理接口配置StorageGRID CORS</block>
@@ -22295,4 +22281,42 @@
   <block id="a307b7d1f2648169e6ac8c99b4fadaf5" category="doc">StorageGRID 中单副本复制的风险</block>
   <block id="a88335c9369286a12081db287b76b267" category="doc">StorageGRID 中的 S3 Object Lock 工作流</block>
   <block id="3d0e0d08c39e8e202db48950a54c6a97" category="doc">在 StorageGRID 中使用 ILM 策略和 ILM 规则</block>
+  <block id="4befd9ae231b9bbac3cd60de89ce3315" category="doc">在 StorageGRID 中添加站点</block>
+  <block id="c7f8077aef6b37cf1a2a39e3f6d03914" category="doc">批准 StorageGRID 的待处理网格节点</block>
+  <block id="8fcaf3fe9d69f9ee3797f83b78880f2f" category="summary">您可以使用 VMware OVF Tool 自动部署 StorageGRID 中的网格节点。您还可以自动配置 StorageGRID。</block>
+  <block id="42bef4a148eac65b03e11a2885c2ad7c" category="doc">使用 VMware vSphere 自动部署 StorageGRID 中的网格节点</block>
+  <block id="90e567c0a809b6f17b28ff8acc6487e7" category="summary">您可以在 Linux 上自动安装 StorageGRID 主机服务和配置网格节点。</block>
+  <block id="5eaae680dd44144249e4d974c0bd3480" category="doc">在 Linux 上自动安装 StorageGRID 主机服务和配置网格节点</block>
+  <block id="936b188a3b097e5346ad702e9e2e5f65" category="doc">为 StorageGRID 收集有关 VMware 环境的信息</block>
+  <block id="f1aa75f5f657b4a6d6793b2df6f75be4" category="doc">在 Linux 上为 StorageGRID 配置容器引擎存储卷</block>
+  <block id="8615c2b95e2daace5c61f5a952fae289" category="doc">为 Linux 部署配置 StorageGRID 主机网络</block>
+  <block id="a2657273fdcc0b1a180e138618b06074" category="doc">为 Linux 部署配置 StorageGRID 主机存储</block>
+  <block id="5f3d8abc1badb9a8ff39a3385599fc5c" category="doc">StorageGRID 的 CPU 和 RAM 要求</block>
+  <block id="a2467bb929f6e48e771a66fdeee1514f" category="doc">为 Linux 部署创建 StorageGRID 节点配置文件</block>
+  <block id="9a8856f44ad11070e391c01c4a98d43d" category="doc">使用 VMware vSphere 将网格节点部署为 StorageGRID 的虚拟机</block>
+  <block id="54e37a39b5166fb6eebf21b7782271bf" category="doc">验证 StorageGRID 安装文件</block>
+  <block id="ebc9f78045aa289ffd403ee0744b2c6d" category="doc">在 Ubuntu 和 Debian 上聚合 StorageGRID 物理接口的示例</block>
+  <block id="f25f58025ae2bf0125fe4c694efb1f18" category="doc">在 RHEL 上将四个物理接口整合为一个绑定的 StorageGRID 示例</block>
+  <block id="30aa57c2949cbc6c6c4d468d3c3671a7" category="doc">Linux 上 StorageGRID 节点的示例配置文件</block>
+  <block id="70719f297ded64028840f6854308e5ac" category="doc">网格节点如何发现 StorageGRID 中的主管理节点</block>
+  <block id="744af85489c930835cc654fce0735646" category="doc">StorageGRID 如何更改主机范围的设置</block>
+  <block id="f10735db3e4ae5312c9f4ab46130ae9b" category="doc">在 Linux 网格主机上安装 StorageGRID</block>
+  <block id="d78181a71a049ca23a52f50b41676e52" category="doc">在 Linux 上安装 StorageGRID 主机服务</block>
+  <block id="f60073fec1b22e86e4fc5f7fb4038300" category="doc">导航到 StorageGRID 网格管理器</block>
+  <block id="2a83fbfecd57b43bd2fc8897d7616e4b" category="doc">Linux 的 StorageGRID 节点容器迁移要求</block>
+  <block id="a53e3e8c4b7f694c4a6f3c4b44e62ee2" category="doc">了解 StorageGRID 安装 REST API</block>
+  <block id="1b82f71d5ff3308d2d4098b91c38143b" category="doc">安装 StorageGRID 后的网络和 DHCP 要求</block>
+  <block id="9dfca8d9ae0d11dc9524f6bc922be75e" category="doc">StorageGRID 所需的信息和材料</block>
+  <block id="c3f63e605164c8ea97a005790f8e5b5a" category="doc">查看 StorageGRID 配置</block>
+  <block id="4a02eebf952c8ffacd67d6830b62064b" category="doc">StorageGRID 的软件要求</block>
+  <block id="c47e8202f1b59f6c8cc8f46e16b12920" category="doc">为 StorageGRID 指定 DNS 服务器信息</block>
+  <block id="4e6b5be3090488ac5eeb98ca3cf64e84" category="doc">为 StorageGRID 指定网格网络子网</block>
+  <block id="adffbfde3d82e1c7ebed3625865e641a" category="doc">为 StorageGRID 指定网络时间协议服务器信息</block>
+  <block id="3a66f914e6fd20492f2aa5ebce0d803e" category="doc">在 Linux 上启动 StorageGRID 主机服务</block>
+  <block id="7113f4450b3beae1066f78dff2d9519d" category="doc">StorageGRID 的存储和性能要求</block>
+  <block id="2ea3a039846ce1e13345337a2999ab8e" category="doc">了解 StorageGRID 设备硬件</block>
+  <block id="bd560d6c19c95c2681cac0c3a97db9df" category="doc">对 StorageGRID 安装问题进行故障排除</block>
+  <block id="99338b2092d742dd94cdbfda526c0a11" category="doc">了解 Ubuntu 和 Debian 上的 AppArmor 配置文件用于 StorageGRID</block>
+  <block id="98aa7914da23c23c17397495d2e4e32f" category="doc">在 Linux 上验证 StorageGRID 配置</block>
+  <block id="fdc2003b3d4c7693ecfe54d694baa432" category="doc">了解安装 StorageGRID 后所需的和可选的步骤</block>
 </blocks>

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how grid nodes discover the primary Admin Node 
 summary: 网格节点与主管理节点进行通信以进行配置和管理。每个网格节点都必须知道网格网络上主管理节点的 IP 地址。 
 ---
-= 网格节点如何发现主管理节点
+= 网格节点如何发现 StorageGRID 中的主管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

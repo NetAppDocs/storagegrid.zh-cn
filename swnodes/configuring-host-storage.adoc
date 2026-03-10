@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure host storage 
 summary: 您必须为每个 Linux 主机分配块存储卷。 
 ---
-= 配置主机存储（Linux）
+= 为 Linux 部署配置 StorageGRID 主机存储
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
