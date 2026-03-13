@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: 平台服务选项卡提供了有关站点上任何 S3 平台服务操作的信息。 
 ---
-= 查看平台服务选项卡
+= 查看 StorageGRID 平台服务选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

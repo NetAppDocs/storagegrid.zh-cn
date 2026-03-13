@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prometheus, Prometheus metrics, metrics 
 summary: 请参阅此常用Prometheus指标列表、以更好地了解默认警报规则中的条件或构建自定义警报规则的条件。 
 ---
-= 常用的 Prometheus 指标
+= StorageGRID 中常用的 Prometheus 指标
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

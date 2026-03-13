@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: 对象选项卡提供了有关S3读取和检索速率的信息。 
 ---
-= 查看对象选项卡
+= 查看 StorageGRID Objects 选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

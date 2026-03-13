@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: mib, snmp, monitoring 
 summary: MIB文件包含有关网格中节点的受管资源和服务属性的定义和信息。您可以访问用于定义StorageGRID 对象和通知的MIB文件。这些文件可用于监控网格。 
 ---
-= 访问MIB文件
+= 访问 StorageGRID MIB 文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

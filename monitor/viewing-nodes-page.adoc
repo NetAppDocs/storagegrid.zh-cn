@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nodes page 
 summary: 如果您需要的StorageGRID 系统信息比信息板提供的信息更详细、可以使用节点页面查看整个网格、网格中的每个站点以及站点中的每个节点的指标。 
 ---
-= 查看节点页面
+= 查看 StorageGRID 节点页面
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

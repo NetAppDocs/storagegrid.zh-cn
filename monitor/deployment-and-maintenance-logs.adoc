@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deployment, logs, Maintenance 
 summary: 您可以使用部署和维护日志对问题进行故障排除。 
 ---
-= 部署和维护日志
+= StorageGRID 中的部署和维护日志
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

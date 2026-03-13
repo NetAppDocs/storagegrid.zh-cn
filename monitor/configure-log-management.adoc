@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log management, audit level, external syslog server, log destinations 
 summary: 根据需要配置审计级别、协议标头以及审计消息和日志的位置。 
 ---
-= 配置日志管理
+= 在 StorageGRID 中配置日志管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

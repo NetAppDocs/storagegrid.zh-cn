@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancer tab 
 summary: '" 负载平衡器 " 选项卡包含与负载平衡器服务的运行相关的性能和诊断图。' 
 ---
-= 查看负载平衡器选项卡
+= 查看 StorageGRID 负载平衡器选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
 summary: 警报系统提供了一个易于使用的界面，用于检测，评估和解决 StorageGRID 运行期间可能发生的问题。 
 ---
-= 管理警报
+= 在 StorageGRID 中管理警报
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

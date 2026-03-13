@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit alert rules 
 summary: 您可以编辑警报规则以更改触发条件，对于自定义警报规则，您还可以更新规则名称，问题描述 和建议的操作。 
 ---
-= 编辑警报规则
+= 在 StorageGRID 中编辑警报规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

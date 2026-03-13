@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to run diagnostics 
 summary: 在对问题描述 进行故障排除时，您可以与技术支持一起在 StorageGRID 系统上运行诊断并查看结果。 
 ---
-= Run diagnostics
+= 在 StorageGRID 中运行诊断
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

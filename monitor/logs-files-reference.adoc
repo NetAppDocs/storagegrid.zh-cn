@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log, logs, log files 
 summary: StorageGRID 提供了用于捕获事件，诊断消息和错误情况的日志。系统可能会要求您收集日志文件并将其转发给技术支持以协助进行故障排除。 
 ---
-= 日志文件参考
+= StorageGRID 日志文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

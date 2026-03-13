@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: 硬件选项卡可显示每个节点的 CPU 利用率和内存使用情况，以及有关设备的其他硬件信息。 
 ---
-= 查看硬件选项卡
+= 查看 StorageGRID 硬件选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

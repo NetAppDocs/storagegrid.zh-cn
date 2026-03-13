@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bycast, log 
 summary: '/var/local/log/bycast.log 文件是 StorageGRID 软件的主要故障排除文件。每个网格节点都有一个 `bycast.log`文件。该文件包含特定于该网格节点的消息。' 
 ---
-= 关于 bycast.log
+= 了解 StorageGRID bycast.log
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

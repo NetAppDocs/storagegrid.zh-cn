@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancing, monitoring 
 summary: 如果您使用负载平衡器管理客户端与 StorageGRID 的连接，则应在最初配置系统之后以及在进行任何配置更改或执行扩展之后监控负载平衡操作。 
 ---
-= 监控负载平衡操作
+= 监控 StorageGRID 中的负载平衡操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

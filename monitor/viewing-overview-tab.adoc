@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview tab 
 summary: 概述选项卡提供了有关每个节点的基本信息。此外，它还会显示当前影响节点的任何警报。 
 ---
-= 查看概述选项卡
+= 查看 StorageGRID Overview 选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitoring, monitoring network connections, network, network performance 
 summary: 节点和站点之间网络的完整性和带宽以及各个网格节点的资源使用情况对于高效运营至关重要。 
 ---
-= 监控网络和系统资源
+= 监控 StorageGRID 中的网络和系统资源
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

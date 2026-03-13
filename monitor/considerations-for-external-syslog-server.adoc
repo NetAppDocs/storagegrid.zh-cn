@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: syslog server, external syslog server, sizing, sizing syslog server, audit messages 
 summary: 外部系统日志服务器是 StorageGRID 外部的服务器，您可以使用它在一个位置收集系统审核信息。通过使用外部系统日志服务器、您可以减少管理节点上的网络流量、并更高效地管理审核信息。 
 ---
-= 使用外部系统日志服务器的注意事项
+= StorageGRID 中的外部系统日志服务器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

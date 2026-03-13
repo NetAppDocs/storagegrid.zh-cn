@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage alert rules 
 summary: 警报规则用于定义触发特定警报的条件。StorageGRID 包含一组默认警报规则，您可以按原定义使用或修改这些规则，也可以创建自定义警报规则。 
 ---
-= 查看警报规则
+= 查看 StorageGRID 警报规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

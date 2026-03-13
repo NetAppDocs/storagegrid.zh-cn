@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
 summary: 您可以监控对象载入和检索速率，以及对象计数，查询和验证的指标。您可以查看客户端应用程序在 StorageGRID 系统中成功尝试读取，写入和修改对象的次数和失败的尝试次数。 
 ---
-= 监控S3客户端操作
+= 监控 StorageGRID 中的 S3 客户端操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

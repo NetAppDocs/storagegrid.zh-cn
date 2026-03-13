@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: 网络选项卡显示一个图形，其中显示了通过节点，站点或网格上的所有网络接口接收和发送的网络流量。 
 ---
-= 查看网络选项卡
+= 查看 StorageGRID Network 选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

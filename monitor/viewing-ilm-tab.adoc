@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm tab 
 summary: 'ILM选项卡提供了有关信息生命周期管理(ILM)操作的信息。' 
 ---
-= 查看 ILM 选项卡
+= 查看 StorageGRID ILM 选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

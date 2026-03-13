@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect system data, how to collect logs 
 summary: 您可以检索StorageGRID日志文件和系统数据（包括配置数据），并将其发送给技术支持。 
 ---
-= 收集日志文件和系统数据
+= 收集 StorageGRID 日志文件和系统数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

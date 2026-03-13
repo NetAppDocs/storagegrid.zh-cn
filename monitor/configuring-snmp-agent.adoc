@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp agent, mib, trap, inform 
 summary: 您可以将StorageGRID SNMP代理配置为使用第三方SNMP管理系统进行只读MIB访问和通知。 
 ---
-= 配置 SNMP 代理
+= 在 StorageGRID 中配置 SNMP 代理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

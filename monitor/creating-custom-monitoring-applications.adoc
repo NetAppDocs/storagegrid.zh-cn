@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom monitoring, monitoring, dashboard 
 summary: 您可以使用网格管理 API 提供的 StorageGRID 指标构建自定义监控应用程序和信息板。 
 ---
-= 创建自定义监控应用程序
+= 为 StorageGRID 创建自定义监控应用程序
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ec repair priority, ec purge priority 
 summary: '输入/输出 (I/O) 优先级允许您更改网格上 I/O 操作的相对优先级。' 
 ---
-= 更改 I/O 优先级
+= 更改 StorageGRID 中的 I/O 优先级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

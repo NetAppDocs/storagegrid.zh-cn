@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view support metrics, how to review support metrics 
 summary: 对问题描述 进行故障排除时，您可以与技术支持人员一起查看 StorageGRID 系统的详细指标和图表。 
 ---
-= 查看支持指标
+= 查看 StorageGRID 支持指标
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

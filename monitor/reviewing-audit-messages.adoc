@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review audit messages, how to view audit messages 
 summary: 审核消息可帮助您更好地了解 StorageGRID 系统的详细操作。您可以使用审核日志对问题进行故障排除并评估性能。 
 ---
-= 查看审核消息
+= 查看 StorageGRID 审核消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

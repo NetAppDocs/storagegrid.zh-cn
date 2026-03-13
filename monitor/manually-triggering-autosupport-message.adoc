@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, triggering autosupport, manually triggering autosupport, autosupport triggers 
 summary: 要帮助技术支持解决StorageGRID系统的问题、您可以手动触发要发送的AutoSupport软件包。 
 ---
-= 手动触发AutoSupport软件包
+= 手动触发 StorageGRID AutoSupport 包
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

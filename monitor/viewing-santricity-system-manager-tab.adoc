@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SANtricity System Manager tab, hardware diagnostics 
 summary: 通过 SANtricity 系统管理器选项卡，您可以访问 SANtricity 系统管理器，而无需配置或连接存储设备的管理端口。您可以使用此选项卡查看硬件诊断和环境信息以及与驱动器相关的问题。 
 ---
-= 查看SANtricity系统管理器选项卡(仅限E系列)
+= 查看 StorageGRID SANtricity System Manager 选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: 您可以使用信息板一目了然地监控系统活动。您可以创建自定义信息板来监控StorageGRID 的实施。 
 ---
-= 查看和管理信息板
+= 在 StorageGRID 中查看和管理信息板
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

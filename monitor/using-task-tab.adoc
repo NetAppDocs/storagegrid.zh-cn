@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
 summary: 所有节点均显示“任务”选项卡。您可以使用此选项卡重命名或重新启动节点，或者将设备节点置于维护模式。对于存储节点，您可以设置存储状态。 
 ---
-= 使用任务选项卡
+= 使用 StorageGRID 任务选项卡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

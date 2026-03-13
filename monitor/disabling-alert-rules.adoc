@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: 您可以更改默认或自定义警报规则的启用 / 禁用状态。 
 ---
-= 禁用警报规则
+= 在 StorageGRID 中禁用警报规则
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

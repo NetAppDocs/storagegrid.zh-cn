@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alerts reference 
 summary: 此参考列出了网格管理器中显示的默认警报。建议的操作会显示在您收到的警报消息中。 
 ---
-= 警报参考
+= StorageGRID 中的警报
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

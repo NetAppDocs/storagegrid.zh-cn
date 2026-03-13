@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, verification 
 summary: StorageGRID 系统可以验证存储节点上对象数据的完整性，并检查是否存在损坏和缺失的对象。 
 ---
-= 监控对象验证操作
+= 监控 StorageGRID 中的对象验证操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

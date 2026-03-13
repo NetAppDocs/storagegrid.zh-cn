@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: 您可以监控某些操作的性能，例如对象存储和检索，以帮助确定可能需要进一步调查的更改。 
 ---
-= 监控 PUT 和 GET 性能
+= 监控 StorageGRID 中的 PUT 和 GET 性能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, monitor connection, cross grid replication metrics 
 summary: 您可以监控有关所有网格联合连接的基本信息、有关特定连接的详细信息或有关跨网格复制操作的Prometheus指标。您可以从任一网格监控连接。 
 ---
-= 监控网格联合连接
+= 监控 StorageGRID 网格联合连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
