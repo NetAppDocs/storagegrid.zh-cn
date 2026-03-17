@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to test platform services endpoint connection 
 summary: 如果与平台服务的连接发生更改，您可以测试端点的连接，以验证目标资源是否存在以及是否可以使用您指定的凭据访问它。 
 ---
-= 测试平台服务端点的连接
+= 测试 StorageGRID 平台服务端点的连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

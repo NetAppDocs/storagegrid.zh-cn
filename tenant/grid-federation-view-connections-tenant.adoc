@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: 如果租户帐户具有使用网格联盟连接权限、则可以查看允许的连接。 
 ---
-= 查看网格联合连接
+= 在 StorageGRID 中查看网格联合连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

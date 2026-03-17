@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 object lock 
 summary: 如果存储分段和对象必须符合保留法规要求、则可以使用S3对象锁定。 
 ---
-= 使用S3对象锁定保留对象
+= 使用 S3 Object Lock 将对象保留在 StorageGRID 中
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

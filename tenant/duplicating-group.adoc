@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to duplicate tenant group 
 summary: 您可以通过复制现有组来更快地创建新组。 
 ---
-= 重复的组
+= 复制 StorageGRID 租户组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

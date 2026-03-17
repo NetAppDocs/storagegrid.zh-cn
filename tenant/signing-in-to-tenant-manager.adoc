@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign in to tenant manager 
 summary: 您可以通过在支持的 Web 浏览器的地址栏中输入租户的 URL 来访问租户管理器。 
 ---
-= 登录到租户管理器
+= Sign in 到 StorageGRID 租户管理器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

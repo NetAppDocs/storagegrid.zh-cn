@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to protect against cross-site request forgery, csrf 
 summary: 您可以通过使用 CSRF 令牌增强使用 Cookie 的身份验证，帮助防止 StorageGRID 受到跨站点请求伪造 \ （ CSRF\ ）攻击。网格管理器和租户管理器会自动启用此安全功能；其他 API 客户端可以选择在登录时是否启用此功能。 
 ---
-= 防止跨站点请求伪造（ CSRF ）
+= 防止 StorageGRID 中的跨站请求伪造
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

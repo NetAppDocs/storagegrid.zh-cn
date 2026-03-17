@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to assign ilm policy tag to bucket 
 summary: 根据对象存储要求选择要分配给存储分段的ILM策略标记。 
 ---
-= 将ILM策略标记应用于存储分段
+= 将 ILM 策略标记应用于 StorageGRID 存储区
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

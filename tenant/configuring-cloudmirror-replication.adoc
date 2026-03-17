@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure CloudMirror replication, replication xml 
 summary: 您可以通过创建存储分段复制配置XML并使用租户管理器将XML应用于存储分段来为存储分段启用CloudMirror复制。 
 ---
-= 配置 CloudMirror 复制
+= 在 StorageGRID 中配置 CloudMirror 复制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

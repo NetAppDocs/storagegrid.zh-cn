@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to enable or disable last access time updates 
 summary: 当网格管理员为 StorageGRID 系统创建信息生命周期管理 \ （ ILM ）规则时，他们可以选择指定对象的最后访问时间来确定是否将该对象移动到其他存储位置。如果您使用的是 S3 租户，则可以通过为 S3 存储分段中的对象启用上次访问时间更新来利用此类规则。 
 ---
-= 启用或禁用上次访问时间更新
+= 在 StorageGRID 中启用或禁用上次访问时间更新
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

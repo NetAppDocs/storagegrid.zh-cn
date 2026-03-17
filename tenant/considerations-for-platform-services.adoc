@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: considerations for using platform services 
 summary: 在实施平台服务之前、请查看使用这些服务的概述和注意事项。 
 ---
-= 平台服务概述和注意事项
+= 了解 StorageGRID 的平台服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

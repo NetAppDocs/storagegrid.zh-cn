@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 bucket event notification, sequencer key 
 summary: 如果您希望StorageGRID向目标Kafka集群或Amazon Simple Notification Service发送有关指定事件的通知、则可以为S3存储分段启用事件通知。 
 ---
-= 了解存储分段通知
+= 了解 S3 存储桶的 StorageGRID 事件通知
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

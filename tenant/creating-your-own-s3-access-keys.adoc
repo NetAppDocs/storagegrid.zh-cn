@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create your own S3 access key 
 summary: 如果您使用的是 S3 租户，并且您拥有相应的权限，则可以创建自己的 S3 访问密钥。您必须具有访问密钥才能访问分段和对象。 
 ---
-= 创建您自己的 S3 访问密钥
+= 在 StorageGRID 中创建您自己的 S3 访问密钥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

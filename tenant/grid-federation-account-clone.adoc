@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: '如果创建或编辑了租户以使用网格联合连接、则会将该租户从一个StorageGRID系统\(源租户\)复制到另一个StorageGRID系统\(副本租户\)。复制租户后、添加到源租户的任何组和用户都会克隆到副本租户。' 
 ---
-= 克隆租户组和用户
+= 在 StorageGRID 中克隆租户组和用户
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

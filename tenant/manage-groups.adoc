@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit tenant groups, manage groups, duplicate group, remove group, edit group 
 summary: 根据需要管理租户组以查看、编辑或复制组等。 
 ---
-= 管理组
+= 管理 StorageGRID 租户组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

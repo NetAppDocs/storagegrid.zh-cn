@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure cross-origin resource sharing, cors 
 summary: '如果您希望S3存储分段和该存储分段中的对象可供其他域中的Web应用程序访问、则可以为该存储分段配置跨源站资源共享(CORS\)。' 
 ---
-= 为存储桶和对象配置StorageGRID CORS
+= 在 StorageGRID 中为 S3 存储桶配置 CORS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management permissions 
 summary: 在创建租户组之前，请考虑要分配给该组的权限。租户管理权限用于确定用户可以使用租户管理器或租户管理 API 执行的任务。一个用户可以属于一个或多个组。如果用户属于多个组，则权限是累积的。 
 ---
-= 租户管理权限
+= StorageGRID 租户管理权限
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

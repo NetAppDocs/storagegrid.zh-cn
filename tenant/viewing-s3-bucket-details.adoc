@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view bucket details 
 summary: 您可以查看租户帐户中的存储分段。 
 ---
-= 查看存储分段详细信息
+= 在 StorageGRID 中查看 S3 存储桶详细信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

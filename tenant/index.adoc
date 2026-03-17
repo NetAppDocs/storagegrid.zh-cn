@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use tenant account 
 summary: '租户帐户允许您使用简单存储服务 (S3) REST API 在StorageGRID系统中存储和检索对象。' 
 ---
-= 使用租户帐户
+= 使用 StorageGRID 租户帐户
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

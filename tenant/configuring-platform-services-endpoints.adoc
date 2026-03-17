@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure platform services endpoint 
 summary: 在为存储分段配置平台服务之前，必须至少将一个端点配置为平台服务的目标。 
 ---
-= 配置平台服务端点
+= 在 StorageGRID 中配置平台服务端点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

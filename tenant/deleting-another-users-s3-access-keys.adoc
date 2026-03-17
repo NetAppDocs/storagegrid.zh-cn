@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete access key for other user 
 summary: 如果您使用的是 S3 租户，并且您拥有相应的权限，则可以删除其他用户的 S3 访问密钥。删除访问密钥后，无法再使用它访问租户帐户中的对象和分段。 
 ---
-= 删除其他用户的 S3 访问密钥
+= 在 StorageGRID 中删除其他用户的 S3 访问密钥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

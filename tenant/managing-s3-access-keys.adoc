@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage s3 access key 
 summary: S3 租户帐户的每个用户都必须具有访问密钥，才能在 StorageGRID 系统中存储和检索对象。访问密钥由访问密钥 ID 和机密访问密钥组成。 
 ---
-= 管理 S3 访问密钥
+= 管理 StorageGRID 中的 S3 访问密钥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

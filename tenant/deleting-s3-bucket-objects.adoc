@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete bucket objects, empty bucket 
 summary: 您可以使用租户管理器删除一个或多个存储分段中的对象。 
 ---
-= 删除存储分段中的对象
+= 从 StorageGRID S3 存储桶中删除对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

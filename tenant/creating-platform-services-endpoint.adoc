@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create platform services endpoint 
 summary: 必须至少创建一个正确类型的端点，然后才能启用平台服务。 
 ---
-= 创建平台服务端点
+= 创建 StorageGRID 平台服务端点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

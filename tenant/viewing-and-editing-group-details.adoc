@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit group 
 summary: 查看组的详细信息时，您可以更改组的显示名称，权限，策略以及属于该组的用户。 
 ---
-= 查看和编辑组详细信息
+= 在 StorageGRID 中查看和编辑租户组详细信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

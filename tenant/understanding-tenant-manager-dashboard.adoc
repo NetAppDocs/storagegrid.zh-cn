@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant manager dashboard 
 summary: 租户管理器仪表板概述了租户帐户的配置以及租户 S3 存储桶中对象使用的空间量。如果租户有配额，仪表板会显示已使用的配额量以及剩余的配额量。如果存在与租户帐户相关的任何错误，则错误将显示在仪表板上。 
 ---
-= 了解租户管理器信息板
+= StorageGRID 中的租户管理器信息板
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

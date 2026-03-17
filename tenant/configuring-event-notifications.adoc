@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: 您可以通过创建通知配置XML并使用租户管理器将XML应用于存储分段来为存储分段启用通知。 
 ---
-= 配置事件通知
+= 在 StorageGRID 中配置事件通知
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

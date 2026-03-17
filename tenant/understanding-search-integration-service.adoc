@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand search integration service 
 summary: 如果要对对象元数据使用外部搜索和数据分析服务，则可以为 S3 存储分段启用搜索集成。 
 ---
-= 了解搜索集成服务
+= 了解 StorageGRID 搜索集成服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

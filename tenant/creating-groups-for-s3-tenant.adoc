@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 tenant groups, federated group, local group 
 summary: 您可以通过导入联合组或创建本地组来管理 S3 用户组的权限。 
 ---
-= 为 S3 租户创建组
+= 在 StorageGRID 中为 S3 租户创建组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

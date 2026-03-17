@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: 您可以通过创建搜索集成配置XML并使用租户管理器将XML应用于存储分段来为存储分段启用搜索集成。 
 ---
-= 配置搜索集成服务
+= 在 StorageGRID 中配置搜索集成服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

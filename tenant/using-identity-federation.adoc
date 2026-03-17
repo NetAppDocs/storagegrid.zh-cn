@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Tenant Manager 
 summary: 使用身份联合可以加快租户组和用户的设置速度，并允许租户用户使用熟悉的凭据登录到租户帐户。 
 ---
-= 使用身份联合
+= 在 StorageGRID 中使用身份联合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

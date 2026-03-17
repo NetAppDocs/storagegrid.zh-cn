@@ -17322,7 +17322,6 @@
   <block id="47e4996570d69ff068ff60671d2831d0" category="paragraph">StorageGRID 支持表示 Elasticsearch 集群的搜索集成端点。这些El路径 搜索集群可以位于本地数据中心、也可以托管在AWS云或其他位置。</block>
   <block id="70280c0fd331cc7060d40b039e34ac1c" category="paragraph">搜索集成端点是指特定的 Elasticsearch 索引和类型。您必须先在 Elasticsearch 中创建索引，然后才能在 StorageGRID 中创建端点，否则端点创建将失败。在创建端点之前、无需创建类型。如果需要， StorageGRID 将在向端点发送对象元数据时创建此类型。</block>
   <block id="0c53b83cc351e33afc9e050d328a457c" category="summary">您可以通过创建搜索集成配置XML并使用租户管理器将XML应用于存储分段来为存储分段启用搜索集成。</block>
-  <block id="55540d35fa1d2865733a1b14208f4e52" category="doc">配置搜索集成服务</block>
   <block id="2242d25eae929a4f8b7f0fdc4c15f5d7" category="paragraph">您可以通过创建搜索集成XML并使用租户管理器将XML应用于存储分段来为存储分段启用搜索集成。</block>
   <block id="47302b8d27fdcb93fee5c747107276ab" category="list-text">您已创建要为其内容编制索引的S3存储分段。</block>
   <block id="558688e777a440c2c67fe9fb13c360e9" category="list-text">要用作搜索集成服务目标的端点已存在、并且您具有其URN。</block>
@@ -17365,7 +17364,6 @@
   <block id="c0934887007743a350161dc0c3e22a26" category="section-title">如何在ElASITSEearch中查看结果</block>
   <block id="6f3d77e22eac438569d85870aa135f4f" category="paragraph">对于标记和用户元数据， StorageGRID 会将日期和数字作为字符串或 S3 事件通知传递给 Elasticsearch 。要配置 Elasticsearch 以将这些字符串解释为日期或数字，请按照 Elasticsearch 说明进行动态字段映射和映射日期格式。在配置搜索集成服务之前、请启用索引上的动态字段映射。为文档编制索引后、无法在索引中编辑文档的域类型。</block>
   <block id="b14db5b77e1a2f078235b00abf801308" category="summary">在实施平台服务之前、请查看使用这些服务的概述和注意事项。</block>
-  <block id="074b43a1228c6164371133ab3dd79e9d" category="doc">平台服务概述和注意事项</block>
   <block id="5e8f71ae8b031328e4af794cfc3b1834" category="paragraph">有关S3的信息，请参见<block ref="b2e9605f9891eaecc5b3ed34b309acc3" category="inline-link-macro-rx"></block>。</block>
   <block id="6b9e0655b51cc003d72dda62a76ac87f" category="section-title">平台服务概述</block>
   <block id="2085679f7b2956785f4a636dba4a9446" category="paragraph">StorageGRID 平台服务允许您向外部目标发送事件通知以及S3对象和对象元数据的副本、从而帮助您实施混合云战略。</block>
@@ -17420,7 +17418,6 @@
   <block id="cd58dc4f1b22dbe7f44c0c3fdf02661b" category="paragraph">CloudMirror服务不支持使用SSE-C加密的对象。如果您尝试将对象插入源存储分段以进行CloudMirror复制、并且该请求包含SSE-C请求标头、则操作将失败。</block>
   <block id="586d2b54d8624fc704c1065c450d91a0" category="paragraph">已启用 S3 对象锁定的存储分段</block>
   <block id="0c01979beed7a3785659815e2937513c" category="summary">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以为其他用户创建 S3 访问密钥，例如需要访问存储分段和对象的应用程序。</block>
-  <block id="bc536b11237f545eca6ae7fe572dee33" category="doc">创建其他用户的 S3 访问密钥</block>
   <block id="dee6473ce9341d8d101c80b60543457f" category="list-text">您属于具有的用户组<block ref="ff58269633e0829dd0daa09405c324ca" category="inline-link-macro-rx"></block>。</block>
   <block id="6659618c071587c4ee96bbc9f1fc92db" category="paragraph">您可以为其他用户创建一个或多个 S3 访问密钥，以便他们可以为其租户帐户创建和管理存储分段。创建新的访问密钥后，使用新的访问密钥 ID 和机密访问密钥更新应用程序。为了安全起见、请不要创建超出用户需要的密钥、并删除未使用的密钥。如果只有一个密钥，并且该密钥即将到期，请在旧密钥到期之前创建一个新密钥，然后删除旧密钥。</block>
   <block id="6e2ecf23d102dd9aecee0471ddaada6f" category="paragraph">每个密钥可以有特定的到期时间，也可以无到期时间。请遵循以下到期时间准则：</block>
@@ -17607,7 +17604,6 @@
   <block id="8e268e6dc76d93d703687242642f789a" category="paragraph">此时将显示 Download access key 对话框，其中列出了您的访问密钥 ID 和机密访问密钥。</block>
   <block id="2036f10f40fdbf4e3dc4508f918959f9" category="paragraph">新密钥将列在 " 我的访问密钥 " 页面上。</block>
   <block id="f862aaac43e81ed6106fa80354ded77d" category="summary">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以删除其他用户的 S3 访问密钥。删除访问密钥后，无法再使用它访问租户帐户中的对象和分段。</block>
-  <block id="843f826cc77e915d132e2c6a2d8da5c4" category="doc">删除其他用户的 S3 访问密钥</block>
   <block id="3dfbd1e9f0b101c650a9c889fba0277a" category="paragraph">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以删除其他用户的 S3 访问密钥。删除访问密钥后，无法再使用它访问租户帐户中的对象和分段。</block>
   <block id="f440d1228410dad3efd3ad85ea35334e" category="list-text">您拥有<block ref="ff58269633e0829dd0daa09405c324ca" category="inline-link-macro-rx"></block>。</block>
   <block id="4b08596f7dfce492498c5e22348c326b" category="list-text">从用户页面中、选择要管理其S3访问密钥的用户。</block>
@@ -17616,12 +17612,10 @@
   <block id="b2808442cdaa672faf902968dd1380d4" category="list-text">从确认对话框中，选择*Delete key*。</block>
   <block id="e9cb5c7fc5b74fe577094843e5301fa9" category="paragraph">页面右上角将显示一条确认消息。</block>
   <block id="34a504f70dc04c4538cdb3f529617d2a" category="summary">您可以从系统中删除组。仅属于该组的任何用户将无法再登录到租户管理器或使用租户帐户。</block>
-  <block id="14d65465b75a0ec3382e3a92a4c07188" category="doc">删除组</block>
   <block id="c1f3a0089aeff9fd20f0ea02e1f90d73" category="list-text">您属于具有root访问权限的用户组。请参阅。 <block ref="f7c3e0943faa9295ee168cfab81a25b4" category="inline-link-macro-rx"></block></block>
   <block id="e1d4f994020271fe7c5367972339dafd" category="list-text">选中要删除的每个组对应的复选框。</block>
   <block id="f614591a265d9af89dde188952292abc" category="list-text">选择*删除组*。</block>
   <block id="92b66737d7c75d489324a30414f63a74" category="summary">如果您不想再使用关联的平台服务，可以删除端点。</block>
-  <block id="d05191b114b68223f8dc4b5febf013d0" category="doc">删除平台服务端点</block>
   <block id="1125f5bd6aa638c9b956604b38ac6514" category="list-text">选择 * 存储（ S3 ） * &gt; * 平台服务端点 * 。</block>
   <block id="d2e2bac221b76be92dc7d4b17222be48" category="paragraph">此时将显示平台服务端点页面，其中显示了已配置的平台服务端点列表。</block>
   <block id="6e36ff39eb1d013ff96aeba19dd18495" category="list-text">选中要删除的每个端点对应的复选框。</block>
@@ -17669,7 +17663,6 @@
   <block id="169161600be06f796852813065b364b1" category="admonition">如果在删除所有对象后无法删除分版本存储分段、则删除标记可能会保留下来。要删除存储分段、必须删除所有剩余的删除标记。</block>
   <block id="2803ba93a0f446c1248150e5b14f683e" category="list-text">将存储分段恢复为写入模式、并可选择将其用于新对象。您可以为单个存储分段选择*停止删除对象*，也可以返回到“存储分段”页面，并为多个存储分段选择*操作*&gt;*停止删除对象*。</block>
   <block id="d68e5827256342620c24c843104b561d" category="summary">您可以使用租户管理器删除空的 S3 存储分段。</block>
-  <block id="ea9d38bacba3d18d3f8e81954e73504d" category="doc">删除 S3 存储分段</block>
   <block id="6d275bc3bdc3b7292c41d331d7aaa93c" category="paragraph">您可以使用租户管理器删除一个或多个空的 S3 分段。</block>
   <block id="acca3d6f17b6e6da000d94c6a4fa0d1f" category="inline-link-macro">从存储分段中删除对象</block>
   <block id="9fb1f1912705c815984eac2c5a9d2d36" category="list-text">要删除的存储分段为空。如果要删除的分段为_NOT _空，<block ref="d509a5d364c3146020a3ea111fafe452" category="inline-link-macro-rx"></block>。</block>
@@ -17683,7 +17676,6 @@
   <block id="3185826fe1fa4a83f91183bd6b73a3fd" category="inline-link-macro">删除存储分段中的所有对象和任何删除标记</block>
   <block id="dc7a7afdc2f9a8d56c5db85883e6bd1f" category="paragraph">如果存储分段不为空，则会显示一条错误消息。必须<block ref="ea2a267ac97fad5cea633c7391c940a2" category="inline-link-macro-rx"></block>先删除存储分段。</block>
   <block id="77956401779c763d230f2fb65872c2cb" category="summary">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以删除您自己的 S3 访问密钥。删除访问密钥后，无法再使用它访问租户帐户中的对象和分段。</block>
-  <block id="bb0ea79e1af6bac3ef3395d713bb9bdf" category="doc">删除您自己的 S3 访问密钥</block>
   <block id="176b818a8872d6d4fbcec80ddfe0ed1e" category="inline-link-macro">管理您自己的S3凭据权限</block>
   <block id="7132ba2764c94ec3e216492ae7ed5dd3" category="list-text">您拥有<block ref="782f785af091c51c6d73e3fc3ba2ef0c" category="inline-link-macro-rx"></block>。</block>
   <block id="39ad81051b945f347ba06912d56aeb58" category="list-text">在我的访问密钥页面中、选中要删除的每个访问密钥对应的复选框。</block>
@@ -17793,8 +17785,6 @@
   <block id="29f087a5d9b5d39227f9f0016e49ba36" category="paragraph">只有在创建新组和用户时、才会进行克隆。</block>
   <block id="3e6b74159ee29ecefca7debbb7150a23" category="paragraph">如果编辑或删除任一网格上的组、用户或访问密钥、则所做的更改不会克隆到另一个网格。</block>
   <block id="bafe1d9678af2611f51ea58335962c1d" category="image-alt">显示编辑或删除的详细信息不会克隆的图像</block>
-  <block id="3e3f958f2bc97edde0718c97418b1368" category="summary">如果租户帐户具有使用网格联合连接权限、则可以使用租户管理API手动将S3访问密钥从源网格上的租户克隆到目标网格上的租户。</block>
-  <block id="bb527167a59109590f43f1e1b56a7b28" category="paragraph">如果您的租户帐户具有*使用网格联合连接*权限、则可以使用租户管理API将S3访问密钥从源网格上的租户手动克隆到目标网格上的租户。</block>
   <block id="5bb81b4f3e4729e3b0cadca93add9566" category="list-text">租户帐户具有*使用网格联合连接*权限。</block>
   <block id="f2be10ba7307eda79ac8038d4cb7cb63" category="list-text">网格联合连接的*连接状态*为*已连接*。</block>
   <block id="c9a0397fc9cedf2c36b17af3f5dc8b74" category="list-text">您已使用登录到租户源网格上的租户管理器<block ref="adf24c7e4de4f7fbefe34dbdfdb455df" category="inline-link-macro-rx"></block>。</block>
@@ -17826,7 +17816,6 @@
   <block id="8babef5a08f1090bc84c9f4479a2aac6" category="list-text">在*userId*文本框中，粘贴您复制的用户ID。</block>
   <block id="90c19f8ef1c25992477fa32532ed5944" category="list-text">在*body文本框中，将*示例访问密钥*和*机密访问密钥*的示例条目替换为该用户的*.csv文件中的值。</block>
   <block id="9f37d1da4a061af54be75de0282a5c85" category="list-text">如果密钥将过期，请将*expires*的示例条目替换为ISO 8601数据时间格式的字符串(例如<block ref="eba422c864b5c8bde1b76a7f92289f77" prefix=" " category="inline-code"></block>)。如果密钥不会过期，请输入*null*作为*expires*条目的值(或删除*expires*行和前面的逗号)。</block>
-  <block id="7c86cc93ae3cba8d36be71b9aba2dce6" category="summary">如果在创建租户帐户时为其分配了使用网格联合连接权限、则可以使用跨网格复制在租户源网格上的分段与租户目标网格上的分段之间自动复制对象。跨网格复制可以在一个方向或两个方向上进行。</block>
   <block id="7f33246725be9bf16aef4148ddf393c6" category="paragraph">如果在创建租户帐户时为其分配了*使用网格联合连接*权限、则可以使用跨网格复制在租户源网格上的分段和租户目标网格上的分段之间自动复制对象。跨网格复制可以在一个方向或两个方向上进行。</block>
   <block id="741b8279f1302f886e4fd5f578844359" category="section-title">配置跨网格复制</block>
   <block id="b612cfc230e39c57216f683b349d91c4" category="inline-link-macro">什么是跨网格复制</block>
@@ -17888,7 +17877,6 @@
   <block id="d84f81d5b0c27ec67a5bb4cb0030d56f" category="paragraph">应启用成员和精简覆盖。有关详细信息，请参见 _OpenLDAP 软件管理员指南 _ 中有关反向组成员资格维护的说明。</block>
   <block id="5fcd64082110eee21fa5b1e4d9cc4ca8" category="paragraph">请参见 _OpenLDAP 软件管理员指南 _ 中有关反向组成员资格维护的信息。</block>
   <block id="2ed029727e9e1bc0d18cd3c03c6d7df3" category="summary">根据对象存储要求选择要分配给存储分段的ILM策略标记。</block>
-  <block id="181a71c013a254048400559be8ea4bcc" category="doc">将ILM策略标记应用于存储分段</block>
   <block id="eda0df16431f2826430248a9a8491ecf" category="paragraph">根据对象存储要求选择要应用于存储分段的ILM策略标记。</block>
   <block id="e51e456a3f2e1940eb24b4f6c7f0414c" category="paragraph">ILM策略控制对象数据的存储位置以及是否在特定时间段后将其删除。网格管理员创建ILM策略、并在使用多个活动策略时将其分配给ILM策略标记。</block>
   <block id="b5630667fb2186165e810b6ea7e8c9db" category="admonition">避免频繁重新分配存储分段的策略标记。否则、可能会发生性能问题。</block>
@@ -18169,7 +18157,6 @@
   <block id="d42ba2c13f6dcf5824d2f5fb58b63866" category="list-text">选择要测试其连接的端点。</block>
   <block id="39c8bc096cfa5d669099b0f4accfd4b1" category="list-text">如果端点验证失败，则会显示一条错误消息。如果需要修改端点以更正错误，请选择 * 配置 * 并更新信息。然后，选择 * 测试并保存更改 * 。</block>
   <block id="408a7b66bbd246083e57f4197e4746e1" category="summary">如果在StorageGRID 尝试与平台服务端点通信时发生错误、则信息板上会显示一条消息。在平台服务端点页面上，最后一个错误列指示错误发生多长时间前。如果与端点凭据关联的权限不正确，则不会显示任何错误。</block>
-  <block id="7044730cb78e9ea3860ddf518088008c" category="doc">解决平台服务端点错误</block>
   <block id="9c982a19d6fdc187f97043d984a72661" category="paragraph">如果在StorageGRID 尝试与平台服务端点通信时发生错误、则信息板上会显示一条消息。在平台服务端点页面上，最后一个错误列指示错误发生多长时间前。如果与端点凭据关联的权限不正确，则不会显示任何错误。</block>
   <block id="c12c2c1cc8ea46511a483fb5a6d1c070" category="section-title">确定是否发生错误</block>
   <block id="4f1dafee9d37267a18ea02d253ff84a4" category="paragraph">如果在过去7天内发生任何平台服务端点错误、租户管理器信息板将显示警报消息。您可以转到平台服务端点页面以查看有关此错误的更多详细信息。</block>
@@ -18193,7 +18180,6 @@
   <block id="7bb7ebe219ce1090cec75cf4902abbc3" category="list-text"><block ref="7bb7ebe219ce1090cec75cf4902abbc3" category="inline-link-macro-rx"></block></block>
   <block id="43aab7e8adaba92684eec620e46562da" category="list-text"><block ref="43aab7e8adaba92684eec620e46562da" category="inline-link-macro-rx"></block></block>
   <block id="62b89835dbc5d5e41e893c3222ded103" category="summary">如果您希望 StorageGRID 将添加到 S3 存储分段的指定对象复制到一个或多个目标存储分段，则可以为该存储分段启用 CloudMirror 复制。</block>
-  <block id="081953bd5bc4a6e7860108a4e8b11693" category="doc">了解CloudMirror复制服务</block>
   <block id="703f5b5c088ceb36bf533489d1f82173" category="paragraph">如果您希望StorageGRID将添加到S3存储分段的指定对象复制到一个或多个外部目标存储分段、则可以为该存储分段启用CloudMirror复制。</block>
   <block id="76348af95a46be0c11358b8b303d6e71" category="section-title">CloudMirror和ILM</block>
   <block id="653d5ccc53000760837cace0c13da000" category="paragraph">CloudMirror复制独立于网格的活动ILM策略运行。CloudMirror 服务会在将对象存储到源存储分段时复制这些对象，并尽快将其交付到目标存储分段。对象载入成功后，系统将触发复制对象的传送。</block>
@@ -18237,7 +18223,6 @@
   <block id="3463f62447a0bf257d0a7ab79da8168a" category="paragraph">_不包括_</block>
   <block id="73578a9ef58da464f85f6223b683299a" category="paragraph">ARN</block>
   <block id="7096f60758fdbd30925758159ed39fea" category="summary">如果要对对象元数据使用外部搜索和数据分析服务，则可以为 S3 存储分段启用搜索集成。</block>
-  <block id="8b14b490b626944c517ba24bbb1b6de8" category="doc">了解搜索集成服务</block>
   <block id="4904b728a6556ae33866173f754dc3b4" category="paragraph">搜索集成服务是一种自定义StorageGRID服务、每当创建或删除对象或更新其元数据或标记时、该服务都会自动异步将S3对象元数据发送到目标端点。然后，您可以使用目标服务提供的复杂搜索，数据分析，可视化或机器学习工具来搜索，分析对象数据并从中获得洞察力。</block>
   <block id="2bfea1a6ab1fbebf688b70c37d696af7" category="paragraph">虽然可以在启用了S3对象锁定的存储分段上配置Ela才 搜索集成、但对象的S3对象锁定元数据(包括"保留到日期"和"合法保留状态")不会包含在发送到Ela才 搜索的元数据中。</block>
   <block id="9a9ac91cb52c78daec467108d21dac36" category="admonition">由于搜索集成服务会将对象元数据发送到目标、因此其配置XML称为"_metadata_Notification configuration XML"。此配置XML与用于启用_event_通知的"通知配置XML"不同。</block>
@@ -18282,7 +18267,6 @@
   <block id="45d927b36e21fce4e53e799a571fbc87" category="paragraph">展开每个 API 操作时，您可以看到其 HTTP 操作，端点 URL ，任何必需或可选参数的列表，请求正文示例（如果需要）以及可能的响应。</block>
   <block id="d9ff8d9608415845ca809cea292fbf0f" category="image-alt">示例显示了 Swagger API 中的 GET 组操作</block>
   <block id="dcac6d400f4607e6df828be4a3292372" category="list-text">选择 HTTP 操作以查看请求详细信息。</block>
-  <block id="ccd6af9d7d8f56b6a39ef9a2c21ca012" category="doc">了解租户管理器信息板</block>
   <block id="b9fec24de2bcea8d5cdc4de03cbcef23" category="paragraph">上载对象后、信息板将类似于以下示例：</block>
   <block id="d3ab39c9047a0b7da5b2e5880d915132" category="image-alt">信息板—存储分段列表</block>
   <block id="c554d75f52a3ffe4071e8194edd4fdd9" category="section-title">租户帐户信息</block>
@@ -18377,7 +18361,6 @@
   <block id="b816f5da7ad8c9edd0905ba4a6b6c25f" category="list-text">监控存储使用情况</block>
   <block id="21217e61196287c1acd298a0ab6407ca" category="admonition">虽然您可以使用租户管理器创建和管理 S3 存储分段，但您必须具有 S3 访问密钥，并使用 S3 REST API 载入和管理对象。</block>
   <block id="f99bcff4802a0725a409b4d01f8a5f72" category="summary">查看组的详细信息时，您可以更改组的显示名称，权限，策略以及属于该组的用户。</block>
-  <block id="86345c4000315c5e7a12d616e7eb125d" category="doc">查看和编辑组详细信息</block>
   <block id="24d94c1c099c935d64f8486e90acd9f8" category="paragraph">查看组的详细信息时，您可以更改组的显示名称，权限，策略以及属于该组的用户。</block>
   <block id="cbc9b74693bc0eab71eed1c3c08a606e" category="list-text">您属于具有root访问权限的用户组。</block>
   <block id="652f90e1e0cd7330da486f754aa40aee" category="list-text">选择要查看或编辑其详细信息的组的名称。</block>
@@ -18394,7 +18377,6 @@
   <block id="ee469dae7249241b12419dd52beb55a5" category="list-text">确认您已为更改的每个部分选择 * 保存更改 * 。</block>
   <block id="d0b888ff39cbfcc51e735bb1848a9134" category="list-text"><block ref="d0b888ff39cbfcc51e735bb1848a9134" category="inline-link-macro-rx"></block></block>
   <block id="9db3e1de39257664b9a85df9c0c29eef" category="summary">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以查看其他用户的 S3 访问密钥。您可以按到期时间对列表进行排序，以便确定哪些密钥不久将过期。您可以根据需要创建新密钥并删除不再使用的密钥。</block>
-  <block id="7a672f32d33bc838fc1e06444d5c89ff" category="doc">查看其他用户的 S3 访问密钥</block>
   <block id="8cd4d4d3439c786e5d1b46c88e72f0ae" category="paragraph">如果您使用的是 S3 租户，并且您拥有相应的权限，则可以查看其他用户的 S3 访问密钥。您可以按到期时间对列表进行排序，以便确定哪些密钥不久将过期。您可以根据需要创建新密钥并删除不再使用的密钥。</block>
   <block id="5343956a632ade358c04b86b10480aca" category="list-text">从用户页面中、选择要查看其S3访问密钥的用户。</block>
   <block id="881a90178bb005d8f93ca7fbf55a0d71" category="list-text">从“用户详细信息”页面中，选择*访问密钥*。</block>
@@ -21643,7 +21625,6 @@
   <block id="73938cc723a5aea85bd220cb6a207618" category="inline-link-macro">创建新的分支存储桶或管理分支存储桶</block>
   <block id="b4f6e915d8fa8e71ea02fb1915053cdd" category="list-text">*分支*：查看存储桶的分支存储桶列表。<block ref="1a9dc1c0eefc68b8131338ff63d40c6e" category="inline-link-macro-rx"></block> 。</block>
   <block id="16d9ebd4e5d32b1a985bee01f72d4ad2" category="summary">分支存储桶提供对存储桶中在特定时间存在的对象的访问。</block>
-  <block id="b12dc1209df73aaafdc71de9b787d5a5" category="doc">什么是分支桶？</block>
   <block id="9279cc67ec1f4651209e368f0040216f" category="paragraph">您可以从现有存储桶创建分支存储桶。创建分支存储桶后，创建该存储桶的原始存储桶称为_基本存储桶_。此外，您可以从另一个分支存储桶创建一个分支存储桶。</block>
   <block id="ed28b9d565fdebf6bee61534502734c0" category="paragraph">分支存储桶提供对受保护数据的访问，但不作为备份。要继续保护数据，请在基本存储桶上使用这些功能：</block>
   <block id="8a938a86eccd0a894b595bf104e4ebcf" category="list-text"><block ref="8a938a86eccd0a894b595bf104e4ebcf" category="inline-link-macro-rx"></block></block>
@@ -22368,4 +22349,63 @@
   <block id="48c30909d9f0243c276dd341dc3fc8b2" category="doc">查看 StorageGRID 平台服务选项卡</block>
   <block id="e0690abb592b8f7ab4c32d62d13d9791" category="doc">查看 StorageGRID SANtricity System Manager 选项卡</block>
   <block id="9ef07a976193836337ebc26e151e35f5" category="doc">查看 StorageGRID Storage 选项卡</block>
+  <block id="bd2f724adb35a82cea2f5ecd79ebad8a" category="doc">更改 StorageGRID 中 S3 存储桶的对象版本控制</block>
+  <block id="2cabad23568d5c47dd64f02830580b6f" category="doc">在 StorageGRID 中配置 CloudMirror 复制</block>
+  <block id="a91a1f0a6077ec6d73dccd70222e7a57" category="doc">在 StorageGRID 中为 S3 存储桶配置 CORS</block>
+  <block id="0b9bffcb659b50993544ef2d0b79827c" category="doc">在 StorageGRID 中配置事件通知</block>
+  <block id="52d3109eea56bd7b3f8e4c81497edbbb" category="doc">在 StorageGRID 中配置平台服务端点</block>
+  <block id="dface43082b84c37d12d47e66575c58b" category="doc">在 StorageGRID 中配置搜索集成服务</block>
+  <block id="4020fe4dad0ad5bc84068612406cc18f" category="doc">了解 StorageGRID 的平台服务</block>
+  <block id="bd6b26618f1ad52474882d1aa677a21d" category="doc">在 StorageGRID 中创建其他用户的 S3 访问密钥</block>
+  <block id="b06b18c965f87b57a3066c9ef1ce5d66" category="doc">在 StorageGRID 中为 S3 租户创建组</block>
+  <block id="2483fdaa9dc223efd73ca8a40cf4df58" category="doc">创建 StorageGRID 平台服务端点</block>
+  <block id="5d0d5b652fd42dbcdb8367ca8e09dadd" category="doc">创建 StorageGRID S3 存储桶</block>
+  <block id="97e6dac3878e30c08ff5054d9c1460a1" category="doc">在 StorageGRID 中创建您自己的 S3 访问密钥</block>
+  <block id="7f4e24996947b1457d1355dc344edf9c" category="doc">在 StorageGRID 中删除其他用户的 S3 访问密钥</block>
+  <block id="eb2815ae569e1f4d6112e7f5702d1a2e" category="doc">删除 StorageGRID 租户组</block>
+  <block id="457dc930aaf74333c46a01bde3efe212" category="doc">删除 StorageGRID 平台服务端点</block>
+  <block id="e6aa606cf8e1a86017b018c1dda5e67c" category="doc">从 StorageGRID S3 存储桶中删除对象</block>
+  <block id="da8b474f349e80bf4c7bd46261a3a505" category="doc">删除 StorageGRID S3 存储桶</block>
+  <block id="e9456e468ef140ec2dc85ecffa2ebf10" category="doc">在 StorageGRID 中删除您自己的 S3 访问密钥</block>
+  <block id="3612cb0b1e1c5c9b3b0dc1ef9a4a39d8" category="doc">复制 StorageGRID 租户组</block>
+  <block id="69af8bae47b353534b3185101037fe8c" category="doc">在 StorageGRID 中编辑租户组名称</block>
+  <block id="068dfabb498a4564a1873637b31da94d" category="doc">在 StorageGRID 中编辑平台服务端点</block>
+  <block id="25dba9d4ec9a2ab890af78c79c865647" category="doc">在 StorageGRID 中启用或禁用上次访问时间更新</block>
+  <block id="03663df1acf5ce9bfdf92fb65ff93916" category="doc">在 StorageGRID 中克隆租户组和用户</block>
+  <block id="92ec3f63910a331079fc274f5ec99ea5" category="summary">如果您的 StorageGRID 租户帐户具有使用网格联合连接权限，则可以使用租户管理 API 手动克隆 S3 访问密钥。</block>
+  <block id="98babc6d00c41d888edc37920e687867" category="doc">使用租户管理 API 在 StorageGRID 网格之间克隆 S3 访问密钥</block>
+  <block id="a9f0c5549315a2d2a578fa8cfd0833a1" category="paragraph">如果您的 StorageGRID 租户帐户具有 *Use grid federation connection* 权限，您可以使用 Tenant Management API 手动将 S3 访问密钥从源网格上的租户克隆到目标网格上的租户。</block>
+  <block id="46be0dfc6c8fd19ae5935653375d6a94" category="summary">如果您的租户帐户在创建时分配了 Use grid federation connection 权限，则可以使用跨网格复制在租户源网格上的存储桶和租户目标网格上的存储桶之间自动复制对象。跨网格复制可以在一个方向或两个方向上发生。</block>
+  <block id="a9e461162e149e61e9e36bd63b8594a6" category="doc">在 StorageGRID 中管理跨网格复制</block>
+  <block id="c05e5de61f19f47f980a52e070430520" category="doc">在 StorageGRID 中查看网格联合连接</block>
+  <block id="735e364e820c437ba56b5056f6923140" category="doc">为 StorageGRID 配置 OpenLDAP 服务器</block>
+  <block id="d80824dfb7e382a8ae70f097f3a09ce7" category="doc">将 ILM 策略标记应用于 StorageGRID 存储区</block>
+  <block id="51d390547fc2bcca543a90253fefa1c6" category="doc">管理 StorageGRID 分支存储桶</block>
+  <block id="37ae7f85ac366f3cd19e599e818ad6ea" category="doc">管理 StorageGRID 存储桶一致性</block>
+  <block id="8b555453789ff8cd75d36278404bb379" category="doc">管理 StorageGRID 存储桶策略</block>
+  <block id="aa5959bb56eaf516cd572eeb4e16acbb" category="doc">管理 StorageGRID 租户组</block>
+  <block id="91631b741450282a8cddad69b56596a9" category="doc">管理 StorageGRID 租户用户</block>
+  <block id="44303b058f2c17de07e426ab802f15af" category="doc">管理 StorageGRID 中的 S3 访问密钥</block>
+  <block id="290bfa7ff783f74c3c2768a78a5ba488" category="doc">防止 StorageGRID 中的跨站请求伪造</block>
+  <block id="81d44ebfd4106f6007dcbfe959934799" category="doc">Sign in 到 StorageGRID 租户管理器</block>
+  <block id="b514241b2eea00deb84793fc40120eb7" category="doc">Sign out StorageGRID 租户管理器</block>
+  <block id="649f1be2b5228ef74eaa5ebe406ca746" category="doc">为 StorageGRID 平台服务端点指定 URN</block>
+  <block id="8c28de72148003e19319e14c23b3fdcf" category="doc">StorageGRID 租户管理 API 版本控制</block>
+  <block id="a94c4452e32e85a5ce4eca50b1f6d0d1" category="doc">StorageGRID 租户管理权限</block>
+  <block id="c9a9bdddfb7dfd3afdf638d8c5c9b3a5" category="doc">测试 StorageGRID 平台服务端点的连接</block>
+  <block id="e635fa36824cbdf57c36070132d5409b" category="doc">StorageGRID 平台服务端点错误故障排除</block>
+  <block id="3ffb725a43ddf5adc5954b827599858f" category="doc">了解 StorageGRID CloudMirror 复制服务</block>
+  <block id="06a64591a24dfcc1a49eb88145cbae26" category="doc">了解 S3 存储桶的 StorageGRID 事件通知</block>
+  <block id="f0ec93a09db400a91287a0ce6c7d8bd2" category="doc">了解 StorageGRID 搜索集成服务</block>
+  <block id="f29e9ae4f9640b23185d6c624b4e65e1" category="doc">了解 StorageGRID 租户管理 API</block>
+  <block id="f259211db800d1d9ddc956527ab3f184" category="doc">StorageGRID 中的租户管理器信息板</block>
+  <block id="b9489a3acba48c067fd4a222efd0a6f5" category="doc">在 StorageGRID 中更新 S3 对象锁定默认保留</block>
+  <block id="1420d5a3ed23e510d16d693105645853" category="doc">在 StorageGRID 中使用 S3 Console</block>
+  <block id="776f3e282f5c893fbf7475ec5a1a3625" category="doc">在 StorageGRID 中使用身份联合</block>
+  <block id="db4a4660d455265b280fbe74a92a21c8" category="doc">使用 S3 Object Lock 将对象保留在 StorageGRID 中</block>
+  <block id="3159bfe96bfe22a981c399305ddb22dd" category="doc">在 StorageGRID 中查看和编辑租户组详细信息</block>
+  <block id="586427d9b0970c8ee3b4fce81c6da3ad" category="doc">在 StorageGRID 中查看其他用户的 S3 访问密钥</block>
+  <block id="f40a55c0d5bad60e482775a25489f06c" category="doc">在 StorageGRID 中查看 S3 存储桶详细信息</block>
+  <block id="b22f7d114de368da75382e3ea65641ab" category="doc">在 StorageGRID 中查看您的 S3 访问密钥</block>
+  <block id="8855a1b3676ebebbe2660e6a7092a78f" category="doc">了解 StorageGRID 分支存储桶</block>
 </blocks>

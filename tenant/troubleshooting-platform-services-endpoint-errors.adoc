@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot platform services endpoint 
 summary: 如果在StorageGRID 尝试与平台服务端点通信时发生错误、则信息板上会显示一条消息。在平台服务端点页面上，最后一个错误列指示错误发生多长时间前。如果与端点凭据关联的权限不正确，则不会显示任何错误。 
 ---
-= 解决平台服务端点错误
+= StorageGRID 平台服务端点错误故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

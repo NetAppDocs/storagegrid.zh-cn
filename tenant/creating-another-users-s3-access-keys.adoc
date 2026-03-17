@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create other user S3 access key 
 summary: 如果您使用的是 S3 租户，并且您拥有相应的权限，则可以为其他用户创建 S3 访问密钥，例如需要访问存储分段和对象的应用程序。 
 ---
-= 创建其他用户的 S3 访问密钥
+= 在 StorageGRID 中创建其他用户的 S3 访问密钥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

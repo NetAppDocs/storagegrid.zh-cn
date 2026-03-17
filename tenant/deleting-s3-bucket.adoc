@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 bucket 
 summary: 您可以使用租户管理器删除空的 S3 存储分段。 
 ---
-= 删除 S3 存储分段
+= 删除 StorageGRID S3 存储桶
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

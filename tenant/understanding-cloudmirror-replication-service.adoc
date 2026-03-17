@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloudmirror replication 
 summary: 如果您希望 StorageGRID 将添加到 S3 存储分段的指定对象复制到一个或多个目标存储分段，则可以为该存储分段启用 CloudMirror 复制。 
 ---
-= 了解CloudMirror复制服务
+= 了解 StorageGRID CloudMirror 复制服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

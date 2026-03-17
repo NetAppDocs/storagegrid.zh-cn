@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 bucket 
 summary: 您可以使用租户管理器为对象数据创建 S3 分段。 
 ---
-= 创建 S3 存储区。
+= 创建 StorageGRID S3 存储桶
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view other user access key 
 summary: 如果您使用的是 S3 租户，并且您拥有相应的权限，则可以查看其他用户的 S3 访问密钥。您可以按到期时间对列表进行排序，以便确定哪些密钥不久将过期。您可以根据需要创建新密钥并删除不再使用的密钥。 
 ---
-= 查看其他用户的 S3 访问密钥
+= 在 StorageGRID 中查看其他用户的 S3 访问密钥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
