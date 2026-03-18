@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore metrics, restore prometheus, primary admin node 
 summary: 或者，您也可以在出现故障的主管理节点上保留 Prometheus 维护的历史指标。只有当您的 StorageGRID 系统包含另一个管理节点时，才能还原 Prometheus 指标。 
 ---
-= 恢复主管理节点时还原 Prometheus 指标
+= 恢复主 StorageGRID 管理节点时还原 Prometheus 指标
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit log, copy audit log, copying audit log, non-primary admin node, non primary admin node 
 summary: 如果您能够从出现故障的管理节点复制审核日志，则应保留这些日志以维护网格中的系统活动和使用情况记录。您可以在恢复的非主管理节点启动并运行后将保留的审核日志还原到该节点。 
 ---
-= 从出现故障的非主管理节点复制审核日志
+= 从失败的非主 StorageGRID 管理节点复制审核日志
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

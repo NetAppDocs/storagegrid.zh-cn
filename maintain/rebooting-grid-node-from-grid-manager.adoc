@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot grid node, tasks tab 
 summary: 您可以从节点页面上的任务选项卡重新启动单个网格节点。 
 ---
-= 从任务选项卡重新启动网格节点
+= 从任务选项卡重新启动 StorageGRID 节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

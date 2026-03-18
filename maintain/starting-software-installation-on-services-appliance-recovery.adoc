@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, services appliance, start software installation 
 summary: 要在服务设备上安装网关节点或管理节点、请使用该设备中提供的StorageGRID设备安装程序。 
 ---
-= 开始在服务设备上安装软件
+= 在服务设备上启动 StorageGRID 软件安装
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

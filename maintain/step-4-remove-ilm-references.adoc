@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove ilm reference 
 summary: '从停用站点向导的第4步(删除ILM参考)开始、您必须删除或编辑引用该站点的任何未使用的ILM规则、即使这些规则未在任何ILM策略中使用也是如此。' 
 ---
-= 第 4 步：删除 ILM 引用
+= 删除 StorageGRID 中对站点的 ILM 引用
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

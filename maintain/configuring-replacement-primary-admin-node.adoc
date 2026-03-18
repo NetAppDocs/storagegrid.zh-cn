@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: 必须将替代节点配置为 StorageGRID 系统的主管理节点。 
 ---
-= 配置替代主管理节点
+= 在 StorageGRID 中配置替换主管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

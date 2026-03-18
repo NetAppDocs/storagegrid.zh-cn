@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
 summary: 您必须完成一系列任务，才能恢复基于软件的存储节点，如果此存储节点上的一个或多个存储卷发生故障，但系统驱动器完好无损。如果只有存储卷发生故障，则存储节点仍可供 StorageGRID 系统使用。 
 ---
-= 从系统驱动器完好无损的存储卷故障中恢复
+= 从系统驱动器完好无损的 StorageGRID 存储卷故障中恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

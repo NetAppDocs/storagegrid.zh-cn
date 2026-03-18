@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, storage node failure, Reaper 
 summary: 用于恢复故障存储节点的操作步骤 取决于故障类型和故障存储节点的类型。 
 ---
-= 从存储节点故障中恢复
+= 从 StorageGRID 存储节点故障中恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

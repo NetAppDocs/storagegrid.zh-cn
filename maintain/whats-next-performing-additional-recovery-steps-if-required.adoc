@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, corrective action, additional recovery 
 summary: 根据您为使 StorageGRID 节点在替代主机上运行而采取的特定操作，您可能需要对每个节点执行其他恢复步骤。 
 ---
-= 下一步操作：如果需要，执行其他恢复步骤
+= 执行其他 StorageGRID 节点恢复步骤
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

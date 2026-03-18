@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, procedure 
 summary: 您必须为出现故障的节点类型选择正确的恢复操作步骤 。 
 ---
-= 选择节点恢复操作步骤
+= 选择 StorageGRID 节点恢复过程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

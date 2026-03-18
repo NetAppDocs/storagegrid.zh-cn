@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop server manager, stop all services, stop services 
 summary: Server Manager 可始终运行，但您可能需要停止 Server Manager 以及网格节点上运行的所有服务。 
 ---
-= 停止 Server Manager 和所有服务
+= 停止 StorageGRID Server Manager 和所有服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

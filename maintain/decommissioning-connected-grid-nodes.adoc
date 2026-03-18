@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: 您可以停用并永久删除连接到网格的节点。 
 ---
-= 停用已连接的网格节点
+= 停用连接的 StorageGRID 节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

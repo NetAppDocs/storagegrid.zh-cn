@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, node recovery, storage state 
 summary: 恢复设备存储节点后，您必须验证设备存储节点的所需状态是否设置为联机，并确保每当重新启动存储节点服务器时，此状态默认为联机。 
 ---
-= 恢复设备存储节点后检查存储状态
+= 恢复 StorageGRID 设备存储节点后检查存储状态
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

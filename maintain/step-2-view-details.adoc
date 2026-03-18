@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, view details 
 summary: '从 " 弃用站点 " 向导的第 2 步 \ （查看详细信息 \ ）中，您可以查看站点中包含的节点，查看每个存储节点上已使用的空间量，并评估网格中其他站点上的可用空间量。' 
 ---
-= 第 2 步：查看详细信息
+= 在 StorageGRID 中停用前查看站点详细信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

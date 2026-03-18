@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, hotfix 
 summary: 恢复主管理节点后、确定是否需要应用修补程序。 
 ---
-= 确定主管理节点的修补程序要求
+= 确定 StorageGRID 中主管理节点的修补程序要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

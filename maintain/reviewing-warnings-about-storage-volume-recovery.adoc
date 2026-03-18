@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: 在恢复存储节点的故障存储卷之前，您必须查看以下警告。 
 ---
-= 存储卷恢复警告
+= StorageGRID 存储卷恢复警告
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

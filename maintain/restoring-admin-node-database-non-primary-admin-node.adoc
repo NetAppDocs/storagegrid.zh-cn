@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore admin node database, restore database, non-primary admin node 
 summary: 如果要保留有关发生故障的非主管理节点上的属性和警报的历史信息、您可以从主管理节点还原管理节点数据库。 
 ---
-= 恢复非主管理节点时还原管理节点数据库
+= 在恢复非主管理节点时还原 StorageGRID 管理节点数据库
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

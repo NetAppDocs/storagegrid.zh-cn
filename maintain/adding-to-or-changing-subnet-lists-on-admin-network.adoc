@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, admin network 
 summary: 您可以在管理网络子网列表中添加，删除或更改一个或多个节点的子网。 
 ---
-= 在管理网络上添加或更改子网列表
+= 在 StorageGRID 中添加或更改管理网络上的子网列表
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

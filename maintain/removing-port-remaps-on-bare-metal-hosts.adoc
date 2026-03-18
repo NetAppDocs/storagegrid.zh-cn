@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
 summary: 如果要为负载平衡器服务配置端点，并且要使用已配置为端口重新映射的映射到端口的端口，则必须先删除现有端口重新映射，否则此端点将无效。 
 ---
-= 删除裸机主机上的端口重新映射
+= 删除裸机主机上的 StorageGRID 端口重映射
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

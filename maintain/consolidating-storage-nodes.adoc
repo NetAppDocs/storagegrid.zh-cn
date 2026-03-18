@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
 summary: 您可以整合存储节点以减少站点或部署的存储节点数，同时增加存储容量。 
 ---
-= 整合存储节点
+= 整合 StorageGRID 存储节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

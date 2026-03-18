@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, dns, modify dns 
 summary: 您可以运行一个脚本来为每个网格节点配置不同的DNS、而不是为整个部署全局配置DNS。 
 ---
-= 修改单网格节点的 DNS 配置
+= 修改单个 StorageGRID 节点的 DNS 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

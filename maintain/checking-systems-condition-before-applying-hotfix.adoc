@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: 您必须验证系统是否已准备好容纳此修补程序。 
 ---
-= 在应用修补程序之前，请检查系统的状况
+= 在应用 StorageGRID 修补程序之前检查系统状况
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

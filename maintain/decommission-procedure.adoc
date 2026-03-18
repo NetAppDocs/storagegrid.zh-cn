@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to decommission 
 summary: 您可以执行停用操作步骤 ，以便从 StorageGRID 系统中永久删除网格节点或整个站点。 
 ---
-= 停用节点或站点
+= 停用 StorageGRID 节点或站点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

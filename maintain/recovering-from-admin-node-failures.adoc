@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, admin node failure, workflow 
 summary: 管理节点的恢复过程取决于它是主管理节点还是非主管理节点。 
 ---
-= 主或非主管理节点恢复
+= StorageGRID 中的主管理节点或非主管理节点恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

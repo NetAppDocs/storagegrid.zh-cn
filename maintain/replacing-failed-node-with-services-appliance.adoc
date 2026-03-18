@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace failed node, services appliance 
 summary: 您可以使用服务设备恢复VMware、Linux主机或服务设备上托管的发生故障的网关节点、发生故障的非主管理节点或发生故障的主管理节点。此操作步骤 是网格节点恢复操作步骤 的一个步骤。 
 ---
-= 将故障节点更换为服务设备
+= 将失败的 StorageGRID 节点替换为服务设备
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

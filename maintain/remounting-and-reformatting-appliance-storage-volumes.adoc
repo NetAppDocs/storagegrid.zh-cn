@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount appliance storage volume, remount volume, remounting appliance storage volume, remounting volume, reformat appliance storage volume, reformat volume, reformatting appliance storage volume, reformatting volume 
 summary: 您必须手动运行两个脚本，才能重新挂载保留的存储卷并重新格式化任何发生故障的存储卷。第一个脚本将重新挂载格式正确的卷，使其格式化为 StorageGRID 存储卷。第二个脚本将重新格式化所有已卸载的卷，根据需要重新构建 Cassandra 数据库并启动服务。 
 ---
-= 重新挂载并重新格式化设备存储卷(手动步骤)
+= 重新挂载并重新格式化 StorageGRID 设备存储卷（手动步骤）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

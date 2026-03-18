@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, trunk interface, access interface 
 summary: 安装 Linux 节点后，您可以向该节点添加额外的中继或访问接口。添加的接口将显示在 VLAN 接口页面和 HA 组页面上。 
 ---
-= Linux ：向节点添加中继或访问接口
+= 向 StorageGRID 中的 Linux 节点添加中继或访问接口
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

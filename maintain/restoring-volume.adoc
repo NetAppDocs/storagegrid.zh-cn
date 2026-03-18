@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: 您可以使用网格管理器还原发生故障的存储卷或存储节点的对象数据。您还可以使用网格管理器监控正在进行的还原过程并显示还原历史记录。 
 ---
-= 使用网格管理器还原对象数据
+= 使用 StorageGRID 网格管理器还原对象数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

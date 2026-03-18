@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore audit log, primary admin node 
 summary: 如果能够保留故障主管理节点中的审核日志，则可以将其复制到要恢复的主管理节点。 
 ---
-= 在已恢复的主管理节点上还原审核日志
+= 在恢复的主 StorageGRID 管理节点上还原审核日志
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

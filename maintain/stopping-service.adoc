@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop service, service 
 summary: 某些维护过程要求您停止一项服务，同时保持网格节点上的其他服务正常运行。只有在维护操作步骤 指示停止单个服务时，才停止这些服务。 
 ---
-= 停止服务
+= 停止 StorageGRID 服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

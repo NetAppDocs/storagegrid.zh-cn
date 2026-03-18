@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: 您可以将出现故障的网关节点更换为运行在同一物理或虚拟硬件上的网关节点，也可以将运行在 VMware 或 Linux 主机上的网关节点更换为托管在服务设备上的网关节点。 
 ---
-= 更换网关节点
+= 替换 StorageGRID 网关节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

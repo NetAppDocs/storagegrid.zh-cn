@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, archive node failure, workflow 
 summary: 已删除对归档节点的支持。 
 ---
-= 从归档节点故障中恢复
+= 从 StorageGRID 归档节点故障中恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

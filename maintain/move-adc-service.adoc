@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, move adc, adc quorum 
 summary: 您可以将 ADC 服务移动到同一站点上的另一个存储节点。 
 ---
-= 移动 ADC 服务
+= 在 StorageGRID 中移动 ADC 服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
 summary: '在恢复VMware或Linux主机上托管的发生故障的网格节点时、如果要使用服务设备作为替代节点、则必须先使用与故障节点相同的节点名称(系统名称)安装新设备硬件。' 
 ---
-= 安装服务设备（仅限平台更改）
+= 安装 StorageGRID 服务设备（仅限平台更改）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

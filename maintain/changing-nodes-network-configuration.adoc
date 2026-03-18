@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network configuration, node network configuration 
 summary: 您可以使用更改 IP 工具更改一个或多个节点的网络配置。您可以更改网格网络的配置，或者添加，更改或删除管理员网络或客户端网络。 
 ---
-= 更改节点网络配置
+= 更改 StorageGRID 中的节点网络配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, deploy linux host, new host, new linux host 
 summary: 除了一些例外情况，您可以像在初始安装过程中一样准备新主机。 
 ---
-= 部署新的 Linux 主机
+= 为 StorageGRID 部署新的 Linux 主机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

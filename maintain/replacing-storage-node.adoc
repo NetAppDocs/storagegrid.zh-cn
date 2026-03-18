@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace storage node, replacing storage node 
 summary: 如果系统驱动器发生故障，您必须先更换存储节点。 
 ---
-= 更换存储节点
+= 替换 StorageGRID 存储节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

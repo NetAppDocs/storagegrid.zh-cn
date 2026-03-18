@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: '您可以从命令行使用脚本监控修复作业的状态 `repair-data`。' 
 ---
-= 监控修复数据作业
+= 监控 StorageGRID 修复数据作业
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

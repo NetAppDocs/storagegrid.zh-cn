@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, decommissioning nodes, maintenance task 
 summary: '访问网格管理器中的 " 停用节点 " 页面时，您可以一目了然地看到哪些节点可以停用。' 
 ---
-= 访问 " 取消配置节点 " 页面
+= 访问 StorageGRID 中的停用节点页面
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node decommission, considerations, appliance node clone 
 summary: 在停用存储节点之前、请考虑是否可以克隆此节点。然后、如果您决定停用此节点、请查看StorageGRID在停用操作步骤期间如何管理对象和元数据。 
 ---
-= 停用存储节点的注意事项
+= StorageGRID 中的存储节点停用注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

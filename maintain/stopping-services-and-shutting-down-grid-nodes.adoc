@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, stop services, shut down nodes, node shutdown 
 summary: 在关闭 StorageGRID 系统之前，必须先停止每个网格节点上运行的所有服务，然后关闭所有 VMware 虚拟机，容器引擎和 StorageGRID 设备。 
 ---
-= 停止服务并关闭网格节点
+= 停止服务并关闭 StorageGRID 节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

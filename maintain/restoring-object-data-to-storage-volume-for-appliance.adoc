@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: 在恢复设备存储节点的存储卷之后、您可以还原在存储节点发生故障时丢失的已复制或已删除编码的对象数据。 
 ---
-= 将对象数据还原到设备的存储卷
+= 将对象数据还原至 StorageGRID 设备的存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

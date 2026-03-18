@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop services, power down host, power off host 
 summary: 在关闭主机电源之前，必须停止该主机上所有网格节点上的服务。 
 ---
-= 关闭主机
+= 关闭 StorageGRID 主机电源
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

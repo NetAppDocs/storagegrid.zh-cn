@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: 在执行维护过程之前，您必须确保具有必要的材料来恢复出现故障的网格节点。 
 ---
-= 收集网格节点恢复所需的材料
+= 收集 StorageGRID 网格节点恢复所需的材料
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

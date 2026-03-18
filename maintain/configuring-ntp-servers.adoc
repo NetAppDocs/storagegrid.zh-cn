@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, ntp, ntp server, configure ntp, configuring ntp 
 summary: '您可以添加、更新或删除网络时间协议\(NTP\)服务器、以确保数据在StorageGRID 系统中的网格节点之间准确同步。' 
 ---
-= 管理NTP服务器
+= 管理 StorageGRID 中的 NTP 服务器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

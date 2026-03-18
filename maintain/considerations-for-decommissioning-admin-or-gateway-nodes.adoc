@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission admin node, decommission gateway node 
 summary: 查看停用管理节点或网关节点的注意事项。 
 ---
-= 停用管理节点或网关节点的注意事项
+= StorageGRID 管理或网关节点停用注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

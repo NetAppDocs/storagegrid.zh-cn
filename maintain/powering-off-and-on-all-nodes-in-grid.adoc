@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
 summary: 例如，如果要移动数据中心，您可能需要关闭整个 StorageGRID 系统。以下步骤简要概述了执行受控关闭和启动的建议顺序。 
 ---
-= 关闭并打开网格中的所有节点
+= 关闭和打开所有 StorageGRID 节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

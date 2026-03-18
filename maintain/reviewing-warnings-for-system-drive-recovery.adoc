@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, system drive warning, storage node 
 summary: 在恢复存储节点的故障系统驱动器之前、请查看有关网格节点恢复的一般警告和注意事项以及以下特定警告。 
 ---
-= 存储节点系统驱动器恢复警告
+= StorageGRID 存储节点系统驱动器恢复警告
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

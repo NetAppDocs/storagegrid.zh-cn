@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to remove site 
 summary: 在使用站点停用操作步骤 删除站点之前，您必须查看注意事项。 
 ---
-= 删除站点的注意事项
+= StorageGRID 中的站点停用注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

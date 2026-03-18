@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
 summary: 在某些情况下、一组或多组节点可能无法访问网格的其余部分。例如、站点范围或网格范围的IP地址更改可能导致节点彼此隔离。 
 ---
-= 恢复隔离节点的网络连接
+= 为隔离的 StorageGRID 节点恢复网络连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

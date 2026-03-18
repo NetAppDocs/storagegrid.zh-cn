@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: 停用站点之前，您必须获取以下材料。 
 ---
-= 收集所需材料
+= 收集 StorageGRID 站点停用所需的材料
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, subnet, grid network, update subnets 
 summary: StorageGRID 会维护一个网络子网列表，用于在网格网络 \ （ eth0\ ）上的网格节点之间进行通信。这些条目包括 StorageGRID 系统中每个站点用于网格网络的子网，以及通过网格网络网关访问的 NTP ， DNS ， LDAP 或其他外部服务器所使用的任何子网。在扩展中添加网格节点或新站点时，您可能需要更新子网或向网格网络添加子网。 
 ---
-= 更新网格网络的子网
+= 更新 StorageGRID 网格网络的子网
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

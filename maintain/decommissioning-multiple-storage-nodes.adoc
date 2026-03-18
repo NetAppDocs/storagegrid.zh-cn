@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
 summary: 如果需要删除多个存储节点，可以按顺序或并行停用它们。 
 ---
-= 停用多个存储节点
+= 停用多个 StorageGRID 存储节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

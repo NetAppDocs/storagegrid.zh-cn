@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node failure 
 summary: 要从非主管理节点故障中恢复，您必须完成以下任务。一个管理节点托管配置管理节点（ CMN\ ）服务，称为主管理节点。尽管可以有多个管理节点，但每个 StorageGRID 系统仅包含一个主管理节点。所有其他管理节点均为非主管理节点。 
 ---
-= 从非主管理节点故障中恢复
+= 从非主 StorageGRID 管理节点故障中恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

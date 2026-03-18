@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, status, version 
 summary: 对于每个网格节点，您可以查看该网格节点上运行的 Server Manager 的当前状态和版本。您还可以获取该网格节点上运行的所有服务的当前状态。 
 ---
-= 查看 Server Manager 状态和版本
+= 查看 StorageGRID Server Manager 状态和版本
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

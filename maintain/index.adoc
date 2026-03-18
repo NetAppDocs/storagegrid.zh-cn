@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: 网格维护任务包括停用节点或站点、重命名网格、节点或站点以及维护网络。您还可以执行主机和中间件过程以及网格节点过程。 
 ---
-= 网格维护
+= StorageGRID 网格维护
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

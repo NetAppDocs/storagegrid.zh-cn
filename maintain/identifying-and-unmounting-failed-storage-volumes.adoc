@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: 在恢复包含故障存储卷的存储节点时，您必须确定并卸载故障卷。您必须验证在恢复操作步骤 中仅重新格式化故障存储卷。 
 ---
-= 确定并卸载故障存储卷
+= 识别并卸载 StorageGRID 中的故障存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

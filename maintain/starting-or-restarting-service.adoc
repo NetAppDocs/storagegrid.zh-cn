@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service, start service, restart service 
 summary: 您可能需要启动已停止的服务，或者可能需要停止并重新启动服务。 
 ---
-= 启动或重新启动服务
+= 启动或重新启动 StorageGRID 服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

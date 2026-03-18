@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to pause decommission 
 summary: 如果需要执行第二个维护操作步骤 ，可以在某些阶段暂停存储节点的停用操作步骤 。另一个操作步骤 完成后，您可以恢复停用。 
 ---
-= 暂停和恢复存储节点的停用过程
+= 暂停和恢复 StorageGRID 存储节点的停用过程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

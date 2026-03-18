@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: 如果您计划停用存储节点，则应在开始停用过程之前查看 StorageGRID 系统的 ILM 策略。 
 ---
-= 查看 ILM 策略和存储配置
+= 查看 StorageGRID ILM 策略和存储配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

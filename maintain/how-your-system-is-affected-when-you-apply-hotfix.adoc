@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: 您必须了解应用修补程序时 StorageGRID 系统将受到什么影响。 
 ---
-= 应用修补程序时对系统的影响
+= 应用修补程序时如何影响 StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

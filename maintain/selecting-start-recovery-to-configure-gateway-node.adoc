@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: 更换网关节点后，您必须在网格管理器中选择启动恢复，以将新节点配置为故障节点的替代节点。 
 ---
-= 选择 Start Recovery 以配置网关节点
+= 选择 Start Recovery 以配置 StorageGRID 网关节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

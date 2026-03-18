@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance 
 summary: 在安装完成之前， StorageGRID 设备安装程序会提供状态。软件安装完成后，设备将重新启动。 
 ---
-= 监控服务设备安装
+= 监控 StorageGRID 服务设备安装
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

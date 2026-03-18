@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, appliance storage node failure, workflow 
 summary: 无论您是从系统驱动器丢失还是仅从存储卷丢失中恢复，用于恢复出现故障的 StorageGRID 设备存储节点的操作步骤 都是相同的。 
 ---
-= 有关恢复设备存储节点的警告
+= 恢复 StorageGRID 设备存储节点的警告
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: 此修补程序会首先自动应用于主管理节点。然后，您必须批准将此修补程序应用于其他网格节点，直到所有节点运行相同的软件版本为止。您可以通过选择批准单个网格节点，网格节点组或所有网格节点来自定义批准顺序。 
 ---
-= 应用修补程序
+= 在 StorageGRID 中应用热修复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, data repair 
 summary: 停用网格节点之前，您必须确认没有处于活动状态的数据修复作业。如果任何修复失败，您必须重新启动修复并让其完成，然后再执行停用操作步骤 。 
 ---
-= 检查数据修复作业
+= 检查 StorageGRID 中的数据修复作业
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

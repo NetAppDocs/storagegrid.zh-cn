@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: 您必须先下载此修补程序文件，然后才能应用此修补程序。 
 ---
-= 下载修补程序文件
+= 下载 StorageGRID 修补程序文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

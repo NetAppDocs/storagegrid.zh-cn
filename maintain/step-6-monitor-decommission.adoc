@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, monitor decommission, decommission 
 summary: '从 " 弃用站点 " 页面向导的第 6 步 \ （监控取消配置）中，您可以在删除站点时监控进度。' 
 ---
-= 第 6 步：监控取消配置
+= 在 StorageGRID 中监控站点停用进度
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

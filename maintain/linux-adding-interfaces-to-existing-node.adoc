@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add interfaces, add client network interface, add admin network interface 
 summary: 按照以下步骤将管理网络或客户端网络上的接口添加到安装后的 Linux 节点中。 
 ---
-= Linux ：将管理员或客户端接口添加到现有节点
+= 向 StorageGRID 中的 Linux 节点添加管理员或客户端接口
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

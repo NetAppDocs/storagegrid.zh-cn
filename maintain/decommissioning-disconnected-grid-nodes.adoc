@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, disconnected nodes, decommission node 
 summary: 您可能需要停用当前未连接到网格的节点（运行状况为未知或管理员关闭的节点）。 
 ---
-= 停用已断开连接的网格节点
+= 停用已断开连接的 StorageGRID 节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

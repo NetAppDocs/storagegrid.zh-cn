@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: 在应用修补程序之前，您必须获取所有必需的材料。 
 ---
-= 获取修复所需的材料
+= 获取 StorageGRID 修补程序所需的材料
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, resolve node conflict 
 summary: '从 " 弃用站点 " 向导的第 5 步 \ （解决节点冲突 \ ）中，您可以确定 StorageGRID 系统中的任何节点是否已断开连接，或者选定站点中的任何节点是否属于高可用性 \ （ HA\ ）组。解决任何节点冲突后，您可以从此页面启动停用操作步骤 。' 
 ---
-= 第 5 步：解决节点冲突（并开始停用）
+= 解决节点冲突并在 StorageGRID 中启动站点停用
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

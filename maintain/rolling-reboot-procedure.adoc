@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot nodes, rolling reboot procedure 
 summary: 您可以执行滚动重新启动以重新启动多个网格节点、而不会造成服务中断。 
 ---
-= 执行滚动重新启动
+= 执行 StorageGRID 滚动重启
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

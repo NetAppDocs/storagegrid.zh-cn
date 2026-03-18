@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, remove grid node 
 summary: 您可以使用节点停用操作步骤删除一个或多个站点上的一个或多个网格节点。您不能停用主管理节点。 
 ---
-= 网格节点停用
+= StorageGRID 网格节点停用
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

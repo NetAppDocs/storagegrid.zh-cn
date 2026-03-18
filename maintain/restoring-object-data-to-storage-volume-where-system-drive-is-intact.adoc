@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover storage node, recover storage volume 
 summary: 在系统驱动器完好无损的存储节点上恢复存储卷后、您可以还原在存储卷发生故障时丢失的已复制或经过删除编码的对象数据。 
 ---
-= 将对象数据还原到系统驱动器完好无损的存储卷
+= 将对象数据还原至系统驱动器完好无损的 StorageGRID 存储卷
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

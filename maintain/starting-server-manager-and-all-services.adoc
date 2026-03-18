@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
 summary: 您可能需要启动 Server Manager ，该操作也会启动网格节点上的所有服务。 
 ---
-= 启动服务器管理器和所有服务
+= 启动 StorageGRID Server Manager 和所有服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

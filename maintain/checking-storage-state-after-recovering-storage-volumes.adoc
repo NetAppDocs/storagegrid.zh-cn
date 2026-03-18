@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume recovery, storage state, storage volume 
 summary: 恢复存储卷后，您必须验证存储节点的所需状态是否设置为联机，并确保每当重新启动存储节点服务器时，此状态默认为联机。 
 ---
-= 恢复存储卷后检查存储状态
+= 恢复 StorageGRID 存储卷后检查存储状态
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

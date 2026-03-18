@@ -1293,7 +1293,6 @@
   <block id="fbd9c55bed086b42ae0149d306763d15" category="summary">恢复存储卷后，您必须验证存储节点的所需状态是否设置为联机，并确保每当重新启动存储节点服务器时，此状态默认为联机。</block>
   <block id="b3671b952dd443051bddb619152208c9" category="doc">恢复存储卷后检查存储状态</block>
   <block id="3fc78ca2354b46c843d5a9ceb3cf5036" category="summary">您必须验证系统是否已准备好容纳此修补程序。</block>
-  <block id="9adc0217d2626f557d09b66444226f8d" category="doc">在应用修补程序之前，请检查系统的状况</block>
   <block id="d57b2c17bd336a1b3cd2dcbe4222d3d0" category="list-text">如果可能，请确保系统运行正常，并且所有网格节点均已连接到网格。</block>
   <block id="adceb64f04ee31bdad1c56739ae0294d" category="paragraph">已连接节点在节点页面上具有绿色复选标记<block ref="e6bb8575fc62b4796b3c65b885c9e610" category="inline-image-macro-rx" type="image"></block>。</block>
   <block id="3ec72a389a515e5ce115ae84c4b22e25" category="list-text">如果可能，请检查并解决任何当前警报。</block>
@@ -1374,7 +1373,6 @@
   <block id="2d1107557ff74e507e0bf92c311ad830" category="inline-link-macro">确定是否需要应用修补程序</block>
   <block id="e8518e0deb8523af2ddf932d86a0de7d" category="admonition">恢复主管理节点后，<block ref="a8d9b22bac31b70a5c785ab836a929b6" category="inline-link-macro-rx"></block>。</block>
   <block id="b373595548f31ef913105b10374e4225" category="summary">查看停用管理节点或网关节点的注意事项。</block>
-  <block id="1ae12c5b9efdf52742311109172eab10" category="doc">停用管理节点或网关节点的注意事项</block>
   <block id="f7928d9d35f78373f9f33e2ea1a17875" category="section-title">管理节点注意事项</block>
   <block id="57925cbf711413134cf99d19a01f1a5b" category="inline-link-macro">管理HA组</block>
   <block id="910ec7d8e86c20d57d026449b7de95ea" category="list-text">如果某个管理节点的某个网络接口属于高可用性(HA)组、则无法停用该节点。您必须先从 HA 组中删除网络接口。请参阅的说明<block ref="47a8014088cbc0636f169f7ca63c89f3" category="inline-link-macro-rx"></block>。</block>
@@ -1388,7 +1386,6 @@
   <block id="a9e4080b0e986b794fe425894442df2a" category="list-text">在停用网关节点时、您可以根据需要安全地更改ILM策略。</block>
   <block id="0df7c567d8770f4a02378c70e2ab7167" category="list-text">您可以在网关节点断开连接时安全地停用它。</block>
   <block id="dfde924f7c9b87bf5345a88342ef758e" category="summary">在停用存储节点之前、请考虑是否可以克隆此节点。然后、如果您决定停用此节点、请查看StorageGRID在停用操作步骤期间如何管理对象和元数据。</block>
-  <block id="d3849e26b63e365254244226b1b54efb" category="doc">停用存储节点的注意事项</block>
   <block id="6b772fdc56ddd61a5a9258979be52dd8" category="section-title">何时克隆节点而不是停用节点</block>
   <block id="80c7d8868102f2865d4af5e3161a3eb5" category="paragraph">如果要将旧设备存储节点更换为新设备或更大的设备、请考虑克隆设备节点、而不是在扩展中添加新设备、然后停用旧设备。</block>
   <block id="253a338d7eb4f26dab8e83243144f0d4" category="paragraph">通过设备节点克隆、您可以轻松地将现有设备节点更换为同一StorageGRID站点上的兼容设备。克隆过程会将所有数据传输到新设备、将新设备置于运行状态、并使旧设备处于预安装状态。</block>
@@ -1423,7 +1420,6 @@
   <block id="58901f91312ddd185e9844a15945218f" category="list-text">停用已断开连接的存储节点时，停用操作步骤 的完成速度相对较快。但是、数据修复作业可能需要数天或数周才能运行、并且不受停用操作步骤 的监控。您必须手动监控这些作业并根据需要重新启动它们。请参阅。 <block ref="fa33e47345e430f2ea3bd7055f5373cc" category="inline-link-macro-rx"></block></block>
   <block id="07269b996b1d7b8637e993075af01fe7" category="list-text">如果停用的存储节点已断开连接，而该存储节点包含某个对象的唯一副本，则该对象将丢失。只有当当前连接的存储节点上至少存在一个复制副本或足够多的纠删编码片段时，数据修复作业才能重建和恢复对象。</block>
   <block id="f2683855ad75af4ee03e9cb8b19e3362" category="summary">在使用站点停用操作步骤 删除站点之前，您必须查看注意事项。</block>
-  <block id="bf9c4de7bb77600ca4dd2ac97bbd6374" category="doc">删除站点的注意事项</block>
   <block id="f94f97a642e6b81154025fc99dbbeaf6" category="section-title">停用站点时会发生什么情况</block>
   <block id="402c0c561161d2e9f5a38f3cf433eb72" category="paragraph">停用站点时， StorageGRID 会从 StorageGRID 系统中永久删除站点上的所有节点以及站点本身。</block>
   <block id="c319bdff0ade2d5b192e8ee3fb3586bf" category="paragraph">站点停用操作步骤 完成后：</block>
@@ -1796,7 +1792,6 @@
   <block id="cadb1efbee8a60c6f70cf2cda5f8c041" category="list-text">按照说明安装新服务设备。请参阅。<block ref="ee00799cc8efda342e4e96e16e67c728" category="inline-link-rx"></block></block>
   <block id="976f8b3f201b422dcad1f06cdca2acad" category="list-text">当系统提示您输入节点名称时，请使用故障节点的节点名称。</block>
   <block id="d4d742fc17d8411557665e9bb757b8a9" category="summary">按照以下步骤将管理网络或客户端网络上的接口添加到安装后的 Linux 节点中。</block>
-  <block id="f67faf18d1a8bcd3d486edb3c7f12d5b" category="doc">Linux ：将管理员或客户端接口添加到现有节点</block>
   <block id="2070f5644f1949a91fe825a32fd58413" category="paragraph">您可以在托管需要新网络分配的节点的 Linux 服务器上执行此操作步骤 ，而不是在节点内部执行。此操作步骤 仅会将接口添加到节点；如果您尝试指定任何其他网络参数，则会发生验证错误。</block>
   <block id="914a1b7223e33c58c3e1db51016b240f" category="paragraph">要提供地址信息，必须使用更改 IP 工具。请参阅。 <block ref="448cbdafa67b5214146eb236fd7519fe" category="inline-link-macro-rx"></block></block>
   <block id="08a9b476cf21b82ed5c858709400f0f3" category="list-text">登录到托管此节点的 Linux 服务器。</block>
@@ -1961,7 +1956,6 @@
   <block id="768c56127fcc2636d57e4635785f71f3" category="inline-link-macro">SG110和SG1100服务设备</block>
   <block id="0213b0a6597af3144c55566e76cf215e" category="inline-link-macro">SG100和SG1000服务设备</block>
   <block id="ce7182b21dec67cd37425fc82581b41c" category="summary">例如，如果要移动数据中心，您可能需要关闭整个 StorageGRID 系统。以下步骤简要概述了执行受控关闭和启动的建议顺序。</block>
-  <block id="f89abbaf06ab6727d8b7dfd803236892" category="doc">关闭并打开网格中的所有节点</block>
   <block id="b4da2e1171d8c337c10e054d1e31d6ca" category="paragraph">关闭站点或网格中的所有节点后，在存储节点脱机时，您将无法访问已载入的对象。</block>
   <block id="8cc2c50ad7896100c704465cfe386e9c" category="section-title">停止服务并关闭网格节点</block>
   <block id="01981c25dd9eb385be8076174fe3b442" category="paragraph">在关闭 StorageGRID 系统之前，必须先停止每个网格节点上运行的所有服务，然后关闭所有 VMware 虚拟机，容器引擎和 StorageGRID 设备。</block>
@@ -2016,13 +2010,10 @@
   <block id="eec23ed636304d29f988ee7033f3d209" category="admonition">请勿尝试通过重启电源或以其他方式重置设备来加快重新启动速度。您可能会中断BIOS、BMC或其他固件自动升级。</block>
   <block id="b0868b5c652f4283ff4e390b29eaaacb" category="paragraph">StorageGRID 设备存储节点已重置，并且无法再访问存储节点上的数据。在初始安装过程中配置的 IP 地址应保持不变；但是，建议您在操作步骤 完成后进行确认。</block>
   <block id="48de55a3660fcd1d7ca28ee002091967" category="summary">您必须查看删除网格节点的注意事项，并确认擦除编码的数据没有处于活动状态的修复作业。</block>
-  <block id="9b459f7f834daf9370e540d2894cc7b7" category="doc">准备停用网格节点</block>
   <block id="4e3eb56e5a203ddd1d7a37097a3db31a" category="summary">如果需要更密切地监控重新启动操作、或者无法访问Grid Manager、则可以登录到Grid节点并从命令Shell运行Server Manager reboot命令。</block>
-  <block id="42df5f2fdc22af0c71182d256b17ec85" category="doc">从命令 Shell 重新启动网格节点</block>
   <block id="cdd6deb12a4626ebd53cdb79d4664c74" category="list-text">(可选)停止服务：<block ref="e83661e5ce1c75f30a71cf8416b27985" prefix=" " category="inline-code"></block></block>
   <block id="06dce5c759d36e2611bede48b18f2631" category="paragraph">停止服务是一个可选步骤，但建议执行此步骤。服务可能需要长达 15 分钟才能关闭，您可能需要远程登录到系统以监控关闭过程，然后再在下一步中重新启动节点。</block>
   <block id="3b686648ee59a986d5730a77114ce029" category="summary">您可以从节点页面上的任务选项卡重新启动单个网格节点。</block>
-  <block id="7430f86e8feb84fddccf444bc016a6d7" category="doc">从任务选项卡重新启动网格节点</block>
   <block id="7ef0a0a77e416522d3ffb9b2ae655948" category="list-text">如果要重新启动主管理节点或任何存储节点、请查看以下注意事项：</block>
   <block id="a6e0bed04cee011b030bd341af0754d9" category="list-text">重新启动主管理节点后、浏览器将暂时失去对网格管理器的访问权限。</block>
   <block id="4dd40e8dc5e1caa713f2e2f7eb57f308" category="list-text">如果重新启动给定站点上的两个或更多存储节点、则在重新启动期间可能无法访问某些对象。如果任何ILM规则使用*双提交*加注选项(或规则指定了*平衡*并且无法立即创建所有所需副本)、则可能会发生此问题描述。在这种情况下、StorageGRID会将新加载的对象提交到同一站点上的两个存储节点、并在稍后评估ILM。</block>
@@ -2066,7 +2057,6 @@
   <block id="7b16c64030eba5d894b8b0bb795646af" category="inline-link-macro">使用网格管理器还原对象数据</block>
   <block id="d23e3507e737902f0640efbb19ec29d0" category="paragraph">在重新格式化和重新挂载存储卷并完成必要的cassand拉 操作后，您可以<block ref="3f6d41a5a8eed75d7af06f50e85d8cb1" category="inline-link-macro-rx"></block>。</block>
   <block id="f5a4449f43dca44031ad397bffcab7d4" category="summary">管理节点的恢复过程取决于它是主管理节点还是非主管理节点。</block>
-  <block id="5facd4d1648668539c9ab69d8e74e475" category="doc">主或非主管理节点恢复</block>
   <block id="6b7fda03f3c20af7128690d6707821c3" category="paragraph">恢复主管理节点或非主管理节点的高级步骤相同，但具体步骤有所不同。</block>
   <block id="72c30dca6f5c11a00e025f07995d4dd9" category="paragraph">对于要恢复的管理节点，请始终遵循正确的恢复操作步骤 。这些过程从较高的层面来看是相同的，但细节却有所不同。</block>
   <block id="6ef697f11922be2e4de0971f7d70997f" category="list-title">选项</block>
@@ -2258,7 +2248,6 @@
   <block id="ff538d539131c3f0275c28a7b0d41bf0" category="list-text">运行以下脚本：<block ref="20a049861c27346583155d530228e733" prefix=" " category="inline-code"></block></block>
   <block id="238c72c92383b9297fe9696c272151a5" category="list-text">重新启动节点：<block ref="2b755b30293f2f9f79ec1c86ab0943f2" prefix=" " category="inline-code"></block></block>
   <block id="985d5ce22af03f0316fa9fa536f73d28" category="summary">您可以根据需要更改整个网格、每个站点和每个节点在网格管理器中显示的显示名称。您可以根据需要随时安全地更新显示名称。</block>
-  <block id="f0be5c4e6fa54305cca632794563f388" category="doc">使用重命名过程</block>
   <block id="f4f6dfb14bc38bd823482e4a1747f3bc" category="paragraph">您可以根据需要更改整个网格、每个站点和每个节点在网格管理器中显示的显示名称。您可以根据需要随时安全地更新显示名称。</block>
   <block id="9377d611a34535f08b68e02625df0490" category="section-title">什么是重命名操作步骤 ？</block>
   <block id="e0f16d45ea0b25a3714ab9b4be374021" category="paragraph">首次安装StorageGRID 时、您需要为网格、每个站点和每个节点指定一个名称。这些初始名称称为_system names"、它们是最初在整个StorageGRID 中显示的名称。</block>
@@ -2459,7 +2448,6 @@
   <block id="62a955d22f454aab513acab38cb786ee" category="inline-link-macro">恢复设备存储节点</block>
   <block id="b63a04097286b3df3d526a29250a2ff6" category="admonition">仅限此基于 操作步骤 适用场景 软件的存储节点。您必须按照与不同的过程进行<block ref="52d720caaece6777f5978a8a3ec70bc1" category="inline-link-macro-rx"></block>操作。</block>
   <block id="e170742e0a4cacd4b565ca1f6258ce60" category="paragraph">*Linux:*如果不确定系统驱动器是否出现故障，请按照说明更换节点以确定需要执行哪些恢复步骤。</block>
-  <block id="4848145f7848a2a8f82ee99f87a6b27b" category="summary">您可能需要重新启动服务器管理器以及网格节点上运行的所有服务。</block>
   <block id="dccff335b02dc0b2d271abc3fd343155" category="doc">重新启动 Server Manager 和所有服务</block>
   <block id="656902fd5a68e9b001ae69ee7d0e768d" category="list-text">重新启动服务器管理器以及网格节点上的所有服务：<block ref="31878da5ac9699c78d0bb78338e513d6" prefix=" " category="inline-code"></block></block>
   <block id="109832c227da8ea63127b1c823972edc" category="paragraph">Server Manager 以及网格节点上的所有服务将停止并重新启动。</block>
@@ -2876,7 +2864,6 @@
   <block id="55de7680392a1e394dfa1c93ee2dc6ff" category="inline-link">监控设备安装</block>
   <block id="b9a17388bf6998ad6fb31f746d8ebeb4" category="admonition">如果需要手动访问监控器安装页面，请单击菜单栏中的 * 监控器安装 * 。请参阅。<block ref="f96ecb41459d723f02593213721eff16" category="inline-link-rx"></block></block>
   <block id="cebe03c126dad01ab2c9db622d32c825" category="summary">要确定是否可以停用某个站点，请首先访问 " 停用站点 " 向导。</block>
-  <block id="1a9911326c186b5f26722f3b80609dad" category="doc">第 1 步：选择站点</block>
   <block id="4e1dd1d9599770dbae9c262fb04b4768" category="list-text">您已获得所有必需的材料。</block>
   <block id="1a60f520c407e9bf97b5f5962c21acf7" category="list-text">您已查看删除站点的注意事项。</block>
   <block id="079943a71c33b0c6ab5bd516a533b2fe" category="inline-link-macro">root访问权限或维护和ILM权限</block>
@@ -2910,7 +2897,6 @@
   <block id="a16c624bdd067812a4c06e15b7f658e8" category="paragraph">此时将启用 * 下一步 * 按钮。</block>
   <block id="8546a01f3e9fe19ac9a8d992b56851c8" category="paragraph">此时将显示第 2 步（查看详细信息）。</block>
   <block id="e5c99deaf400537b6dd55cf4bbe8dd07" category="summary">从 " 弃用站点 " 向导的第 2 步 \ （查看详细信息 \ ）中，您可以查看站点中包含的节点，查看每个存储节点上已使用的空间量，并评估网格中其他站点上的可用空间量。</block>
-  <block id="c8b268f3a444e17264d9c1105f2a9471" category="doc">第 2 步：查看详细信息</block>
   <block id="c425892ae74feee241d4126d8ccd2bd8" category="paragraph">从 " 弃用站点 " 向导的第 2 步（查看详细信息）中，您可以查看站点中包含的节点，查看每个存储节点上已使用的空间量，并评估网格中其他站点上的可用空间量。</block>
   <block id="68480ce7432f17728d0f0a5126701c12" category="paragraph">停用站点之前，您必须查看站点上存在的对象数据量。</block>
   <block id="2f19d71553be2e6ef6c3d513570413ef" category="list-text">如果您要执行已连接站点停用，则必须先了解站点上当前存在的对象数据量，然后再更新 ILM 。根据站点容量和数据保护需求，您可以创建新的 ILM 规则，将数据移动到其他站点或从站点中删除对象数据。</block>
@@ -2942,7 +2928,6 @@
   <block id="090ef93c154f4a00f3b40cae1eaeeb4b" category="admonition">如果要删除的站点的 * 已用空间 * 大于 * 其他站点的总可用空间 * ，则会显示警告。要确保删除站点后有足够的存储容量可用，您可能需要在执行此操作步骤 之前执行扩展。</block>
   <block id="0a8c9a04e28f7474941e01195b74a1fe" category="paragraph">此时将显示第 3 步（修订 ILM 策略）。</block>
   <block id="fd96294a44e03a0395905c48f8995c68" category="summary">从停用站点向导的步骤3 (修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。</block>
-  <block id="12457d8144300ee37d2c2de6a430c1a5" category="doc">第3步：修订ILM策略</block>
   <block id="7c5a4f240ba4da55a6c752dd19551ad6" category="paragraph">从停用站点向导的第3步(修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。</block>
   <block id="a8ab35fad5b72b758eec4c92ffbce62a" category="inline-link-macro">使用ILM管理对象</block>
   <block id="309d7b9d8f01c8ffe57260b387a663fd" category="paragraph">您已很好地了解如何<block ref="cb90a8e8fa97610b3fc58e894aabc5bd" category="inline-link-macro-rx"></block>。您熟悉创建存储池和ILM规则以及模拟和激活ILM策略。</block>
@@ -2999,7 +2984,6 @@
   <block id="ca4dd0a7f99507a877d7ea47c8e45987" category="admonition">删除此站点后、引用此站点的任何其余存储池和纠删编码配置文件将无效。在StorageGRID停用站点时、它会自动停用引用该站点的任何未使用的纠删编码配置文件、并自动删除引用该站点的任何未使用的存储池。删除所有存储节点存储池(StorageGRID 11.6及更早版本)、因为它使用所有站点站点。</block>
   <block id="41a36adbb5465a1f32e451894f43abbd" category="paragraph">此时将显示第 5 步（解决节点冲突）。</block>
   <block id="d25f9cfccba6ac34b2cc5ae677f30b8b" category="summary">从 " 弃用站点 " 向导的第 5 步 \ （解决节点冲突 \ ）中，您可以确定 StorageGRID 系统中的任何节点是否已断开连接，或者选定站点中的任何节点是否属于高可用性 \ （ HA\ ）组。解决任何节点冲突后，您可以从此页面启动停用操作步骤 。</block>
-  <block id="460a28371de844f4463b84ddb2b754cd" category="doc">第 5 步：解决节点冲突（并开始停用）</block>
   <block id="d705190e29460c4a4d75ad5c356b2dd2" category="paragraph">从 " 弃用站点 " 向导的第 5 步（解决节点冲突）中，您可以确定 StorageGRID 系统中的任何节点是否已断开连接，或者选定站点中的任何节点是否属于高可用性（ HA ）组。解决任何节点冲突后，您可以从此页面启动停用操作步骤 。</block>
   <block id="57147a1b80edfcc38a0b446e18614175" category="paragraph">您必须确保 StorageGRID 系统中的所有节点均处于正确状态，如下所示：</block>
   <block id="0274240d86e41f7de4b7b3f03f020ccf" category="list-text">StorageGRID系统中的所有节点都必须已连接<block ref="74ffc0550a20e130c0c48f64c788ef99" category="inline-image-macro-rx" type="image"></block>()。</block>
@@ -3032,7 +3016,6 @@
   <block id="0f646d8a6bfa049c42fa19de2fa0a411" category="paragraph">生成新网格配置后，将显示步骤 6 （监控取消配置）。</block>
   <block id="df4eefe17da5f848e4d4494ba5e3e741" category="admonition">在停用完成之前， * 上一步 * 按钮将保持禁用状态。</block>
   <block id="4c22edef0431b61082d7f8ab60957082" category="summary">从 " 弃用站点 " 页面向导的第 6 步 \ （监控取消配置）中，您可以在删除站点时监控进度。</block>
-  <block id="5c884314d309f26dc690cccc81d030dd" category="doc">第 6 步：监控取消配置</block>
   <block id="dc9f85b00a336dab81c7cbed28819046" category="paragraph">从 " 取消配置站点 " 页面向导的第 6 步（监控取消配置）中，您可以在删除站点时监控进度。</block>
   <block id="3d26c7690371c29d1a71779085da347e" category="paragraph">当 StorageGRID 删除已连接站点时，它将按以下顺序删除节点：</block>
   <block id="53cc3f903082af16815be0a6d415e50f" category="paragraph">当 StorageGRID 删除已断开连接的站点时，它会按以下顺序删除节点：</block>
@@ -3117,7 +3100,6 @@
   <block id="ee560a5ab29c3a382429910f8920533d" category="list-text">然后，将修补程序 11._A.B.y_ 应用于主管理节点。</block>
   <block id="d420b76fd181f34f84e4eff9473bf704" category="paragraph">有关详细信息，请参见 <block ref="0f7e5cf7b0acc83099b9ae176fbc4e3c" category="inline-link-macro-rx"></block>。</block>
   <block id="1301965e69ee8054282a33bdd0aa4cfb" category="summary">如果停用后仍保留的管理域控制器\(ADC\)服务太少、您可能无法停用站点上的某些存储节点。</block>
-  <block id="04dd0a4a6ad4833511d4c2d0b236cfd3" category="doc">什么是ADC仲裁？</block>
   <block id="440e1a338dc560bde163dd40a8e91151" category="paragraph">如果停用后仍保留的管理域控制器(ADC)服务太少、则可能无法停用站点上的某些存储节点。</block>
   <block id="c68dd5c9975099029e803c8f5d7e4f31" category="paragraph">某些存储节点上的ADC服务负责维护网格拓扑信息并为网格提供配置服务。StorageGRID 系统要求每个站点始终提供一定的数字转换服务仲裁。</block>
   <block id="200c93c6b4fdb53d5366e7a95c8b560f" category="paragraph">如果删除存储节点会发生原因 使不再满足ADC仲裁、则无法停用该节点。要在停用期间满足ADC仲裁要求、每个站点上至少必须有三个存储节点具有ADC服务。如果站点中有三个以上的存储节点使用ADC服务、则停用后、这些节点中的简单多数必须保持可用：<block ref="4211978c656f7edd7e4ff82da42de09d" prefix=" " category="inline-code"></block></block>
@@ -3158,7 +3140,6 @@
   <block id="d30e530d5dc3cfac788764af67549f82" category="list-text">返回命令行，按 * 。 Ctrl+* 。 c* 。</block>
   <block id="7841de1f7cd6281e5a622e9ac1f650b6" category="list-text">(可选)查看网格节点上运行的所有服务的静态报告：<block ref="abeb20020145283c2bab8f30381b293a" prefix=" " category="inline-code"></block></block>
   <block id="6b4076021811e44b49f5943de8d51ac7" category="paragraph">此报告包含与持续更新报告相同的信息，但如果服务状态发生变化，则不会更新此报告。</block>
-  <block id="9673d940e3ac6831ce6db4664cc99091" category="summary">您可以随时查看网格节点上运行的服务的当前状态。</block>
   <block id="a203f0dc946e974b97e8a1b144349dd1" category="doc">查看服务的当前状态</block>
   <block id="7b1a2f8098cabd25574a7678d143c421" category="list-text">查看在网格节点上运行的服务的当前状态： ` * service _servicename_ status* 报告在网格节点上运行的请求服务的当前状态（无论是否正在运行）。例如：</block>
   <block id="e952c49dd9ab2429a39351bfcf112e97" category="list-text">从命令Shell中注销：<block ref="7c869b85440612d7e0a1b6951682b83e" prefix=" " category="inline-code"></block></block>
@@ -3203,7 +3184,6 @@
   <block id="be6684f7b7e1db664dc4256024780fe7" category="paragraph">请勿尝试使用当前分配给任何其他节点的IP地址恢复节点。部署新节点时，请使用故障节点的当前 IP 地址或未使用的 IP 地址。</block>
   <block id="bfec2a64e6cdd67bd7b09a3610609173" category="paragraph">如果您使用新 IP 地址部署新节点，然后恢复该节点，则新 IP 地址将继续用于已恢复的节点。如果要还原到原始 IP 地址，请在恢复完成后使用更改 IP 工具。</block>
   <block id="06f10b4c03347982fc71210cbae8bfb1" category="summary">根据您为使 StorageGRID 节点在替代主机上运行而采取的特定操作，您可能需要对每个节点执行其他恢复步骤。</block>
-  <block id="472ee8e1120625c8bcfa8b498c9312cf" category="doc">下一步操作：如果需要，执行其他恢复步骤</block>
   <block id="0d96205d5ddf19ffb078453ee2a00cb0" category="paragraph">如果在更换 Linux 主机或将故障网格节点还原到新主机时不需要采取任何更正操作，则节点恢复已完成。</block>
   <block id="6cda0126dfff5fbdfd82471c5ff005f0" category="section-title">更正操作和后续步骤</block>
   <block id="045f6e41e7e7f6a91581c5cec17a7b28" category="paragraph">在更换节点期间、您可能需要执行以下更正操作之一：</block>
@@ -9270,7 +9250,6 @@
   <block id="8b5e438fbef870eab4036d606acda64e" category="list-text">如果您计划在 HA 组中使用 VLAN 接口，则已创建 VLAN 接口。请参阅。 <block ref="01da7ed8ad97a3e972d8ef8ebd2e0eb6" category="inline-link-macro-rx"></block></block>
   <block id="e65ab31bf8d6f5d27e0f3cdbb1f13763" category="list-text">如果您计划对 HA 组中的节点使用访问接口，则已创建此接口：</block>
   <block id="c041a36ac44d9aeb206ed4f354fac66b" category="inline-link-macro">创建节点配置文件</block>
-  <block id="6b64cb9d108312339f07a590580a3788" category="inline-link-macro">Linux ：向节点添加中继或访问接口</block>
   <block id="528024d238af2b2b60ae2c337830a31d" category="inline-link-macro">VMware ：向节点添加中继或访问接口</block>
   <block id="6177ff734e801f27e66dd49a6da0521e" category="list-text">*VMware (安装节点后)*：<block ref="4940fb16d32a68b85d4e2f0f1ff9581d" category="inline-link-macro-rx"></block></block>
   <block id="3302b3275ea2bac6558c4e911fd858ab" category="section-title">创建高可用性组</block>
@@ -20913,7 +20892,6 @@
   <block id="eec7953386b13b00fd2a402408bc8506" category="paragraph">一般来说，您应该使用网格管理器上的 *维护* &gt; *网络* &gt; *DNS 服务器* 选项来配置 DNS 服务器。仅当您需要为不同的网格节点使用不同的 DNS 服务器时才使用以下脚本。</block>
   <block id="d3bb6f6da088d5abb8d805307c26216d" category="list-text">如果您允许外部 SSH 访问，<block ref="cea5be726029476f08dd23ff706969c9" category="inline-link-macro-rx"></block>当您完成修改 DNS 配置后。</block>
   <block id="dd230c358f4766e2a7a58958ccf79cf4" category="summary">您可以将 ADC 服务移动到同一站点上的另一个存储节点。</block>
-  <block id="ebe0435bb9019193964e455b23c8cb61" category="doc">移动 ADC 服务</block>
   <block id="b951b756f853dcdecadfdde17180bd0a" category="list-text">你有<block ref="522ba369229c797bc0112198520fd777" category="inline-link-macro-rx"></block>。</block>
   <block id="67a09678cf39f6297d3673171cc1d4c6" category="list-text">源节点包含 ADC 服务。</block>
   <block id="0f653b955c90c6c8ffbe78326c5acfb8" category="list-text">目标节点不包含 ADC 服务。</block>
@@ -22408,4 +22386,130 @@
   <block id="f40a55c0d5bad60e482775a25489f06c" category="doc">在 StorageGRID 中查看 S3 存储桶详细信息</block>
   <block id="b22f7d114de368da75382e3ea65641ab" category="doc">在 StorageGRID 中查看您的 S3 访问密钥</block>
   <block id="8855a1b3676ebebbe2660e6a7092a78f" category="doc">了解 StorageGRID 分支存储桶</block>
+  <block id="0af255ee4ae44bba61d7f41cb09aa2ab" category="doc">访问 StorageGRID 中的停用节点页面</block>
+  <block id="ad87ae37da79be8d11896a9fafdd8ad3" category="doc">StorageGRID 中 Server Manager 故障排除</block>
+  <block id="f5059ebbaed1a9ee4a825f15112bb27d" category="doc">在 StorageGRID 中添加或更改管理网络上的子网列表</block>
+  <block id="17738803fa7f49e6e6054af976d7303b" category="doc">在 StorageGRID 中添加或更改网格网络上的子网列表</block>
+  <block id="b0cfc6ae703b400c0718a13b3dc30d8b" category="doc">替换 StorageGRID 中的 Linux 节点</block>
+  <block id="d58d15b2364e5fbae3eb9e3e3be10a96" category="doc">替换 StorageGRID 中的 VMware 节点</block>
+  <block id="8c4d77a6fd2055f39e13d0f2f1201b0a" category="doc">在 StorageGRID 中应用热修复</block>
+  <block id="387c68d0dcb1ebaeed517c8829a422e9" category="doc">确定 StorageGRID 中主管理节点的修补程序要求</block>
+  <block id="2d1cca1f14f847c2ad4692da206e5563" category="doc">更改 StorageGRID 网格中所有节点的 IP 地址</block>
+  <block id="be6f35f0fde6a941d17c5a3298950d38" category="doc">更改 StorageGRID 中的节点网络配置</block>
+  <block id="6ee7872ec92a5188f832a44e31380203" category="doc">检查 StorageGRID 中的数据修复作业</block>
+  <block id="ae4842d4bfef11c45e290728ef9c2992" category="doc">恢复 StorageGRID 设备存储节点后检查存储状态</block>
+  <block id="c6ad99496887699fb94da9c268e5a03b" category="doc">恢复 StorageGRID 存储节点系统驱动器后检查存储状态</block>
+  <block id="d13425317339c665fb7d6ed49cd4f4d4" category="doc">恢复 StorageGRID 存储卷后检查存储状态</block>
+  <block id="0cb7643a54c66f904b4e2bd2304bfde3" category="doc">在应用 StorageGRID 修补程序之前检查系统状况</block>
+  <block id="ff89d09b03fc05766db52a22ac0a4151" category="doc">在 StorageGRID 中配置 DNS 服务器</block>
+  <block id="0a401606dc3a1c7b22278f3bccbb7647" category="doc">StorageGRID IP 地址指南</block>
+  <block id="7a3f009c1b154ff21a7c99ff88447433" category="doc">管理 StorageGRID 中的 NTP 服务器</block>
+  <block id="6324fece0d7725ce93976c03ffc01c1c" category="doc">在 StorageGRID 中配置替换主管理节点</block>
+  <block id="710920d1a230d8ab9c9f4da9a14e25ef" category="doc">StorageGRID 管理或网关节点停用注意事项</block>
+  <block id="840807506c4fe287f79baf69096b7a69" category="doc">StorageGRID 中的存储节点停用注意事项</block>
+  <block id="b46a14d3119b962a74253c177b0d544f" category="doc">StorageGRID 中的站点停用注意事项</block>
+  <block id="af8954183bcf82322ee476ad4e4809d9" category="doc">整合 StorageGRID 存储节点</block>
+  <block id="2ce3608eaa91894063840c13a01bdccd" category="doc">将 StorageGRID 存储节点转换为仅数据节点</block>
+  <block id="9a070b2e52999423ee06ad4a1602dae5" category="doc">从失败的非主 StorageGRID 管理节点复制审核日志</block>
+  <block id="bcbe6ceb003e75421e46560f582d9925" category="doc">从失败的主 StorageGRID 管理节点复制审核日志</block>
+  <block id="35821c1f3a13d262b6f4696268ecb5db" category="doc">停用 StorageGRID 节点或站点</block>
+  <block id="0a50fe92534ba70e7d80ae6f8e76dbac" category="doc">停用连接的 StorageGRID 节点</block>
+  <block id="cfcd07b44dd7958daabcefbcc1b7f03d" category="doc">停用已断开连接的 StorageGRID 节点</block>
+  <block id="0d6948cf0a7e61f92c66f591205607b0" category="doc">停用多个 StorageGRID 存储节点</block>
+  <block id="1c745b1db9e267a75dab80ec7458a832" category="doc">为 StorageGRID 部署新的 Linux 主机</block>
+  <block id="f434f451c047ae2ca1aaa25ca121c16a" category="doc">下载 StorageGRID 修补程序文件</block>
+  <block id="dfce4a11da7a00893937f41336c35f2a" category="doc">下载 StorageGRID 恢复包</block>
+  <block id="6d0b59989b5e42e43e685378a1b6fb59" category="doc">强制终止 StorageGRID 服务</block>
+  <block id="cee5549867edeb307b014948192025ee" category="doc">收集 StorageGRID 网格节点恢复所需的材料</block>
+  <block id="3bab2f4888be3ccda656b1761d200ee6" category="doc">收集 StorageGRID 节点停用所需的材料</block>
+  <block id="e3cf08b484e372bda9f9b44f7c49862a" category="doc">收集 StorageGRID 站点停用所需的材料</block>
+  <block id="5f3920e4f88de870c31d57c78d586dd0" category="doc">StorageGRID 网格节点停用</block>
+  <block id="65ddabdc2eecf3c6ed46f275d4d23396" category="doc">StorageGRID 节点维护程序</block>
+  <block id="cd0e935b41f52cd69fbd34f2c3008014" category="doc">技术支持如何恢复 StorageGRID 站点</block>
+  <block id="7f7de095a2dcb833d63aebd3f9d6bebb" category="doc">应用修补程序时如何影响 StorageGRID</block>
+  <block id="7f66d6e4684d7f0934e29b5764295488" category="doc">识别并卸载 StorageGRID 中的故障存储卷</block>
+  <block id="be0e518e556a98b5803cbe6f1095d9e9" category="doc">StorageGRID 网格维护</block>
+  <block id="b96cfb4ffcc2c2b28d0135dad9f3eefb" category="doc">安装 StorageGRID 服务设备（仅限平台更改）</block>
+  <block id="7d738f3b24d7bb7bd9f3feca5a0dc184" category="doc">向 StorageGRID 中的 Linux 节点添加管理员或客户端接口</block>
+  <block id="ce920a75f9da13ec933b1772fa9d8d98" category="doc">向 StorageGRID 中的 Linux 节点添加中继或访问接口</block>
+  <block id="765279958bdd9144b1136386882bd923" category="doc">将 StorageGRID 节点迁移到新的 Linux 主机</block>
+  <block id="da09686adee9c0e9e0b5ea7bdeb61ffd" category="doc">修改单个 StorageGRID 节点的 DNS 配置</block>
+  <block id="2a7d2e7a0754c1c3742bddd86e0842e0" category="doc">监控 StorageGRID 修复数据作业</block>
+  <block id="c487f20834db8161e7f77a035a9912a9" category="doc">监控 StorageGRID 服务设备安装</block>
+  <block id="7017a302313b5e628bd453838d2c62b9" category="doc">在 StorageGRID 中移动 ADC 服务</block>
+  <block id="b879686334ca4c9c2aed2a6d54ff66b2" category="doc">获取 StorageGRID 修补程序所需的材料</block>
+  <block id="5ae4842f538a661f6b1bfbe134339480" category="doc">暂停和恢复 StorageGRID 存储节点的停用过程</block>
+  <block id="e125182c92e5e9d9fbd893a5631c71e4" category="doc">关闭 StorageGRID 主机电源</block>
+  <block id="b5b809082e5a3aa1a4dea8610efccf32" category="doc">关闭和打开所有 StorageGRID 节点</block>
+  <block id="4d388af09a028ef931618397bf1cec8e" category="doc">准备 StorageGRID 设备以重新安装（仅更换平台）</block>
+  <block id="3066702e2892f90cba8c76256bc444d8" category="doc">准备 StorageGRID 设备存储节点以重新安装</block>
+  <block id="34e79050caaaa03ec6f2f8dcc5690c22" category="doc">准备停用 StorageGRID 节点</block>
+  <block id="9738660dd16849898a8e6a1855acc2a5" category="doc">从命令外壳重新启动 StorageGRID 节点</block>
+  <block id="529519ce168f356da0a76eece3cc2b89" category="doc">从任务选项卡重新启动 StorageGRID 节点</block>
+  <block id="d8260864af5d2a859e4ee01cd8063783" category="doc">恢复发生故障的存储卷并在 StorageGRID 中重建 Cassandra 数据库</block>
+  <block id="703b53e9bd02089e6d095f39f4b52426" category="doc">StorageGRID 中的主管理节点或非主管理节点恢复</block>
+  <block id="3ca706b9fe50e192f1d9740895b720c0" category="doc">从 StorageGRID 归档节点故障中恢复</block>
+  <block id="628f6f441f544d9c251648fc0cb74d73" category="doc">从非主 StorageGRID 管理节点故障中恢复</block>
+  <block id="afba0fdfbd79c5a894939228483e5e17" category="doc">从主 StorageGRID 管理节点故障恢复</block>
+  <block id="0233bcc3eb44455ffb8134a100e0c691" category="doc">从 StorageGRID 存储节点故障中恢复</block>
+  <block id="3a79c1ef58aac9dd7a4434f4eb2776c2" category="doc">从系统驱动器完好无损的 StorageGRID 存储卷故障中恢复</block>
+  <block id="fa9524f3b65f19e253e0b08687240858" category="doc">恢复 StorageGRID 设备存储节点的警告</block>
+  <block id="462ffdeb52e7234381b5db39ffe341bd" category="doc">重新挂载并重新格式化 StorageGRID 设备存储卷（手动步骤）</block>
+  <block id="7ab70d4608dfd50867d4bf1d156be8c9" category="doc">重新挂载并重新格式化 StorageGRID 存储卷（手动步骤）</block>
+  <block id="c3312b99c3483611ead1851291f79137" category="doc">删除裸机主机上的 StorageGRID 端口重映射</block>
+  <block id="29f98bc64786c5e0d15909d8e5704386" category="doc">使用 StorageGRID 重命名过程</block>
+  <block id="c509c056d578f02b5228cdd948840254" category="doc">添加或更新 StorageGRID 显示名称</block>
+  <block id="2bc36c22173134fa678318d117337f17" category="doc">将失败的 StorageGRID 节点替换为服务设备</block>
+  <block id="45cd264751de5e4b4ea690f52f8bab0f" category="doc">替换 StorageGRID 网关节点</block>
+  <block id="b6c312593d5b1385f7a6efb5d87c0381" category="doc">替换非主 StorageGRID 管理节点</block>
+  <block id="4233f254e6c157e1e9f9dcd711a200a6" category="doc">替换主 StorageGRID 管理节点</block>
+  <block id="35e75d2f46c684055b1ffd32a5d1dc72" category="doc">替换 StorageGRID 存储节点</block>
+  <block id="c644cf77d6778a3ee86a5ce71b173257" category="summary">您可能需要重新启动 Server Manager 和在网格节点上运行的所有服务。</block>
+  <block id="15af0f92d90b02fae3482a4de1ca0432" category="doc">重新启动 StorageGRID Server Manager 和所有服务</block>
+  <block id="0df480ffbbf8ffd8107c86695a9c62b0" category="doc">在恢复非主管理节点时还原 StorageGRID 管理节点数据库</block>
+  <block id="f744dbcfb0bd5cc5d8f1bf36c8b4da85" category="doc">恢复主管理节点时还原 StorageGRID 管理节点数据库</block>
+  <block id="f622a2d5dc0115614726dd0be2f3dd88" category="doc">在恢复的非主 StorageGRID 管理节点上还原审核日志</block>
+  <block id="ee701a52e1428a2f2236ac5a96f1ab01" category="doc">在恢复的主 StorageGRID 管理节点上还原审核日志</block>
+  <block id="b487d0b50f6ebcda225f229883e935bf" category="doc">将 StorageGRID 节点还原到主机</block>
+  <block id="7c10162c116c7c99fd628de6fc6e8f97" category="doc">为隔离的 StorageGRID 节点恢复网络连接</block>
+  <block id="92e528e18decf5ab6f979935efabe5d6" category="doc">将对象数据还原至 StorageGRID 设备的存储卷</block>
+  <block id="b4a2f59247306d8ff6cde485186e44f6" category="doc">将对象数据还原至系统驱动器完好无损的 StorageGRID 存储卷</block>
+  <block id="9bfc14144854cacb2423df45331dbede" category="doc">将对象数据还原至 StorageGRID 存储卷（系统驱动器故障）</block>
+  <block id="1007ca27b8bc97026c8f4805e2d9a42b" category="doc">恢复非主 StorageGRID 管理节点时还原 Prometheus 指标</block>
+  <block id="df6d041fbe7db4ddc5a7c243b48c4c54" category="doc">恢复主 StorageGRID 管理节点时还原 Prometheus 指标</block>
+  <block id="eefd5919d1334f8dffb36095642c2b25" category="doc">使用 StorageGRID 网格管理器还原对象数据</block>
+  <block id="a47f9f5caec8729f5c745abb1f21a463" category="doc">查看 StorageGRID ILM 策略和存储配置</block>
+  <block id="da31177373cb44f9b9ce3afff318da11" category="doc">StorageGRID 存储卷恢复警告</block>
+  <block id="f289e7243cc02a8cd07302f9e01d7fe1" category="doc">StorageGRID 存储节点系统驱动器恢复警告</block>
+  <block id="94b9d797f43491674d33a6070dffc52f" category="doc">执行 StorageGRID 滚动重启</block>
+  <block id="9b90a84a03828a48b46b4db87482ba30" category="doc">选择 StorageGRID 节点恢复过程</block>
+  <block id="9dd5b59ebbaf92291e256f6be6e71161" category="doc">选择 Start Recovery 以配置 StorageGRID 设备存储节点</block>
+  <block id="a2c128e961d2965ada590e3e991b9135" category="doc">选择 Start Recovery 以配置 StorageGRID 网关节点</block>
+  <block id="c2c2a8436710acc964dccea47af4093e" category="doc">选择"开始恢复"以配置非主 StorageGRID 管理节点</block>
+  <block id="556b3895f55e4dc6e0a29561f3aafeb4" category="doc">选择 Start Recovery 以配置 StorageGRID 存储节点</block>
+  <block id="c501fa5e1c3a081e5a4c926a82108694" category="doc">StorageGRID 中处于错误状态的服务</block>
+  <block id="0768d3118e84242ef3000e26efbb4e3d" category="doc">关闭 StorageGRID 节点</block>
+  <block id="bac1db6546c6b16d706418d326ed9dbe" category="doc">启动或重新启动 StorageGRID 服务</block>
+  <block id="32da2295e9bcae0407b20351c5a53fd8" category="doc">启动 StorageGRID Server Manager 和所有服务</block>
+  <block id="914de6d822f38cdfed3b02df9062ab92" category="doc">在服务设备上启动 StorageGRID 软件安装</block>
+  <block id="c2335a835b673976eafb1ab7be5a4236" category="doc">在 StorageGRID 中选择要停用的站点</block>
+  <block id="0b1c1f423100796b426d4f06a1e45832" category="doc">在 StorageGRID 中停用前查看站点详细信息</block>
+  <block id="46cddb025cc43881097a9111d71a5786" category="doc">在 StorageGRID 中修订站点停用的 ILM 策略</block>
+  <block id="0fb0883e349a008a6ce6a2f684926804" category="doc">删除 StorageGRID 中对站点的 ILM 引用</block>
+  <block id="aa79b1d3c5a1c148cc71262430db9a68" category="doc">解决节点冲突并在 StorageGRID 中启动站点停用</block>
+  <block id="4cfd0c20c1a1bebe0d8987885c737dc0" category="doc">在 StorageGRID 中监控站点停用进度</block>
+  <block id="0cde4528abf3a2f4321ea3bc21fba8fd" category="doc">停止 StorageGRID Server Manager 和所有服务</block>
+  <block id="b3f75c88664d8eea6405f130d2c9e63b" category="doc">停止 StorageGRID 服务</block>
+  <block id="21e6b61e4969926f1d282a9d83b7e917" category="doc">停止服务并关闭 StorageGRID 节点</block>
+  <block id="3c8fcf909d5ec2804af8d788238bf544" category="doc">什么是 StorageGRID ADC 仲裁？</block>
+  <block id="444fb85da11ab624190425f3ed76ff54" category="doc">更新 StorageGRID 网格网络的子网</block>
+  <block id="0fcf2d2aaf6c928e9ca5a33501824393" category="doc">使用 StorageGRID DoNotStart 文件</block>
+  <block id="55b3f26e352339a1d50128d91dff7684" category="doc">查看所有 StorageGRID 服务的当前状态</block>
+  <block id="63e85a565b709720394a6e754f1d256f" category="summary">您可以随时查看在网格节点上运行的服务的当前状态。</block>
+  <block id="e71b3f9e9281cd6e7b477ee67661bec7" category="doc">查看 StorageGRID 服务的当前状态</block>
+  <block id="0ec255204eceed3ea5cce2b4a6078e6a" category="doc">查看 StorageGRID Server Manager 状态和版本</block>
+  <block id="1fc5db188cb74d23c16d4ef47e84955a" category="doc">向 StorageGRID 中的 VMware 节点添加中继或访问接口</block>
+  <block id="b6e841c67b4ef63fe77648e6f57aa6ee" category="doc">在 StorageGRID 中配置 VMware 虚拟机自动重启</block>
+  <block id="807ae05570dc1f7d5284ecf1dfb47729" category="doc">StorageGRID 节点恢复的警告和注意事项</block>
+  <block id="3a77f932aff0f8b652e9025611ded394" category="doc">执行其他 StorageGRID 节点恢复步骤</block>
 </blocks>

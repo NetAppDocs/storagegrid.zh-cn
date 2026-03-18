@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
 summary: 您必须运行一个脚本来重新格式化和重新挂载故障存储卷上的存储，并在系统确定有必要时在存储节点上重建 Cassandra 数据库。 
 ---
-= 恢复发生故障的存储卷并重建 Cassandra 数据库
+= 恢复发生故障的存储卷并在 StorageGRID 中重建 Cassandra 数据库
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

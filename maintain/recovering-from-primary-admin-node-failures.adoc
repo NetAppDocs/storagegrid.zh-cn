@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: 要从主管理节点故障中恢复，您必须完成一组特定的任务。主管理节点托管网格的配置管理节点（ CMN\ ）服务。 
 ---
-= 从主管理节点故障中恢复
+= 从主 StorageGRID 管理节点故障恢复
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
