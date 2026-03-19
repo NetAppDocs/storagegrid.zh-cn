@@ -142,7 +142,13 @@ NOTE: ILM规则不能同时使用*用户定义的创建时间*作为参考时间
 不支持以下请求标头：
 
 * `If-Match`
++
+ `If-Match header` 是可以接受的，但不起作用。
+
 * `If-None-Match`
++
+ `If-None-Match header` 是可以接受的，但不起作用。
+
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

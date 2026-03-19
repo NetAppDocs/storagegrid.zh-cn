@@ -38,10 +38,16 @@ summary: 本节介绍 StorageGRID 系统如何对对象实施 S3 REST API 操作
  a| 
 DeleteObject
  a| 
-不支持多因素身份验证(MFA)和响应标头 `x-amz-mfa`。
-
 处理DeleteObject请求时、StorageGRID会尝试立即从所有存储位置删除对象的所有副本。如果成功， StorageGRID 会立即向客户端返回响应。如果无法在30秒内删除所有副本(例如、由于某个位置暂时不可用)、则StorageGRID 会将这些副本排队等待删除、然后向客户端指示删除成功。
 
+限制::
++
+--
+* 不支持多因素身份验证(MFA)和响应标头 `x-amz-mfa`。
+*  `If-None` 和  `If-None-Match` 标头可接受，但无效。
+
+
+--
 版本控制:: 要删除特定版本、此应用程序必须是存储分段所有者并使用 `versionId`子资源。使用此子资源将永久删除此版本。如果 `versionId`对应于删除标记，则返回的响应标头 `x-amz-delete-marker`将设置为 `true`。
 +
 --
