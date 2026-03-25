@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use the Grid Management API, private API 
 summary: 您可以使用网格管理 REST API 执行系统管理任务，而不是使用网格管理器用户界面。例如，您可能希望使用 API 来自动执行操作或更快地创建多个实体，例如用户。 
 ---
-= 使用网格管理 API
+= 使用 StorageGRID 网格管理 API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

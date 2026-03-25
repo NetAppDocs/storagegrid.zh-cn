@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, external, ssh, access 
 summary: 通过阻止或允许外部 SSH 访问来管理 SSH 保护。 
 ---
-= 管理外部 SSH 访问
+= 在 StorageGRID 中管理外部 SSH 访问
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

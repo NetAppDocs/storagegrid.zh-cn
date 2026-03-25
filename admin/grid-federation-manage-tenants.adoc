@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, manage tenant, use grid federation permission, remove permission, cross grid replication 
 summary: 您可以允许S3租户帐户在两个StorageGRID系统之间使用网格联合连接。如果允许租户使用连接、则需要执行特殊步骤来编辑租户详细信息或永久删除租户使用连接的权限。 
 ---
-= 管理网格联盟允许的租户
+= 管理 StorageGRID 网格联盟的允许租户
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

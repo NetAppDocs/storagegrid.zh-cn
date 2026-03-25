@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tls cipher suites, transport layer security connections 
 summary: StorageGRID 系统支持一组有限的密码套件，用于将传输层安全 \ （ tls\ ）连接到用于身份联合和云存储池的外部系统。 
 ---
-= 支持传出 TLS 连接的密码
+= StorageGRID 中传出 TLS 连接支持的密码
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

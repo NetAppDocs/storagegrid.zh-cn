@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 您必须使用 Active Directory 联合身份验证服务（ AD FS ）为系统中的每个管理节点创建依赖方信任。您可以使用 PowerShell 命令，从 StorageGRID 导入 SAML 元数据或手动输入数据来创建依赖方信任。 
 ---
-= 在 AD FS 中创建依赖方信任
+= 在 AD FS 中为 StorageGRID 创建信赖方信任
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

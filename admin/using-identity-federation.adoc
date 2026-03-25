@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Grid Manager 
 summary: 使用身份联合可以加快设置组和用户的速度，并允许用户使用熟悉的凭据登录到 StorageGRID 。 
 ---
-= 使用身份联合
+= 在 StorageGRID 中使用身份联合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

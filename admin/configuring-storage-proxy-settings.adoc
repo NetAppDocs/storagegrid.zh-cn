@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage proxy, non-transparent proxy, platform service endpoint 
 summary: 如果您使用的是平台服务或云存储池，则可以在存储节点和外部 S3 端点之间配置非透明代理。例如，您可能需要一个非透明代理来允许将平台服务消息发送到外部端点，例如 Internet 上的端点。 
 ---
-= 配置存储代理
+= 配置 StorageGRID 存储代理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

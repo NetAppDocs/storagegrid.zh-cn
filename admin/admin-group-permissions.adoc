@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin group permissions 
 summary: 创建管理员用户组时，您可以选择一个或多个权限来控制对网格管理器特定功能的访问。然后，您可以将每个用户分配给一个或多个管理组，以确定用户可以执行的任务。 
 ---
-= 管理组权限
+= StorageGRID 中的管理组权限
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

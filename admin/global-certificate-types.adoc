@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rsa, ecdsa, custom certificate encryption 
 summary: StorageGRID 系统支持使用 RSA 或 ECDSA （椭圆曲线数字签名算法）加密的服务器证书。 
 ---
-= 支持的服务器证书类型
+= StorageGRID 中支持的服务器证书类型
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, tenant replication, disaster recovery, grid federation 
 summary: '帐户克隆是指自动复制租户帐户、租户组、租户用户以及(可选) 网格联合连接中StorageGRID 系统之间的S3访问密钥。' 
 ---
-= 什么是帐户克隆？
+= 了解 StorageGRID 中的帐户克隆
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

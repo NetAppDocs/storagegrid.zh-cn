@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: primary admin node, configuration management node 
 summary: 主管理节点提供的功能比非主管理节点更多。例如、某些维护过程必须使用主管理节点来执行。 
 ---
-= 确定主管理节点
+= 识别 StorageGRID 中的主管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable http, storage node connections 
 summary: 您可以将网络和对象安全性配置为对存储的对象进行加密、防止某些S3请求、或者允许客户端使用HTTP而不是HTTPS连接到存储节点。 
 ---
-= 配置网络和对象安全性
+= 配置 StorageGRID 网络和对象安全性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

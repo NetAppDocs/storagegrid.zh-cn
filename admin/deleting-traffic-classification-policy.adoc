@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete traffic classification policy 
 summary: 如果您不再需要流量分类策略，可以将其删除。 
 ---
-= 删除流量分类策略
+= 删除 StorageGRID 流量分类策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

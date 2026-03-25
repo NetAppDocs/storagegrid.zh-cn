@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform service, cloudmirror replication, event notification, search integration service 
 summary: 平台服务包括 CloudMirror 复制，事件通知和搜索集成服务。 
 ---
-= 什么是平台服务？
+= 了解 StorageGRID 平台服务
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms cluster, copy kms encryption key 
 summary: 每个密钥管理服务器（ KMS\ ）或 KMS 集群都为一个站点或一组站点上的所有设备节点提供一个加密密钥。如果需要更改站点使用的 KMS ，则可能需要将加密密钥从一个 KMS 复制到另一个 KMS 。 
 ---
-= 更改站点的 KMS 的注意事项
+= 更改 StorageGRID 站点 KMS 的注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

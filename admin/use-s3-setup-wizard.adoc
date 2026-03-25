@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3, S3 setup wizard 
 summary: 您可以使用S3设置向导将StorageGRID 配置为S3应用程序的对象存储系统。 
 ---
-= 使用S3设置向导：注意事项和要求
+= StorageGRID S3 设置向导注意事项和要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

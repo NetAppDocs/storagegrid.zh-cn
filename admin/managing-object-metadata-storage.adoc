@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object metadata, metadata capacity, best practices 
 summary: StorageGRID 系统的对象元数据容量用于控制可存储在该系统上的最大对象数。为了确保 StorageGRID 系统有足够的空间来存储新对象，您必须了解 StorageGRID 在何处以及如何存储对象元数据。 
 ---
-= 管理对象元数据存储
+= 管理 StorageGRID 中的对象元数据存储
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

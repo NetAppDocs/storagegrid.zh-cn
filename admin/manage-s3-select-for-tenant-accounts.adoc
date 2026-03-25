@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
 summary: 您可以允许某些 S3 租户对单个对象使用 S3 Select 到问题描述 SelectObjectContent 请求。 
 ---
-= 管理租户帐户的 S3 Select
+= 管理 StorageGRID 中租户帐户的 S3 Select
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

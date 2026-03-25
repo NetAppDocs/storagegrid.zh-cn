@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage tenants, tenant account, what is a tenant 
 summary: '租户帐户允许您使用简单存储服务\(S3\) REST API在StorageGRID系统中存储和检索对象。' 
 ---
-= 什么是租户帐户？
+= StorageGRID 中的租户帐户
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign in, log in 
 summary: 您可以通过在支持的 Web 浏览器的地址栏中输入管理节点的完全限定域名 \ （ FQDN\ ）或 IP 地址来访问网格管理器登录页面。 
 ---
-= 登录到网格管理器
+= Sign in 到 StorageGRID 网格管理器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

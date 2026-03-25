@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms, appliance configuration, node encryption 
 summary: 在使用密钥管理服务器 \ （ KMS\ ）保护设备节点上的 StorageGRID 数据安全之前，您必须完成两项配置任务：设置一个或多个 KMS 服务器以及为设备节点启用节点加密。完成这两项配置任务后，密钥管理过程将自动进行。 
 ---
-= Kms和设备配置
+= StorageGRID 密钥管理服务器和设备配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

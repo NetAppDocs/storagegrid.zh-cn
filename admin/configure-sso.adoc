@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use sandbox mode for sso, how to test single sign-on 
 summary: '您可以按照配置 SSO 向导并进入沙盒模式来配置和测试单点登录 (SSO)，然后为所有StorageGRID用户启用它。启用 SSO 后，您可以在需要时返回沙盒模式来更改或重新测试配置。' 
 ---
-= 配置 SSO
+= 在 StorageGRID 中配置 SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

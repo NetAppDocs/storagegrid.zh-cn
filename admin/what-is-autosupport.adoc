@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, technical support, storagegrid health, system status, Active IQ 
 summary: 通过AutoSupport功能、StorageGRID可以向NetApp技术支持发送运行状况和状态包。 
 ---
-= 什么是 AutoSupport ？
+= 了解 StorageGRID 中的 AutoSupport
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

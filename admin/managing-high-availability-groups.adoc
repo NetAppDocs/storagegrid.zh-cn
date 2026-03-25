@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage high availability group, ha groups, admin node, gateway node, active interface, backup interface, priority order 
 summary: '高可用性\(HA)组可为S3客户端提供高可用性数据连接、并可为网格管理器和租户管理器提供高可用性连接。' 
 ---
-= 什么是高可用性(HA)组？
+= 了解 StorageGRID 高可用性组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

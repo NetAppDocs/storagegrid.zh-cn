@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are admin groups, user permissions 
 summary: 您可以创建管理组来管理一个或多个管理员用户的安全权限。用户必须属于要授予对 StorageGRID 系统访问权限的组。 
 ---
-= 管理管理组
+= 管理 StorageGRID 中的管理员组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

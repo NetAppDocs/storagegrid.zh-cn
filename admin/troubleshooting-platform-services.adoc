@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot platform services, platform services endpoint error 
 summary: 平台服务中使用的端点由租户管理器中的租户用户创建和维护；但是，如果租户在配置或使用平台服务时遇到问题，您可能可以使用网格管理器帮助解决问题描述 。 
 ---
-= 对平台服务进行故障排除
+= StorageGRID 平台服务故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

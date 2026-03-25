@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage kms, manage key management server, view kms, view key management server, edit kms, edit key management server, view encrypted nodes, remove kms, remove key management server 
 summary: '管理密钥管理服务器(KMS\)包括查看或编辑详细信息、管理证书、查看加密节点以及删除不再需要的KMS。' 
 ---
-= 管理KMS
+= 在 StorageGRID 中管理密钥管理服务器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

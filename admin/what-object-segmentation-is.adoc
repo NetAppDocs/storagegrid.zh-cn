@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object segmentation, multipart upload 
 summary: 对象分段是指将对象拆分为一组大小固定的较小对象的过程、用于优化大型对象的存储和资源使用。S3 多部分上传还会创建分段对象，其中每个部分都有一个对象。 
 ---
-= 什么是对象分段？
+= 了解 StorageGRID 中的对象分段
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

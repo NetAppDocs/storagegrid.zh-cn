@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security certificates, grid CA certificate, types of certificates 
 summary: 安全证书是一个小型数据文件，用于在 StorageGRID 组件之间以及 StorageGRID 组件与外部系统之间创建安全可信的连接。 
 ---
-= 管理安全证书
+= 管理 StorageGRID 中的安全证书
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

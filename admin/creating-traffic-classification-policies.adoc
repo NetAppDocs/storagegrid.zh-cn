@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: traffic classification, network traffic, traffic limits, policy 
 summary: 如果要按分段，租户， IP 子网或负载平衡器端点监控网络流量，并可选择限制此流量，则可以创建流量分类策略。您也可以根据带宽，并发请求数或请求率为策略设置限制。 
 ---
-= 创建流量分类策略
+= 创建 StorageGRID 流量分类策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

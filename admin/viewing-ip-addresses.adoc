@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip address, view ip addresses for nodes, what is node ip address 
 summary: 您可以查看 StorageGRID 系统中每个网格节点的 IP 地址。然后、您可以使用此IP地址通过命令行登录到网格节点并执行各种维护过程。 
 ---
-= 查看 IP 地址
+= 在 StorageGRID 中查看 IP 地址
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, S3, client application, TLS 
 summary: StorageGRID租户帐户使用S3客户端应用程序将对象数据保存到StorageGRID。您应查看为客户端应用程序实施的安全措施。 
 ---
-= S3客户端的安全性
+= StorageGRID 中 S3 客户端的安全性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

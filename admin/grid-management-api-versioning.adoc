@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid management api, api versioning 
 summary: 网格管理 API 使用版本控制来支持无中断升级。 
 ---
-= 网格管理 API 版本控制
+= StorageGRID 中的网格管理 API 版本控制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

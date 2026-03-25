@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client certificates, prometheus 
 summary: 客户端证书允许授权的外部客户端访问 StorageGRID Prometheus 数据库，从而为外部工具监控 StorageGRID 提供了一种安全的方式。 
 ---
-= 配置客户端证书
+= 在 StorageGRID 中配置客户端证书
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

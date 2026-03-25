@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
 summary: 跨网格复制是指在通过网格联合连接连接的两个StorageGRID 系统中的选定S3分段之间自动复制对象。跨网格复制需要帐户克隆。 
 ---
-= 什么是跨网格复制？
+= 了解 StorageGRID 中的跨网格复制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

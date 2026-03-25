@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cloudmirror replication 
 summary: 在开始使用网格联盟时、请查看跨网格复制和StorageGRID CloudMirror复制服务之间的相似之处和不同之处。 
 ---
-= 请比较跨网格复制和CloudMirror复制
+= 比较 StorageGRID 中的跨网格复制和 CloudMirror 复制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

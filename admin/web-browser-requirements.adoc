@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: web browser requirements, supported browser, chrome, edge, firefox 
 summary: 您必须使用受支持的 Web 浏览器。 
 ---
-= Web 浏览器要求
+= StorageGRID 的 Web 浏览器要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

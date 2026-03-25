@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: 当存储节点达到容量时，您必须通过添加新存储来扩展 StorageGRID 系统。有三种选项可供选择：添加存储卷，添加存储扩展架和添加存储节点。 
 ---
-= 管理完整存储节点
+= 在 StorageGRID 中管理完整存储节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

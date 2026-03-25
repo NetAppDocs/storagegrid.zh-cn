@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
 summary: '通过流量分类策略、您可以识别和监控不同类型的网络流量。这些策略可以帮助您进行流量限制和监控、以增强服务质量(QoS)产品。' 
 ---
-= 什么是流量分类策略？
+= StorageGRID 中的流量分类策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 connection, connect to storagegrid, s3 setup wizard 
 summary: 作为网格管理员、您可以管理一些配置选项、这些配置选项用于控制S3客户端应用程序如何连接到StorageGRID系统以存储和检索数据。 
 ---
-= 配置S3客户端连接
+= 配置 S3 客户端到 StorageGRID 的连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

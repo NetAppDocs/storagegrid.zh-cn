@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
 summary: 您可以使用网格联盟在两个StorageGRID 系统之间克隆租户并复制其对象、以实现灾难恢复。 
 ---
-= 什么是网格联合？
+= 了解 StorageGRID 网格联合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

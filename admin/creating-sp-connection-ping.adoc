@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
 summary: 您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。 
 ---
-= 在 PingFederate 中创建服务提供商（ SP ）连接
+= 在 PingFederate 中为 StorageGRID 创建服务提供商连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

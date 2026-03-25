@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, troubleshoot 
 summary: 解决跨网格复制永久失败警报后、您应确定是否有任何对象或删除标记无法复制到其他网格。然后、您可以重新创建这些对象或使用网格管理API重试复制。 
 ---
-= 确定并重试失败的复制操作
+= 识别并重试失败的 StorageGRID 复制操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

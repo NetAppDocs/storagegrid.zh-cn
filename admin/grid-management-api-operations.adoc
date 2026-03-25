@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Grid Management API,  API operations 
 summary: 网格管理 API 将可用的 API 操作组织到以下几节中。 
 ---
-= 网格管理 API 操作
+= StorageGRID 中的网格管理 API 操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

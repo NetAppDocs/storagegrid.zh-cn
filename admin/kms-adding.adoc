@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add kms, key management server 
 summary: 您可以使用 StorageGRID 密钥管理服务器向导添加每个 KMS 或 KMS 集群。 
 ---
-= 添加密钥管理服务器（ KMS ）
+= 在 StorageGRID 中添加密钥管理服务器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

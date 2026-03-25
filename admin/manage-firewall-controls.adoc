@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall controls, untrusted client network, privileged address, manage external access 
 summary: StorageGRID 在每个节点上都包含一个内部防火墙、通过允许您自定义对网格网络、管理网络和客户端网络的访问、可以增强网格的安全性。 
 ---
-= 管理内部防火墙控制
+= 管理 StorageGRID 中的内部防火墙控制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

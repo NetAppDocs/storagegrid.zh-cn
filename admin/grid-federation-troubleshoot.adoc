@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
 summary: 您可能需要对与网格联合连接、帐户克隆和跨网格复制相关的警报和错误进行故障排除。 
 ---
-= 对网格联合错误进行故障排除
+= 对 StorageGRID 中的网格联合错误进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

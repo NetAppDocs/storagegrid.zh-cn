@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, create connection, configure connection 
 summary: 如果要克隆租户详细信息和复制对象数据、可以在两个StorageGRID 系统之间创建网格联合连接。 
 ---
-= 创建网格联合连接
+= 创建 StorageGRID 网格联合连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

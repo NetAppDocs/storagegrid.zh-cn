@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: increase metadata reserved space setting 
 summary: '如果存储节点满足特定的RAM和可用空间要求、则可以增加"元数据预留空间"系统设置。' 
 ---
-= 增加元数据预留空间设置
+= 增加 StorageGRID 中的 Metadata Reserved Space 设置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: 在为StorageGRID 系统启用单点登录之前、请查看要求和注意事项。 
 ---
-= SSO 的要求和注意事项
+= StorageGRID SSO 的要求和注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

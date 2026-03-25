@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin proxy, autosupport, non-transparent proxy 
 summary: '如果使用HTTP或HTTPS发送AutoSupport软件包、则可以在管理节点和技术支持\(AutoSupport)之间配置非透明代理服务器。' 
 ---
-= 配置管理代理设置
+= 在 StorageGRID 中配置管理代理设置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

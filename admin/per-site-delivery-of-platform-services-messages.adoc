@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services message delivery 
 summary: 所有平台服务操作均按站点执行。 
 ---
-= 按站点交付平台服务消息
+= 按站点交付 StorageGRID 平台服务消息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

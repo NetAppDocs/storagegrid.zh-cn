@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage local users 
 summary: 您可以查看本地用户和联合用户。您还可以创建本地用户并将其分配给本地管理组，以确定这些用户可以访问哪些网格管理器功能。 
 ---
-= 管理用户
+= 在 StorageGRID 中管理用户
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

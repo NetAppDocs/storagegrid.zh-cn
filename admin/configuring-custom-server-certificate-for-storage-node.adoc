@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: global S3 API certificate 
 summary: 您可以替换或还原用于将S3客户端连接到存储节点或负载平衡器端点的服务器证书。替换的自定义服务器证书特定于您的组织。 
 ---
-= 配置S3 API证书
+= 在 StorageGRID 中配置 S3 API 证书
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

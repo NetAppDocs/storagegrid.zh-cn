@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object compression, compress stored objects 
 summary: 您可以启用对象压缩以减小StorageGRID 中存储的对象大小、从而减少对象占用的存储空间。 
 ---
-= 压缩存储的对象
+= 压缩 StorageGRID 中存储的对象
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

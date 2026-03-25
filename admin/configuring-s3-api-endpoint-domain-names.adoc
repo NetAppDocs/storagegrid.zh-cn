@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 endpoint domain names, virtual-hosted-style requests 
 summary: 要支持S3虚拟托管模式请求、必须使用网格管理器配置S3客户端连接到的S3端点域名列表。 
 ---
-= 配置S3端点域名
+= 在 StorageGRID 中配置 S3 端点域名
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

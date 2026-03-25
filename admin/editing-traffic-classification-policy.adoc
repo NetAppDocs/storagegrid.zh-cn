@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit traffic classification policy 
 summary: 您可以编辑流量分类策略以更改其名称或问题描述 ，或者创建，编辑或删除此策略的任何规则或限制。 
 ---
-= 编辑流量分类策略
+= 编辑 StorageGRID 流量分类策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

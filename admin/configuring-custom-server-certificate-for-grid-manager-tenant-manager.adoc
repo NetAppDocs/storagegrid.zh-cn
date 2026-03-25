@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom certificates, grid manager, tenant manager, management interface certificate 
 summary: 您可以将默认 StorageGRID 服务器证书替换为一个自定义服务器证书，该证书允许用户访问网格管理器和租户管理器，而不会遇到安全警告。您还可以还原到默认管理接口证书或生成新的管理接口证书。 
 ---
-= 配置管理接口证书
+= 在 StorageGRID 中配置管理界面证书
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

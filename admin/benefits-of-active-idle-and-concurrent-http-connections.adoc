@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: active http connection benefits, idle http connection benefits, concurrent http connection benefits 
 summary: 如何配置 HTTP 连接可能会影响 StorageGRID 系统的性能。根据 HTTP 连接是活动连接还是空闲连接，或者您有多个并发连接，配置会有所不同。 
 ---
-= 活动，空闲和并发 HTTP 连接的优势
+= StorageGRID 中活动、空闲和并发 HTTP 连接的优势
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

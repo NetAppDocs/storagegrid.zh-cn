@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin nodes, more than one admin node, multiple admin nodes 
 summary: 一个 StorageGRID 系统可以包含多个管理节点，这样，即使一个管理节点出现故障，您也可以持续监控和配置 StorageGRID 系统。 
 ---
-= 使用多个管理节点
+= 在 StorageGRID 中使用多个管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

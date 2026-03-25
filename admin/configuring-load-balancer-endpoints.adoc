@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
 summary: 负载平衡器端点用于确定S3客户端在连接到网关和管理节点上的StorageGRID负载平衡器时可以使用的端口和网络协议。您还可以使用端点访问网格管理器、租户管理器或这两者。 
 ---
-= 配置负载平衡器端点
+= 配置 StorageGRID 负载均衡器端点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

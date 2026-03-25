@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
 summary: StorageGRID 使用三个存储卷水印来确保存储节点在空间严重不足之前安全地过渡到只读状态，并允许已过渡到只读状态的存储节点再次变为读写状态。 
 ---
-= 什么是存储卷水印？
+= 了解 StorageGRID 中的存储卷水印
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

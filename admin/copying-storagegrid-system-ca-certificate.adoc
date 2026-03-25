@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid ca certificate, copy certificate 
 summary: StorageGRID 使用内部证书颁发机构 \ （ CA\ ）保护内部流量。如果您上传自己的证书，则此证书不会更改。 
 ---
-= 复制网格 CA 证书
+= 复制 StorageGRID 网格 CA 证书
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

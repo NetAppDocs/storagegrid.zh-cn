@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, browser inactivity timeout, management API stack track 
 summary: 通过接口安全设置、您可以控制在用户处于非活动状态的时间超过指定时间时是否注销、以及是否在API错误响应中包含堆栈跟踪。 
 ---
-= 更改接口安全设置
+= 更改 StorageGRID 接口安全设置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

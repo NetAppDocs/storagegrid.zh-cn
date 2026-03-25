@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ha groups, high availability group 
 summary: 您可以使用高可用性（ High Availability ， HA ）组提供与 StorageGRID 的高可用性连接，以用于对象数据和管理目的。 
 ---
-= 如何使用 HA 组？
+= StorageGRID HA 组如何提供高可用性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

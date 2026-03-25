@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ha groups, best practices, high availability group options 
 summary: 下图举例说明了配置 HA 组的不同方式。每个选项都有优缺点。 
 ---
-= HA 组的配置选项
+= StorageGRID 高可用性组的配置选项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-下图举例说明了配置 HA 组的不同方式。每个选项都有优缺点。
+以下图表提供了配置高可用性 (HA) 组的不同方法的示例。每个选项都有优点和缺点。
 
 在图中，蓝色表示 HA 组中的主接口，黄色表示 HA 组中的备份接口。
 

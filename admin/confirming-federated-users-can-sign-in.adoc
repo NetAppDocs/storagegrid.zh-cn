@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso configuration 
 summary: 在启用单点登录 \ （ SSO\ ）之前，您必须确认至少有一个联合用户可以登录到网格管理器以及任何现有租户帐户的租户管理器。 
 ---
-= 确认联合用户可以登录
+= 确认联合用户可以登录到 StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

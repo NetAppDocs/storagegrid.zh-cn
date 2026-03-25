@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: TLS and SSH policy, secure connection, FIPS, Common Criteria 
 summary: TLS和SSH策略用于确定使用哪些协议和加密方法与客户端应用程序建立安全TLS连接、以及与内部StorageGRID 服务建立安全SSH连接。 
 ---
-= 管理TLS和SSH策略
+= 在 StorageGRID 中管理 TLS 和 SSH 策略
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

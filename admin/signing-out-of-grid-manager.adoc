@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign on, log out 
 summary: 使用完网格管理器后，您必须注销以确保未经授权的用户无法访问 StorageGRID 系统。根据浏览器 Cookie 设置，关闭浏览器可能无法将您从系统中注销。 
 ---
-= 注销 Grid Manager
+= 从 StorageGRID Grid Manager 中注销
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

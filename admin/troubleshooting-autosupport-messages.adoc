@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot autosupport, asup package 
 summary: 如果尝试发送AutoSupport软件包失败、StorageGRID系统会根据AutoSupport软件包的类型采取不同的操作。您可以通过选择支持>>工具>> AutoSupport >>结果来检查AutoSupport软件包的状态。 
 ---
-= 对AutoSupport软件包进行故障排除
+= 对 StorageGRID AutoSupport 包进行故障排除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

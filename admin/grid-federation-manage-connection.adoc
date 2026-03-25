@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, edit connection, remove connection, rotate certificates 
 summary: 管理StorageGRID 系统之间的网格联合连接包括编辑连接详细信息、轮换证书、删除租户权限以及删除未使用的连接。 
 ---
-= 管理网格联合连接
+= 管理 StorageGRID 网格联合连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

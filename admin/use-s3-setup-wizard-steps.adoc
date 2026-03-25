@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: FabricPool and S3 setup wizard, object storage system, S3 application 
 summary: 您可以使用S3设置向导将StorageGRID 配置为S3应用程序的对象存储系统。 
 ---
-= 访问并完成S3设置向导
+= 访问并完成 StorageGRID 中的 S3 设置向导
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
