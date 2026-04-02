@@ -6800,8 +6800,6 @@
   <block id="a412e34cce1492f3ede314031702148a" category="paragraph">为了确保冗余并防止丢失，每个站点维护三个对象元数据副本。此复制不可配置，并且会自动执行。有关详细信息，请参见 <block ref="860bd5dd659a0a357a008ab1080052fb" category="inline-link-macro-rx"></block>。</block>
   <block id="11eaaef6a7d07fff66e37fe995ee667f" category="paragraph">复制状态机（ RSM ）</block>
   <block id="8181740587c623b46adb1fba710d024f" category="paragraph">确保S3平台服务请求发送到其各自的端点。</block>
-  <block id="78cfb4cdd0b7f96e6d724cd10f9f55dc" category="summary">获取有关已修复问题和已知问题的特定版本信息。</block>
-  <block id="22692fe4225d24b9cd73d216b984bd35" category="inline-link">查看或下载 PDF 文件</block>
   <block id="5ff7a73be1e0ed97ec4be973669f85da" category="summary">安装 StorageGRID 时，必须至少创建一个站点。您可以创建其他站点来提高 StorageGRID 系统的可靠性和存储容量。</block>
   <block id="d58c5351fd0af7d37f30f9168a22f6eb" category="doc">添加站点</block>
   <block id="f9749857b99f9d96dd27eb669ac6b880" category="list-text">在 Sites 页面上，输入 * 站点名称 * 。</block>
@@ -10735,7 +10733,6 @@
   <block id="da846bc6a75662283756096ac2120542" category="section-title">网格联合连接的注意事项和要求</block>
   <block id="a36575d1c260ad48314d4b50dc2f339b" category="list-text">用于网格联合的网格必须运行相同的StorageGRID版本、或者两者之间的主要版本差异不超过一个。</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="inline-link-macro">发行说明</block>
-  <block id="628a48d7dd16c179a3013050a4f71c32" category="paragraph">有关版本要求的详细信息，请参阅<block ref="e1c28c955a9747b1bbfd260f64dcc4c9" category="inline-link-macro-rx"></block>。</block>
   <block id="f8203a3208f30530e133c0fae00aaa16" category="list-text">一个网格可以与其他网格建立一个或多个网格联合连接。每个网格联合连接都与任何其他连接无关。例如、如果网格1与网格2有一个连接、而与网格3有另一个连接、则网格2与网格3之间不存在隐含连接。</block>
   <block id="77af35756d9c5d98062088d63720c093" category="list-text">网格联合连接是双向的。建立连接后、您可以从任一网格监控和管理连接。</block>
   <block id="8b32ce356d84da8ca2fccd737823480c" category="list-text">要使用或<block ref="e5e3a9582cf034264f42071b7ae364d5" category="inline-link-macro-rx"></block>，必须至少存在一个网格联合连接<block ref="fd2ba15be86c09c51a5d70ba908434fd" category="inline-link-macro-rx"></block>。</block>
@@ -14502,7 +14499,6 @@
   <block id="2ae3ceccd0d5557cc1502b181c8fcef7" category="paragraph">首次安装 StorageGRID 系统时，系统会创建并记录密码短语。配置密码短语不在此文件中<block ref="28325afa13c532a62489ef0d7bee3061" prefix=" " category="inline-code"></block>。</block>
   <block id="3778f3873debfe11e2ace6bb6af1e417" category="paragraph">StorageGRID 文档</block>
   <block id="1c7b8206c311fd06abb7345e64bfa5de" category="list-text"><block ref="1c7b8206c311fd06abb7345e64bfa5de" category="inline-link-macro-rx"></block></block>
-  <block id="e1c28c955a9747b1bbfd260f64dcc4c9" category="list-text"><block ref="e1c28c955a9747b1bbfd260f64dcc4c9" category="inline-link-macro-rx"></block></block>
   <block id="1ea5b8e8b82c9c6016c6bf137988786c" category="list-text">适用于您的平台的安装说明</block>
   <block id="57a67202ee5c9b68142f5d8355f7e3f7" category="paragraph">适用于您的平台的最新文档</block>
   <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link">互操作性表工具(IMT)</block>
@@ -19123,7 +19119,6 @@
   <block id="81c57fb41b83d9ce9fbb0be21b5a7236" category="doc">升级 StorageGRID 软件</block>
   <block id="4c0b2305d5d82090bf58ef8690f6cc66" category="paragraph">执行升级时、StorageGRID系统中的所有节点都会升级。</block>
   <block id="49bab90fe422a137c501e4fcbba7dea0" category="inline-link-macro">已删除或已弃用的功能</block>
-  <block id="a4c98b6158b04b6626303975f61d5c32" category="list-text"><block ref="a4c98b6158b04b6626303975f61d5c32" category="inline-link-macro-rx"></block></block>
   <block id="8303b7d8ffbcd5e147888e18f3cd50ac" category="list-text"><block ref="8303b7d8ffbcd5e147888e18f3cd50ac" category="inline-link-macro-rx"></block></block>
   <block id="7d3a1fab502e61b8385f2a558570d4a8" category="list-text"><block ref="7d3a1fab502e61b8385f2a558570d4a8" category="inline-link-macro-rx"></block></block>
   <block id="d045b98c58117ec473162bf90abc8357" category="summary">如果在Linux主机上部署了任何StorageGRID节点、请在开始升级之前在每个主机上安装一个额外的RPM或DEB软件包。</block>
@@ -19252,7 +19247,6 @@
   <block id="414c43b5d86d3a77b2604876ddc3a623" category="list-text">验证网格操作是否已恢复正常：</block>
   <block id="c383d7ff9edf7b8f098318653f1f0d84" category="list-text">检查这些服务是否正常运行，以及是否没有意外警报。</block>
   <block id="7bef7467d4cda3267312dd1d85e45f9b" category="list-text">确认客户端与 StorageGRID 系统的连接是否按预期运行。</block>
-  <block id="2f991d50755e48aa797a84d8e8d25f07" category="summary">此版本删除或弃用了某些特性和功能。查看这些项目，了解在升级之前是需要更新客户端应用程序还是修改配置。</block>
   <block id="97d8f56bf41502f60ca6fdd5d5da8edc" category="section-title">定义</block>
   <block id="0ac54cb10e7494cff1949826e8e32f7b" category="list-text">已弃用</block>
   <block id="22056baa938009db5e1a7f1354e45140" category="list-text">在新的生产环境中*不应*使用该功能。现有生产环境可以继续使用此功能。</block>
@@ -19295,8 +19289,6 @@
   <block id="73611f9a837b7a25dad3a9c5d1a98658" category="paragraph">Ubuntu 20.04</block>
   <block id="e49af72440176f7b22d853a9c2b29440" category="paragraph">Debian 11</block>
   <block id="10b51e309ad5f8792f6a858ba1823389" category="paragraph">另请参见：</block>
-  <block id="d36562fc230520b3a0169dc0373b70d0" category="list-text"><block ref="d36562fc230520b3a0169dc0373b70d0" category="inline-link-macro-rx"></block></block>
-  <block id="c695e1d18371c41d09422f7fcc4b236a" category="list-text"><block ref="c695e1d18371c41d09422f7fcc4b236a" category="inline-link-macro-rx"></block></block>
   <block id="cf4582c3b776d1f9f341fc0384ac2b89" category="summary">如果在执行升级时出现问题、您可以自行解决问题描述 问题。如果无法解决问题描述 、请尽可能多地收集信息、然后联系技术支持。</block>
   <block id="78681f15c170b0854c0fdeae71cf21b4" category="doc">对升级问题进行故障排除</block>
   <block id="5e8c94183bb772904564625d6f010d4f" category="paragraph">如果在执行升级时出现问题、您可以自行解决问题描述 问题。如果无法解决问题描述 、请尽可能多地收集信息、然后联系技术支持。</block>
@@ -19372,7 +19364,6 @@
   <block id="44d8c69167834fd1e59ee02c594b04f8" category="paragraph">按以下顺序下载并安装软件，以便为您的系统做好升级准备：</block>
   <block id="913eb33badb675460727c820a3a2125c" category="list-text">升级到StorageGRID 11.8.0主要版本。</block>
   <block id="b7ea906d55655e597c4d8a9053c45417" category="list-text">应用最新的StorageGRID 11.8.0._y_修补程序。</block>
-  <block id="e80ffb07fa37709893e01d8c2702e294" category="paragraph">此版本的StorageGRID 引入了以下特性和功能变更。</block>
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="section-title">安全性</block>
   <block id="34804056c19a7a14faf519fd7b87a014" category="admonition">对于 VMware 节点，您可以在此处更改名称，但此操作不会更改 vSphere 中虚拟机的名称。</block>
   <block id="82f1cd5b44b90505365fd1444a693302" category="summary">您可以使用VMware OVF工具自动部署网格节点。您还可以自动配置 StorageGRID 。</block>
@@ -19981,8 +19972,6 @@
   <block id="8cd4cf9a1bc8b7088a5713a564fbf94c" category="sidebar">对象存储故障</block>
   <block id="e5122b0a08f5709b7262294ff2cc1eca" category="sidebar">用于检索对象的方法</block>
   <block id="464342dac5f6545486894ccc7cf24e16" category="sidebar">对外部系统日志服务器进行故障排除</block>
-  <block id="b1c6393658e5439dce5bb6215005e019" category="sidebar">对网格管理 API 进行的更改</block>
-  <block id="b97fea9000441cd4cc2f21c589b3b186" category="sidebar">对租户管理 API 进行的更改</block>
   <block id="48918682a3af4122b5019391353307ee" category="sidebar">规划和准备升级</block>
   <block id="bc108aeb1ee219f9cec70c55d37583c1" category="sidebar">完成升级的估计时间</block>
   <block id="560c354df6232ad70f0ba58c9e9aebb1" category="sidebar">验证已安装的 StorageGRID 版本</block>
@@ -20947,7 +20936,6 @@
   <block id="da37cffb3dcdf0c030a4a40512915fc8" category="list-text">选择消息中的链接，或选择*维护* &gt; *系统* &gt; *恢复包*。</block>
   <block id="38c27d26692c8833125ea1662034de4d" category="list-text">在第二个退役过程中，您可以删除第三个存储节点，因为 ADC 仲裁现在只需要三个 ADC 服务保持可用：<block ref="efbaea1a85310a12bb509786c053b705" prefix=" " category="inline-code"></block> 。</block>
   <block id="599b2a3c3a88e0a75d16a4d6103d9301" category="inline-link-macro">将 ADC 服务移动到同一站点上的另一个存储节点</block>
-  <block id="c617906f50ec7fe116afd4392d80e137" category="paragraph">如果您需要停用存储节点，您可以通过以下方式继续满足 ADC 仲裁要求<block ref="130ab17d4bfac542398a4c256b6b9b3a" category="inline-link-macro-rx"></block>或者在<block ref="3fd5fe83fbb0f3a2268117f619f63f46" category="inline-link-macro-rx"></block>并指定它应该具有 ADC 服务。然后，您可以停用现有的存储节点而不影响仲裁。</block>
   <block id="06b18d945403f553903340b06fee146b" category="list-text">您可以访问以下说明<block ref="713826a6939ed21e474cce413242be63" category="inline-link-macro-rx"></block>。</block>
   <block id="28b7a321b3123816e35c77f8cd6767eb" category="admonition">如果整个StorageGRID站点出现故障，请联系技术支持。技术支持将与您合作制定并执行站点恢复计划，以最大限度地恢复数据量并满足您的业务目标。请参阅<block ref="ae69a49f8134b8abb47c1037e68b19d1" category="inline-link-macro-rx"></block> 。</block>
   <block id="c392940ddd7d3b2cceb3c4b778cb907f" category="list-text">如果您正在恢复主管理节点以外的网格节点，则正在恢复的网格节点与管理恢复过程的管理节点之间存在连接。</block>
@@ -21250,7 +21238,6 @@
   <block id="b72c4068376cd4d9df80387b9ebd3551" category="list-text">多站点网格：每个站点至少一个对象存储节点（可以是组合的，也可以是仅数据）</block>
   <block id="5a876c8d9e1c47bb49e7c7d39422c906" category="paragraph">仅数据存储节点不提供此服务。</block>
   <block id="7c3cab99cdd71a00dd989de0991561ac" category="paragraph">[[adc-service]]管理域控制器 (ADC)</block>
-  <block id="12251054686bfecfe862b7b233643d13" category="paragraph">登录NetApp支持站点<block ref="29e9907bdef6b8b1791bd02aa5beb7bd" category="inline-link-rx"></block>包含StorageGRID 12.0 发行说明。</block>
   <block id="cd4218d4f2e1e386cb98b0557bf35a3d" category="paragraph">默认情况下， StorageGRID保证新创建对象的读写一致性。成功完成 PUT 之后的任何 GET 都将能够读取新写入的数据。现有对象的覆盖、元数据更新和删除最终是一致的。</block>
   <block id="f35e49a8605eb908d9094e9ffe760071" category="list-text">指定一致性<block ref="57a18c5a274a18ba87b79c054e3e52ba" category="inline-xref-macro-rx"></block>。</block>
   <block id="68c90d7146ec6a5b7787700df0fe996e" category="list-text">在网格管理器中，转到*配置* &gt; *系统* &gt; *存储设置* &gt; *默认存储桶一致性*。</block>
@@ -21742,14 +21729,12 @@
   <block id="fcb72f1b650324bb9b71cd13eb987ff1" category="paragraph">查看这些主题以了解StorageGRID 12.0 中的新功能和增强功能，确定是否有任何功能已被弃用或删除，并了解StorageGRID API 的变化。</block>
   <block id="ce7b5c9b507b4e4fd32cc18894b8980d" category="list-text"><block ref="ce7b5c9b507b4e4fd32cc18894b8980d" category="inline-link-macro-rx"></block></block>
   <block id="264d9394225a70ce81d779a300ac9a5b" category="inline-link-macro">StorageGRID 12.0 中的新功能</block>
-  <block id="ef1acfaaa7ab539b3c51ced9ae36ef9a" category="list-text"><block ref="ef1acfaaa7ab539b3c51ced9ae36ef9a" category="inline-link-macro-rx"></block></block>
   <block id="ed075c90984fd50a3cd8d38e065626d7" category="list-text">RHEL +<block ref="d232d394b6a3b694993db42f2a91626b" prefix=" " category="inline-code"></block> +<block ref="9dfb72b0b77b257cd0410cc1a8bab1ef" prefix=" " category="inline-code"></block></block>
   <block id="482967edf05ffac74276c98e65389438" category="list-text">代码签名验证在 Linux 节点上是手动的。或者，验证安装档案：</block>
   <block id="7c32ea80ff70f5fd66df9d653207b86d" category="list-text">按照步骤<block ref="3a93fbccc8bb10483de4711267633dd3" category="inline-link-macro-rx"></block>。</block>
   <block id="400a1d3a3294eedda632d79065c939f3" category="paragraph">请参阅安装 Linux StorageGRID主机服务的步骤<block ref="ea700204522a74715de0496f08fa5158" category="inline-link-macro-rx"></block>。</block>
   <block id="3e7ac0389a7d2c8481b185a8d857699a" category="inline-link-macro">在 Linux 主机上安装StorageGRID</block>
   <block id="a6ad0e6b22376edca724b32167bd1ed0" category="paragraph">确保您的 Linux 操作系统满足 StorageGRID 的最低内核版本要求。看<block ref="0f3eb067eca60625be82e4581e38b828" category="inline-link-macro-rx"></block> 。</block>
-  <block id="3e61d70799555cbb8fa0e6d5d5e2a875" category="list-text"><block ref="e1c28c955a9747b1bbfd260f64dcc4c9" category="inline-link-macro-rx"></block>适用于StorageGRID 12.0（需要登录）。在开始升级之前，请务必仔细阅读这些内容。</block>
   <block id="96cc9107a62013bc18e364fc6800150c" category="list-text"><block ref="a713c33a755261c47f006e3a395a1478" category="inline-link-rx"></block>针对您要升级到的主要版本（需要登录）</block>
   <block id="43bc2b24ea623e57f9152d11feb83fc9" category="summary">您可以升级到StorageGRID 12.0 并同时应用该版本的最新修补程序。  StorageGRID升级页面提供了推荐的升级路径并直接链接到正确的下载页面。</block>
   <block id="afb6756a233f1b6f245c03a3ac530620" category="paragraph">StorageGRID升级页面上的更新路径指示必须安装哪些主要版本（例如，12.0.0）和修补程序（例如，12.0.0.1）才能获得最新的StorageGRID版本。您应该按照显示的顺序安装推荐的版本和修补程序。</block>
@@ -22596,4 +22581,17 @@
   <block id="61bdb933800e17d9f000dd1e60d8fadb" category="doc">了解 StorageGRID 中的 AutoSupport</block>
   <block id="883e5c2cbeefdb615fa4e126598862ec" category="doc">了解 StorageGRID 中的对象分段</block>
   <block id="1143cf2c3ea50fb56691b766519817ba" category="doc">了解 StorageGRID 中的存储卷水印</block>
+  <block id="6de62e878b6bf67a71d7cb345cccd5d9" category="paragraph">有关版本要求的详细信息，请参见<block ref="1c8837ec5196d0da445e8d1970fc5a68" category="inline-link-rx"></block>。您必须使用您的 NetApp 帐户登录或创建一个帐户才能访问发行说明。</block>
+  <block id="1921888a992847aa4cb0be1bea2c3bd1" category="list-text"><block ref="61cda4d7b81c38c42a9e02c953d8be03" category="inline-link-rx"></block>.您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。</block>
+  <block id="01cf08f5d6943357c6751d22fba21210" category="paragraph">如果需要停用 Storage Node，可以通过<block ref="2722b0fab755635041b75d22998d9914" category="inline-link-macro-rx"></block>或在<block ref="3fd5fe83fbb0f3a2268117f619f63f46" category="inline-link-macro-rx"></block>中添加新的 Storage Node 并指定其应具有 ADC 服务来继续满足 ADC 仲裁要求。然后，可以在不影响仲裁的情况下停用现有 Storage Node。</block>
+  <block id="80a25105a1266e7f4c1403eef23bbb58" category="summary">了解 StorageGRID 12.0 中已删除或弃用的特性和功能。在升级之前，请检查任何已删除或已弃用的功能是否会影响客户端应用程序或网格配置。</block>
+  <block id="4128996018cbc8065e929c1597b99369" category="summary">StorageGRID 12.0 扩展了对象存储容量，改进了 AI/ML 工作负载支持，加强了网格联合，简化了系统管理，并增强了整个平台的安全性。</block>
+  <block id="c9dc5c9ebb7ebf4a2754c988f34c571f" category="inline-link">StorageGRID 12.0 发行说明</block>
+  <block id="46afaefc03dcf402e9f56a2d5e24ae25" category="paragraph">有关最新 StorageGRID 12.0 版本中的修复问题和已知问题的详细信息，请参见<block ref="41d06f4a346266d11bd82fcf648ba19f" category="inline-link-rx"></block>。您必须使用您的 NetApp 帐户登录或创建一个帐户才能访问发行说明。</block>
+  <block id="45793884fdc59e199abdd57f7bf95130" category="list-text"><block ref="45793884fdc59e199abdd57f7bf95130" category="inline-link-macro-rx"></block></block>
+  <block id="5931d9c4e38a4882ad507d198dba2286" category="list-text"><block ref="5931d9c4e38a4882ad507d198dba2286" category="inline-link-macro-rx"></block></block>
+  <block id="28b600802e2debeeae19bd7cd70e24cc" category="list-text"><block ref="28b600802e2debeeae19bd7cd70e24cc" category="inline-link-macro-rx"></block></block>
+  <block id="092df1287c3acdf3c872558644d4e30e" category="list-text"><block ref="092df1287c3acdf3c872558644d4e30e" category="inline-link-macro-rx"></block></block>
+  <block id="3b386f0ccc5453f7cbb6010b301aec07" category="list-text"><block ref="61cda4d7b81c38c42a9e02c953d8be03" category="inline-link-rx"></block>。您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。在开始升级之前，请务必仔细阅读这些内容。</block>
+  <block id="9e48ce3918382a0700088e38500a5865" category="sidebar">已删除或弃用的特性和功能</block>
 </blocks>

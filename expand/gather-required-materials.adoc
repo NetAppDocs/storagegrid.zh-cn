@@ -59,7 +59,7 @@ StorageGRID 安装归档
 StorageGRID 文档
  a| 
 * link:../admin/index.html["管理 StorageGRID"]
-* link:../release-notes/index.html["发行说明"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["发行说明"^].您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。
 * link:../swnodes/index.html["适用于您的平台的安装说明"]
 
 

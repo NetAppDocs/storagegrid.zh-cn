@@ -28,7 +28,7 @@ indexpage:
   - title: 升级或修补程序
     links:
     - title: 新增功能
-      url: "../upgrade/whats-new.html"
+      url: "../release-notes/whats-new.html"
     - title: 估计完成时间
       url: "../upgrade/estimating-time-to-complete-upgrade.html"
     - title: 升级期间对系统的影响

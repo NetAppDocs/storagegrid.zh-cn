@@ -55,7 +55,7 @@ Linux RPM或Deb归档文件
  a| 
 StorageGRID 文档
  a| 
-* link:../release-notes/index.html["发行说明"]适用于StorageGRID 12.0（需要登录）。在开始升级之前，请务必仔细阅读这些内容。
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["发行说明"^]。您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。在开始升级之前，请务必仔细阅读这些内容。
 * https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["StorageGRID 软件升级解决方案指南"^]针对您要升级到的主要版本（需要登录）
 * 其他 https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID 文档"^](根据需要)。
 

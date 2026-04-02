@@ -30,7 +30,15 @@ sidebar:
   - title: StorageGRID设备
     url: "/swnodes/storagegrid-hardware.html"
   - title: 发行说明
-    url: "/release-notes/index.html"
+    entries:
+    - title: StorageGRID 12.0 中的新功能
+      url: "/release-notes/whats-new.html"
+    - title: 已删除或弃用的特性和功能
+      url: "/release-notes/removed-or-deprecated-features.html"
+    - title: 对网格管理 API 进行的更改
+      url: "/release-notes/changes-to-grid-management-api.html"
+    - title: 对租户管理 API 进行的更改
+      url: "/release-notes/changes-to-tenant-management-api.html"
   - title: 开始使用
     url: "/landing-get-started/index.html"
     entries:
