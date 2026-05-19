@@ -17,7 +17,7 @@ summary: 使用本节中的示例来构建StorageGRID会话策略。
 
 == 示例：设置允许对象检索的会话策略
 
-在此示例中，会话的主体只允许从 bucket1 中检索对象。除StorageGRID特定操作（例如使用link:use-access-policies/#use-putoverwriteobject-permission["S3 ： PutOverwriteObject"]允许。调用 AssumeRole API 时，会话策略可以作为 JSON 文件提供。
+在此示例中，会话的主体仅允许从 bucket1 检索对象。所有其他操作都会被隐式拒绝，除了特定于 StorageGRID 的操作（例如使用 link:../s3/use-access-policies.html#use-putoverwriteobject-permission["S3 ： PutOverwriteObject"] 权限）。调用 AssumeRole API 时，可以以 JSON 文件的形式提供会话策略。
 
 [listing]
 ----

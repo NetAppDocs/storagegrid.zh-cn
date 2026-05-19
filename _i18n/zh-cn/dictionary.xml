@@ -7542,7 +7542,6 @@
   <block id="da143bd713c73758e299b3188a897d97" category="paragraph">PutObjectTaging(对象的特定版本)</block>
   <block id="ad7a61dfa7691a38e467ddde8dc38e2b" category="paragraph">S3 ： PutOverwriteObject</block>
   <block id="28e5f48e9f12d4928897b706c15e527a" category="paragraph">S3 ： RestoreObject</block>
-  <block id="b3e4a893c4097db1cfeae128bbb3c905" category="section-title">使用 PutOverwriteObject 权限</block>
   <block id="6c317e8e1ec90a09ffb3d8b4ca791675" category="paragraph">S3 ： PutOverwriteObject 权限是一种自定义 StorageGRID 权限，适用场景 可通过此权限创建或更新对象。此权限的设置可确定客户端是否可以覆盖对象的数据，用户定义的元数据或 S3 对象标记。</block>
   <block id="1bc5fcfe5f57d14d91d77c8997cc078b" category="paragraph">此权限的可能设置包括：</block>
   <block id="69af541b0b169c4d4d91f6522c907953" category="list-text">* 允许 * ：客户端可以覆盖对象。这是默认设置。</block>
@@ -21247,7 +21246,6 @@
   <block id="ba3fad21d7f52a443de6c373a33908e0" category="summary">使用本节中的示例来构建StorageGRID会话策略。</block>
   <block id="e5637736ed22b046bf6f1d029d2406c4" category="paragraph">使用以下示例构建StorageGRID会话策略。</block>
   <block id="e6d9424c66e16aa26a841e483b4a8a64" category="section-title">示例：设置允许对象检索的会话策略</block>
-  <block id="65ab8e63845a926499868ca64c76b0fd" category="paragraph">在此示例中，会话的主体只允许从 bucket1 中检索对象。除StorageGRID特定操作（例如使用<block ref="7e7b37438f9fa0700e8f48ce0ea6a221" category="inline-link-macro-rx"></block>允许。调用 AssumeRole API 时，会话策略可以作为 JSON 文件提供。</block>
   <block id="d0524c9bd1349e3b6fd45b1ef7d5411d" category="paragraph"><block ref="d0524c9bd1349e3b6fd45b1ef7d5411d" category="inline-link-macro-rx"></block></block>
   <block id="e23559e0bf68769e45a08c99f29c7fde" category="paragraph">StorageGRID支持以下特定版本的 STS、S3 和 HTTP：</block>
   <block id="70375949a2fc1aa5c11633ccd0c8ed10" category="paragraph">STS AssumeRole API 规范</block>
@@ -22594,4 +22592,6 @@
   <block id="092df1287c3acdf3c872558644d4e30e" category="list-text"><block ref="092df1287c3acdf3c872558644d4e30e" category="inline-link-macro-rx"></block></block>
   <block id="3b386f0ccc5453f7cbb6010b301aec07" category="list-text"><block ref="61cda4d7b81c38c42a9e02c953d8be03" category="inline-link-rx"></block>。您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。在开始升级之前，请务必仔细阅读这些内容。</block>
   <block id="9e48ce3918382a0700088e38500a5865" category="sidebar">已删除或弃用的特性和功能</block>
+  <block id="873c3907e55471a2991eab6c77d98a3b" category="paragraph">在此示例中，会话的主体仅允许从 bucket1 检索对象。所有其他操作都会被隐式拒绝，除了特定于 StorageGRID 的操作（例如使用 <block ref="d3f47673c653efb165a71bf92d9fcb27" category="inline-link-macro-rx"></block> 权限）。调用 AssumeRole API 时，可以以 JSON 文件的形式提供会话策略。</block>
+  <block id="ba1177d7dec9e949d93252540acfb636" category="section-title">[[use-putoverwriteobject-permission]]使用 PutOverwriteObject 权限</block>
 </blocks>

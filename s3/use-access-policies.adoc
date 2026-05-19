@@ -825,7 +825,7 @@ RestorEObject
 |===
 
 
-== 使用 PutOverwriteObject 权限
+== [[use-putoverwriteobject-permission]]使用 PutOverwriteObject 权限
 
 S3 ： PutOverwriteObject 权限是一种自定义 StorageGRID 权限，适用场景 可通过此权限创建或更新对象。此权限的设置可确定客户端是否可以覆盖对象的数据，用户定义的元数据或 S3 对象标记。
 
