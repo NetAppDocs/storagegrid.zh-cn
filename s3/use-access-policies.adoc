@@ -2,7 +2,7 @@
 permalink: s3/use-access-policies.html 
 sidebar: sidebar 
 keywords: bucket access policies, group access policies, session policies 
-summary:  
+summary: 'StorageGRID 使用 Amazon Web Services (AWS) 策略语言，允许 S3 租户控制对这些存储桶中的存储桶和对象的访问。' 
 ---
 = StorageGRID 如何使用 AWS 策略来控制对 S3 存储桶和对象的访问
 :allow-uri-read: 

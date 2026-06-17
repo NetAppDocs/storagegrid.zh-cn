@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: '如果停用后仍保留的管理域控制器\(ADC\)服务太少、您可能无法停用站点上的某些存储节点。' 
+summary: '如果停用后仍保留的管理域控制器(ADC)服务太少、则可能无法停用站点上的某些存储节点。' 
 ---
 = 什么是 StorageGRID ADC 仲裁？
 :allow-uri-read: 

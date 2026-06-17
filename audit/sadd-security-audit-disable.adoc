@@ -2,7 +2,7 @@
 permalink: audit/sadd-security-audit-disable.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SADD, Security Audit Disable 
-summary: 此消息指示发起服务 \ （节点 ID\ ）已关闭审核消息日志记录；不再收集或传送审核消息。 
+summary: 此消息指示原始服务（节点 ID）已关闭审核消息日志记录。StorageGRID 不再收集或传递审核消息。 
 ---
 = StorageGRID 中安全审核禁用的 SADD 审核消息
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 此消息指示发起服务 \ （节点 ID\ ）已关闭审核消息日
 
 
 [role="lead"]
-此消息指示发起服务（节点 ID ）已关闭审核消息日志记录；不再收集或传送审核消息。
+此消息指示原始服务（节点 ID）已关闭审核消息日志记录。StorageGRID 不再收集或传递审核消息。
 
 [cols="1a,1a,4a"]
 |===

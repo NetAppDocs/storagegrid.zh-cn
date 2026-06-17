@@ -2,7 +2,7 @@
 permalink: audit/sade-security-audit-enable.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
-summary: 此消息表示发起服务 \ （节点 ID\ ）已还原审核消息日志记录；正在再次收集和传送审核消息。 
+summary: 此消息指示发起服务（节点 ID）已恢复审核消息日志记录。StorageGRID 再次收集和传递审核消息。 
 ---
 = StorageGRID 中启用安全审核的 SADE 审核消息
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 此消息表示发起服务 \ （节点 ID\ ）已还原审核消息日
 
 
 [role="lead"]
-此消息表示发起服务（节点 ID ）已还原审核消息日志记录；正在再次收集和传送审核消息。
+此消息指示发起服务（节点 ID）已恢复审核消息日志记录。StorageGRID 再次收集和传递审核消息。
 
 [cols="1a,1a,4a"]
 |===

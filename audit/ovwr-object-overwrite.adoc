@@ -2,7 +2,7 @@
 permalink: audit/ovwr-object-overwrite.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, OVWR, Object Overwrite 
-summary: 如果外部 \ （客户端请求的 \ ）操作导致一个对象被另一个对象覆盖，则会生成此消息。 
+summary: 如果外部（客户端请求的）操作导致一个对象被另一个对象覆盖，则会生成此消息。 
 ---
 = StorageGRID 中对象覆写的 OVWR 审核消息
 :allow-uri-read: 

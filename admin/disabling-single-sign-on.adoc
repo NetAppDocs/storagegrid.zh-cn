@@ -2,7 +2,7 @@
 permalink: admin/disabling-single-sign-on.html 
 sidebar: sidebar 
 keywords: disable sso, disable single sign on 
-summary: 如果您不想再使用此功能，可以禁用单点登录 \ （ sso\ ）。必须先禁用单点登录，然后才能禁用身份联合。 
+summary: 如果您不再希望使用单点登录（ SSO ）功能，则可以禁用此功能。必须先禁用单点登录，然后才能禁用身份联合。 
 ---
 = 在 StorageGRID 中禁用 SSO
 :allow-uri-read: 

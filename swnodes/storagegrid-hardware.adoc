@@ -10,7 +10,7 @@ summary: 了解如何安装、配置和使用StorageGRID设备硬件。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

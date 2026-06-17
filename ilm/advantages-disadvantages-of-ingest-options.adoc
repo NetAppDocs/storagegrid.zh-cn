@@ -2,7 +2,7 @@
 permalink: ilm/advantages-disadvantages-of-ingest-options.html 
 sidebar: sidebar 
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
-summary: 了解在载入时保护数据的三个选项中每一个选项（平衡，严格或双提交）的优缺点有助于您确定要为 ILM 规则选择哪个选项。 
+summary: 了解在载入时保护数据的三个选项（平衡，严格或双重提交）中每一个选项的优缺点有助于您确定要为 ILM 规则选择哪个选项。 
 ---
 = StorageGRID 中 ILM 摄取选项的优势、劣势和限制
 :allow-uri-read: 

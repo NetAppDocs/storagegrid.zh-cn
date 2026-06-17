@@ -2,7 +2,7 @@
 permalink: admin/controlling-storagegrid-access.html 
 sidebar: sidebar 
 keywords: administrator access, single sign on, sso, users, groups, client certificates, passwords, passphrase 
-summary: 您可以通过创建或导入组和用户并为每个组分配权限来控制谁可以访问 StorageGRID 以及用户可以执行哪些任务。您也可以选择启用单点登录 \ （ sso\ ），创建客户端证书和更改网格密码。 
+summary: 您可以通过创建或导入组和用户并为每个组分配权限来控制谁可以访问 StorageGRID 以及用户可以执行哪些任务。您也可以选择启用单点登录（ SSO ），创建客户端证书和更改网格密码。 
 ---
 = 控制 StorageGRID 访问
 :allow-uri-read: 

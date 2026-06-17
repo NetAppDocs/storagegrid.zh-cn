@@ -2,7 +2,7 @@
 permalink: maintain/step-3-revise-ilm-policy.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, revise ilm policies 
-summary: '从停用站点向导的步骤3 (修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。' 
+summary: '从停用站点向导的第3步(修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。' 
 ---
 = 在 StorageGRID 中修订站点停用的 ILM 策略
 :allow-uri-read: 

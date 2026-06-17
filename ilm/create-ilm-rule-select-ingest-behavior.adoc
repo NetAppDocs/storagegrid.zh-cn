@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
 sidebar: sidebar 
 keywords: ilm rule step 3, define ingest behavior 
-summary: '通过创建ILM规则向导的第3步\(选择导出行为\)、您可以选择在导出时如何保护通过此规则筛选的对象。' 
+summary: 创建 ILM 规则向导的第 3 步（选择摄取行为）允许您选择在摄取时如何保护此规则筛选的对象。 
 ---
 = 选择 StorageGRID ILM 规则的接收行为
 :allow-uri-read: 

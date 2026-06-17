@@ -199,7 +199,6 @@
   <block id="eae1d49d311ae5be60b6c3eae92c7fb9" category="list-text">在StorageGRID 11.7或更早版本中创建的删除标记只能通过S3客户端请求删除、而不能通过ILM、存储分段生命周期规则或删除存储分段操作中的对象来删除。</block>
   <block id="a6b429d9f48e7cab3cba9b64ee8d9a45" category="list-text">可以通过ILM、存储分段生命周期规则、删除存储分段操作中的对象或显式S3客户端删除功能从在StorageGRID 11.8或更高版本中创建的存储分段中删除标记。</block>
   <block id="6d0e61b2118949052808f5b73b2e4d44" category="list-text"><block ref="6d0e61b2118949052808f5b73b2e4d44" category="inline-link-macro-rx"></block></block>
-  <block id="32b8f579606f9af7497aeea62d9c5693" category="summary">信息生命周期管理 \ （ ILM ）策略是一组有序的 ILM 规则，用于确定 StorageGRID 系统如何在一段时间内管理对象数据。</block>
   <block id="eaf1f38ffad5f3c3703030d4272a9bd2" category="paragraph">信息生命周期管理（ ILM ）策略是一组有序的 ILM 规则，用于确定 StorageGRID 系统如何在一段时间内管理对象数据。</block>
   <block id="e8c723f7168875735d8d19e27279f135" category="admonition">配置不正确的 ILM 策略可能导致无法恢复的数据丢失。激活 ILM 策略之前，请仔细查看 ILM 策略及其 ILM 规则，然后模拟 ILM 策略。请始终确认 ILM 策略将按预期运行。</block>
   <block id="9bb6a532e658facbdc4db39edf4adc59" category="section-title">默认ILM策略</block>
@@ -254,7 +253,6 @@
   <block id="7738107556bbc104c615f4904507257d" category="list-text">确保策略中的规则顺序正确。激活策略后，新对象和现有对象将按列出的顺序从顶部开始进行评估。例如、如果策略中的第一个规则与某个对象匹配、则该对象不会由任何其他规则进行评估。</block>
   <block id="820629642e3b1cb2e0d32b6438ba374b" category="list-text">每个ILM策略中的最后一条规则是默认ILM规则、不能使用任何筛选器。如果某个对象未被其他规则匹配，则默认规则将控制该对象的放置位置以及保留时间。</block>
   <block id="92bb80fa0a19ead93ae30380e9dc8f8a" category="list-text">在激活新策略之前，请查看此策略对现有对象的放置所做的任何更改。在评估和实施新放置时，更改现有对象的位置可能会导致临时资源问题。</block>
-  <block id="a1a659c6493b085f252cc57382618925" category="summary">ILM策略中的信息生命周期管理(ILM)规则指示StorageGRID如何创建和分发对象数据副本以及如何随着时间的推移管理这些副本。</block>
   <block id="c510e4391e53655340a166b97766f29a" category="paragraph">ILM策略中的信息生命周期管理(ILM)规则指示StorageGRID如何创建和分发对象数据副本以及如何长期管理这些副本。</block>
   <block id="d38f896ddbb0d7082fbc18cef60547e0" category="paragraph">设计和实施ILM规则和策略需要仔细规划。您必须了解操作要求， StorageGRID 系统的拓扑结构，对象保护需求以及可用存储类型。然后，您必须确定希望如何复制，分发和存储不同类型的对象。</block>
   <block id="7c6e3c47f7e8f82eb6a48bfd995b5dc2" category="inline-link-macro">ILM如何在对象的整个生命周期内运行</block>
@@ -786,7 +784,6 @@
   <block id="d3d9446802a44259755d38e6d163e820" category="paragraph">10</block>
   <block id="6512bd43d9caa6e02c990b0a82652dca" category="paragraph">11</block>
   <block id="c51ce410c124a10e0db5e4b97fc2af39" category="paragraph">13</block>
-  <block id="21cdd235d92fb15abc28e08f77c6053c" category="summary">要管理对象，您需要创建一组信息生命周期管理 \ （ ILM ）规则并将其组织到 ILM 策略中。</block>
   <block id="0a81a53b823d402f0ba8988363bbedea" category="paragraph">要管理对象，您需要创建一组信息生命周期管理（ ILM ）规则，并将其组织到 ILM 策略中。</block>
   <block id="0f42db882606bd36e121dd738422d11e" category="paragraph">系统中载入的每个对象都会根据活动策略进行评估。如果策略中的规则与对象的元数据匹配，则规则中的说明将确定 StorageGRID 复制和存储该对象所采取的操作。</block>
   <block id="326f27e291823b4c6c2eb3c843f0e23b" category="admonition">对象元数据不受ILM规则管理。而是将对象元数据存储在 Cassandra 数据库中，该数据库称为元数据存储。每个站点会自动维护三个对象元数据副本，以防止数据丢失。</block>
@@ -1302,7 +1299,6 @@
   <block id="e51ed48137ec4e1d67c68b83da729e67" category="inline-link-macro">已暂停停用操作步骤</block>
   <block id="122e06c51053069550f864795b6e2555" category="inline-link-macro">正在升级StorageGRID 软件</block>
   <block id="22135de788032c63ee471eae2e44f9a7" category="admonition">如果是节点或站点<block ref="3435c1792b89b33d74099a1adc2ac877" category="inline-link-macro-rx"></block>，则可以安全地应用修补程序。此外，您还可以在 StorageGRID 升级操作步骤 的最后阶段应用修补程序。请参阅的说明<block ref="180505c97177662e9c6981b5a2fc3c9b" category="inline-link-macro-rx"></block>。</block>
-  <block id="7508acbe01c96842ca6d470ea204f468" category="summary">您可以添加、删除和更新DNS服务器、以便使用完全限定域名\(FQDN\)主机名、而不是IP地址。</block>
   <block id="5254df7b70826462d79af217bb5142d5" category="doc">配置 DNS 服务器</block>
   <block id="b32e366c8fe62901cf50e612fc7a8d24" category="paragraph">您可以添加、更新和删除DNS服务器、以便可以使用完全限定域名(FQDN)主机名、而不是IP地址。</block>
   <block id="daec3afda782dd3d75cdc5cb161420e7" category="paragraph">要在为外部目标指定主机名时使用完全限定域名(FQDN)而不是IP地址、请指定要使用的每个DNS服务器的IP地址。这些条目用于AutoSupport 、警报电子邮件、SNMP通知、平台服务端点、云存储池、 等等。</block>
@@ -1331,7 +1327,6 @@
   <block id="4e9f1d78c21d6e09903f27bcec914036" category="list-text">您不能将客户端网络IP地址更改为分配给在客户端网络接口上配置的HA组的现有虚拟IP地址的值。</block>
   <block id="bd20a32730af5a471f0076f9c322df8e" category="list-text">如果某个网格网络接口包含在HA组中、则不能将该接口的网格网络IP地址更改为为HA组配置的子网之外的地址。</block>
   <block id="9d8515f7b621a733e1d60fbf0198c77c" category="list-text">您不能将网格网络IP地址更改为分配给在网格网络接口上配置的HA组的现有虚拟IP地址的值。</block>
-  <block id="4796dc2369cd6d57ed4265445c2e440a" category="summary">您可以添加、更新或删除网络时间协议\(NTP\)服务器、以确保数据在StorageGRID 系统中的网格节点之间准确同步。</block>
   <block id="fda083d99776d9db39cb9af9b8202f93" category="paragraph">您可以添加、更新或删除网络时间协议(NTP)服务器、以确保StorageGRID 系统中网格节点之间的数据准确同步。</block>
   <block id="11634d6fc384495a42346192f5eeade4" category="list-text">您有要配置的NTP服务器的IPv4地址。</block>
   <block id="67dc478c3c87242bfec371c487ca5a71" category="section-title">StorageGRID 如何使用NTP</block>
@@ -1580,7 +1575,6 @@
   <block id="84508747231c716e448376b26f2e737b" category="list-text">确保已停用网格节点的驱动器已擦除干净。使用商用数据擦除工具或服务永久安全地从驱动器中删除数据。</block>
   <block id="66bb499d1d6e9c0a4e1c872e5a1742db" category="inline-link">监控维护模式下的节点加密</block>
   <block id="b1c86d0ba83eaa8dfe28a47e6d6ec1f0" category="list-text">如果您停用了某个设备节点，并且该设备上的数据已使用节点加密进行保护，请使用 StorageGRID 设备安装程序清除密钥管理服务器配置（清除 KMS ）。如果要将设备添加到另一个网格，则必须清除 KMS 配置。有关说明，请参阅<block ref="65491cee836ef1f0be1141ca5618fdf7" category="inline-link-rx"></block>。</block>
-  <block id="bbb94353dffd534ca2d5f1cb42c909d7" category="summary">您可能需要停用当前未连接到网格的节点（运行状况为未知或管理员关闭的节点）。</block>
   <block id="cc17181c3c5d251c9e08a81437ff3b3c" category="doc">停用已断开连接的网格节点</block>
   <block id="fd0f2337dbc929e6872f7768ccb2be50" category="paragraph">您可能需要停用当前未连接到网格的节点（运行状况为未知或管理员关闭的节点）。</block>
   <block id="f6b496f87476d74c7f43c83549b26d8c" category="list-text">您已获取所有前提条件项。</block>
@@ -2068,7 +2062,6 @@
   <block id="0805b98633df5eabbe0b53865022d35e" category="doc">从归档节点故障中恢复</block>
   <block id="c3b8c70c8a19a39ca7c7a51e04a60d8a" category="inline-link">从归档节点故障中恢复(StorageGRID 11.8文档站点)</block>
   <block id="8f585d8ff60bd7cc88de2c4db3563bd9" category="paragraph">有关恢复归档节点的信息，请参见<block ref="d88cfbef1fe6bd7ae7387a49d0be2d41" category="inline-link-rx"></block>。</block>
-  <block id="068ed2fb70ce846a6cf68e82e60bc492" category="summary">要从非主管理节点故障中恢复，您必须完成以下任务。一个管理节点托管配置管理节点（ CMN\ ）服务，称为主管理节点。尽管可以有多个管理节点，但每个 StorageGRID 系统仅包含一个主管理节点。所有其他管理节点均为非主管理节点。</block>
   <block id="8746e10b4598bd07fba5db9dacb733ce" category="paragraph">要从非主管理节点故障中恢复，您必须完成以下任务。一个管理节点托管配置管理节点（ CMN ）服务，称为主管理节点。尽管可以有多个管理节点，但每个 StorageGRID 系统仅包含一个主管理节点。所有其他管理节点均为非主管理节点。</block>
   <block id="fc2c60a7f3bbcf74357336e39b0a2ef4" category="paragraph">按照以下简要步骤恢复非主管理节点：</block>
   <block id="6275d7ecf1fc1fac926211dd1e9a82b4" category="inline-link-macro">从发生故障的非主管理节点复制审核日志</block>
@@ -2083,9 +2076,7 @@
   <block id="67227c9399e01ba451e3ae5c5f0235e4" category="list-text"><block ref="67227c9399e01ba451e3ae5c5f0235e4" category="inline-link-macro-rx"></block></block>
   <block id="4d4c0dbc8ee021e9e0600022a1f280ce" category="inline-link-macro">恢复非主管理节点时还原Prometheus指标</block>
   <block id="73b7c3355ab2212ab5cd4756b3473a30" category="list-text"><block ref="73b7c3355ab2212ab5cd4756b3473a30" category="inline-link-macro-rx"></block></block>
-  <block id="9739ca1b43dc3eb1bf403302d16e652a" category="summary">要从主管理节点故障中恢复，您必须完成一组特定的任务。主管理节点托管网格的配置管理节点（ CMN\ ）服务。</block>
   <block id="dbf9e9e8d97f01254fe445247d4ba1f2" category="paragraph">要从主管理节点故障中恢复，您必须完成一组特定的任务。主管理节点托管网格的配置管理节点（ CMN ）服务。</block>
-  <block id="1285318d9f6efe981fca22e001181767" category="admonition">您必须立即修复或更换发生故障的主管理节点、否则网格可能无法再装载新对象。确切的时间段取决于对象载入率：如果您需要更准确地评估网格的时间范围，请联系技术支持。</block>
   <block id="004d2ede21cf7c5c3cfdb8f72deb09b5" category="paragraph">按照以下简要步骤恢复主管理节点：</block>
   <block id="57ef3f7cd9adc0466dee9577a57ea964" category="list-text"><block ref="57ef3f7cd9adc0466dee9577a57ea964" category="inline-link-macro-rx"></block></block>
   <block id="96ca4685ac3f991c63ae23e1205f8866" category="inline-link-macro">更换主管理节点</block>
@@ -2896,7 +2887,6 @@
   <block id="2c327d3e22ff437db3e65987f5f6b683" category="list-text">如果可以停用，请选择站点的单选按钮。</block>
   <block id="a16c624bdd067812a4c06e15b7f658e8" category="paragraph">此时将启用 * 下一步 * 按钮。</block>
   <block id="8546a01f3e9fe19ac9a8d992b56851c8" category="paragraph">此时将显示第 2 步（查看详细信息）。</block>
-  <block id="e5c99deaf400537b6dd55cf4bbe8dd07" category="summary">从 " 弃用站点 " 向导的第 2 步 \ （查看详细信息 \ ）中，您可以查看站点中包含的节点，查看每个存储节点上已使用的空间量，并评估网格中其他站点上的可用空间量。</block>
   <block id="c425892ae74feee241d4126d8ccd2bd8" category="paragraph">从 " 弃用站点 " 向导的第 2 步（查看详细信息）中，您可以查看站点中包含的节点，查看每个存储节点上已使用的空间量，并评估网格中其他站点上的可用空间量。</block>
   <block id="68480ce7432f17728d0f0a5126701c12" category="paragraph">停用站点之前，您必须查看站点上存在的对象数据量。</block>
   <block id="2f19d71553be2e6ef6c3d513570413ef" category="list-text">如果您要执行已连接站点停用，则必须先了解站点上当前存在的对象数据量，然后再更新 ILM 。根据站点容量和数据保护需求，您可以创建新的 ILM 规则，将数据移动到其他站点或从站点中删除对象数据。</block>
@@ -2927,7 +2917,6 @@
   <block id="8104a0905ac429796205f94b054c95d8" category="paragraph">如果您正在执行已连接站点停用，并且计划使用 ILM 从选定站点移动对象数据（而不是仅删除该数据），则必须确保其他站点具有足够的容量来容纳移动的数据，并且为未来的增长保留足够的容量。</block>
   <block id="090ef93c154f4a00f3b40cae1eaeeb4b" category="admonition">如果要删除的站点的 * 已用空间 * 大于 * 其他站点的总可用空间 * ，则会显示警告。要确保删除站点后有足够的存储容量可用，您可能需要在执行此操作步骤 之前执行扩展。</block>
   <block id="0a8c9a04e28f7474941e01195b74a1fe" category="paragraph">此时将显示第 3 步（修订 ILM 策略）。</block>
-  <block id="fd96294a44e03a0395905c48f8995c68" category="summary">从停用站点向导的步骤3 (修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。</block>
   <block id="7c5a4f240ba4da55a6c752dd19551ad6" category="paragraph">从停用站点向导的第3步(修订ILM策略)中、您可以确定站点是否由任何ILM策略引用。</block>
   <block id="a8ab35fad5b72b758eec4c92ffbce62a" category="inline-link-macro">使用ILM管理对象</block>
   <block id="309d7b9d8f01c8ffe57260b387a663fd" category="paragraph">您已很好地了解如何<block ref="cb90a8e8fa97610b3fc58e894aabc5bd" category="inline-link-macro-rx"></block>。您熟悉创建存储池和ILM规则以及模拟和激活ILM策略。</block>
@@ -2970,7 +2959,6 @@
   <block id="e2e9336ba0c0bc29d2e667d6e7a15e75" category="list-text"><block ref="831b6e7acf4c82c2d7914fc31b3a8516" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="403ba4ad300167e2dfc3d620c7198309" category="list-text">完成对ILM规则和策略的更改后、第3步(修订ILM策略)中不应再列出任何策略。选择 * 下一步 * 。</block>
   <block id="d7faf29aea7b593688d72e2bdc54fddb" category="paragraph">此时将显示第 4 步（删除 ILM 参考）。</block>
-  <block id="ea354d8eca2de1702e79bede4e1bc1b3" category="summary">从停用站点向导的第4步(删除ILM参考)开始、您必须删除或编辑引用该站点的任何未使用的ILM规则、即使这些规则未在任何ILM策略中使用也是如此。</block>
   <block id="37fd7245fa240f809f55d1129acad41c" category="paragraph">从停用站点向导的第4步(删除ILM引用)开始、您必须删除或编辑引用该站点的任何未使用的ILM规则、即使这些规则未在任何ILM策略中使用也是如此。</block>
   <block id="d56b2eb4e1929a57af59a0da8d016ed9" category="list-text">确定任何未使用的 ILM 规则是否引用站点。</block>
   <block id="5f838fab9fb8fe1efdc1373f27a51893" category="paragraph">如果列出了任何ILM规则、则这些规则仍会引用此站点、但不会在任何策略中使用。</block>
@@ -2983,7 +2971,6 @@
   <block id="0958b89ec0330ed53af2764ac4d74806" category="list-text">确认没有未使用的ILM规则引用该站点，并且已启用*Next*按钮。</block>
   <block id="ca4dd0a7f99507a877d7ea47c8e45987" category="admonition">删除此站点后、引用此站点的任何其余存储池和纠删编码配置文件将无效。在StorageGRID停用站点时、它会自动停用引用该站点的任何未使用的纠删编码配置文件、并自动删除引用该站点的任何未使用的存储池。删除所有存储节点存储池(StorageGRID 11.6及更早版本)、因为它使用所有站点站点。</block>
   <block id="41a36adbb5465a1f32e451894f43abbd" category="paragraph">此时将显示第 5 步（解决节点冲突）。</block>
-  <block id="d25f9cfccba6ac34b2cc5ae677f30b8b" category="summary">从 " 弃用站点 " 向导的第 5 步 \ （解决节点冲突 \ ）中，您可以确定 StorageGRID 系统中的任何节点是否已断开连接，或者选定站点中的任何节点是否属于高可用性 \ （ HA\ ）组。解决任何节点冲突后，您可以从此页面启动停用操作步骤 。</block>
   <block id="d705190e29460c4a4d75ad5c356b2dd2" category="paragraph">从 " 弃用站点 " 向导的第 5 步（解决节点冲突）中，您可以确定 StorageGRID 系统中的任何节点是否已断开连接，或者选定站点中的任何节点是否属于高可用性（ HA ）组。解决任何节点冲突后，您可以从此页面启动停用操作步骤 。</block>
   <block id="57147a1b80edfcc38a0b446e18614175" category="paragraph">您必须确保 StorageGRID 系统中的所有节点均处于正确状态，如下所示：</block>
   <block id="0274240d86e41f7de4b7b3f03f020ccf" category="list-text">StorageGRID系统中的所有节点都必须已连接<block ref="74ffc0550a20e130c0c48f64c788ef99" category="inline-image-macro-rx" type="image"></block>()。</block>
@@ -3015,7 +3002,6 @@
   <block id="ac2f87bb0671c8b2abcada34b6e528a6" category="image-alt">停用站点步骤 5 网格配置</block>
   <block id="0f646d8a6bfa049c42fa19de2fa0a411" category="paragraph">生成新网格配置后，将显示步骤 6 （监控取消配置）。</block>
   <block id="df4eefe17da5f848e4d4494ba5e3e741" category="admonition">在停用完成之前， * 上一步 * 按钮将保持禁用状态。</block>
-  <block id="4c22edef0431b61082d7f8ab60957082" category="summary">从 " 弃用站点 " 页面向导的第 6 步 \ （监控取消配置）中，您可以在删除站点时监控进度。</block>
   <block id="dc9f85b00a336dab81c7cbed28819046" category="paragraph">从 " 取消配置站点 " 页面向导的第 6 步（监控取消配置）中，您可以在删除站点时监控进度。</block>
   <block id="3d26c7690371c29d1a71779085da347e" category="paragraph">当 StorageGRID 删除已连接站点时，它将按以下顺序删除节点：</block>
   <block id="53cc3f903082af16815be0a6d415e50f" category="paragraph">当 StorageGRID 删除已断开连接的站点时，它会按以下顺序删除节点：</block>
@@ -3099,14 +3085,12 @@
   <block id="c97be49fc00f5e4e814f0d26349951e0" category="admonition">根据与网格版本匹配的要求、您可以在部署节点时使用次要版本；您无需先部署主要版本。</block>
   <block id="ee560a5ab29c3a382429910f8920533d" category="list-text">然后，将修补程序 11._A.B.y_ 应用于主管理节点。</block>
   <block id="d420b76fd181f34f84e4eff9473bf704" category="paragraph">有关详细信息，请参见 <block ref="0f7e5cf7b0acc83099b9ae176fbc4e3c" category="inline-link-macro-rx"></block>。</block>
-  <block id="1301965e69ee8054282a33bdd0aa4cfb" category="summary">如果停用后仍保留的管理域控制器\(ADC\)服务太少、您可能无法停用站点上的某些存储节点。</block>
   <block id="440e1a338dc560bde163dd40a8e91151" category="paragraph">如果停用后仍保留的管理域控制器(ADC)服务太少、则可能无法停用站点上的某些存储节点。</block>
   <block id="c68dd5c9975099029e803c8f5d7e4f31" category="paragraph">某些存储节点上的ADC服务负责维护网格拓扑信息并为网格提供配置服务。StorageGRID 系统要求每个站点始终提供一定的数字转换服务仲裁。</block>
   <block id="200c93c6b4fdb53d5366e7a95c8b560f" category="paragraph">如果删除存储节点会发生原因 使不再满足ADC仲裁、则无法停用该节点。要在停用期间满足ADC仲裁要求、每个站点上至少必须有三个存储节点具有ADC服务。如果站点中有三个以上的存储节点使用ADC服务、则停用后、这些节点中的简单多数必须保持可用：<block ref="4211978c656f7edd7e4ff82da42de09d" prefix=" " category="inline-code"></block></block>
   <block id="e4b7e0ab3b99536b9564b83e54ea8a90" category="paragraph">例如、假设某个站点当前包含六个具有ADC服务的存储节点、而您要停用三个存储节点。由于需要使用 ADC 仲裁，您必须完成两个停用过程，如下所示：</block>
   <block id="541b0a9500e210842b5a0bea1d7860b4" category="list-text">在第一次停用过程中，必须确保具有ADC服务的四个存储节点保持可用：<block ref="120388508c3378c57c91cb963db7dc6f" prefix=" " category="inline-code"></block>。这意味着最初只能停用两个存储节点。</block>
   <block id="1180a13c0273c83a6e0b2dcd9a7a6f62" category="inline-link-macro">扩展</block>
-  <block id="edbd56f2ea5880112e22d36d8b3ec23c" category="summary">StorageGRID 会维护一个网络子网列表，用于在网格网络 \ （ eth0\ ）上的网格节点之间进行通信。这些条目包括 StorageGRID 系统中每个站点用于网格网络的子网，以及通过网格网络网关访问的 NTP ， DNS ， LDAP 或其他外部服务器所使用的任何子网。在扩展中添加网格节点或新站点时，您可能需要更新子网或向网格网络添加子网。</block>
   <block id="f8153373f958e72aba681fc671ee09a1" category="paragraph">StorageGRID 会维护一个网络子网列表，用于在网格网络（ eth0 ）上的网格节点之间进行通信。这些条目包括 StorageGRID 系统中每个站点用于网格网络的子网，以及通过网格网络网关访问的 NTP ， DNS ， LDAP 或其他外部服务器所使用的任何子网。在扩展中添加网格节点或新站点时，您可能需要更新子网或向网格网络添加子网。</block>
   <block id="2ec6fea9343e6ef95068011c2d234b00" category="paragraph">如果您要执行的扩展活动包括添加新子网、则必须在启动扩展操作步骤 之前将新子网添加到网格网络子网列表中。否则、您必须取消扩展、添加新子网、然后重新开始扩展。</block>
   <block id="6472ebd697896367072475821c59b879" category="section-title">添加子网</block>
@@ -4875,7 +4859,6 @@
   <block id="7fa8b5c0906633a9de5197a27e76cf51" category="list-text">假定您已配置 StorageGRID SNMP 代理，则会发送简单网络管理协议（ SNMP ）通知。</block>
   <block id="da186c9bc32b667cc064dd384f82bc71" category="paragraph">您可以创建自定义警报、编辑或禁用警报以及管理警报通知。</block>
   <block id="2769439193c58b8146d87ea44c31025a" category="paragraph">了解更多信息：</block>
-  <block id="21aa63c36007f6ef6c08607cfb860a49" category="summary">信息生命周期管理 \ （ ILM ）系统可为网格中存储的所有对象提供数据管理。您必须监控ILM操作、以了解网格是否可以处理当前负载、或者是否需要更多资源。</block>
   <block id="c98bb23835172f45faeebe5475bd1c5d" category="doc">监控信息生命周期管理</block>
   <block id="29330bfca999d4dde88aaaad8c75451b" category="paragraph">信息生命周期管理（ ILM ）系统可为网格中存储的所有对象提供数据管理。您必须监控ILM操作、以了解网格是否可以处理当前负载、或者是否需要更多资源。</block>
   <block id="40e99225947e56e95206840cb44221a5" category="paragraph">StorageGRID系统通过应用活动ILM策略来管理对象。ILM策略和关联的ILM规则可确定创建的副本数、创建的副本类型、副本放置位置以及每个副本的保留时间长度。</block>
@@ -5463,7 +5446,6 @@
   <block id="f60903d922406f8c88785fc1cb4efb1a" category="list-text">更新SNMP代理配置后，选择*Save*。</block>
   <block id="a5f79c6244cc32278c3c397b78184d51" category="admonition">Grid Manager随每个版本更新、可能与此页面上的示例屏幕截图不匹配。</block>
   <block id="62b9fd5f57698fb8537dd7c237606430" category="image-alt">节点页面网络选项卡</block>
-  <block id="f68366a374481bffaca438ea64f97802" category="summary">如果要使用简单网络管理协议（ SNMP\ ）监控 StorageGRID ，则必须配置 StorageGRID 附带的 SNMP 代理。</block>
   <block id="622b033776b8eeef4ea052760c388c6e" category="paragraph">如果要使用简单网络管理协议（ Simple Network Management Protocol ， SNMP ）监控 StorageGRID ，则必须配置 StorageGRID 附带的 SNMP 代理。</block>
   <block id="c43e03bb960f4ea126761905d86f5f62" category="list-text"><block ref="c43e03bb960f4ea126761905d86f5f62" category="inline-link-macro-rx"></block></block>
   <block id="82ec2cd6fda87713f588da75c3b1d0ed" category="section-title">功能</block>
@@ -5723,7 +5705,6 @@
   <block id="f033ab37c30201f73f142449d037028d" category="paragraph">80</block>
   <block id="04c3c5ce7e750b8e5c7e22ca25812013" category="list-text">选择 * 存储 * 可查看有关服务设备上的磁盘设备和卷的信息。</block>
   <block id="a7ee73b21fcaa9d61ce70ca3b12fe9e4" category="image-alt">节点页面存储选项卡服务设备</block>
-  <block id="19a24891fc5a362ee6b5a6ea8843026e" category="summary">ILM选项卡提供了有关信息生命周期管理(ILM)操作的信息。</block>
   <block id="27a0fd0c569f158e6921ded397a0b9a2" category="doc">查看 ILM 选项卡</block>
   <block id="01909c41a7115bfafbab0f2fdd36b2ee" category="paragraph">ILM选项卡提供了有关信息生命周期管理(ILM)操作的信息。</block>
   <block id="f4eaf419d40f87395a6c8b77991d8695" category="paragraph">此时将显示每个存储节点，每个站点和整个网格的 ILM 选项卡。对于每个站点和网格， "ILM " 选项卡会显示一个 ILM 队列随时间变化的图形。对于网格，此选项卡还提供完成对所有对象的完整 ILM 扫描的估计时间。</block>
@@ -5867,7 +5848,6 @@
   <block id="34e6deded431afe26b1b395ef69f107d" category="list-text"><block ref="34e6deded431afe26b1b395ef69f107d" category="inline-link-rx"></block></block>
   <block id="c86250c301f4bbbf9b239f8f66663957" category="inline-link">端口绑定模式(SG100和SG1000)</block>
   <block id="019a7460d8901417b4349cb603a12cbc" category="list-text"><block ref="019a7460d8901417b4349cb603a12cbc" category="inline-link-rx"></block></block>
-  <block id="64c447f451d342767c98def707652e74" category="summary">可以选择使用客户端网络。使用客户端网络可以将客户端网络流量(例如S3\)与网格内部流量分隔开、从而提高网格网络的安全性。如果未配置管理网络，则可通过客户端网络或网格网络处理管理流量。</block>
   <block id="944e265fa7097777bac0db9709454c7c" category="doc">客户端网络拓扑</block>
   <block id="a386e112cc159968099060d528ca60de" category="paragraph">可以选择使用客户端网络。使用客户端网络可以将客户端网络流量(例如S3)与网格内部流量分隔开、从而提高网格网络的安全性。如果未配置管理网络，则可通过客户端网络或网格网络处理管理流量。</block>
   <block id="f7b9c07610b96220d716f215ef24abed" category="paragraph">配置客户端网络时，您需要为所配置节点的 eth2 接口建立主机 IP 地址，子网掩码和网关 IP 地址。每个节点的客户端网络可以独立于任何其他节点上的客户端网络。</block>
@@ -6018,7 +5998,6 @@
   <block id="f7046f795968fa35ae33cac87bb40df3" category="list-text"><block ref="f7046f795968fa35ae33cac87bb40df3" category="inline-link-rx"></block></block>
   <block id="81d30f27f9c152fce29694383f874d16" category="list-title">安装基于软件的节点</block>
   <block id="87d88e9d74ad61dbbf65a4432f2119b1" category="list-title">配置和管理 StorageGRID 软件</block>
-  <block id="9f6353da86fa1f6ae96f6a022e88709b" category="summary">StorageGRID 内部防火墙仅允许传入网格网络上的特定端口，但端口 22 ， 80 ， 123 和 443 除外 \ （请参见有关外部通信的信息 \ ）。负载平衡器端点定义的端口也接受连接。</block>
   <block id="d6551410e0a6c8c712af2331c2b66254" category="paragraph">StorageGRID 内部防火墙允许与网格网络上的特定端口建立传入连接。负载平衡器端点定义的端口也接受连接。</block>
   <block id="5d704155823ccea3b11689d40751ca9e" category="admonition">NetApp 建议您在网格节点之间启用 Internet 控制消息协议（ Internet Control Message Protocol ， ICMP ）流量。如果无法访问网格节点、则允许ICMP流量可以提高故障转移性能。</block>
   <block id="9bc21390021a5ef6871628f6cb9e8f1c" category="inline-link-macro">高可用性组</block>
@@ -6676,7 +6655,6 @@
   <block id="9d05ef06ebdc67a101585178eed6a5d8" category="image-alt">周围文字所述的示意图</block>
   <block id="04a82b54de6796ce0241c74eb07d9632" category="paragraph">S3客户端在StorageGRID中存储和检索对象。其他客户端用于发送电子邮件通知，访问 StorageGRID 管理界面以及访问审核共享（可选）。</block>
   <block id="99ad82cc99848e42086faa6240227683" category="paragraph">S3客户端可以连接到网关节点或管理节点、以便对存储节点使用负载平衡接口。或者、S3客户端也可以使用HTTPS直接连接到存储节点。</block>
-  <block id="7c0ca6c6457dbf4accb8843b947a93a9" category="summary">您可以使用信息生命周期管理\(ILM)控制StorageGRID 系统中所有对象的放置、持续时间和加载行为。ILM 规则可确定 StorageGRID 在一段时间内如何存储对象。您可以配置一个或多个 ILM 规则，然后将其添加到 ILM 策略中。</block>
   <block id="a919635d077daa2a324311314027e27f" category="paragraph">ILM 规则定义：</block>
   <block id="dbeb82c0871eecc06aa0118b5a5c56d0" category="list-text">存储类型和位置。对象可以存储在存储节点或云存储池中。</block>
   <block id="41a05bfc52085ed93031280111cc6ca0" category="list-text">创建的对象副本的类型。可以复制副本或对副本进行删除编码。</block>
@@ -7221,7 +7199,6 @@
   <block id="70d31ef9e14f9e7cda6ecc86f266dde0" category="list-text">如果已至少部署一个节点，请单击 * 发现网格网络子网 * 以自动使用已向网格管理器注册的网格节点报告的子网填充网格网络子网列表。</block>
   <block id="aa44d80d0b1b586b69d29141b9c51bc4" category="list-text">您必须为NTP、DNS、LDAP或通过网格网络网关访问的其他外部服务器手动添加任何子网。</block>
   <block id="cdc0f2546642f2b7d996ad995971c289" category="image-alt">指定子网</block>
-  <block id="683bd1c68c25fd315ddae3626d2754c2" category="summary">您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。</block>
   <block id="9a4375a5e5b05719430782253d306c47" category="paragraph">您必须为 StorageGRID 系统指定网络时间协议（ NTP ）配置信息，以便在不同服务器上执行的操作保持同步。</block>
   <block id="7a30646f1ecdc7ac8e119e103d88b005" category="paragraph">您必须为 NTP 服务器指定 IPv4 地址。</block>
   <block id="db37ebcb1facc0e0edc8dcfddd35d847" category="paragraph">您必须指定外部 NTP 服务器。指定的 NTP 服务器必须使用 NTP 协议。</block>
@@ -8182,7 +8159,6 @@
   <block id="34493df26f09d68569fd8042cbebf835" category="paragraph">如果您上传的是多部分对象或 StorageGRID 将一个大型对象拆分为多个区块，则 StorageGRID 会通过取样该对象的部分或区块来确定该对象是否在云存储池中可用。在某些情况下、当某个对象的某些部分已转换为不可检索状态或该对象的某些部分尚未还原时、HeadObject请求可能会错误地返回<block ref="f12b05a4e10f77dba89977ed50289282" prefix=" " category="inline-code"></block>。</block>
   <block id="b7b839cd3b86c2531cdac79711eccc96" category="section-title">HeadObject和跨网格复制</block>
   <block id="57376e412a51caaf6b835ee6d6b11895" category="paragraph">如果您正在使用<block ref="f4856baac97a972c032af70104c6961a" category="inline-link-macro-rx"></block>、并且<block ref="a9e7b49b207f2152f2f2cf82acfd5ae2" category="inline-link-macro-rx"></block>已为存储分段启用、则S3客户端可以通过发出HeadObject请求来验证对象的复制状态。此响应包括StorageGRID专用的<block ref="349f2558b0122acbc616838711df3954" prefix=" " category="inline-code"></block>响应标头、该标头将具有以下值之一：</block>
-  <block id="4cd5a7f174d630af20833309639f7089" category="summary">StorageGRID 支持简单存储服务 \ （ S3\ ） API ，该 API 作为一组表示状态传输 \ （ REST \ ） Web 服务实施。</block>
   <block id="48f3ce98574e51e6f2fb1e0b16dc6a90" category="paragraph">StorageGRID 支持简单存储服务（ S3 ） API ，该 API 作为一组表示状态传输（ Representational State Transfer ， REST ） Web 服务来实施。</block>
   <block id="8ecf0bb2d3ac4db3fc0a087dee7aa9a3" category="paragraph">通过对S3 REST API的支持、您可以将为S3 Web服务开发的面向服务的应用程序与使用StorageGRID 系统的内部对象存储连接起来。需要对客户端应用程序当前使用S3 REST API调用的情况进行最小更改。</block>
   <block id="2e5d14f7919ff3c6138e7845aec4f915" category="section-title">支持的版本</block>
@@ -9239,7 +9215,6 @@
   <block id="0421868a23fb3767cfcf718ff3308fbb" category="paragraph">例如，您可以选择*Untrust on displayed N点*将所有节点添加到Untrusted Client Network列表中，然后使用单个节点旁边的切换将该单个节点添加到Trusted Client Network列表中。</block>
   <block id="3541930bcc5e283a83129565382fc878" category="admonition">使用表右侧的滚动条确保您已查看所有可用节点。使用搜索字段输入节点名称以查找任何节点的设置。您可以输入部分名称。例如，如果输入*GW*，则会显示名称中包含字符串"gw"的所有节点。</block>
   <block id="64330ec23376fc3fdede81a9d845b921" category="paragraph">此时将立即应用并实施新的防火墙设置。如果尚未配置负载平衡器端点，现有客户端连接可能会失败。</block>
-  <block id="2bac2a9db8d1d2a83e5727ca17a665a8" category="summary">您可以配置高可用性 \ （ HA\ ）组，以提供对管理节点或网关节点上服务的高可用性访问。</block>
   <block id="695051253dbc789698d5194b75b79b5c" category="paragraph">您可以配置高可用性（ High Availability ， HA ）组，以提供对管理节点或网关节点上服务的高可用性访问。</block>
   <block id="8b5e438fbef870eab4036d606acda64e" category="list-text">如果您计划在 HA 组中使用 VLAN 接口，则已创建 VLAN 接口。请参阅。 <block ref="01da7ed8ad97a3e972d8ef8ebd2e0eb6" category="inline-link-macro-rx"></block></block>
   <block id="e65ab31bf8d6f5d27e0f3cdbb1f13763" category="list-text">如果您计划对 HA 组中的节点使用访问接口，则已创建此接口：</block>
@@ -9318,7 +9293,6 @@
   <block id="19549ba3514bb3b7c42681c9f41f0cc6" category="list-text">选择*Actions*&gt;*Remove HA group*。</block>
   <block id="71146ab38c96d993610bb6bd368a05ee" category="list-text">查看此消息并选择 * 删除 HA 组 * 以确认您的选择。</block>
   <block id="22428c8a702ba8e76abe7f39f4380daf" category="paragraph">选定的所有 HA 组都将被删除。高可用性组页面上会显示一个绿色的成功横幅。</block>
-  <block id="04b9586e37ab00800fcbe1348820076c" category="summary">您可以在管理节点和网关节点上创建虚拟 LAN 接口（ VLAN\ ），并在 HA 组和负载平衡器端点上使用这些接口隔离和分区流量，以提高安全性，灵活性和性能。</block>
   <block id="065bd625c8d55e9a1a4e451b54286127" category="section-title">VLAN 接口注意事项</block>
   <block id="8980ad0ec123fa8838f8dab8a28ab627" category="list-text">您可以通过输入 VLAN ID 并在一个或多个节点上选择父接口来创建 VLAN 接口。</block>
   <block id="617058e2da7d9e2f9df95e8cd36cc44b" category="list-text">必须在交换机上将父接口配置为中继接口。</block>
@@ -9369,7 +9343,6 @@
   <block id="9ecf62a8eff0ca351ef76d4fbbba015d" category="list-text">选中要删除的每个VLAN接口对应的复选框。然后，选择 * 操作 * &gt; * 删除 * 。</block>
   <block id="48d0fa42987f4d3497e343955d7a4885" category="list-text">选择 * 是 * 确认您的选择。</block>
   <block id="90beb233b2a5596b08ec37b12a857683" category="paragraph">选定的所有 VLAN 接口都将被删除。VLAN 接口页面上会显示一个绿色的成功横幅。</block>
-  <block id="d2db2aec7e8704698daae73c6fb06964" category="summary">如果使用HTTP或HTTPS发送AutoSupport软件包、则可以在管理节点和技术支持\(AutoSupport)之间配置非透明代理服务器。</block>
   <block id="528e605653bcc804605cbe3a4fb8a1f6" category="paragraph">如果使用HTTP或HTTPS发送AutoSupport软件包、则可以在管理节点和技术支持(AutoSupport)之间配置非透明代理服务器。</block>
   <block id="cc54d79adb8758119dd82b7e1bc4389f" category="paragraph">有关AutoSupport的详细信息，请参见<block ref="7f6692541d0f8fa1e1cd5a982650d767" category="inline-link-macro-rx"></block>。</block>
   <block id="9676d279f4f3da76a376efe327ee9d49" category="paragraph">您可以为单个管理代理配置设置。</block>
@@ -9920,7 +9893,6 @@
   <block id="1264dc43646be10eeb7b70143ec85203" category="paragraph">如果从压缩对象读取范围，则客户端请求可能会超时。</block>
   <block id="88beb670f24983c75f4e8760c6f5ccfe" category="admonition">如果需要压缩对象，并且客户端应用程序必须使用范围读取，请增加应用程序的读取超时时间。</block>
   <block id="dbf0635cf488a6d925de943d1bb04c9e" category="list-text">选中*压缩存储的对象*复选框。</block>
-  <block id="d5103c9d8c738419b383537e4dcc9355" category="summary">在启用单点登录 \ （ SSO\ ）之前，您必须确认至少有一个联合用户可以登录到网格管理器以及任何现有租户帐户的租户管理器。</block>
   <block id="f2eecc659d2ee1aa565f0c4cbfa2d500" category="doc">确认联合用户可以登录</block>
   <block id="72c849fceb08889da81dca36cbc1af67" category="paragraph">在启用单点登录（ SSO ）之前，您必须确认至少有一个联合用户可以登录到网格管理器以及任何现有租户帐户的租户管理器。</block>
   <block id="4a784ed01aa8702e6e0e74153403440a" category="list-text">您已配置身份联合。</block>
@@ -9968,7 +9940,6 @@
   <block id="3f79e38f5c51aba71bc4d4045d64f70c" category="list-text"><block ref="3f79e38f5c51aba71bc4d4045d64f70c" category="inline-link-macro-rx"></block></block>
   <block id="c91dc8854f2cb3ba4055b32323bf4823" category="list-text"><block ref="c91dc8854f2cb3ba4055b32323bf4823" category="inline-link-macro-rx"></block></block>
   <block id="7942854d23be1ec40bdabc33a8aa939f" category="list-text"><block ref="7942854d23be1ec40bdabc33a8aa939f" category="inline-link-macro-rx"></block></block>
-  <block id="d53bc18e2f6b5414301e6a2bf0fce050" category="summary">您可以通过创建或导入组和用户并为每个组分配权限来控制谁可以访问 StorageGRID 以及用户可以执行哪些任务。您也可以选择启用单点登录 \ （ sso\ ），创建客户端证书和更改网格密码。</block>
   <block id="bc9233f931dc855a18053f5e4d5eaa84" category="doc">控制 StorageGRID 访问</block>
   <block id="c8de5e6ce631079ce7376fd8633e364d" category="paragraph">您可以通过创建或导入组和用户并为每个组分配权限来控制谁可以访问 StorageGRID 以及用户可以执行哪些任务。您也可以选择启用单点登录（ SSO ），创建客户端证书和更改网格密码。</block>
   <block id="437a66357f6258839c0eb2f1d447273c" category="section-title">控制对网格管理器的访问</block>
@@ -9986,7 +9957,6 @@
   <block id="cedf7e4aa3bdcb1e816d3b3fc19f1b0b" category="section-title">更改配置密码短语</block>
   <block id="aa2a5379a78f7e8e393ce0486c3d950f" category="inline-link-macro">更改密码短语</block>
   <block id="3c349cc162066939e5b2ae86e30b7a93" category="inline-link-macro">更改节点控制台密码</block>
-  <block id="87f0c196d801a1f65e181a33fac90edb" category="summary">StorageGRID 使用内部证书颁发机构 \ （ CA\ ）保护内部流量。如果您上传自己的证书，则此证书不会更改。</block>
   <block id="0d3ed81da3601d29dee4e4d04f4c470d" category="paragraph">StorageGRID 使用内部证书颁发机构（ CA ）来保护内部流量。如果您上传自己的证书，则此证书不会更改。</block>
   <block id="1914c92f5f37d6765a897b6d7c8450c4" category="paragraph">如果配置了自定义服务器证书，则客户端应用程序应使用自定义服务器证书验证服务器。他们不应从 StorageGRID 系统复制 CA 证书。</block>
   <block id="45c64e15304a6b1879104b70217d3255" category="list-text">在*Certificate PEM*部分，下载或复制证书。</block>
@@ -10380,7 +10350,6 @@
   <block id="6e582c70316b881832f021b20e7d0ab6" category="list-text">选择策略名称旁边的*Remove*按钮。</block>
   <block id="45e3252bd3e68375f07a86ebb4c8b4f4" category="list-text">选择*是*确认要删除策略。</block>
   <block id="36c3aba72fd1e7689f5e4596808a8abb" category="paragraph">此策略将被删除。</block>
-  <block id="c64f8194c4c72529125e6b83812a360a" category="summary">如果您不想再使用此功能，可以禁用单点登录 \ （ sso\ ）。必须先禁用单点登录，然后才能禁用身份联合。</block>
   <block id="df2d4becb3b5d94b4a297a18f67e27dd" category="paragraph">如果您不再希望使用单点登录（ SSO ）功能，则可以禁用此功能。必须先禁用单点登录，然后才能禁用身份联合。</block>
   <block id="2879ad3a59345a666466885a2d29156b" category="paragraph">此时将显示 Single Sign-On 页面。</block>
   <block id="4116bc9d4f411a70fa131096b879639b" category="paragraph">此时将显示一条警告消息，指示本地用户现在可以登录。</block>
@@ -11252,12 +11221,10 @@
   <block id="74a6648d3d1177a6995530a0b7d5ce3c" category="list-text">服务器证书必须与 KMS 的 KMIP 接口使用的证书匹配，该接口通常使用端口 5696 。</block>
   <block id="590ba53362ae9806b6816ec75a243ae5" category="list-text">获取外部 KMS 颁发给 StorageGRID 的公有 客户端证书以及客户端证书的专用密钥。</block>
   <block id="18d77619bc7c79ae5f695fc3dd66c081" category="paragraph">客户端证书允许 StorageGRID 向 KMS 进行身份验证。</block>
-  <block id="f23d60ebd08d6de24ec7705d41cc93d2" category="summary">密钥管理服务器\(KMS\)是一个外部第三方系统、使用密钥管理互操作性协议\(KMIP\)向关联StorageGRID站点上的StorageGRID设备节点提供加密密钥</block>
   <block id="a6ee34df66416f97be73201d810d3f1c" category="paragraph">密钥管理服务器（ Key Management Server ， KMS ）是一种外部第三方系统，可使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）为关联 StorageGRID 站点上的 StorageGRID 设备节点提供加密密钥。</block>
   <block id="062fe6ab3c8bbbe54030510df5fb989c" category="paragraph">StorageGRID仅支持某些密钥管理服务器。有关受支持产品和版本的列表，请使用<block ref="59eff0a7409a2083b143c03284b14f62" category="inline-link-rx"></block>。</block>
   <block id="78879d2cac3520c405321f6d1cdaf942" category="paragraph">您可以使用一个或多个密钥管理服务器来管理安装期间启用了 * 节点加密 * 设置的任何 StorageGRID 设备节点的节点加密密钥。通过将密钥管理服务器与这些设备节点结合使用，您可以保护数据，即使设备已从数据中心中删除也是如此。对设备卷进行加密后、您将无法访问设备上的任何数据、除非此节点可以与KMS进行通信。</block>
   <block id="71e73494019330903d6bf422837702d9" category="admonition">StorageGRID 不会创建或管理用于对设备节点进行加密和解密的外部密钥。如果您计划使用外部密钥管理服务器来保护 StorageGRID 数据，则必须了解如何设置该服务器，并且必须了解如何管理加密密钥。执行密钥管理任务不在本说明的范围之内。如果需要帮助，请参见密钥管理服务器的文档或联系技术支持。</block>
-  <block id="c2ed142e8fc6d5c5d4a138380ec7d153" category="summary">在配置外部密钥管理服务器（ KMS\ ）之前，您必须了解注意事项和要求。</block>
   <block id="e6ff445302b54ca5e3c1903fed224731" category="doc">使用密钥管理服务器的注意事项和要求</block>
   <block id="a7cf9652ae0c1a8db0c5987f2e64cb28" category="paragraph">在配置外部密钥管理服务器（ KMS ）之前，您必须了解注意事项和要求。</block>
   <block id="5d20385a59a99aabba05ee9e22d99801" category="section-title">支持以下哪个版本的KMIP？</block>
@@ -11298,7 +11265,6 @@
   <block id="8ebe10e1d54040e586c67767b6e1bb37" category="inline-link">清除KMS配置</block>
   <block id="a68188aa191d7f7d21a229041cca26c6" category="paragraph">如果需要将加密设备安装到另一个 StorageGRID 系统中，则必须先停用网格节点，才能将对象数据移动到另一个节点。然后，您可以使用StorageGRID设备安装程序<block ref="2a85234f587961e620cee3ecae8e94c0" category="inline-link-rx"></block>。清除 KMS 配置将禁用 * 节点加密 * 设置，并删除设备节点与 StorageGRID 站点的 KMS 配置之间的关联。</block>
   <block id="5138d4a232e53a370d152842fd22c2d5" category="admonition">如果无法访问 KMS 加密密钥，则设备上保留的任何数据将无法再访问并永久锁定。</block>
-  <block id="55bcc6476c504097f3311ad77ff02902" category="summary">每个密钥管理服务器（ KMS\ ）或 KMS 集群都为一个站点或一组站点上的所有设备节点提供一个加密密钥。如果需要更改站点使用的 KMS ，则可能需要将加密密钥从一个 KMS 复制到另一个 KMS 。</block>
   <block id="c958a905673d8e2be5e268f8fb102144" category="paragraph">每个密钥管理服务器（ Key Management Server ， KMS ）或 KMS 集群都会为单个站点或一组站点上的所有设备节点提供一个加密密钥。如果需要更改站点使用的 KMS ，则可能需要将加密密钥从一个 KMS 复制到另一个 KMS 。</block>
   <block id="43485406a01cbf849dd4827fe2908744" category="paragraph">如果更改站点使用的 KMS ，则必须确保可以使用存储在新 KMS 上的密钥对该站点上先前加密的设备节点进行解密。在某些情况下，您可能需要将当前版本的加密密钥从原始 KMS 复制到新 KMS 。您必须确保 KMS 具有正确的密钥，以便对站点上的加密设备节点进行解密。</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">例如：</block>
@@ -11324,7 +11290,6 @@
   <block id="ce99b936d008f046d62295164b50da49" category="paragraph">您希望站点的 KMS 使用其他服务器。</block>
   <block id="1d4fa404985a2314592249443f6e5af4" category="list-text">如果站点上的设备节点已由现有 KMS 加密，请使用 KMS 软件将当前版本的加密密钥从现有 KMS 复制到新 KMS 。</block>
   <block id="44bf2005dcef0e98db4cf1c8e335f93f" category="list-text">使用网格管理器编辑现有 KMS 配置并输入新的主机名或 IP 地址。</block>
-  <block id="5465867749bbddf80cc4901bd25309ea" category="summary">管理密钥管理服务器(KMS\)包括查看或编辑详细信息、管理证书、查看加密节点以及删除不再需要的KMS。</block>
   <block id="b9a079c98a41168993557b200663b34c" category="doc">管理KMS</block>
   <block id="3c53d9e0964dbd4b45ddf44982862ac5" category="paragraph">管理密钥管理服务器(KMS)包括查看或编辑详细信息、管理证书、查看加密节点以及删除不再需要的KMS。</block>
   <block id="79a2f8016ba6dd5a14e1b5ac0ab8f8ca" category="inline-link-macro">所需的访问权限</block>
@@ -11433,7 +11398,6 @@
   <block id="cebf0fb29c6016424d6324439e9e3ac2" category="list-text">您要删除某个站点的特定于站点的KMS、而此站点没有启用节点加密的设备节点。</block>
   <block id="74219797e38c3fca8d6168cbf792f585" category="list-text">您要删除默认KMS、但每个站点都已存在具有节点加密的站点专用KMS。</block>
   <block id="e3d5444797afc31d5bf26c7a1ee585cf" category="paragraph">此时将删除 KMS 配置。</block>
-  <block id="9e1af7a2c3fb792f1a58c66d575260d5" category="summary">在使用密钥管理服务器 \ （ KMS\ ）保护设备节点上的 StorageGRID 数据安全之前，您必须完成两项配置任务：设置一个或多个 KMS 服务器以及为设备节点启用节点加密。完成这两项配置任务后，密钥管理过程将自动进行。</block>
   <block id="37f067de539d00c4fa8969c9da730bc3" category="doc">Kms和设备配置</block>
   <block id="1313d81ac8c929685f5eefb0405daba1" category="paragraph">在使用密钥管理服务器（ KMS ）保护设备节点上的 StorageGRID 数据之前，必须完成两项配置任务：设置一个或多个 KMS 服务器以及为设备节点启用节点加密。完成这两项配置任务后，密钥管理过程将自动进行。</block>
   <block id="3d199ab4137b78a36da482c901703852" category="paragraph">此流程图显示了使用 KMS 在设备节点上保护 StorageGRID 数据的高级步骤。</block>
@@ -11720,7 +11684,6 @@
   <block id="c74fee6cdbf35f73120aa3b6b9b8b6e1" category="paragraph">某些StorageGRID设备存储节点(例如SG6060或SG6160)可以支持更多存储架。如果您的 StorageGRID 设备具有扩展功能，但尚未扩展到最大容量，则可以添加存储架以增加容量。请参阅的说明<block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
   <block id="bda90421676565ea5bce60929e24b214" category="section-title">添加存储节点</block>
   <block id="2f89e09d98b36823a3fd4f2c40508d58" category="paragraph">您可以通过添加存储节点来增加存储容量。添加存储时，必须仔细考虑当前活动的 ILM 规则和容量要求。请参阅的说明<block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="553bad178e08adf3e81522270ae21ae1" category="summary">高可用性\(HA)组可为S3客户端提供高可用性数据连接、并可为网格管理器和租户管理器提供高可用性连接。</block>
   <block id="1501308fa7b3db557531ef662c17093a" category="paragraph">高可用性(HA)组可为S3客户端提供高可用性数据连接、并可为网格管理器和租户管理器提供高可用性连接。</block>
   <block id="6bc314f562d758e9865c7c6fe88bdabc" category="paragraph">您可以将多个管理节点和网关节点的网络接口分组到一个高可用性（ HA ）组中。如果 HA 组中的活动接口发生故障，则备份接口可以管理工作负载。</block>
   <block id="d78135669af79d3a2cf5f6308653ec8d" category="paragraph">每个 HA 组均可访问选定节点上的共享服务。</block>
@@ -11940,7 +11903,6 @@
   <block id="f36cfb6ad7ff2195cdb2ca25504da4f9" category="inline-link-macro">扩展网格</block>
   <block id="26b01d3a7e8be445ab090cc0bcf61f9a" category="list-text">通过添加新存储节点来增加系统的对象元数据容量<block ref="52237c56bb284a0429fb8b38b6de8e84" category="inline-link-macro-rx"></block>。</block>
   <block id="7fe57dc7b83566b3573d1b2010b8469c" category="doc">管理存储节点</block>
-  <block id="e8e2d2b9fcf0bb7a2aca936e601cf7a9" category="summary">租户帐户允许您使用简单存储服务\(S3\) REST API在StorageGRID系统中存储和检索对象。</block>
   <block id="1ee86a0125bcd863b0a061af54cdf220" category="paragraph">租户帐户允许您使用简单存储服务(S3) REST API在StorageGRID系统中存储和检索对象。</block>
   <block id="46962c8c4a9896875715e760cf4b2674" category="inline-link">StorageGRID 11.8:管理租户</block>
   <block id="b63879b81a8d044dc420f87c916f170f" category="admonition">Swift详细信息已从此版本的文档站点中删除。请参阅。<block ref="48396f73b32bbdbf5d2ead0cde358832" category="inline-link-rx"></block></block>
@@ -12087,7 +12049,6 @@
   <block id="332d9b42d81dda65e3e58d5a729a756d" category="paragraph">如果客户端随后从数据中心站点 2 对同一对象执行 S3 API 删除操作，则会从数据中心站点 2 触发并发送有关删除操作的通知。</block>
   <block id="3bc93e94d0745e466712737560679d68" category="image-alt">显示站点 2 中对象的操作的图会触发站点 2 中的通知</block>
   <block id="6438a184cfa6f046aa1b4f61e69ce316" category="paragraph">请确保在每个站点上配置网络，以便平台服务消息可以传送到其目标。</block>
-  <block id="067e4689a9a8e40282fa9d6848ab459a" category="summary">您可以通过使用 CSRF 令牌增强使用 Cookie 的身份验证，帮助防止 StorageGRID 受到跨站点请求伪造 \ （ CSRF\ ）攻击。网格管理器和租户管理器会自动启用此安全功能；其他 API 客户端可以选择在登录时是否启用此功能。</block>
   <block id="e094fa8370e3e1bb66e0ce64183f49d0" category="doc">防止跨站点请求伪造（ CSRF ）</block>
   <block id="1c4e0a3638e16a9280bf8c158e42972b" category="paragraph">您可以通过使用 CSRF 令牌增强使用 Cookie 的身份验证，帮助防止 StorageGRID 受到跨站点请求伪造（ CSRF ）攻击。网格管理器和租户管理器会自动启用此安全功能；其他 API 客户端可以选择在登录时是否启用此功能。</block>
   <block id="42a16c81ec6a2d59d9d0305375f90ed8" category="paragraph">如果攻击者可能触发对其他站点的请求（例如使用 HTTP 表单发布），则可以对使用已登录用户的 cookie 发出的某些请求进行发生原因 处理。</block>
@@ -12246,7 +12207,6 @@
   <block id="cccbe5f11f7d682d6c10a96a9dc8a5fa" category="paragraph">如果正确、则绿色横幅中会显示一条消息："Your AutoSupport configuration has been verified。"</block>
   <block id="809451bb9d4680fbf2258eb0a1b3abf0" category="paragraph">如果测试失败，则会在红色横幅中显示一条错误消息。请检查您的StorageGRID DNS设置和网络连接、确保<block ref="db773a9b073a8d224eb080755be1c537" category="inline-link-macro-rx"></block>可以连接到NetApp支持站点、然后重试此测试。</block>
   <block id="a4d88db2a4ee235c805a3b0808854c6f" category="paragraph">此时将保存配置、并显示一条确认消息：AutoSupport delDelivery Method has been configured.(已配置传输方法。)</block>
-  <block id="91259d6093de5e6134754bff93a7cf72" category="summary">您可以通过在支持的 Web 浏览器的地址栏中输入管理节点的完全限定域名 \ （ FQDN\ ）或 IP 地址来访问网格管理器登录页面。</block>
   <block id="2643df34198bbb5b3edb94da0c34e249" category="paragraph">您可以通过在支持的 Web 浏览器的地址栏中输入管理节点的完全限定域名（ FQDN ）或 IP 地址来访问网格管理器登录页面。</block>
   <block id="970b7d292bc483c70231a10c33b5c627" category="paragraph">每个 StorageGRID 系统都包括一个主管理节点和任意数量的非主管理节点。您可以登录到任何管理节点上的网格管理器来管理 StorageGRID 系统。但是、某些维护过程只能从主管理节点执行。</block>
   <block id="f214fb6cd4a76c84923dc9bc83b0fbcc" category="section-title">连接到HA组</block>
@@ -12341,12 +12301,10 @@
   <block id="9664ccfa6ada3c1df2b4dd0658212b40" category="admonition">如果端口号为80或443、则仅在网关节点上配置端点、因为这些端口是在管理节点上预留的。所有其他端口都在网关节点和管理节点上进行配置。</block>
   <block id="63eb72f5eb86b1be925cd20e58831098" category="list-text">从表中选择端点的名称。</block>
   <block id="f68d50c9845e4a15da007fca5164e519" category="list-text">确认*客户端类型*(S3)与要使用端点的客户端应用程序匹配。</block>
-  <block id="79f7c5fcbd484af79ffe951e0173da9a" category="summary">StorageGRID 系统支持一组有限的密码套件，用于将传输层安全 \ （ tls\ ）连接到用于身份联合和云存储池的外部系统。</block>
   <block id="5c091c58af9f43cdf17112ef408362cf" category="doc">支持传出 TLS 连接的密码</block>
   <block id="5779618b5532ebc609ce86cf78e63e8f" category="paragraph">StorageGRID 系统支持一组有限的密码套件，用于将传输层安全（ Transport Layer Security ， TLS ）连接到用于身份联合和云存储池的外部系统。</block>
   <block id="ef0908745f63f0dbd464c3d481dd268f" category="paragraph">StorageGRID 支持使用 TLS 1.2 和 TLS 1.3 连接到用于身份联合和云存储池的外部系统。</block>
   <block id="fd2d80c2639c1aa37e19313a1c958c73" category="admonition">在StorageGRID 中、无法配置协议版本、密码、密钥交换算法和MAC算法等TLS配置选项。如果您对这些设置有特定要求，请联系您的 NetApp 客户代表。</block>
-  <block id="9b256403644dc564a14877f7d87cc59f" category="summary">如果单点登录 \ （ SSO\ ）系统发生故障，您可能无法登录到网格管理器。在这种情况下，您可以为一个管理节点临时禁用并重新启用 SSO 。要禁用并重新启用 SSO ，必须访问节点的命令 Shell 。</block>
   <block id="8efb04eb679352c4c11d27cbec12c44c" category="paragraph">如果单点登录（ Single Sign-On ， SSO ）系统发生故障，您可能无法登录到网格管理器。在这种情况下，您可以为一个管理节点临时禁用并重新启用 SSO 。要禁用并重新启用 SSO ，必须访问节点的命令 Shell 。</block>
   <block id="c11fb3ca256de9ff6eaf6aa6c1eb8b84" category="list-text">您知道本地 root 用户的密码。</block>
   <block id="c470c7dd2a73685d6de3f643294ee65f" category="paragraph">为一个管理节点禁用 SSO 后，您可以以本地 root 用户身份登录到网格管理器。要保护 StorageGRID 系统的安全，您必须在注销后立即使用节点的命令 Shell 在管理节点上重新启用 SSO 。</block>
@@ -12371,7 +12329,6 @@
   <block id="24fde520d3e145885b478db73f39b588" category="list-text">重新启动网格节点：<block ref="2b755b30293f2f9f79ec1c86ab0943f2" prefix=" " category="inline-code"></block></block>
   <block id="3bb24c70115721fa55364d023ae31930" category="list-text">从 Web 浏览器中，从同一管理节点访问网格管理器。</block>
   <block id="b2398934e1498b1f275e2e37001859ad" category="list-text">确认此时将显示 StorageGRID 登录页面，并且您必须输入 SSO 凭据才能访问网格管理器。</block>
-  <block id="0fc5a6b5097dfe267b97406b446e3ca7" category="summary">如果尝试发送AutoSupport软件包失败、StorageGRID系统会根据AutoSupport软件包的类型采取不同的操作。您可以通过选择支持&gt;&gt;工具&gt;&gt; AutoSupport &gt;&gt;结果来检查AutoSupport软件包的状态。</block>
   <block id="433fdcdd89fa69e3a6cc0d66071bbb25" category="doc">对AutoSupport软件包进行故障排除</block>
   <block id="b94500e2ad3e62b442ccf3ccc614482d" category="paragraph">如果AutoSupport软件包无法发送，“Failed”(失败)将显示在AutoSupport页的*results*选项卡上。</block>
   <block id="a1136965cfba1b7847cb7539686f6ea4" category="inline-link-macro">验证代理服务器配置设置是否正确</block>
@@ -12393,7 +12350,6 @@
   <block id="7821bffcb6683e1bd7e69751e09d960e" category="paragraph">了解如何<block ref="31f3ad5338f4a82dfd49acc09e4797da" category="inline-link-macro-rx"></block>。</block>
   <block id="930b1b048df4fadac290666768849b06" category="section-title">更正AutoSupport软件包故障</block>
   <block id="4e6049f4e0fa6886b6988b77bf454cc2" category="paragraph">如果发生故障且所选协议为 SMTP ，请验证 StorageGRID 系统的电子邮件服务器是否已正确配置且您的电子邮件服务器是否正在运行。AutoSupport页面上可能会显示以下错误消息：<block ref="a6275ddcc64b0462fdfec03c01f96765" prefix=" " category="inline-code"></block></block>
-  <block id="12c59932c3e5913edaf1e343b08c1725" category="summary">平台服务中使用的端点由租户管理器中的租户用户创建和维护；但是，如果租户在配置或使用平台服务时遇到问题，您可能可以使用网格管理器帮助解决问题描述 。</block>
   <block id="20ac4d96fef3f3f076d50b28df7dd8f2" category="doc">对平台服务进行故障排除</block>
   <block id="38ac39db56fd3862825ebc159d60d105" category="section-title">新端点出现问题</block>
   <block id="086597b8fabc96831bf2c79b5f3f604b" category="paragraph">租户必须先使用租户管理器创建一个或多个端点，才能使用平台服务。每个端点代表一个平台服务的外部目标、例如StorageGRID S3存储分段、Amazon Web Services存储分段、Amazon Simple Notification Service主题、Kafka主题或本地或AWS上托管的ElanicSearch集群。每个端点都包括外部资源的位置以及访问该资源所需的凭据。</block>
@@ -13403,7 +13359,6 @@
   <block id="5371f6bd6ee18611881ed54cd957e924" category="paragraph">包含损坏的纠删编码片段的 RangeDB 卷。</block>
   <block id="08394064384a00c128e362edb0dde06c" category="paragraph">CCID</block>
   <block id="a19cc6772ec675c680a4ac4f4619460b" category="paragraph">已损坏的纠删编码片段的标识符。</block>
-  <block id="74853f1efb7fb7f733a28e3bda4ab969" category="summary">如果尝试使用传输层安全 \ （ tls\ ）进行连接失败，则会生成此消息。</block>
   <block id="27dd26e4a09e20a86f454400841f40f7" category="doc">ETAF ：安全身份验证失败</block>
   <block id="dac402dc87a8c3ff0fcd747a6d5537f9" category="paragraph">如果尝试使用传输层安全（ Transport Layer Security ， TLS ）进行连接失败，则会生成此消息。</block>
   <block id="b22d0c6e1f9b054381af1160fa390c51" category="paragraph">身份验证失败的 TCP/IP 连接的唯一系统标识符。</block>
@@ -13592,7 +13547,6 @@
   <block id="00954e2717191e6d6c8667f98918be59" category="paragraph">区块所属对象的标识符。</block>
   <block id="c82cc1b122fff63c0a15fa81e2328d51" category="paragraph">泄漏块所属对象的CBID。</block>
   <block id="a24cb3351a033f01362c2e99064b8d7b" category="paragraph">区块的大小(以字节为单位)。</block>
-  <block id="14564ecbe1d6bf2c1a155342947c5668" category="summary">每当找不到对象副本(已复制或已删除编码)的位置时、都会生成此消息。</block>
   <block id="db1929946644c5230f92569bd2f4aa98" category="doc">LLST ：位置丢失</block>
   <block id="2a36d7386a2330842006182693c8c891" category="paragraph">每当找不到对象副本(已复制或经过删除编码)的位置时、都会生成此消息。</block>
   <block id="b11bf355beb581a5a7107d262cf99feb" category="paragraph">CBIL</block>
@@ -13782,7 +13736,6 @@
   <block id="f9fd64e4e188495f16e0952939ed632a" category="list-text">后台验证过程检测到复制的对象数据的副本已损坏。StorageGRID 系统会执行 ILM 评估以替换损坏的对象。</block>
   <block id="9131b612eee6f29422a749f6d7d93ae2" category="list-text"><block ref="9131b612eee6f29422a749f6d7d93ae2" category="inline-link-macro-rx"></block></block>
   <block id="73601c50b4b36d7634ede573340ee42c" category="list-text"><block ref="73601c50b4b36d7634ede573340ee42c" category="inline-link-macro-rx"></block></block>
-  <block id="3b9cb7dce5a333f9bbf5d94ac8cbceb9" category="summary">如果外部 \ （客户端请求的 \ ）操作导致一个对象被另一个对象覆盖，则会生成此消息。</block>
   <block id="508efd1788616858f226977cb04d1723" category="paragraph">如果外部（客户端请求的）操作导致一个对象被另一个对象覆盖，则会生成此消息。</block>
   <block id="4b81bc26d7597200919b8e8af6c053ab" category="paragraph">内容块标识符（新增）</block>
   <block id="7087fb49bbac7b84d9a8326e56beec9b" category="paragraph">新对象的 CBID 。</block>
@@ -13841,9 +13794,7 @@
   <block id="184dc52ba3668a9bebcb02b985ee4e6b" category="paragraph">发送请求的用户的S3访问密钥ID。</block>
   <block id="bc4c2e04b2bf11400d6a62b5bd31c451" category="paragraph">S3 租户帐户 ID （请求发件人）</block>
   <block id="8cf91bbbc9e57c8176797f24df551e02" category="paragraph">发送请求的用户的租户帐户 ID 。</block>
-  <block id="9850b5467a2f79580d0a31b2859b58e5" category="summary">此消息指示发起服务 \ （节点 ID\ ）已关闭审核消息日志记录；不再收集或传送审核消息。</block>
   <block id="335efa9192440d9fd0b59cd57593a11d" category="doc">Sadd ：禁用安全审核</block>
-  <block id="540bfaa13583db363a071d456902bb62" category="paragraph">此消息指示发起服务（节点 ID ）已关闭审核消息日志记录；不再收集或传送审核消息。</block>
   <block id="84e06dedf55dfbac5289a669cbe11389" category="paragraph">AETM</block>
   <block id="98ca0aa9265b3a4f01f8de2831e63cf0" category="paragraph">启用方法</block>
   <block id="d5fc7935d48e632d23ce7fe7fd680a31" category="paragraph">用于禁用审核的方法。</block>
@@ -13851,13 +13802,10 @@
   <block id="92f1b1481fa6ff46c4a3caae78354dab" category="paragraph">用户名</block>
   <block id="6484538e3d549ee3430cd05983b4d390" category="paragraph">执行命令以禁用审核日志记录的用户名。</block>
   <block id="4805a6d7f7ed5add2ffc30794f7d1c7b" category="paragraph">此消息表示先前已启用日志记录，但现在已禁用。通常，只有在批量载入期间才会使用此功能来提高系统性能。在批量活动之后，将还原审核（ SAade ），并永久阻止禁用审核的功能。</block>
-  <block id="03d30dd02852f2403759e5923b7992e5" category="summary">此消息表示发起服务 \ （节点 ID\ ）已还原审核消息日志记录；正在再次收集和传送审核消息。</block>
   <block id="24f21fcc981a1be3167a96a1e9a29802" category="doc">Sade ：启用安全审核</block>
-  <block id="b36751bdf4ad530f3237e29e37937453" category="paragraph">此消息表示发起服务（节点 ID ）已还原审核消息日志记录；正在再次收集和传送审核消息。</block>
   <block id="de675ce1ab98b5e259a7df6804c916b3" category="paragraph">用于启用审核的方法。</block>
   <block id="a0385e1dab99c8706a4ba5542218bd6f" category="paragraph">执行命令以启用审核日志记录的用户名。</block>
   <block id="014d0858e50a2a885e7f97ff430df594" category="paragraph">此消息表示先前已禁用日志记录（ Sadd ），但现在已还原。通常，只有在批量载入期间才会使用此功能来提高系统性能。在批量活动之后，审核将恢复，而禁用审核的功能将被永久阻止。</block>
-  <block id="5503a36523125d839abbb90a94471f97" category="summary">在提交网格内容之前，此内容不可用或无法识别为已存储内容（表示此内容已永久存储）。持久存储的内容已完全写入磁盘，并已通过相关的完整性检查。将内容块提交到存储时会发出此消息。</block>
   <block id="283480314f6ec8df609d8c133fd93dad" category="doc">SCMT ：对象存储提交</block>
   <block id="40f41bc6baa12503a6b0de49818e6ad4" category="paragraph">网格内容在提交之前不可用或无法识别为已存储（这意味着它已持久存储）。持久存储的内容已完全写入磁盘，并已通过相关的完整性检查。将内容块提交到存储时会发出此消息。</block>
   <block id="980b5e8403a1bca28b3e14c5ba2f14d9" category="paragraph">提交到永久存储的内容块的唯一标识符。</block>
@@ -14009,11 +13957,9 @@
   <block id="baa03a9642e97d2bcc7e4bb2b763299f" category="paragraph">关闭的性质：</block>
   <block id="18b319a1457205b2bff2626c43bbd6f1" category="paragraph">SUC ：系统已完全关闭。</block>
   <block id="72fe1aa912e7c9c9f629c3795cd848b7" category="paragraph">此消息不会指示是否正在停止主机服务器，仅会指示报告服务。SYSD的RSLT无法指示"异常"关机、因为该消息仅由"干净"关机生成。</block>
-  <block id="6764087403e8142bc5ae4432592f7bfd" category="summary">如果服务正常停止，则会生成此消息，以指示已请求关闭，并且此服务已启动其关闭序列。Syst 可用于确定是否在重新启动服务之前请求关闭 \ （与通常在服务重新启动后发送的 SYSD 不同。 \ ）</block>
   <block id="cec53141d4019a88e6cc8fbf86f089a9" category="doc">Syst ：节点正在停止</block>
   <block id="b27f1723f01ed4e6ba56e7f72c47f0c7" category="paragraph">如果服务正常停止，则会生成此消息，以指示已请求关闭，并且此服务已启动其关闭序列。Syst 可用于确定是否在重新启动服务之前请求关闭（与通常在服务重新启动后发送的 SYSD 不同）。</block>
   <block id="e71bafd6cfe427f7103771699d28c446" category="paragraph">此消息不会指示是否正在停止主机服务器，仅会指示报告服务。SYST消息的RSLT代码不能指示"异常"关机、因为该消息仅由"干净"关机生成。</block>
-  <block id="1a977c2740947ae172aa57864fcd92ca" category="summary">属于系统审核类别的审核消息用于与审核系统本身、网格节点状态、系统范围任务活动\(网格任务\)以及服务备份操作相关的事件。</block>
   <block id="7483d9bdb3975c2dc4c182437bb694a4" category="doc">系统审核消息</block>
   <block id="58c4273a9c31a427ea0cf0d392ed765b" category="paragraph">属于系统审核类别的审核消息用于与审核系统本身、网格节点状态、系统范围任务活动(网格任务)和服务备份操作相关的事件。</block>
   <block id="b05c23fab98df11c755ba516f5df83c0" category="paragraph">ECMC</block>
@@ -14068,7 +14014,6 @@
   <block id="f350c2f296e166fca0951d8836d343b9" category="paragraph">节点启动：服务已启动；消息中显示了上次关闭的性质。</block>
   <block id="b7cfedbe1811331329e4810cf9b1bc8d" category="inline-link-macro">SYSU ：节点启动</block>
   <block id="22e4f583e4f35ec2cb374521a267df49" category="paragraph"><block ref="22e4f583e4f35ec2cb374521a267df49" category="inline-link-macro-rx"></block></block>
-  <block id="3e32134dee8a4cdf3a44b97bcabcf9a3" category="summary">重新启动服务时，系统会生成此消息，以指示上次关闭是清理 \ （已命令 \ ）还是无序 \ （意外 \ ）。</block>
   <block id="7dcc1561fb75c3a3407701c65190b36b" category="paragraph">重新启动服务时，系统会生成此消息，以指示上次关闭是正常关闭（已发出命令）还是无序关闭（意外关闭）。</block>
   <block id="d1ac091c7a7283551758a437386e0bd8" category="paragraph">SUC ：系统已完全关闭。</block>
   <block id="b20af54e46a6d87aee7f1e17e56420f8" category="paragraph">DSDN ：系统未完全关闭。</block>
@@ -14099,7 +14044,6 @@
   <block id="0e88d3e0f1715864c175aa6790a20f1c" category="paragraph"><block ref="0f8467883e775471d917848f726019a6" prefix="" category="inline-code"></block></block>
   <block id="1713154cab15aa47283552b64a30420d" category="paragraph">该<block ref="d9f6ddaf911ac5193019e802d77ec830" prefix=" " category="inline-code"></block>工具可打印指定文件中所有消息的可读解释。</block>
   <block id="e8e149b144a0717a4977a47120474a70" category="admonition">为了缩短线长并提高可读性、默认情况下不会显示时间戳。如果要查看时间戳，请使用timestamp <block ref="b7cc4b6b2b8c0f37377b5cc259385de0" prefix="(" category="inline-code"></block>(时间戳)选项。</block>
-  <block id="ed491f17d86f2f60f919fbba287ce57d" category="summary">您可以使用 audit-sum 工具对写入，读取，标题和删除审核消息进行计数，并查看每种操作类型的最短，最长和平均时间 \ （或大小 \ ）。</block>
   <block id="3539db799365db37f7139222cc7c8583" category="doc">使用 audit-sum 工具</block>
   <block id="e8af90e6b4ab2862cd480bff8617bbb6" category="paragraph">您可以使用<block ref="98652e25f6ffeee4422cebd5a6a08b5e" prefix=" " category="inline-code"></block>工具统计写入、读取、机头和删除审核消息的数量、并查看每种操作类型的最小、最大和平均时间(或大小)。</block>
   <block id="52d66f363da1e6c43b8cad8c39754ada" category="paragraph"><block ref="98652e25f6ffeee4422cebd5a6a08b5e" prefix=" " category="inline-code"></block>主管理节点上提供的工具汇总了记录的写入、读取和删除操作的数量以及这些操作所用的时间。</block>
@@ -14211,7 +14155,6 @@
   <block id="bc9c838c697b5f530d60b89d50e997e2" category="paragraph">对于单站点网格和纠删编码可提供站点丢失保护的网格，此一般建议可在多种纠删编码方案中提供合理的结果。</block>
   <block id="81f8120b5a1cdbbad82c371e24d5f3c0" category="inline-link-macro">重新平衡经过纠删编码的数据的注意事项</block>
   <block id="4ede0449ea951d01a12af7b795e92a95" category="paragraph">要更好地了解导致此建议的因素或为您的站点制定更精确的计划，请参见<block ref="7d25f358497317f659c2db22c4c6c293" category="inline-link-macro-rx"></block>。有关针对您的情况进行优化的自定义建议、请联系您的NetApp专业服务顾问。</block>
-  <block id="1866752605f992dfd684eef9e628040a" category="summary">如果您的部署的信息生命周期管理 \ （ ILM ）策略包含创建对象的复制副本的规则，则必须考虑要添加的存储容量以及要添加新存储卷或存储节点的位置。</block>
   <block id="9a474ffb92665e66f03b21fe04f8e6d3" category="paragraph">如果您的部署的信息生命周期管理（ ILM ）策略包含一条规则，用于创建对象的复制副本，则必须考虑要添加的存储容量以及要添加新存储卷或存储节点的位置。</block>
   <block id="af1fd265f139aea36f56248a2ac62442" category="inline-link-macro">添加存储</block>
   <block id="fe2305d334b4447bc488c4506311b3c0" category="inline-link-macro">什么是复制</block>
@@ -14541,7 +14484,6 @@
   <block id="5a8a4438e90339f07b4891ad2785d4fb" category="list-text">如果任何新节点在先前未使用的子网上具有网格网络IP地址、则表示您已<block ref="24c8f5a5a8d2086ad6ce506147b9bba9" category="inline-link-macro-rx"></block>访问网格网络子网列表。否则，您必须取消扩展，添加新子网并重新启动操作步骤 。</block>
   <block id="beb5227c5efbbf02585c9d1ec9489b21" category="list-text">您没有在网格网络中的网格节点之间或StorageGRID 站点之间使用网络地址转换(Network Address Translation、NAT)。如果您对网格网络使用专用 IPv4 地址，则这些地址必须可从每个站点的每个网格节点直接路由。只有在使用对网格中的所有节点都透明的通道应用程序时，才支持使用 NAT 在公有 网段中桥接网格网络，这意味着网格节点不需要了解公有 IP 地址。</block>
   <block id="480af48e828afbfa1816ccdc755eb7d8" category="paragraph">此 NAT 限制特定于网格节点和网格网络。您可以根据需要在外部客户端和网格节点之间使用 NAT ，例如为网关节点提供公有 IP 地址。</block>
-  <block id="6798bb838ffb0ade9cf73e433faeec42" category="summary">您可以通过向现有存储节点添加存储卷或向现有站点添加新存储节点来扩展 StorageGRID 系统的对象存储容量。您必须以符合信息生命周期管理 \ （ ILM ）策略要求的方式添加存储容量。</block>
   <block id="fee85f6532071490787cdf8c4673baae" category="paragraph">您可以通过向现有存储节点添加存储卷或向现有站点添加新存储节点来扩展 StorageGRID 系统的对象存储容量。添加存储容量时，必须满足信息生命周期管理（ ILM ）策略的要求。</block>
   <block id="b62c4ad2f840caefd72fd3a9f2e73c72" category="section-title">添加存储卷的准则</block>
   <block id="182afeb31ff237b5fae525bfc71db84b" category="paragraph">在将存储卷添加到现有存储节点之前，请查看以下准则和限制：</block>
@@ -14722,7 +14664,6 @@
   <block id="e672e10078627fba425f9d2685be7854" category="paragraph">如果要添加新站点、请使用<block ref="96f4e4f95f0e0289c198d5c9638a6878" prefix=" " category="inline-code"></block>监控cassanda流式传输的进度、并查看在"扩展cassanda集群"阶段向新站点复制了多少元数据。新站点上的总数据负载应介于当前站点总负载的 20% 左右。</block>
   <block id="92625e230cc7eca27b540aba48a99363" category="list-text">继续监控扩展，直到所有任务均完成，并且 * 配置扩展 * 按钮再次出现。</block>
   <block id="999fca7ebec80349c34cf2345b1bb5b1" category="paragraph">根据您添加的网格节点类型、执行其他集成和配置步骤。请参阅。 <block ref="7bbbd136c64662b4b1ccbae8386cfb58" category="inline-link-macro-rx"></block></block>
-  <block id="81e6563c7c6220dbdafd8d62cb12e319" category="summary">添加存储节点后、您可以使用纠删编码重新平衡过程在现有存储节点和新存储节点之间重新分布经过纠删编码的片段。</block>
   <block id="87b10012cdfaf0aea9a720dc9d84e0c0" category="paragraph">添加存储节点后、您可以使用纠删编码(EC)重新平衡过程在现有存储节点和新存储节点之间重新分布经过纠删编码的片段。</block>
   <block id="c59847e935463624e4bee62b6e03753e" category="list-text">您已完成添加新存储节点的扩展步骤。</block>
   <block id="59e226631d3318880a0518a39d85dcfa" category="inline-link-macro">重新平衡经过纠删编码的数据的注意事项</block>
@@ -14897,7 +14838,6 @@
   <block id="d31df0f235ff2b2f8121434981c03a1c" category="list-text">将一个或多个聚合附加到云层。</block>
   <block id="b02f533bb85a030df04eef66040650dd" category="list-text">(可选)创建卷分层策略。</block>
   <block id="e6ac89dd976f36fffee17fbe4a5d290b" category="summary">在配置 StorageGRID 以与 FabricPool 结合使用时，您可以选择创建一个或多个高可用性（ HA ）组。HA组是一组节点、每个节点都包含StorageGRID 负载平衡器服务。HA组可以包含网关节点、管理节点或同时包含这两者。</block>
-  <block id="f5a7af4d3fad56e6c795b67f0b4f749e" category="paragraph">在配置 StorageGRID 以与 FabricPool 结合使用时，您可以选择创建一个或多个高可用性（ HA ）组。HA组是一组节点、每个节点都包含StorageGRID 负载平衡器服务。HA组可以包含网关节点、管理节点或同时包含这两者。</block>
   <block id="a7e5f34fa970e845f942b1ebc182a103" category="paragraph">您可以使用HA组帮助保持FabricPool 数据连接可用。HA组使用虚拟IP地址(VIP)提供对负载平衡器服务的高可用性访问。如果HA组中的活动接口发生故障、则备份接口可以管理工作负载、而对FabricPool 操作的影响微乎其微。</block>
   <block id="1cf5447ba16eb2b18335de18edb657c4" category="inline-link-macro">访问并完成FabricPool 设置向导</block>
   <block id="f2b1ca43ace0acee7b6cb7cdd9f93796" category="paragraph">有关此任务的详细信息，请参见<block ref="1426cbe087243652f493f474111cf1b0" category="inline-link-macro-rx"></block>。要使用FabricPool设置向导完成此任务，请转至<block ref="c6986fe93679fc5bdd244963d74ca0fc" category="inline-link-macro-rx"></block>。</block>
@@ -15457,7 +15397,6 @@
   <block id="c1409a0e897e34a11fdc483bd40c9f2e" category="list-text">存储效率。</block>
   <block id="b1d3c4aef0d73caa261fddf283d367f2" category="list-text">需要高效数据保护的单站点部署，只需一个纠删编码副本，而不是多个复制副本。</block>
   <block id="49ad338894ab83d6834e0ab50d5c4af9" category="list-text">站点间延迟小于 100 毫秒的多站点部署。</block>
-  <block id="2c67e952529710175ee9e785fffe410f" category="summary">了解在载入时保护数据的三个选项中每一个选项（平衡，严格或双提交）的优缺点有助于您确定要为 ILM 规则选择哪个选项。</block>
   <block id="96a1130ae9bdab610cd224ccc6b908eb" category="doc">加热选项的优点、缺点和限制</block>
   <block id="186b0c4f403d34cb966c7813705568a4" category="paragraph">了解在载入时保护数据的三个选项（平衡，严格或双重提交）中每一个选项的优缺点有助于您确定要为 ILM 规则选择哪个选项。</block>
   <block id="9e97e40c3a3bda31e7186d41026ac56e" category="inline-link-macro">加热选项</block>
@@ -15581,7 +15520,6 @@
   <block id="c0464d379d7b43f89d6eaec16c570e40" category="section-title">Azure ：不支持生命周期管理</block>
   <block id="20e48a85838efada68401e1038310d23" category="paragraph">请勿对云存储池中使用的容器使用Azure Blb存储生命周期管理。生命周期操作可能会干扰云存储池操作。</block>
   <block id="b98add78bd541586d1006913bb24dcc7" category="paragraph"><block ref="b98add78bd541586d1006913bb24dcc7" category="inline-link-macro-rx"></block></block>
-  <block id="aa75de34657574dc36274cf641363cc5" category="summary">通过创建ILM规则向导的定义放置位置步骤、您可以定义放置说明、这些放置说明可确定对象的存储时长、副本类型\(已复制或已删除编码\)、存储位置以及副本数量。</block>
   <block id="f96e97b3fa21b1ab16490de02e77ba26" category="doc">第 2 步，共 3 步：定义放置位置</block>
   <block id="cc43429059d5235e1b13e529dab3de51" category="paragraph">通过创建ILM规则向导的*定义放置位置*步骤、您可以定义放置说明、这些放置说明确定对象的存储时长、副本类型(已复制或已删除编码)、存储位置以及副本数量。</block>
   <block id="46dbfb1e8c23d87e20a07e02d0cf6c7d" category="paragraph">一个 ILM 规则可以包含一个或多个放置指令。每个放置指令适用场景 都有一段时间。如果使用多个指令，则时间段必须是连续的，并且至少有一个指令必须从第 0 天开始。这些说明可以永久继续，也可以一直持续到不再需要任何对象副本为止。</block>
@@ -15653,7 +15591,6 @@
   <block id="dc4f4c88f03b175e4b79814f7e906791" category="image-alt">ILM 规则保留图</block>
   <block id="e9fbb8f558392e71beb78be25683bf5f" category="inline-link-macro">第3步(选择加热行为)</block>
   <block id="f4a43c50af368af9c41ef682f3d6bcc6" category="list-text">选择 * 继续 * 。<block ref="994abddf990aed63979bca9831f0997b" category="inline-link-macro-rx"></block>的创建ILM规则向导。</block>
-  <block id="e2f72f806bc77164d7432ac2e01a1de9" category="summary">通过创建ILM规则向导的第1步\(输入详细信息\)、您可以输入规则的名称和问题描述 、并为规则定义筛选器。</block>
   <block id="a902fcbe0b9feb5cd815c2e2f7c46e08" category="doc">第1步(共3步)：输入详细信息</block>
   <block id="fb62282c066421cddbf2355c102cbebe" category="paragraph">通过创建ILM规则向导的*输入详细信息*步骤、您可以输入规则的名称和问题描述 、并为规则定义筛选器。</block>
   <block id="8cbbd57ffc00f9230695b9bc548e7ada" category="paragraph">输入问题描述 并为规则定义筛选器是可选的。</block>
@@ -15729,7 +15666,6 @@
   <block id="d87d32128ac369c94b338746c813dfbd" category="image-alt">对象大小的高级筛选示例</block>
   <block id="af140d26ab379b656899b7985455178f" category="paragraph">使用多个条目可以精确控制匹配的对象。在以下示例中、规则适用场景对象使用品牌A或品牌B作为摄像机类型用户元数据的值。但是，规则仅对小于 10 MB 的品牌 B 对象执行适用场景 。</block>
   <block id="0e30f851855aa1a4ca9c28fdf4175b73" category="image-alt">用户元数据的高级筛选示例</block>
-  <block id="13f9c4a42467d381d6c948c8cbabb6b3" category="summary">通过创建ILM规则向导的第3步\(选择导出行为\)、您可以选择在导出时如何保护通过此规则筛选的对象。</block>
   <block id="e9d3166a21086dd2e09b5d6408539abb" category="doc">第3步(共3步)：选择加数据行为</block>
   <block id="f6585c9304a58dced3952b9b864ea34b" category="paragraph">创建ILM规则向导的*选择导出行为*步骤允许您选择在导出时如何保护通过此规则筛选的对象。</block>
   <block id="d40787885c9359b9b497350211614aef" category="paragraph">StorageGRID 可以创建临时副本并将对象排入队列，以便稍后进行 ILM 评估，也可以立即创建副本以满足规则的放置说明。</block>
@@ -16043,7 +15979,6 @@
   <block id="2e979835dd62324f5bfe217449ba4974" category="section-title">严格</block>
   <block id="11c2a75d33bacf14600908fcbb6e7961" category="paragraph">如果选择 strict 选项，则 StorageGRID 会在载入时使用同步放置，并立即创建规则放置说明中指定的所有对象副本。如果StorageGRID 无法创建所有副本、例如、由于所需的存储位置暂时不可用、则加热操作将失败。客户端必须重试此操作。</block>
   <block id="5bb8ead85f99871e8bd4d54783ccb40b" category="paragraph">如果您在操作或法规要求中要求仅将对象立即存储在 ILM 规则中所述的位置，请使用 strict 选项。例如、为了满足法规要求、您可能需要使用stricted选项和Location约束高级筛选器来保证对象永远不会存储在某些数据中心。</block>
-  <block id="d97c137431a8bd72029f9d85e1b60383" category="summary">您可以编辑云存储池以更改其名称，服务端点或其他详细信息；但是，您不能更改云存储池的 S3 存储分段或 Azure 容器。</block>
   <block id="5430041ae2f4cb9087dae938b48b6b58" category="doc">编辑云存储池</block>
   <block id="beec8317d1c654f23e51a8b18865bda2" category="paragraph">您可以编辑云存储池以更改其名称、服务端点或其他详细信息；但是、您不能更改云存储池的S3存储分段或Azure容器。</block>
   <block id="6abb1f6f8cf26728a109f14792c3fb63" category="paragraph">" 云存储池 " 表列出了现有的云存储池。</block>
@@ -17210,7 +17145,6 @@
   <block id="1d3c335bf457fc53b5f8b0d96daa4879" category="list-text">确认对象已复制到目标存储分段。</block>
   <block id="9422beb9026e2ec3ec7abaa6fb1a204a" category="paragraph">对于小型对象，复制操作会快速进行。</block>
   <block id="7e2044d6ea8e4712eeee3b9cf7a6cd52" category="paragraph"><block ref="7e2044d6ea8e4712eeee3b9cf7a6cd52" category="inline-link-macro-rx"></block></block>
-  <block id="6f21dffb639ad10eee1ec10c40c58fcb" category="summary">如果您希望S3存储分段和该存储分段中的对象可供其他域中的Web应用程序访问、则可以为该存储分段配置跨源站资源共享(CORS\)。</block>
   <block id="7b869d9293e578b591bdfdd03de60f12" category="paragraph">如果您希望S3存储分段和该存储分段中的对象可供其他域中的Web应用程序访问、则可以为该存储分段配置跨源站资源共享(CORS)。</block>
   <block id="8334cc4d0ab3882ade189c19f7855b5b" category="inline-link-macro">管理所有存储分段或查看所有存储分段权限</block>
   <block id="34baaee6559a423e211df09c3cc32fed" category="list-text">对于GET CORS配置请求，您属于具有的用户组<block ref="59fa2918e3c7426df8595a5183579cd0" category="inline-link-macro-rx"></block>。这些权限将覆盖组或存储分段策略中的权限设置。</block>
@@ -17663,7 +17597,6 @@
   <block id="c66e97e084f90c6df43604b07596da39" category="list-text">选择 * 测试并保存更改 * 。</block>
   <block id="cd8685af15984f419c9889a200868531" category="list-text">如果可以使用指定凭据访问端点，则会显示一条成功消息。系统会从每个站点的一个节点验证与端点的连接。</block>
   <block id="bf60bec136bb49c62d80dd4d8abc430c" category="list-text">如果端点验证失败，则会显示一条错误消息。修改端点以更正错误，然后选择 * 测试并保存更改 * 。</block>
-  <block id="e6247528749afe3edf70742ed252e8a5" category="summary">当网格管理员为 StorageGRID 系统创建信息生命周期管理 \ （ ILM ）规则时，他们可以选择指定对象的最后访问时间来确定是否将该对象移动到其他存储位置。如果您使用的是 S3 租户，则可以通过为 S3 存储分段中的对象启用上次访问时间更新来利用此类规则。</block>
   <block id="f907202c8bd8f31bf218f215637fad08" category="paragraph">当网格管理员为 StorageGRID 系统创建信息生命周期管理（ ILM ）规则时，他们可以选择指定对象的最后访问时间来确定是否将该对象移动到其他存储位置。如果您使用的是 S3 租户，则可以通过为 S3 存储分段中的对象启用上次访问时间更新来利用此类规则。</block>
   <block id="fdea272b33919b1a82ba7648580922dd" category="paragraph">这些说明仅适用于至少包含一个使用*上次访问时间*选项作为高级筛选器或参考时间的ILM规则的StorageGRID 系统。如果您的 StorageGRID 系统不包含此类规则，则可以忽略这些说明。有关详细信息、请参见。 <block ref="0ee7eb1c2e54090381f8fa7cef3a7479" category="inline-link-macro-rx"></block></block>
   <block id="8b01ab1bddd127d986ed2b1262cdc8cc" category="paragraph">*上次访问时间*是ILM规则的*参考时间*放置指令的可用选项之一。通过将规则的"参考时间"设置为上次访问时间、网格管理员可以根据上次检索(读取或查看)对象的时间指定将对象放置在某些存储位置。</block>
@@ -17683,7 +17616,6 @@
   <block id="035cb7fc081f46b22ed79706751c2ea8" category="paragraph">列出对象或对象版本的请求</block>
   <block id="4e78963b1f37e20799f542537c1e847e" category="list-text">从*存储分段选项*选项卡中，选择*上次访问时间更新*可接触框。</block>
   <block id="3acab972800e1e0602663a569b5986b6" category="list-text">启用或禁用上次访问时间更新。</block>
-  <block id="a66eee58cdbf284e6750e672decf5fa2" category="summary">如果创建或编辑了租户以使用网格联合连接、则会将该租户从一个StorageGRID系统\(源租户\)复制到另一个StorageGRID系统\(副本租户\)。复制租户后、添加到源租户的任何组和用户都会克隆到副本租户。</block>
   <block id="d00badaf3f9bab25d5f8807f0d23522c" category="paragraph">如果创建或编辑租户以使用网格联合连接、则会将该租户从一个StorageGRID系统(源租户)复制到另一个StorageGRID系统(副本租户)。复制租户后、添加到源租户的任何组和用户都会克隆到副本租户。</block>
   <block id="7355ea640ad882d5d465a1b3979e2d8a" category="paragraph">最初创建租户的StorageGRID 系统是租户的_ssource grid _。复制租户的StorageGRID 系统是租户的_Destination grid _。这两个租户帐户具有相同的帐户ID、名称、问题描述 、存储配额和已分配权限、 但是、目标租户最初没有root用户密码。有关详细信息，请参见<block ref="6abca4483e1eebe249eacebffcb8d0c2" category="inline-link-macro-rx"></block>和<block ref="e60b4e117b57a47ee88fce431b1bd5c8" category="inline-link-macro-rx"></block>。</block>
   <block id="532aaaab109afc382303ddd61efc69e1" category="paragraph">对于存储分段对象、需要克隆租户帐户信息<block ref="0a0eb7b2ba3557a5e6d8cb456a868f8e" category="inline-link-macro-rx"></block>。在两个网格上使用相同的租户组和用户可确保您可以访问任一网格上的相应分段和对象。</block>
@@ -17949,7 +17881,6 @@
   <block id="769966d4caef036636f45b4dc5d402af" category="admonition">如果您的租户帐户具有*使用网格联合连接*权限、而您删除了某个组、则StorageGRID 不会删除另一个网格上的相应组。如果需要保持此信息同步、则必须从两个网格中删除同一个组。</block>
   <block id="f7952cce19d11a7c906beaf907ac585c" category="list-text">选择*Actions*&gt;*Delete group*或*Actions*&gt;*Delete Groups*。</block>
   <block id="bebe4baad542c12fca7478d24f9e67a2" category="list-text">选择*删除组*或*删除组*。</block>
-  <block id="77ad97c2c714e90d814894d6ab10e02d" category="summary">您可以创建本地用户并将其分配给本地组，以确定这些用户可以访问哪些功能。租户管理器包括一个名为"root"的预定义本地用户。虽然您可以添加和删除本地用户、但不能删除root用户。</block>
   <block id="39e0d5760a021d7fb740932fe54363cd" category="admonition">如果为StorageGRID 系统启用了单点登录(SSO)、则本地用户将无法登录到租户管理器或租户管理API、尽管他们可以根据组权限使用客户端应用程序访问租户的资源。</block>
   <block id="285e4c35025090d3e947d040422c8d06" category="section-title">[[crea-user]]创建本地用户</block>
   <block id="62c0f9581bb34061e3e5160b04b09431" category="paragraph">您可以创建本地用户并将其分配给一个或多个本地组、以控制其访问权限。</block>
@@ -19260,7 +19191,6 @@
   <block id="f2c1560398520afbe147a2e59127c31f" category="admonition">在某些情况下、NetApp可能会比指示的时间更早地终止对特定功能的支持。</block>
   <block id="21021ea0e52be8e9c599f4dff41e5be0" category="cell">功能</block>
   <block id="00ed72e0cd57055f61b8b765e24c0be9" category="cell">早期文档的链接</block>
-  <block id="cfe31677120ecfab54c206e2ada850ab" category="paragraph">原有警报(_NOT警报_)</block>
   <block id="d5ea7948543575caf640dfac21a2efc5" category="inline-link">报警参考(StorageGRID 11.8)</block>
   <block id="ddaf4b1ac18c1f1278734ad02b52fd22" category="paragraph"><block ref="ddaf4b1ac18c1f1278734ad02b52fd22" category="inline-link-rx"></block></block>
   <block id="5abf376a7b2f51c35643632839aa54e1" category="paragraph">归档节点支持</block>
@@ -20172,7 +20102,6 @@
   <block id="76bed862baaf1d09d9943e738fad8a39" category="list-text">*VMware（安装节点后）*：<block ref="7edc540b37c022b5af5f3c4e74b80ad8" category="inline-link-macro-rx"></block></block>
   <block id="64de3bf1bd2de3352e0004427d68a56b" category="list-text">选择*配置* &gt; *网络* &gt; *高可用性组*。</block>
   <block id="36821bb5833dcd987c2fa857fe3ff8af" category="list-text">转到*配置* &gt; *网络* &gt; *负载均衡器端点*。</block>
-  <block id="2df10d0f1b45556613573d94ccb70071" category="summary">您可以按照配置 SSO 向导并进入沙盒模式来配置和测试单点登录 (SSO)，然后为所有StorageGRID用户启用它。启用 SSO 后，您可以在需要时返回沙盒模式来更改或重新测试配置。</block>
   <block id="46228312aaeac2a3bb2b38042b077c8e" category="doc">配置 SSO</block>
   <block id="7e8deb5508033dce4d76cdcb11d67bdd" category="paragraph">您可以按照配置 SSO 向导并进入沙盒模式来配置和测试单点登录 (SSO)，然后为所有StorageGRID用户启用它。启用 SSO 后，您可以在需要时返回沙盒模式来更改或重新测试配置。</block>
   <block id="e932793a8a8611b57aa327ad738b4df6" category="list-text">对于身份联合 *LDAP 服务类型*，您可以根据计划使用的 SSO 身份提供商选择 Active Directory 或 Entra ID。</block>
@@ -22594,4 +22523,44 @@
   <block id="9e48ce3918382a0700088e38500a5865" category="sidebar">已删除或弃用的特性和功能</block>
   <block id="873c3907e55471a2991eab6c77d98a3b" category="paragraph">在此示例中，会话的主体仅允许从 bucket1 检索对象。所有其他操作都会被隐式拒绝，除了特定于 StorageGRID 的操作（例如使用 <block ref="d3f47673c653efb165a71bf92d9fcb27" category="inline-link-macro-rx"></block> 权限）。调用 AssumeRole API 时，可以以 JSON 文件的形式提供会话策略。</block>
   <block id="ba1177d7dec9e949d93252540acfb636" category="section-title">[[use-putoverwriteobject-permission]]使用 PutOverwriteObject 权限</block>
+  <block id="45f2068c8c99b41f07bb55400190abdb" category="summary">您可以按照配置 SSO 向导并进入沙盒模式来配置和测试单点登录 (SSO)，然后再为所有 StorageGRID 用户启用它。启用 SSO 后，您可以在需要更改或重新测试配置时返回沙盒模式。</block>
+  <block id="0a51f84e6be43565f49734e391d586d6" category="summary">您可以在管理节点和网关节点上创建虚拟 LAN (VLAN) 接口，并在 HA 组和负载平衡器端点中使用它们，以隔离和分区流量，从而实现安全性、灵活性和性能。</block>
+  <block id="9a747b90fd029927b8e137d42367645b" category="summary">StorageGRID 使用内部证书颁发机构 (CA) 来保护内部流量。如果您上传自己的证书，此证书不会更改。</block>
+  <block id="9946acf0764161ad1ca277fb66d7c72c" category="summary">密钥管理服务器 (KMS) 是一个外部第三方系统，它使用密钥管理互操作性协议 (KMIP) 向关联的 StorageGRID 站点上的 StorageGRID 设备节点提供加密密钥</block>
+  <block id="9ad306a500375f307428297c36a6189c" category="summary">在使用密钥管理服务器 (KMS) 保护设备节点上的 StorageGRID 数据之前，您必须完成两个配置任务：设置一个或多个 KMS 服务器并为设备节点启用节点加密。当这两个配置任务完成后，密钥管理过程将自动进行。</block>
+  <block id="6f7091c9d50d37819be6f3b7dc500df4" category="summary">当存储节点达到容量时，您必须通过添加新存储来扩展 StorageGRID 系统。有三个可用选项：添加存储卷、添加存储扩展架和添加存储节点。</block>
+  <block id="14ca4e9f345bd22e1130524d29dc58e7" category="summary">您可以通过使用 CSRF 令牌来增强基于 Cookie 的身份验证，从而帮助防止针对 StorageGRID 的跨站点请求伪造 (CSRF) 攻击。</block>
+  <block id="a67eaed1337a7fa2ad77fcd3ec802308" category="summary">如果单点登录 (SSO) 系统出现故障，您可能无法登录到 Grid Manager。在这种情况下，您可以暂时禁用并重新启用一个管理节点的 SSO。要禁用然后重新启用 SSO，必须访问节点的命令 shell。</block>
+  <block id="df6172d74d950d37dd4817c97ef04a61" category="summary">如果尝试发送 AutoSupport 软件包失败，StorageGRID 系统会根据 AutoSupport 软件包类型采取不同的操作。</block>
+  <block id="370c93c6ac850a2bb06fd126d13d0667" category="summary">平台服务中使用的端点由租户管理器中的租户用户创建和维护。但是，如果租户在配置或使用平台服务时遇到问题，则可以使用网格管理器来帮助解决此问题。</block>
+  <block id="f40750ca481b0384e79a88b9688db2f0" category="summary">当已泄漏的块被清除或删除时，将生成 LKDM 审核消息。</block>
+  <block id="1b0466887d83b95dd5ce473aec550545" category="summary">每当找不到对象副本（复制或擦除编码）的位置时，都会生成此消息。</block>
+  <block id="a10fa91317e5baf328c705259785656f" category="summary">此消息指示原始服务（节点 ID）已关闭审核消息日志记录。StorageGRID 不再收集或传递审核消息。</block>
+  <block id="5e810aeca3189c0c14a2c7e7e1a8ef31" category="summary">此消息指示发起服务（节点 ID）已恢复审核消息日志记录。StorageGRID 再次收集和传递审核消息。</block>
+  <block id="07a74d98948298f35df7e9d052f254ea" category="summary">您可以使用 audit-sum 工具对写入、读取、标头和删除审核消息进行计数，并查看每种操作类型的最短、最大和平均时间（或大小）。</block>
+  <block id="68c19b15490f3fceb13c8fd343fab69b" category="summary">添加存储节点后，您可以使用纠删码重新平衡过程在现有和新的存储节点之间重新分配纠删码片段。</block>
+  <block id="406e4e7ae9e1251a6c9d4a09f0eb44f6" category="list-text">192,168,130,121</block>
+  <block id="2450a551d9011a0f14beaba79c8d448f" category="list-text">192,168,131,121</block>
+  <block id="5c83a256b3eb52dbcdfb1ada17dfbca7" category="list-text">192,168,130,122</block>
+  <block id="84f455617b6484318234867418b6d0b0" category="list-text">192,168,131,122</block>
+  <block id="91f88cfd270ee9d1031cf622a7fda380" category="summary">将 StorageGRID 配置为与 FabricPool 配合使用时，可以选择创建一个或多个高可用性 (HA) 组。</block>
+  <block id="aa84cda4e6a13cdb7258b0040b6acf12" category="summary">"创建 ILM 规则"向导的"定义放置位置"步骤允许您定义放置指令，以确定对象的存储时间、副本类型（复制或纠删码）、存储位置和副本数。</block>
+  <block id="f3f1fb7ebf369db343578e1c8be5ca59" category="summary">创建 ILM 规则向导的步骤 1（输入详细信息）允许您输入规则的名称和描述，并定义规则的筛选器。</block>
+  <block id="db4be330f7af15384035e7ed3904a307" category="summary">创建 ILM 规则向导的第 3 步（选择摄取行为）允许您选择在摄取时如何保护此规则筛选的对象。</block>
+  <block id="0073a23e75a8c3ad14a403e95b12d486" category="summary">创建 ILM 规则时，您可以指定三个选项之一来保护接收时的对象：双提交、严格或平衡。</block>
+  <block id="923e05f8e9f10ebfe0ba16acbbf2e7ab" category="summary">您可以编辑云存储池以更改其名称、服务端点或其他详细信息，但不能更改云存储池的 S3 存储桶或 Azure 容器。</block>
+  <block id="66a43d26a9a9969d477611353504f218" category="summary">您可以添加、删除和更新 DNS 服务器，以便使用完全限定域名 (FQDN) 主机名而不是 IP 地址。</block>
+  <block id="d94cc623ac89921a07b5d7888decd7b8" category="admonition">必须及时修复或更换出现故障的主管理节点，否则可能无法执行某些维护过程。</block>
+  <block id="b1514cdee03f914e9f4e8941f197cae2" category="summary">StorageGRID 内部防火墙仅允许与网格网络上特定端口的传入连接，端口 22、80、123 和 443 除外（请参阅有关外部通信的信息）。负载均衡器端点定义的端口也接受连接。</block>
+  <block id="6e00444b87f3acf759eb78dfbb1a7f8e" category="summary">您可以使用信息生命周期管理(ILM)来控制 StorageGRID 系统中所有对象的放置、持续时间和接收行为。ILM 规则确定 StorageGRID 如何随时间推移存储对象。您可以配置一个或多个 ILM 规则，然后将其添加到 ILM 策略中。</block>
+  <block id="0ad9b9efe69695d0981cf905e4c96ab1" category="summary">StorageGRID 12.0 使用网格管理 API 第 4 版。版本 4 弃用版本 3。但是，仍支持版本 1、2 和 3。</block>
+  <block id="01fa494fa11d0e6390391c450a4eefc8" category="summary">StorageGRID 12.0 使用租户管理 API 的版本 4。版本 4 弃用版本 3。但是，仍支持版本 1、2 和 3。</block>
+  <block id="1813fde648d868a1172195891c49041d" category="paragraph">报警，旧版（_非 Alerts_）</block>
+  <block id="857bfc51755451ef542bbdd4afd86a2b" category="paragraph">电子邮件设置（旧版）</block>
+  <block id="10fc84cdc50d93bc74a517b8e75b7fbb" category="inline-link">为警报配置通知（旧系统）（StorageGRID 11.8）</block>
+  <block id="9db1b0c42b6e7ee6a66d948a48a583f1" category="paragraph"><block ref="9db1b0c42b6e7ee6a66d948a48a583f1" category="inline-link-rx"></block></block>
+  <block id="ce57159354976305a0c15f68080559f2" category="summary">冲突的客户端请求（例如两个客户端写入同一密钥）将以最新写入优先的方式解决。</block>
+  <block id="41add53b76385c1cfec185d0fce35525" category="summary">StorageGRID 使用 Amazon Web Services (AWS) 策略语言，允许 S3 租户控制对这些存储桶中的存储桶和对象的访问。</block>
+  <block id="645b547f076b1435ab93ecfb6b8276b8" category="summary">当网格管理员为 StorageGRID 系统创建信息生命周期管理 (ILM) 规则时，他们可以选择指定使用对象的最后一次访问时间来确定是否将该对象移动到不同的存储位置。如果使用的是 S3 租户，则可以通过启用 S3 存储桶中对象的上次访问时间更新来利用此类规则。</block>
+  <block id="f3ed3bb4cd199fdbb3afb78b18d31ba8" category="summary">您可以创建本地用户并将其分配给本地组，以确定这些用户可以访问哪些功能。租户管理器包含一个预定义的本地用户，名为<block ref="63a9f0ea7bb98050796b649e85481845" prefix=" " category="inline-code"></block>，虽然可以添加和删除本地用户，但不能删除 root 用户。</block>
 </blocks>

@@ -2,7 +2,7 @@
 permalink: audit/lkdm-leaked-object-cleanup.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
-summary:  
+summary: 当已泄漏的块被清除或删除时，将生成 LKDM 审核消息。 
 ---
 = StorageGRID 中泄漏对象清理的 LKDM 审计消息
 :allow-uri-read: 

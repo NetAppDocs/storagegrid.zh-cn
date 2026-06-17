@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-define-placements.html 
 sidebar: sidebar 
 keywords: ilm rule step 2, define placements 
-summary: '通过创建ILM规则向导的定义放置位置步骤、您可以定义放置说明、这些放置说明可确定对象的存储时长、副本类型\(已复制或已删除编码\)、存储位置以及副本数量。' 
+summary: '"创建 ILM 规则"向导的"定义放置位置"步骤允许您定义放置指令，以确定对象的存储时间、副本类型（复制或纠删码）、存储位置和副本数。' 
 ---
 = 定义 StorageGRID ILM 规则的放置说明
 :allow-uri-read: 

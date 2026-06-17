@@ -2,7 +2,7 @@
 permalink: admin/configure-high-availability-group.html 
 sidebar: sidebar 
 keywords: how to configure high availability group, node priority order, failover 
-summary: 您可以配置高可用性 \ （ HA\ ）组，以提供对管理节点或网关节点上服务的高可用性访问。 
+summary: 您可以配置高可用性（ High Availability ， HA ）组，以提供对管理节点或网关节点上服务的高可用性访问。 
 ---
 = 在 StorageGRID 中配置高可用性组
 :allow-uri-read: 
