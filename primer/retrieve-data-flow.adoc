@@ -18,7 +18,7 @@ summary: '检索操作由 StorageGRID 系统与客户端之间定义的数据流
 
 NOTE: 如果唯一的对象副本位于AWS GlacierStorage或Azure归档层上、则客户端应用程序必须发出问题描述a S3 Restore-Object请求、才能将可检索副本还原到云存储池。
 
-image::../media/retrieve_data_flow.png[检索]
+image:retrieve_data_flow.png["检索"]
 
 . LDR 服务从客户端应用程序接收检索请求。
 . LDR 服务会在元数据存储库中查询对象数据位置和元数据。

@@ -62,7 +62,7 @@ TIP: 如果只需要重新启动一个节点，则可以link:../maintain/rebooti
 . 查看*节点名称*列中的连接状态和警报图标。
 +
 
-TIP: 如果节点与网格断开连接、则无法重新启动。对于带有以下图标的节点，这些复选框将被禁用：image:../media/icon_alarm_gray_administratively_down.png["灰色问号图标"]或image:../media/icon_alarm_blue_unknown.png["蓝色问号图标"]。
+TIP: 如果节点与网格断开连接，则无法重新启动该节点。具有以下图标的节点，其复选框将被禁用：image:icon_alarm_gray_administratively_down.png["灰色问号图标"] 或 image:icon_alarm_blue_unknown.png["蓝色问号图标"]。
 
 . 如果任何节点具有活动警报，请查看*Alert摘要*列中的警报列表。
 +

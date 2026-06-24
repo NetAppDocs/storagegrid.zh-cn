@@ -30,7 +30,7 @@ video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 此时将显示 "Alert Rules" 页面。
 
 +
-image::../media/alert_rules_page.png[警报规则页面]
+image:alert_rules_page.png["警报规则页面"]
 
 . 查看警报规则表中的信息：
 +
@@ -51,9 +51,9 @@ image::../media/alert_rules_page.png[警报规则页面]
  a| 
 用于确定何时触发此警报的 Prometheus 表达式。可以在以下一个或多个严重性级别触发警报，但不需要为每个严重性设置一个条件。
 
-** *critical*image:../media/icon_alert_red_critical.png["图标警报红色严重"]：存在异常情况，已停止StorageGRID节点或服务的正常运行。您必须立即解决底层问题描述 。如果未解决问题描述 ，可能会导致服务中断和数据丢失。
-** *主要*image:../media/icon_alert_orange_major.png["图标警报橙色主要"]：存在影响当前操作或接近严重警报阈值的异常情况。您应调查主要警报并解决任何根本问题，以确保异常情况不会停止 StorageGRID 节点或服务的正常运行。
-** *次要*image:../media/icon_alert_yellow_minor.png["图标警报黄色次要"]：系统运行正常，但存在异常情况，如果系统继续运行，可能会影响系统的运行能力。您应监控和解决无法自行清除的次要警报、以确保它们不会导致更严重的问题。
+** *严重* image:icon_alert_red_critical.png["图标警报红色严重"]：存在已停止 StorageGRID 节点或服务正常操作的异常情况。您必须立即解决根本问题。如果问题未得到解决，可能会导致服务中断和数据丢失。
+** *重大* image:icon_alert_orange_major.png["图标警报橙色主要"]：存在影响当前操作或接近严重警报阈值的异常情况。您应该调查重大警报并解决任何潜在问题，以确保异常情况不会阻止 StorageGRID 节点或服务的正常运行。
+** *轻微* image:icon_alert_yellow_minor.png["图标警报黄色次要"]：系统正常运行，但存在异常情况，如果继续运行，可能会影响系统的运行能力。您应该监控并解决未自行清除的轻微警报，以确保它们不会导致更严重的问题。
 
 
 

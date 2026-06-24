@@ -201,8 +201,8 @@ NOTE: 非当前时间仅适用于启用了版本控制的分段中的S3对象。
 * 第二个元数据值用于指定小于或等于 100 MB 的对象。
 
 
-image::../media/advanced_filtering_size_between.png[对象大小的高级筛选示例]
+image:advanced_filtering_size_between.png["对象大小的高级筛选示例"]
 
 使用多个条目可以精确控制匹配的对象。在以下示例中、规则适用场景对象使用品牌A或品牌B作为摄像机类型用户元数据的值。但是，规则仅对小于 10 MB 的品牌 B 对象执行适用场景 。
 
-image::../media/advanced_filtering_multiple_rows.png[用户元数据的高级筛选示例]
+image:advanced_filtering_multiple_rows.png["用户元数据的高级筛选示例"]

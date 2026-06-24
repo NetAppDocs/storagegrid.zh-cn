@@ -29,4 +29,4 @@ NOTE: 如果存储分段中已启用S3对象锁定的对象处于合法保留状
 
 该图总结了 ILM 在对象的整个生命周期中的运行方式。
 
-image::../media/overview_of_object_lifecycle.png[对象生命周期概述]
+image:overview_of_object_lifecycle.png["对象生命周期概述"]

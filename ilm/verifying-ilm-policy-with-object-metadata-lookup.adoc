@@ -52,7 +52,7 @@ summary: 激活ILM策略后、将代表性测试对象插入StorageGRID系统、
 
 NOTE: 以下屏幕截图是一个示例。您的结果因StorageGRID版本而异。
 
-image::../media/object_lookup_results.png[对象查找结果]
+image:object_lookup_results.png["对象查找结果"]
 
 .相关信息
 link:../s3/index.html["使用S3 REST API"]

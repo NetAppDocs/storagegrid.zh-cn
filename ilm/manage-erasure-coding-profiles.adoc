@@ -75,7 +75,7 @@ TIP: 确认当前未执行任何经过删除编码的数据修复操作或停用
 如果纠删编码配置文件在任何ILM规则中使用、则无法停用该配置文件。在此示例中、至少在一个ILM规则中使用2+1数据中心1配置文件。
 
 +
-image::../media/ec_profile_used_in_ilm_rule.png[ILM 规则中使用的 EC 配置文件]
+image:ec_profile_used_in_ilm_rule.png["ILM 规则中使用的 EC 配置文件"]
 
 . 如果在 ILM 规则中使用配置文件，请执行以下步骤：
 +

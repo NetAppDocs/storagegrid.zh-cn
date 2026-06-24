@@ -29,7 +29,7 @@ StorageGRID系统可以部署到单个数据中心站点或多个数据中心站
 
 在使用单个站点的部署中， StorageGRID 系统的基础架构和操作会集中进行。
 
-image::../media/data_center_site_single.png[单个数据中心站点]
+image:data_center_site_single.png["单个数据中心站点"]
 
 
 
@@ -39,7 +39,7 @@ image::../media/data_center_site_single.png[单个数据中心站点]
 
 站点通常位于不同故障域的地理位置，例如地震断层线或洪泛区。通过将数据自动分发到其他站点，实现数据共享和灾难恢复。
 
-image::../media/data_center_sites_multiple.png[多个数据中心站点]
+image:data_center_sites_multiple.png["多个数据中心站点"]
 
 单个数据中心内还可以存在多个逻辑站点，以允许使用分布式复制和擦除编码来提高可用性和弹性。
 
@@ -55,7 +55,7 @@ image::../media/data_center_sites_multiple.png[多个数据中心站点]
 
 此图显示了网格节点在 StorageGRID 系统中的排列方式。
 
-image::../media/grid_nodes_and_components.png[周围文字所述的示意图]
+image:grid_nodes_and_components.png["周围文字所述的示意图"]
 
 S3客户端在StorageGRID中存储和检索对象。其他客户端用于发送电子邮件通知，访问 StorageGRID 管理界面以及访问审核共享（可选）。
 

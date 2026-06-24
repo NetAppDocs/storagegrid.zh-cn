@@ -15,7 +15,7 @@ summary: '在使用密钥管理服务器 (KMS) 保护设备节点上的 StorageG
 
 此流程图显示了使用 KMS 在设备节点上保护 StorageGRID 数据的高级步骤。
 
-image::../media/kms_configuration_overview.png[Kms配置工作流、将在以下文本中进行介绍]
+image:kms_configuration_overview.png["Kms配置工作流、将在以下文本中进行介绍"]
 
 流程图显示了 KMS 设置和设备设置并行进行；但是，您可以根据需要在为新设备节点启用节点加密之前或之后设置密钥管理服务器。
 

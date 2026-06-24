@@ -44,21 +44,21 @@ NOTE: 此操作步骤仅用于为E系列AutoSupport软件包配置StorageGRID代
 此时将显示 SANtricity System Manager 主页。
 
 +
-image::../media/autosupport_santricity_home_page.png[AutoSupport SANtricity 主页]
+image:autosupport_santricity_home_page.png["AutoSupport SANtricity 主页"]
 
 . 选择*支持* > *支持中心* > *AutoSupport*。
 +
 此时将显示 AutoSupport 操作页面。
 
 +
-image::../media/autosupport_santricity_operations.png[AutoSupport SANtricity AutoSupport 操作]
+image:autosupport_santricity_operations.png["AutoSupport SANtricity AutoSupport 操作"]
 
 . 选择 * 配置 AutoSupport 交付方法 * 。
 +
 此时将显示配置 AutoSupport 交付方法页面。
 
 +
-image::../media/autosupport_configure_delivery_santricity.png[AutoSupport 配置 AutoSupport 交付方法 SANtricity]
+image:autosupport_configure_delivery_santricity.png["AutoSupport 配置 AutoSupport 交付方法 SANtricity"]
 
 . 选择 * HTTPS * 作为传送方法。
 +

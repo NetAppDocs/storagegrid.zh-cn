@@ -23,7 +23,7 @@ summary: 在创建 ILM 策略之前，您必须创建一个默认规则，以便
 
 在此示例策略中、第一条规则仅适用于属于test-租 户-1的对象。默认规则，即属于所有其他租户帐户的适用场景 对象的最后一个规则。
 
-image::../media/ilm_policies_page_default_rule.png[ILM 策略页面默认规则]
+image:ilm_policies_page_default_rule.png["ILM 策略页面默认规则"]
 
 创建默认规则时，请记住以下要求：
 

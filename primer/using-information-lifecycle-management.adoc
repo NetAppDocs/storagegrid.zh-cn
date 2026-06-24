@@ -81,7 +81,7 @@ StorageGRID系统的活动ILM策略可控制所有对象的放置、持续时间
 
 
 
-image::../media/ilm_policy_and_rules.png[ILM 策略和规则]
+image:ilm_policy_and_rules.png["ILM 策略和规则"]
 
 .相关信息
 * link:../ilm/index.html["使用 ILM 管理对象"]

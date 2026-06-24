@@ -21,7 +21,7 @@ summary: 在创建 ILM 规则时，可以通过指定 Dual commit、Strict 或 B
 
 此流程图显示了在对象与 ILM 规则匹配时会发生的情况，该规则使用三个载入选项中的每一个选项。
 
-image::../media/ingest_object_lifecycle.png[该图显示了每个对象选项如何进行对象加热]
+image:ingest_object_lifecycle.png["该图显示了每个对象选项如何进行对象加热"]
 
 
 

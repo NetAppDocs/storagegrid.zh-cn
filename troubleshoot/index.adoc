@@ -386,7 +386,7 @@ ILM 扫描速率
 
 [cols="1a,2a,4a"]
 |===
-| image:../media/feature_checkmark.gif["复选标记"] | 项目 | 备注 
+| image:feature_checkmark.gif["复选标记"] | 项目 | 备注 
 
 
  a| 

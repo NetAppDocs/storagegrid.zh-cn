@@ -15,4 +15,4 @@ summary: 对象选项卡提供了有关S3读取和检索速率的信息。
 
 此时将显示每个存储节点，每个站点和整个网格的对象选项卡。对于存储节点，对象选项卡还提供对象计数以及有关元数据查询和后台验证的信息。
 
-image::../media/nodes_page_objects_tab.png[节点页面对象选项卡]
+image:nodes_page_objects_tab.png["节点页面对象选项卡"]

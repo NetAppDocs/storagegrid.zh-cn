@@ -16,7 +16,7 @@ summary: 您必须验证系统是否已准备好容纳此修补程序。
 . 使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 . 如果可能，请确保系统运行正常，并且所有网格节点均已连接到网格。
 +
-已连接节点在节点页面上具有绿色复选标记image:../media/icon_alert_green_checkmark.png["图标警报绿色复选标记"]。
+连接的节点在"节点"页面上有绿色复选标记 image:icon_alert_green_checkmark.png["图标警报绿色复选标记"]。
 
 . 如果可能，请检查并解决任何当前警报。
 . 确保未执行任何其他维护过程，例如升级，恢复，扩展或停用操作步骤 。

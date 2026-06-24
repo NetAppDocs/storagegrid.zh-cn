@@ -31,7 +31,7 @@ Prometheus收集的指标在网格管理器的多个位置使用：
 
 * * 节点页面 * ：节点页面上提供的选项卡上的图形和图表使用 Grafana 可视化工具显示 Prometheus 收集的时间序列指标。Grafana 以图形和图表格式显示时间序列数据，而 Prometheus 用作后端数据源。
 +
-image::../media/nodes_page_network_traffic_graph.png[Prometheus 图]
+image:nodes_page_network_traffic_graph.png["Prometheus 图"]
 
 * * 警报 * ：如果使用 Prometheus 指标的警报规则条件评估为 true ，则会在特定严重性级别触发警报。
 * * 网格管理 APi* ：您可以在自定义警报规则中使用 Prometheus 指标，也可以使用外部自动化工具来监控 StorageGRID 系统。有关完整的 Prometheus 指标列表，请访问网格管理 API 。(从网格管理器的顶部，选择帮助图标，然后选择*API documents*>*metrics*。)虽然有1000多个指标可用、但监控最关键的StorageGRID 操作只需要相对较少的指标。

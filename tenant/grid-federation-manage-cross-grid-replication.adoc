@@ -19,7 +19,7 @@ summary: 如果您的租户帐户在创建时分配了 Use grid federation conne
 
 工作流程图总结了配置两个网格上的存储桶之间的跨网格复制所执行的步骤。图表下方对这些步骤进行了更详细的描述。
 
-image::../media/grid-federation-cgr-workflow.png[跨网格复制工作流]
+image:grid-federation-cgr-workflow.png["跨网格复制工作流"]
 
 
 
@@ -86,7 +86,7 @@ TIP: 根据需要、每个存储分段可以使用不同的区域。
 *** *Yes*(默认)：将删除标记添加到源存储分段并复制到目标存储分段。
 *** *否*：删除标记已添加到源存储桶，但未复制到目标存储桶。
 +
-image::../media/grid-federation-cross-grid-replication-client-deletes.png[显示在两个网格上复制客户端删除的图像]
+image:grid-federation-cross-grid-replication-client-deletes.png["显示在两个网格上复制客户端删除的图像"]
 
 +
 

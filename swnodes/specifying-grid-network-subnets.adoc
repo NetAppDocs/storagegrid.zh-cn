@@ -25,7 +25,7 @@ summary: 您必须指定网格网络上使用的子网。
 ** 如果已至少部署一个节点，请单击 * 发现网格网络子网 * 以自动使用已向网格管理器注册的网格节点报告的子网填充网格网络子网列表。
 ** 您必须为NTP、DNS、LDAP或通过网格网络网关访问的其他外部服务器手动添加任何子网。
 +
-image::../media/4_gmi_installer_grid_network_page.gif[指定子网]
+image:4_gmi_installer_grid_network_page.gif["指定子网"]
 
 
 

@@ -24,6 +24,6 @@ summary: 最简单的网络拓扑只能通过配置网格网络来创建。
 
 NOTE: 此拓扑适用于外部不可用的单站点部署、概念验证或测试部署、或者第三方负载平衡器充当客户端访问边界的情况。如果可能，网格网络应专门用于内部流量。管理网络和客户端网络都具有其他防火墙限制，可阻止外部向内部服务发送流量。支持对外部客户端流量使用网格网络，但这种使用可提供更少的保护层。
 
-image::../media/grid_network.png[网格网络]
+image:grid_network.png["网格网络"]
 
-image::../media/grid_network_ips.png[网格网络 IP]
+image:grid_network_ips.png["网格网络 IP"]

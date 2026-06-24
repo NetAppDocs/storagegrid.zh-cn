@@ -67,7 +67,7 @@ NOTE: 选择警报，而不是一组警报的标题。
 
 
 +
-image::../media/nodes_page_storage_used_object_data.png[节点页面存储已用对象数据]
+image:nodes_page_storage_used_object_data.png["节点页面存储已用对象数据"]
 
 . 选择图形上方的时间控件可查看不同时间段的存储使用情况。
 +

@@ -39,7 +39,7 @@ NOTE: 对象元数据始终存储在对象存储 0 中。
 为了帮助您解释与卷挂载点相关的磁盘读取和写入统计信息，磁盘设备表的 * 名称 * 列（即 _sdc_ ， _sdd_ ， _sde_ 等）中显示的名称的第一部分与卷表的 * 设备 * 列中显示的值匹配。
 
 +
-image::../media/nodes_page_storage_tables_vol_expansion.png[节点页面存储表]
+image:nodes_page_storage_tables_vol_expansion.png["节点页面存储表"]
 
 . 按照适用于您的平台的说明向存储节点添加新存储卷。
 +

@@ -26,6 +26,6 @@ summary: 您可以查看 StorageGRID 系统中每个网格节点的 IP 地址。
 此网格节点的 IP 地址会在表中列出。
 
 +
-image::../media/nodes_page_overview_tab_extended.png[节点页面 IP 地址]
+image:nodes_page_overview_tab_extended.png["节点页面 IP 地址"]
 
 

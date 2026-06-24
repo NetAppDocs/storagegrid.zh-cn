@@ -27,11 +27,11 @@ sudo storagegrid node validate all
 
 NOTE: 如果在纯元数据节点上仅使用一个LUN、则可能会收到一条警告消息、您可以忽略此消息。
 
-image::../media/rhel_node_configuration_file_output.gif[此图通过周围文字进行了说明。]
+image:rhel_node_configuration_file_output.gif["此图通过周围文字进行了说明。"]
 
 
 TIP: 对于自动安装，可以使用命令中的或 `--quiet`选项 `storagegrid`(例如 `storagegrid --quiet...`)禁止此输出 `-q`。如果禁止输出，则在检测到任何配置警告或错误时，命令的退出值将为非零。
 
 如果配置文件不正确，则这些问题将显示为 * 警告 * 和 * 错误 * ，如示例所示。如果发现任何配置错误，则必须先更正这些错误，然后再继续安装。
 
-image::../media/rhel_node_configuration_file_output_with_errors.gif[此图通过周围文字进行了说明。]
+image:rhel_node_configuration_file_output_with_errors.gif["此图通过周围文字进行了说明。"]

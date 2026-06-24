@@ -38,7 +38,7 @@ CAUTION: 确保每个站点至少有两个节点可以访问至少四个外部 N
 . 在 * 服务器 1* 到 * 服务器 4* 文本框中指定至少四个 NTP 服务器的 IPv4 地址。
 . 如有必要，请选择最后一个条目旁边的加号以添加其他服务器条目。
 +
-image::../media/8_gmi_installer_ntp_page.gif[此图通过周围文字进行了说明。]
+image:8_gmi_installer_ntp_page.gif["此图通过周围文字进行了说明。"]
 
 . 选择 * 下一步 * 。
 

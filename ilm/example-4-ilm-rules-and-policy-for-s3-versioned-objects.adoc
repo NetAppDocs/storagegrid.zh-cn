@@ -77,7 +77,7 @@ link:how-objects-are-deleted.html["如何删除对象"]
 
 要创建使用"非当前时间"作为参考时间的规则、请为问题"仅将此规则应用于较旧的对象版本(在启用了版本控制的S3存储分段中)？"选择*是* 在创建ILM规则向导的步骤1 (输入详细信息)中。选择*是*时，系统会自动为参考时间选择_noncurrent time_，您不能选择其他参考时间。
 
-image::../media/ilm-rule-apply-only-to-older-object-verions.png[仅将ILM规则应用于较早的对象版本(非当前时间)]
+image:ilm-rule-apply-only-to-older-object-verions.png["仅将ILM规则应用于较早的对象版本(非当前时间)"]
 
 在此示例中，仅存储两个非最新版本副本，这些副本将存储两年。
 

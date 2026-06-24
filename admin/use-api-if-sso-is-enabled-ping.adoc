@@ -59,7 +59,7 @@ NOTE: 示例 cURL 工作流不会保护密码不会被其他用户看到。
 ** StorageGRID 的地址
 ** 要访问租户管理 API 的租户帐户 ID 。
 +
-image::../media/sso_auth_python_script_ping.png[用于 Ping 联合的 SSO 身份验证脚本]
+image:sso_auth_python_script_ping.png["用于 Ping 联合的 SSO 身份验证脚本"]
 
 +
 输出中提供了 StorageGRID 授权令牌。现在，您可以将令牌用于其他请求，类似于在未使用 SSO 时使用 API 的方式。

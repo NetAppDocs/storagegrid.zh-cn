@@ -79,15 +79,15 @@ ILM 规则包含三个要素：
 
 此示例在创建ILM规则向导的定义放置页面上显示了两个放置说明。
 
-image::../media/ilm_rule_multiple_placements_in_single_time_period.png[网格管理器中的 ILM 放置屏幕]
+image:ilm_rule_multiple_placements_in_single_time_period.png["网格管理器中的 ILM 放置屏幕"]
 
-第一年的第一个放置说明image:../media/icon_number_1.png["图标1"]有两行：
+第一个放置指令 image:icon_number_1.png["图标1"] 在第一年有两行：
 
 * 第一行会在两个数据中心站点创建两个复制的对象副本。
 * 第二行使用所有数据中心站点创建6+3经过删除的副本。
 
 
-第二个放置指令image:../media/icon_number_2.png["图标1"]会在一年后创建两个副本、并永久保留这些副本。
+第二份放置说明 image:icon_number_2.png["图标1"] 在一年后创建两份副本，并永久保留这些副本。
 
 为规则定义一组放置指令时，必须确保至少有一个放置指令从第 0 天开始，并且定义的时间段之间没有空隙， 最终放置指令将永久持续，或者一直持续到您不再需要任何对象副本为止。
 

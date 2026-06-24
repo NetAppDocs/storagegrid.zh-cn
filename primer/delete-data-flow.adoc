@@ -43,7 +43,7 @@ NOTE: 配置S3存储分段生命周期后、对于与生命周期筛选器匹配
 
 == 用于客户端删除的数据流
 
-image::../media/delete_data_flow.png[客户端删除数据流]
+image:delete_data_flow.png["客户端删除数据流"]
 
 . LDR 服务从客户端应用程序接收删除请求。
 . LDR 服务会更新元数据存储，使对象在客户端请求时看起来已被删除，并指示 ILM 引擎删除对象数据的所有副本。
@@ -54,7 +54,7 @@ image::../media/delete_data_flow.png[客户端删除数据流]
 
 == 用于 ILM 删除的数据流
 
-image::../media/automatic_deletion_data_flow.png[自动删除数据流]
+image:automatic_deletion_data_flow.png["自动删除数据流"]
 
 . ILM 引擎确定需要删除此对象。
 . ILM 引擎会通知元数据存储。元数据存储可更新对象元数据，以便在客户端请求中删除此对象。

@@ -395,7 +395,7 @@ NOTE: 设备存储节点还可以拥有最多 48 个存储卷。
 
 如图所示， StorageGRID 会为每个存储节点的存储卷 0 上的对象元数据预留空间。存储卷 0 和存储节点中的任何其他存储卷上的任何剩余空间专用于对象数据。
 
-image::../media/metadata_space_storage_node.png[元数据空间存储节点]
+image:metadata_space_storage_node.png["元数据空间存储节点"]
 
 为了提供冗余并防止对象元数据丢失， StorageGRID 会为每个站点的系统中的所有对象存储三个元数据副本。对象元数据的三个副本均匀分布在每个站点的所有存储节点上。
 

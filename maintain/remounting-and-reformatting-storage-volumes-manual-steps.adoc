@@ -233,7 +233,7 @@ NOTE: 某些 StorageGRID 恢复过程使用 Reaper 处理 Cassandra 修复。一
 恢复页面上的进度栏和阶段列提供了该脚本的简要状态 `sn-recovery-postinstall.sh`。
 
 +
-image::../media/recovering_cassandra.png[显示网格管理界面中的恢复进度的屏幕截图]
+image:recovering_cassandra.png["显示网格管理界面中的恢复进度的屏幕截图"]
 
 . 脚本在节点上启动服务后 `sn-recovery-postinstall.sh`、您可以将对象数据还原到由脚本格式化的任何存储卷。
 +

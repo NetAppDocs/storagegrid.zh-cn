@@ -47,7 +47,7 @@ NOTE: StorageGRID认为每个纠删编码配置文件都是唯一的、在使用
 
 在此示例中，活动 ILM 策略最初是为双站点 StorageGRID 系统设计的，并使用两个 ILM 规则。
 
-image::../media/policy_6_active_policy.png[ILM 策略 6 活动策略示例]
+image:policy_6_active_policy.png["ILM 策略 6 活动策略示例"]
 
 在此 ILM 策略中，属于租户 A 的对象在一个站点上通过 2+1 纠删编码进行保护，而属于所有其他租户的对象则通过双副本复制在两个站点之间进行保护。
 

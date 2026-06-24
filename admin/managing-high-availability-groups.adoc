@@ -68,7 +68,7 @@ NOTE: 如果某个接口具有DHCP分配的IP地址、则无法将其添加到HA
 
 在此示例中，主管理节点已添加到两个 HA 组中。此节点当前是管理客户端组的活动接口，也是 FabricPool 客户端组的备份接口。
 
-image::../media/ha_group_primary_interface.png[HA 组主接口]
+image:ha_group_primary_interface.png["HA 组主接口"]
 
 
 

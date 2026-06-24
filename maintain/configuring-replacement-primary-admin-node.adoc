@@ -36,7 +36,7 @@ summary: 必须将替代节点配置为 StorageGRID 系统的主管理节点。
 
 . 单击 * 恢复发生故障的主管理节点 * 。
 +
-image::../media/install_or_recover_primary_admin_node.png[安装或恢复主管理节点]
+image:install_or_recover_primary_admin_node.png["安装或恢复主管理节点"]
 
 . 上传恢复包的最新备份：
 +

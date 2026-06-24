@@ -34,7 +34,7 @@ CAUTION: 在软件升级、恢复操作步骤 或扩展操作步骤 处于活动
 .步骤
 . 在 vCenter 中，向管理节点和网关节点虚拟机添加新的网络适配器（类型为 VMXNET3 ）。选中*已连接*和*开机时连接*复选框。
 +
-image::../media/vcenter.png[vCenter]
+image:vcenter.png["vCenter"]
 
 . 使用 SSH 登录到管理节点或网关节点。
 .  `ip link show`用于确认检测到新的网络接口ens256。

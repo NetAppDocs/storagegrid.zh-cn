@@ -24,7 +24,7 @@ summary: 如果在尝试使用Web浏览器、S3客户端或外部监控工具连
 
 以下示例显示了自定义管理接口证书过期时的证书错误：
 
-image::../media/certificate_error.png[证书错误示例]
+image:certificate_error.png["证书错误示例"]
 
 为确保操作不会因服务器证书失败而中断，当服务器证书即将到期时，将触发*管理接口的服务器证书到期*警报。
 
