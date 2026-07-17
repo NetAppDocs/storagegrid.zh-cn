@@ -184,6 +184,7 @@ NOTE: StorageGRID 管理员必须使用网格管理器或管理 API 为每个租
 
 
 
+[[example-notification-configexample-metadata-notification-configuration-that-applies-to-all-objects]]
 == [[explemic-NOTICE-config]]示例：应用于所有对象的元数据通知配置
 
 在此示例中，所有对象的对象元数据都将发送到同一目标。
@@ -203,6 +204,7 @@ NOTE: StorageGRID 管理员必须使用网格管理器或管理 API 为每个租
 ----
 
 
+[[example-metadata-notification-configuration-with-two-rules]]
 == 示例：具有两个规则的元数据通知配置
 
 在此示例中、与前缀匹配的对象的对象元数据 `/images`将发送到一个目标、而与前缀匹配的对象的对象元数据 `/videos`将发送到另一个目标。
@@ -231,6 +233,7 @@ NOTE: StorageGRID 管理员必须使用网格管理器或管理 API 为每个租
 ----
 
 
+[[metadata-notification-format]]
 == 元数据通知格式
 
 为存储分段启用搜索集成服务后，每次添加，更新或删除对象元数据或标记时，系统都会生成一个 JSON 文档并将其发送到目标端点。
@@ -257,6 +260,7 @@ NOTE: StorageGRID 管理员必须使用网格管理器或管理 API 为每个租
 ----
 
 
+[[fields-included-in-the-json-document]]
 === JSON文档中包含的字段
 
 文档名称包括存储分段名称，对象名称和版本 ID （如果存在）。
@@ -301,6 +305,7 @@ Tags::
 
 
 
+[[how-to-view-results-in-elasticsearch]]
 === 如何在ElASITSEearch中查看结果
 
 对于标记和用户元数据， StorageGRID 会将日期和数字作为字符串或 S3 事件通知传递给 Elasticsearch 。要配置 Elasticsearch 以将这些字符串解释为日期或数字，请按照 Elasticsearch 说明进行动态字段映射和映射日期格式。在配置搜索集成服务之前、请启用索引上的动态字段映射。为文档编制索引后、无法在索引中编辑文档的域类型。

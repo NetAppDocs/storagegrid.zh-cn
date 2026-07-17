@@ -20,6 +20,7 @@ summary: 根据需要管理租户组以查看、编辑或复制组等。
 
 
 
+[[view-or-edit-group]]
 == 查看或编辑组
 
 您可以查看和编辑每个组的基本信息和详细信息。
@@ -104,6 +105,7 @@ image:manage_users.png["管理用户"]
 
 
 
+[[duplicate-group]]
 == 重复的组
 
 您可以复制现有组、以更快地创建新组。
@@ -121,6 +123,7 @@ NOTE: 如果您的租户帐户具有*使用网格联合连接*权限、而您从
 
 
 
+[[clone-groupsretry-group-clone]]
 == [[CLONE GROUP ]]重试组克隆
 
 重试失败的克隆：
@@ -134,6 +137,7 @@ NOTE: 如果您的租户帐户具有*使用网格联合连接*权限、而您从
 
 
 
+[[delete-one-or-more-groups]]
 == 删除一个或多个组
 
 您可以删除一个或多个组。仅属于已删除组的任何用户将无法再登录到租户管理器或使用租户帐户。
@@ -153,6 +157,7 @@ NOTE: 如果您的租户帐户具有*使用网格联合连接*权限、而您删
 
 
 
+[[set-up-assumerole]]
 == 设置 AssumeRole
 
 .开始之前
@@ -176,6 +181,7 @@ NOTE: 如果您的租户帐户具有*使用网格联合连接*权限、而您删
 
 
 
+[[example-of-an-assumerole-s3-trust-policy]]
 === AssumeRole S3 信任策略示例
 
 [listing]

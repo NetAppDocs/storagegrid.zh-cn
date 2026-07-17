@@ -19,6 +19,7 @@ summary: 如果要使用简单网络管理协议（ Simple Network Management Pr
 
 
 
+[[capabilities]]
 == 功能
 
 每个StorageGRID 节点都运行一个SNMP代理或守护进程、用于提供MIB。StorageGRID MIB包含警报的表和通知定义。MIB 还包含系统问题描述 信息，例如每个节点的平台和型号。每个 StorageGRID 节点还支持一组 MIB-II 对象。
@@ -54,6 +55,7 @@ SNMPv2c 和 SNMPv3 支持 INFORM 。
 
 
 
+[[snmp-version-support]]
 == SNMP 版本支持
 
 下表简要总结了每个 SNMP 版本支持的功能。
@@ -112,6 +114,7 @@ SNMPv2c 和 SNMPv3 支持 INFORM 。
 |===
 
 
+[[limitations]]
 == 限制
 
 * StorageGRID 支持只读 MIB 访问。不支持读写访问。

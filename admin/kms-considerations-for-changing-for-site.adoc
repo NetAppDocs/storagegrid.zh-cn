@@ -34,6 +34,7 @@ image:kms_copied_key.png["Kms 复制的密钥"]
 
 
 
+[[use-cases-for-changing-which-kms-is-used-for-a-site]]
 == 更改站点使用的 KMS 的用例
 
 下表总结了更改站点 KMS 的最常见情况下所需的步骤。

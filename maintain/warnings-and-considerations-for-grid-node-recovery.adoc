@@ -32,6 +32,7 @@ NOTE: 如果整个StorageGRID站点出现故障，请联系技术支持。技术
 
 
 
+[[preconditions-for-recovering-grid-nodes]]
 == 恢复网格节点的前提条件
 
 恢复网格节点时，系统会假设以下所有条件：
@@ -44,12 +45,14 @@ NOTE: 如果整个StorageGRID站点出现故障，请联系技术支持。技术
 
 
 
+[[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == 托管多个网格节点的服务器发生故障时的节点恢复顺序
 
 如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须首先恢复该节点。
 
 
 
+[[ip-addresses-for-recovered-nodes]]
 == 已恢复节点的 IP 地址
 
 请勿尝试使用当前分配给任何其他节点的IP地址恢复节点。部署新节点时，请使用故障节点的当前 IP 地址或未使用的 IP 地址。

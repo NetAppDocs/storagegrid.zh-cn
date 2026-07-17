@@ -18,6 +18,7 @@ TIP: Swift详细信息已从此版本的文档站点中删除。请参阅。 htt
 
 
 
+[[configuration-tasks]]
 == 配置任务
 
 . 根据客户端应用程序连接到StorageGRID 的方式、在StorageGRID 中执行必备任务。
@@ -75,12 +76,14 @@ TIP: Swift详细信息已从此版本的文档站点中删除。请参阅。 htt
 
 
 
+[[information-needed-to-attach-storagegrid-to-a-client-application]]
 == 将StorageGRID 连接到客户端应用程序所需的信息
 
 在将StorageGRID连接到S3客户端应用程序之前、您必须在StorageGRID中执行配置步骤并获取特定值。
 
 
 
+[[what-values-do-i-need]]
 === 我需要什么值？
 
 下表显示了您必须在StorageGRID中配置的值、以及S3应用程序和DNS服务器使用这些值的位置。
@@ -147,6 +150,7 @@ StorageGRID >租户和存储分段
 |===
 
 
+[[how-do-i-get-these-values]]
 === 如何获取这些值？
 
 根据您的要求、您可以执行以下任一操作来获取所需信息：

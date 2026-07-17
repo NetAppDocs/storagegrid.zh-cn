@@ -60,6 +60,7 @@ Active Directory 联合身份验证服务（ AD FS ）
 
 
 
+[[access-the-wizard]]
 == 访问向导
 
 .步骤
@@ -73,6 +74,7 @@ NOTE: 如果配置 SSO 设置按钮被禁用，请确认您已将身份提供者
 
 
 
+[[provide-identity-provider-details]]
 == 提供身份提供者详细信息
 
 .步骤
@@ -101,6 +103,7 @@ CAUTION: 如果更改了CA证书、请立即link:../maintain/starting-or-restart
 
 
 
+[[enter-sandbox-modeprovide-relying-party-identifier]]
 == [[enter-sandbox-mode]]提供依赖方标识符
 
 . 根据您选择的 SSO 类型填写“提供依赖方标识符”页面上的字段。
@@ -171,6 +174,7 @@ https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId
 
 
 
+[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
 == 配置依赖方信任，企业应用程序或 SP 连接
 
 保存配置并进入沙盒模式后，您可以完成并测试所选 SSO 类型的配置。
@@ -231,6 +235,7 @@ StorageGRID可以根据需要保持沙盒模式。但是，只有联合用户和
 ====
 
 
+[[test-ssotest-configuration]]
 == [[test-sso]]测试配置
 
 在强制整个StorageGRID系统使用单点登录之前，请确认每个管理节点的单点登录和单点注销均已正确配置。
@@ -294,6 +299,7 @@ StorageGRID可以根据需要保持沙盒模式。但是，只有联合用户和
 ====
 
 
+[[enable-single-sign-on]]
 == 启用单点登录
 
 确认可以使用 SSO 登录到每个管理节点后，您可以为整个 StorageGRID 系统启用 SSO 。

@@ -15,6 +15,7 @@ summary: 您可以执行多项任务来帮助确定与管理节点和StorageGRID
 
 
 
+[[admin-node-sign-in-errors]]
 == 管理节点登录错误
 
 如果您在登录到StorageGRID管理节点时遇到错误，则系统可能会遇到link:../troubleshoot/troubleshooting-network-hardware-and-platform-issues.html["网络连接"]或 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/troubleshooting-hardware-installation-sg100-and-sg1000.html["硬件"^]问题、link:../primer/what-admin-node-is.html["管理节点服务"]或link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["使用Cassand拉 数据库的问题描述"]已连接存储节点上的问题。
@@ -165,6 +166,7 @@ sg snmp agent                  11.4.0         Running
 
 
 
+[[user-interface-issues]]
 == 用户界面问题
 
 升级StorageGRID 软件后、网格管理器或租户管理器的用户界面可能无法按预期响应。

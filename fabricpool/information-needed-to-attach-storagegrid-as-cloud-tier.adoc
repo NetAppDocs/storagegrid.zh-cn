@@ -15,6 +15,7 @@ summary: 在将StorageGRID 附加为FabricPool 的云层之前、您必须在Sto
 
 
 
+[[what-values-do-i-need]]
 == 我需要什么值？
 
 下表显示了必须在StorageGRID 中配置的值以及ONTAP 和DNS服务器如何使用这些值。
@@ -79,6 +80,7 @@ ONTAP 系统管理器>添加云层
 |===
 
 
+[[how-do-i-get-these-values]]
 == 如何获取这些值？
 
 根据您的要求、您可以执行以下任一操作来获取所需信息：

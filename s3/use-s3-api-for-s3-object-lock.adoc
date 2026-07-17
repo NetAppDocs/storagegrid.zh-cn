@@ -15,6 +15,7 @@ summary: 如果为StorageGRID 系统启用了全局S3对象锁定设置、则可
 
 
 
+[[how-to-enable-s3-object-lock-for-a-bucket]]
 == 如何为存储分段启用S3对象锁定
 
 如果为 StorageGRID 系统启用了全局 S3 对象锁定设置，则可以选择在创建每个分段时启用 S3 对象锁定。
@@ -31,12 +32,14 @@ S3对象锁定需要分段版本控制、创建分段时会自动启用此功能
 
 
 
+[[default-retention-settings-for-a-bucket]]
 == 存储分段的默认保留设置
 
 为存储分段启用S3对象锁定后、您可以选择为存储分段启用默认保留、并指定默认保留模式和默认保留期限。
 
 
 
+[[default-retention-mode]]
 === 默认保留模式
 
 * 在合规模式下：
@@ -57,12 +60,14 @@ S3对象锁定需要分段版本控制、创建分段时会自动启用此功能
 
 
 
+[[default-retention-period]]
 === 默认保留期限
 
 每个存储分段都可以指定默认保留期限(以年或天为单位)。
 
 
 
+[[how-to-set-default-retention-for-a-bucket]]
 == 如何设置存储分段的默认保留
 
 要设置存储分段的默认保留时间、请使用以下方法之一：
@@ -73,6 +78,7 @@ S3对象锁定需要分段版本控制、创建分段时会自动启用此功能
 
 
 
+[[putobjectlockconfiguration]]
 === PutObjectLockConfiguration
 
 通过PutObjectLockConfiguration请求、您可以设置和修改启用了S3对象锁定的存储分段的默认保留模式和默认保留期限。您还可以删除先前配置的默认保留设置。
@@ -115,6 +121,7 @@ Authorization: _authorization-string_
 ----
 
 
+[[how-to-determine-the-default-retention-for-a-bucket]]
 == 如何确定存储分段的默认保留
 
 要确定是否为存储分段启用了S3对象锁定并查看默认保留模式和保留期限、请使用以下方法之一：
@@ -125,6 +132,7 @@ Authorization: _authorization-string_
 
 
 
+[[getobjectlockconfiguration]]
 === GetObjectLockConfiguration
 
 通过GetObjectLockConfiguration请求、您可以确定是否为存储分段启用了S3对象锁定、如果已启用、则查看是否为存储分段配置了默认保留模式和保留期限。
@@ -173,6 +181,7 @@ Server: AmazonS3
 ----
 
 
+[[how-to-specify-retention-settings-for-an-object]]
 == 如何指定对象的保留设置
 
 启用了S3对象锁定的存储分段可以包含具有和不具有S3对象锁定保留设置的对象组合。
@@ -227,6 +236,7 @@ NOTE: 如果指定 `x-amz-object-lock-mode`，则还必须指定 `x-amz-object-l
 
 
 
+[[how-to-update-retention-settings-for-an-object]]
 == 如何更新对象的保留设置
 
 如果需要更新现有对象版本的合法保留或保留设置，可以执行以下对象子资源操作：
@@ -246,6 +256,7 @@ NOTE: 如果指定 `x-amz-object-lock-mode`，则还必须指定 `x-amz-object-l
 
 
 
+[[how-to-use-governance-mode]]
 == 如何使用监管模式
 
 具有权限的用户 `s3:BypassGovernanceRetention`可以绕过使用监管模式的对象的活动保留设置。任何删除或PutObject保留 操作都必须包含 `x-amz-bypass-governance-retention:true`请求标头。这些用户可以执行以下附加操作：

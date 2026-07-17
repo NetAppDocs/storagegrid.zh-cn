@@ -21,6 +21,7 @@ image:kms_configuration_overview.png["Kms配置工作流、将在以下文本中
 
 
 
+[[set-up-the-key-management-server-kms]]
 == 设置密钥管理服务器（ KMS ）
 
 设置密钥管理服务器包括以下高级步骤。
@@ -52,6 +53,7 @@ link:kms-adding.html["添加密钥管理服务器（ KMS ）"]
 |===
 
 
+[[set-up-the-appliance]]
 == 设置设备
 
 设置要使用 KMS 的设备节点包括以下高级步骤。
@@ -74,6 +76,7 @@ NOTE: 将设备添加到网格后、您无法启用*节点加密*设置、并且
 
 
 
+[[key-management-encryption-process-occurs-automatically]]
 == 密钥管理加密过程（自动发生）
 
 密钥管理加密包括以下高级步骤，这些步骤会自动执行。

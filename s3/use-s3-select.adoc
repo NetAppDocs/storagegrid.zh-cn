@@ -22,6 +22,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[clauses]]
 == 条款
 
 * 选择列表
@@ -32,6 +33,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[data-types]]
 == 数据类型
 
 * 池
@@ -44,10 +46,12 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[operators]]
 == 运算符
 
 
 
+[[logical-operators]]
 === 逻辑运算符
 
 * 和
@@ -57,6 +61,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[comparison-operators]]
 === 比较运算符
 
 * <
@@ -73,6 +78,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[pattern-matching-operators]]
 === 模式匹配运算符
 
 * 例如
@@ -82,6 +88,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[unitary-operators]]
 === 统一运算符
 
 * 为空
@@ -90,6 +97,7 @@ NOTE: 不支持未列出的任何项目。
 
 
 
+[[math-operators]]
 === 数学运算符
 
 * +
@@ -103,6 +111,7 @@ StorageGRID 遵循Amazon S3 Select操作员优先级。
 
 
 
+[[aggregate-functions]]
 == 聚合函数
 
 * 平均（）
@@ -114,6 +123,7 @@ StorageGRID 遵循Amazon S3 Select操作员优先级。
 
 
 
+[[conditional-functions]]
 == 条件函数
 
 * 案例
@@ -123,6 +133,7 @@ StorageGRID 遵循Amazon S3 Select操作员优先级。
 
 
 
+[[conversion-functions]]
 == 转换函数
 
 * cast （用于受支持的数据类型）
@@ -130,6 +141,7 @@ StorageGRID 遵循Amazon S3 Select操作员优先级。
 
 
 
+[[date-functions]]
 == date 函数
 
 * 日期添加
@@ -142,6 +154,7 @@ StorageGRID 遵循Amazon S3 Select操作员优先级。
 
 
 
+[[string-functions]]
 == 字符串函数
 
 * char_length ， character_length

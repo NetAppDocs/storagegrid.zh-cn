@@ -37,6 +37,7 @@ TIP: 虽然您可以使用这些自动发现的主机路由，但通常应手动
 
 
 
+[[connections-for-admin-nodes-and-gateway-nodes]]
 == 管理节点和网关节点的连接
 
 管理节点必须始终受到不可信客户端的保护，例如在开放式 Internet 上的客户端。您必须确保任何不可信的客户端都不能访问网格网络，管理网络或客户端网络上的任何管理节点。
@@ -45,6 +46,7 @@ TIP: 虽然您可以使用这些自动发现的主机路由，但通常应手动
 
 
 
+[[using-network-address-translation-nat]]
 == 使用网络地址转换（ Network Address Translation ， NAT ）
 
 请勿在网格网络中的网格节点之间或StorageGRID 站点之间使用网络地址转换(Network Address Translation、NAT)。如果您对网格网络使用专用 IPv4 地址，则这些地址必须可从每个站点的每个网格节点直接路由。但是，您可以根据需要在外部客户端和网格节点之间使用 NAT ，例如为网关节点提供公有 IP 地址。只有在使用对网格中的所有节点都透明的通道应用程序时，才支持使用 NAT 桥接公有 网段，这意味着网格节点不需要了解公有 IP 地址。

@@ -15,6 +15,7 @@ summary: 您可以使用示例文件将四个 Linux 物理接口聚合到一个 
 
 
 
+[[physical-interfaces]]
 == 物理接口
 
 请注意，链路另一端的交换机还必须将这四个端口视为一个 LACP 中继或端口通道，并且必须至少通过三个带标记的参考 VLAN 。
@@ -69,6 +70,7 @@ SLAVE=yes
 ----
 
 
+[[bond-interface]]
 == 绑定接口
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0*`
@@ -84,6 +86,7 @@ BONDING_OPTS=mode=802.3ad
 ----
 
 
+[[vlan-interfaces]]
 == VLAN 接口
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0.1001*`

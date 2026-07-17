@@ -19,6 +19,7 @@ summary: 如果 ILM 策略包含创建纠删编码副本的规则，则必须计
 
 
 
+[[general-recommendation-for-adding-storage-capacity-for-erasure-coded-objects]]
 == 有关为经过纠删编码的对象添加存储容量的一般建议
 
 如果要避免详细计算，可以在现有存储节点容量达到 70% 时为每个站点添加两个存储节点。

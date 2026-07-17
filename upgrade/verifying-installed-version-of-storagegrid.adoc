@@ -23,6 +23,7 @@ CAUTION: NetApp强烈建议您在升级到下一个版本之前为每个StorageG
 
 
 
+[[verify-installed-version]]
 == 验证已安装的版本
 
 .步骤
@@ -37,6 +38,7 @@ CAUTION: NetApp强烈建议您在升级到下一个版本之前为每个StorageG
 
 
 
+[[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]示例：从版本 11.8 升级到StorageGRID 12.0
 
 以下示例显示了从StorageGRID版本 11.8 升级到版本 11.9 以准备升级到StorageGRID 12.0 的步骤。

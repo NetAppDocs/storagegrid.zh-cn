@@ -69,6 +69,7 @@ S3客户端访问--负载均衡器服务
 |===
 
 
+[[limitations-of-using-ha-groups-with-grid-manager-or-tenant-manager]]
 == 将 HA 组与 Grid Manager 或租户管理器结合使用的限制
 
 如果 Grid Manager 或租户管理器服务失败，则不会触发 HA 组故障转移。

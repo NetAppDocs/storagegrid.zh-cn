@@ -20,6 +20,8 @@ NOTE: 要查看每个操作的AWS文档、请选择标题中的链接。
 
 
 
+[[common-uri-query-parameters-and-request-headers]]
+[[common-params]]
 == 通用URI查询参数和请求标头
 
 除非另有说明、否则支持以下通用URI查询参数：
@@ -47,6 +49,7 @@ NOTE: 要查看每个操作的AWS文档、请选择标题中的链接。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiabortmultipartupload-htmlabortmultipartupload]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html["AbortMultipartUpload"^]
 
 .URI查询参数和请求标头
@@ -63,6 +66,7 @@ link:operations-for-multipart-uploads.html["多部分上传操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapicompletemultipartupload-htmlcompletemultipartupload]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html["CompleteMultipartUpload"^]
 
 .URI查询参数和请求标头
@@ -87,6 +91,7 @@ link:complete-multipart-upload.html["CompleteMultipartUpload"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapicopyobject-htmlcopyobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html["CopyObject"^]
 
 .URI查询参数和请求标头
@@ -122,6 +127,7 @@ link:put-object-copy.html["CopyObject"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapicreatebucket-htmlcreatebucket]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html["CreateBucket"^]
 
 .URI查询参数和请求标头
@@ -138,6 +144,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapicreatemultipartupload-htmlcreatemultipartupload]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html["CreateMultipartUpload"^]
 
 .URI查询参数和请求标头
@@ -169,6 +176,7 @@ link:initiate-multipart-upload.html["CreateMultipartUpload"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucket-htmldeletebucket]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html["DeleteBucket"^]
 
 .URI查询参数和请求标头
@@ -179,6 +187,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucketcors-htmldeletebucketcors]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html["DeleteBucketCors"^]
 
 .URI查询参数和请求标头
@@ -192,6 +201,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucketencryption-htmldeletebucketencryption]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html["DeleteBucketEncryption"^]
 
 .URI查询参数和请求标头
@@ -205,6 +215,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucketlifecycle-htmldeletebucketlifecycle]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html["DeleteBucketLifecycle"^]
 
 .URI查询参数和请求标头
@@ -220,6 +231,7 @@ StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucketpolicy-htmldeletebucketpolicy]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html["DeleteBucketPolicy"^]
 
 .URI查询参数和请求标头
@@ -233,6 +245,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebucketreplication-htmldeletebucketreplication]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html["DeleteBucketReplication"^]
 
 .URI查询参数和请求标头
@@ -246,6 +259,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideletebuckettagging-htmldeletebuckettagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html["DeleteBucketTbaging"^]
 
 .URI查询参数和请求标头
@@ -259,6 +273,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideleteobject-htmldeleteobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html["DeleteObject"^]
 
 .URI查询参数和请求标头
@@ -275,6 +290,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideleteobjects-htmldeleteobjects]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html["DeleteObjects"^]
 
 .URI查询参数和请求标头
@@ -291,6 +307,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapideleteobjecttagging-htmldeleteobjecttagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html["DeleteObjectTagging"^]
 
 StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
@@ -303,6 +320,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketacl-htmlgetbucketacl]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAcl.html["GetBucketAcl"^]
 
 .URI查询参数和请求标头
@@ -316,6 +334,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketcors-htmlgetbucketcors]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html["GetBucketCors"^]
 
 .URI查询参数和请求标头
@@ -329,6 +348,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketencryption-htmlgetbucketencryption]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html["GetBucketEncryption"^]
 
 .URI查询参数和请求标头
@@ -342,6 +362,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketlifecycleconfiguration-htmlgetbucketlifecycleconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html["GetBucketLifecycleConfiguration"^]
 
 .URI查询参数和请求标头
@@ -357,6 +378,7 @@ StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketlocation-htmlgetbucketlocation]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLocation.html["GetBucketLocation"^]
 
 .URI查询参数和请求标头
@@ -370,6 +392,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketnotificationconfiguration-htmlgetbucketnotificationconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html["GetBucketNotizationConfiguration"^]
 
 .URI查询参数和请求标头
@@ -383,6 +406,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketpolicy-htmlgetbucketpolicy]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html["GetBucketPolicy"^]
 
 .URI查询参数和请求标头
@@ -396,6 +420,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketreplication-htmlgetbucketreplication]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html["GetBucketReplication"^]
 
 .URI查询参数和请求标头
@@ -409,6 +434,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbuckettagging-htmlgetbuckettagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html["GetBucketTaging"^]
 
 .URI查询参数和请求标头
@@ -422,6 +448,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetbucketversioning-htmlgetbucketversioning]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html["GetBucketVersioning"^]
 
 .URI查询参数和请求标头
@@ -435,6 +462,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobject-htmlgetobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html["GetObject"^]
 
 .URI查询参数和请求标头
@@ -470,6 +498,7 @@ link:get-object.html["GetObject"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobjectacl-htmlgetobjectacl]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html["GetObjectAcl"^]
 
 .URI查询参数和请求标头
@@ -483,6 +512,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobjectlegalhold-htmlgetobjectlegalhold]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html["GetObjectLegalHold"^]
 
 .URI查询参数和请求标头
@@ -496,6 +526,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象�
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobjectlockconfiguration-htmlgetobjectlockconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html["GetObjectLockConfiguration"^]
 
 .URI查询参数和请求标头
@@ -509,6 +540,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象�
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobjectretention-htmlgetobjectretention]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html["GetObject保留"^]
 
 .URI查询参数和请求标头
@@ -522,6 +554,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象�
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapigetobjecttagging-htmlgetobjecttagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html["GetObjectTagging"^]
 
 .URI查询参数和请求标头
@@ -535,6 +568,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiheadbucket-htmlheadbucket]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html["HeadBucket"^]
 
 .URI查询参数和请求标头
@@ -548,6 +582,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiheadobject-htmlheadobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html["HeadObject"^]
 
 .URI查询参数和请求标头
@@ -572,6 +607,7 @@ link:head-object.html["HeadObject"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistbuckets-htmllistbuckets]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html["List桶"^]
 
 .URI查询参数和请求标头
@@ -585,6 +621,7 @@ link:operations-on-the-service.html["服务 上的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistmultipartuploads-htmllistmultipartuploads]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html["ListMultipartUploads"^]
 
 .URI查询参数和请求标头
@@ -605,6 +642,7 @@ link:list-multipart-uploads.html["ListMultipartUploads"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistobjects-htmllistobjects]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html["ListObjects"^]
 
 .URI查询参数和请求标头
@@ -625,6 +663,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistobjectsv2-htmllistobjectsv2]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html["ListObjectsV2"^]
 
 .URI查询参数和请求标头
@@ -647,6 +686,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistobjectversions-htmllistobjectversions]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html["ListObjectVersies"^]
 
 .URI查询参数和请求标头
@@ -668,6 +708,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapilistparts-htmllistparts]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html["ListParts"^]
 
 .URI查询参数和请求标头
@@ -686,6 +727,7 @@ link:list-multipart-uploads.html["ListMultipartUploads"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketcors-htmlputbucketcors]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html["PutBucketCors"^]
 
 .URI查询参数和请求标头
@@ -699,6 +741,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketencryption-htmlputbucketencryption]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html["PutBucketEncryption"^]
 
 .URI查询参数和请求标头
@@ -718,6 +761,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketlifecycleconfiguration-htmlputbucketlifecycleconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html["PutBucketLifecycleConfiguration"^]
 
 .URI查询参数和请求标头
@@ -751,6 +795,7 @@ StorageGRID 支持以下请求正文XML标记：
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketnotificationconfiguration-htmlputbucketnotificationconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html["PutBucketNotizationConfiguration"^]
 
 .URI查询参数和请求标头
@@ -778,6 +823,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketpolicy-htmlputbucketpolicy]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html["PutBucketPolicy"^]
 
 .URI查询参数和请求标头
@@ -788,6 +834,7 @@ StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketreplication-htmlputbucketreplication]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html["PutBucketReplication"^]
 
 .URI查询参数和请求标头
@@ -808,6 +855,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbuckettagging-htmlputbuckettagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html["PutBucketTaging"^]
 
 .URI查询参数和请求标头
@@ -821,6 +869,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputbucketversioning-htmlputbucketversioning]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html["PutBucketVersioning"^]
 
 .URI查询参数和请求标头
@@ -838,6 +887,7 @@ link:operations-on-buckets.html["对存储分段执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputobject-htmlputobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html["PutObject"^]
 
 .URI查询参数和请求标头
@@ -870,6 +920,7 @@ link:put-object.html["PutObject"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputobjectlegalhold-htmlputobjectlegalhold]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLegalHold.html["PutObjectLegalHold"^]
 
 .URI查询参数和请求标头
@@ -883,6 +934,7 @@ link:use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputobjectlockconfiguration-htmlputobjectlockconfiguration]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockConfiguration"^]
 
 .URI查询参数和请求标头
@@ -896,6 +948,7 @@ link:use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputobjectretention-htmlputobjectretention]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectRetention.html["PutObject保留"^]
 
 .URI查询参数和请求标头
@@ -912,6 +965,7 @@ link:use-s3-api-for-s3-object-lock.html["使用S3 REST API配置S3对象锁定"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiputobjecttagging-htmlputobjecttagging]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html["PutObjectTagging"^]
 
 .URI查询参数和请求标头
@@ -925,6 +979,7 @@ link:operations-on-objects.html["对对象执行的操作"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapirestoreobject-htmlrestoreobject]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html["RestorEObject"^]
 
 .URI查询参数和请求标头
@@ -935,6 +990,7 @@ StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiselectobjectcontent-htmlselectobjectcontent]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html["SelectObjectContent"^]
 
 .URI查询参数和请求标头
@@ -949,6 +1005,7 @@ StorageGRID支持所有<<common-params,通用参数和标头>>此请求。
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiuploadpart-htmluploadpart]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html["上传部件"^]
 
 .URI查询参数和请求标头
@@ -975,6 +1032,7 @@ link:upload-part.html["上传部件"]
 
 
 
+[[httpsdocs-aws-amazon-comamazons3latestapiapiuploadpartcopy-htmluploadpartcopy]]
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html["上传PartCopy"^]
 
 .URI查询参数和请求标头

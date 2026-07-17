@@ -30,6 +30,7 @@ NOTE: 每个网格最多可以有 100,000 个 bucket，包括link:../tenant/what
 
 
 
+[[access-the-wizard]]
 == 访问向导
 
 .步骤
@@ -39,6 +40,7 @@ NOTE: 每个网格最多可以有 100,000 个 bucket，包括link:../tenant/what
 
 
 
+[[enter-details]]
 == 输入详细信息
 
 .步骤
@@ -82,6 +84,7 @@ Bucket Name
 
 
 
+[[manage-settings]]
 == 管理设置
 
 .步骤

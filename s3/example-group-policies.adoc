@@ -17,6 +17,7 @@ summary: 使用本节中的示例为组构建StorageGRID 访问策略。
 
 
 
+[[example-set-group-policy-using-tenant-manager]]
 == 示例：使用租户管理器设置组策略
 
 在租户管理器中添加或编辑组时、您可以选择组策略来确定此组的成员将具有哪些S3访问权限。请参阅。 link:../tenant/creating-groups-for-s3-tenant.html["为 S3 租户创建组"]
@@ -33,6 +34,7 @@ summary: 使用本节中的示例为组构建StorageGRID 访问策略。
 
 
 
+[[example-allow-group-full-access-to-all-buckets]]
 == 示例：允许组完全访问所有存储分段
 
 在此示例中，除非 bucket 策略明确拒绝，否则允许组中的所有成员对租户帐户拥有的所有分段进行完全访问。
@@ -51,6 +53,7 @@ summary: 使用本节中的示例为组构建StorageGRID 访问策略。
 ----
 
 
+[[example-allow-group-read-only-access-to-all-buckets]]
 == 示例：允许组对所有分段进行只读访问
 
 在此示例中，组的所有成员都对 S3 资源具有只读访问权限，除非 bucket 策略明确拒绝。例如，此组中的用户可以列出对象并读取对象数据，元数据和标记。
@@ -78,6 +81,7 @@ summary: 使用本节中的示例为组构建StorageGRID 访问策略。
 ----
 
 
+[[example-allow-group-members-full-access-to-only-their-folder-in-a-bucket]]
 == 示例：仅允许组成员对存储分段中的"文件夹"具有完全访问权限
 
 在此示例中，组成员只能列出并访问指定存储分段中的特定文件夹（密钥前缀）。请注意，在确定其他组策略和存储分段策略的隐私时，应考虑这些文件夹的访问权限。

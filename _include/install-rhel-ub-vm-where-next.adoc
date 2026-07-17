@@ -21,6 +21,7 @@
 
 
 
+[[optional-tasks]]
 == 可选任务
 
 * link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["更新网格节点IP地址"]如果自您计划部署并生成恢复包以来它们已经发生了变化。

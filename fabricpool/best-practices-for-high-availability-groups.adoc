@@ -15,6 +15,7 @@ summary: '在将StorageGRID 作为FabricPool 云层附加之前、请了解Stora
 
 
 
+[[what-is-an-ha-group]]
 == 什么是 HA 组？
 
 高可用性(HA)组是来自多个StorageGRID 网关节点和/或管理节点的一组接口。HA组有助于保持客户端数据连接可用。如果HA组中的活动接口发生故障、则备份接口可以管理工作负载、而对FabricPool 操作的影响微乎其微。
@@ -25,6 +26,7 @@ summary: '在将StorageGRID 作为FabricPool 云层附加之前、请了解Stora
 
 
 
+[[using-ha-groups]]
 == 使用HA组
 
 为FabricPool 创建StorageGRID HA组的最佳实践取决于工作负载。

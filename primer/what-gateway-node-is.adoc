@@ -21,6 +21,7 @@ StorageGRID负载平衡器服务在所有管理节点和所有网关节点上提
 
 
 
+[[primary-services-for-gateway-nodes]]
 == 网关节点的主要服务
 
 下表显示了网关节点的主服务；但是，此表并未列出所有节点服务。

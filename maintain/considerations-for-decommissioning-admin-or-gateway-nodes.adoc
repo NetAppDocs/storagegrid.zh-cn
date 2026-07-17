@@ -15,6 +15,7 @@ summary: 查看停用管理节点或网关节点的注意事项。
 
 
 
+[[considerations-for-admin-node]]
 == 管理节点注意事项
 
 * 您不能停用主管理节点。
@@ -27,6 +28,7 @@ summary: 查看停用管理节点或网关节点的注意事项。
 
 
 
+[[considerations-for-gateway-node]]
 == 网关节点的注意事项
 
 * 如果某个网关节点的某个网络接口属于高可用性(HA)组、则无法停用该节点。您必须先从 HA 组中删除网络接口。请参阅的说明link:../admin/managing-high-availability-groups.html["管理HA组"]。

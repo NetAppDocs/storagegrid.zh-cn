@@ -15,6 +15,7 @@ summary: 按照以下说明配置和管理 StorageGRID 系统。
 
 
 
+[[about-these-instructions]]
 == 关于这些说明
 
 通过配置和管理StorageGRID的主要任务、您可以：
@@ -28,6 +29,7 @@ summary: 按照以下说明配置和管理 StorageGRID 系统。
 
 
 
+[[before-you-begin]]
 == 开始之前
 
 * 您已大致了解 StorageGRID 系统。

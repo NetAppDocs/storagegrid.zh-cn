@@ -15,6 +15,7 @@ summary: S3 客户端更新对象的元数据时会生成审核消息。
 
 
 
+[[s3-metadata-update-audit-messages]]
 == S3 元数据更新审核消息
 
 [cols="1a,1a,2a,1a,2a"]
@@ -36,12 +37,14 @@ link:supd-s3-metadata-updated.html["SUPD ：已更新 S3 元数据"]
 |===
 
 
+[[example-s3-metadata-update]]
 == 示例： S3 元数据更新
 
 此示例显示了更新现有 S3 对象的元数据的成功事务。
 
 
 
+[[supd-s3-metadata-update]]
 === SUPD ： S3 元数据更新
 
 S3客户端发出请求（SUPD）来更新指定的元数据(`x-amz-meta-\*`) 用于 S3 对象 (S3KY)。在此示例中，请求标头包含在字段 HTRH 中，因为它已配置为审计协议标头（*配置* > *监控* > *审计和系统日志服务器*）。看link:../monitor/configure-log-management.html["配置日志管理和外部系统日志服务器"] 。

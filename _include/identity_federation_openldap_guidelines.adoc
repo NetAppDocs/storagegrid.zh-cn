@@ -9,12 +9,14 @@ CAUTION: 对于非 Active Directory 或 Microsoft Entra ID 的身份源， Stora
 
 
 
+[[memberof-and-refint-overlays]]
 === memberOf 和 fint 覆盖
 
 应启用成员和精简覆盖。有关详细信息，请参见中有关反向组成员资格维护的说明http://www.openldap.org/doc/admin24/index.html["OpenLDAP 文档：版本 2.4 管理员指南"^]。
 
 
 
+[[indexing]]
 === 索引编制
 
 您必须使用指定的索引关键字配置以下 OpenLDAP 属性：

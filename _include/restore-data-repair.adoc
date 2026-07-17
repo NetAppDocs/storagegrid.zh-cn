@@ -4,6 +4,7 @@
 
 
 
+[[find-hostname-for-storage-node]]
 == 查找存储节点的主机名
 
 . 登录任意管理节点：
@@ -22,6 +23,7 @@
 
 
 
+[[repair-data-if-all-volumes-have-failed]]
 == 如果所有卷都发生故障，请修复数据
 
 如果所有存储卷都发生故障，请修复整个节点。根据您是使用复制的数据，还是使用纠删编码（ Erasure-coded ， EC ）数据，或者同时使用这两者，按照有关 * 复制的数据 * ， * 纠删编码（ Erasure-Coded ， EC ）数据 * 或这两者的说明进行操作。
@@ -61,6 +63,7 @@ NOTE: 当对象数据恢复时，如果StorageGRID系统无法找到复制的对
 ====
 
 
+[[repair-data-if-only-some-volumes-have-failed]]
 == 如果只有部分卷出现故障，请修复数据
 
 如果只有部分卷出现故障，请修复受影响的卷。根据您是使用复制的数据，还是使用纠删编码（ Erasure-coded ， EC ）数据，或者同时使用这两者，按照有关 * 复制的数据 * ， * 纠删编码（ Erasure-Coded ， EC ）数据 * 或这两者的说明进行操作。

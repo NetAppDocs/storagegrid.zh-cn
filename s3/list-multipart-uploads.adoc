@@ -27,6 +27,7 @@ ListMultipartUploads操作可列出分段的正在进行的多部分上传。
 
 
 
+[[versioning]]
 == 版本控制
 
 多部分上传包括启动上传，发布上传，上传部件，组装上传的部件以及完成上传的操作。执行CompleteMultipartUpload操作时、系统会创建对象(如果适用、还会对其进行版本管理)。

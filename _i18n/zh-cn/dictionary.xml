@@ -13299,7 +13299,6 @@
   <block id="308239ed7e43fc89ae81da72046a1cb5" category="summary">审核日志中的每个审核消息都会记录特定于系统事件的数据。</block>
   <block id="43e9c4a674688908c439631161649671" category="doc">事件专用数据</block>
   <block id="fe6f2eb2d34a6fb8fcd20196ff437c86" category="paragraph">在标识消息本身的打开容器之后<block ref="76918408696376cc0b0c9acf06dc901e" prefix=" " category="inline-code"></block>、下一组属性将提供有关审核消息所述事件或操作的信息。以下示例突出显示了这些属性：</block>
-  <block id="0db84933e70a875f988a06f943ee983e" category="paragraph">2018-12-05T08 ： 24 ： 45.921845 [AUTT ： *\[RSLT\ （ FC32\ ）： SUC\]* \[ 时间 \ （ UI64\ ）： 11454\]\[SAIP\ （ IPAD\ ）： "10.224.0.100"\]\"S3AI\ （ C3CSST\" ）： " ： "KST" （ S36599" ）：</block>
   <block id="330f957a5bec85ad2bedd3f07d7dc2a1" category="paragraph"><block ref="77b67b7419230d63f01bbbe32666b7e8" prefix=" " category="inline-code"></block>元素(在示例中带下划线)用于标识生成消息的事件。此示例消息包括<block ref="93c5ff5de753ca04c1a8d5c3e6acd152" category="inline-link-macro-rx"></block>消息代码([ATYP (FC32)：Shea])、表示它是由成功的S3机头请求生成的。</block>
   <block id="bc3cda0f98b17a806d22f17a594d539e" category="summary">如果某个服务在 StorageGRID 系统中更新或注册了有关自身的信息，则 CMN 服务将生成此审核消息。</block>
   <block id="372ef73078ea0cb4e30ab742e0c3d63d" category="doc">GNRG ： GNDS 注册</block>
@@ -22854,4 +22853,5 @@
   <block id="58a49eb623c4a6b9fafad050142d4526" category="paragraph"><block ref="58a49eb623c4a6b9fafad050142d4526" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bb70c14ff3206571f466d4eba7c5ee22" category="paragraph"><block ref="bb70c14ff3206571f466d4eba7c5ee22" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cb92d4f4887328dd78af4c98d48eb460" category="paragraph"><block ref="cb92d4f4887328dd78af4c98d48eb460" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="07475a26866d8d6533c6342bd2454b1e" category="list-text">包含与 AutoSupport 相关的日志。</block>
 </blocks>

@@ -35,6 +35,7 @@ summary: 默认情况下、首次安装StorageGRID时会启用StorageGRID AutoSu
 
 
 
+[[specify-protocol-for-autosupport-packagesspecify-the-protocol-for-autosupport-packages]]
 == [[specify-protocol－for－autostsupport－packages ]]为AutoSupport软件包指定协议
 
 您可以使用以下任一协议来发送AutoSupport软件包：
@@ -60,6 +61,7 @@ summary: 默认情况下、首次安装StorageGRID时会启用StorageGRID AutoSu
 
 
 
+[[disable-weekly-autosupport]]
 == 禁用每周AutoSupport
 
 默认情况下、StorageGRID系统配置为每周向技术支持发送一次AutoSupport软件包。
@@ -76,6 +78,7 @@ summary: 默认情况下、首次安装StorageGRID时会启用StorageGRID AutoSu
 
 
 
+[[disable-event-triggered-autosupport]]
 == 禁用事件触发的AutoSupport
 
 默认情况下、StorageGRID系统配置为每小时向技术支持发送一次AutoSupport软件包。
@@ -90,6 +93,7 @@ summary: 默认情况下、首次安装StorageGRID时会启用StorageGRID AutoSu
 
 
 
+[[enable-autosupport-on-demand]]
 == 启用 AutoSupport On Demand
 
 AutoSupport On Demand 可帮助解决技术支持正在积极处理的问题。
@@ -111,6 +115,7 @@ AutoSupport On Demand 可帮助解决技术支持正在积极处理的问题。
 
 
 
+[[disable-checks-for-software-updates]]
 == 禁用软件更新检查
 
 默认情况下， StorageGRID 会联系 NetApp 以确定您的系统是否有可用的软件更新。如果提供了 StorageGRID 修补程序或新版本，则新版本将显示在 StorageGRID 升级页面上。
@@ -125,6 +130,7 @@ AutoSupport On Demand 可帮助解决技术支持正在积极处理的问题。
 
 
 
+[[add-an-additional-autosupport-destination]]
 == 添加其他 AutoSupport 目标
 
 启用AutoSupport后、运行状况和状态软件包将发送给技术支持。您可以为所有AutoSupport软件包指定一个额外的目标。
@@ -177,6 +183,7 @@ NOTE: 您只能输入一个附加目标。
 
 
 
+[[autosupport-for-appliancesconfigure-autosupport-for-appliances]]
 == [[autocsupport-for -eliance]]为设备配置AutoSupport
 
 适用于设备的AutoSupport报告StorageGRID硬件问题、而StorageGRID AutoSupport报告StorageGRID软件问题、但有一个例外：对于SGF6112、StorageGRID AutoSupport同时报告硬件和软件问题。您必须在每个设备上配置AutoSupport、但SGF6112除外、它不需要额外配置。对于服务设备和存储设备、AutoSupport的实施方式有所不同。

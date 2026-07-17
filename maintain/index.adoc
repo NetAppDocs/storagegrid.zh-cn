@@ -18,6 +18,7 @@ NOTE: 在这些说明中，“Linux”指的是 Red Hat® Enterprise Linux® (RH
 
 
 
+[[before-you-begin]]
 == 开始之前
 
 * 您对 StorageGRID 系统有着广泛的了解。
@@ -28,6 +29,7 @@ NOTE: 在这些说明中，“Linux”指的是 Red Hat® Enterprise Linux® (RH
 
 
 
+[[maintenance-procedures-for-appliances]]
 == 设备的维护过程
 
 有关硬件过程，请参见 https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["StorageGRID设备的维护说明"^]。

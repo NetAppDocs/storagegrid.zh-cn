@@ -22,6 +22,7 @@ image:grid_manager_dashboard.png["网格管理器信息板"]
 
 
 
+[[view-the-dashboard]]
 == 查看信息板
 
 信息板包含多个选项卡、其中包含有关StorageGRID 系统的特定信息。每个选项卡都包含卡片上显示的信息类别。
@@ -73,6 +74,7 @@ ILM
 
 
 
+[[manage-dashboards]]
 == 管理信息板
 
 如果您具有root访问权限(请参见link:../admin/admin-group-permissions.html["管理组权限"])，则可以对信息板执行以下管理任务：
@@ -95,6 +97,7 @@ image:dashboard_manage.png["管理信息板"]
 
 
 
+[[configure-dashboards]]
 == 配置信息板
 
 要通过克隆活动信息板来创建新信息板，请选择*Actions*>*Clone active DDashboard *。

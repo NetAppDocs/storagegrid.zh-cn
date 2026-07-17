@@ -17,18 +17,21 @@ summary: 您可以通过在支持的 Web 浏览器的地址栏中输入管理节
 
 
 
+[[connect-to-ha-group]]
 === 连接到HA组
 
 如果管理节点包含在高可用性（ HA ）组中，则可以使用 HA 组的虚拟 IP 地址或映射到虚拟 IP 地址的完全限定域名进行连接。应选择主管理节点作为组的主接口，以便在访问网格管理器时，您可以在主管理节点上访问它，除非主管理节点不可用。请参阅。 link:managing-high-availability-groups.html["管理高可用性组"]
 
 
 
+[[use-sso]]
 === 使用SSO
 
 如果link:how-sso-works.html["已配置单点登录(SSO)"]。
 
 
 
+[[sign-in-to-grid-manager-on-first-admin-node]]
 == 在第一个管理节点上登录到网格管理器
 
 .开始之前
@@ -100,6 +103,7 @@ NOTE: SSO在受限的Grid Manager端口上不可用。必须使用端口 443 。
 
 
 
+[[sign-into-another-admin-node]]
 == 登录到其他管理节点
 
 按照以下步骤登录到其他管理节点。

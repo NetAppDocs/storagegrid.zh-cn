@@ -56,6 +56,7 @@ image:health_status_card.png["运行状况卡—信息板"]
 |===
 
 
+[[monitor-node-connection-states]]
 == 监控节点连接状态
 
 如果一个或多个节点与网格断开连接，则关键 StorageGRID 操作可能会受到影响。监控节点连接状态并及时解决任何问题。
@@ -111,6 +112,7 @@ image:icon_alert_green_checkmark.png["图标警报绿色复选标记"]
 |===
 
 
+[[view-current-and-resolved-alerts]]
 == 查看当前警报和已解决警报
 
 *当前警报*：触发警报时、信息板上会显示警报图标。节点页面上还会显示节点的警报图标。如果link:email-alert-notifications.html["已配置警报电子邮件通知"]是，则还会发送电子邮件通知，除非警报已被禁用。

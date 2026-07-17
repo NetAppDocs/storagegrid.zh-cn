@@ -15,6 +15,7 @@ summary: 根据您的生命周期配置、对象会遵循S3存储分段生命周
 
 
 
+[[example-of-bucket-lifecycle-taking-priority-over-ilm-policy]]
 == 分段生命周期优先于ILM策略的示例
 
 ILM策略::
@@ -50,6 +51,7 @@ ILM策略::
 
 
 
+[[example-of-bucket-lifecycle-implicitly-keeping-forever]]
 == 存储分段生命周期隐式永久保留的示例
 
 ILM策略::
@@ -85,6 +87,7 @@ ILM策略::
 
 
 
+[[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
 == 使用存储分段生命周期复制ILM并清除过期删除标记的示例
 
 ILM策略::

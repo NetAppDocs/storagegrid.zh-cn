@@ -17,6 +17,7 @@ summary: 在创建 ILM 规则时，可以通过指定 Dual commit、Strict 或 B
 
 
 
+[[flowchart-of-ingest-options]]
 == 加热选项流程图
 
 此流程图显示了在对象与 ILM 规则匹配时会发生的情况，该规则使用三个载入选项中的每一个选项。
@@ -25,6 +26,7 @@ image:ingest_object_lifecycle.png["该图显示了每个对象选项如何进行
 
 
 
+[[dual-commit]]
 == 双提交
 
 选择双重提交选项后、StorageGRID会立即在两个不同的存储节点上创建临时对象副本、并向客户端返回"INGEST S晒"消息。对象将排队等待 ILM 评估，满足规则放置说明的副本将在稍后创建。如果无法在双重提交后立即处理ILM策略、则可能需要一些时间才能实现站点丢失保护。
@@ -42,6 +44,7 @@ image:ingest_object_lifecycle.png["该图显示了每个对象选项如何进行
 
 
 
+[[balanced-default]]
 == 已平衡(默认)
 
 选择 Balified 选项时， StorageGRID 还会在载入时使用同步放置，并立即创建规则放置说明中指定的所有副本。与严格选项不同、如果StorageGRID 无法立即创建所有副本、则会改用双提交。如果ILM策略使用放置在多个站点上、但无法实现即时站点丢失保护、则会触发*无法实现ILM放置*警报。
@@ -50,6 +53,7 @@ image:ingest_object_lifecycle.png["该图显示了每个对象选项如何进行
 
 
 
+[[strict]]
 == 严格
 
 如果选择 strict 选项，则 StorageGRID 会在载入时使用同步放置，并立即创建规则放置说明中指定的所有对象副本。如果StorageGRID 无法创建所有副本、例如、由于所需的存储位置暂时不可用、则加热操作将失败。客户端必须重试此操作。

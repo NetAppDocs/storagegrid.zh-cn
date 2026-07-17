@@ -38,6 +38,7 @@ summary: 您可以使用 S3 SelectObjectContent 请求根据简单的 SQL 语句
 
 
 
+[[csv-request-syntax-example]]
 == CSV请求语法示例
 
 [source, cli]
@@ -81,6 +82,7 @@ x-amz-expected-bucket-owner: ExpectedBucketOwner
 ----
 
 
+[[parquet-request-syntax-example]]
 == 镶木地板请求语法示例
 
 [source, cli]
@@ -117,6 +119,7 @@ x-amz-expected-bucket-owner: ExpectedBucketOwner
 ----
 
 
+[[sql-query-example]]
 == SQL 查询示例
 
 此查询可从美国人口统计数据中获取状态名称， 2010 年人口， 2015 年估计人口以及变更百分比。文件中非状态的记录将被忽略。
@@ -144,6 +147,7 @@ POPESTIMATE2020
 ----
 
 
+[[aws-cli-usage-example-csv]]
 == AWS命令行界面使用示例(CSV)
 
 [listing]
@@ -163,6 +167,7 @@ Colorado,5029196,5454328,8.4532796097030221132761578590295546246
 ----
 
 
+[[aws-cli-usage-example-parquet]]
 == AWS命令行界面使用示例(镶木地板)
 
 [listing]

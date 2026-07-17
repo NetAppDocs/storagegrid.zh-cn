@@ -15,6 +15,7 @@ summary: 您可以通过添加新站点来扩展 StorageGRID 系统。
 
 
 
+[[guidelines-for-adding-a-site]]
 == 添加站点的准则
 
 在添加站点之前，请查看以下要求和限制：

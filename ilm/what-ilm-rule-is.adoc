@@ -20,6 +20,7 @@ NOTE: 对象元数据不受ILM规则管理。而是将对象元数据存储在 C
 
 
 
+[[elements-of-an-ilm-rule]]
 == ILM 规则的要素
 
 ILM 规则包含三个要素：
@@ -31,6 +32,7 @@ ILM 规则包含三个要素：
 
 
 
+[[ilm-rule-filtering]]
 == ILM规则筛选
 
 创建 ILM 规则时，您可以指定筛选器来标识规则适用场景 的对象。
@@ -60,6 +62,7 @@ ILM 规则包含三个要素：
 
 
 
+[[ilm-rule-placement-instructions]]
 == ILM规则放置说明
 
 放置说明用于确定对象数据的存储位置，存储时间和存储方式。一个 ILM 规则可以包含一个或多个放置指令。每个放置指令适用场景 都有一段时间。
@@ -95,6 +98,7 @@ image:ilm_rule_multiple_placements_in_single_time_period.png["网格管理器中
 
 
 
+[[ilm-rule-ingest-behavior]]
 == ILM规则加热行为
 
 载入行为用于控制是否按照规则中的说明立即放置对象副本，或者是否创建了临时副本并稍后应用放置说明。ILM 规则可以使用以下载入行为：
@@ -112,6 +116,7 @@ image:ilm_rule_multiple_placements_in_single_time_period.png["网格管理器中
 
 
 
+[[example-ilm-rule]]
 == ILM 规则示例
 
 例如、ILM规则可以指定以下内容：

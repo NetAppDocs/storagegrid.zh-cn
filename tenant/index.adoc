@@ -15,6 +15,7 @@ summary: '租户帐户允许您使用简单存储服务 (S3) REST API 在Storage
 
 
 
+[[what-is-a-tenant-account]]
 == 什么是租户帐户？
 
 每个租户帐户都有自己的联合组或本地组、用户、S3分段和对象。
@@ -31,6 +32,7 @@ NOTE: 如果您使用 S3 客户端协议，您还可以使用 S3 存储桶和存
 
 
 
+[[how-to-create-a-tenant-account]]
 == 如何创建租户帐户
 
 租户帐户由创建link:../admin/managing-tenants.html["使用网格管理器的 StorageGRID 网格管理员"]。创建租户帐户时、网格管理员指定以下内容：
@@ -44,6 +46,7 @@ NOTE: 如果您使用 S3 客户端协议，您还可以使用 S3 存储桶和存
 
 
 
+[[configure-s3-tenants]]
 === 配置 S3 租户
 
 完成后link:../admin/creating-tenant-account.html["已创建 S3 租户帐户"]，您可以访问租户管理器来执行如下任务：

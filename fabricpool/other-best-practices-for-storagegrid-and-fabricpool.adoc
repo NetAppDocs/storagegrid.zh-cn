@@ -15,6 +15,7 @@ summary: 在配置StorageGRID 系统以与FabricPool 结合使用时、您可能
 
 
 
+[[audit-message-and-log-destinations]]
 == 审核消息和日志目标
 
 FabricPool 工作负载的读取操作率通常较高、从而可能会生成大量审核消息。
@@ -25,30 +26,35 @@ FabricPool 工作负载的读取操作率通常较高、从而可能会生成大
 
 
 
+[[object-encryption]]
 == 对象加密
 
 配置StorageGRID时、如果其他StorageGRID客户端需要数据加密、您可以选择启用link:../admin/changing-network-options-object-encryption.html["用于存储对象加密的全局选项"]。从 FabricPool 分层到 StorageGRID 的数据已加密，因此不需要启用 StorageGRID 设置。客户端加密密钥归 ONTAP 所有。
 
 
 
+[[object-compression]]
 == 对象压缩
 
 配置StorageGRID时，请勿启用link:../admin/configuring-stored-object-compression.html["用于压缩存储对象的全局选项"]。已对从 FabricPool 分层到 StorageGRID 的数据进行压缩。使用StorageGRID 选项不会进一步减小对象的大小。
 
 
 
+[[s3-object-lock]]
 == S3 对象锁定
 
 如果您的StorageGRID系统启用了全局 S3 对象锁定设置，请不要启用link:../s3/use-s3-api-for-s3-object-lock.html["S3 对象锁定"]当您创建FabricPool存储桶时。  FabricPool存储桶不支持 S3 对象锁定。
 
 
 
+[[bucket-consistency]]
 == 存储分段一致性
 
 对于FabricPool存储分段、建议的存储分段一致性为*新写入后读取*、这是新存储分段的默认一致性。请勿编辑FabricPool存储分段以使用*可用*或*强站点*。
 
 
 
+[[fabricpool-tiering]]
 == FabricPool 分层
 
 如果StorageGRID 节点使用从NetApp ONTAP 系统分配的存储、请确认此卷未启用FabricPool 分层策略。例如，如果 StorageGRID 节点正在 VMware 主机上运行，请确保为 StorageGRID 节点的数据存储库提供支持的卷未启用 FabricPool 分层策略。对 StorageGRID 节点使用的卷禁用 FabricPool 分层可简化故障排除和存储操作。
