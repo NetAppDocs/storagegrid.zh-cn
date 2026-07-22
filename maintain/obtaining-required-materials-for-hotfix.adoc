@@ -35,7 +35,7 @@ StorageGRID 修补程序文件
 
 
  a| 
-恢复包(`.zip`） 文件
+Recovery package (`.zip`) 文件
  a| 
 在应用修补程序之前，link:downloading-recovery-package.html["下载最新的恢复包文件"]以防修复期间出现任何问题。然后，在应用修补程序后，下载恢复包文件的新副本并将其保存在安全的位置。更新后的恢复包文件允许您在发生故障时恢复系统。
 

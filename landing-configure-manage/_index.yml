@@ -9,10 +9,12 @@ indexpage:
   tiles:
   - title: 开始使用
     links:
+    - title: Web 浏览器要求
+      url: "../admin/web-browser-requirements.html"
     - title: 登录到网格管理器
       url: "../admin/signing-in-to-grid-manager.html"
-    - title: 配置 AutoSupport
-      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: 注销 Grid Manager
+      url: "../admin/signing-out-of-grid-manager.html"
     - title: 使用网格管理 API
       url: "../admin/using-grid-management-api.html"
   - title: 管理管理员组和用户
@@ -21,8 +23,8 @@ indexpage:
       url: "../admin/using-identity-federation.html"
     - title: 管理管理组
       url: "../admin/managing-admin-groups.html"
-    - title: 管理组权限
-      url: "../admin/admin-group-permissions.html"
+    - title: 了解多管理员验证
+      url: "../admin/about-multi-admin-verify.html"
     - title: 配置单点登录
       url: "../admin/how-sso-works.html"
   - title: 使用网格联盟
@@ -35,6 +37,8 @@ indexpage:
       url: "../admin/grid-federation-create-connection.html"
     - title: 管理允许的租户
       url: "../admin/grid-federation-manage-tenants.html"
+    - title: 配置全局命名空间
+      url: "../admin/configure-global-namespace.html"
   - title: 管理客户端连接和租户
     links:
     - title: 配置S3端点域名

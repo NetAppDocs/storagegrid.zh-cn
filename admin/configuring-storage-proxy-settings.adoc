@@ -44,3 +44,6 @@ NOTE: 代理更改可能需要长达 10 分钟才能生效。
 . 检查代理服务器的设置，以确保不会阻止来自 StorageGRID 的平台服务相关消息。
 . 如果需要禁用存储代理，请清除该复选框，然后选择*Save*。
 
+
+.相关信息
+link:../network/external-communications.html["用于外部通信的端口"]

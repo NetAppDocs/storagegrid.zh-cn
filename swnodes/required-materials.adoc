@@ -21,7 +21,7 @@ summary: 安装StorageGRID之前、请收集并准备所需的信息和材料。
 网络计划:: 要连接到每个StorageGRID节点的网络。StorageGRID支持多个网络、以实现流量隔离、安全性和管理便利性。
 +
 --
-请参见StorageGRIDlink:../network/index.html["网络连接准则"]。
+请参阅 link:../network/index.html["网络连接准则"]。
 
 --
 网络信息:: 要分配给每个网格节点的IP地址以及DNS和NTP服务器的IP地址。
@@ -62,7 +62,7 @@ StorageGRID 安装归档:: link:downloading-and-extracting-storagegrid-installat
 StorageGRID 文档::
 +
 --
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["发行说明"^].您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["发行说明"^]。您必须使用您的 NetApp 帐户登录或创建帐户才能访问发行说明。
 * link:../admin/index.html["有关管理 StorageGRID 的说明"]
 
 

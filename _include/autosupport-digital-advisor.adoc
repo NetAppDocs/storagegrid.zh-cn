@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+Digital Advisor 基于云，利用 NetApp 安装基础中的预测分析和社区智慧。其持续的风险评估、预测性警报、规范性指导和自动化操作可帮助您在问题发生之前进行预防，从而改善系统健康状况并提高系统可用性。
+
+如果您想在 NetApp 支持站点上使用 Digital Advisor 仪表板和功能，则必须启用 AutoSupport。
+
+https://docs.netapp.com/us-en/active-iq/index.html["Digital Advisor 文档"^]

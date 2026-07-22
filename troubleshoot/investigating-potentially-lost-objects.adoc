@@ -129,7 +129,12 @@ Admin: # grep OLST audit.log
  a| 
 如果输出中没有列出位置，则该对象可能丢失。请联系技术支持。
 
-技术支持可能会要求您确定是否正在进行存储恢复操作步骤 。请参见有关和link:../maintain/restoring-object-data-to-storage-volume.html["将对象数据还原到存储卷"]的信息link:../maintain/restoring-volume.html["使用网格管理器还原对象数据"]。
+技术支持可能会要求您确定是否存在正在进行的存储恢复过程。请参阅：
+
+*** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["将对象数据还原到设备的存储卷"]
+*** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["将对象数据还原到系统驱动器完好无损的存储卷"]
+*** link:../maintain/restoring-object-data-to-storage-volume.html["将对象数据还原到存储卷(系统驱动器故障)"]
+
 
 |===
 

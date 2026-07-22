@@ -2,7 +2,7 @@
 permalink: admin/kms-configuring.html 
 sidebar: sidebar 
 keywords: configure kms, key management server, kmip, Key Management Interoperability Protocol 
-summary: '密钥管理服务器 (KMS) 是一个外部第三方系统，它使用密钥管理互操作性协议 (KMIP) 向关联的 StorageGRID 站点上的 StorageGRID 设备节点提供加密密钥' 
+summary: 密钥管理服务器（ Key Management Server ， KMS ）是一种外部第三方系统，可使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）为关联 StorageGRID 站点上的 StorageGRID 设备节点提供加密密钥。 
 ---
 = 了解 StorageGRID 中的密钥管理服务器
 :allow-uri-read: 

@@ -37,7 +37,7 @@ StorageGRID 系统的优势包括：
 * 数据存储和某些管理功能的高可用性，以及集成的负载平衡功能，可优化 StorageGRID 资源中的数据负载。
 * 支持多个存储租户帐户，以便按不同实体隔离系统上存储的对象。
 * 用于监控 StorageGRID 系统运行状况的众多工具，包括全面的警报系统，图形信息板以及所有节点和站点的详细状态。
-* 支持基于软件或硬件的部署。您可以在以下任意位置部署 StorageGRID ：
+* 支持基于软件或硬件的部署。您可以在以下任意位置部署 StorageGRID：
 +
 ** 在 VMware 中运行的虚拟机。
 ** Linux 主机上的容器引擎。
@@ -57,5 +57,5 @@ StorageGRID 系统的优势包括：
 
 
 * 无中断升级和维护操作。在升级，扩展，停用和维护过程中保持对内容的访问。
-* 联合身份管理。与 Active Directory ， OpenLDAP 或 Oracle Directory Service 集成以进行用户身份验证。支持使用安全断言标记语言 2.0 （ SAML 2.0 ）标准的单点登录（ SSO ），以便在 StorageGRID 和 Active Directory 联合身份验证服务（ AD FS ）之间交换身份验证和授权数据。
+* 联合身份管理。与 Active Directory、OpenLDAP 或 Oracle Directory Service 集成以进行用户身份验证。支持使用安全断言标记语言 2.0 (SAML 2.0) 或 OpenID Connect (OIDC) 的单点登录 (SSO)，以在 StorageGRID 与外部身份提供程序（例如 Active Directory Federation Services (AD FS)）之间交换身份验证和授权数据。
 

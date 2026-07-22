@@ -244,3 +244,6 @@ CAUTION: 对于非 Active Directory 或 Microsoft Entra ID 的身份源， Stora
 此外，请确保已为用户名帮助中提及的字段编制索引，以获得最佳性能。
 
 请参见中有关反向组成员资格维护的信息http://www.openldap.org/doc/admin24/index.html["OpenLDAP 文档：版本 2.4 管理员指南"^]。
+
+.相关信息
+link:../network/external-communications.html["用于外部通信的端口"]

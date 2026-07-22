@@ -45,4 +45,6 @@ NOTE: 如果使用 StorageGRID 部署作为 CloudMirror 复制的目标，则可
 如果使用非透明代理服务器、则还必须link:configuring-storage-proxy-settings.html["配置存储代理设置"]允许将消息发送到外部端点、例如Internet上的端点。
 
 .相关信息
-link:../tenant/index.html["使用租户帐户"]
+* link:../tenant/index.html["使用租户帐户"]
+* link:../network/external-communications.html["用于外部通信的端口"]
+

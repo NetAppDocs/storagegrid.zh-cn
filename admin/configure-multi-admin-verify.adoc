@@ -1,0 +1,112 @@
+---
+permalink: admin/configure-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav, mav administrators, mav approval groups 
+summary: '管理 StorageGRID 多管理员验证 (MAV) 系统涉及创建和管理 MAV 管理员组和用户、启用 MAV 功能以及配置或选择受保护的操作。' 
+---
+= 配置 StorageGRID 多管理员验证
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 StorageGRID 多管理员验证 (MAV) 系统涉及创建和管理 MAV 管理员组和用户、启用 MAV 功能以及选择或配置受保护的操作。
+
+MAV管理员拥有受保护操作的批准和否决权。
+
+.开始之前
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+* 您已从主管理节点登录到网格管理器。
+
+
+
+
+[[step-1-create-mav-administrator-groups-and-users]]
+== 步骤 1：创建 MAV 管理员组和用户
+
+您可以将现有管理员添加到 MAV 组或创建新的管理员。
+
+可以将 Active Directory (AD) 用户配置为 MAV 管理员。AD 用户必须配置为 StorageGRID 管理员。
+
+.步骤
+. 要创建 MAV 管理员组，请按照步骤 link:../admin/managing-admin-groups.html["创建本地或联合组"]。
+. 对于组权限，请选择 *Root access* 或 *Multi-admin verification requests*。
+. 将本地用户或联合用户添加到组，或创建新的本地用户并按照步骤将其添加到组 link:../admin/managing-users.html#create-a-local-user["创建本地用户"]。
+
+
+
+
+[[step-2-enable-or-disable-mav]]
+== 步骤2：启用或禁用MAV
+
+您必须明确启用多管理员验证 (MAV)。如果已启用 MAV，并且您决定在存在待处理的 MAV 请求时禁用它，系统将发出通知，说明待处理的请求将被删除。
+
+.步骤
+. 选择*配置* > *访问控制* > *多管理员验证* > *MAV 设置*。
+. 选中 *Enable MAV* 复选框以启用多管理员验证。
+. 审批人组部分列出了 MAV 管理组和审批人。
+. 在操作部分，选中要使用 MAV 保护的操作的复选框。
+. （可选）如果要使用电子邮件通知提醒 MAV 管理员待审批请求：
++
+.. 如果尚未配置电子邮件服务器，请按照步骤 link:../monitor/configure-email-server.html["配置电子邮件服务器"]。
+.. 输入发件人的电子邮件地址。
+.. 输入电子邮件通知的一个或多个收件人。
+
+
+. 选择*保存*以保存所做更改。
++
+
+NOTE: 如果您决定不配置电子邮件通知，MAV 管理员可以查看 Grid Manager 仪表板或检查审批队列以查看待审批请求。要查看审批队列，请在多管理员验证页面上选择 *Other requests*。
+
+
+
+
+
+[[step-3-manage-protected-operations]]
+== 步骤 3：管理受保护的操作
+
+启用多管理员验证后，可以通过选中或清除要使用 MAV 保护的操作的复选框来管理受保护的操作。
+
+
+NOTE: 对于 StorageGRID 12.1，唯一受保护的操作是 ILM 策略激活。如果要启用 MAV，则必须选中 ILM 策略激活的复选框。
+
+MAV 请求可具有以下状态之一：
+
+* *待处理*。请求已启动。
+* *已过期*。请求未在 30 天内得到处理。或者具有 Root 访问权限的用户禁用了 MAV，这意味着所有待处理的请求均已过期。
+* *已撤回*。用户已撤回其请求。
+* *已批准*。MAV 管理员批准了待处理的请求。
+* *已拒绝*。MAV 管理员拒绝了待处理的请求。
+
+
+
+
+[[troubleshoot-mav-email-notifications]]
+== 对 MAV 电子邮件通知进行故障排除
+
+如果 MAV 管理员未收到待处理请求的电子邮件通知，请按照以下步骤解决此问题。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:../admin/admin-group-permissions.html["管理警报或root访问权限"]。
+
+
+.步骤
+. 验证设置。
++
+.. 选择*配置* > *监控* > *电子邮件服务器*。
+.. 验证电子邮件（ SMTP ）服务器设置是否正确。
+.. 验证您是否为收件人指定了有效的电子邮件地址。
+
+
+. 检查垃圾邮件筛选器，确保电子邮件未发送到垃圾文件夹。
+. 请您的电子邮件管理员确认来自发件人地址的电子邮件未被阻止。
+. 收集管理节点的日志文件，然后联系技术支持。
++
+技术支持可以使用日志中的信息帮助确定出现问题的原因。例如， prometheus.log 文件在连接到您指定的服务器时可能会显示错误。
+
++
+请参阅 link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]。
+
+

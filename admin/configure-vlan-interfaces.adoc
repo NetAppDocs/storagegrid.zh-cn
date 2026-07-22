@@ -90,7 +90,7 @@ VLAN ID不需要唯一。例如，您可以对一个站点的管理流量使用 
 例如，您可能希望将 VLAN 连接到网关节点和管理节点的客户端网络（ eth2 ）接口。
 
 +
-image:vlan-create-parent-interfaces.png["VLAN 创建向导的父接口"]
+image:vlan_create_parent_interfaces.png["VLAN 创建向导的父接口"]
 
 . 选择 * 继续 * 。
 
@@ -105,7 +105,7 @@ image:vlan-create-parent-interfaces.png["VLAN 创建向导的父接口"]
 +
 ** 如果需要更改 VLAN ID 或问题描述 ，请选择页面顶部的 * 输入 VLAN 详细信息 * 。
 ** 如果需要更改父接口，请选择页面顶部的 * 选择父接口 * 或选择 * 上一个 * 。
-** 如果需要删除父接口，请选择垃圾桶 image:icon-trash-can.png["垃圾桶图标"]。
+** 如果需要删除父接口，请选择垃圾桶 image:icon_trash_can.png["垃圾桶图标"]。
 
 
 . 选择 * 保存 * 。

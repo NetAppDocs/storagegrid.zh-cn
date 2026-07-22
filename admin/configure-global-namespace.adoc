@@ -1,0 +1,212 @@
+---
+permalink: admin/configure-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: 配置全局命名空间，以允许租户访问跨多个 StorageGRID 系统的存储桶。 
+---
+= 配置网格联盟的全局命名空间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置全局命名空间，以允许租户访问跨多个 StorageGRID 系统的存储桶。
+
+有关全局命名空间的详细信息，请参阅 link:learn-about-global-namespace.html["了解网格联盟的全局命名空间"]。
+
+.开始之前
+* 您已使用 link:../admin/web-browser-requirements.html["支持的 Web 浏览器"] 登录到每个网格上的 Grid Manager。
+* 每个网格都有 link:../admin/admin-group-permissions.html["root访问权限"]。
+* 您已查看网格联盟连接的 link:../admin/grid-federation-overview.html["注意事项和要求"]。
+
+
+
+
+[[requirements-for-configuring-global-namespace]]
+== 配置全局命名空间的要求
+
+* 全局命名空间中的所有网格必须在每对网格之间启用全局命名空间的网格联合连接。
+* 可以参与单个全局命名空间的网格数上限为 11 个（本地网格和 10 个远程网格）。
++
+
+CAUTION: 10 网格限制受 StorageGRID 部署支持的网格联合连接的最大总数限制。总连接限制适用于部署中的*所有*网格联合连接，包括未启用全局命名空间的连接，因此您必须确保完全连接的全局命名空间和任何其他网格联合连接一起不超过此总限制。
+
+* S3 客户端必须使用签名版本 4 (SigV4) 身份验证。全局命名空间路由操作不支持匿名和签名版本 2 请求。
++
+** 正常签名请求的指定方式如 https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html["验证请求：使用授权标头（AWS Signature Version 4）"]所述。
+** 预签名请求的指定方式如 https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html["验证请求：使用查询参数（AWS Signature Version 4）"]所述。
+
+
+
+
+
+
+[[number-of-required-connectionsnumber-of-required-connections]]
+== [[number-of-required-connections]]所需连接数
+
+在全局命名空间中，必须连接每对网格。所需的连接数量取决于网格数量：
+
+[cols="1a,1a"]
+|===
+| 网格数 | 所需连接数 
+
+
+ a| 
+2
+ a| 
+1
+
+
+
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+4
+ a| 
+6
+
+
+
+ a| 
+5
+ a| 
+10
+
+
+
+ a| 
+_n_
+ a| 
+_n_ × (_n_ − 1) / 2
+
+|===
+
+
+[[step-1-set-a-unique-default-region-for-each-grid]]
+[[configure-default-region]]
+== 步骤 1：为每个网格设置唯一的默认区域
+
+全局命名空间中的每个网格必须具有唯一的默认区域。默认区域标识拥有存储桶的网格。
+
+CreateBucket 和 ListBuckets 请求基于此区域进行路由，所有其他请求必须与其发送到的默认区域匹配。
+
+有关详细信息，请参阅 link:../ilm/configuring-regions-optional-and-s3-only.html["配置 S3 区域"]。
+
+.步骤
+. 在每个网格上link:../ilm/configuring-regions-optional-and-s3-only.html["将默认区域设置为唯一值"]。例如，将 Grid A 设置为 `us-east-1`，将 Grid B 设置为 `us-west-1`。
++
+
+NOTE: 出于 ILM 策略的目的，您仍然可以使用非默认区域，这些区域通过  `LocationConstraint` 元素在 link:../s3/operations-on-buckets.html["CreateBucket 请求"] 中设置。非默认区域不会在全局命名空间中跨网格验证唯一性。
+
+. 对全局命名空间中的每个网格重复此操作。每个网格必须具有不同的默认区域。
+. 根据需要设置更多区域。
+
+
+
+
+[[step-2-configure-s3-global-namespace-settings]]
+== 步骤 2：配置 S3 全局命名空间设置
+
+在全局命名空间的每个网格上，添加两个 S3 端点域名：
+
+* 所有网格上相同的全局命名空间端点
+* 网格的唯一 CNAME
+
+
+您将配置外部 DNS，以便全局命名空间端点解析为一个或多个网格，并且唯一的 CNAME 端点解析为特定网格。
+
+
+CAUTION: 必须<<configure-default-region,配置默认区域>>才能配置 S3 全局命名空间设置。启用全局命名空间设置后，如果 S3 请求未指定正确的区域，则请求将失败。所有 S3 请求都需要使用网格的默认区域进行签名。
+
+.步骤
+. 在每个网格上，选择*配置* > *网络* > *S3 端点域名* > *域名*。
+. 添加所有网格上相同的全局命名空间端点域名。例如： `s3.example.com`。
+. 为网格添加唯一的 CNAME。例如， `s3.company.com`。
+. 选择 * 保存 * 。
+. 选择*全局命名空间设置*。
++
+.. 选择全局命名空间端点。
+.. 选择网格的唯一 CNAME 域名。
+
+
+. 选择 * 保存 * 。
+. 确保客户端使用的服务器证书包括新的 S3 端点域名。
++
+** 如果客户端连接到使用自己的证书的负载平衡器端点，则link:../admin/configuring-load-balancer-endpoints.html["更新与此端点关联的证书"]。
+** 如果客户端连接到使用全局S3 API证书的负载平衡器端点或直接连接到存储节点，link:../admin/use-s3-setup-wizard-steps.html["更新全局S3 API证书"]。
+
+
+. 对全局命名空间中的每个网格重复这些步骤。
+
+
+有关详细信息，请参阅 link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]。
+
+
+
+[[step-3-create-grid-federation-connections-with-global-namespace-enabled]]
+== 步骤 3：创建已启用全局命名空间的网格联合连接
+
+在所有网格上配置 S3 端点域名和默认区域后，可以创建启用全局命名空间的网格联合连接。
+
+.关于此任务
+当您创建网格联合连接并启用全局命名空间时，全局命名空间端点、CNAME 和默认区域字段将使用您在前面步骤中配置的值自动填充。如果未正确设置这些字段，Grid Manager 将阻止启用全局命名空间。
+
+
+CAUTION: 创建具有全局命名空间的网格联合连接后，无法更改该连接中网格的全局命名空间端点、CNAME 和默认区域。
+
+.步骤
+. 在第一个网格上，按照 link:../admin/grid-federation-create-connection.html["创建网格联合连接"] 中所述的步骤进行操作。
+. 输入连接详细信息时，选择 *启用全局命名空间*。
++
+全局命名空间端点、CNAME 和默认区域的字段将自动填充您在前面的步骤中配置的值。如果任何值缺失或无效，则在解决问题之前无法启用全局命名空间。
+
+. 通过下载验证文件并将其上传到另一个网格来完成连接。
+. 对全局命名空间中的每对网格重复上述步骤。
++
+例如，使用 3 个网格，您需要 3 个连接（网格 A–网格 B、网格 A–网格 C、网格 B–网格 C）。使用 4 个网格，您需要 6 个连接。全局命名空间中最多可包含 10 个网格。请参阅 <<number-of-required-connections,所需连接数>>。
+
+
+
+
+
+[[step-4-configure-load-balancer-endpoints]]
+== 步骤 4：配置负载均衡器端点
+
+link:../admin/configuring-load-balancer-endpoints.html["配置负载平衡器端点"] 全局命名空间中的每个网格。对这些端点中的每个端点使用相同的端口。
+
+
+NOTE: 在配置 DNS 解析之前，请确保配置负载均衡器端点。
+
+
+
+[[config-dns-resolutionstep-5-configure-dns-resolution]]
+== [[config-dns-resolution]]第 5 步：配置 DNS 解析
+
+StorageGRID 不为全局命名空间提供内置 DNS 解析器。您必须配置外部 DNS 基础设施，以将 S3 请求路由到正确的网格。
+
+您的 DNS 解析器应：
+
+. 将全局命名空间端点（例如， `s3.example.com`）解析为一个或多个网格的负载均衡器端点，通常使用轮询 DNS。
+. 将每个网格的唯一 CNAME（例如， `s3.grid-a.example.com`）解析为该特定网格的负载均衡器端点。
+. 对于虚拟托管风格的存储桶请求（例如 `_bucket_.s3.example.com`），请使用组织的路由策略将存储桶名称映射到相应网格的 CNAME。
++
+StorageGRID 不提供基于 DNS 的机制来发现哪个网格拥有存储桶。如果您需要基于存储桶所有权的自动路由，请使用link:../tenant/understanding-tenant-management-api.html["租户管理 API"]发出 ListBucket 请求以返回存储桶 UUID。维护从存储桶 UUID 到网格的内部映射。您的外部 DNS 应使用该映射，而不是直接查询 StorageGRID。
+
+
+
+
+
+[[related-information]]
+== 相关信息
+
+* link:grid-federation-overview.html["什么是网格联合？"]
+* link:grid-federation-create-connection.html["创建网格联合连接"]
+* link:configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
+* link:grid-federation-manage-connection.html["管理网格联合连接"]
+

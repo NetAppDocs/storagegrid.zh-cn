@@ -1,0 +1,143 @@
+---
+permalink: admin/learn-about-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: 全局命名空间允许租户跨多个 StorageGRID 系统访问存储桶。当在网格联合连接上启用全局命名空间时，可以将针对全局命名空间端点的 S3 CreateBucket 和 ListBuckets 请求发送到任何网格的负载均衡器端点，并根据请求中的签名区域自动路由到正确的网格。 
+---
+= 了解网格联盟的全局命名空间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+全局命名空间允许租户跨多个 StorageGRID 系统访问存储桶。当在网格联合连接上启用全局命名空间时，可以将针对全局命名空间端点的 S3 CreateBucket 和 ListBuckets 请求发送到任何网格的负载均衡器端点，并根据请求中的签名区域自动路由到正确的网格。
+
+
+
+[[what-is-a-global-namespace]]
+== 什么是全局命名空间？
+
+全局命名空间允许租户跨多个 StorageGRID 系统访问存储桶。当在网格联合连接上启用全局命名空间时，可以将针对全局命名空间端点的 S3 CreateBucket 和 ListBuckets 请求发送到任何网格的负载均衡器端点，并根据请求中的签名区域自动路由到正确的网格。
+
+
+NOTE: 您应该设置 DNS 解析器，以执行存储桶 URL 到特定网格的 DNS 映射。根据需要，请咨询您的网络管理员，以确保 DNS 解析器设置正确。请参阅 link:../admin/configure-global-namespace.html#config-dns-resolution["配置DNS解析"]。
+
+StorageGRID 不会在全局命名空间中跨网格强制使用唯一的存储桶名称，因此具有相同名称的存储桶可以存在于不同的网格中。请求中的签名区域用于确定哪个网格拥有该存储桶并应接收该请求。
+
+例如，如果网格 A 使用区域 `us-east-1`，而网格 B 使用区域 `us-west-1`，则发送到具有该区域 `us-west-1`的任何网格的 CreateBucket 请求将自动路由到网格 B。
+
+有关网格联合的详细信息，请参阅 link:grid-federation-overview.html["什么是网格联合？"]。
+
+
+
+[[gns-exampleglobal-namespace-example]]
+== [[gns-example]]全局命名空间示例
+
+.网格 1
+* 默认区域： `region-1`
+* 默认 CNAME： `s3.region-1.company.com`
+* 全局端点： `s3.company.com`
+
+
+.网格 2
+* 默认区域： `region-2`
+* 默认 CNAME： `s3.region-2.company.com`
+* 全局端点： `s3.company.com`
+
+
+.Grid 3
+* 默认区域： `region-3`
+* 默认 CNAME： `s3.region-3.company.com`
+* 全局端点： `s3.company.com`
+
+
+
+
+[[createbucket-and-listbuckets-operations]]
+=== CreateBucket 和 ListBuckets 操作
+
+如果创建存储桶 (`bucket123`）时使用签名区域  `region-2` 并以全局端点  `s3.company.com` 为目标，则接收到请求的任何网格都将在 Grid 2 上创建存储桶。
+
+
+
+[[bucket-specific-and-general-object-operations]]
+=== 特定于存储桶和一般对象操作
+
+在给定网格上创建存储桶后，DNS 解析器会将存储桶 URL 解析为存储桶和网格 CNAME。
+
+在 <<gns-example,上面的示例>> 中，DNS 解析器应将  `bucket123.s3.company.com` 解析为  `bucket123.s3.grid3.company.com`（存储桶和网格的 CNAME）。换句话说，所有请求都直接发送到该网格，而无需额外的路由。
+
+.示例
+`PutObject to bucket123.s3.company.com` 解析为 `bucket123.s3.grid3.company.com`
+
+
+
+[[s3-behavior-with-global-namespace]]
+== 全局命名空间的 S3 行为
+
+全局命名空间完全配置后，将应用以下 S3 行为。
+
+
+
+[[region-enforcement]]
+=== 区域强制执行
+
+对全局命名空间端点的所有 S3 请求（link:../s3/operations-on-buckets.html["CreateBucket"] 和 link:../s3/operations-on-the-service.html["List桶"] 除外）都要求 V4 身份验证标头中的签名区域与网格的默认区域匹配。
+
+* 如果签名区域不匹配，则请求将被拒绝，并显示以下错误：
++
+[listing]
+----
+An error occurred (AuthorizationHeaderMalformed) when calling the <operation> operation: The authorization header is malformed; the region '<signing-region>' is wrong; expecting '<grid-default-region>'
+----
+* 区域强制适用于网格上的所有存储桶，包括启用全局命名空间之前创建的存储桶。
+* 区域强制执行仅适用于 V4 身份验证请求。匿名和 V2 请求不受区域强制执行约束。
+
+
+
+
+[[createbucket-routing]]
+=== CreateBucket 路由
+
+CreateBucket 发送到全局命名空间端点(`s3.company.com`）的请求可以定向到任何网格的负载均衡器端点。请求将自动路由到其默认区域与请求中的签名区域匹配的网格。
+
+例如：
+
+* 网格A有默认区域 `us-east-1`，网格B有默认区域 `us-west-1`。
+* 客户端向 `s3.company.com`发送 CreateBucket 请求，签名区域为 `us-west-1`。
+* 轮询 DNS 将请求定向到 Grid A。
+* 网格 A 将请求路由到网格 B。
+* 该存储桶在网格 B 上创建。
+
+
+有关 CreateBucket 的其他注意事项：
+
+*  `LocationConstraint` 元素可以设置为网格的任何默认或非默认区域。这只会影响 ILM 策略，而不会影响哪个网格创建存储桶（与 AWS 使用  `us-east-1` 的行为不同）。
+* 请求中的签名区域确定哪个网格创建存储桶（签名区域必须与目标网格的默认区域相匹配）。
+* 支持预先签名的 V4 请求。
+* 全局命名空间路由不支持匿名和 V2 请求。
+
+
+
+
+[[listbuckets-routing]]
+=== ListBuckets 路由
+
+ListBuckets 发送到全局命名空间端点的请求的路由方式与 CreateBucket 请求类似，使用签名区域来确定正确的网格。
+
+HEAD Bucket 和 ListBuckets 响应均不包含网格的默认区域。默认区域由签名区域隐含，签名区域强制与网格的默认区域匹配。
+
+
+
+[[account-and-access-key-management]]
+=== 帐户和访问密钥管理
+
+租户帐户和 S3 访问密钥可以使用 link:grid-federation-what-is-account-sync.html["帐户同步"] 在所有网格之间进行同步，但当每个网格都有自己的单独访问密钥集时，全局命名空间也可以使用。如果使用单独的访问密钥，请确保 S3 客户端在向每个网格发送请求时使用正确的访问密钥。
+
+
+
+[[whats-next]]
+== 下一步是什么？
+
+现在，您已准备就绪 link:../admin/configure-global-namespace.html["配置全局命名空间"]。

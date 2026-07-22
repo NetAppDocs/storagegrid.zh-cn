@@ -133,7 +133,7 @@ NOTE: 对于AWS搜索集成端点， `domain-name`必须包括文字字符串 `d
 +
 [listing]
 ----
-urn:mysite:s3:optional:optional:bucket-name
+urn:mysite:s3:::bucket-name
 ----
 +
 对于StorageGRID上托管的CloudMirror端点、您可以指定以开头的有效URN `urn:sgws`：
@@ -141,7 +141,7 @@ urn:mysite:s3:optional:optional:bucket-name
 +
 [listing]
 ----
-urn:sgws:s3:optional:optional:bucket-name
+urn:sgws:s3:::bucket-name
 ----
 * 通知：
 +
@@ -150,7 +150,7 @@ urn:sgws:s3:optional:optional:bucket-name
 +
 [listing]
 ----
-urn:mysite:sns:optional:optional:sns-topic-name
+urn:aws:sns:region:account-id:sns-topic-name
 ----
 +
 指定Kafka端点：
@@ -158,21 +158,25 @@ urn:mysite:sns:optional:optional:sns-topic-name
 +
 [listing]
 ----
-urn:mysite:kafka:optional:optional:kafka-topic-name
+urn::kafka:::kafka-topic-name
 ----
++
+
+NOTE: 或者，您可以在指定 Kafka 端点时包含以下内容 `mysite`： `urn:mysite:kafka:::kafka-topic-name`
+
 +
 指定 webhook 端点：
 
 +
 [listing]
 ----
-urn:mysite:webhook:optional:optional:webhook-name
+urn:mysite:webhook:::webhook-name
 ----
 * 搜索集成：
 +
 [listing]
 ----
-urn:mysite:es:optional:optional:domain-name/index-name/type-name
+urn:mysite:es:::domain-name/index-name/type-name
 ----
 +
 

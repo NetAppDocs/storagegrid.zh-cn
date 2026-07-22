@@ -38,8 +38,8 @@ indexpage:
       url: "../tenant/deleting-s3-bucket.html"
   - title: 使用租户功能
     links:
-    - title: 帐户克隆
-      url: "../tenant/grid-federation-account-clone.html"
+    - title: 帐户同步
+      url: "../tenant/grid-federation-account-sync.html"
     - title: 跨网格复制
       url: "../tenant/grid-federation-manage-cross-grid-replication.html"
     - title: 平台服务

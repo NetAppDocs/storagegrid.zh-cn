@@ -1,0 +1,133 @@
+---
+permalink: admin/configure-sso-oidc.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: '您可以按照 OIDC 的配置 SSO 向导，进入沙盒模式配置和测试单点登录 (SSO)，然后再为所有 StorageGRID 用户启用它。启用 SSO 后，您可以在需要更改或重新测试配置时返回沙盒模式。' 
+---
+= 使用 OIDC 在 StorageGRID 中配置 SSO
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+按照为 OpenID Connect (OIDC) 配置 SSO 向导，进入沙盒模式配置和测试单点登录 (SSO)，然后为所有 StorageGRID 用户启用它。启用 SSO 后，您可以在需要更改或重新测试配置时返回沙盒模式。
+
+.开始之前
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+* 您拥有link:admin-group-permissions.html["root访问权限"]。
+* 您已在 StorageGRID 系统的 SSO 身份提供程序中配置 OIDC 客户端。
+* 您的 StorageGRID 系统有link:using-identity-federation.html["已配置身份联合"]。
+
+
+
+
+[[step-1-provide-identity-provider-details]]
+== 步骤 1：提供身份提供程序详细信息
+
+访问此向导并填写"提供身份提供商详细信息"页面上的字段。
+
+.步骤
+. 访问向导以配置SSO设置：
++
+.. 选择*配置* > *访问控制* > *单点登录*。出现“单点登录”页面。
++
+
+NOTE: 如果配置 SSO 设置按钮被禁用，请确认您已将身份提供者配置为联合身份源。请参阅link:requirements-for-sso.html["单点登录的要求和注意事项"] 。
+
+.. 选择*配置 SSO 设置*。出现提供身份提供者详细信息页面。
+
+
+. 在*协议*下，选择 *OIDC*。
+. 从下拉列表中选择 * SSO 类型 * 。
+. 指定当身份提供程序响应 StorageGRID 请求发送 SSO 配置信息时，将使用哪个 TLS 证书来保护连接安全。
++
+** * 使用操作系统 CA 证书 * ：使用操作系统上安装的默认 CA 证书确保连接安全。
+** * 使用自定义 CA 证书 * ：使用自定义 CA 证书确保连接安全。
++
+如果选择此设置：
+
++
+... 浏览到CA证书的位置。
+... 上传CA证书文件。
+
+
+** *不使用 TLS*：不使用 TLS 证书来保护连接。
++
+
+CAUTION: 如果更改了CA证书、请立即link:../maintain/starting-or-restarting-service.html["在管理节点上重新启动mgmt-api服务"]测试是否已成功通过SSO进入网格管理器。
+
+
+
+. 选择*继续*。出现“提供依赖方标识符”页面。
+
+
+
+
+[[enter-sandbox-modestep-2-enter-client-information]]
+== [[enter-sandbox-mode]]步骤 2：输入客户端信息
+
+在向导的输入客户端信息步骤中填写字段。
+
+.步骤
+. 指定 StorageGRID 的 *Relying party identifier*。此值控制您用于每个 OIDC 配置的名称。
++
+** 例如，如果您的网格只有一个管理节点，并且您不希望将来添加更多管理节点，请输入 `SG`或 `StorageGRID`。
+** 如果您的网格包含多个管理节点，请在标识符中包含字符串 `[HOSTNAME]`。例如， `SG-[HOSTNAME]`。包含此字符串后，将生成一个表，该表根据节点的主机名显示网格中每个管理节点的 OIDC 配置。
++
+
+NOTE: 您必须为 StorageGRID 系统中的管理节点配置 OIDC。这可以确保用户可以安全地登录和注销任何管理节点。您可以为所有管理节点使用相同的 OIDC 配置（推荐），也可以为每个管理节点设置不同的 OIDC 配置。
+
+
+
+. 为每个依赖方标识符输入 *Client ID*、*Client secret* 和 *OpenID endpoint URL*。
+. 选择*保存并进入沙盒模式*。
+
+
+
+
+[[step-3-test-configuration]]
+== 步骤 3：测试配置
+
+进入沙盒模式后，您可以完成并测试所选 SSO 类型的配置。
+
+沙盒模式可以轻松执行来回配置，并在启用 SSO 之前测试所有设置。StorageGRID 可以根据需要保持沙盒模式。但是，只有联合用户和本地用户才能登录。
+
+.步骤
+. 在配置 SSO 页面上，找到向导的测试配置步骤上的链接。
++
+此 URL 是从您在 * 联合服务名称 * 字段中输入的值派生的。
+
+. [[select-link]]选择链接，或将网址复制并粘贴到新标签页中，以访问身份提供商的登录页面。
+. [[enter-credentials]]请输入您的联合用户名和密码。
++
+** 如果 SSO 登录和注销操作成功，则会显示绿色横幅。
+** 如果 SSO 操作失败，则会显示一条错误消息。修复问题描述 ，清除浏览器的 Cookie 并重试。
+
+
+. 按照向导中的步骤访问网格中每个管理节点的测试配置页面。
+. 重复步骤 <<select-link,2>> 和 <<enter-credentials,3>>，以验证每个管理节点的 SSO 连接。
+
+
+
+
+[[enable-sso-oidcstep-4-enable-single-sign-on]]
+== [[enable-sso-oidc]]步骤 4：启用单点登录
+
+确认可以使用 SSO 登录每个管理节点后，即可为整个 StorageGRID 系统启用 SSO。
+
+
+TIP: 启用 SSO 后，所有用户都必须使用 SSO 访问网格管理器、租户管理器、网格管理 API 和租户管理 API。本地用户无法再访问 StorageGRID。StorageGRID 未为所有受支持的 SSO 提供程序提供示例身份验证脚本。
+
+.步骤
+. 从配置 SSO 向导的测试配置步骤中，选择*启用 SSO*。
+. 查看警告消息，然后选择*启用 SSO*。
++
+单点登录现已启用。出现“单点登录”页面，其中现在包含您刚刚配置的 SSO 的详细信息。
+
+. 要编辑配置，请选择*编辑*。
+. 要禁用单点登录，请选择*Disable*。
+
+
+
+TIP: 如果您使用 Azure 门户，并且从用于访问 Entra ID 的同一台计算机访问StorageGRID ，请确保 Azure 门户用户也是授权的StorageGRID用户（已导入StorageGRID 的联合组中的用户），或者在尝试登录StorageGRID之前注销 Azure 门户。

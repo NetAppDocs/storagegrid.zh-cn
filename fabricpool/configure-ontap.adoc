@@ -57,9 +57,9 @@ summary: 获取所需的StorageGRID 信息后、您可以转到ONTAP 将StorageG
  a| 
 URL模式
  a| 
-如果link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]选择*虚拟托管样式URL*。
+如果是link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]，请选择*Virtual-Hosted-Style URL*。
 
-*路径样式URL*是ONTAP 的默认设置，但建议StorageGRID 使用虚拟托管样式的请求。如果为*服务器名称(FFQDN)*字段提供IP地址而不是域名，则必须使用*路径样式URL*。
+*路径样式 URL* 是 ONTAP 的默认设置，但建议对 StorageGRID 使用虚拟托管样式请求。如果为*服务器名称 (FQDN)* 字段提供的是 IP 地址而非域名，则必须使用*路径样式 URL*。
 
 
 

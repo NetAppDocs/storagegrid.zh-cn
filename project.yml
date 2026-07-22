@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '12.0'
+  - version-number: '12.1'
     url: "/storagegrid"
+  - version-number: '12.0'
+    url: "/storagegrid-120"
   - version-number: '11.9'
     url: "/storagegrid-119"
   - version-number: '11.8'
@@ -25,13 +27,13 @@ settings:
   langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0 软件
+  - title: StorageGRID 12.1 软件
     url: "/index.html"
   - title: StorageGRID设备
     url: "/swnodes/storagegrid-hardware.html"
   - title: 发行说明
     entries:
-    - title: StorageGRID 12.0 中的新功能
+    - title: StorageGRID 12.1 中的新增功能
       url: "/release-notes/whats-new.html"
     - title: 已删除或弃用的特性和功能
       url: "/release-notes/removed-or-deprecated-features.html"
@@ -39,6 +41,8 @@ sidebar:
       url: "/release-notes/changes-to-grid-management-api.html"
     - title: 对租户管理 API 进行的更改
       url: "/release-notes/changes-to-tenant-management-api.html"
+    - title: 对 S3 REST API 支持的更改
+      url: "/release-notes/changes-to-s3-rest-api.html"
   - title: 开始使用
     url: "/landing-get-started/index.html"
     entries:
@@ -269,22 +273,20 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-appliance-storage-node.html"
         - title: 重新挂载并重新格式化设备存储卷(手动步骤)
           url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
-        - title: 将对象数据还原到设备的存储卷
+        - title: 将对象数据还原至设备存储卷
           url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
         - title: 恢复设备存储节点后检查存储状态
           url: "/maintain/checking-storage-state-after-recovering-sga.html"
       - title: 从系统驱动器完好无损的存储卷故障中恢复
+        pdf-filename: 从系统驱动器完好无损的存储卷故障中恢复
         entries:
-        - title: 恢复任务
-          pdf-filename: 从系统驱动器完好无损的存储卷故障中恢复
-          url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
         - title: 存储卷恢复警告
           url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
         - title: 确定并卸载故障存储卷
           url: "/maintain/identifying-and-unmounting-failed-storage-volumes.html"
         - title: 恢复发生故障的存储卷并重建 Cassandra 数据库
           url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
-        - title: 将对象数据还原到系统驱动器完好无损的存储卷
+        - title: 将对象数据还原至系统驱动器完好无损的 StorageGRID 卷
           url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
         - title: 恢复存储卷后检查存储状态
           url: "/maintain/checking-storage-state-after-recovering-storage-volumes.html"
@@ -298,23 +300,19 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
         - title: 重新挂载和重新格式化存储卷(手动步骤)
           url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
-        - title: 将对象数据还原到存储卷(系统驱动器故障)
+        - title: 将对象数据还原至存储卷
           url: "/maintain/restoring-object-data-to-storage-volume.html"
         - title: 恢复存储节点系统驱动器后检查存储状态
           url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
-      - title: 使用网格管理器还原对象数据
-        url: "/maintain/restoring-volume.html"
-      - title: 监控修复数据作业
-        url: "/maintain/monitor-repairs.html"
     - title: 从管理节点故障中恢复
       entries:
       - title: 主管理节点或非主管理节点
         pdf-filename: 从管理节点故障中恢复
         url: "/maintain/recovering-from-admin-node-failures.html"
-      - title: 从主管理节点故障中恢复
+      - title: 使用相同的主管理节点从主管理节点故障中恢复
         entries:
-        - title: 恢复主管理节点
-          pdf-filename: 从主管理节点故障中恢复
+        - title: 使用相同的主管理节点恢复主管理节点
+          pdf-filename: 使用相同的主管理节点恢复主管理节点
           url: "/maintain/recovering-from-primary-admin-node-failures.html"
         - title: 从发生故障的主管理节点复制审核日志
           url: "/maintain/copying-audit-logs-from-failed-primary-admin-node.html"
@@ -330,6 +328,23 @@ sidebar:
           url: "/maintain/restoring-admin-node-database-primary-admin-node.html"
         - title: 恢复主管理节点时还原 Prometheus 指标
           url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+      - title: 使用非主管理节点从主管理节点故障中恢复
+        entries:
+        - title: 使用非主管理节点恢复主管理节点
+          pdf-filename: 使用非主管理节点恢复主管理节点
+          url: "/maintain/recovering-from-primary-admin-node-failures-using-npan.html"
+        - title: 从发生故障的主管理节点复制审核日志
+          url: "/maintain/copying-audit-logs-from-failed-primary-admin-node-using-npan.html"
+        - title: 更换主管理节点
+          url: "/maintain/replacing-primary-admin-node-using-npan.html"
+        - title: 选择"开始恢复"以配置主管理节点
+          url: "/maintain/selecting-start-recovery-to-configure-primary-admin-node.html"
+        - title: 确定主管理节点的修补程序要求
+          url: "/maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html"
+        - title: 在已恢复的主管理节点上还原审核日志
+          url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node-using-npan.html"
+        - title: 恢复主管理节点时还原 Prometheus 指标
+          url: "/maintain/restoring-prometheus-metrics-primary-admin-node-using-npan.html"
       - title: 从非主管理节点故障中恢复
         entries:
         - title: 恢复非主管理节点
@@ -369,8 +384,10 @@ sidebar:
         url: "/maintain/restoring-existing-nodes.html"
       - title: 下一步操作：如果需要，执行其他恢复步骤
         url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
-    - title: 更换VMware节点
+    - title: 用恢复节点替换 VMware 节点
       url: "/maintain/all-node-types-replacing-vmware-node.html"
+    - title: 用 SG1000 或 SG100 替换 VMware 节点
+      url: "/maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: 将故障节点更换为服务设备
       entries:
       - title: 更换准则

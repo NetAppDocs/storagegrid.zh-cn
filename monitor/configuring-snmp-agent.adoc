@@ -444,3 +444,6 @@ USM用户的安全级别：
 新的 SNMP 代理配置将变为活动状态。
 
 
+
+.相关信息
+link:../network/external-communications.html["用于外部通信的端口"]

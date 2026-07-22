@@ -2,7 +2,7 @@
 section: admin
 title: 管理 StorageGRID
 entries:
-- title: 管理任务
+- title: 管理快速入门
   pdf-filename: 管理 StorageGRID 系统
   url: "/admin/index.html"
 - title: 开始使用Grid Manager
@@ -67,31 +67,67 @@ entries:
       url: "/admin/requirements-for-sso.html"
     - title: 确认联合用户可以登录
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: 配置 SSO
-      url: "/admin/configure-sso.html"
-    - title: 在 AD FS 中创建依赖方信任
-      url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: 在 Entra ID 中创建企业应用程序
-      url: "/admin/creating-enterprise-application-entra-id.html"
-    - title: 在 PingFederate 中创建 SP 连接
-      url: "/admin/creating-sp-connection-ping.html"
+    - title: 使用 OIDC 设置 SSO
+      entries:
+      - title: 了解
+        url: "/admin/learn-about-setting-up-sso-oidc.html"
+      - title: 在 AD FS 中创建应用程序组
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
+      - title: 在 Entra ID 中创建应用程序
+        url: "/admin/creating-enterprise-application-entra-id-oidc.html"
+      - title: 在 Keycloak 中创建客户端
+        url: "/admin/create-client-keycloak-oidc.html"
+      - title: 创建 Okta 应用程序
+        url: "/admin/create-okta-application-oidc.html"
+      - title: 在 PingFederate 中创建 SP 连接
+        url: "/admin/creating-sp-connection-ping-oidc.html"
+      - title: 配置 SSO
+        url: "/admin/configure-sso-oidc.html"
+    - title: 使用 SAML 设置 SSO
+      entries:
+      - title: 了解
+        url: "/admin/learn-about-setting-up-sso-saml.html"
+      - title: 配置 SSO
+        url: "/admin/configure-sso-saml.html"
+      - title: 在 AD FS 中创建依赖方信任
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
+      - title: 在 Entra ID 中创建企业应用程序
+        url: "/admin/creating-enterprise-application-entra-id-saml.html"
+      - title: 在 PingFederate 中创建 SP 连接
+        url: "/admin/creating-sp-connection-ping-saml.html"
     - title: 禁用 SSO
       url: "/admin/disabling-single-sign-on.html"
     - title: 暂时禁用并重新启用一个管理节点的 SSO
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
+  - title: 使用多管理员验证
+    entries:
+    - title: 了解多管理员验证
+      url: "/admin/about-multi-admin-verify.html"
+    - title: 配置多管理员验证
+      url: "/admin/configure-multi-admin-verify.html"
+    - title: 请求受保护操作的批准
+      url: "/admin/request-mav-approval-for-protected-ops.html"
+    - title: 管理受保护的操作请求
+      url: "/admin/manage-mav-protected-ops-requests.html"
 - title: 使用网格联盟
   entries:
   - title: 什么是网格联合
     pdf-filename: 使用网格联盟
     url: "/admin/grid-federation-overview.html"
-  - title: 什么是帐户克隆
-    url: "/admin/grid-federation-what-is-account-clone.html"
+  - title: 什么是账号同步
+    url: "/admin/grid-federation-what-is-account-sync.html"
   - title: 什么是跨网格复制
     url: "/admin/grid-federation-what-is-cross-grid-replication.html"
   - title: 请比较跨网格复制和CloudMirror复制
     url: "/admin/grid-federation-compare-cgr-to-cloudmirror.html"
   - title: 创建网格联合连接
     url: "/admin/grid-federation-create-connection.html"
+  - title: 自动化网格联合连接
+    url: "/admin/grid-federation-automate-connections.html"
+  - title: 了解全局命名空间
+    url: "/admin/learn-about-global-namespace.html"
+  - title: 配置全局命名空间
+    url: "/admin/configure-global-namespace.html"
   - title: 管理网格联合连接
     url: "/admin/grid-federation-manage-connection.html"
   - title: 管理允许的租户
@@ -257,19 +293,6 @@ entries:
     url: "/admin/benefits-of-active-idle-and-concurrent-http-connections.html"
   - title: 管理链路成本
     url: "/admin/manage-link-costs.html"
-- title: 使用 AutoSupport
-  entries:
-  - title: 什么是 AutoSupport
-    pdf-filename: 使用 AutoSupport
-    url: "/admin/what-is-autosupport.html"
-  - title: 配置 AutoSupport
-    url: "/admin/configure-autosupport-grid-manager.html"
-  - title: 手动触发AutoSupport软件包
-    url: "/admin/manually-triggering-autosupport-message.html"
-  - title: 对AutoSupport软件包进行故障排除
-    url: "/admin/troubleshooting-autosupport-messages.html"
-  - title: 通过StorageGRID发送E系列AutoSupport软件包
-    url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: 管理存储节点
   entries:
   - title: 使用存储选项

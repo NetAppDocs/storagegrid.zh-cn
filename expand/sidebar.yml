@@ -50,8 +50,6 @@ entries:
     url: "/expand/configuring-expanded-storagegrid-system.html"
   - title: 验证存储节点是否处于活动状态
     url: "/expand/verifying-storage-node-is-active.html"
-  - title: 复制管理节点数据库
-    url: "/expand/copying-admin-node-database.html"
   - title: 复制 Prometheus 指标
     url: "/expand/copying-prometheus-metrics.html"
   - title: 复制审核日志

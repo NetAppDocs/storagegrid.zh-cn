@@ -1,0 +1,109 @@
+---
+permalink: admin/creating-enterprise-application-entra-id-oidc.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: 使用 Entra ID 为系统中的每个管理节点创建应用程序。 
+---
+= 在 StorageGRID 中为 OIDC 创建 Entra ID 企业应用程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 Entra ID 为系统中每个管理节点创建 OpenID Connect (OIDC) 企业应用程序。
+
+.开始之前
+* 您拥有系统中每个管理节点的依赖方标识符和完全限定域名 (FQDN) 或 IP 地址。
++
+
+NOTE: 您的 StorageGRID 系统中的每个管理节点都必须有一个企业应用程序。这可确保用户可以安全地登录和退出任何管理节点。您可以为所有管理节点创建单个企业应用程序（推荐），也可以为每个管理节点创建不同的企业应用程序。
+
+* 您有在 Entra ID 中创建应用程序的经验。
+* 您有一个具有有效订阅的 Entra ID 帐户。
+* 您在 Entra ID 帐户中拥有以下角色之一：全局管理员、云应用程序管理员、应用程序管理员或服务主体的所有者。
+
+
+
+
+[[step-1-access-entra-id]]
+== 步骤 1：访问 Entra ID
+
+.步骤
+. 登录到 https://portal.azure.com["Azure 门户"^]。
+. 选择 link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview["微软Entra ID"^]。
+. 选择 link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps["应用注册"^]。
+
+
+
+
+[[step-2-register-a-new-application]]
+== 步骤2：注册新应用程序
+
+为系统中的每个管理节点注册一个新的企业应用程序。
+
+.步骤
+. 在 Entra ID Enterprise 应用程序窗格中，选择 *Application registrations* > *New registration*。
+. 对于 *Name*，输入信赖方标识符。
+. 在*支持的帐户类型*下，选择可以使用应用程序或访问 API 的帐户类型，例如*仅限单个租户 - <tenant_name>*。
+. 在*重定向 URI* 下，选择*选择平台* > *Web*。
+. 输入管理节点的 FQDN（或 IP 地址）重定向 URI： `https://<FQDN>/api/v4/oidc-callback` 或  `https://<IP_address>/api/v4/oidc-callback`
++
+如果要对所有管理节点使用一个企业应用程序，请输入每个管理节点的 URI。如果要为每个管理节点使用不同的企业应用程序，请仅输入相应管理节点的 URI。
+
+. 选择*注册*。
+. 在新应用程序注册的"概述"页面上，记录*应用程序（客户端）ID* 和*目录（租户）ID*。
+
+
+
+
+[[step-3-configure-a-client-secret]]
+== 步骤 3：配置客户端密码
+
+为每个新应用程序注册客户端密码。
+
+.步骤
+. 在新应用程序注册的"概述"页面上，选择 *Manage* > *Certificates and secrets* > *New client secret*。
+. 输入客户端密码并设置所需的到期日期。
+. 选择*添加*以创建客户端密码。
+. 复制密钥*值*。
++
+
+NOTE: 从客户端密钥页面刷新或导航后，密钥值将不可见。
+
+
+
+
+
+[[step-4-set-up-the-api-permissions]]
+== 步骤 4：设置 API 权限
+
+为每个新应用程序设置 API 权限。
+
+.步骤
+. 在新应用程序注册的"概述"页面上，选择 *管理* > *API 权限* > *添加权限*。
+. 选择 *Microsoft APIs* > *Microsoft Graph* > *Delegated permissions*。
+. 展开 *OpenId permissions*，然后选择 *email*、*offline_access*、*openid* 和 *profile*。
+. 选择*添加权限*。
+. 选择*授予管理员同意 <tenant>*，然后选择*是*。
+
+
+
+
+[[step-5-add-the-logged-out-redirect-uri]]
+== 第 5 步：添加注销重定向 URI
+
+为每个新应用程序添加注销重定向 URI。
+
+.步骤
+. 在新应用程序注册的"概述"页面上，选择 *Manage* > *Authentication*。
+. 选择 *Add Redirect URI* > *Web*。
+. 输入管理节点的 FQDN（或 IP 地址）重定向 URI： `https://<FQDN>/api/v4/oidc-logged-out` 或  `https://<IP_address>/api/v4/oidc-logged-out`
++
+如果要对所有管理节点使用一个应用程序组，请输入每个管理节点的 URI。如果要为每个管理节点使用不同的应用程序组，请仅输入相应管理节点的 URI。
+
+. 选择*配置*。
+
+
+.下一步
+创建企业应用程序后，link:configure-sso-oidc.html["使用 OIDC 配置 SSO"]。

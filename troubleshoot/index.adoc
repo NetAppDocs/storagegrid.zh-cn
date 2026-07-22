@@ -202,7 +202,7 @@ StorageGRID 系统是否可以载入内容？
 技术支持可能会要求您收集数据或查看特定信息，以帮助您解决问题。
  a| 
 * link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]
-* link:../monitor/manually-triggering-autosupport-message.html["手动触发AutoSupport软件包"]
+* link:../monitor/manually-triggering-autosupport-package.html["手动触发AutoSupport软件包"]
 * link:../monitor/reviewing-support-metrics.html["查看支持指标"]
 
 

@@ -23,10 +23,8 @@ entries:
     url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
 - title: 使用网格联合连接
   entries:
-  - title: 克隆租户组和用户
-    url: "/tenant/grid-federation-account-clone.html"
-  - title: 使用API克隆S3访问密钥
-    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: 同步租户组和用户
+    url: "/tenant/grid-federation-account-sync.html"
   - title: 管理跨网格复制
     url: "/tenant/grid-federation-manage-cross-grid-replication.html"
   - title: 查看网格联合连接

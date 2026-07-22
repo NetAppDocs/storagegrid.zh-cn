@@ -14,7 +14,7 @@ summary: 在开始升级之前、请确认当前安装的是先前版本的Stora
 在开始升级之前、请确认当前安装的是先前版本的StorageGRID、并应用了最新的可用修补程序。
 
 .关于此任务
-在升级到StorageGRID 12.0 之前，您的网格必须安装StorageGRID 11.9.0.8 或更高版本。如果您当前正在使用以前版本的StorageGRID，则必须安装所有以前的升级文件及其最新的修补程序（强烈推荐），直到网格的当前版本至少为StorageGRID 11.9.0.8。
+在升级到 StorageGRID 12.1 之前，您的网格必须已安装 StorageGRID 12.0 或更高版本。如果您当前使用的是较早版本的 StorageGRID，则必须安装所有以前的升级文件及其最新修补程序（强烈建议），直到网格的当前版本至少为 StorageGRID 12.0.0。
 
 中显示了一个可能的升级路径<<example-upgrade-path,示例>>。
 
@@ -41,7 +41,7 @@ CAUTION: NetApp强烈建议您在升级到下一个版本之前为每个StorageG
 [[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]示例：从版本 11.8 升级到StorageGRID 12.0
 
-以下示例显示了从StorageGRID版本 11.8 升级到版本 11.9 以准备升级到StorageGRID 12.0 的步骤。
+以下示例显示了从 StorageGRID 版本 11.9 升级到版本 12.0 以准备 StorageGRID 12.1 升级的步骤。
 
 按以下顺序下载并安装软件，以便为您的系统做好升级准备：
 

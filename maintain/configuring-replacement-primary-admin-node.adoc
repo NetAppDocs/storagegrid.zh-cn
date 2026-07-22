@@ -34,25 +34,25 @@ summary: 必须将替代节点配置为 StorageGRID 系统的主管理节点。
 ** 如果尚未设置密码、则可以选择设置密码以保护StorageGRID安装程序。
 
 
-. 单击 * 恢复发生故障的主管理节点 * 。
+. 选择*恢复发生故障的主管理节点*。
 +
 image:install_or_recover_primary_admin_node.png["安装或恢复主管理节点"]
 
 . 上传恢复包的最新备份：
 +
-.. 单击 * 浏览 * 。
-.. 找到StorageGRID系统的最新恢复包文件，然后单击“打开”。
+.. 选择 * 浏览 * 。
+.. 找到您的 StorageGRID 系统的最新恢复包文件，然后选择*打开*。
 
 
 . 输入配置密码短语。
-. 单击 * 启动恢复 * 。
+. 选择*Start recovery*。
 +
 恢复过程开始。随着所需服务的启动，网格管理器可能会在几分钟内不可用。恢复完成后，将显示登录页面。
 
 . 如果为 StorageGRID 系统启用了单点登录（ SSO ），并且已恢复的管理节点的依赖方信任已配置为使用默认管理接口证书，请在 Active Directory 联合身份验证服务（ AD FS ）中更新（或删除并重新创建）该节点的依赖方信任。使用在管理节点恢复过程中生成的新默认服务器证书。
 +
 
-NOTE: 要配置信赖方信任，请参阅link:../admin/configure-sso.html["配置单点登录"]。要访问默认服务器证书，请登录管理节点的命令 shell。前往 `/var/local/mgmt-api`目录，然后选择 `server.crt`文件。
+NOTE: 要配置依赖方信任，请参阅使用 link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] 或 link:../admin/learn-about-setting-up-sso-saml.html["SAML"] 设置 SSO。要访问默认服务器证书，请登录到管理节点的命令 shell。转到  `/var/local/mgmt-api` 目录，然后选择  `server.crt` 文件。
 
 
 

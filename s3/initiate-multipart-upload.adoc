@@ -55,10 +55,12 @@ NOTE: 如果在启用了S3对象锁定的情况下将对象导入存储分段、
 支持以下请求标头：
 
 * `Content-Type`
-* `x-amz-checksum-algorithm`
+* `x-amz-checksum-algorithm`：指定 `CRC32`、 `CRC32C`、 `CRC64NVME`或 `SHA256`
 +
-目前、仅支持的SHA256值 `x-amz-checksum-algorithm`。
 
+NOTE: 如果 CreateMultipartUpload 请求未指定校验和，StorageGRID 不会计算对象的默认 CRC-64/NVME 校验和。StorageGRID 忽略无效或不受支持的 `x-amz-checksum-algorithm`值。
+
+* `x-amz-checksum-type`
 * `x-amz-meta-`，后跟一个包含用户定义的元数据的名称-值对
 +
 为用户定义的元数据指定名称 - 值对时，请使用以下通用格式：

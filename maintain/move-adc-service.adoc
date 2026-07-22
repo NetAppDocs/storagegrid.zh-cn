@@ -23,16 +23,17 @@ summary: 您可以将 ADC 服务移动到同一站点上的另一个存储节点
 
 
 .关于此任务
-当您想要执行以下操作时，请使用移动 ADC 过程：
-
-* 停用托管 ADC 服务的存储节点
-* 将承载 ADC 服务的存储节点转换为仅数据的存储节点
-
-
-当您想要停用存储节点或link:../maintain/convert-to-data-only-node.html["将存储节点转换为仅数据节点"]，首先您可能需要使用移动 ADC 程序。您需要确保link:../maintain/understanding-adc-service-quorum.html["ADC 仲裁得以维持"]。
+使用移动 ADC 过程在存储节点之间手动移动 ADC 服务。例如，您可能希望跨节点重新分配 ADC 服务或将 ADC 服务移动到性能更高的节点。
 
 此过程将 ADC、IDNT、ACCT 和 RSM 服务从一个存储节点移动到同一站点上的另一个存储节点。  RSM、IDNT 和 ACCT 服务依赖于 ADC 服务，因此当 ADC 服务移动时，它们也会自动移动。
 
+[NOTE]
+====
+* 在link:../maintain/convert-to-data-only-node.html["将存储节点转换为仅数据节点"]或停用存储节点之前，您无需手动移动 ADC 服务。这些程序会在需要时自动移动 ADC 服务。有关要求的详细信息，请参阅link:../maintain/understanding-adc-service-quorum.html["什么是 ADC 仲裁？"]。
+* StorageGRID 将 ADC 服务移动到满足托管服务要求的最新 Storage Node。
+
+
+====
 .步骤
 . 记录源节点和目标节点的节点ID。
 +

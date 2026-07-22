@@ -47,7 +47,7 @@ image:grid_manager_dashboard_and_menu.png["网格管理器中的信息板"]
 [[help-menu]]
 == 帮助菜单
 
-帮助菜单 image:icon-help-menu-bar.png["菜单栏上的帮助图标"] 提供对以下内容的访问：
+帮助菜单 image:icon_help_menu_bar.png["菜单栏上的帮助图标"] 提供对以下内容的访问：
 
 * 这link:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]和link:../admin/use-s3-setup-wizard.html["S3设置"]巫师
 * 当前版本的StorageGRID文档站点
@@ -68,7 +68,7 @@ image:grid_manager_dashboard_and_menu.png["网格管理器中的信息板"]
 * 查看已解决的警报
 * 配置静音以禁止警报通知
 * 为触发警报的条件定义警报规则
-* 为警报通知配置电子邮件服务器
+* 为 StorageGRID 警报配置电子邮件通知
 
 
 
@@ -148,7 +148,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 系统任务包括：
 
-* 使用link:../admin/grid-federation-overview.html["网格联盟"]克隆租户帐户信息并在两个StorageGRID系统之间复制对象数据
+* 使用 link:../admin/grid-federation-overview.html["网格联盟"] 在两个 StorageGRID 系统之间同步租户帐户信息和复制对象数据
 * （可选）启用link:../admin/configuring-stored-object-compression.html["压缩存储的对象"]选项
 * 或者，配置link:../s3/consistency.html["默认桶一致性设置"]
 * link:../ilm/managing-objects-with-s3-object-lock.html["管理 S3 对象锁定"]
@@ -163,6 +163,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 监控任务包括：
 
+* link:../monitor/configure-email-server.html["配置电子邮件服务器"]
 * link:../monitor/configure-log-management.html["配置日志管理"]
 * link:../monitor/using-snmp-monitoring.html["使用 SNMP 监控"]
 
@@ -179,6 +180,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * 更改link:../admin/changing-provisioning-passphrase.html["配置密码短语"]或者link:../admin/change-node-console-password.html["节点控制台密码"]
 * link:../admin/using-identity-federation.html["使用身份联合"]
 * link:../admin/how-sso-works.html["配置 SSO"]
+* link:../admin/about-multi-admin-verify.html["配置多管理员验证"]
 
 
 
@@ -201,7 +203,13 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 * link:../maintain/rename-grid-site-node-overview.html["重命名过程"]更改网格、站点和节点的显示名称
 * link:../troubleshoot/verifying-object-integrity.html["对象存在性检查操作"]验证对象数据是否存在(尽管不是正确的)
 * 执行link:../maintain/rolling-reboot-procedure.html["滚动重新启动"]重新启动多个网格节点
-* link:../maintain/restoring-volume.html["卷还原操作"]
+* 还原对象数据
++
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["将对象数据还原到设备的存储卷"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["将对象数据还原到系统驱动器完好无损的存储卷"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["将对象数据还原到存储卷(系统驱动器故障)"]
+
+
 
 
 
@@ -249,7 +257,7 @@ link:using-information-lifecycle-management.html["ILM 菜单"]通过、您可以
 
 从支持菜单的工具部分，您可以：
 
-* link:../admin/configure-autosupport-grid-manager.html["配置 AutoSupport"]
+* link:../monitor/configure-autosupport-grid-manager.html["配置 AutoSupport"]
 * link:../monitor/running-diagnostics.html["Run diagnostics"] 网格的当前状态
 * link:../monitor/collecting-log-files-and-system-data.html["收集日志文件和系统数据"]
 * link:../monitor/reviewing-support-metrics.html["查看支持指标"]
@@ -267,7 +275,6 @@ NOTE: * 指标 * 选项中提供的工具供技术支持使用。这些工具中
 从支持菜单的其他部分、您可以：
 
 * 配置link:../monitor/manage-io-prioritization.html["I/O 优先级"]
-* 配置link:../admin/configure-autosupport-grid-manager.html["AutoSupport电子邮件设置（旧版）"]
 * 管理link:../admin/manage-link-costs.html["链路成本"]
 * 查看节点服务ID
 * 管理link:../admin/what-storage-volume-watermarks-are.html["存储水印"]

@@ -1,0 +1,198 @@
+---
+permalink: admin/grid-federation-automate-connections.html 
+sidebar: sidebar 
+keywords: automate, automating, automation, automatic, configuration, configure 
+summary: 在安装和配置两个或多个运行 12.1 或更高版本的 StorageGRID 系统后，您可以使用 manage-grid-federation.py Python 脚本和 JSON 配置文件来自动创建、编辑和维护网格联合连接。 
+---
+= 在 StorageGRID 中自动化网格联合连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在安装和配置两个或多个运行 12.1 或更高版本的 StorageGRID 系统后，您可以使用 `manage-grid-federation.py` Python 脚本和 JSON 配置文件自动创建、编辑和维护网格联合连接。
+
+.开始之前
+* 所有网格均运行StorageGRID 12.1或更高版本。
+* 如果在任何网格上启用了单点登录 (SSO)，则表示已将其禁用。
+* 您有一台安装了 Python 3.6 或更高版本的 Linux 计算机。
+* 您从安装存档中知道以下文件的位置：
++
+[cols="1,2"]
+|===
+| 文件名 | 说明 
+
+
+| manage-grid-federation.py | 用于自动化网格联合连接管理的 Python 脚本 
+
+
+| manage-grid-federation.sample.json | 用于脚本的配置文件示例 
+|===
+* 您已创建 `manage-grid-federation.json`配置文件。要创建此文件，您可以修改示例配置文件， `manage-grid-federation.sample.json`。
+
+
+
+CAUTION: 将 `manage-grid-federation.json`配置文件中的网格管理员密码和配置密码存储在安全位置。如果文件中省略了凭据，脚本将以交互方式提示输入凭据。您还应将修改后的配置文件的备份存储在安全位置。
+
+
+
+[[configuration-file-fields]]
+== 配置文件字段
+
+JSON 配置文件是一个对象数组。每个对象表示一个网格，并支持以下字段：
+
+[cols="1m,1,2"]
+|===
+| 字段 | 必填 | 说明 
+
+
+| 主机名 | 是 | 网格的管理节点主机名或 IP 地址 
+
+
+| grid_name | 是 | 网格的显示名称（最多 12 个字符） 
+
+
+| 用户名 | 否 | 网格管理员用户名（如果省略，则交互式提示） 
+
+
+| password | 否 | 网格管理员密码（如果省略，则交互式提示） 
+
+
+| 密码短语 | 否 | 配置密码短语（如果省略，则以交互方式提示） 
+
+
+| ca_bundle | 否 | 用于 SSL 验证的自定义 CA 证书捆绑包的路径 
+
+
+| region | 否 | 全局命名空间连接所需的默认 S3 区域 
+
+
+| CNAME | 否 | 全局命名空间连接所需的 CNAME 
+
+
+| globalEndpoint | 否 | 所需的全局命名空间端点 
+|===
+
+NOTE: 如果配置任何全局命名空间字段（(`region`、 `CNAME`、 `globalEndpoint`），则必须为每个网格提供所有三个字段。确保区域和 CNAME 在各网格中唯一，且所有网格的  `globalEndpoint` 值相同。
+
+.关于此任务
+您可以使用 `manage-grid-federation.py` Python 脚本和 `manage-grid-federation.json`配置文件来自动化网格联合连接管理。该脚本执行以下操作：
+
+* 使用 Grid Management API 对每个网格进行身份验证
+* 验证所有网格是否正在运行 StorageGRID 12.1 或更高版本
+* 验证是否在每个网格上禁用了单点登录
+* 检索现有网格联合连接和 S3 配置
+* 配置后更新 S3 区域、CNAME 和全局命名空间端点设置
+* 为尚未连接的任何网格对创建新的网格联合连接
+* 显示名称或全局命名空间设置更改时编辑现有连接
+* 显示所有连接及其状态的摘要
+
+
+
+TIP: 您还可以直接使用 Grid Manager UI 或 Grid Management API 管理网格联合连接。
+
+.步骤
+. 登录到用于运行 Python 脚本的 Linux 计算机。
+. 更改为包含脚本的目录。
++
+例如：
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/platform
+----
++
+其中 *platform* 为 `debs`、 `rpms`或 `vsphere`。
+
+. 运行 Python 脚本并使用您创建的配置文件。
++
+例如：
+
++
+`./manage-grid-federation.py -i manage-grid-federation.json`
+
++
+可以使用以下命令行选项：
+
++
+[cols="2m,1,3"]
+|===
+| 选项 | 默认 | 说明 
+
+
+| -i, --input-json-file | _（必填）_ | 包含网格列表的 JSON 配置文件的路径 
+
+
+| -b, --base-port | 23001 | 新网格联盟连接的起始端口号 
+
+
+| --no-verify-ssl | SSL 验证已启用 | 禁用本地到网格连接的 SSL 证书验证 
+|===
+
+
+
+
+[[edit-existing-connections]]
+== 编辑现有连接
+
+如果脚本检测到现有连接需要更改（例如，由于网格显示名称已更改或需要更新全局命名空间设置），它将在继续操作之前显示建议编辑的摘要并提示确认。
+
+当启用了全局命名空间的网格上需要 S3 配置更新(`region`、 `CNAME`或 `globalEndpoint`）时，脚本必须暂时禁用全局命名空间以应用更改。在此情况下，确认提示将警告临时路由中断：
+
+[listing]
+----
+*** Global Namespace Disable Required ***
+Global Namespace must be disabled to update region/CNAME/globalEndpoint settings.
+Routing requests will not work until Global Namespace is re-enabled.
+Grids requiring S3 updates: grid1.example.com, grid2.example.com
+Proceed with these edits and the temporary routing outage? [y/N]:
+----
+
+CAUTION: 在 S3 配置更新期间，全局命名空间将暂时禁用，此时全局命名空间路由请求将无法正常工作。请在维护窗口期间执行此操作。
+
+.完成后
+当脚本显示类似于以下内容的确认摘要时，您的网格联合连接即已建立和配置完成：
+
+[listing]
+----
+===== Newly Established Connections =====
+ • Grid-A and Grid-B — grid-a.example.com and grid-b.example.com on port 23001
+
+Total new connections: 1
+
+===== All Grid-Federation Connections =====
+  Name              Source                Target                Port   Status    Global Namespace
+  ----------------  --------------------  --------------------  -----  --------  ----------------
+  Grid-A and Grid-B grid-a.example.com    grid-b.example.com    23001  new       enabled
+
+Total connections listed: 1
+
+===== Grid S3 Configuration Summary =====
+ grid-a.example.com:
+    Default Region: us-east-1
+    CNAME: s3-a.example.com
+    Global namespace endpoint: gn.example.com
+ grid-b.example.com:
+    Default Region: us-west-1
+    CNAME: s3-b.example.com
+    Global namespace endpoint: gn.example.com
+----
+
+
+[[exit-status]]
+== 退出状态
+
+[cols="1m,4"]
+|===
+| 代码 | 说明 
+
+
+| 0 | 脚本已成功完成 
+
+
+| 1 | 验证失败或网格 API 调用返回错误（检查日志输出） 
+|===
+
+NOTE: 如果任何连接失败，脚本将继续处理剩余对，并在输出的"失败的连接"部分报告所有失败。在重新运行脚本之前，请查看错误消息并解决任何问题。

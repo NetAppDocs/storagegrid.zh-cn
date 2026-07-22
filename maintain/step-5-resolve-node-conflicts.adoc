@@ -78,7 +78,7 @@ image:decommission_site_step_5_ha_groups.png["停用站点步骤 5 HA 组"]
 
 
 +
-如果连接了所有节点，并且在 HA 组中未使用选定站点中的任何节点，则会启用 * 配置密码短语 * 字段。
+如果所有节点都已连接，并且所选站点中的节点未用于 HA 组，则启用 *Provisioning passphrase* 字段。
 
 . 输入配置密码短语。
 +

@@ -21,10 +21,10 @@ summary: 您可以使用租户管理器为对象数据创建 S3 分段。
 NOTE: 设置或修改存储桶或对象的 S3 对象锁定属性的权限可以通过以下方式授予link:../s3/use-access-policies.html["存储分段策略或组策略"]。
 
 * 如果您计划为存储分段启用S3对象锁定、则网格管理员已为StorageGRID 系统启用全局S3对象锁定设置、并且您已查看S3对象锁定分段和对象的要求。
-* 如果每个租户具有5、000个分段、则网格中的每个存储节点至少具有64 GB RAM。
+* 如果多个租户每个都有多达 5,000 个存储桶，则网格中的每个存储节点至少有 64 GB 的 RAM。
 +
 
-NOTE: 每个网格最多可以有 100,000 个 bucket，包括link:../tenant/what-is-branch-bucket.html["分支桶"]。
+NOTE: StorageGRID 系统为每个 S3 租户帐户最多支持 20,000 个存储桶。每个网格最多可包含 100,000 个存储桶，包括link:../tenant/what-is-branch-bucket.html["分支桶"]。还有一个限制link:../tenant/manage-branch-buckets.html["分支铲斗深度"]。
 
 
 
@@ -63,7 +63,7 @@ Bucket Name
 ** 在虚拟托管模式请求中不得包含句点。句点会在验证服务器通配符证书时出现发生原因 问题。
 
 
-有关详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["有关存储分段命名规则的 Amazon Web Services （ AWS ）文档"^]。
+有关详细信息，请参阅 https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["有关存储分段命名规则的 Amazon Web Services （ AWS ）文档"^]。
 
 *注意*:创建存储分段后不能更改存储分段名称。
 

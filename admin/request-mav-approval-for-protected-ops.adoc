@@ -1,0 +1,40 @@
+---
+permalink: admin/request-mav-approval-for-protected-ops.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: 作为 StorageGRID 管理员或用户，当您在 StorageGRID 中启动受 MAV 保护的操作时，将自动生成一个请求。系统将显示一条消息，通知您该操作需要获得批准。 
+---
+= 请求批准 StorageGRID 中受 MAV 保护的操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+作为 StorageGRID 管理员或用户，当您在 StorageGRID 中启动受 MAV 保护的操作时，将自动生成一个请求。系统将显示一条消息，通知您该操作需要获得批准。
+
+StorageGRID 系统定义哪些操作受 MAV 保护。当您启动受 MAV 保护的操作时，该请求将发送给 MAV 管理员进行审批。
+
+.步骤
+StorageGRID 系统会通知您已启动受 MAV 保护的操作。
+
+. 根据需要，执行以下任一任务：
++
+.. 通过选择 *Configuration* > *Access control* > *Multi-admin verification* > *My requests* 来检查您的请求状态。
++
+*** *待处理*。请求已启动。
+*** *已过期*。请求未在 30 天内得到处理。或者具有 Root 访问权限的用户禁用了 MAV，这意味着所有待处理的请求均已过期。
+*** *已撤回*。用户已撤回其请求。
+*** *已批准*。MAV 管理员批准了待处理的请求。
+*** *已拒绝*。MAV 管理员拒绝了待处理的请求。
+
+
+.. 通过选择*配置* > *访问控制* > *多管理员验证* > *其他请求*，检查其他用户的待处理请求。
+.. 要取消操作，请选择*我的请求* > *_要取消的请求_* > *撤回*。
+
+
+
+
+MAV 管理员批准请求后，将自动执行此操作。
+
+如果您的请求被拒绝，则不会执行该操作，如果需要，您可以提交新的请求。

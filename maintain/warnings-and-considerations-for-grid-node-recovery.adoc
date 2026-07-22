@@ -39,7 +39,7 @@ NOTE: 如果整个StorageGRID站点出现故障，请联系技术支持。技术
 
 * 已更换并配置发生故障的物理或虚拟硬件。
 * 替代设备上的StorageGRID设备安装程序版本与StorageGRID系统的软件版本相匹配，如中所述 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["验证并升级 StorageGRID 设备安装程序版本"^]。
-* 如果您正在恢复主管理节点以外的网格节点，则正在恢复的网格节点与管理恢复过程的管理节点之间存在连接。
+* 如果要恢复主管理节点以外的网格节点，则必须在要恢复的网格节点和管理恢复过程的管理节点之间存在连接。
 * 如果要恢复设备存储节点，则必须在设备安装期间指定与原始设备相同的存储类型（组合、仅元数据或仅数据）。如果指定不同的存储类型，恢复将失败，并且需要使用指定的正确存储类型重新安装设备。
 
 
@@ -48,7 +48,7 @@ NOTE: 如果整个StorageGRID站点出现故障，请联系技术支持。技术
 [[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == 托管多个网格节点的服务器发生故障时的节点恢复顺序
 
-如果托管多个网格节点的服务器发生故障，您可以按任意顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，则必须首先恢复该节点。
+如果托管多个网格节点的服务器发生故障，则可以按任何顺序恢复节点。但是，如果发生故障的服务器托管主管理节点，并且不存在非主管理节点，则必须首先恢复主管理节点。
 
 
 

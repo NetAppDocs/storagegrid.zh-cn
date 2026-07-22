@@ -1,0 +1,42 @@
+---
+permalink: admin/about-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: '作为 StorageGRID 管理员，您可以使用多管理员验证 (MAV) 来确保某些操作只能在指定管理员批准后才能执行。MAV 有助于防止对您的 StorageGRID 系统进行意外或未经授权的更改。' 
+---
+= 了解 StorageGRID 多管理员验证
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+作为 StorageGRID 管理员，您可以使用多管理员验证 (MAV) 来确保某些操作只能在指定管理员批准后才能执行。MAV 有助于防止对您的 StorageGRID 系统进行意外或未经授权的更改。
+
+默认情况下，MAV 处于禁用状态。
+
+
+
+[[mav-configuration-overview]]
+== MAV 配置概述
+
+要配置 MAV，您将执行以下任务：
+
+* 创建一个或多个管理员组。MAV 管理员具有批准和否决权。
+* 启用多管理员验证功能。
+* 从一组受保护的操作中选择。
+
+
+用户必须具有 Root 访问权限才能执行初始配置并在稍后进行修改。
+
+
+
+[[how-protected-operations-are-handled-under-mav]]
+== 如何在 MAV 下处理受保护的操作
+
+启用 MAV 后，完成每个受保护的操作需要以下步骤：
+
+. 当用户启动操作时，会生成请求。
+. 在执行操作之前，必须至少有一个 MAV 管理员批准。
+. 获得批准后，将自动执行受 MAV 保护的操作。
+

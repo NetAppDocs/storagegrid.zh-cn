@@ -59,7 +59,7 @@ image:erasure_coding_data_flow.png["纠删编码数据流"]
 [[content-protection-cloud-storage-pool]]
 == 内容保护：云存储池
 
-如果 ILM 规则的内容放置说明要求将对象数据的复制副本存储在云存储池中，则对象数据将复制到为云存储池指定的外部 S3 存储分段或 Azure Blob 存储容器。
+如果 ILM 规则的内容放置说明要求对象数据的复制副本存储在云存储池中，则对象数据会复制到为云存储池指定的外部 S3 存储桶或 Azure Blob 存储容器。
 
 ILM 引擎是 LDR 服务的一个组件， Data Mover 服务可控制对象到云存储池的移动。
 

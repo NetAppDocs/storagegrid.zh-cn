@@ -30,6 +30,6 @@ summary: 配置高可用性组、负载平衡器端点和S3域名后、您必须
 
 
 [[dns-entries-for-virtual-hosted-style-requests]]
-== 虚拟托管模式请求的DNS条目
+== 虚拟托管式请求的 DNS 条目
 
-如果已定义link:../admin/configuring-s3-api-endpoint-domain-names.html["S3端点域名"]、并且要使用虚拟托管模式请求、请为所有必需的S3端点域名(包括任何通配符名称)添加DNS条目。
+如果您已定义link:../admin/configuring-s3-api-endpoint-domain-names.html["S3端点域名"]并且将使用虚拟托管样式的请求，请为所有必需的 S3 端点域名添加 DNS 条目，包括任何通配符名称。

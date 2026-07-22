@@ -13,7 +13,7 @@ summary: 您可以创建 S3 生命周期配置，以控制何时从 StorageGRID 
 [role="lead"]
 您可以创建 S3 生命周期配置，以控制何时从 StorageGRID 系统中删除特定对象。
 
-本节中的简单示例说明了 S3 生命周期配置如何控制从特定 S3 存储分段中删除（过期）某些对象的时间。本节中的示例仅供说明。有关创建S3生命周期配置的完整详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["《Amazon Simple Storage Service用户指南：对象生命周期管理》"^]。请注意， StorageGRID 仅支持到期操作，不支持过渡操作。
+本节中的简单示例说明了 S3 生命周期配置如何控制从特定 S3 存储桶删除（过期）某些对象的时间。本节中的示例仅用于说明目的。有关创建 S3 生命周期配置的完整详细信息，请参阅 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Service 用户指南：管理对象的生命周期"^]。请注意，StorageGRID 仅支持到期操作；不支持过渡操作。
 
 
 

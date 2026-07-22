@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: '必须使用 Active Directory Federation Services (AD FS) 为系统中的每个管理节点创建应用程序组。' 
+---
+= 在 AD FS 中为 StorageGRID 中的 OIDC 创建应用程序组
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+必须使用 Active Directory Federation Services (AD FS) 为系统中每个管理节点的 OpenID Connect (OIDC) 创建应用程序组。
+
+.开始之前
+* 您拥有系统中每个管理节点的完全限定域名（或 IP 地址）和依赖方标识符。
++
+
+NOTE: 您的 StorageGRID 系统中的每个管理节点都必须有一个应用程序组。这可确保用户可以安全地登录和退出任何管理节点。您可以为所有管理节点创建单个应用程序组（推荐），也可以为每个管理节点创建不同的应用程序组。
+
+* 您具有在 AD FS 中创建应用程序组的经验，或者您可以访问 Microsoft AD FS 文档。
+* 您正在使用 AD FS 管理单元，并且属于管理员组。
+
+
+.关于此任务
+这些说明适用于 Windows Server 2022 AD FS。如果使用的是不同版本的 AD FS，您会注意到操作过程中的细微差异。如果有疑问，请参阅 Microsoft AD FS 文档。
+
+
+
+[[step-1-create-an-application-group]]
+== 步骤 1：创建应用程序组
+
+您可以使用 Windows PowerShell 快速创建应用程序组。
+
+.步骤
+. 在 Windows Server Manager 中，选择 * 工具 * > * AD FS 管理 * 。
+. 选择*应用程序组* > *添加应用程序组*
+. 对于 *Name*，输入信赖方标识符。
+. 在模板下，选择*客户端-服务器应用程序* > *访问 Web API 的服务器应用程序*。
+. 选择 * 下一步 * 。
+. 记录*客户标识符*值。
+. 在 *Redirect URI* 下，输入管理节点的 FQDN（或 IP 地址） `callback` 和 `logged-out` URI：
++
+** `https://<FQDN>/api/v4/oidc-callback` 或  `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` 或  `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+如果要对所有管理节点使用一个应用程序组，请输入每个管理节点的 URI。如果要为每个管理节点使用不同的应用程序组，请仅输入相应管理节点的 URI。
+
+. 选择 * 添加 * 。
+. 选择 *Generate a shared secret*，记录 *Secret* 的值，然后选择 *Next*。
+. 输入*标识符*的客户端标识符。
+. 选择*添加*，然后选择*下一步*。
+. 选择*Permit everyone*。
+. 验证是否在*客户端应用程序（调用方）*下选择了服务器应用程序。
+. 在*允许的范围*下，验证是否仅选择以下选项：
++
+** allatclaims
+** 电子邮件
+** openid
+** 配置文件
+
+
+. 选择 *Next* > *Next*。
+. 选择 *Close*。
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== 步骤 2：配置颁发转换规则
+
+为每个应用程序组配置颁发转换规则。
+
+.步骤
+. 在 *AD FS Management* 页面中，右键选择应用程序组，然后选择 *Properties*。
+. 选择先前创建的 Web API，然后选择*编辑*。
+. 选择*颁发转换规则* > *添加规则……*。
+. 在*声明规则模板：*下，选择*将 LDAP 属性作为声明发送*。
+. 选择 * 下一步 * 。
+. 输入声明规则名称。
+. 选择 *Active Directory* 作为属性存储。
+. 将 LDAP 属性映射添加到传出声明类型：
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. 选择 * 完成 * 。
+. 选择*Apply* > *OK* > *OK*。
+
+
+.下一步
+创建应用程序组后，link:configure-sso-oidc.html["使用 OIDC 配置 SSO"]。

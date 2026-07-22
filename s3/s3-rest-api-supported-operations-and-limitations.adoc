@@ -13,7 +13,7 @@ summary: StorageGRID 系统实施简单存储服务 API （ API 版本 2006-03-0
 [role="lead"]
 StorageGRID 系统实施简单存储服务 API （ API 版本 2006-03-01 ），支持大多数操作，但有一些限制。在集成 S3 REST API 客户端应用程序时，您需要了解实施详细信息。
 
-StorageGRID 系统既支持虚拟托管模式请求，也支持路径模式请求。
+StorageGRID 系统支持虚拟托管风格的请求和路径风格的请求。
 
 
 

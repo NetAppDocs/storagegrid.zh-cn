@@ -1,0 +1,285 @@
+---
+permalink: maintain/replace-vmware-node-with-sg1000-sg100.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, SG1000, SG100, appliance, services, prepare, installation, software 
+summary: 将作为 VMware 节点运行的主管理节点替换为 SG1000 或 SG100 服务设备。 
+---
+= 将 StorageGRID 中的 VMware 节点替换为 SG1000 或 SG100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果主管理节点作为 VMware 节点运行，则可以将其替换为 SG1000 或 SG100 服务设备。
+
+
+CAUTION: 完成并验证节点替换后，必须删除原始 VMware 节点。如果旧节点重新上线，将其保留在原位可能会导致严重的网格中断。
+
+.开始之前
+* 您已确定虚拟机无法还原、必须进行更换。
+* 您已确认没有正在执行的网格维护程序。
+* 您已确认 SG1000 或 SG100 服务设备上的 StorageGRID 设备安装程序版本与 StorageGRID 系统的软件版本相匹配。
+* 您有关于现有主管理节点的下列信息：
++
+*节点名称*：必须使用与现有主管理节点相同的节点名称安装服务设备。节点名称是主机名（系统名称）。
+
++
+*IP 地址*：您可以为服务设备分配与现有主管理节点相同的 IP 地址（推荐），也可以在每个网络上选择一个新的未使用 IP 地址。
+
+* 您具有配置密码短语。
+
+
+
+
+[[step-1-replace-the-vmware-node]]
+== 步骤 1：更换 VMware 节点
+
+首先在网格管理器中删除现有的主管理节点。然后，使用 StorageGRID Appliance Installer 将 SG1000 或 SG100 服务设备安装为新的主管理节点，并恢复该节点。如果您使用的是新的 IP 地址，则可以在删除现有主管理节点之前安装服务设备。
+
+[role="tabbed-block"]
+====
+.使用现有 IP 地址
+--
+使用现有的主管理节点 IP 地址替换主管理节点。
+
+.步骤
+. [[download-recovery-package-a]]从网格管理器下载恢复包：
++
+.. 选择*维护* > *恢复包*。
+.. 输入配置密码并下载包。
+
+
+. 登录到现有的主管理节点：
++
+.. 输入以下命令： `ssh admin@grid_node_IP`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 切换到 root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["从现有主管理节点复制审核日志"]。
+. 停止服务器管理器和网格节点上的所有服务：
++
+[listing]
+----
+shutdown -h now
+----
++
+最多需要 15 分钟才能停止服务。
+
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["安装 SG1000 或 SG100 服务设备"^]。
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/deploying-services-appliance-node.html#deploy-services-appliance-as-primary-admin-node["部署 SG1000 或 SG100 服务设备"^]。
+. 选择*开始安装*后，安装大约需要十分钟才能到达*加载 StorageGRID 安装程序*步骤。
++
+六到七分钟后，浏览器将重定向以开始恢复。
+
+. 检查设备时钟是否正确。
++
+.. 使用 SSH 连接到端口 8022：
++
+... 输入命令： `ssh -p 8022 admin@_grid_node_IP_`。
+... 切换到 root： `su -`
+... 输入 `netapp1!`。
+
+
+.. 验证设备时钟是否与当前 UTC 时间相差在几分钟以内。如有需要，请设置正确的日期和时间：
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. 返回 Web 浏览器并选择*恢复发生故障的主管理节点*。
+. 上传 <<download-recovery-package-a,您下载的恢复包>>。
+. 输入配置密码并选择*Start Recovery*。
++
+此时将显示恢复进度条。等待 6 到 10 分钟，以完成恢复过程并启动服务。
+
+. 出现提示时，登录到 Grid Manager。
+
+
+--
+.使用新的 IP 地址
+--
+使用新的 IP 地址替换主管理节点。
+
+.步骤
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["安装 SG1000 或 SG100 服务设备"^]。
+. 检查设备时钟是否正确，以避免在恢复过程中出现 NTP 错误。
++
+.. 使用 SSH 连接到端口 8022：
++
+... 输入命令： `ssh -p 8022 admin@_grid_node_IP_`。
+... 切换到 root： `su -`
+... 输入 `netapp1!`。
+
+
+.. 验证设备时钟是否在当前协调世界时 (UTC) 的几分钟内。如果需要，请设置正确的日期和时间：
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. 转到 StorageGRID 设备安装程序中的*上传 StorageGRID 软件*，并检查设备上预加载的软件版本是否与网格上运行的 StorageGRID 版本相匹配。如果版本不匹配：
++
+.. 从 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载正确的 StorageGRID Debian 安装包。
+.. 选择*删除*以删除安装软件。
+.. 上传 `storagegrid-webscale-images-<sg-version>.deb`和 `storagegrid-webscale-images-<sgversion>.deb.md5`文件。
+
+
+. 在 StorageGRID 设备安装程序主页选项卡上，选择 *Primary Admin (with Load Balancer)* 作为节点类型。
+. 输入节点名称。节点名称必须与现有的主管理节点名称匹配。
++
+
+IMPORTANT: 请勿选择*开始安装*。
+
+. 检查新 IP 地址的子网是否在网格网络中。如果新 IP 子网不存在，请将其添加到网格网络：
++
+.. 在网格管理器中，选择*维护* > *网格网络*。
+.. 输入配置密码以更新子网列表。
+
+
+. [[download-recovery-package]]从 GRID Manager 下载恢复包：
++
+.. 选择*维护* > *恢复包*。
+.. 输入配置密码，然后下载软件包。
+
+
+. 登录到现有的主管理节点：
++
+.. 输入以下命令： `ssh admin@grid_node_IP`
+.. 输入文件中列出的密码 `Passwords.txt`。
+.. 输入以下命令切换到root： `su -`
+.. 输入文件中列出的密码 `Passwords.txt`。
+
+
++
+当您以root用户身份登录时，提示符将从更 `$`改为 `#`。
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["从现有主管理节点复制审核日志"]。
+. 停止服务器管理器和网格节点上的所有服务：
++
+[listing]
+----
+service servermanager stop
+----
++
+最多需要 15 分钟才能停止服务。
+
+. 在 StorageGRID Appliance Installer 主页选项卡上：
++
+.. 验证以下设置：
++
+*** 节点类型设置为 *Primary Admin (with Load Balancer)*
+*** 节点名称与现有主管理节点名称匹配
+
+
+.. 记录新的 IP 地址。
+
+
+. 选择*开始安装*。
++
+安装大约需要 10 分钟才能到达 *Load StorageGRID installer* 步骤。
+
++
+六到七分钟后，浏览器将重定向以开始恢复过程。
+
+. 检查设备时钟是否正确。
++
+.. 使用 SSH 连接到端口 8022：
++
+... 输入命令： `ssh -p 8022 admin@_grid_node_IP_`。
+... 切换到 root： `su -`
+... 输入 `netapp1!`。
+
+
+.. 验证设备时钟是否与当前 UTC 时间相差在几分钟以内。如有需要，请设置正确的日期和时间：
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. 返回 Web 浏览器，然后选择*恢复发生故障的主管理节点*。
+. 上传 <<download-recovery-package,您下载的恢复包>>。
+. 输入配置密码并选择*Start Recovery*。
++
+主管理节点恢复页面消失，然后重新出现。如果再次选择 *Start Recovery*，则会出现 `500: Internal Server Error`，因为恢复已开始，但无法将更新发送到正在使用新 IP 地址的 Grid Manager。通过更新 `/etc/hosts`文件中的主管理节点 IP 地址来解决此问题：
+
++
+.. 使用 SSH 连接到端口 8022：
++
+... 输入命令： `ssh -p 8022 admin@_grid_node_IP_`。
+... 切换到 root： `su -`
+... 输入文件中列出的密码 `Passwords.txt`。
+
+
+.. 访问日志：
++
+[listing]
+----
+tail /var/local/log/install.log
+----
++
+您应该会反复看到以下错误： `curl: (7) Failed to connect to <primary_Admin_Node_name> port9999: No route to host`
+
++
+这是预期的行为。StorageGRID 正在尝试使用现有的主管理节点 IP 地址将更新发送到主管理节点。
+
+.. 验证容器是否正在运行：
++
+`storagegrid node status`
+
++
+`storagegrid node enter <primary_Admin_Node_name>`
+
+.. 在容器内的 `/etc/hosts`文件中，将现有的主管理节点 IP 地址替换为新的 IP 地址。
+.. 保存文件。
+.. 返回 Web 浏览器。几秒钟后，将显示恢复进度条。
++
+等待6到10分钟，以完成恢复过程并启动服务。
+
+
+
+. 出现提示时，登录到 Grid Manager。
+. 更新恢复软件包：
++
+.. 登录到主管理节点：
++
+... 输入以下命令： `ssh admin@_primary_Admin_Node_IP_`
+... 切换到 root： `su -`
+... 输入以下命令： `change-ip`
+
+
+.. 选择选项 *3 – Edit admin network subnet lists*，然后添加新子网。
+
+
++
+StorageGRID 自动生成包含新主管理节点 IP 地址的新恢复包。
+
+. 从 Grid Manager 下载最新的恢复包。
+
+
+--
+====
+
+
+[[step-2-complete-node-recovery]]
+== 步骤2：完成节点恢复
+
+将现有非主管理节点用作还原过程（审核日志、管理节点数据库和 Prometheus 指标）的源管理节点。如果网格没有非主管理节点，您可以使用正在被替换的原始 VMware 节点，前提是它运行的 IP 地址与恢复的主管理节点不同。
+
+.步骤
+. link:restoring-audit-log-on-recovered-primary-admin-node.html["还原审核日志"]。
+. link:restoring-admin-node-database-primary-admin-node.html["还原管理节点数据库"]。
+. link:restoring-prometheus-metrics-primary-admin-node-using-npan.html["还原 Prometheus 指标"]。
+. 验证新的主管理节点是否正常工作。然后，立即删除原始 VM 节点或裸机容器。
+

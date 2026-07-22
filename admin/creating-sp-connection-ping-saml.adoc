@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-sp-connection-ping.html 
+permalink: admin/creating-sp-connection-ping-saml.html 
 sidebar: sidebar 
 keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
 summary: 您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。 
 ---
-= 在 PingFederate 中为 StorageGRID 创建服务提供商连接
+= 在 StorageGRID 中为 SAML 创建 PingFederate 服务提供商连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。
+使用 PingFederate 为系统中每个管理节点创建 SAML 服务提供商 (SP) 连接。为了加快此过程，您将从 StorageGRID 导入 SAML 元数据。
 
 .开始之前
 * 您已为 StorageGRID 配置单点登录，并选择了 * Ping 联邦 * 作为 SSO 类型。
-* 你有link:../admin/configure-sso.html#enter-sandbox-mode["进入沙盒模式"]在网格管理器中。
+* 您在 Grid Manager 中拥有 link:../admin/configure-sso-saml.html#enter-sandbox-mode["进入沙盒模式"]。
 * 您系统中每个管理节点都有* SP连接 ID *。您可以在“配置 SSO”页面上的管理节点详细信息表中找到这些值。
 * 您已为系统中的每个管理节点下载 * SAML 元数据 * 。
 * 您在 PingFederate 服务器中创建 SP 连接的经验。

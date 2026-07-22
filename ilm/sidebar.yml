@@ -113,8 +113,8 @@ entries:
     url: "/ilm/workflow-for-s3-object-lock.html"
   - title: S3 对象锁定的要求
     url: "/ilm/requirements-for-s3-object-lock.html"
-  - title: 全局启用 S3 对象锁定
-    url: "/ilm/enabling-s3-object-lock-globally.html"
+  - title: 启用 S3 对象锁定
+    url: "/ilm/enabling-s3-object-lock.html"
   - title: 解决更新 S3 对象锁定或原有合规性配置时出现的一致性错误
     url: "/ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html"
 - title: ILM 规则和策略示例

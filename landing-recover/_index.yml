@@ -27,8 +27,10 @@ indexpage:
     links:
     - title: 替换Linux节点
       url: "../maintain/all-node-types-replacing-linux-node.html"
-    - title: 更换VMware节点
+    - title: 用恢复节点替换 VMware 节点
       url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: 用 SG1000 或 SG100 替换 VMware 节点
+      url: "../maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: 将Linux或VMware节点更换为服务设备
       url: "../maintain/installing-services-appliance-platform-change-only.html"
     - title: 克隆设备节点

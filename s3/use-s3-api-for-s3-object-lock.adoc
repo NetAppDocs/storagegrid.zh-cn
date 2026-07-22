@@ -14,6 +14,9 @@ summary: 如果为StorageGRID 系统启用了全局S3对象锁定设置、则可
 如果为StorageGRID 系统启用了全局S3对象锁定设置、则可以在启用S3对象锁定的情况下创建分段。您可以为每个存储分段指定默认保留、也可以为每个对象版本指定保留设置。
 
 
+NOTE: StorageGRID 不支持 `x-amz-sdk-checksum-algorithm`请求标头。
+
+
 
 [[how-to-enable-s3-object-lock-for-a-bucket]]
 == 如何为存储分段启用S3对象锁定
@@ -22,10 +25,11 @@ summary: 如果为StorageGRID 系统启用了全局S3对象锁定设置、则可
 
 S3对象锁定是一种永久性设置、只有在创建存储分段时才能启用。创建分段后、您无法添加或禁用S3对象锁定。
 
-要为存储分段启用S3对象锁定、请使用以下方法之一：
+要为存储桶启用 S3 Object Lock，请使用以下方法之一：
 
 * 使用租户管理器创建存储分段。请参阅。 link:../tenant/creating-s3-bucket.html["创建 S3 存储分段"]
 * 使用带有请求标头的CreateBucket.创建存储分段 `x-amz-bucket-object-lock-enabled`。请参阅。 link:operations-on-buckets.html["对存储分段执行的操作"]
+* 从租户管理器管理存储桶设置。请参阅 link:../tenant/update-default-retention-settings.html["更新S3对象锁定默认保留"]。
 
 
 S3对象锁定需要分段版本控制、创建分段时会自动启用此功能。您不能暂停分段的版本控制。请参阅。 link:object-versioning.html["对象版本控制"]
@@ -83,19 +87,27 @@ S3对象锁定需要分段版本控制、创建分段时会自动启用此功能
 
 通过PutObjectLockConfiguration请求、您可以设置和修改启用了S3对象锁定的存储分段的默认保留模式和默认保留期限。您还可以删除先前配置的默认保留设置。
 
-如果未指定和 `x-amz-object-lock-retain-until-date`、则在向存储分段中引入新对象版本时、系统会应用默认保留模式 `x-amz-object-lock-mode`。如果未指定、则使用默认保留期限来计算保留截止日期 `x-amz-object-lock-retain-until-date`。
+当新对象版本被摄取到存储桶时，如果未指定 `x-amz-object-lock-mode`和 `x-amz-object-lock-retain-until-date`，则应用默认保留模式。如果未指定 `x-amz-object-lock-retain-until-date`，则使用默认保留期限来计算保留截止日期。
 
-如果在载入对象版本后修改了默认保留期限，则对象版本的保留日期将保持不变，不会使用新的默认保留期限重新计算。
+如果在接收对象版本后修改了默认保留期限，则对象版本的 retain-until-date 保持不变，并且不会使用新的默认保留期限重新计算。
 
 要完成此操作、您必须 `s3:PutBucketObjectLockConfiguration`具有权限或帐户root。
 
- `Content-MD5`必须在Put请求中指定请求标头。
+必须在 PutObjectLockConfiguration 请求中指定以下请求标头之一：
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID 不验证此操作的 x-amz-checksum-* 标头的内容。
 
 
 
 ==== 请求示例
 
-此示例为存储分段启用S3对象锁定、并将默认保留模式设置为合规、将默认保留期限设置为6年。
+此示例为存储桶启用 S3 对象锁定（如果网格管理员已授予权限），并将默认保留模式设置为 COMPLIANCE，将默认保留期限设置为 6 年。
 
 [listing, subs="specialcharacters,quotes"]
 ----
@@ -137,7 +149,7 @@ Authorization: _authorization-string_
 
 通过GetObjectLockConfiguration请求、您可以确定是否为存储分段启用了S3对象锁定、如果已启用、则查看是否为存储分段配置了默认保留模式和保留期限。
 
-如果未指定、则在将新对象版本加热到存储分段时、系统会应用默认保留模式 `x-amz-object-lock-mode`。如果未指定、则使用默认保留期限来计算保留截止日期 `x-amz-object-lock-retain-until-date`。
+当新对象版本被摄取到存储桶时，如果未指定 `x-amz-object-lock-mode`，则应用默认保留模式。如果未指定 `x-amz-object-lock-retain-until-date`，则使用默认保留期限来计算保留截止日期。
 
 要完成此操作、您必须 `s3:GetBucketObjectLockConfiguration`具有权限或帐户root。
 
@@ -226,8 +238,17 @@ NOTE: 如果指定 `x-amz-object-lock-mode`，则还必须指定 `x-amz-object-l
 
 如果您使用上述任一请求标头，请注意以下限制：
 
-*  `Content-MD5`如果PutObject请求中存在任何请求标头、则需要请求标 `x-amz-object-lock-*`头。 `Content-MD5`对于CopyObject或CreateMultipartUpload不是必需项。
-* 如果存储分段未启用S3对象锁定、并且 `x-amz-object-lock-*`存在请求标头、则会返回400 BAD Request (ValidRequest)错误。
+* 如果 PutObject 请求中存在任何 x-amz-object-lock-* 请求标头，则必须包含以下请求标头之一：
++
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
++
+这些标头不是 CopyObject 或 CreateMultipartUpload 所必需的。
+
+* 如果存储桶未启用 S3 对象锁定并存在 x-amz-object-lock-* 请求标头，则返回 400 Bad Request (InvalidRequest) 错误。
 * PutObject请求支持使用 `x-amz-storage-class: REDUCED_REDUNDANCY`匹配AWS行为。但是，如果在启用了 S3 对象锁定的情况下将对象载入存储分段，则 StorageGRID 将始终执行双提交载入。
 * 如果配置了标题、和，并且请求发送者具有正确的权限，则 `s3:Get*`后续的GET或HeadObject版本响应将包括标题 `x-amz-object-lock-mode`、 `x-amz-object-lock-retain-until-date`和 `x-amz-object-lock-legal-hold`。
 
@@ -254,6 +275,16 @@ NOTE: 如果指定 `x-amz-object-lock-mode`，则还必须指定 `x-amz-object-l
 
 
 
+必须在请求中指定以下请求标头之一：
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID 不验证这些操作的 x-amz-checksum-* 标头的内容。
+
 
 
 [[how-to-use-governance-mode]]
@@ -264,6 +295,9 @@ NOTE: 如果指定 `x-amz-object-lock-mode`，则还必须指定 `x-amz-object-l
 * 执行DeleteObject或DeleteObjects操作以在对象保留期限到期之前删除该对象版本。
 +
 无法删除处于合法保留状态的对象。合法保留必须关闭。
+
++
+The `x-amz-bypass-governance-retention` 标头对没有 S3 Object Lock 的对象无效。
 
 * 执行PutObject놣 쇴 操作、以便在对象的保留期限结束之前将对象版本的模式从监管更改为合规。
 +

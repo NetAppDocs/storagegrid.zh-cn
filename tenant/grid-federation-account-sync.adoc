@@ -1,0 +1,125 @@
+---
+permalink: tenant/grid-federation-account-sync.html 
+sidebar: sidebar 
+keywords: account sync, tenant sync, grid federation, cross-grid replication 
+summary: 如果创建或编辑租户以使用网格联合连接，则该租户将从一个 StorageGRID 系统（源租户）复制到所有其他连接的 StorageGRID 系统（副本租户）。租户复制后，租户组、用户和 S3 访问密钥将在连接的网格中同步。 
+---
+= 同步 StorageGRID 中的租户组和用户
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果创建或编辑租户以使用网格联合连接，则该租户将从一个 StorageGRID 系统（源租户）复制到所有其他连接的 StorageGRID 系统（副本租户）。租户复制后，租户组、用户和 S3 访问密钥将在连接的网格中同步。
+
+最初创建租户的 StorageGRID 系统是租户的_源网格_。租户将复制到一个或多个_目标网格_。所有已连接网格上的租户帐户具有相同的帐户 ID、名称、描述、存储配额、分配的权限和 root 用户密码。有关详细信息，请参阅 link:../admin/grid-federation-what-is-account-sync.html["了解网格联盟的帐户同步"] 和 link:../admin/grid-federation-manage-tenants.html["管理允许的租户"]。
+
+需要同步租户帐户信息，以便对存储桶对象执行 link:../admin/grid-federation-what-is-cross-grid-replication.html["跨网格复制"] 操作。在所有网格上拥有相同的租户组和用户，可确保您能够访问任何已连接网格上的相应存储桶和对象。
+
+
+
+[[tenant-workflow-for-account-sync]]
+== 用于帐户同步的租户工作流程
+
+如果您的租户帐户具有*使用网格联合连接*权限，请查看工作流程图，了解同步组、用户和 S3 访问密钥所需执行的步骤。
+
+image:grid_federation_account_sync_workflow_tm.png["租户的帐户同步工作流程。以下文本将介绍这些步骤。步骤如下文所述。"]
+
+以下是工作流中的主要步骤：
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]登录到租户
+[role="quick-margin-para"]
+在任何连接的网格上登录到租户帐户。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"](可选)配置身份联合
+[role="quick-margin-para"]
+如果您的租户帐户具有*使用自己的身份源*权限以使用联合组和用户，请为源和一个或多个目标租户帐户配置相同的身份源（使用相同的设置）。联合组在创建时克隆，联合用户在创建密钥时克隆。要进行克隆，必须在所有网格上配置相同的身份源。有关说明，请参阅 link:using-identity-federation.html["使用身份联合"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]创建组和用户
+[role="quick-margin-para"]
+您可以从任何连接的网格创建组和用户。添加新本地组时，StorageGRID 会自动将其同步到所有连接的网格。对本地组（编辑、删除）的更改也会持续同步。联合组在创建时克隆一次。
+
+[role="quick-margin-list"]
+* 如果为整个StorageGRID系统或租户帐户配置了身份联合、link:creating-groups-for-s3-tenant.html["创建新租户组"]可通过从身份源导入联合组来实现。
+
+
+[role="quick-margin-list"]
+* 如果您不使用身份联合，link:creating-groups-for-s3-tenant.html["创建新的本地组"]进而link:manage-users.html["创建本地用户"]。
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]创建S3访问密钥
+[role="quick-margin-para"]
+您可以link:creating-your-own-s3-access-keys.html["创建您自己的访问密钥"]或在任何网格上link:creating-another-users-s3-access-keys.html["创建其他用户的访问密钥"]以访问所有连接网格上的存储桶。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 同步 S3 访问密钥
+[role="quick-margin-para"]
+如果需要在所有网格上使用相同的访问密钥访问存储桶，请在其中一个网格上创建访问密钥。对于本地用户，默认情况下会自动同步访问密钥。对于联合用户，您必须在源网格上创建 S3 访问密钥，并选择 *Enable access key sync* 以将密钥同步到所有目标网格。
+
+
+
+[[how-are-groups-users-and-s3-access-keys-synced]]
+== 如何同步组、用户和 S3 访问密钥？
+
+查看此部分，了解如何跨连接的网格同步组、用户和 S3 访问密钥。
+
+
+
+[[local-groups-are-continuously-synced]]
+=== 本地组会持续同步
+
+创建租户帐户并将其复制到目标网格后，StorageGRID 会持续同步所有已连接网格中的本地组。在任何网格上对本地组所做的所有更改（包括创建、编辑和删除操作）都会自动复制到所有其他已连接的网格。
+
+原始组及其同步副本都具有相同的访问模式、组权限和 S3 组策略。有关说明，请参阅link:creating-groups-for-s3-tenant.html["为 S3 租户创建组"]。
+
+
+
+[[local-users-are-continuously-synced]]
+=== 本地用户会不断同步
+
+当您在任何已连接的网格上创建新的本地用户时，StorageGRID 会自动将该用户同步到所有其他已连接的网格。后续更改（包括编辑、删除和密码重置）也会持续同步。原始用户及其同步副本具有相同的全名、用户名和 * 拒绝访问 * 设置。每个网格上的相同用户也属于相同的组。有关说明，请参见 link:manage-users.html["管理用户"]。
+
+
+
+[[federated-groups-are-synced-once-at-creation]]
+=== 联合组在创建时同步一次
+
+假设使用帐户同步的 link:../admin/grid-federation-what-is-account-sync.html#account-sync-sso["单点登录"] 和 link:../admin/grid-federation-what-is-account-sync.html#account-sync-identity-federation["身份联合"] 要求已满足，您为网格上的租户创建（导入）的联合组将自动同步到所有其他连接网格上的租户。
+
+这两个组具有相同的访问模式、组权限和 S3 组策略。
+
+为源租户创建联合组并同步到其他网格后，联合用户可以在任何连接的网格上登录到租户。联合组的后续更改不会在网格之间自动同步。
+
+
+
+[[s3-access-keys-can-be-automatically-or-manually-synced]]
+=== S3 访问密钥可以自动或手动同步
+
+默认情况下，StorageGRID 会自动同步 S3 访问密钥。出于安全考虑，您可以为每个租户禁用 S3 访问密钥的自动同步，并为每个网格上的每个租户提供不同的密钥。
+
+要管理已连接网格上的访问密钥，您可以执行以下操作之一：
+
+* 如果不需要对每个网格使用相同的密钥，则可以禁用自动访问密钥同步，并在每个网格上link:creating-your-own-s3-access-keys.html["创建您自己的访问密钥"]或link:creating-another-users-s3-access-keys.html["创建其他用户的访问密钥"]。
+
+
+
+NOTE: 同步联合用户的 S3 访问密钥时，用户和 S3 访问密钥都将同步到目标租户。
+
+
+NOTE: 本地用户拥有的 S3 访问密钥在连接的网格之间持续同步，包括在删除密钥时。联合用户拥有的 S3 访问密钥在创建时同步一次；后续更改（包括删除）不会被复制。您可以为每个租户连接启用或禁用访问密钥同步。
+
+
+
+[[groups-and-users-added-to-destination-grid-are-synced]]
+=== 添加到目标网格的组和用户已同步
+
+在任何连接的网格上所做的更改，包括创建或导入本地组和用户，都会自动同步到所有其他连接的网格。
+
+
+
+[[edited-or-deleted-local-groups-users-and-access-keys-are-synced]]
+=== 已编辑或删除的本地组、用户和访问密钥已同步
+
+对本地用户拥有的本地组、本地用户和 S3 访问密钥的更改在所有连接的网格中持续同步。同步操作包括编辑、删除和密码重置。
+
+初始创建后，对联合用户拥有的联合组和 S3 访问密钥的更改不会同步。

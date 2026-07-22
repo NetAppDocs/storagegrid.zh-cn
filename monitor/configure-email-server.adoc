@@ -1,0 +1,73 @@
+---
+permalink: monitor/configure-email-server.html 
+sidebar: sidebar 
+keywords: notifications, email, system events, technical support 
+summary: 作为 StorageGRID 管理员，您需要配置电子邮件服务器，以便从 StorageGRID 警报和监控系统发送通知，通知您、其他管理员和技术支持有关系统事件和问题的信息。 
+---
+= 配置电子邮件服务器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+作为 StorageGRID 管理员，您需要配置电子邮件服务器，以便从 StorageGRID 警报和监控系统发送通知，通知您、其他管理员和技术支持有关系统事件和问题的信息。
+
+使用电子邮件服务器进行通知的 StorageGRID 功能包括警报、AutoSupport 和多管理员验证 (MAV)。您可以对所有通知使用相同的电子邮件服务器。
+
+.开始之前
+* 您拥有link:../admin/admin-group-permissions.html["root访问权限"]。
+* 您已使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
+
+
+.步骤
+. 选择*配置* > *监控* > *电子邮件服务器*。
++
+此时将显示电子邮件服务器页面。
+
+. 选择下拉菜单，*查看可能需要电子邮件服务器的功能*。如果要查看配置功能的电子邮件通知的详细信息和所需信息，请选择 *查看*。
++
+您将转到网格管理器中功能的配置页面。每个功能的配置页面都包含需要电子邮件服务器才能发送电子邮件通知的通知。
+
+. 要从电子邮件服务器页面配置电子邮件服务器，请执行以下操作：
++
+.. 输入电子邮件服务器的 IP 地址或 FQDN。
+.. 选择电子邮件服务器使用的端口号。默认值为 25。
+.. 要启用身份验证，请选择*Use authentication*并输入用户名和密码。
+.. 要求验证 SMTP 服务器的身份，请选择 *Use Transport Layer Security (TLS)*。然后：
++
+... 提供 CA 捆绑包。
+... 如果 SMTP 电子邮件服务器要求电子邮件发件人提供客户端证书进行身份验证，请选择 *Send client certificate*。然后提供客户端证书和私钥。
+
+
+.. 为确保您的电子邮件设置正确，请通过输入发件人和收件人来发送测试电子邮件。选择 *Send*。
++
+此时将显示一条确认消息，指示已发送测试电子邮件。
+
+.. 检查所有电子邮件收件人的收件箱，确认已收到测试电子邮件。
++
+
+NOTE: 如果在几分钟内未收到电子邮件，或者触发了 * 电子邮件通知失败 * 警报，请检查您的设置并重试。
+
+.. 登录到任何其他管理节点并发送测试电子邮件以验证所有站点的连接。
++
+
+NOTE: 在测试警报通知时，您必须登录到每个管理节点以验证连接。这与测试AutoSupport软件包不同、在测试软件包中、所有管理节点都会发送测试电子邮件。
+
+
+
+. 选择 * 保存 * 。
++
+发送测试电子邮件不会保存您的设置。必须选择 *Save*。
+
++
+此时将保存电子邮件设置。
+
+. 转到使用电子邮件服务器的功能的配置页面并完成电子邮件通知设置。
++
+** link:../monitor/email-alert-notifications.html["警报"]。对于警报，您也可以 link:../monitor/snmp-alert-notifications.html["设置 SNMP 通知"]。
+** link:../monitor/configure-autosupport-grid-manager.html["AutoSupport"]。您可以通过电子邮件、HTTPS 或 HTTP（不建议使用 HTTP）发送 AutoSupport 包。
+** link:../admin/configure-multi-admin-verify.html["多管理员验证（MAV）"]。
+
+
+

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to administer storagegrid 
 summary: 按照以下说明配置和管理 StorageGRID 系统。 
 ---
-= 管理 StorageGRID
+= StorageGRID 管理快速入门
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,24 +14,67 @@ summary: 按照以下说明配置和管理 StorageGRID 系统。
 按照以下说明配置和管理 StorageGRID 系统。
 
 
+NOTE: 确保您对 StorageGRID 系统有基本了解，并且对 Linux 命令行 Shell、网络以及服务器硬件设置和配置有相当详细的了解。
 
-[[about-these-instructions]]
-== 关于这些说明
-
-通过配置和管理StorageGRID的主要任务、您可以：
-
-* 使用网格管理器设置组和用户
-* 创建租户帐户以允许S3客户端应用程序存储和检索对象
-* 配置和管理StorageGRID网络
-* 配置 AutoSupport
-* 管理节点设置
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 开始使用 Grid Manager
+[role="quick-margin-list"]
+* link:../admin/web-browser-requirements.html["了解使用 Grid Manager 用户界面的基本步骤"]
+* link:../admin/viewing-storagegrid-license-information.html["了解许可证信息"]
+* link:../admin/using-grid-management-api.html["了解如何使用网格管理API"]
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 控制对 StorageGRID 的访问
+[role="quick-margin-list"]
+* link:../admin/controlling-storagegrid-access.html["了解密码短语、密码和权限"]
+* link:../admin/using-identity-federation.html["配置身份联合"]
+* link:../admin/managing-admin-groups.html["管理管理组"]
+* link:../admin/managing-users.html["管理用户"]
+* link:../admin/how-sso-works.html["配置单点登录(SSO)"]
 
 
-[[before-you-begin]]
-== 开始之前
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 使用网格联盟
+[role="quick-margin-list"]
+* link:../admin/grid-federation-overview.html["配置网格联盟连接"]
+* link:../admin/grid-federation-what-is-account-sync.html["了解账号同步"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["了解跨网格复制"]
+* link:../admin/learn-about-global-namespace.html["配置全局命名空间"]
 
-* 您已大致了解 StorageGRID 系统。
-* 您对 Linux 命令 Shell ，网络连接以及服务器硬件设置和配置有相当详细的了解。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 管理安全性
+[role="quick-margin-list"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html["查看 StorageGRID 加密方法"]
+* link:../admin/using-storagegrid-security-certificates.html["管理证书"]
+* link:../admin/manage-tls-ssh-policy.html["配置安全设置"]
+* link:../admin/kms-configuring.html["配置密钥管理服务器"]
+* link:../admin/configuring-storage-proxy-settings.html["管理代理设置"]
+* link:../admin/controlling-access-through-firewalls.html["控制防火墙"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 管理租户
+[role="quick-margin-list"]
+* link:../admin/managing-tenants.html["了解并管理租户帐户"]
+* link:../admin/manage-platform-services-for-tenants.html["管理租户的平台服务"]
+* link:../admin/manage-s3-select-for-tenant-accounts.html["管理租户帐户的 S3 Select"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 配置客户端连接
+[role="quick-margin-list"]
+* link:../admin/security-for-clients.html["了解 S3 客户端的安全性"]
+* link:../admin/use-s3-setup-wizard.html["使用S3设置向导"]
+* link:../admin/managing-high-availability-groups.html["管理高可用性组"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["配置S3端点域名"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"] 管理网络和连接
+[role="quick-margin-list"]
+* link:../admin/configuring-network-settings.html["配置网络设置"]
+* link:../admin/configure-vlan-interfaces.html["配置 VLAN 接口"]
+* link:../admin/managing-traffic-classification-policies.html["管理流量分类策略"]
+* link:../admin/manage-link-costs.html["管理链路成本"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"] 管理节点
+[role="quick-margin-list"]
+* link:../admin/what-object-segmentation-is.html["管理存储节点"]
+* link:../admin/using-multiple-admin-nodes.html["管理管理节点"]
 

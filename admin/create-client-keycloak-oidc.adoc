@@ -1,0 +1,224 @@
+---
+permalink: admin/create-client-keycloak-oidc.html 
+sidebar: sidebar 
+keywords: keycloak, client, single sign on, sso 
+summary: 您可以使用 Keycloak 为系统中的每个管理节点创建客户端连接。 
+---
+= 在 StorageGRID 中为 OIDC 创建 Keycloak 客户端
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 Keycloak 为 StorageGRID 系统中每个管理节点的 OpenID Connect (OIDC) 创建客户端连接。
+
+.开始之前
+* 您具有在 Keycloak 中创建客户端的经验，或者您可以访问 Keycloak 文档。
+* 您拥有用于目录查找和登录凭据的专用帐户（Bind DN）。
+* 您拥有 Keycloak 管理员访问权限。
+
+
+.关于此任务
+StorageGRID 系统中的每个管理节点都必须有一个客户端连接。这可确保用户可以安全地登录和退出任何管理节点。您可以为所有管理节点创建单个客户端连接（推荐），也可以为每个管理节点创建不同的客户端连接。
+
+除非另有说明，否则请使用默认设置。在某些情况下，您可以使用贵组织要求的设置。
+
+
+
+[[step-1-optionally-create-a-realm]]
+== 步骤 1：（可选）创建一个领域
+
+创建 Keycloak 领域以配置 LDAP 提供程序和 OIDC 客户端，或使用 Keycloak 默认领域。
+
+.步骤
+. 选择 *Create Realm*。
+. 输入领域的名称。
+. 选择*已启用*。
+. 选择 * 创建 * 。
+
+
+
+
+[[create-ldap-oidcstep-2-configure-ldap-provider]]
+== [[create-ldap-oidc]]步骤 2：配置 LDAP 提供程序
+
+请配置 LDAP 提供程序，以便 Keycloak 连接到 Active Directory Federation Service (AD FS) LDAP 服务器。
+
+.步骤
+. 选择 *User federation* > *Add Ldap providers*。
+. 在"设置"选项卡下：
++
+.. 输入以下推荐值：
++
+*** UI 显示名称：输入唯一值。
+*** 供应商：*Active Directory*
+*** 连接 URL： `ldap://<ldap_IP_address>` 或 `ldaps://<ldap_IP_address>`
+*** 连接池： *ON*
+*** 绑定 DN：输入绑定 DN
+*** 绑定凭据：输入密码
+*** 编辑模式：*READ_ONLY*
+*** 用户 DN：例如， `CN=Users`、 `DC=saml`、 `DC=sgws`
+*** 用户名 LDAP 属性：*sAMAccountName*
+*** RDN LDAP 属性：*cn*
+*** UUID LDAP 属性：*objectGUID*
+*** 用户对象类：	`person`、 `organizationalPerson`、 `user`
+*** 用户 LDAP 过滤器： `(sAMAccountName=*)`
+*** 搜索范围：*子树*
+*** 分页： *ON*
+*** 导入用户： *ON*
+*** 同步注册： *ON*
+*** 在搜索过程中删除无效用户：*ON*
+
+
+.. 选择*测试连接*和*测试身份验证*。
++
+在继续之前，请解决可能发生的任何问题。
+
+
+
+. 选择 * 保存 * 。
+
+
+
+
+[[step-3-configure-ldap-mapping]]
+== 步骤 3：配置 LDAP 映射
+
+配置 LDAP 映射，将 AD 映射为 Keycloak 的属性。
+
+.步骤
+. 转至*用户联盟* > *LDAP*
+. 选择您创建的 <<create-ldap-oidc,LDAP 提供程序>>。
+. 在映射器选项卡上，选择*添加映射器* > *创建新映射器*。
+. 对于映射器类型，选择 *user-attribute-ldap-mapper*。
+. 选择*保存*，然后输入以下信息：
++
+** 用户模型属性：*userPrincipalName*
+** LDAP 属性：*userPrincipalName*
+** 只读： *ON*
+** 始终从 LDAP 读取值： *ON*
+** 在 LDAP 中为必填项：*OFF*
+** 强制默认值： *ON*
+** 是二进制属性： *OFF*
+
+
+. 选择 * 保存 * 。
+
+
+
+
+[[create-client-oidcstep-4-create-oidc-client]]
+== [[create-client-oidc]]步骤 4：创建 OIDC 客户端
+
+为您的系统创建 OIDC 客户端。
+
+.步骤
+. 转至 *Clients* > *Create client*。
+. 对于常规设置，输入以下信息：
++
+** 名称：输入客户端的显示名称。
+** 客户端类型：*OIDC Connect*
+** 客户端 ID：输入一个唯一值。保存此值以供以后使用。
+
+
+. 选择 * 下一步 * 。
+. 对于功能配置，输入以下信息：
++
+** 客户端身份验证：*ON*
+** 标准流程： *启用*
+** 直接访问权限：*启用*
+** 服务帐户角色： *Enable*
+
+
+. 选择 * 下一步 * 。
+. 对于登录设置，输入重定向 URI：
++
+
+NOTE: 如果为管理接口配置了一个或多个负载平衡器端点，请为每个端口添加重定向 URI。例如： `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-callback`和 `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-logged-out`
+
++
+** 有效的重定向 URI： `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-callback` 和 `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** 有效的注销后重定向 URI： `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** 网页来源： `\https://<Admin_IP_address_or_FQDN>`
+
+
+. 选择 * 保存 * 。
+
+
+
+
+[[client-secret-oidcstep-5-generate-client-secret]]
+== [[client-secret-oidc]]第 5 步：生成客户端密钥
+
+为您创建的 OIDC 客户端生成客户端密码。
+
+.步骤
+. 转至 *Clients*，然后选择您创建的 <<create-client-oidc,OIDC 客户端>>。
+. 在凭据选项卡上，输入以下信息：
++
+** 客户端身份验证器： *Client Id and Secret*
+** 客户端密码：*生成或设置客户端密码*。保存此值以供以后使用。
+
+
+
+
+
+
+[[step-6-define-scopes]]
+== 第6步：定义范围
+
+在 Keycloak 中定义作用域。
+
+.步骤
+. 转到 *Client scopes* > *Create client scope*，然后输入以下信息：
++
+** 类型： *无*
+** 协议：*OpenID Connect*
+** 在同意屏幕上显示： *已启用*
+** 包括在 OpenID Provider Metadata 中：*已启用*
+
+
+. 选择 * 保存 * 。
+. 在映射器选项卡上，选择*配置新映射器* > *用户属性*，然后输入以下信息：
++
+** 名称：输入唯一值。
+** 用户属性：*userPrincipalName*
+** 令牌声明名称：*upn*
+** 声明 JSON 类型：*String*
+** 添加到ID令牌： *ON*
+** 添加到访问令牌： *ON*
+** 添加到userinfo：*ON*
+** 添加到令牌自省：*ON*
+
+
+. 选择 * 保存 * 。
+. 转到*客户*，然后选择您创建的<<create-client-oidc,OIDC 客户端>>。
+. 选择*Client Scopes* > *Add client scope*。
+. 选择您创建的客户端作用域。
+. 选择 * 添加 * 。
+
+
+
+
+[[step-7-prepare-to-configure-sso-using-oidc]]
+== 步骤 7：准备使用 OIDC 配置 SSO
+
+保存在 StorageGRID 系统中使用 Keycloak 通过 OIDC 配置 SSO 所需的信息。
+
+.步骤
+. 请检查您是否已从创建的 OIDC 客户端保存了 <<create-client-oidc,客户端ID>> 和 <<client-secret-oidc,客户端密钥>>。
+. 保存领域的 OpenID Connect 发现端点。此选项在 `well-known`配置端点中可用：
++
+`\https://<keycloak_host_ip/keycloak_host_name>/realms/<realm_name>/.well-known/openid-configuration`
+
++
+可选地包括网络端口：
+
++
+`\https://<keycloak_host_ip/keycloak_host_name>:<https_port>/realms/<realm_name>/.well-known/openid-configuration`
+
+
+
+.下一步
+创建 OIDC 客户端后，link:configure-sso-oidc.html["使用 OIDC 配置 SSO"]。

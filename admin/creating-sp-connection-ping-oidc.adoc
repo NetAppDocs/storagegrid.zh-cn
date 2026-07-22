@@ -1,0 +1,357 @@
+---
+permalink: admin/creating-sp-connection-ping-oidc.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: 您可以使用 PingFederate 为系统中的每个管理节点创建服务提供商（ SP ）连接。要加快此过程，您需要从 StorageGRID 导入 SAML 元数据。 
+---
+= 在 StorageGRID 中为 OIDC 创建 PingFederate 中的服务提供商连接
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 PingFederate 为系统中每个管理节点的 OpenID Connect (OIDC) 创建服务提供商 (SP) 连接。
+
+.开始之前
+* 您在 PingFederate 服务器中创建 SP 连接的经验。
+* 您有https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["《管理员参考指南》"^]用于PingFedate服务器的。PingFederate 文档提供了详细的分步说明和说明。
+* 你有link:../admin/admin-group-permissions.html["管理员权限"]用于 PingFederate 服务器。
+
+
+.关于此任务
+以下说明总结了如何将 PingFederate 服务器版本 12.1.10 配置为 StorageGRID 的 SSO 提供程序。如果您使用的是其他版本的 PingFederate，则可能需要调整这些说明。有关您的版本的详细说明，请参阅 PingFederate 服务器文档。
+
+除非另有说明，否则请使用默认设置。在某些情况下，您可以使用组织要求的设置，例如身份验证方法的设置。
+
+
+
+[[step-1-create-data-storedata-store-oidc]]
+== 步骤 1：创建数据存储[[data-store-oidc]]
+
+如果尚未创建数据存储，请创建一个数据存储以将 PingFederate 连接到 AD FS LDAP 服务器。
+
+.步骤
+. 转到*系统* > *数据和凭据存储*。
+. 选择*New Data Store*。
+. 对于类型，选择 *Directory (LDAP)*。
+. 选择 * 下一步 * 。
+. 在 LDAP 配置下：
++
+** 输入*主机名*、*用户 DN*（用户名）和*密码*的值。
++
+使用您在 StorageGRID 中link:../admin/using-identity-federation.html["配置身份联合"]时所用的值。
+
+** 对于 Active Directory，选择 *LDAP Type*。
+
+
+
+
+
+
+[[step-2-create-password-credential-validatorpassword-validator-oidc]]
+== 步骤 2：创建密码凭据验证器[[password-validator-oidc]]
+
+如果尚未创建密码凭据验证程序，请创建一个。
+
+.步骤
+. 选择*Password Credential Validators* > *Create New instance*。
+. 在类型选项卡上，输入以下信息：
++
+.. 实例名称和实例 ID：可以对两者使用相同的值。
+.. 类型：选择 *LDAP Username Password Credential Validator*。
+
+
+. 选择 * 下一步 * 。
+. 在 Instance Configuration （实例配置）选项卡上，输入以下信息：
++
+** LDAP 数据存储区：选择您创建的 <<data-store-oidc,数据存储>>。
+** SEARCH BASE：输入 <<data-store-oidc,LDAP 配置>> 的信息。
+** 搜索筛选器：输入 *sAMAccountName=${username}*。
+** 搜索范围：选择*子树*。
+
+
+. 选择 * 下一步 * 。
+. 在Extended Contract选项卡上，添加以下属性： `memberOf`、 `objectGUID`、 `sAMAccountName`、 `sn`和 `userPrincipalName`
+. 选择*下一步* > *保存*。
+
+
+
+
+[[step-3-create-idp-adapter-instanceadapter-instance-oidc]]
+== 步骤 3：创建 IdP 适配器实例[[adapter-instance-oidc]]
+
+如果尚未创建，请创建一个 IdP（身份提供程序）适配器实例。
+
+
+NOTE: 您的 StorageGRID 系统中的每个管理节点都必须有一个 IdP 连接。这可确保用户可以安全地登录和退出任何管理节点。您可以为所有管理节点创建单个 IdP 连接（推荐），也可以为每个管理节点创建不同的 IdP 连接。
+
+.步骤
+. 转至 * 身份验证 * > * 集成 * > * IdP 适配器 * 。
+. 选择 * 创建新实例 * 。
+. 在类型选项卡上，输入以下信息：
++
+** 实例名称和实例 ID：可以对两者使用相同的值。
+** 类型：选择 *HTML Form IdP Adapter*。
+
+
+. 选择 * 下一步 * 。
+. 在 *IdP Adapter* 选项卡上，选择 *Add a new row to 'Credential Validators'*。
+. 选择您创建的 <<password-validator-oidc,密码凭据验证程序>>。
+. 选择 * 下一步 * 。
+. 在Extended Contract选项卡上，添加为 <<password-validator-oidc,密码凭据验证程序>> 映射的属性。
+. 选择 * 下一步 * 。
+. 在适配器属性选项卡上，为假名选择 *username* 属性。
+. 选择 *Next* > *Next*。
+. 查看摘要并选择*保存*。
+
+
+
+
+[[step-4-configure-oauth-server-and-authorization-server-settings]]
+== 步骤 4：配置 OAuth 服务器和授权服务器设置
+
+配置授权服务器以支持 StorageGRID 接受的授权类型。
+
+.步骤
+. 转至*系统* > *授权服务器设置*。
+. 验证是否已为授予类型选择以下选项以重用现有永久访问授予：
++
+** 隐含
+** 授权码
+** 资源所有者密码凭据
++
+
+NOTE: 如果贵公司限制使用 RESOURCE OWNER PASSWORD CREDENTIALS，则只能使用 AUTHORIZATION CODE。
+
+
+
+. 对于 OAuth 管理 Web 服务设置，请选择您创建的 <<password-validator-oidc,密码凭据验证程序>>。
+
+
+
+
+[[step-5-define-scopes]]
+== 第5步：定义范围
+
+在 PingFederate 中定义作用域。
+
+.步骤
+. 转到*系统* > *OAuth Settings* > *范围管理*。
+. 在 Common Scopes 选项卡上，添加 *openid*、*email* 和 *profile* 的值（如果它们还不存在）。
+
+
+
+
+[[step-6-configure-idp-adapter-mapping]]
+== 第6步：配置 IdP 适配器映射
+
+配置 IdP 适配器映射，以将 IdP 属性映射到颁发给客户端的永久授权，例如访问令牌或刷新令牌。
+
+.步骤
+. 转到 *Authentication* > *Policy Contract Grant Mapping*。
+. 选择 *IdP Adapter Grant Mapping*。
+. 从 SOURCE ADAPTER INSTANCE 下拉列表中，选择您创建的 <<adapter-instance-oidc,HTML 表单适配器>>。
+. 选择*添加映射* > *合同履行*。
+. 在源下，为 USER_KEY 和 USER_NAME 选择 *Adapter*。
+. 在"值"下，选择 *sAMAccountName* 作为 USER_KEY，选择 *username* 作为 USER_NAME。
+. 选择*下一步* > *下一步*以导航到摘要页面。
+. 选择 * 保存 * 。
+
+
+
+
+[[step-7-set-up-resource-owner-credentials-mapping]]
+== 第7步：设置资源所有者凭据映射
+
+设置资源所有者凭据映射，以确保在身份验证期间正确验证用户凭据。
+
+.步骤
+. 转到 *Authentication* > *Policy Contract Grant Mapping*。
+. 选择*Resource Owner Credentials Grant Mapping*。
+. 从 SOURCE PASSWORD VALIDATOR INSTANCE 下拉列表中，选择您创建的 <<password-validator-oidc,密码凭据验证程序>>。
+. 选择*添加映射* > *合同履行*。
+. 为 USER_KEY 添加映射：
++
+** 在 Source 下，选择 *Password Credential Validator*。
+** 在值下，选择 *sAMAccountName*。
+
+
+. 选择*下一步* > *下一步*以导航到摘要页面。
+. 选择 * 保存 * 。
+
+
+
+
+[[step-8-create-or-import-signing-certificatesigning-certificate-oidc]]
+== 第8步：创建或导入签名证书[[signing-certificate-oidc]]
+
+如果尚未创建，请创建或导入签名证书。
+
+.步骤
+. 转至 * 安全性 * > * 签名和解密密钥和证书 * 。
+. 选择*Create New*，然后输入以下信息：
++
+** 公用名 (CN)：这应该是服务器的完全限定域名 (FQDN)。
+** 组织（Org）：输入您的组织名称。
+** 国家/地区：提供两个字母的国家/地区代码，例如，US 代表美国。
+** 密钥算法：选择适当的密钥算法，例如 *RSA*。
+** 密钥大小：设置为 *2048* 位。
+** 签名算法：选择 *RSA with SHA256* 作为签名算法，以确保安全的加密操作。
+
+
+
+
+
+
+[[step-9-configure-access-token-managementaccess-token-oidc]]
+== 第9步：配置访问令牌管理[[access-token-oidc]]
+
+StorageGRID 使用访问令牌对 PingFederate 中的 API 请求进行身份验证和授权。
+
+.步骤
+. 导航到*应用程序* > *访问令牌管理*。
+. 选择 * 创建新实例 * 。
+. 在类型选项卡上，输入以下信息：
++
+** 实例名称和实例 ID：可以对两者使用相同的值。
+** 类型：验证值是否为 *JSON Web Tokens*。
+
+
+. 选择 * 下一步 * 。
+. 在"实例配置"选项卡上，输入证书的以下信息：
++
+** 密钥 ID：输入密钥的唯一标识符。
+** 证书：添加您创建的 <<signing-certificate-oidc,证书>>。
+** JWS ALGORITHM：选择 *RSA using SHA256*。
+** 活动签名证书密钥 ID：选择您在此步骤中创建的 *KEY ID*。
+
+
+. 选择 *Next* > *Next*。
+. 在Access Token Attribute Contract选项卡上，为Subject Attribute Name选择*USER_KEY*，为Extend the Contract选择*username*。
+. 选择 * 添加 * 。
+. 选择*下一步* > *下一步* > *下一步*以导航到摘要页面。
+. 选择 * 保存 * 。
+
+
+
+
+[[step-10-configure-access-token-mapping]]
+== 第10步：配置访问令牌映射
+
+配置访问令牌映射以使用您创建的访问令牌。
+
+.步骤
+. 转到*应用程序* > *访问令牌映射*。
+. 选择*访问令牌映射*。
+. 选择*添加映射*。
+. 对于上下文，选择*Default*。
+. 对于访问令牌管理器，请选择您创建的 <<access-token-oidc,访问令牌>>。
+. 选择*下一步* > *合同履行*：
+. 在 Source 下，为用户名选择 *Persistent Grant*。
+. 在值下，选择 *USER_KEY* 作为用户名。
+. 选择*下一步* > *保存*。
+
+
+
+
+[[step-11-set-up-the-openid-connect-policy]]
+== 第11步：设置OpenID Connect策略
+
+为客户端访问根据 OpenID 规范映射的属性定义 OpenID Connect 策略。
+
+.步骤
+. 转至*应用程序* > *OAuth Clients*。
+. 选择 *OpenId Connect Policy Management* > *Add Policy*。
+. 在"管理策略"选项卡上，输入以下信息：
++
+** 策略 ID：此策略的唯一标识符。
+** 策略名称：策略的描述性名称。
+** 访问令牌管理器：选择您创建的 <<access-token-oidc,访问令牌>>。
+** ID TOKEN LIFETIME：为 ID token 设置所需的生存期，例如 60 分钟或 1 小时。
+** 在 ID 令牌中包含用户信息：选中该框以在 ID 令牌中包含用户详细信息。
+
+
+. 选择 * 下一步 * 。
+. 在"属性合同"选项卡上，删除您创建的 <<data-store-oidc,数据存储>> 中不需要的任何现有属性。仅保留要从 Ping Authentication 传递到 StorageGRID 的属性。
++
+
+NOTE: 这是关键的一步。它确定 ID 令牌中包括哪些属性值。StorageGRID 在身份验证过程中继承这些值。
+
+. 选择 *Next* > *Next*。
+. 在属性源和用户查找选项卡上，选择 *添加属性源*。然后输入下列信息：
++
+** ATTRIBUTE SOURCE ID 和 ATTRIBUTE SOURCE DESCRIPTION：可以对两者使用相同的值。
+** ACTIVE DATA STORE：选择您创建的 <<data-store-oidc,数据存储>>。
+
+
+. 选择 * 下一步 * 。
+. 在 LDAP 目录搜索选项卡上：
++
+.. 输入 * 基本 DN* ，该 DN 应与您在 StorageGRID 中为 LDAP 服务器输入的值完全匹配。
+.. 从根对象类下拉列表中选择 *objectClass*。
+.. 从 ATTRIBUTE 下拉列表中，为要映射的每个对象类添加属性。例如：
++
+*** InetOrgPerson：添加 displayName、givenName 或 HomePhone。
+*** user：添加 LocalID 或 userPrincipalName (upn)。
+*** top：添加 memberOf 或名称。
+*** person：添加 sn。
+
+
+
+
+. 选择 * 下一步 * 。
+. 在 LDAP 筛选器选项卡上，输入 * 。 sAMAccountName=$ ｛ username ｝ * 。
++
+您需要自定义 LDAP 筛选器，以确保 StorageGRID 根据贵组织特定的 Active Directory 或 LDAP 结构检索用户属性。请咨询您的 LDAP/AD 管理员，以获取适合您的设置的筛选器表达式。
+
+. 选择*保存*并查看摘要。
+. 在Contract Fulfillment （合同履行）选项卡上，输入以下信息：
++
+** 源：选择您创建的 <<data-store-oidc,LDAP 数据存储>>。
+** 值：将每个属性合约映射到相应的值。
+
+
+. 选择 *Next* > *Next*。
+. 查看摘要并选择*保存*。
+. 转到*应用程序* > *OAuth Clients* > *OpenID Connect Policy Management*。
+. 验证您创建的策略是否设置为默认策略。
+
+
+
+
+[[step-12-create-oauth-client-for-oauth-server]]
+== 步骤 12：为 OAuth 服务器创建 OAuth 客户端
+
+创建新的 OAuth 客户端以配置必要的客户端凭据并授权 PingFederate 与 StorageGRID 之间的连接。
+
+.步骤
+. 转至*应用程序* > *OAuth Clients*。
+. 选择 *Add Client*，然后输入以下信息：
++
+** 客户端 ID：输入唯一值。
+** 客户端身份验证：选择 *Client Secret*。
+** CLIENT SECRET：选择 *CHANGE SECRET* > *Generate Secret*。
++
+这将为客户端生成密钥。保存此密钥供以后使用。
+
+** REDIRECT URIS：在 *Redirect URI* 部分提供 StorageGRID 返回 URL。这些 URL 应与 StorageGRID 中为 OAuth 配置的 URL 匹配：例如：
+** `\https://<Admin IP or Hostname>/api/v4/oidc-callback`
+** `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+** 允许的授予类型：选择以下选项：
++
+*** *授权码*：这将启动 OAuth 流程。
+*** *Refresh Token*：在访问令牌过期时获取新令牌。
+*** *Resource Owner Password Credentials*：如果您需要直接访问用户凭据进行身份验证。
+
+
+** OPENID CONNECT：选择 *RSA using SHA-256* 作为 ID 令牌签名算法。
+** 注销模式：选择 *OIDC Back-Channel*。
+** Front-Channel Logout URI、Back-Channel Logout URI 和 Post-Logout Redirect URI：添加 StorageGRID 注销 URI： `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+
+
+. 选择 * 保存 * 。
+
+
+.下一步
+创建 SP 连接后，link:configure-sso-oidc.html["使用 OIDC 配置 SSO"]。

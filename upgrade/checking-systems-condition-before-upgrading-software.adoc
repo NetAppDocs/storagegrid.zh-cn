@@ -16,9 +16,9 @@ summary: 在升级StorageGRID系统之前、请确认系统已准备好进行升
 .步骤
 . 使用登录到网格管理器link:../admin/web-browser-requirements.html["支持的 Web 浏览器"]。
 . 检查并解决所有活动警报。
-. 参考link:../network/internal-grid-node-communications.html["内部网格节点通信"]和link:../network/external-communications.html["外部通信"]确保在升级之前打开StorageGRID 12.0 所需的所有端口。
+. 请参阅link:../network/internal-grid-node-communications.html["内部网格节点通信"]和link:../network/external-communications.html["外部通信"]，以确保在升级之前打开 StorageGRID 12.1 的所有所需端口。
 +
 
-NOTE: 升级到StorageGRID 12.0 时不需要额外的端口。
+NOTE: 升级到 StorageGRID 12.1 时不需要额外的端口。
 
 

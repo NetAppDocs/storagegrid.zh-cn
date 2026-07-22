@@ -16,7 +16,7 @@ summary: 如果您希望 StorageGRID 将添加到 S3 存储分段的指定对象
 例如，您可以使用 CloudMirror 复制将特定客户记录镜像到 Amazon S3 ，然后利用 AWS 服务对数据执行分析。
 
 
-NOTE: 如果源存储分段启用了 S3 对象锁定，则不支持 CloudMirror 复制。
+NOTE: CloudMirror 复制仅在源存储桶启用了 S3 对象锁定且端点为 Amazon 或 StorageGRID S3 存储桶时才受支持。对象锁定设置不会复制到存储桶端点。
 
 
 

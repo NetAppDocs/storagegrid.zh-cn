@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["节点页面网络接口"]
 +
 接收和传输表显示了通过每个网络接收和发送的字节数和数据包数，以及其他接收和传输指标。
 
-+
-image:nodes_page_network_communication.png["节点页面网络通信"]
-
 
 
 . 使用与流量分类策略关联的指标监控网络流量。
@@ -62,7 +59,7 @@ image:nodes_page_network_communication.png["节点页面网络通信"]
 +
 image:traffic_classification_policies_main_screen_w_examples.png["图形的流量策略示例"]
 
-.. 要查看显示与策略关联的网络指标的图形，请选择策略左侧的单选按钮，然后单击 * 指标 * 。
+.. 要查看显示与策略关联的网络指标的图表，请选择策略左侧的单选按钮，然后选择 *Metrics*。
 .. 查看图形以了解与策略关联的网络流量。
 +
 如果流量分类策略旨在限制网络流量，请分析流量限制的频率，并确定该策略是否仍能满足您的需求。不时地，link:../admin/managing-traffic-classification-policies.html["根据需要调整每个流量分类策略"].

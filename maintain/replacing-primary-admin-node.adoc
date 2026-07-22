@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: 要恢复主管理节点，必须先更换物理或虚拟硬件。 
 ---
-= 替换主 StorageGRID 管理节点
+= 使用相同的主管理节点替换 StorageGRID 主管理节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,12 @@ summary: 要恢复主管理节点，必须先更换物理或虚拟硬件。
 [role="lead"]
 要恢复主管理节点，必须先更换物理或虚拟硬件。
 
-您可以将出现故障的主管理节点替换为在同一平台上运行的主管理节点，也可以将在 VMware 或 Linux 主机上运行的主管理节点替换为服务设备上托管的主管理节点。
+要恢复主管理节点，必须先更换物理或虚拟硬件。
+
+* 您可以将发生故障的主管理节点替换为在同一平台上运行的主管理节点。
+* 您可以将 VMware 或 Linux 主机上运行的主管理节点替换为 StorageGRID 服务设备上托管的主管理节点。
+* 您可以将 VMware 主机上运行的主管理节点替换为 SG1000 或 SG100 服务设备。
+
 
 使用与您为节点选择的替代平台匹配的操作步骤 。完成节点更换操作步骤 （适用于所有节点类型）后，该操作步骤 将引导您进入主管理节点恢复的下一步。
 
@@ -25,7 +30,9 @@ summary: 要恢复主管理节点，必须先更换物理或虚拟硬件。
  a| 
 VMware
  a| 
-link:all-node-types-replacing-vmware-node.html["更换 VMware 节点"]
+link:all-node-types-replacing-vmware-node.html["用恢复节点替换 VMware 节点"]
+
+link:replace-vmware-node-with-sg1000-sg100.html["用 SG1000 或 SG100 替换 VMware 节点"]
 
 
 

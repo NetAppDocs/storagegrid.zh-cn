@@ -69,7 +69,7 @@ TIP: 除非您知道自己有特殊要求、或者您的实施需要大量自定
 === 获取并配置域名
 
 * 您知道要用于StorageGRID 的完全限定域名(FQDN)。域名服务器(DNS)条目会将此FQDN映射到您使用向导创建的HA组的虚拟IP (VIP)地址。请参阅。 link:../fabricpool/configure-dns-server.html["配置 DNS 服务器"]
-* 如果您计划使用S3虚拟托管模式请求，则需要link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]。默认情况下、ONTAP 使用路径样式的URL、但建议使用虚拟托管样式的请求。
+* 如果您计划使用 S3 虚拟托管式请求，则需要 link:../admin/configuring-s3-api-endpoint-domain-names.html["已配置S3端点域名"]。ONTAP 默认使用路径样式的 URL，但建议使用虚拟托管样式的请求。
 
 
 

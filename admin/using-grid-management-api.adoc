@@ -43,10 +43,7 @@ Swagger 用户界面提供了每个 API 操作的完整详细信息和文档。
 CAUTION: 使用API文档网页执行的任何API操作均为实时操作。请注意，不要错误地创建，更新或删除配置数据或其他数据。
 
 .步骤
-. 从Grid Manager标题中，选择帮助图标，然后选择*API documents*。
-+
-image:help_menu.png["帮助菜单"]
-
+. 从网格管理器标题中，选择帮助图标 image:icon_help_menu_bar.png["帮助图标"] 并选择 *API documentation*。
 . 要使用专用 API 执行操作，请在 StorageGRID 管理 API 页面上选择 * 转至专用 API 文档 * 。
 +
 专用 API 如有更改，恕不另行通知。StorageGRID 私有端点也会忽略此请求的 API 版本。

@@ -97,4 +97,5 @@ restore copies of data.
 
 
 
-在重新格式化和重新挂载存储卷并完成必要的cassand拉 操作后，您可以link:../maintain/restoring-volume.html["使用网格管理器还原对象数据"]。
+.下一步是什么？
+在重新格式化和重新装载存储卷以及必要的 Cassandra 操作完成后，您可以 link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["使用网格管理器还原对象数据"]。

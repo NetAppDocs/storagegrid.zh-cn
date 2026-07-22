@@ -19,7 +19,7 @@ summary: 如有必要、您可以手动验证StorageGRID安装归档文件中的
 .步骤
 . 从验证软件包中提取项目：
 +
-`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
+`tar -xf StorageGRID_12.1.0_Code_Signature_Verification_Package.tar.gz`
 
 . 确保已提取这些项目：
 +
