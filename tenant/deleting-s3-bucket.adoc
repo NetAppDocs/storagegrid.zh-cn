@@ -22,7 +22,7 @@ summary: 您可以使用租户管理器删除空的 S3 存储分段。
 .关于此任务
 以下说明介绍如何使用租户管理器删除 S3 存储分段。您也可以使用或删除S3存储分段link:understanding-tenant-management-api.html["租户管理 API"]link:../s3/operations-on-buckets.html["S3 REST API"]。
 
-如果S3存储分段包含对象、非当前对象版本或删除标记、则不能将其删除。有关如何删除S3版本控制对象的信息，请参见link:../ilm/how-objects-are-deleted.html["如何删除对象"]。
+如果 S3 存储桶包含对象、非当前对象版本或删除标记，则无法删除该存储桶。有关如何删除 S3 版本化对象的信息，请参见link:../ilm/how-objects-and-delete-markers-are-deleted.html["如何删除对象和删除标记"]。
 
 .步骤
 . 从信息板中选择*查看存储分段*，或选择*存储(S3)*>*存储分段*。

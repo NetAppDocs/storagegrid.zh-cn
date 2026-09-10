@@ -1,0 +1,149 @@
+---
+permalink: ilm/how-objects-and-delete-markers-are-deleted.html 
+sidebar: sidebar 
+keywords: ILM deletion, how objects are deleted 
+summary: StorageGRID 可以直接响应客户端请求删除对象，也可以因 S3 存储分段生命周期到期或 ILM 策略要求而自动删除对象。了解可删除对象的不同方式以及 StorageGRID 如何处理删除请求有助于您更有效地管理对象。 
+---
+= StorageGRID 如何删除对象和删除标记
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 可以直接响应客户端请求或由于 S3 存储桶生命周期到期或 ILM 策略要求而自动删除对象。了解删除对象的不同方式、StorageGRID 处理删除请求的方式以及如何删除过期的删除标记，可以帮助您更有效地管理对象。
+
+StorageGRID 可以使用以下两种方法之一删除对象：
+
+* *同步删除*：当 StorageGRID 收到客户端删除请求时，将立即删除所有对象副本。副本删除后，客户端会收到删除成功的通知。
+* *对象排队等待删除*：当 StorageGRID 收到删除请求时，对象排队等待删除，并立即通知客户端删除成功。对象副本稍后通过后台 ILM 处理删除。
+
+
+删除对象时， StorageGRID 会使用方法来优化删除性能，最大限度地减少潜在的删除积压并以最快的速度释放空间。
+
+下表总结了 StorageGRID 何时使用每种方法。
+
+[cols="1a,3a"]
+|===
+| 执行删除的方法 | 使用时 
+
+
+ a| 
+对象已排队等待删除
+ a| 
+当满足以下条件中的 * 任意 * 时：
+
+* 以下事件之一已触发自动对象删除：
++
+** 已达到 S3 存储分段的生命周期配置中的到期日期或天数。
+** ILM 规则中指定的最后一个时间段已过。
+
+
++
+*注意：*如果存储分段中启用了S3对象锁定的对象处于合法保留状态、或者指定了保留截止日期但尚未满足、则无法删除这些对象。
+
+* S3客户端请求删除、并且满足以下一个或多个条件：
++
+** 无法在30秒内删除副本、例如、某个对象位置暂时不可用。
+** 后台删除队列处于空闲状态。
+
+
+
+
+
+
+ a| 
+立即删除对象（同步删除）
+ a| 
+当S3客户端发出删除请求且满足以下*全部*条件时：
+
+* 可以在 30 秒内删除所有副本。
+* 后台删除队列包含要处理的对象。
+
+
+|===
+当S3客户端发出删除请求时、StorageGRID会首先将对象添加到删除队列中。然后，它会切换到执行同步删除。确保后台删除队列包含要处理的对象，这样 StorageGRID 可以更高效地处理删除，尤其是对于低并发性客户端，同时有助于防止客户端删除积压。
+
+
+
+[[time-required-to-delete-objects]]
+== 删除对象所需的时间
+
+StorageGRID 删除对象的方式可能会影响系统的执行方式：
+
+* 当 StorageGRID 执行同步删除时， StorageGRID 可能需要长达 30 秒才能将结果返回给客户端。这意味着删除的速度可能会更慢，即使副本的实际删除速度比 StorageGRID 将对象排队等待删除时要快。
+* 如果在批量删除期间密切监视删除性能，您可能会注意到，在删除一定数量的对象后，删除速率似乎很慢。当 StorageGRID 从将对象排队等待删除切换到执行同步删除时，会发生此更改。删除速率的明显降低并不意味着删除对象副本的速度更慢。相反，它表明平均而言，空间现在被更快地释放。
+
+
+如果要删除大量对象，并且您的优先级是快速释放空间，请考虑使用客户端请求删除对象，而不是使用 ILM 或其他方法删除这些对象。通常，当客户端执行删除时，空间释放速度会更快，因为 StorageGRID 可以使用同步删除。
+
+删除对象后释放空间所需的时间取决于多个因素：
+
+* 对象副本是同步删除还是稍后排队等待删除（对于客户端删除请求）。
+* 其他因素包括网格中的对象数或对象副本排队等待删除时网格资源的可用性（对于客户端删除和其他方法）。
+
+
+
+
+[[how-s3-versioned-objects-are-deleted]]
+[[delete-s3-versioned-objects]]
+== 如何删除受版本控制的 S3 对象
+
+为 S3 存储桶启用版本控制时，StorageGRID 在响应对象删除请求时遵循 Amazon S3 行为，无论这些请求来自 S3 客户端、S3 存储桶生命周期到期还是 ILM 策略的要求。
+
+
+CAUTION: 删除对象以释放存储空间被视为永久且不可恢复的操作。
+
+请务必了解 StorageGRID 如何处理指定版本 ID（如 <<s3-client-request,S3 客户端请求>>）的对象删除请求以及未指定版本 ID 的对象删除请求。没有版本 ID 的对象删除请求不会删除对象的当前版本，也不会释放存储空间。相反，它们会创建一个零字节的 <<s3-delete-markers,删除标记>> 作为对象的当前版本，这将使对象的先前版本变为"非当前"版本。非当前对象使用版本 ID 进行标识。
+
+即使对象尚未从存储中删除，StorageGRID 的行为就好像对象的当前版本不再可用一样。对该对象的请求返回 404 NotFound。但是，由于尚未删除非当前对象数据，因此指定非当前对象版本 ID 的请求可以成功。
+
+如果为版本控制已挂起的存储桶中的对象发出没有版本 ID 的 delete-object 请求，StorageGRID 会为该对象创建一个带有 null `versionId` 的删除标记。这将替换并永久删除以前的 null 版本，因为一个对象只能有一个 null 版本。
+
+如果客户端从 link:../tenant/what-is-branch-bucket.html#operations-in-branch-buckets["分支桶"] 中删除具有版本 ID 的对象版本，StorageGRID 会隐藏该对象版本的存在，但不会在分支存储桶中创建删除标记。如果客户端从分支存储桶中删除没有版本 ID 的对象，StorageGRID 将根据标准 S3 行为在分支存储桶中创建删除标记。
+
+由于对象数据保留为非当前版本，因此删除版本化存储桶中的对象通常不会释放存储空间。要永久删除保留的非当前对象版本并释放空间，请使用以下选项之一：
+
+[[s3-client-request]]
+* *S3 client request*：在 S3 DELETE Object 请求中指定对象版本 ID (`DELETE /object?versionId=ID`）。请注意，此请求仅删除指定版本 ID 的对象副本。如果存在多个非当前版本，请根据需要对每个非当前版本重复此操作。
+* *存储桶生命周期*：使用存储桶生命周期配置中的 `NoncurrentVersionExpiration`操作。当达到 NoncurrentDays 指定的数量时，StorageGRID 将永久删除非当前对象版本的所有副本。
++
+ `NewerNoncurrentVersions`存储分段生命周期配置中的操作指定受版本控制的S3存储分段中保留的非最新版本数。如果非最新版本比指定的版本多 `NewerNoncurrentVersions`、则在非当前天数值已过时、StorageGRID将删除旧版本。此 `NewerNoncurrentVersions`阈值将覆盖ILM提供的生命周期规则、这意味着、如果ILM请求删除版本在阈值内的非当前对象、则会保留此对象 `NewerNoncurrentVersions`。
+
+* *ILM*：配置使用"非当前时间"作为参考时间并仅适用于较旧对象版本的 ILM 规则。当指定的保留期到期时，StorageGRID 会删除匹配的非当前对象版本。在 link:create-ilm-rule-enter-details.html["创建ILM规则向导的第1步(输入详细信息)"] 中，为"仅将此规则应用于较旧的对象版本（在启用版本控制的 S3 存储桶中）？"的问题选择*是*。
+* *Delete objects in bucket*: 使用租户管理器 link:../tenant/deleting-s3-bucket-objects.html["删除所有对象版本"]。
+
+
+
+
+[[how-s3-versioning-expired-delete-markers-are-deleted]]
+[[s3-delete-markers]]
+== 如何删除 S3 版本控制过期的删除标记
+
+当为 S3 存储桶启用版本控制时，对象删除请求不会删除当前版本的对象，也不会释放存储空间。相反，对象删除请求会创建一个零字节删除标记作为对象的当前版本，这使得先前版本的对象变为"非当前"版本。
+
+当删除标记是当前版本且没有非当前版本时，它将成为过期的删除标记。已过期的删除标记不包含对象数据，但会显示在存储桶列表和指标中，从而阻止存储桶删除。
+
+如何配置 StorageGRID 以删除过期的删除标记取决于存储桶是用于长期使用（启用或暂停版本控制）还是正在准备删除：
+
+* *自动清理现有存储桶中的过期删除标记*：要在保留对象版本的同时自动从存储桶（已启用版本控制）中删除过期的删除标记，需要配置具有 `Expiration`操作和 `ExpiredObjectDeleteMarker`配置的存储桶生命周期规则。此操作仅适用于过期的删除标记。当删除标记过期时，它会自动删除，如link:example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#use-bucket-to-lifecycle-remove-expired-delete-markers["使用存储桶生命周期规则删除过期对象删除标记的示例"]中所示。
++
+
+CAUTION: ILM 策略无法区分当前对象版本和过期的删除标记。如果目标是仅删除过期的删除标记，同时保留对象版本，请在存储区生命周期中使用  `ExpiredObjectDeleteMarker`，而不是 ILM 策略。
+
++
+如果为版本控制已挂起的存储桶中的对象发出没有版本 ID 的删除对象请求，StorageGRID 会为该对象创建一个版本 ID 为 `NULL`的删除标记。这将替换并永久删除以前的 `NULL`版本 ID，因为一个对象只能有一个空版本。要删除过期的空版本删除标记，必须在存储桶生命周期中使用 `ExpiredObjectDeleteMarker`，如link:example-9-delete-noncurrent-versions-and-expired-delete-markers.html["暂停版本控制后删除非当前版本和过期删除标记的示例"]中所示。
+
+* *准备删除存储桶*：如果要删除存储桶，并且确定不再需要存储桶中的所有内容，但过期的标记阻止删除，请使用租户管理器link:../tenant/deleting-s3-bucket-objects.html["删除所有对象版本，包括删除标记、当前版本和非当前版本"]从存储桶中删除。
+
+
+如何从存储桶中删除标记取决于您的 StorageGRID 版本：
+
+* 可以通过ILM、存储分段生命周期规则、删除存储分段操作中的对象或显式S3客户端删除功能从在StorageGRID 11.8或更高版本中创建的存储分段中删除标记。
+* 在 StorageGRID 11.7 或更早版本中创建的删除标记只能通过 S3 客户端请求删除。ILM、存储桶生命周期规则或存储桶中的删除对象操作不会删除它们。
+
+
+.相关信息
+* link:../s3/index.html["使用S3 REST API"]
+* link:example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["示例 4 ： S3 版本对象的 ILM 规则和策略"]
+

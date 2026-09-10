@@ -44,6 +44,7 @@ summary: 分支存储桶提供对存储桶中在特定时间存在的对象的�
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == 对分支存储桶中的对象进行操作
 
 * 对分支存储桶执行 PUT 对象操作会在分支中创建一个对象。
@@ -110,4 +111,4 @@ HEAD/GET 返回对象版本不存在
 |===
 
 
-另请参阅link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]。
+另请参阅link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]。

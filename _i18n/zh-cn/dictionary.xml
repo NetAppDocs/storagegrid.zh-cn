@@ -148,8 +148,6 @@
   <block id="73c96607289e49c7b19e527fb9de95ea" category="list-text">StorageGRID 不会删除此对象版本，因为保留截止日期仍在 2 年后。</block>
   <block id="e762d0c762bcc87678d0e3a9d50a075b" category="summary">StorageGRID 可以直接响应客户端请求删除对象，也可以因 S3 存储分段生命周期到期或 ILM 策略要求而自动删除对象。了解可删除对象的不同方式以及 StorageGRID 如何处理删除请求有助于您更有效地管理对象。</block>
   <block id="0367de356ced721f2c1e92da9aa98298" category="paragraph">StorageGRID 可以使用以下两种方法之一删除对象：</block>
-  <block id="6f00aba503e9e326ea41856448a65dc9" category="list-text">同步删除：当 StorageGRID 收到客户端删除请求时，将立即删除所有对象副本。删除副本后，系统会通知客户端删除操作成功。</block>
-  <block id="d91ada0ac5ceb626a2debf0e4929549c" category="list-text">对象将排队等待删除：当 StorageGRID 收到删除请求时，该对象将排队等待删除，并且系统会立即通知客户端删除已成功。对象副本稍后将通过后台 ILM 处理进行删除。</block>
   <block id="eb572e30af6b1fdabc805c4e06bc0284" category="paragraph">删除对象时， StorageGRID 会使用方法来优化删除性能，最大限度地减少潜在的删除积压并以最快的速度释放空间。</block>
   <block id="628f5cf2550c98225e641bacab6db515" category="paragraph">下表总结了 StorageGRID 何时使用每种方法。</block>
   <block id="40c3012bb973e62ccc546e8afd3d8c69" category="cell">执行删除的方法</block>
@@ -171,30 +169,14 @@
   <block id="184ecf0f734d33d55b6300d662fe11a3" category="section-title">删除对象所需的时间</block>
   <block id="19707cde186b769c190acbf5fd50fae1" category="paragraph">StorageGRID 删除对象的方式可能会影响系统的执行方式：</block>
   <block id="72fc6e1c2910be716e711df0d5c0c89f" category="list-text">当 StorageGRID 执行同步删除时， StorageGRID 可能需要长达 30 秒才能将结果返回给客户端。这意味着删除的速度可能会更慢，即使副本的实际删除速度比 StorageGRID 将对象排队等待删除时要快。</block>
-  <block id="ed208bffe8ba0c09ee4a5fffc00c5e38" category="list-text">如果您在批量删除期间密切监控删除性能、则可能会注意到、删除一定数量的对象后、删除率似乎很慢。当 StorageGRID 从对要删除的对象进行排队转移到执行同步删除时，会发生此更改。删除率明显降低并不意味着删除对象副本的速度较慢。相反，它表明平均而言，空间释放速度更快。</block>
   <block id="d8b8d112bac24065453ac064bd623603" category="paragraph">如果要删除大量对象，并且您的优先级是快速释放空间，请考虑使用客户端请求删除对象，而不是使用 ILM 或其他方法删除这些对象。通常，当客户端执行删除时，空间释放速度会更快，因为 StorageGRID 可以使用同步删除。</block>
   <block id="0799e9c3a47b609b78ea7d2eb054179e" category="paragraph">删除对象后释放空间所需的时间取决于多个因素：</block>
   <block id="a95eb5d5d9592b739c0ecff82499088a" category="list-text">对象副本是同步删除还是稍后排队等待删除（对于客户端删除请求）。</block>
   <block id="c5b250104c750db51af328cda91fa0af" category="list-text">其他因素包括网格中的对象数或对象副本排队等待删除时网格资源的可用性（对于客户端删除和其他方法）。</block>
   <block id="e226403172953bd7e5c34989260a72a8" category="section-title">如何删除受版本控制的 S3 对象</block>
-  <block id="fa388bd70730f2af9a6646fb1b2c8838" category="paragraph">如果为 S3 存储分段启用了版本控制，则无论这些请求来自 S3 客户端， S3 存储分段生命周期到期还是 ILM 策略要求， StorageGRID 都会在响应删除请求时遵循 Amazon S3 的行为。</block>
-  <block id="9e0d3cfa1dad73b22bdc2ed99552c445" category="paragraph">对对象进行版本管理时、对象删除请求不会删除对象的当前版本、也不会释放空间。相反、对象删除请求会创建一个零字节删除标记作为对象的当前版本、从而使对象的上一个版本"非当前"。如果对象删除标记为当前版本且没有非当前版本、则它将成为过期的对象删除标记。</block>
-  <block id="de38396684e8fc60e4bfc2d5ed53d106" category="paragraph">即使尚未删除此对象， StorageGRID 的行为仍会使当前版本的对象不再可用。对该对象的请求将返回 404 NotFound 。但是，由于未删除非当前对象数据，因此指定非当前对象版本的请求可能会成功。</block>
-  <block id="ab917edcb60b0bb9d033ebb8322c167a" category="paragraph">要在删除分版本对象时释放空间或删除删除标记、请使用以下方法之一：</block>
-  <block id="f3684dafece62d71204cccbf2b53912e" category="list-text">*S3客户端请求*:在S3删除对象请求中指定对象版本ID <block ref="a170517adf955d79d66142375a72f638" prefix="(" category="inline-code"></block>)。请注意，此请求仅删除指定版本的对象副本（其他版本仍占用空间）。</block>
-  <block id="c2e8bb168c707e22abaf4142c75c604a" category="list-text">*存储分段生命周期*：在存储分段生命周期配置中使用此<block ref="aa80bebd533f904edac7f02fda95d03a" prefix=" " category="inline-code"></block>操作。满足指定的非当前磁盘数后， StorageGRID 将永久删除非当前对象版本的所有副本。无法恢复这些对象版本。</block>
   <block id="022560f67dc9d1cb1e4b556053a08f08" category="paragraph"><block ref="a6bcc96ad053433fa838326ff49861f4" prefix=" " category="inline-code"></block>存储分段生命周期配置中的操作指定受版本控制的S3存储分段中保留的非最新版本数。如果非最新版本比指定的版本多<block ref="a6bcc96ad053433fa838326ff49861f4" prefix=" " category="inline-code"></block>、则在非当前天数值已过时、StorageGRID将删除旧版本。此<block ref="a6bcc96ad053433fa838326ff49861f4" prefix=" " category="inline-code"></block>阈值将覆盖ILM提供的生命周期规则、这意味着、如果ILM请求删除版本在阈值内的非当前对象、则会保留此对象<block ref="a6bcc96ad053433fa838326ff49861f4" prefix=" " category="inline-code"></block>。</block>
-  <block id="0eb716b75cb566259d6783aea3f62a45" category="paragraph">要删除过期的对象删除标记，请使用<block ref="d30fd576bd308f6facc9343ebd031b8e" prefix=" " category="inline-code"></block>带有以下标记之一的操作：<block ref="5928b1b3d0e62426fcef71a996e73731" prefix=" " category="inline-code"></block>、<block ref="e807d3ccf8d24c8c1a3d86db5da78da8" prefix=" " category="inline-code"></block>或<block ref="44749712dbec183e983dcd78a7736c41" prefix=" " category="inline-code"></block>。</block>
-  <block id="b8e1c9f3dd7b509e0eba8219d90212eb" category="inline-link-macro">克隆活动策略</block>
-  <block id="5102333e9fda3d924d57b9c9fb237ecb" category="list-text">*ILM：<block ref="fde002861080acf3c3f6737d5f6876f9" category="inline-link-macro-rx"></block>并向新策略中添加两个ILM规则：</block>
   <block id="93a361e8fefeb7a4218a820f61271a42" category="inline-link-macro">创建ILM规则向导的第1步(输入详细信息)</block>
-  <block id="9f5cd4f28d5c8a3888372a9c532e1ece" category="list-text">第一条规则：使用"非当前时间"作为参考时间、以匹配对象的非当前版本。在中<block ref="cf2701d01b7e780e02db108625f8aab5" category="inline-link-macro-rx"></block>，为问题“Apply this Rule to older object versions only (in S3 bu桶with versioning enabled)？(仅将此规则应用于旧对象版本(在启用了版本控制的S3存储分段中)？)”选择*Yes*。</block>
-  <block id="4f420d4387a60c3abf56da860b1dd99d" category="list-text">第二条规则：使用*Ingesgite time*与当前版本匹配。"非当前时间"规则必须显示在策略中、高于*载入时间*规则。</block>
-  <block id="91ae5d8a6d240230ed684e9b4a41f366" category="paragraph">要删除已过期的对象删除标记、请使用*内嵌时间*规则匹配当前的删除标记。只有当*时间段****天*已过且当前删除程序已过期(没有非当前版本)时、删除标记才会被删除。</block>
   <block id="bead5e0dd1a5dcafd1e5dcf8ad27dc9e" category="inline-link-macro">删除所有对象版本</block>
-  <block id="f5f3e32f8987f606565f0cb808921df3" category="list-text">*删除<block ref="5f7e2edc5f5884d52fb2a183a8b948c0" category="inline-link-macro-rx"></block>存储分段中的对象*：使用租户管理器从存储分段中删除标记(包括删除标记)。</block>
-  <block id="87b23f0e8a53f2fe7a5e9df2626da7d0" category="paragraph">删除受版本控制的对象后、StorageGRID会创建一个零字节删除标记作为对象的当前版本。必须先删除所有对象和删除标记、然后才能删除分版本存储分段。</block>
-  <block id="eae1d49d311ae5be60b6c3eae92c7fb9" category="list-text">在StorageGRID 11.7或更早版本中创建的删除标记只能通过S3客户端请求删除、而不能通过ILM、存储分段生命周期规则或删除存储分段操作中的对象来删除。</block>
   <block id="a6b429d9f48e7cab3cba9b64ee8d9a45" category="list-text">可以通过ILM、存储分段生命周期规则、删除存储分段操作中的对象或显式S3客户端删除功能从在StorageGRID 11.8或更高版本中创建的存储分段中删除标记。</block>
   <block id="6d0e61b2118949052808f5b73b2e4d44" category="list-text"><block ref="6d0e61b2118949052808f5b73b2e4d44" category="inline-link-macro-rx"></block></block>
   <block id="eaf1f38ffad5f3c3703030d4272a9bd2" category="paragraph">信息生命周期管理（ ILM ）策略是一组有序的 ILM 规则，用于确定 StorageGRID 系统如何在一段时间内管理对象数据。</block>
@@ -6035,7 +6017,6 @@
   <block id="2ae0a86640c62bbe85eeed0673293454" category="list-text">*删除存储分段中的对象*：租户管理器用户可以使用此选项从StorageGRID 系统中永久删除选定存储分段中的对象和对象版本的所有副本。</block>
   <block id="0df6a7ed05c31c5cd24b0290f65c6cd5" category="list-text">* S3 存储分段生命周期 * ： S3 客户端可以将生命周期配置添加到指定到期操作的存储分段中。如果存储分段生命周期存在，则在满足到期操作中指定的日期或天数时， StorageGRID 会自动删除对象的所有副本，除非客户端先删除该对象。</block>
   <block id="c19238812bc7e24a8191d53b2abff67f" category="list-text">* ILM 放置说明 * ：假设存储分段未启用 S3 对象锁定，并且没有存储分段生命周期，则 StorageGRID 会在 ILM 规则中的最后一个时间段结束且没有为此对象指定其他放置时自动删除对象。</block>
-  <block id="be6d40fa67b6391347e205e2620e9d53" category="paragraph">有关详细信息、请参见 <block ref="a75ec9df7c26afb291b1d3018e8e5d7b" category="inline-link-macro-rx"></block> 。</block>
   <block id="d1270b1b5a69c5f479f397491f833b7f" category="section-title">用于客户端删除的数据流</block>
   <block id="6566c04200eb76e2afd07957d3d4fc83" category="image-alt">客户端删除数据流</block>
   <block id="79cb91017c54b7e3d9501e4149b56b18" category="list-text">LDR 服务从客户端应用程序接收删除请求。</block>
@@ -15509,8 +15490,6 @@
   <block id="3d59bea6f4a99dadb58d606c88a0a18e" category="paragraph">如本示例所示，您可以通过对非当前对象版本使用不同的放置说明来控制受版本控制的对象使用的存储量。</block>
   <block id="c9f40068b9531937c43d3543d15cde26" category="inline-link-macro">对象元数据查找</block>
   <block id="fc2e646977882531f7e3bb3363f99521" category="admonition">要对非最新版本的对象执行ILM策略模拟、您必须知道对象版本的UUID或CBID。要查找UUID和CBID、请在对象仍为最新时使用<block ref="0c103125c5f22ad742ad4ea8f5e77289" category="inline-link-macro-rx"></block>。</block>
-  <block id="845b70f5faea6e7a442ad3e8773a0945" category="inline-link-macro">如何删除对象</block>
-  <block id="e967c414860e19ddf0019fc5224b3d0f" category="paragraph"><block ref="e967c414860e19ddf0019fc5224b3d0f" category="inline-link-macro-rx"></block></block>
   <block id="ae167593713a343332b84d51febeeb53" category="section-title">ILM 规则 1 示例 4 ：保存三个副本并保留 10 年</block>
   <block id="bac28f1ad20ebf36b87eb57f76aff7ec" category="paragraph">此示例ILM规则会将每个对象的副本存储在三个站点上、为期10年。</block>
   <block id="a1e90d0abe3d2d24c7872fe3142c9e59" category="paragraph">此规则将适用场景 所有对象，无论它们是否已受版本控制。</block>
@@ -15744,7 +15723,6 @@
   <block id="651d8daacb1fb2901c48c30813f49776" category="paragraph">ILM 策略将应用于对象的每个版本。ILM 扫描过程会持续扫描所有对象，并根据当前 ILM 策略重新评估这些对象。对 ILM 策略所做的任何更改都会应用于先前载入的所有对象。如果启用了版本控制，则包括先前载入的版本。ILM 扫描会将新的 ILM 更改应用于先前输入的对象。</block>
   <block id="2e8d606f4368e136067309f2d82af664" category="paragraph">对于启用了版本控制的分段中的S3对象，版本控制支持允许您创建使用"非当前时间"作为参考时间的ILM规则(在中为问题“仅将此规则应用于旧对象版本？”选择*是*<block ref="d8de6f3a6af5e67544f25ed826a8c913" category="inline-link-macro-rx"></block>)。对象更新后，其先前版本将变为非最新版本。通过使用"非当前时间"筛选器、您可以创建可减少先前版本对象对存储的影响的策略。</block>
   <block id="d3803123388c3b9e5ccd792ab92f1f25" category="admonition">使用多部分上传操作上传新版本的对象时，原始版本对象的非当前时间反映为新版本创建多部分上传的时间，而不是多部分上传完成的时间。在有限情况下，原始版本的非当前时间可能比当前版本的时间早数小时或数天。</block>
-  <block id="0bb8ea1a8156bedc4b798ecfe3a8cd21" category="list-text"><block ref="0bb8ea1a8156bedc4b798ecfe3a8cd21" category="inline-link-macro-rx"></block></block>
   <block id="765aaf8d1ff98fcad091b75fd7b671b6" category="inline-link-macro">S3 版本对象的 ILM 规则和策略（示例 4 ）</block>
   <block id="6097559db3fbca5c116fd655ff24879a" category="list-text"><block ref="c8648fa847fe898dbaac52665d0b3a65" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="0493253ffed9a6ac0ef6d3d97d75f56c" category="summary">本节介绍 StorageGRID 如何支持多部件上传操作。</block>
@@ -16477,7 +16455,6 @@
   <block id="c283f8c5636f528a651389ea99ae0488" category="list-text">Disabled ：从未启用版本控制</block>
   <block id="99f853fec9ffd10d4e907d59d93f6fcb" category="list-text"><block ref="99f853fec9ffd10d4e907d59d93f6fcb" category="inline-link-macro-rx"></block></block>
   <block id="c8648fa847fe898dbaac52665d0b3a65" category="list-text"><block ref="c8648fa847fe898dbaac52665d0b3a65" category="inline-link-macro-rx"></block></block>
-  <block id="a75ec9df7c26afb291b1d3018e8e5d7b" category="list-text"><block ref="a75ec9df7c26afb291b1d3018e8e5d7b" category="inline-link-macro-rx"></block></block>
   <block id="66f1134d89d78ab3688c7e64b1ea2b1d" category="list-text">从表中选择分段名称。</block>
   <block id="5b6a8a3f86125d3fde42e934ea7cb3d0" category="paragraph">此时将显示存储分段详细信息页面。</block>
   <block id="70dfc9b4c1f8563ad063bb1908fb982e" category="list-text">从“*存储分段选项*”选项卡中，选择“*对象版本控制*”可选框。</block>
@@ -16889,7 +16866,6 @@
   <block id="914d321f82615b8328e3ab1eef8991a7" category="list-text">删除存储分段</block>
   <block id="569678f147417f8b7613313c3eac84b7" category="list-text">保持存储分段处于只读模式、以保留其名称供将来使用</block>
   <block id="e17f19cd630dc5fb78daab043191c50c" category="list-text">如果存储分段启用了对象版本控制、则可以使用删除存储分段中的对象操作删除在StorageGRID 11.8或更高版本中创建的标记。</block>
-  <block id="928c3c8a653d5a86d49f321caa4a0649" category="list-text">如果存储分段启用了对象版本控制、则删除对象操作不会删除在StorageGRID 11.7或更早版本中创建的删除标记。有关删除存储分段中对象的信息，请参见<block ref="0bb8ea1a8156bedc4b798ecfe3a8cd21" category="inline-link-macro-rx"></block>。</block>
   <block id="a0609befc672f9280ff9f5ce0ecf36b7" category="list-text">如果使用<block ref="b9e99c6c8a94c8a6de75d15e8c0d9b8b" category="inline-link-macro-rx"></block>，请注意以下事项：</block>
   <block id="4b9876c7e1cc9ee887ff3beb300ca7d6" category="list-text">使用此选项不会从其他网格的存储分段中删除任何对象。</block>
   <block id="2737d6b4e0daec8fe27380e843f3934c" category="list-text">如果为源分段选择此选项，则在将对象添加到另一网格上的目标分段时，将触发*跨网格复制失败*警报。如果无法保证没有人会在删除所有存储分段对象之前将对象添加到另一网格上的存储分<block ref="5cd633176f1709e6cdae1bc1051c9a1d" category="inline-link-macro-rx"></block>段中。</block>
@@ -16920,7 +16896,6 @@
   <block id="acca3d6f17b6e6da000d94c6a4fa0d1f" category="inline-link-macro">从存储分段中删除对象</block>
   <block id="9fb1f1912705c815984eac2c5a9d2d36" category="list-text">要删除的存储分段为空。如果要删除的分段为_NOT _空，<block ref="d509a5d364c3146020a3ea111fafe452" category="inline-link-macro-rx"></block>。</block>
   <block id="d67eed29899f7b52831d6cc2c36f2408" category="paragraph">以下说明介绍如何使用租户管理器删除 S3 存储分段。您也可以使用或删除S3存储分段<block ref="cc81f9c7ca3cfcc9f647dba9cadc6ca0" category="inline-link-macro-rx"></block><block ref="7b5cdd5b4a33085f5768623ef5889bae" category="inline-link-macro-rx"></block>。</block>
-  <block id="0c0a03ab4819f49751636226c271b4d8" category="paragraph">如果S3存储分段包含对象、非当前对象版本或删除标记、则不能将其删除。有关如何删除S3版本控制对象的信息，请参见<block ref="a75ec9df7c26afb291b1d3018e8e5d7b" category="inline-link-macro-rx"></block>。</block>
   <block id="aaade3721f674bd663f9d44e22bb97b0" category="list-text">选中要删除的每个存储分段对应的复选框。</block>
   <block id="4dce5a3896d8bb3cd2f01563fbae673f" category="list-text">选择*Actions*&gt;*Delete Buc分 段*。</block>
   <block id="713f36517449b085816f2fbae8b18695" category="list-text">选择*删除存储分段*。</block>
@@ -19848,7 +19823,6 @@
   <block id="04d4ebbc79f7295128f39acdcf1ec105" category="admonition">当使用多个策略标签时，如果租户频繁地将策略标签重新分配给存储桶，则网格性能可能会受到影响。如果您有不受信任的租户，请考虑仅使用默认策略标签。</block>
   <block id="5babe2f47877fbc147c02124fab912d7" category="list-text">选择*配置* &gt; *系统* &gt; *S3 对象锁*。</block>
   <block id="a516294ca97700614be5758a46f7a122" category="inline-link-macro">分支桶</block>
-  <block id="07a6d694188cb6628da507f404664ac7" category="paragraph">如果客户端从<block ref="ffae551a8c2690d1cd867e080bef2711" category="inline-link-macro-rx"></block>， StorageGRID隐藏了对象版本的存在，但不会在分支存储桶中创建删除标记。如果客户端从分支存储桶中删除没有版本 ID 的对象， StorageGRID会根据标准 S3 行为在分支存储桶中创建删除标记。</block>
   <block id="9cf70325d498b88ecee626a90942e04e" category="paragraph">如果默认策略不能满足您的存储要求，您可以创建自己的规则和策略。看<block ref="5ac6e584006f202b247f942f347e42b2" category="inline-link-macro-rx"></block>和<block ref="ff256b0651fbb3c40dff0aba7e882bf9" category="inline-link-macro-rx"></block>。</block>
   <block id="ec6393b9e4f4bb19ee96e0ec5dcadf33" category="inline-link-macro">最多创建 10 个策略标签</block>
   <block id="82b3ed716136d6256ce8431c870928a9" category="admonition">你可以<block ref="82f4af3fc5906c0e47f3ee25cca87c63" category="inline-link-macro-rx"></block>为您的网格。</block>
@@ -20672,7 +20646,6 @@
   <block id="b84978538d78fbe508ce5ed07488d2ee" category="paragraph">HEAD/GET 返回对象不存在</block>
   <block id="010a1606882b7fabb77577145f6b67c3" category="paragraph">仅删除分支存储桶的特定对象版本</block>
   <block id="9dd439dfc2ba8a57ed0ad7924476238f" category="paragraph">HEAD/GET 返回特定对象版本（基本存储桶对象不受影响）</block>
-  <block id="8fcb5aa0c41c8623fa218c756ef9094e" category="paragraph">另请参阅<block ref="0bb8ea1a8156bedc4b798ecfe3a8cd21" category="inline-link-macro-rx"></block>。</block>
   <block id="c977bb2bf02a549d1a0d43df3a2d2061" category="paragraph">您可以输入 UUID、CBID 或 S3 bucket/object-key。</block>
   <block id="d0e3f77d615777bb1b5fe2e632e3961b" category="paragraph">S3 操作速率</block>
   <block id="5e9f51a284a0a39017aabb7aba2aaeb7" category="paragraph">在网格管理器仪表板上，选择*性能*&gt;*存储节点的 S3 操作*。</block>
@@ -21132,7 +21105,6 @@
   <block id="3084c30fe5025b80f58230ff2386a442" category="doc">StorageGRID 中的存储池配置准则</block>
   <block id="249cb4d8002e9f348959b7dae0a7b18b" category="doc">ILM 如何在 StorageGRID 中对象的整个生命周期内运行</block>
   <block id="b498583ce058688a659593ef3585b578" category="doc">StorageGRID 如何确定对象保留</block>
-  <block id="776c76b7fbf209ab5c33fa013a22dbce" category="doc">StorageGRID 如何删除对象</block>
   <block id="d29051f06d0e35aea20b3e927d1bb131" category="doc">了解 StorageGRID 中的 ILM 策略</block>
   <block id="5d9cac8ac37d608aef8f918512936b33" category="doc">使用 ILM 在 StorageGRID 中管理对象</block>
   <block id="4c0551679190b0b60f40803bc4d720d1" category="doc">StorageGRID 中云存储池对象的生命周期</block>
@@ -23938,4 +23910,65 @@
   <block id="1423fff165230e1ba247b1817387ccc4" category="sidebar">什么是账号同步</block>
   <block id="9305357033d7f09634437da777f91ed0" category="sidebar">自动化网格联合连接</block>
   <block id="729396c23b9b9b6006edc1d540613190" category="sidebar">启用 S3 对象锁定</block>
+  <block id="0a6eda6b58d5a1ccbdd97b13fec6093e" category="inline-link-macro">如何删除对象和删除标记</block>
+  <block id="5080f1f47fc3a06c491514eda865a17b" category="paragraph"><block ref="5080f1f47fc3a06c491514eda865a17b" category="inline-link-macro-rx"></block></block>
+  <block id="08851ae848450758cd3d43a31d70e802" category="doc">删除 StorageGRID 中的非当前版本和已过期的删除标记</block>
+  <block id="8c9622ee97243da28ea187c8c9f97d85" category="paragraph">在存储桶上暂停版本控制时，需要配置存储桶生命周期以处理非当前版本和过期的空版本删除标记。</block>
+  <block id="9aba2e7227759adc51f048839fe0a3d3" category="list-text">处理非当前版本和过期删除标记的存储桶生命周期配置示例</block>
+  <block id="e557b9adf1d66c8b18f40a3f263b4a69" category="list-text">这些步骤是在具有活动ILM策略的存储区上执行的：</block>
+  <block id="a69f7cc2eb4da8bb3079d6ca0f98cc03" category="list-text">启用版本控制。当接收同名对象时，以前的版本仍可用作非当前版本，并且删除请求将创建删除标记。非当前版本可访问，但它们使用存储空间。</block>
+  <block id="af3f16ebdfeadf7bd85ba2e3f5b240f0" category="list-text">暂停版本控制，因为所需的配置是仅保留一个版本并释放非当前版本使用的存储空间。这将在下一步中进行配置。</block>
+  <block id="2776a3277fb368838db9eae624f72427" category="list-text">配置存储桶生命周期以处理暂停版本控制后剩余的非当前版本和删除标记。</block>
+  <block id="11d5b0318690e43970a3aff3d4d557d2" category="paragraph"><block ref="759ae05d95687b8234f66f770d101146" prefix="" category="inline-code"></block></block>
+  <block id="712f6bb645bede0a0117380b8de5d70a" category="list-text">已将存储区生命周期配置为处理非当前版本和已过期的删除标记：</block>
+  <block id="2c3251bd19e5e94580939a441d69f92d" category="list-text">非当前版本超过一天的版本将被删除。只有当前版本才会永久保留。</block>
+  <block id="73efd6f22518197bab724ee20a503bcb" category="list-text">名为 <block ref="7490e857b9cadef6f848879468638882" prefix=" " category="inline-code"></block> 的对象已被纳入并具有版本 ID <block ref="6c3e226b4d4795d518ab341b0824ec29" prefix=" " category="inline-code"></block>。</block>
+  <block id="901480ff3891718096f8a527e1f72602" category="list-text">如果以相同的名称接收另一个对象<block ref="7490e857b9cadef6f848879468638882" prefix="(" category="inline-code"></block>），它将覆盖并替换空版本，并立即删除以前的版本。</block>
+  <block id="6c5392fd433a2d39f5c18201ad7229d7" category="list-text">如果在未指定版本 ID 的情况下向<block ref="7490e857b9cadef6f848879468638882" prefix=" " category="inline-code"></block>发出删除请求，则会创建空版本的删除标记，替换和删除空版本的对象。</block>
+  <block id="785c103373dbd5063fa010c1d81f128f" category="list-text">空版本的删除标记已过期，因为没有非当前版本。</block>
+  <block id="179ccf4a48b284fd22a09e67377f83f9" category="list-text">不久之后，已过期的空版本删除标记将被删除。</block>
+  <block id="f2cd62ab2a82323a171f8c9ab3bcdcc6" category="doc">StorageGRID 如何删除对象和删除标记</block>
+  <block id="71b57465778573176b6b4e53964cf0e5" category="paragraph">StorageGRID 可以直接响应客户端请求或由于 S3 存储桶生命周期到期或 ILM 策略要求而自动删除对象。了解删除对象的不同方式、StorageGRID 处理删除请求的方式以及如何删除过期的删除标记，可以帮助您更有效地管理对象。</block>
+  <block id="8c7a7566fc051838fbf811a3cd91d524" category="list-text">*同步删除*：当 StorageGRID 收到客户端删除请求时，将立即删除所有对象副本。副本删除后，客户端会收到删除成功的通知。</block>
+  <block id="c2149209aef0e669e570be948a9a18b3" category="list-text">*对象排队等待删除*：当 StorageGRID 收到删除请求时，对象排队等待删除，并立即通知客户端删除成功。对象副本稍后通过后台 ILM 处理删除。</block>
+  <block id="bf2c6dfcecb382382a9d59952f8629fa" category="list-text">如果在批量删除期间密切监视删除性能，您可能会注意到，在删除一定数量的对象后，删除速率似乎很慢。当 StorageGRID 从将对象排队等待删除切换到执行同步删除时，会发生此更改。删除速率的明显降低并不意味着删除对象副本的速度更慢。相反，它表明平均而言，空间现在被更快地释放。</block>
+  <block id="d1a895a96ee88401dc2c030902700312" category="paragraph">为 S3 存储桶启用版本控制时，StorageGRID 在响应对象删除请求时遵循 Amazon S3 行为，无论这些请求来自 S3 客户端、S3 存储桶生命周期到期还是 ILM 策略的要求。</block>
+  <block id="fda7f9173374d04e8bc690ab838c94d7" category="admonition">删除对象以释放存储空间被视为永久且不可恢复的操作。</block>
+  <block id="c1183ee3038de14cc369f41461873d2f" category="inline-xref">S3 客户端请求</block>
+  <block id="c5e9d359cbd86e20e346b75edb7ff817" category="inline-xref">删除标记</block>
+  <block id="f79b6c8bbd6ba16634c569f65a0c8aec" category="paragraph">请务必了解 StorageGRID 如何处理指定版本 ID（如 <block ref="7197eeddce3c66a37b4b07bb7d5d69e4" category="inline-xref-macro-rx"></block>）的对象删除请求以及未指定版本 ID 的对象删除请求。没有版本 ID 的对象删除请求不会删除对象的当前版本，也不会释放存储空间。相反，它们会创建一个零字节的 <block ref="600ad04e1819afa96f830e409b4c6e6e" category="inline-xref-macro-rx"></block> 作为对象的当前版本，这将使对象的先前版本变为"非当前"版本。非当前对象使用版本 ID 进行标识。</block>
+  <block id="08f3b642400f4ca90de24f8177f1617e" category="paragraph">即使对象尚未从存储中删除，StorageGRID 的行为就好像对象的当前版本不再可用一样。对该对象的请求返回 404 NotFound。但是，由于尚未删除非当前对象数据，因此指定非当前对象版本 ID 的请求可以成功。</block>
+  <block id="a412efe93d2ec70b8b9af10eca7d953f" category="paragraph">如果为版本控制已挂起的存储桶中的对象发出没有版本 ID 的 delete-object 请求，StorageGRID 会为该对象创建一个带有 null<block ref="770785793844f40549147a07c16f92c3" prefix=" " category="inline-code"></block> 的删除标记。这将替换并永久删除以前的 null 版本，因为一个对象只能有一个 null 版本。</block>
+  <block id="ffbdcd511a3006a750e130d83cbfe7d4" category="paragraph">如果客户端从 <block ref="3191f7547d63fadec08a1e364bc5136e" category="inline-link-macro-rx"></block> 中删除具有版本 ID 的对象版本，StorageGRID 会隐藏该对象版本的存在，但不会在分支存储桶中创建删除标记。如果客户端从分支存储桶中删除没有版本 ID 的对象，StorageGRID 将根据标准 S3 行为在分支存储桶中创建删除标记。</block>
+  <block id="ca5b751f90e89f0f2f549b68a560fda5" category="paragraph">由于对象数据保留为非当前版本，因此删除版本化存储桶中的对象通常不会释放存储空间。要永久删除保留的非当前对象版本并释放空间，请使用以下选项之一：</block>
+  <block id="cff0c11feab3f7653828c1977113a96d" category="list-text">*S3 client request*：在 S3 DELETE Object 请求中指定对象版本 ID <block ref="a170517adf955d79d66142375a72f638" prefix="(" category="inline-code"></block>）。请注意，此请求仅删除指定版本 ID 的对象副本。如果存在多个非当前版本，请根据需要对每个非当前版本重复此操作。</block>
+  <block id="3c9d586bb253e1beb6698d92db32c9f6" category="list-text">*存储桶生命周期*：使用存储桶生命周期配置中的<block ref="aa80bebd533f904edac7f02fda95d03a" prefix=" " category="inline-code"></block>操作。当达到 NoncurrentDays 指定的数量时，StorageGRID 将永久删除非当前对象版本的所有副本。</block>
+  <block id="f3be61a66b74d3927f5a22d2911b6b07" category="list-text">*ILM*：配置使用"非当前时间"作为参考时间并仅适用于较旧对象版本的 ILM 规则。当指定的保留期到期时，StorageGRID 会删除匹配的非当前对象版本。在 <block ref="cf2701d01b7e780e02db108625f8aab5" category="inline-link-macro-rx"></block> 中，为"仅将此规则应用于较旧的对象版本（在启用版本控制的 S3 存储桶中）？"的问题选择*是*。</block>
+  <block id="fee010de0554a8e967c48acce7fa21ff" category="list-text">*Delete objects in bucket*: 使用租户管理器 <block ref="5f7e2edc5f5884d52fb2a183a8b948c0" category="inline-link-macro-rx"></block>。</block>
+  <block id="09553133b9615996183b5d58f64417f1" category="section-title">如何删除 S3 版本控制过期的删除标记</block>
+  <block id="b61786005fbfc5e62cf59a8f770ebf04" category="paragraph">当为 S3 存储桶启用版本控制时，对象删除请求不会删除当前版本的对象，也不会释放存储空间。相反，对象删除请求会创建一个零字节删除标记作为对象的当前版本，这使得先前版本的对象变为"非当前"版本。</block>
+  <block id="55db3c03c4baef3a5cb90d5c814883c8" category="paragraph">当删除标记是当前版本且没有非当前版本时，它将成为过期的删除标记。已过期的删除标记不包含对象数据，但会显示在存储桶列表和指标中，从而阻止存储桶删除。</block>
+  <block id="8a33c97384be3b3af57fec039f5dbd9a" category="paragraph">如何配置 StorageGRID 以删除过期的删除标记取决于存储桶是用于长期使用（启用或暂停版本控制）还是正在准备删除：</block>
+  <block id="39998bc1cf03e20dc3eab71bae584437" category="inline-link-macro">使用存储桶生命周期规则删除过期对象删除标记的示例</block>
+  <block id="59c0ba069f28cacd1dc4a7e0f56585d2" category="list-text">*自动清理现有存储桶中的过期删除标记*：要在保留对象版本的同时自动从存储桶（已启用版本控制）中删除过期的删除标记，需要配置具有<block ref="d30fd576bd308f6facc9343ebd031b8e" prefix=" " category="inline-code"></block>操作和<block ref="5928b1b3d0e62426fcef71a996e73731" prefix=" " category="inline-code"></block>配置的存储桶生命周期规则。此操作仅适用于过期的删除标记。当删除标记过期时，它会自动删除，如<block ref="83b4c143667d2a14b791aff5c7a81e36" category="inline-link-macro-rx"></block>中所示。</block>
+  <block id="747d87483484d67e1765ef16b4ed456f" category="admonition">ILM 策略无法区分当前对象版本和过期的删除标记。如果目标是仅删除过期的删除标记，同时保留对象版本，请在存储区生命周期中使用 <block ref="5928b1b3d0e62426fcef71a996e73731" prefix=" " category="inline-code"></block>，而不是 ILM 策略。</block>
+  <block id="48d9804de1d946e2323fc8db610c6629" category="inline-link-macro">暂停版本控制后删除非当前版本和过期删除标记的示例</block>
+  <block id="f1aa7c439f83cf7c57fe8e7cc1001df9" category="paragraph">如果为版本控制已挂起的存储桶中的对象发出没有版本 ID 的删除对象请求，StorageGRID 会为该对象创建一个版本 ID 为<block ref="6c3e226b4d4795d518ab341b0824ec29" prefix=" " category="inline-code"></block>的删除标记。这将替换并永久删除以前的<block ref="6c3e226b4d4795d518ab341b0824ec29" prefix=" " category="inline-code"></block>版本 ID，因为一个对象只能有一个空版本。要删除过期的空版本删除标记，必须在存储桶生命周期中使用<block ref="5928b1b3d0e62426fcef71a996e73731" prefix=" " category="inline-code"></block>，如<block ref="3bb32d0975d2dcb9f9e49f0fa82d7949" category="inline-link-macro-rx"></block>中所示。</block>
+  <block id="33b72ab3275d915c8d09ebc47b921494" category="inline-link-macro">删除所有对象版本，包括删除标记、当前版本和非当前版本</block>
+  <block id="f3f6fbcd5e43a2bfc683acfda7269d82" category="list-text">*准备删除存储桶*：如果要删除存储桶，并且确定不再需要存储桶中的所有内容，但过期的标记阻止删除，请使用租户管理器<block ref="b96a9f130ccc4c7219a6bb327d9e2e7e" category="inline-link-macro-rx"></block>从存储桶中删除。</block>
+  <block id="f325e07166063129d14f3c7fccfae05f" category="paragraph">如何从存储桶中删除标记取决于您的 StorageGRID 版本：</block>
+  <block id="bcc308437fac9c258a6a2a26c568f2f5" category="list-text">在 StorageGRID 11.7 或更早版本中创建的删除标记只能通过 S3 客户端请求删除。ILM、存储桶生命周期规则或存储桶中的删除对象操作不会删除它们。</block>
+  <block id="10adc5a6c999ca0d6d6c0bce6beca53f" category="paragraph">有关详细信息，请参见 <block ref="94e45950fc7164e33eb987ad6f8c2f3d" category="inline-link-macro-rx"></block>。</block>
+  <block id="61b2e42a69384aecda70fe126a8d6776" category="section-title">对象版本控制如何使用 StorageGRID 中的存储容量</block>
+  <block id="79cd097481e8f4640b2495ad4fc19cc4" category="paragraph">用于对象版本控制的存储空间量取决于上载对象的次数、ILM 策略规则和非当前版本的累积：</block>
+  <block id="bdfb32e6a61c278f42cc4ad8b4e55348" category="list-text">在存储桶上启用版本控制时，对象的每个版本都将存储为一个完整的单独对象。如果上传 1 GB 文件五次，StorageGRID 将存储该对象的 5 GB 原始数据（5 x 1 GB）。</block>
+  <block id="e437abd9f1b909c276f520ac83b0203a" category="list-text">ILM 策略根据每个对象版本进行评估。例如，如果您有一个双副本复制 ILM 规则，StorageGRID 将存储每个对象版本（当前和非当前）的两个复制副本。当此 ILM 规则应用于具有 10 个版本的 1 GB 对象的存储桶时，将使用 20 GB 的物理存储。</block>
+  <block id="5e68e47de741eb000f65313758874548" category="list-text">如果没有针对非当前版本的 S3 存储桶生命周期策略或 ILM 规则，StorageGRID 将无限期保留所有旧版本，这些版本将继续占用存储空间。这是版本化存储桶中意外存储增长的常见原因。</block>
+  <block id="14f21ef532dcb3a00cda4550e83faafb" category="list-text"><block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block></block>
+  <block id="6119cab2cae185751fb23ac9688f56d5" category="inline-link-macro">如何删除对象和删除标记</block>
+  <block id="6f15f4857424b7c7426d9734b903d307" category="list-text"><block ref="6f15f4857424b7c7426d9734b903d307" category="inline-link-macro-rx"></block></block>
+  <block id="803f0ca43c21d8362bf9abd765153720" category="list-text">如果存储区已启用对象版本控制，则删除对象操作不会删除在 StorageGRID 11.7 或更早版本中创建的删除标记。请参阅 <block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block> 中有关删除存储桶中对象的信息。</block>
+  <block id="48c08fc264b006039cbe724aaa46d212" category="paragraph">如果 S3 存储桶包含对象、非当前对象版本或删除标记，则无法删除该存储桶。有关如何删除 S3 版本化对象的信息，请参见<block ref="94e45950fc7164e33eb987ad6f8c2f3d" category="inline-link-macro-rx"></block>。</block>
+  <block id="05725098980525ddb96dd78658c23348" category="paragraph">另请参阅<block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block>。</block>
+  <block id="63981efce677212da0fd4eb0b567b15d" category="sidebar">示例 9：暂停版本控制后删除非当前版本并删除标记</block>
 </blocks>

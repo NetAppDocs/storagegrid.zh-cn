@@ -88,6 +88,7 @@ ILM策略::
 
 
 [[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
+[[use-bucket-to-lifecycle-remove-expired-delete-markers]]
 == 使用存储分段生命周期复制ILM并清除过期删除标记的示例
 
 ILM策略::

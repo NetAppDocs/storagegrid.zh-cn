@@ -138,4 +138,4 @@ NOTE: 策略中必须先显示"非当前时间"规则、然后再显示应用于
 
 
 .相关信息
-link:how-objects-are-deleted.html["如何删除对象"]
+link:how-objects-and-delete-markers-are-deleted.html["如何删除对象和删除标记"]

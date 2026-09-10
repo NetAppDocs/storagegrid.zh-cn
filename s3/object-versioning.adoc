@@ -34,7 +34,19 @@ ILM 策略将应用于对象的每个版本。ILM 扫描过程会持续扫描所
 
 NOTE: 使用多部分上传操作上传新版本的对象时，原始版本对象的非当前时间反映为新版本创建多部分上传的时间，而不是多部分上传完成的时间。在有限情况下，原始版本的非当前时间可能比当前版本的时间早数小时或数天。
 
+
+
+[[how-object-versioning-uses-storage-capacity-in-storagegrid]]
+== 对象版本控制如何使用 StorageGRID 中的存储容量
+
+用于对象版本控制的存储空间量取决于上载对象的次数、ILM 策略规则和非当前版本的累积：
+
+* 在存储桶上启用版本控制时，对象的每个版本都将存储为一个完整的单独对象。如果上传 1 GB 文件五次，StorageGRID 将存储该对象的 5 GB 原始数据（5 x 1 GB）。
+* ILM 策略根据每个对象版本进行评估。例如，如果您有一个双副本复制 ILM 规则，StorageGRID 将存储每个对象版本（当前和非当前）的两个复制副本。当此 ILM 规则应用于具有 10 个版本的 1 GB 对象的存储桶时，将使用 20 GB 的物理存储。
+* 如果没有针对非当前版本的 S3 存储桶生命周期策略或 ILM 规则，StorageGRID 将无限期保留所有旧版本，这些版本将继续占用存储空间。这是版本化存储桶中意外存储增长的常见原因。
+
+
 .相关信息
-* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 版本对象的 ILM 规则和策略（示例 4 ）"](英文)
 

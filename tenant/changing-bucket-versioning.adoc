@@ -31,7 +31,7 @@ summary: 如果您使用的是S3租户、则可以更改S3存储分段的版本�
 
 * link:../s3/object-versioning.html["对象版本控制"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 版本对象的 ILM 规则和策略（示例 4 ）"]
-* link:../ilm/how-objects-are-deleted.html["如何删除对象"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html["如何删除对象和删除标记"]
 
 
 .步骤

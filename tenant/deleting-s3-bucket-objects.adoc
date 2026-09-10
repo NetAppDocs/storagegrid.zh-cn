@@ -32,7 +32,7 @@ TIP: 使用S3对象锁定的存储分段将保持*删除对象：只读*状态�
 
 
 * 如果存储分段启用了对象版本控制、则可以使用删除存储分段中的对象操作删除在StorageGRID 11.8或更高版本中创建的标记。
-* 如果存储分段启用了对象版本控制、则删除对象操作不会删除在StorageGRID 11.7或更早版本中创建的删除标记。有关删除存储分段中对象的信息，请参见link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"]。
+* 如果存储区已启用对象版本控制，则删除对象操作不会删除在 StorageGRID 11.7 或更早版本中创建的删除标记。请参阅 link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["如何删除受版本控制的 S3 对象"] 中有关删除存储桶中对象的信息。
 * 如果使用link:grid-federation-manage-cross-grid-replication.html["跨网格复制"]，请注意以下事项：
 +
 ** 使用此选项不会从其他网格的存储分段中删除任何对象。

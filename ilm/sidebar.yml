@@ -29,8 +29,8 @@ entries:
       url: "/ilm/advantages-disadvantages-and-requirements-for-ec.html"
   - title: 如何确定对象保留
     url: "/ilm/how-object-retention-is-determined.html"
-  - title: 如何删除对象
-    url: "/ilm/how-objects-are-deleted.html"
+  - title: 如何删除对象和删除标记
+    url: "/ilm/how-objects-and-delete-markers-are-deleted.html"
 - title: 创建和分配存储级别
   url: "/ilm/creating-and-assigning-storage-grades.html"
 - title: 使用存储池
@@ -135,3 +135,5 @@ entries:
     url: "/ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html"
   - title: 示例8：S3存储分段生命周期和ILM策略的优先级
     url: "/ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html"
+  - title: 示例 9：暂停版本控制后删除非当前版本并删除标记
+    url: "/ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html"

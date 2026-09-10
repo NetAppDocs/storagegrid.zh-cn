@@ -1,0 +1,49 @@
+---
+permalink: ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: 根据您的生命周期配置、对象会遵循S3存储分段生命周期或ILM策略的保留设置。 
+---
+= 删除 StorageGRID 中的非当前版本和已过期的删除标记
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在存储桶上暂停版本控制时，需要配置存储桶生命周期以处理非当前版本和过期的空版本删除标记。
+
+处理非当前版本和过期删除标记的存储桶生命周期配置示例:: 这些步骤是在具有活动ILM策略的存储区上执行的：
++
+--
+. 启用版本控制。当接收同名对象时，以前的版本仍可用作非当前版本，并且删除请求将创建删除标记。非当前版本可访问，但它们使用存储空间。
+. 暂停版本控制，因为所需的配置是仅保留一个版本并释放非当前版本使用的存储空间。这将在下一步中进行配置。
+. 配置存储桶生命周期以处理暂停版本控制后剩余的非当前版本和删除标记。
+
+
+--
+ILM策略::
++
+--
+基于写入时间引用的规则(默认)：在第0天、永久保留X个副本
+
+--
+存储分段生命周期::
++
+--
+`"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 1}`
+
+--
+结果:: 已将存储区生命周期配置为处理非当前版本和已过期的删除标记：
++
+--
+. 非当前版本超过一天的版本将被删除。只有当前版本才会永久保留。
+. 名为  `draftdoc` 的对象已被纳入并具有版本 ID  `NULL`。
+. 如果以相同的名称接收另一个对象(`draftdoc`），它将覆盖并替换空版本，并立即删除以前的版本。
+. 如果在未指定版本 ID 的情况下向 `draftdoc`发出删除请求，则会创建空版本的删除标记，替换和删除空版本的对象。
+. 空版本的删除标记已过期，因为没有非当前版本。
+. 不久之后，已过期的空版本删除标记将被删除。
+
+
+--
+
