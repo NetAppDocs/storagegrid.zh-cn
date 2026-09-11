@@ -23965,10 +23965,9 @@
   <block id="e437abd9f1b909c276f520ac83b0203a" category="list-text">ILM 策略根据每个对象版本进行评估。例如，如果您有一个双副本复制 ILM 规则，StorageGRID 将存储每个对象版本（当前和非当前）的两个复制副本。当此 ILM 规则应用于具有 10 个版本的 1 GB 对象的存储桶时，将使用 20 GB 的物理存储。</block>
   <block id="5e68e47de741eb000f65313758874548" category="list-text">如果没有针对非当前版本的 S3 存储桶生命周期策略或 ILM 规则，StorageGRID 将无限期保留所有旧版本，这些版本将继续占用存储空间。这是版本化存储桶中意外存储增长的常见原因。</block>
   <block id="14f21ef532dcb3a00cda4550e83faafb" category="list-text"><block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block></block>
-  <block id="6119cab2cae185751fb23ac9688f56d5" category="inline-link-macro">如何删除对象和删除标记</block>
-  <block id="6f15f4857424b7c7426d9734b903d307" category="list-text"><block ref="6f15f4857424b7c7426d9734b903d307" category="inline-link-macro-rx"></block></block>
   <block id="803f0ca43c21d8362bf9abd765153720" category="list-text">如果存储区已启用对象版本控制，则删除对象操作不会删除在 StorageGRID 11.7 或更早版本中创建的删除标记。请参阅 <block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block> 中有关删除存储桶中对象的信息。</block>
   <block id="48c08fc264b006039cbe724aaa46d212" category="paragraph">如果 S3 存储桶包含对象、非当前对象版本或删除标记，则无法删除该存储桶。有关如何删除 S3 版本化对象的信息，请参见<block ref="94e45950fc7164e33eb987ad6f8c2f3d" category="inline-link-macro-rx"></block>。</block>
   <block id="05725098980525ddb96dd78658c23348" category="paragraph">另请参阅<block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block>。</block>
   <block id="63981efce677212da0fd4eb0b567b15d" category="sidebar">示例 9：暂停版本控制后删除非当前版本并删除标记</block>
+  <block id="94e45950fc7164e33eb987ad6f8c2f3d" category="list-text"><block ref="94e45950fc7164e33eb987ad6f8c2f3d" category="inline-link-macro-rx"></block></block>
 </blocks>
