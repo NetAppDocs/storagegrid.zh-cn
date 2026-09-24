@@ -9,38 +9,36 @@ entries:
   - title: 快速入门
     pdf-filename: 在基于软件的节点上安装StorageGRID
     url: "/swnodes/index.html"
-  - title: 规划和准备在基于软件的节点上进行安装
+  - title: 所需信息和材料
+    url: "/swnodes/required-materials.html"
+  - title: 下载并提取 StorageGRID 安装文件
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: 手动验证安装文件
+    url: "/swnodes/download-files-verify.html"
+  - title: 软件要求
+    url: "/swnodes/software-requirements.html"
+  - title: CPU 和 RAM 要求
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: 存储和性能要求
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: 节点容器迁移要求（Linux）
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: 准备主机（Linux）
     entries:
-    - title: 所需信息和材料
-      url: "/swnodes/required-materials.html"
-    - title: 下载并提取 StorageGRID 安装文件
-      url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
-    - title: 手动验证安装文件
-      url: "/swnodes/download-files-verify.html"
-    - title: 软件要求
-      url: "/swnodes/software-requirements.html"
-    - title: CPU 和 RAM 要求
-      url: "/swnodes/cpu-and-ram-requirements.html"
-    - title: 存储和性能要求
-      url: "/swnodes/storage-and-performance-requirements.html"
-    - title: 节点容器迁移要求（Linux）
-      url: "/swnodes/node-container-migration-requirements.html"
-    - title: 准备主机（Linux）
-      entries:
-      - title: 主机范围设置的更改方式
-        url: "/swnodes/how-host-wide-settings-change.html"
-      - title: 安装 Linux
-        url: "/swnodes/installing-linux.html"
-      - title: AppArmor 配置文件安装（仅限 Ubuntu 和 Debian）
-        url: "/swnodes/understanding-apparmor-profile-installation.html"
-      - title: 配置主机网络
-        url: "/swnodes/configuring-host-network.html"
-      - title: 配置主机存储
-        url: "/swnodes/configuring-host-storage.html"
-      - title: 配置容器引擎存储卷
-        url: "/swnodes/configuring-docker-storage-volume.html"
-      - title: 安装 StorageGRID 主机服务
-        url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+    - title: 主机范围设置的更改方式
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: 安装 Linux
+      url: "/swnodes/installing-linux.html"
+    - title: AppArmor 配置文件安装（仅限 Ubuntu 和 Debian）
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: 配置主机网络
+      url: "/swnodes/configuring-host-network.html"
+    - title: 配置主机存储
+      url: "/swnodes/configuring-host-storage.html"
+    - title: 配置容器引擎存储卷
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: 安装 StorageGRID 主机服务
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
   - title: 自动化基于软件的节点安装
     entries:
     - title: 自动安装（Linux）
