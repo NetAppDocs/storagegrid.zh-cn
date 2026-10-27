@@ -133,7 +133,7 @@ AutoSupport On Demand 可帮助解决技术支持正在积极处理的问题。
 [[add-an-additional-autosupport-destination]]
 == 添加其他 AutoSupport 目标
 
-启用AutoSupport后、运行状况和状态软件包将发送给技术支持。您可以为所有AutoSupport软件包指定一个额外的目标。
+启用 AutoSupport 后，运行状况和状态包将发送给技术支持。您可以为所有 AutoSupport 包指定一个额外的目的地。
 
 要验证或更改用于发送AutoSupport软件包的协议，请参见中的说明<<specify-protocol-for-autosupport-packages,为AutoSupport软件包指定协议>>。
 

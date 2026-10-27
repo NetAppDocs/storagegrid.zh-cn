@@ -37,9 +37,6 @@ NOTE: 请勿创建超出所需数量的存储等级。例如、不要为每个�
 +
 .. 对于要添加的每个自定义存储等级，选择 *Insert* image:icon_nms_insert.gif["插入图标"] 以添加行。
 .. 输入描述性标签。
-+
-image:editing_storage_grades.gif["存储等级页面"]
-
 .. 选择 * 应用更改 * 。
 .. 或者，如果您需要修改已保存的标签，请选择*编辑*image:icon_nms_edit.gif["编辑图标"]并选择*应用更改*。
 +
@@ -52,9 +49,6 @@ NOTE: 您无法删除存储等级。
 +
 .. 在 LDR 列表中找到存储节点，然后选择其*编辑*图标image:icon_nms_edit.gif["编辑图标"]。
 .. 从列表中选择适当的存储级别。
-+
-image:assigning_storage_grades_to_storage_nodes.gif["存储等级页面"]
-
 +
 
 NOTE: 只需为给定存储节点分配一次存储级别。从故障中恢复的存储节点将保持先前分配的存储级别。激活ILM策略后、请勿更改此分配。如果分配发生更改，则会根据新的存储级别存储数据。
